@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+SIP Server header values are matched against these patterns to fingerprint SIP devices.
+-->
+
+<fingerprints>
+   <fingerprint pattern="^Cisco-SIPGateway/IOS-([\d\.x]+)$">
+      <description>Cisco SIPGateway</description>
+      <example>Cisco-SIPGateway/IOS-12.x</example>
+      <param pos="0" name="os.vendor" value="Cisco"/>
+      <param pos="0" name="os.product" value="IOS"/>
+      <param pos="1" name="os.version"/>
+   </fingerprint>
+</fingerprints>

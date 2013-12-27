@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!--
+SMTP response lines to the EXPN command are matched against these patterns
+(1 line at a time) to fingerprint SMTP servers.
+
+See comment at the top of smtp_banners.xml for additional info.
+-->
+
+<fingerprints>
+   <fingerprint pattern="^500[ -]Syntax error, command &quot;XXXX.*&quot; unrecognized$">
+      <description>
+         Cisco PIX changes the command letters to 'X' before passing
+         them to the real SMTP server.
+      </description>
+      <param pos="0" name="service.vendor" value="Cisco"/>
+      <param pos="0" name="service.family" value="PIX"/>
+      <param pos="0" name="service.product" value="PIX"/>
+   </fingerprint>
+
+   <fingerprint pattern="^550[ -]EXPN not available to \(.+\) \[.+\] *$">
+      <description>
+         Exim
+         example: 550 EXPN not available to (foo.bar.com) [192.168.0.1]
+      </description>
+      <param pos="0" name="service.vendor" value="exim"/>
+      <param pos="0" name="service.family" value="exim"/>
+      <param pos="0" name="service.product" value="exim"/>
+   </fingerprint>
+
+   <fingerprint pattern="^550[ -]EXPN not available to [^ ]+ \(.+\) \[.+\] *$">
+      <description>
+         Exim
+         example: 550 EXPN not available to evil.com (foo.bar.com) [192.168.0.1]
+      </description>
+      <param pos="0" name="service.vendor" value="exim"/>
+      <param pos="0" name="service.family" value="exim"/>
+      <param pos="0" name="service.product" value="exim"/>
+   </fingerprint>
+
+   <fingerprint pattern="^500[ -]Don't you wish! *$">
+      <description>
+      </description>
+      <param pos="0" name="service.vendor" value="Global Technology Associates"/>
+      <param pos="0" name="service.family" value="GNAT Box"/>
+      <param pos="0" name="service.product" value="GNAT Box"/>
+   </fingerprint>
+
+   <!-- VM SMTP server doesn't like brackets in EXPN commands... -->
+   <fingerprint pattern="^501[ -]Syntax Error\. Only ListId or Userid allowed as argument to this command *$">
+      <param pos="0" name="service.vendor" value="IBM"/>
+      <param pos="0" name="service.family" value="VM"/>
+      <param pos="0" name="service.product" value="VM"/>
+   </fingerprint>
+
+   <fingerprint pattern="^550[ -]lists are confidential *$">
+      <description>
+         example: 550 lists are confidential
+      </description>
+      <param pos="0" name="service.vendor" value="Ipswitch"/>
+      <param pos="0" name="service.family" value="IMail Server"/>
+      <param pos="0" name="service.product" value="IMail Server"/>
+   </fingerprint>
+
+   <fingerprint pattern="^502[ -]command is not active$">
+      <description>
+         502 command is not active
+      </description>
+      <param pos="0" name="service.vendor" value="Alt-N"/>
+      <param pos="0" name="service.family" value="MDaemon"/>
+      <param pos="0" name="service.product" value="MDaemon"/>
+      <param pos="0" name="os.vendor" value="Microsoft"/>
+      <param pos="0" name="os.family" value="Windows"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.product" value="Windows"/>
+      <param pos="0" name="os.arch" value="x86"/>
+   </fingerprint>
+
+   <fingerprint pattern="^252 Unable to EXPN &quot;.*&quot;, but will accept message and attempt delivery *$">
+      <description>
+         Lotus Domino
+      </description>
+      <param pos="0" name="service.vendor" value="Lotus"/>
+      <param pos="0" name="service.family" value="Lotus Domino"/>
+      <param pos="0" name="service.product" value="Lotus Domino"/>
+   </fingerprint>
+
+   <fingerprint pattern="^550[ -]Unable to find list '.*'\.$">
+      <description>
+         example: 550 Unable to find list 'list'.
+      </description>
+      <param pos="0" name="service.vendor" value="Seattle Labs"/>
+      <param pos="0" name="service.family" value="SLMail"/>
+      <param pos="0" name="service.product" value="SLMail"/>
+   </fingerprint>
+</fingerprints>

@@ -1,0 +1,265 @@
+<?xml version="1.0"?>
+<!-- HTTP WWW-Authenticate headers are matched against these patterns to fingerprint HTTP servers. -->
+
+<fingerprints>
+   <fingerprint pattern="^(?:Basic|Digest) realm=.[iI]RMC(?:@(IRMC[0-9a-fA-F]{6}))?..*$">
+      <!-- Digest realm="iRMC@IRMCC36EAC", qop="auth", nonce="00129ced-00000003", opaque="3", stale="FALSE"
+           http://manuals.fujitsu-siemens.com/serverbooks/content/manuals/english/irmc-en.pdf
+           realm => iRMC@IRMCC36EAC => iRMC@IRMC-name (IRMC+last-3-bytes-of-mac)
+           default uid/pw is admin/admin
+      -->
+      <description>Fujitsu Siemens Primergy with BMC RemoteView on an iRMC card</description>
+      <param pos="0" name="service.vendor" value="Fujitsu Siemens"/>
+      <param pos="0" name="service.product" value="RemoteView"/>
+      <param pos="0" name="service.family" value="RemoteView"/>
+      <param pos="0" name="hw.vendor" value="Fujitsu Siemens"/>
+      <param pos="0" name="hw.device" value="General"/>
+      <param pos="0" name="hw.family" value="Primergy"/>
+      <param pos="0" name="hw.product" value="Primergy"/>
+      <param pos="1" name="host.name"/>
+   </fingerprint>
+
+   <fingerprint pattern="^(?:Basic|Digest) realm=.access.$">
+      <!-- Cisco IOS 11.x returns just access as the realm
+            Basic realm="access"
+        -->
+      <description>Cisco IOS 11.x</description>
+      <param pos="0" name="service.vendor" value="Cisco"/>
+      <param pos="0" name="service.product" value="IOS"/>
+      <param pos="0" name="service.family" value="IOS"/>
+      <param pos="0" name="service.version" value="11"/>
+      <param pos="0" name="os.vendor" value="Cisco"/>
+      <param pos="0" name="os.device" value="Router"/>
+      <param pos="0" name="os.family" value="IOS"/>
+      <param pos="0" name="os.product" value="IOS"/>
+      <param pos="0" name="os.version" value="11"/>
+   </fingerprint>
+
+   <fingerprint pattern="^(?:Basic|Digest) realm=.level[ _]15[ _]or[ _]view[ _]access.$">
+      <!-- Cisco IOS 12.3(7)T and 12.2(33)SRB add role based access (views)
+           http://www.cisco.com/univercd/cc/td/doc/product/software/ios123/123newft/123t/123t_7/gtclivws.pdf
+            Basic realm="level_15 or view_access"
+            Basic realm="level_15_or_view_access"
+        -->
+      <description>Cisco IOS 12.x</description>
+      <param pos="0" name="service.vendor" value="Cisco"/>
+      <param pos="0" name="service.product" value="IOS"/>
+      <param pos="0" name="service.family" value="IOS"/>
+      <param pos="0" name="service.version" value="12"/>
+      <param pos="0" name="os.vendor" value="Cisco"/>
+      <param pos="0" name="os.device" value="Router"/>
+      <param pos="0" name="os.family" value="IOS"/>
+      <param pos="0" name="os.product" value="IOS"/>
+      <param pos="0" name="os.version" value="12"/>
+   </fingerprint>
+
+   <fingerprint pattern="^(?:Basic|Digest) realm=.level[ _]\d\d?[ _]access.$">
+      <!-- Cisco IOS 12.x can be any of the following:
+            Basic realm="level 15 access"
+            Basic realm="level_15_access"
+            Basic realm="level_1_access"
+        -->
+      <description>Cisco IOS 12.x</description>
+      <param pos="0" name="service.vendor" value="Cisco"/>
+      <param pos="0" name="service.product" value="IOS"/>
+      <param pos="0" name="service.family" value="IOS"/>
+      <param pos="0" name="service.version" value="12"/>
+      <param pos="0" name="os.vendor" value="Cisco"/>
+      <param pos="0" name="os.device" value="Router"/>
+      <param pos="0" name="os.family" value="IOS"/>
+      <param pos="0" name="os.product" value="IOS"/>
+      <param pos="0" name="os.version" value="12"/>
+   </fingerprint>
+
+   <fingerprint pattern="^(?:Basic|Digest) realm=.FW-1.      Reason: no user      Server .$">
+      <!-- Basic realm="FW-1.      Reason: no user      Server " -->
+      <description>Check Point FireWall-1</description>
+      <param pos="0" name="service.vendor" value="Check Point"/>
+      <param pos="0" name="service.product" value="Firewall-1"/>
+      <param pos="0" name="service.family" value="Firewall-1"/>
+      <param pos="0" name="os.vendor" value="Check Point"/>
+      <param pos="0" name="os.device" value="Firewall"/>
+      <param pos="0" name="os.family" value="Firewall-1"/>
+      <param pos="0" name="os.product" value="Firewall-1"/>
+   </fingerprint>
+
+   <fingerprint pattern="^(?:Basic|Digest) realm=.APC Management Card.$">
+      <!-- Basic realm="APC Management Card" -->
+      <description>APC device</description>
+      <param pos="0" name="service.vendor" value="APC"/>
+      <param pos="0" name="service.product" value="HTTP"/>
+      <param pos="0" name="os.vendor" value="APC"/>
+      <param pos="0" name="os.product" value="Unknown"/>
+      <param pos="0" name="os.device" value="Power device"/>
+   </fingerprint>
+
+   <fingerprint pattern="^(?:Basic|Digest) realm=.SpeedTouch \(([0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2})\).$">
+      <!-- Basic realm="SpeedTouch (01-23-45-67-89-AB)" -->
+      <description>Thomson SpeedTouch xDSL routers</description>
+      <param pos="0" name="service.vendor" value="Thomson"/>
+      <param pos="0" name="service.product" value="SpeedTouch"/>
+      <param pos="0" name="service.family" value="SpeedTouch"/>
+      <param pos="0" name="os.vendor" value="Thomson"/>
+      <param pos="0" name="os.device" value="Broadband router"/>
+      <param pos="0" name="os.family" value="SpeedTouch"/>
+      <param pos="0" name="os.product" value="SpeedTouch"/>
+      <param pos="1" name="host.mac"/>
+   </fingerprint>
+
+   <fingerprint pattern="^(?:Basic|Digest) realm=.SpeedTouch., nonce=.[0-9A-Z]+:([0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}):\d+:\d+., qop=.auth.$">
+      <!-- Digest realm="SpeedTouch", nonce="1234ABCDE:01-23-45-67-89-AB:1234567:890123", qop="auth" -->
+      <description>Thomson SpeedTouch xDSL routers</description>
+      <param pos="0" name="service.vendor" value="Thomson"/>
+      <param pos="0" name="service.product" value="SpeedTouch"/>
+      <param pos="0" name="service.family" value="SpeedTouch"/>
+      <param pos="0" name="os.vendor" value="Thomson"/>
+      <param pos="0" name="os.device" value="Broadband router"/>
+      <param pos="0" name="os.family" value="SpeedTouch"/>
+      <param pos="0" name="os.product" value="SpeedTouch"/>
+      <param pos="1" name="host.mac"/>
+   </fingerprint>
+
+   <fingerprint pattern="^(?:Basic|Digest) realm=.ST (\d+) R 5.x Telecom Italia., nonce=.[0-9A-Z]+:([0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}):\d+:\d+., qop=.auth.$">
+      <!-- Digest realm="ST 605 R 5.x Telecom Italia", nonce="0618JT3JZ:00-14-7F-32-27-C6:1738017:895089", qop="auth" -->
+      <description>Thomson SpeedTouch xDSL routers</description>
+      <param pos="0" name="service.vendor" value="Thomson"/>
+      <param pos="0" name="service.product" value="SpeedTouch"/>
+      <param pos="0" name="service.family" value="SpeedTouch"/>
+      <param pos="0" name="os.vendor" value="Thomson"/>
+      <param pos="0" name="os.device" value="Broadband router"/>
+      <param pos="0" name="os.family" value="SpeedTouch"/>
+      <param pos="1" name="os.product"/>
+      <param pos="2" name="host.mac"/>
+   </fingerprint>
+
+   <fingerprint pattern="^(?:Basic|Digest) realm=.(?:SmartAX )?(MT\d+[^ ]*)(?: ADSL Router)?.$">
+      <!--  Basic realm="SmartAX MT880"
+            Basic Realm="MT800"
+            Basic realm="MT880r-T ADSL Router"
+        -->
+      <description>Huawei xDSL routers</description>
+      <param pos="0" name="service.vendor" value="Huawei"/>
+      <param pos="0" name="service.family" value="MT"/>
+      <param pos="1" name="service.product"/>
+      <param pos="0" name="os.vendor" value="Huawei"/>
+      <param pos="0" name="os.device" value="Broadband router"/>
+      <param pos="0" name="os.family" value="MT"/>
+      <param pos="1" name="os.product"/>
+   </fingerprint>
+
+   <fingerprint pattern="^(?:Basic|Digest) realm=.WRT54G.$">
+      <!--
+      Basic realm="WRT54G"
+      -->
+      <description>Linksys WRT54G wireless access point
+         (dozen of variants of the product)</description>
+      <param pos="0" name="os.vendor" value="Linksys"/>
+      <param pos="0" name="os.device" value="WAP"/>
+      <param pos="0" name="os.product" value="WRT54G"/>
+   </fingerprint>
+
+   <!--
+   Temporarily disable this version-less fingerprint because it overrode the
+   one in http_servers.xml (see NEX-1255).
+
+   <fingerprint pattern="^(?:Basic|Digest) realm=.Lyris ListManager: enter email address and password.$">
+      <description>Lyris ListManager</description>
+      <example>Basic realm="Lyris ListManager: enter email address and password"</example>
+      <param pos="0" name="service.vendor" value="Lyris"/>
+      <param pos="0" name="service.product" value="ListManager"/>
+   </fingerprint>
+   -->
+
+<!--
+Basic realm= StarVoice
+Basic realm="802.11g Remote-Motion CCD Network Camera"
+Basic realm="Access to Workgroup Switch FX5124"
+Basic realm="ADSL Modem"
+Basic realm="ADSL Modem/Router"
+Basic realm="ADSL Router"
+Basic realm="ADSL2+ Router"
+// Nomadix Access Gateway (AG)
+Basic realm="AG "
+Basic realm="AG"
+Basic realm="Broad Net Mux Corp."
+Basic realm="Cayman-3000"
+Basic realm="Cayman3000      "
+Basic realm="Cayman3000"
+Basic realm="ClubInternet"
+Basic realm="Comcast Home Networking"
+// MegaBit Gear TE xxxx
+Basic realm="Config"
+Basic realm="configuration"
+Basic realm="Connecting to router"
+Basic realm="DB102 ADSL 2/2+ Modem"
+Basic realm="Default: admin/1234"
+Basic realm="device"
+Basic realm="DFL Admin Interface"
+Basic realm="DI-804HV"
+Basic realm="dreambox"
+Basic Realm="DSL-500G Admin Login"
+Basic Realm="DSL-500G"
+Basic Realm="DSL-504G"
+Basic realm="DSL Router"
+Basic realm="DSL WLAN Modem 200"
+Basic realm="Ecco Chimbote"
+Basic realm="Efficient Networks Web User Interface"
+Basic realm="General User"
+Basic realm="geschuetzter Bereich"
+Basic realm="Home Gateway"
+Basic realm="iBoot"
+Basic realm="IES-1000/SAM1008"
+Basic realm="Instant Internet"
+Basic realm="IR IP Camera"
+Basic realm="Linksys BEFSR41/BEFSR11/BEFSRU31"
+Basic realm="Login to the Router Web Configurator"
+Basic realm="Login to Vigor 3300"
+Basic realm="Login"
+Basic realm="MR314"
+Basic realm="NetComm NB1300"
+Basic realm="NETGEAR DG834  "
+Basic realm="NetLinx"
+Basic realm="Netopia-2000"
+Basic realm="Netopia-3000"
+Basic realm="NXU-2"
+Basic realm="OCR-812"
+Basic realm="P653HWI-13"
+Basic realm="Please enter your user name and password on DSL-502T"
+Basic realm="pmdf1"
+Basic realm="Prestige 643"
+Basic realm="Prestige 650H-17"
+Basic realm="Prestige 650H-E1"
+Basic realm="Prestige 792H"
+Basic realm="Private zone"
+Basic realm="privileged access"
+Basic realm="quenta"
+Basic realm="Radware"
+Basic realm="READONLY"
+Basic realm="Roadside"
+Basic realm="Siemens ADSL SL2-141-I"
+Basic realm="Siemens Web User Interface"
+Basic realm="System Configuration"
+Basic realm="TrendChip ADSL Router"
+Basic realm="USR ADSL Gateway"
+Basic realm="Viking"
+basic realm="Vina Technologies T1 Integrator"
+Basic realm="WA3002-g1"
+Basic realm="Web Management"
+Basic realm="Web Manager"
+Basic realm="WebAdmin"
+Basic realm="Webr@cer 8001"
+Basic realm="Wireless Access Point"
+Basic realm="WL-5460AP v2"
+Basic realm="WL500g.Premium"
+Basic realm="WL500W"
+Basic realm="XG6545p2 VoIP Gateway"
+Digest realm="HiPER", domain="222.66.99.209", qop="auth", nonce="aa81b6584c4716f22f1d20e1747c5841", opaque="5ccc069c403ebaf9f0171e9517f40e41", algorithm="MD5", stale="FALSE"
+Digest realm="i3micro VRG", nonce="1186428394", qop="auth", algorithm=MD5
+Digest realm="WatchGuard SOHO  Configuration",qop="auth",nonce="7c8e98007db668881687bd538e6e8581"
+-->
+
+<!-- This is in various PHP coding examples, but is not a reliable FP source:
+     Basic realm="User Login"
+  -->
+
+</fingerprints>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+SMTP response lines to the QUIT command are matched against these patterns
+(1 line at a time) to fingerprint SMTP servers.
+
+See comment at the top of smtp_banners.xml for additional info.
+-->
+
+<fingerprints>
+   <fingerprint pattern="^221[ -]See ya in cyberspace$">
+      <description>
+         221 See ya in cyberspace
+      </description>
+      <param pos="0" name="service.vendor" value="Alt-N"/>
+      <param pos="0" name="service.family" value="MDaemon"/>
+      <param pos="0" name="service.product" value="MDaemon"/>
+      <param pos="0" name="os.vendor" value="Microsoft"/>
+      <param pos="0" name="os.family" value="Windows"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.product" value="Windows"/>
+      <param pos="0" name="os.arch" value="x86"/>
+   </fingerprint>
+
+   <fingerprint pattern="^503[ -]5\.5\.0 Not accepting any command except QUIT$">
+      <description>
+         Raptor Firewall
+         example: 503 5.5.0 Not accepting any command except QUIT
+      </description>
+      <param pos="0" name="service.product" value="raptor"/>
+   </fingerprint>
+</fingerprints>
