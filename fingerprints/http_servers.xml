@@ -3308,10 +3308,18 @@
 
    <fingerprint pattern="^CloudFront$">
       <example>CloudFront</example>
-      <description>CloudFront web load balancer endpoint</description>
-      <param pos="0" name="service.vendor" value="CloudFront"/>
+      <description>Amazon CloudFront web load balancer endpoint</description>
+      <param pos="0" name="service.vendor" value="Amazon"/>
       <param pos="0" name="service.product" value="CloudFront Load Balancer"/>
-      <param pos="0" name="service.family" value="CloudFront Load Balancer"/>
+      <param pos="0" name="service.family" value="CloudFront"/>
+   </fingerprint>
+
+   <fingerprint pattern="^cloudflare-nginx$">
+      <example>cloudflare-nginx</example>
+      <description>CloudFlare web load balancer endpoint</description>
+      <param pos="0" name="service.vendor" value="CloudFlare"/>
+      <param pos="0" name="service.product" value="CloudFlare Load Balancer"/>
+      <param pos="0" name="service.family" value="CloudFlare"/>
    </fingerprint>
 
 </fingerprints>
