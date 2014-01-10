@@ -40,7 +40,7 @@ option_parser = OptionParser.new do |opts|
 end
 option_parser.parse!(ARGV)
 
-if ARGV.count != 1
+if ARGV.count != 2
   puts option_parser
   exit
 end
