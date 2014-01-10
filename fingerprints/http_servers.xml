@@ -3085,15 +3085,6 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^GFE/((?:\d+\.)+\d+)$">
-      <example>GFE/1.3</example>
-      <description>Google Front End for apps running on Google services.</description>
-      <param pos="0" name="service.vendor" value="Google"/>
-      <param pos="0" name="service.product" value="Google Front End"/>
-      <param pos="0" name="service.family" value="Google Web Server"/>
-      <param pos="1" name="service.version"/>
-   </fingerprint>
-
    <fingerprint pattern="^Mongrel ((?:\d+\.)+\d+)$">
       <example>Mongrel 1.1.5</example>
       <description>Ruby-based web server and HTTP library.</description>
@@ -3214,6 +3205,54 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
+   <fingerprint pattern="^Boa/(\d+\.[a-zA-Z0-9\.\-]+)">
+      <description>Boa web server</description>
+      <example>Boa/0.94.14rc21</example>
+      <example>Boa/0.94.14rc18-ipcam</example>
+      <example>Boa/0.93.15 (with Intersil Extensions)</example>
+      <example>Boa/0.94.14rc19</example>
+      <example>Boa/0.94.14rc19-pek</example>
+      <example>Boa/0.94.8.3</example>
+      <example>Boa/0.92q</example>
+      <example>Boa/0.94.14rc18uC</example>
+      <example>Boa/0.94.12</example>
+      <example>Boa/0.92p OS-9 Version</example>
+      <example>Boa/0.94.14rc21-OE1</example>
+      <param pos="0" name="service.vendor" value="Boa"/>
+      <param pos="0" name="service.product" value="Web Server"/>
+      <param pos="1" name="service.version"/>
+   </fingerprint>
+
+   <!-- HiSilicon is OEMd by a number of DVR manufacturers -->
+    <fingerprint pattern="^Cross Web Server$">
+      <description>Web server found on DVR and webcam servers sourced from HiSilicon</description>
+      <example>Cross Web Server</example>
+      <param pos="0" name="service.vendor" value="HiSilicon"/>
+      <param pos="0" name="service.product" value="Cross Web Server"/>
+      <param pos="0" name="os.vendor" value="HiSilicon"/>
+      <param pos="0" name="os.device" value="DVR"/>
+   </fingerprint> 
+
+   <!-- Hikvision is OEMd by a number of DVR manufacturers -->
+    <fingerprint pattern="^Hikvision-Webs$">
+      <description>Web server found on DVR and webcam servers sourced from Hikvision</description>
+      <example>Cross Web Server</example>
+      <param pos="0" name="service.vendor" value="Hikvision"/>
+      <param pos="0" name="service.product" value="Hikvision Web Server"/>
+      <param pos="0" name="os.vendor" value="Hikvision"/>
+      <param pos="0" name="os.device" value="DVR"/>
+   </fingerprint> 
+
+    <fingerprint pattern="^NET-DK/(\d+\.\d+)$">
+      <description>Web server found on ARRIS cable modems</description>
+      <example>Cross Web Server</example>
+      <param pos="0" name="service.vendor" value="ARRIS"/>
+      <param pos="0" name="service.product" value="Net-DK Web Server"/>
+      <param pos="0" name="os.vendor" value="ARRIS"/>
+      <param pos="0" name="os.device" value="Cable Modem"/>
+   </fingerprint> 
+
+
    <!-- junit says,
      "Example pattern '' from http_servers.xml didn't match pattern '^$'"
      Figure out if we have a way to support matching empty strings later.
@@ -3234,6 +3273,35 @@
       <!-- Hard to be sure with such a generic name, but I
            suspect this server has been obfuscated. -->
       <description>Obfuscated web server -- assert nothing.</description>
+   </fingerprint>
+
+
+   <!-- Service provider equipment (CDNs, etc) -->
+
+   <fingerprint pattern="^AkamaiGHost$">
+      <example>AkamaiGHost</example>
+      <description>Akamai Global Host</description>
+      <param pos="0" name="service.vendor" value="Akamai"/>
+      <param pos="0" name="service.product" value="GHost"/>
+      <param pos="0" name="os.vendor" value="Akamai"/>
+      <param pos="0" name="os.device" value="Web proxy"/>      
+   </fingerprint>
+
+   <fingerprint pattern="^gws$">
+      <example>gws</example>
+      <description>Google Web Services</description>
+      <param pos="0" name="service.vendor" value="Google"/>
+      <param pos="0" name="service.product" value="Google Web Services"/>
+      <param pos="0" name="service.family" value="Google Web Server"/>    
+   </fingerprint>
+
+   <fingerprint pattern="^GFE/((?:\d+\.)+\d+)$">
+      <example>GFE/1.3</example>
+      <description>Google Front End for apps running on Google services.</description>
+      <param pos="0" name="service.vendor" value="Google"/>
+      <param pos="0" name="service.product" value="Google Front End"/>
+      <param pos="0" name="service.family" value="Google Web Server"/>
+      <param pos="1" name="service.version"/>
    </fingerprint>
 
 </fingerprints>
