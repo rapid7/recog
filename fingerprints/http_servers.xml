@@ -3234,18 +3234,20 @@
    </fingerprint> 
 
    <!-- Hikvision is OEMd by a number of DVR manufacturers -->
-    <fingerprint pattern="^Hikvision-Webs$">
+    <fingerprint pattern="^(Hikvision|DVRDVS)-Webs$">
       <description>Web server found on DVR and webcam servers sourced from Hikvision</description>
-      <example>Cross Web Server</example>
+      <example>Hikvision-Webs</example>
+      <example>DVRDVS-Webs</example>
       <param pos="0" name="service.vendor" value="Hikvision"/>
       <param pos="0" name="service.product" value="Hikvision Web Server"/>
       <param pos="0" name="os.vendor" value="Hikvision"/>
       <param pos="0" name="os.device" value="DVR"/>
    </fingerprint> 
 
-    <fingerprint pattern="^NET-DK/(\d+\.\d+)$">
+    <fingerprint pattern="^NET-DK[/ ](\d+\.\d+)$">
       <description>Web server found on ARRIS cable modems</description>
-      <example>Cross Web Server</example>
+      <example>NET-DK/1.0</example>
+      <example>NET-DK 1.1</example>
       <param pos="0" name="service.vendor" value="ARRIS"/>
       <param pos="0" name="service.product" value="Net-DK Web Server"/>
       <param pos="0" name="os.vendor" value="ARRIS"/>
@@ -3304,4 +3306,13 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
+   <fingerprint pattern="^CloudFront$">
+      <example>CloudFront</example>
+      <description>CloudFront web load balancer endpoint</description>
+      <param pos="0" name="service.vendor" value="CloudFront"/>
+      <param pos="0" name="service.product" value="CloudFront Load Balancer"/>
+      <param pos="0" name="service.family" value="CloudFront Load Balancer"/>
+   </fingerprint>
+
 </fingerprints>
+
