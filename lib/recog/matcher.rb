@@ -21,7 +21,7 @@ class Matcher
       fd.each_line do |line|
         reporter.increment_line_count
 
-        line = line.strip.unpack("C*").pack("C*").gsub("\\[rn]", '')
+        line = line.to_s.unpack("C*").pack("C*").strip.gsub(/\\[rn]/, '')
         found = nil 
         fingerprints.each do |fp|
           m = line.match(fp.regex)
