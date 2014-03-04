@@ -12,6 +12,11 @@ class Verifier
       fingerprints.each do |fp|
         reporter.print_name fp
 
+        if fp.tests.length == 0
+          warning = "'#{fp.name}' has no test cases"
+          reporter.warning "WARN: #{warning}"
+        end
+
         fp.tests.each do |test|
           m = test.match(fp.regex)
           unless m
