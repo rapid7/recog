@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'nokogiri'
 gem 'oj'
-gem 'htmlentities'
 
 group :test do
   gem 'rspec', '~> 2.14.1'
