@@ -38,7 +38,7 @@ describe Recog::VerifyReporter do
       subject { Recog::VerifyReporter.new(double(detail: true), formatter) }
 
       it "prints the fingerprint name" do
-        expect(formatter).to receive(:message).with("\na name")
+        expect(formatter).to receive(:status_message).with("\na name")
         run_report
       end
 
@@ -58,7 +58,7 @@ describe Recog::VerifyReporter do
       end
 
       it "prints the fingerprint count" do
-        expect(formatter).to receive(:message).with("\nVerified 1 fingerprints:")
+        expect(formatter).to receive(:status_message).with("\nVerified 1 fingerprints:")
         run_report
       end
 
@@ -71,7 +71,7 @@ describe Recog::VerifyReporter do
         before { fingerprint.stub(tests: []) }
 
         it "does not print the name" do
-          expect(formatter).not_to receive(:message).with("\na name")
+          expect(formatter).not_to receive(:status_message).with("\na name")
           run_report
         end
       end

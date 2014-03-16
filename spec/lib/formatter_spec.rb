@@ -8,7 +8,7 @@ describe Recog::Formatter do
 
     describe "#message" do
       it "outputs the text" do
-        subject.message 'some text'
+        subject.status_message 'some text'
         expect(output.string).to eq("some text\n")
       end
     end
@@ -40,7 +40,7 @@ describe Recog::Formatter do
 
     describe "#message" do
       it "outputs the text in white" do
-        subject.message 'some text'
+        subject.status_message 'some text'
         expect(output.string).to eq("\e[15msome text\e[0m\n")
       end
     end

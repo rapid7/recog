@@ -33,7 +33,7 @@ class VerifyReporter
   def print_name(fingerprint)
     if detail? && fingerprint.tests.any?
       name = fingerprint.name.empty? ? '[unnamed]' : fingerprint.name
-      formatter.message("\n#{name}")
+      formatter.status_message("\n#{name}")
     end
   end
 
@@ -43,7 +43,7 @@ class VerifyReporter
   end
 
   def print_fingerprint_count(count)
-    formatter.message("\nVerified #{count} fingerprints:")
+    formatter.status_message("\nVerified #{count} fingerprints:")
   end
 
   def print_summary

@@ -56,7 +56,7 @@ class MatchReporter
   end
 
   def print_lines_processed
-    formatter.message("\nProcessed #{line_count} lines")
+    formatter.status_message("\nProcessed #{line_count} lines")
   end
 
   def summary_line

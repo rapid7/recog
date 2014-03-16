@@ -28,7 +28,7 @@ describe Recog::MatchReporter do
       subject { Recog::MatchReporter.new(double(detail: true), formatter) }
 
       it "prints the lines processed" do
-        expect(formatter).to receive(:message).with("\nProcessed 1 lines")
+        expect(formatter).to receive(:status_message).with("\nProcessed 1 lines")
         run_report
       end
 

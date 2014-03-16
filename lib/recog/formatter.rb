@@ -14,7 +14,7 @@ class Formatter
     @output  = output || StringIO.new
   end
 
-  def message(text)
+  def status_message(text)
     output.puts color(text, :white)
   end
 
