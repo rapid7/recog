@@ -1338,7 +1338,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="4" name="system.time"/>
    </fingerprint>
 
-   <fingerprint pattern="^([^ ]+) +ESMTP (?:.+)?Sendmail +([^ ]+) */ *([^ ]+); *(.+) \(.+\)$">
+   <fingerprint pattern="^([^ ]+) +ESMTP .*Sendmail +([^ ]+) */ *([^ ]+); *(.+) \(.+\)$">
       <description>
         sendmail where neither daemon nor config file are patched (with timezone)
       </description>
@@ -1353,7 +1353,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="4" name="system.time"/>
    </fingerprint>
 
-   <fingerprint pattern="^([^ ]+) +ESMTP (?:.+)?Sendmail +([^ ]+) */ *([^ ]+) *; *(.+) *$">
+   <fingerprint pattern="^([^ ]+) +ESMTP .*Sendmail +([^ ]+) */ *([^ ]+) *; *(.+) *$">
       <description>
          sendmail where neither daemon nor config file are patched (without timezone)
       </description>
