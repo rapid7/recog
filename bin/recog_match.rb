@@ -45,7 +45,7 @@ if ARGV.count != 2
   exit
 end
 
-ndb = Recog::FingerprintDB.new("placeholder", ARGV.shift)
+ndb = Recog::DB.new("placeholder", ARGV.shift)
 options.fingerprints = ndb.fingerprints
 matcher = Recog::MatcherFactory.build(options)
 matcher.match_banners(ARGV.shift || "-")

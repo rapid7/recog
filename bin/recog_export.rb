@@ -66,7 +66,7 @@ if ARGV.count != 1
 end
 
 options.xml_file = ARGV.shift
-options.db = Recog::FingerprintDB.new("placeholder", options.xml_file)
+options.db = Recog::DB.new("placeholder", options.xml_file)
 
 case options.etype
 when :ruby

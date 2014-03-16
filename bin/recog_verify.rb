@@ -39,7 +39,7 @@ if ARGV.count != 1
   exit
 end
 
-ndb = Recog::FingerprintDB.new("placeholder", ARGV.shift)
+ndb = Recog::DB.new("placeholder", ARGV.shift)
 options.fingerprints = ndb.fingerprints
 verifier = Recog::VerifierFactory.build(options)
 verifier.verify_tests
