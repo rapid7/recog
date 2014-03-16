@@ -3,7 +3,11 @@
 $:.unshift(File.expand_path(File.join(File.dirname(__FILE__), "..", "lib")))
 require 'optparse'
 require 'ostruct'
-require 'recog/fingerprint_db'
+require 'recog'
+
+def squash_lines(str)
+  str.split(/\n/).join(' ').gsub(/\s+/, ' ')
+end
 
 def export_text(options)
 end
@@ -15,10 +19,10 @@ def export_ruby(options)
   $stdout.puts ""
   $stdout.puts "case fp_str"
   options.db.fingerprints.each do |fp|
-    puts "  # #{fp.name}"
+    puts "  # #{squash_lines fp.name}"
     puts "  when /#{fp.regex.to_s}/"
     fp.tests.each do |test|
-      puts "    # Example: #{test}"
+      puts "    # Example: #{squash_lines test}"
     end
     fp.params.each_pair do |k,v|
       if v[0] == 0
@@ -66,7 +70,7 @@ if ARGV.count != 1
 end
 
 options.xml_file = ARGV.shift
-options.db = Recog::DB.new("placeholder", options.xml_file)
+options.db = Recog::DB.new(options.xml_file)
 
 case options.etype
 when :ruby

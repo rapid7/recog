@@ -1,2 +1,3 @@
 require 'recog/version'
-require 'recog/db'
+require 'recog/db_manager'
+require 'recog/nizer'

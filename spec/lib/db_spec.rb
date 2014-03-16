@@ -2,7 +2,7 @@ require_relative '../../lib/recog/db'
 
 describe Recog::DB do
   let(:xml_file) { File.expand_path File.join('spec', 'data', 'test_fingerprints.xml') }
-  subject { Recog::DB.new('test_service', xml_file) }
+  subject { Recog::DB.new(xml_file) }
 
   describe "#fingerprints" do
     context "with only a pattern" do

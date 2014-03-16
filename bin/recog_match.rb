@@ -3,7 +3,7 @@
 $:.unshift(File.expand_path(File.join(File.dirname(__FILE__), "..", "lib")))
 require 'optparse'
 require 'ostruct'
-require 'recog/fingerprint_db'
+require 'recog'
 require 'recog/matcher_factory'
 
 options = OpenStruct.new(color: false, detail: false, fail_fast: false)
@@ -45,7 +45,7 @@ if ARGV.count != 2
   exit
 end
 
-ndb = Recog::DB.new("placeholder", ARGV.shift)
+ndb = Recog::DB.new(ARGV.shift)
 options.fingerprints = ndb.fingerprints
 matcher = Recog::MatcherFactory.build(options)
 matcher.match_banners(ARGV.shift || "-")

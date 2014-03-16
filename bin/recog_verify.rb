@@ -3,7 +3,7 @@
 $:.unshift(File.expand_path(File.join(File.dirname(__FILE__), "..", "lib")))
 require 'optparse'
 require 'ostruct'
-require 'recog/fingerprint_db'
+require 'recog'
 require 'recog/verifier_factory'
 
 options = OpenStruct.new(color: false, detail: false)
@@ -39,7 +39,7 @@ if ARGV.count != 1
   exit
 end
 
-ndb = Recog::DB.new("placeholder", ARGV.shift)
+ndb = Recog::DB.new(ARGV.shift)
 options.fingerprints = ndb.fingerprints
 verifier = Recog::VerifierFactory.build(options)
 verifier.verify_tests
