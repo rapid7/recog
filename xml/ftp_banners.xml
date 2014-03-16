@@ -3,7 +3,7 @@
 FTP greeting messages (part of the banner after the response code) are matched
 against these patterns to fingerprint FTP servers.
 -->
-<fingerprints>
+<fingerprints matches="ftp.banner">
   <fingerprint pattern="^([^ ]+) Microsoft FTP Service \(Version ([1234]\.\d+)\)\.$">
     <example>xx Microsoft FTP Service (Version 3.0).</example>
     <description>Microsoft FTP Server on Windows NT</description>

@@ -4,7 +4,7 @@ POP3 greeting messages (part of the banner after the status indicator +OK or -ER
 matched against these patterns to fingerprint POP3 servers.
 -->
 
-<fingerprints>
+<fingerprints matches="pop3.banner">
 
    <fingerprint pattern="^([^ ]+) +Cyrus POP3 v(\d+\.\d+.*)-OS X(?: Server)? ([\d\.]+).* server ready">
       <description>OSX Cyrus POP</description>
