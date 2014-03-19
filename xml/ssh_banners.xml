@@ -6,6 +6,14 @@ fingerprint SSH servers.
 -->
 
 <fingerprints matches="ssh.banner">
+
+
+   <!-- Honeypot SSH server banners are useless for fingerprinting -->
+   <fingerprint pattern="honeypot" flags="REG_ICASE">
+      <description>Honeypot SSH</description>
+      <!-- assert nothing -->
+   </fingerprint>
+
     <fingerprint pattern="^RomSShell_([\d\.]+)$">
       <description>Allegro RomSShell SSH</description>
       <example>RomSShell_4.62</example>
@@ -448,6 +456,8 @@ fingerprint SSH servers.
       <param pos="0" name="service.family" value="OpenSSH"/>
       <param pos="0" name="service.product" value="OpenSSH"/>
    </fingerprint>
+
+   <!-- TODO: Handle "vpn3" banners for Cisco 3000 VPN Concentrators (need example banners first) -->
 
    <fingerprint pattern="^Cisco-(.*)$">
       <description>Cisco SSH banner (could be IOS or PIX).

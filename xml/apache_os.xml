@@ -4,7 +4,7 @@ When an HTTP server is fingerprinted as Apache, a second analysis pass can be do
 on the server headers to extract OS information.
 -->
 
-<fingerprints>
+<fingerprints matches="apache_os">
    <fingerprint pattern=".*\(iSeries\).*">
       <description>IBM i5/OS iSeries (OS/400)</description>
       <param pos="0" name="os.vendor" value="IBM"/>
