@@ -120,7 +120,7 @@ class Nizer
         result[k] ||= v
       end
     end
-    
+
     result
   end
 
@@ -175,14 +175,16 @@ class Nizer
       end
     end
 
-    results
+    result
   end
  
 end
 end
 
 =begin
+
 Current key names:
+
   apache.info
   apache.variant
   apache.variant.version
@@ -257,4 +259,5 @@ Current key names:
   timeout
   tomcat.info
   zmailer.ident
+  
 =end

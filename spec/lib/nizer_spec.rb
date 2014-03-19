@@ -15,7 +15,7 @@ describe Recog::Nizer do
         end
 
         it "returns a successful match" do
-          expect(match_result['matched']).to match(/^[A-Z]/)
+          expect(match_result['matched'].to_s).to match(/^[A-Z]/)
         end
 
         it "correctly matches service or os" do
@@ -36,8 +36,8 @@ describe Recog::Nizer do
 
     # Demonstrates how this method picks up additional attributes from other members of the winning
     # os.product match group and applies them to the result.
-    matches1 = YAML.load(File.read(File.expand_path(File.join('spec', 'data', 'os_best_match_1.yml'))))
-    context "with os_best_match_1.yml" do
+    matches1 = YAML.load(File.read(File.expand_path(File.join('spec', 'data', 'best_os_match_1.yml'))))
+    context "with best_os_match_1.yml" do
       let(:result) { subject.best_os_match(matches1) }
 
       it "returns a hash" do
@@ -63,8 +63,8 @@ describe Recog::Nizer do
 
     # Demonstrates how additive os.certainty values allow a 1.0 certainty rule to be overridden
     # by multiple lower certainty matches
-    matches2 = YAML.load(File.read(File.expand_path(File.join('spec', 'data', 'os_best_match_2.yml'))))
-    context "with os_best_match_2.yml" do
+    matches2 = YAML.load(File.read(File.expand_path(File.join('spec', 'data', 'best_os_match_2.yml'))))
+    context "with best_os_match_2.yml" do
       let(:result) { subject.best_os_match(matches2) }
 
       it "returns a hash" do
@@ -90,5 +90,36 @@ describe Recog::Nizer do
 
   end
 
+ describe "self.best_service_match" do
+
+    # Demonstrates how this method picks up additional attributes from other members of the winning
+    # service.product match group and applies them to the result.
+    matches1 = YAML.load(File.read(File.expand_path(File.join('spec', 'data', 'best_service_match_1.yml'))))
+    context "with best_service_match_1.yml" do
+      let(:result) { subject.best_service_match(matches1) }
+
+      it "returns a hash" do
+        expect(result.class).to eq(::Hash)
+      end
+
+      it "matches IIS" do
+        expect(result['service.product']).to eq('IIS')
+      end
+
+      it "matches Microsoft" do
+        expect(result['service.vendor']).to eq('Microsoft')
+      end
+
+      it "matches English" do
+        expect(result['service.language']).to eq('English')
+      end
+
+      it "matches version 6.0" do
+        expect(result['service.version'].to_i).to eq(6.0)
+      end
+    end
+
+
+  end
 
 end
