@@ -119,7 +119,6 @@ describe Recog::Nizer do
       end
     end
 
-
   end
 
 end
