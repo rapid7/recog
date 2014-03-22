@@ -7,9 +7,9 @@
 <fingerprints matches="architecture">
 
    <fingerprint pattern="x64|amd64|x86_64" flags="REG_ICASE">
-      <description>x86_64</description>
+      <description>x64 (x86_x64)</description>
       <example>Linux claw 3.11.0-15-generic #23-Ubuntu SMP Mon Dec 9 18:17:04 UTC 2013 x86_64 x86_64 x86_64 GNU/Linux</example>
-      <param pos="0" name="os.arch" value="x86_64"/>
+      <param pos="0" name="os.arch" value="x64"/>
    </fingerprint>
 
    <fingerprint pattern="x86|i[3456]86" flags="REG_ICASE">
@@ -18,7 +18,7 @@
       <param pos="0" name="os.arch" value="x86"/>
    </fingerprint>
 
-   <fingerprint pattern="PowerPC|PPC|POWER|ppc" flags="REG_ICASE">
+   <fingerprint pattern="PowerPC|PPC|POWER|ppc">
       <description>PowerPC</description>
       <!-- XXX: Need an example -->
       <param pos="0" name="os.arch" value="ppc"/>
