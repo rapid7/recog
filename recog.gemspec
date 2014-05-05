@@ -14,8 +14,9 @@ Gem::Specification.new do |s|
   s.homepage    = "https://www.github.com/rapid7/recog"
   s.summary     = %q{Network service fingerprint database, classes, and utilities}
   s.description = %q{
-    Recog provides OS fingerprinting of network-connected device by matching their service banners or probe responses to the appropriate pattern database.
-    This gem provides a database of network service fingerprints and an set of classes and utilities to manage them.
+    Recog is a framework for identifying products, services, operating systems, and hardware by matching 
+    fingerprints against data returned from various network probes. Recog makes it simply to extract useful 
+    information from web server banners, snmp system description fields, and a whole lot more. 
   }.gsub(/\s+/, ' ').strip
 
   s.files         = `git ls-files`.split("\n")
