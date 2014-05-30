@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+SIP User Agent header values are matched against these patterns to fingerprint SIP devices.
+-->
+
+<fingerprints matches="sip_header.user_agent">
+  
+	<!-- Cisco Devices -->
+
+   <fingerprint pattern="^Cisco-SIPGateway/IOS-([\d\.x]+)$">
+      <description>Cisco SIPGateway</description>
+      <example>Cisco-SIPGateway/IOS-12.x</example>
+      <param pos="0" name="os.vendor" value="Cisco"/>
+      <param pos="0" name="os.product" value="IOS"/>
+      <param pos="1" name="os.version"/>
+   </fingerprint>
+
+
+   <!-- AVM.DE Devices -->
+
+   <fingerprint pattern="^FRITZ!OS$">
+      <description>AVM FritzOS Device</description>
+      <example>FRITZ!OS</example>
+      <param pos="0" name="os.vendor" value="AVM"/>
+      <param pos="0" name="os.product" value="FRITZ!BOX"/>
+   </fingerprint>
+
+   <fingerprint pattern="^(?:AVM )?(FRITZ!Box .*) +(\d+\.\d+\.\d+)">
+      <description>AVM FritzBox</description>
+      <example>AVM FRITZ!Box Fon 06.03.13</example>
+      <example>AVM FRITZ!Box Fon 06.03.65 (Jun  7 2005)</example>
+      <example>AVM FRITZ!Box Fon 06.03.89 (3.01.03 tested by accredited T-Com test lab) (Oct 28 2005)</example>
+      <example>AVM FRITZ!Box Fon 5010 23.04.01 (Jan 25 2006)</example>
+      <example>AVM FRITZ!Box Fon 5010 Annex A 48.04.55 TAL (Mar 12 2008)</example>
+      <example>AVM FRITZ!Box Fon 5010 Annex A (ITA) 48.04.46 (Sep 14 2007)</example>
+      <example>AVM FRITZ!Box Fon 5012 (UI) 25.03.90 (3.01.03 tested by accredited T-Com test lab) (Oct 28 2005)</example>
+      <example>AVM FRITZ!Box Fon 5113 Annex A 83.04.69 (Dec  2 2008)</example>
+      <example>AVM FRITZ!Box Fon 5124 56.04.77 (Feb 14 2014)</example>
+      <example>AVM FRITZ!Box Fon 7170 Annex A.B ML Speedport W701V 58.04.67 (Dec 18 2008)</example>
+      <example>AVM FRITZ!Box 3272 126.05.50 (Feb 27 2013)</example>
+      <example>AVM FRITZ!Box 5050 (UI) 12.04.50 (Jan 30 2008)</example>
+      <example>AVM FRITZ!Box 6320 Cable 104.05.25 TAL (Jun  8 2012)</example>
+      <example>AVM FRITZ!Box 6320 v2 Cable 110.05.50 (Jan 31 2013)</example>
+      <example>AVM FRITZ!Box 6340 Cable (kbw) 115.05.50 (Jan 31 2013)</example>
+      <example>AVM FRITZ!Box 6810 LTE 108.05.50 (Feb 15 2013)</example>
+      <example>AVM FRITZ!Box 7170 Annex A 58.04.85 (Apr  4 2011)</example>
+      <example>AVM FRITZ!Box 7312 117.05.23 TAL (Jun  1 2012)</example>   
+      <example>AVM FRITZ!Box Fon WLAN 7150 by TemTec EDV-Service 29.04.67 TAL (Nov 21 2008)</example>
+      <example>AVM FRITZ!Box Fon WLAN 7170 28.04.43 (Sep 14 2007)</example>
+      <example>AVM FRITZ!Box WLAN 3270 v3 Edition Italia 125.05.23 (Jul  6 2012)</example>
+      <example>AVM FRITZ!Box WLAN 3270 v3 Edition Italia 125.05.52 (Feb  7 2014)</example>
+      <example>AVM FRITZ!Box Speedport W701V Annex A 58.04.82 (May 12 2010)</example>
+      <param pos="0" name="os.vendor" value="AVM"/>
+      <param pos="0" name="os.family" value="FRITZ!Box"/>
+      <param pos="1" name="os.product"/>
+      <param pos="2" name="os.version"/>
+   </fingerprint>
+
+   <fingerprint pattern="^(?:AVM )?(FRITZ!Fon .*) +(\d+\.\d+\.\d+)">
+      <description>AVM FritzFon</description>
+      <example>AVM FRITZ!Fon 7150 (fs) 38.04.56 (Mar 31 2008)</example>
+      <example>AVM FRITZ!Fon WLAN 7150 Annex A 58.04.84 (Apr  4 2011)</example>
+      <param pos="0" name="os.vendor" value="AVM"/>
+      <param pos="0" name="os.family" value="FRITZ!Fon"/>
+      <param pos="1" name="os.product"/>
+      <param pos="2" name="os.version"/>
+   </fingerprint>
+
+   <fingerprint pattern="^(?:AVM )?(Multibox .*) +(\d+\.\d+\.\d+)">
+      <description>AVM Multibox</description>
+      <example>AVM Multibox 7390 NGN 84.05.09 (Jan 13 2012)</example>
+      <param pos="0" name="os.vendor" value="AVM"/>
+      <param pos="0" name="os.family" value="Multibox"/>
+      <param pos="1" name="os.product"/>
+      <param pos="2" name="os.version"/>
+   </fingerprint>
+
+
+</fingerprints>
