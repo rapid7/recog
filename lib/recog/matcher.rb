@@ -9,7 +9,7 @@ class Matcher
 
   def match_banners(banners_file)
     reporter.report do
-      
+
       fd = $stdin
       file_source = false
 
@@ -22,7 +22,7 @@ class Matcher
         reporter.increment_line_count
 
         line = line.to_s.unpack("C*").pack("C*").strip.gsub(/\\[rn]/, '')
-        found = nil 
+        found = nil
         fingerprints.each do |fp|
           m = line.match(fp.regex)
           if m
@@ -53,7 +53,7 @@ class Matcher
       end
 
       fd.close if file_source
-      
+
     end
   end
 end

@@ -32,7 +32,7 @@ class Verifier
                 if m[ v[0] ].to_s.empty?
                   warning = "'#{fp.name}' failed to match #{test.inspect} key '#{k}'' with #{fp.regex.to_s}'"
                   reporter.warning "WARN: #{warning}"
-                end					
+                end
               end
             end
 

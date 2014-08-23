@@ -13,7 +13,7 @@ class Fingerprint
 
   def description(xml)
     element = xml.xpath('description')
-    element.empty? ? '' : element.first.content 
+    element.empty? ? '' : element.first.content
   end
 
   def create_regexp(xml)
@@ -50,7 +50,7 @@ class Fingerprint
         when 'REG_DOT_NEWLINE', 'REG_LINE_ANY_CRLF'
           rflags |= Regexp::MULTILINE
         when 'REG_ICASE'
-          rflags |= Regexp::IGNORECASE 
+          rflags |= Regexp::IGNORECASE
         end
       end
       rflags
