@@ -16,6 +16,10 @@ describe Recog::DB do
 
         context "#{fp.regex}" do
 
+          if fp.name.nil? || fp.name.empty?
+            pending "has a name"
+          end
+
           # Not yet enforced
           # it "has a name" do
           #   expect(fp.name).not_to be_nil
@@ -28,13 +32,13 @@ describe Recog::DB do
           end
 
           # Not yet enforced
-          # it "has a test cases" do
+          # it "has test cases" do
           #  expect(fp.tests.length).not_to equal(0)
           # end
 
           fp.tests.each do |example|
             it "passes self-test #{example.gsub(/\s+/, ' ')[0,32]}..." do
-              expect(fp.regex.match(example)).to_not eq(nil)
+              expect(fp.regex.match(example)).to_not be_nil
             end
           end
 
