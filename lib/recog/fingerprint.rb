@@ -24,10 +24,10 @@ class Fingerprint
 
   def parse_params(xml)
     {}.tap do |h|
-      xml.xpath('param').each do |e|
-        name  = e['name']
-        pos   = e['pos'].to_i
-        value = e['value'].to_s
+      xml.xpath('param').each do |param|
+        name  = param['name']
+        pos   = param['pos'].to_i
+        value = param['value'].to_s
         h[name] = [pos, value]
       end
     end
