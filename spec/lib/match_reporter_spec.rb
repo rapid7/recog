@@ -1,4 +1,4 @@
-require_relative '../../lib/recog/match_reporter'
+require 'recog/match_reporter'
 
 describe Recog::MatchReporter do
   let(:options) { double(detail: false) }

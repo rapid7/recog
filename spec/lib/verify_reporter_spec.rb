@@ -1,4 +1,4 @@
-require_relative '../../lib/recog/verify_reporter'
+require 'recog/verify_reporter'
 
 describe Recog::VerifyReporter do
   let(:formatter) { double('formatter').as_null_object }
@@ -9,7 +9,7 @@ describe Recog::VerifyReporter do
 
   subject { Recog::VerifyReporter.new(double(detail: false), formatter) }
 
-  def run_report 
+  def run_report
     subject.report(1) do
         subject.print_name fingerprint
         subject.success 'passed'
@@ -32,8 +32,8 @@ describe Recog::VerifyReporter do
     it "prints summary" do
       expect(formatter).to receive(:failure_message).with(summary_line)
       run_report
-    end  
-    
+    end
+
     context "with detail" do
       subject { Recog::VerifyReporter.new(double(detail: true), formatter) }
 
@@ -65,7 +65,7 @@ describe Recog::VerifyReporter do
       it "prints summary" do
         expect(formatter).to receive(:failure_message).with(summary_line)
         run_report
-      end  
+      end
 
       context "with no fingerprint tests" do
         before { fingerprint.stub(tests: []) }

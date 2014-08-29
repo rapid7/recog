@@ -1,4 +1,4 @@
-require_relative '../../lib/recog/db'
+require 'recog/db'
 
 describe Recog::DB do
   let(:xml_file) { File.expand_path File.join('spec', 'data', 'test_fingerprints.xml') }
