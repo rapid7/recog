@@ -5,7 +5,7 @@ describe Recog::MatchReporter do
   let(:formatter) { double('formatter').as_null_object }
   subject { Recog::MatchReporter.new(options, formatter) }
 
-  def run_report 
+  def run_report
     subject.report do
         subject.increment_line_count
         subject.match 'a match'
@@ -23,7 +23,7 @@ describe Recog::MatchReporter do
       expect(formatter).to receive(:failure_message).with('a failure')
       run_report
     end
-    
+
     context "with detail" do
       subject { Recog::MatchReporter.new(double(detail: true), formatter) }
 
@@ -35,7 +35,7 @@ describe Recog::MatchReporter do
       it "prints summary" do
         expect(formatter).to receive(:failure_message).with("SUMMARY: 1 matches and 1 failures")
         run_report
-      end  
+      end
     end
   end
 
@@ -64,18 +64,18 @@ describe Recog::MatchReporter do
   describe "#stop?" do
     context "with a failure limit" do
       before do
-        options.stub(fail_fast: true, stop_after: 3) 
+        options.stub(fail_fast: true, stop_after: 3)
         subject.failure 'first'
         subject.failure 'second'
       end
 
       it "returns true when the limit is reached " do
         subject.failure 'third'
-        expect(subject.stop?).to be_true
+        expect(subject.stop?).to be true
       end
 
       it "returns false when under the limit" do
-        expect(subject.stop?).to be_false
+        expect(subject.stop?).to be false
       end
     end
 
@@ -83,7 +83,7 @@ describe Recog::MatchReporter do
       before { options.stub(fail_fast: false) }
 
       it "return false" do
-        expect(subject.stop?).to be_false
+        expect(subject.stop?).to be false
       end
     end
   end

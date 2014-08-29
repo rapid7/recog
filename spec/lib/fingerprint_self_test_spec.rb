@@ -1,4 +1,4 @@
-require_relative '../../lib/recog/db'
+require 'recog/db'
 
 describe Recog::DB do
   Dir[File.expand_path File.join('xml', '*.xml')].each do |xml_file_name|
@@ -17,7 +17,7 @@ describe Recog::DB do
         context "#{fp.regex}" do
 
           if fp.name.nil? || fp.name.empty?
-            pending "has a name"
+            skip "has a name"
           end
 
           # Not yet enforced
