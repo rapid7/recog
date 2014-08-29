@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'recog', path: '.'
+gemspec
 
 gem 'nokogiri'
 

@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'yard'
   s.add_development_dependency 'cucumber'
   s.add_development_dependency 'aruba'
+  s.add_development_dependency 'simplecov'
 
   s.add_runtime_dependency 'nokogiri'
 end
