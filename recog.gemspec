@@ -28,6 +28,13 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'yard'
+  if RUBY_PLATFORM =~ /java/
+    # markdown formatting for yard
+    s.add_development_dependency 'kramdown'
+  else
+    # markdown formatting for yard
+    s.add_development_dependency 'redcarpet'
+  end
   s.add_development_dependency 'cucumber'
   s.add_development_dependency 'aruba'
   s.add_development_dependency 'simplecov'
