@@ -52,8 +52,14 @@ describe Recog::DB do
         expect(entry.name).to eq('HP Designjet printer')
       end
 
-      it "has a pattern" do
+      it 'has proper flags' do
+        if RUBY_PLATFORM =~ /java/i
+          pending "Bug in jruby"
+        end
         expect(entry.regex.options).to eq(Regexp::NOENCODING | Regexp::IGNORECASE)
+      end
+
+      it "has a pattern" do
         expect(entry.regex.source).to eq("(designjet \\S+)")
       end
 
