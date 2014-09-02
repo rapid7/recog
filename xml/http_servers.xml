@@ -1868,6 +1868,7 @@
    </fingerprint>
 
    <fingerprint pattern = "^com.hp.openview.Coda (\d\.\d.\d)$">
+      <description>HP Openview Coda</description>
       <example>com.hp.openview.Coda 0.0.1</example>
       <param pos="0" name="service.vendor" value="HP"/>
       <param pos="0" name="service.family" value="OpenView"/>
@@ -1876,6 +1877,7 @@
    </fingerprint>
 
    <fingerprint pattern = "^com.hp.openview.bbc.LLBServer (\d\.\d.\d\.\d)$">
+      <description>HP Openview LLBServer</description>
       <example>com.hp.openview.bbc.LLBServer 2.6.8.1</example>
       <param pos="0" name="service.vendor" value="HP"/>
       <param pos="0" name="service.family" value="OpenView"/>
@@ -2192,6 +2194,7 @@
      -->
 
    <fingerprint pattern="^Jetty/(\d+\.[\d.]+)(?: \((.*)\))?$">
+      <description>Jetty</description>
       <example>Jetty/4.0.1 (SunOS 5.8 sparc)</example>
       <example>Jetty/4.2.23 (SunOS/5.9 sparc java/1.4.2_04)</example>
       <example>Jetty/5.1.10 (Linux/2.6.12 i386 java/1.5.0_05)</example>
@@ -2203,8 +2206,9 @@
       <param pos="2" name="jetty.info"/>
    </fingerprint>
 
-   <!-- Catch-all for Jetty verstions using the Jetty/version format. -->
+   <!-- Catch-all for Jetty versions using the Jetty/version format. -->
    <fingerprint pattern="^Jetty/(\S+) \(.*$">
+      <description>Jetty</description>
       <example>Jetty/4.2.x (VxWorks/WIND version 2.9 ppc java/1.1-rr-std-b12)</example>
       <param pos="0" name="service.vendor" value="Mort Bay"/>
       <param pos="0" name="service.product" value="Jetty"/>
@@ -3231,7 +3235,7 @@
       <param pos="0" name="service.product" value="Cross Web Server"/>
       <param pos="0" name="os.vendor" value="HiSilicon"/>
       <param pos="0" name="os.device" value="DVR"/>
-   </fingerprint> 
+   </fingerprint>
 
    <!-- Hikvision is OEMd by a number of DVR manufacturers -->
     <fingerprint pattern="^(Hikvision|DVRDVS)-Webs$">
@@ -3242,7 +3246,7 @@
       <param pos="0" name="service.product" value="Hikvision Web Server"/>
       <param pos="0" name="os.vendor" value="Hikvision"/>
       <param pos="0" name="os.device" value="DVR"/>
-   </fingerprint> 
+   </fingerprint>
 
     <fingerprint pattern="^NET-DK[/ ](\d+\.\d+)$">
       <description>Web server found on ARRIS cable modems</description>
@@ -3252,7 +3256,7 @@
       <param pos="0" name="service.product" value="Net-DK Web Server"/>
       <param pos="0" name="os.vendor" value="ARRIS"/>
       <param pos="0" name="os.device" value="Cable Modem"/>
-   </fingerprint> 
+   </fingerprint>
 
 
    <!-- junit says,
@@ -3286,7 +3290,7 @@
       <param pos="0" name="service.vendor" value="Akamai"/>
       <param pos="0" name="service.product" value="GHost"/>
       <param pos="0" name="os.vendor" value="Akamai"/>
-      <param pos="0" name="os.device" value="Web proxy"/>      
+      <param pos="0" name="os.device" value="Web proxy"/>
    </fingerprint>
 
    <fingerprint pattern="^gws$">
@@ -3294,7 +3298,7 @@
       <description>Google Web Services</description>
       <param pos="0" name="service.vendor" value="Google"/>
       <param pos="0" name="service.product" value="Google Web Services"/>
-      <param pos="0" name="service.family" value="Google Web Server"/>    
+      <param pos="0" name="service.family" value="Google Web Server"/>
    </fingerprint>
 
    <fingerprint pattern="^GFE/((?:\d+\.)+\d+)$">

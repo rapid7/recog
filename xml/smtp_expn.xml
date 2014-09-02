@@ -47,6 +47,7 @@ See comment at the top of smtp_banners.xml for additional info.
 
    <!-- VM SMTP server doesn't like brackets in EXPN commands... -->
    <fingerprint pattern="^501[ -]Syntax Error\. Only ListId or Userid allowed as argument to this command *$">
+      <description>IBM VM SMTP</description>
       <param pos="0" name="service.vendor" value="IBM"/>
       <param pos="0" name="service.family" value="VM"/>
       <param pos="0" name="service.product" value="VM"/>
