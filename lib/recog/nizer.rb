@@ -42,7 +42,7 @@ class Nizer
             result[k] = m[ v[0] ]
           end
         end
-        return result  
+        return result
       end
     end
     nil
@@ -69,7 +69,7 @@ class Nizer
       (HOST_ATTRIBUTES & m.keys).each do |ha|
         host_attrs[ha]        ||= {}
         host_attrs[ha][m[ha]] ||= 0
-        host_attrs[ha][m[ha]]  += 1        
+        host_attrs[ha][m[ha]]  += 1
       end
 
       next unless m.has_key?('os.product')
@@ -85,7 +85,7 @@ class Nizer
     # Select the best host attribute value by highest frequency
     #
     host_attrs.keys.each do |hk|
-      ranked_attr = host_attrs[hk].keys.sort do |a,b| 
+      ranked_attr = host_attrs[hk].keys.sort do |a,b|
         host_attrs[hk][b] <=> host_attrs[hk][a]
       end
       result[hk] = ranked_attr.first
@@ -101,7 +101,7 @@ class Nizer
     # matches within an os.product group. Multiple weak matches can
     # outweigh a single strong match by design.
     #
-    ranked_os = os_products.keys.sort do |a,b|    
+    ranked_os = os_products.keys.sort do |a,b|
       os_products[b].map{ |r| r['os.certainty'] }.inject(:+) <=>
       os_products[a].map{ |r| r['os.certainty'] }.inject(:+)
     end
@@ -151,11 +151,11 @@ class Nizer
     end
 
     #
-    # Select the best service name by combined certainty of all matches 
-    # within an service.product group. Multiple weak matches can 
+    # Select the best service name by combined certainty of all matches
+    # within an service.product group. Multiple weak matches can
     # outweigh a single strong match by design.
     #
-    ranked_service = service_products.keys.sort do |a,b|    
+    ranked_service = service_products.keys.sort do |a,b|
       service_products[b].map{ |r| r['service.certainty'] }.inject(:+) <=>
       service_products[a].map{ |r| r['service.certainty'] }.inject(:+)
     end
@@ -177,7 +177,7 @@ class Nizer
 
     result
   end
- 
+
 end
 end
 
@@ -259,5 +259,5 @@ Current key names:
   timeout
   tomcat.info
   zmailer.ident
-  
+
 =end

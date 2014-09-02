@@ -18,25 +18,26 @@ class Verifier
         end
 
         fp.tests.each do |test|
-          m = test.match(fp.regex)
-          unless m
-            failure = "'#{fp.name}' failed to match #{test.inspect} with #{fp.regex.to_s}'"
-            reporter.failure("FAIL: #{failure}")
-          else
+          match = test.match(fp.regex)
+          if match
             info = { }
             fp.params.each_pair do |k,v|
-              if v[0] == 0
-                info[k] = v[1]
+              pos, value = v
+              if pos == 0
+                info[k] = value
               else
-                info[k] = m[ v[0] ]
-                if m[ v[0] ].to_s.empty?
-                  warning = "'#{fp.name}' failed to match #{test.inspect} key '#{k}'' with #{fp.regex.to_s}'"
+                info[k] = match[ pos ]
+                if match[ pos ].to_s.empty?
+                  warning = "'#{fp.name}' failed to match #{test.inspect} key '#{k}' with #{fp.regex}'"
                   reporter.warning "WARN: #{warning}"
-                end					
+                end
               end
             end
 
             reporter.success(test)
+          else
+            failure = "'#{fp.name}' failed to match #{test.inspect} with #{fp.regex}'"
+            reporter.failure("FAIL: #{failure}")
           end
         end
       end

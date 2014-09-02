@@ -52,6 +52,7 @@ See comment at the top of smtp_banners.xml for additional info.
    </fingerprint>
 
    <fingerprint pattern="^214[ -]([^ ]+) is running the IBM VM operating system$">
+      <description>IBM VM</description>
       <param pos="0" name="service.vendor" value="IBM"/>
       <param pos="0" name="service.family" value="VM"/>
       <param pos="0" name="service.product" value="VM"/>
@@ -134,7 +135,7 @@ See comment at the top of smtp_banners.xml for additional info.
       <param pos="0" name="service.vendor" value="qmail"/>
       <param pos="0" name="service.family" value="qmail"/>
       <param pos="0" name="service.product" value="qmail"/>
-   </fingerprint>   
+   </fingerprint>
 
    <fingerprint pattern="^214[ -].*contact the Digital Customer Support Center at 1-800-354-9000.*$">
       <description>

@@ -14,9 +14,9 @@ Gem::Specification.new do |s|
   s.homepage    = "https://www.github.com/rapid7/recog"
   s.summary     = %q{Network service fingerprint database, classes, and utilities}
   s.description = %q{
-    Recog is a framework for identifying products, services, operating systems, and hardware by matching 
-    fingerprints against data returned from various network probes. Recog makes it simply to extract useful 
-    information from web server banners, snmp system description fields, and a whole lot more. 
+    Recog is a framework for identifying products, services, operating systems, and hardware by matching
+    fingerprints against data returned from various network probes. Recog makes it simply to extract useful
+    information from web server banners, snmp system description fields, and a whole lot more.
   }.gsub(/\s+/, ' ').strip
 
   s.files         = `git ls-files`.split("\n")
@@ -27,8 +27,17 @@ Gem::Specification.new do |s|
   # ---- Dependencies ----
 
   s.add_development_dependency 'rspec'
+  s.add_development_dependency 'yard'
+  if RUBY_PLATFORM =~ /java/
+    # markdown formatting for yard
+    s.add_development_dependency 'kramdown'
+  else
+    # markdown formatting for yard
+    s.add_development_dependency 'redcarpet'
+  end
   s.add_development_dependency 'cucumber'
   s.add_development_dependency 'aruba'
+  s.add_development_dependency 'simplecov'
 
   s.add_runtime_dependency 'nokogiri'
 end

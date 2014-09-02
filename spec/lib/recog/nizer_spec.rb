@@ -1,10 +1,10 @@
-require_relative '../../lib/recog'
+require 'recog'
 require 'yaml'
 
 describe Recog::Nizer do
-  subject { Recog::Nizer }
+  subject { described_class }
 
-  describe "#match" do
+  describe ".match" do
     File.readlines(File.expand_path(File.join('spec', 'data', 'smb_native_os.txt'))).each do |line|
       data = line.strip
       context "with smb_native_os:#{data}" do
@@ -32,7 +32,7 @@ describe Recog::Nizer do
     end
   end
 
-  describe "self.best_os_match" do
+  describe ".best_os_match" do
 
     # Demonstrates how this method picks up additional attributes from other members of the winning
     # os.product match group and applies them to the result.
@@ -90,7 +90,7 @@ describe Recog::Nizer do
 
   end
 
- describe "self.best_service_match" do
+ describe ".best_service_match" do
 
     # Demonstrates how this method picks up additional attributes from other members of the winning
     # service.product match group and applies them to the result.

@@ -1,4 +1,4 @@
-require_relative '../../lib/recog/formatter'
+require 'recog/formatter'
 
 describe Recog::Formatter do
   let(:output) { StringIO.new }

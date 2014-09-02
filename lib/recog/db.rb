@@ -13,9 +13,9 @@ class DB
   def parse_fingerprints
     self.fingerprints = []
     xml = nil
-    
+
     File.open(self.path, "rb") do |fd|
-      xml = Nokogiri::XML( fd.read(fd.stat.size))
+      xml = Nokogiri::XML(fd.read(fd.stat.size))
     end
 
     xml.xpath("/fingerprints").each do |fbase|
