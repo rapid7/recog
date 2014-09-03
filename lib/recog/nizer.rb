@@ -22,27 +22,20 @@ class Nizer
   @@db_manager = nil
 
   #
-  # Locate a database that corresponds with the match_key and attempt to
-  # find a matching fingerprinting, stopping a the first hit. Returns
-  # nil when no matching database or fingerprint is found.
+  # Locate a database that corresponds with the `match_key` and attempt to
+  # find a matching fingerprinting, stopping at the first hit. Returns `nil`
+  # when no matching database or fingerprint is found.
   #
+  # @param match_key [String] Fingerprint DB name, e.g. 'smb.native_os'
+  # @return (see Fingerprint#match)
   def self.match(match_key, match_string)
     match_string = match_string.to_s.unpack("C*").pack("C*")
     @@db_manager ||= Recog::DBManager.new
     @@db_manager.databases.each do |db|
       next unless db.match_key == match_key
       db.fingerprints.each do |fprint|
-        m = fprint.regex.match(match_string)
-        next unless m
-        result = { 'matched' => fprint.name }
-        fprint.params.each_pair do |k,v|
-          if v[0] == 0
-            result[k] = v[1]
-          else
-            result[k] = m[ v[0] ]
-          end
-        end
-        return result
+        m = fprint.match(match_string)
+        return m if m
       end
     end
     nil

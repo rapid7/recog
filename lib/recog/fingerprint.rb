@@ -15,6 +15,26 @@ class Fingerprint
     @tests  = examples(xml)
   end
 
+  # Attempt to match the given string.
+  #
+  # @param match_string [String]
+  # @return [Hash,nil]
+  def match(match_string)
+    m = @regex.match(match_string)
+    return if m.nil?
+
+    result = { 'matched' => @name }
+    @params.each_pair do |k,v|
+      if v[0] == 0
+        # A match offset of 0 means this param has a hardcoded value
+        result[k] = v[1]
+      else
+        result[k] = m[ v[0] ]
+      end
+    end
+    return result
+  end
+
   private
 
   # @param xml [Nokogiri::XML::Element]
@@ -32,6 +52,7 @@ class Fingerprint
   end
 
   # @param xml [Nokogiri::XML::Element]
+  # @return [Hash]
   def parse_params(xml)
     {}.tap do |h|
       xml.xpath('param').each do |param|
