@@ -63,8 +63,9 @@ describe Recog::MatchReporter do
 
   describe "#stop?" do
     context "with a failure limit" do
+
+      let(:options) { double(fail_fast: true, stop_after: 3, detail: false) }
       before do
-        options.stub(fail_fast: true, stop_after: 3)
         subject.failure 'first'
         subject.failure 'second'
       end
@@ -80,7 +81,7 @@ describe Recog::MatchReporter do
     end
 
     context "with no failure limit" do
-      before { options.stub(fail_fast: false) }
+      let(:options) { double(fail_fast: false, detail: false) }
 
       it "return false" do
         expect(subject.stop?).to be false
