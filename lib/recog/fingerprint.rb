@@ -1,27 +1,43 @@
 module Recog
+
+# A fingerprint that can be matched with a string. The idea is to
 class Fingerprint
   require 'recog/fingerprint/regexp_factory'
 
+  # A human readable name describing this fingerprint
+  # @return (see #parse_description)
   attr_reader :name
+
+  # @see #create_regexp
+  # @return [Regexp] the Regexp to try when calling {#match}
   attr_reader :regex
+
+  # Collection of the various test strings in the {Recog::DB database} for
+  # this fingerprint.
+  #
+  # @return (see #parse_params)
   attr_reader :params
+
+  # Collection of example strings that should {#match} our {#regex}
+  #
+  # @return (see #parse_examples)
   attr_reader :tests
 
   # @param xml [Nokogiri::XML::Element]
   def initialize(xml)
-    @name   = description(xml)
+    @name   = parse_description(xml)
     @regex  = create_regexp(xml)
     @params = parse_params(xml)
-    @tests  = examples(xml)
+    @tests  = parse_examples(xml)
   end
 
   # Attempt to match the given string.
   #
   # @param match_string [String]
-  # @return [Hash,nil]
+  # @return [Hash,nil] Keys will be host, service, and os attributes
   def match(match_string)
-    m = @regex.match(match_string)
-    return if m.nil?
+    match_data = @regex.match(match_string)
+    return if match_data.nil?
 
     result = { 'matched' => @name }
     @params.each_pair do |k,v|
@@ -29,7 +45,7 @@ class Fingerprint
         # A match offset of 0 means this param has a hardcoded value
         result[k] = v[1]
       else
-        result[k] = m[ v[0] ]
+        result[k] = match_data[ v[0] ]
       end
     end
     return result
@@ -38,7 +54,8 @@ class Fingerprint
   private
 
   # @param xml [Nokogiri::XML::Element]
-  def description(xml)
+  # @return [String] Contents of the source XML's `description` tag
+  def parse_description(xml)
     element = xml.xpath('description')
     element.empty? ? '' : element.first.content
   end
@@ -65,7 +82,8 @@ class Fingerprint
   end
 
   # @param xml [Nokogiri::XML::Element]
-  def examples(xml)
+  # @return [Array<String>]
+  def parse_examples(xml)
     xml.xpath('example').collect(&:content)
   end
 

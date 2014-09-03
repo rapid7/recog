@@ -23,7 +23,7 @@ class Nizer
 
   #
   # Locate a database that corresponds with the `match_key` and attempt to
-  # find a matching fingerprinting, stopping at the first hit. Returns `nil`
+  # find a matching {Fingerprint fingerprint}, stopping at the first hit. Returns `nil`
   # when no matching database or fingerprint is found.
   #
   # @param match_key [String] Fingerprint DB name, e.g. 'smb.native_os'
