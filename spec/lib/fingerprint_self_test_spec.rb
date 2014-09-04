@@ -37,8 +37,8 @@ describe Recog::DB do
           # end
 
           fp.tests.each do |example|
-            it "passes self-test #{example.gsub(/\s+/, ' ')[0,32]}..." do
-              expect(fp.regex.match(example)).to_not be_nil
+            it "passes self-test #{example.content.gsub(/\s+/, ' ')[0,32]}..." do
+              expect(fp.match(example.content)).to_not be_nil
             end
           end
 

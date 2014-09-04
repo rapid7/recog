@@ -4,6 +4,7 @@ module Recog
 # fingerprintable data, e.g. an HTTP `Server` header
 class Fingerprint
   require 'recog/fingerprint/regexp_factory'
+  require 'recog/fingerprint/test'
 
   # A human readable name describing this fingerprint
   # @return (see #parse_description)
@@ -29,8 +30,11 @@ class Fingerprint
   def initialize(xml)
     @name   = parse_description(xml)
     @regex  = create_regexp(xml)
-    @params = parse_params(xml)
-    @tests  = parse_examples(xml)
+    @params = {}
+    @tests = []
+
+    parse_examples(xml)
+    parse_params(xml)
   end
 
   # Attempt to match the given string.
@@ -53,6 +57,35 @@ class Fingerprint
     return result
   end
 
+  def verify_tests(&block)
+    if tests.size == 0
+      yield :warn, "'#{@name}' has no test cases"
+    end
+
+    message = ""
+    tests.each do |test|
+      begin
+        result = match(test.content)
+        if result.nil?
+          message << "'#{@name}' failed to match #{test.content.inspect} with #{@regex}'"
+          raise
+        end
+
+        # Ensure that all the attributes as provided by the example were parsed
+        # out correctly and match the capture group values we expect.
+        test.attributes.each do |k, v|
+          if !result.has_key?(k) || result[k] != v
+            message << "'#{@name}' failed to find expected capture group #{k} '#{v}'"
+            raise
+          end
+        end
+        yield :success, test
+      rescue
+        yield :fail, message
+      end
+    end
+  end
+
   private
 
   # @param xml [Nokogiri::XML::Element]
@@ -71,9 +104,17 @@ class Fingerprint
   end
 
   # @param xml [Nokogiri::XML::Element]
-  # @return [Array<String>]
+  # @return [void]
   def parse_examples(xml)
-    xml.xpath('example').collect(&:content)
+    elements = xml.xpath('example')
+
+    elements.each do |elem|
+      # convert nokogiri Attributes into a hash of name => value
+      attrs = elem.attributes.values.reduce({}) { |a,e| a.merge(e.name => e.value) }
+      @tests << Test.new(elem.content, attrs)
+    end
+
+    nil
   end
 
   # @param xml [Nokogiri::XML::Element]
@@ -82,7 +123,7 @@ class Fingerprint
   #   that thing. If the index is 0, the second element is a static value for
   #   that thing; otherwise it is undefined.
   def parse_params(xml)
-    {}.tap do |h|
+    @params = {}.tap do |h|
       xml.xpath('param').each do |param|
         name  = param['name']
         pos   = param['pos'].to_i
@@ -90,6 +131,8 @@ class Fingerprint
         h[name] = [pos, value]
       end
     end
+
+    nil
   end
 
 end

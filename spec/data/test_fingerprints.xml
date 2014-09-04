@@ -21,4 +21,16 @@
      <example>HP LaserJet 2200</example>
      <param pos="0" name="service.vendor" value="HP"/>
    </fingerprint>
+
+   <fingerprint pattern="^Windows XP (\d+) (Service Pack \d+)$">
+      <description>Windows XP</description>
+      <example os.build="2600" os.version="Service Pack 1"
+        >Windows XP 2600 Service Pack 1</example>
+      <param pos="0" name="os.certainty" value="1.0"/>
+      <param pos="0" name="os.vendor" value="Microsoft"/>
+      <param pos="0" name="os.product" value="Windows XP"/>
+      <param pos="1" name="os.build"/>
+      <param pos="2" name="os.version"/>
+   </fingerprint>
+
 </fingerprints>

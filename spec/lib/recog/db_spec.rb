@@ -94,7 +94,7 @@ describe Recog::DB do
       end
 
       it "has no tests" do
-        expect(entry.tests).to match_array(["HP LaserJet 4100 Series", "HP LaserJet 2200"])
+        expect(entry.tests.map(&:content)).to match_array(["HP LaserJet 4100 Series", "HP LaserJet 2200"])
       end
     end
   end
