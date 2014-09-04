@@ -54,6 +54,14 @@ class Fingerprint
   private
 
   # @param xml [Nokogiri::XML::Element]
+  # @return [Regexp]
+  def create_regexp(xml)
+    pattern = xml['pattern']
+    flags   = xml['flags'].to_s.split(',')
+    RegexpFactory.build(pattern, flags)
+  end
+
+  # @param xml [Nokogiri::XML::Element]
   # @return [String] Contents of the source XML's `description` tag
   def parse_description(xml)
     element = xml.xpath('description')
@@ -61,11 +69,9 @@ class Fingerprint
   end
 
   # @param xml [Nokogiri::XML::Element]
-  # @return [Regexp]
-  def create_regexp(xml)
-    pattern = xml['pattern']
-    flags   = xml['flags'].to_s.split(',')
-    RegexpFactory.build(pattern, flags)
+  # @return [Array<String>]
+  def parse_examples(xml)
+    xml.xpath('example').collect(&:content)
   end
 
   # @param xml [Nokogiri::XML::Element]
@@ -82,12 +88,6 @@ class Fingerprint
         h[name] = [pos, value]
       end
     end
-  end
-
-  # @param xml [Nokogiri::XML::Element]
-  # @return [Array<String>]
-  def parse_examples(xml)
-    xml.xpath('example').collect(&:content)
   end
 
 end
