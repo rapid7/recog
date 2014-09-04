@@ -1,6 +1,7 @@
 module Recog
 
-# A fingerprint that can be matched with a string. The idea is to
+# A fingerprint that can be matched against a particular kind of
+# fingerprintable data, e.g. an HTTP `Server` header
 class Fingerprint
   require 'recog/fingerprint/regexp_factory'
 
@@ -12,8 +13,7 @@ class Fingerprint
   # @return [Regexp] the Regexp to try when calling {#match}
   attr_reader :regex
 
-  # Collection of the various test strings in the {Recog::DB database} for
-  # this fingerprint.
+  # Collection of indexes for capture groups created by {#match}
   #
   # @return (see #parse_params)
   attr_reader :params
@@ -69,7 +69,10 @@ class Fingerprint
   end
 
   # @param xml [Nokogiri::XML::Element]
-  # @return [Hash]
+  # @return [Hash<String,Array>] Keys are things like os.name, values are a two
+  #   element Array. The first element is an index for the capture group that returns
+  #   that thing. If the index is 0, the second element is a static value for
+  #   that thing; otherwise it is undefined.
   def parse_params(xml)
     {}.tap do |h|
       xml.xpath('param').each do |param|

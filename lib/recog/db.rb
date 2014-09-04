@@ -1,8 +1,7 @@
 module Recog
 
-# A collection of regular expressions for matching against a particular kind
-# of fingerprintable data, e.g., an HTTP `Server` header, and example strings
-# intended to be matched by those regular expressions.
+# A collection of {Fingerprint fingerprints} for matching against a particular
+# kind of fingerprintable data, e.g. an HTTP `Server` header
 class DB
   require 'nokogiri'
   require 'recog/fingerprint'
