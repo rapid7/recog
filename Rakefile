@@ -11,5 +11,12 @@ YARD::Rake::YardocTask.new do |t|
     t.files = ['lib/**/*.rb', '-', 'README.md']
 end
 
-task :default => [ :spec, :yard ]
+require 'cucumber'
+require 'cucumber/rake/task'
+
+Cucumber::Rake::Task.new(:features) do |t|
+    t.cucumber_opts = "features --format pretty"
+end
+
+task :default => [ :spec, :features, :yard ]
 
