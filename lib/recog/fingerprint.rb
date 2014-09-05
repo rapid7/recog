@@ -62,27 +62,25 @@ class Fingerprint
       yield :warn, "'#{@name}' has no test cases"
     end
 
-    message = ""
     tests.each do |test|
-      begin
-        result = match(test.content)
-        if result.nil?
-          message << "'#{@name}' failed to match #{test.content.inspect} with #{@regex}'"
-          raise
-        end
-
-        # Ensure that all the attributes as provided by the example were parsed
-        # out correctly and match the capture group values we expect.
-        test.attributes.each do |k, v|
-          if !result.has_key?(k) || result[k] != v
-            message << "'#{@name}' failed to find expected capture group #{k} '#{v}'"
-            raise
-          end
-        end
-        yield :success, test
-      rescue
-        yield :fail, message
+      result = match(test.content)
+      if result.nil?
+        yield :fail, "'#{@name}' failed to match #{test.content.inspect} with #{@regex}'"
+        next
       end
+
+      message = test
+      status = :success
+      # Ensure that all the attributes as provided by the example were parsed
+      # out correctly and match the capture group values we expect.
+      test.attributes.each do |k, v|
+        if !result.has_key?(k) || result[k] != v
+          message = "'#{@name}' failed to find expected capture group #{k} '#{v}'"
+          status = :fail
+          break
+        end
+      end
+      yield status, message
     end
   end
 
