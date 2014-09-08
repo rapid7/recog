@@ -1,3 +1,3 @@
 module Recog
-  VERSION = "0.02"
+  VERSION = "0.0.1"
 end

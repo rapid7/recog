@@ -14,7 +14,7 @@ option_parser = OptionParser.new do |opts|
   opts.separator ""
   opts.separator "Options"
 
-  opts.on("-f", "--format FORMATTER", 
+  opts.on("-f", "--format FORMATTER",
           "Choose a formatter.",
           "  [s]ummary (default - failure/warning msgs and summary)",
           "  [d]etail  (fingerprint name with tests and expanded summary)") do |format|

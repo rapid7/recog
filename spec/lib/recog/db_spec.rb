@@ -1,12 +1,16 @@
-require_relative '../../lib/recog/db'
+require 'recog/db'
 
 describe Recog::DB do
   let(:xml_file) { File.expand_path File.join('spec', 'data', 'test_fingerprints.xml') }
   subject { Recog::DB.new(xml_file) }
 
   describe "#fingerprints" do
+    subject(:fingerprints) { described_class.new(xml_file).fingerprints }
+
+    it { is_expected.to be_a(Enumerable) }
+
     context "with only a pattern" do
-      let(:entry) { subject.fingerprints[0] }
+      subject(:entry) { described_class.new(xml_file).fingerprints[0] }
 
       it "has a blank name with no description" do
         expect(entry.name).to be_empty
@@ -26,7 +30,7 @@ describe Recog::DB do
     end
 
     context "with params" do
-      let(:entry) { subject.fingerprints[1] }
+      subject(:entry) { described_class.new(xml_file).fingerprints[1] }
 
       it "has a name" do
         expect(entry.name).to eq('PalmOS')
@@ -46,14 +50,22 @@ describe Recog::DB do
     end
 
     context "with pattern flags" do
-      let(:entry) { subject.fingerprints[2] }
+      subject(:entry) { described_class.new(xml_file).fingerprints[2] }
 
       it "has a name and only uses the first value" do
         expect(entry.name).to eq('HP Designjet printer')
       end
 
-      it "has a pattern" do
+      it 'creates a Regexp with expected flags' do
+        if RUBY_PLATFORM =~ /java/i
+          pending "Bug in jruby"
+        end
+        expect(entry.regex).to be_a(Regexp)
         expect(entry.regex.options).to eq(Regexp::NOENCODING | Regexp::IGNORECASE)
+      end
+
+      it "has a pattern" do
+        expect(entry.regex).to be_a(Regexp)
         expect(entry.regex.source).to eq("(designjet \\S+)")
       end
 
@@ -67,7 +79,7 @@ describe Recog::DB do
     end
 
     context "with test" do
-      let(:entry) { subject.fingerprints[3] }
+      subject(:entry) { described_class.new(xml_file).fingerprints[3] }
 
       it "has a name" do
         expect(entry.name).to eq('HP JetDirect Printer')
@@ -82,7 +94,7 @@ describe Recog::DB do
       end
 
       it "has no tests" do
-        expect(entry.tests).to match_array(["HP LaserJet 4100 Series", "HP LaserJet 2200"])
+        expect(entry.tests.map(&:content)).to match_array(["HP LaserJet 4100 Series", "HP LaserJet 2200"])
       end
     end
   end

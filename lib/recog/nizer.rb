@@ -22,27 +22,20 @@ class Nizer
   @@db_manager = nil
 
   #
-  # Locate a database that corresponds with the match_key and attempt to
-  # find a matching fingerprinting, stopping a the first hit. Returns
-  # nil when no matching database or fingerprint is found.
+  # Locate a database that corresponds with the `match_key` and attempt to
+  # find a matching {Fingerprint fingerprint}, stopping at the first hit. Returns `nil`
+  # when no matching database or fingerprint is found.
   #
+  # @param match_key [String] Fingerprint DB name, e.g. 'smb.native_os'
+  # @return (see Fingerprint#match)
   def self.match(match_key, match_string)
     match_string = match_string.to_s.unpack("C*").pack("C*")
     @@db_manager ||= Recog::DBManager.new
     @@db_manager.databases.each do |db|
       next unless db.match_key == match_key
       db.fingerprints.each do |fprint|
-        m = fprint.regex.match(match_string)
-        next unless m
-        result = { 'matched' => fprint.name }
-        fprint.params.each_pair do |k,v|
-          if v[0] == 0
-            result[k] = v[1]
-          else
-            result[k] = m[ v[0] ]
-          end
-        end
-        return result  
+        m = fprint.match(match_string)
+        return m if m
       end
     end
     nil
@@ -69,7 +62,7 @@ class Nizer
       (HOST_ATTRIBUTES & m.keys).each do |ha|
         host_attrs[ha]        ||= {}
         host_attrs[ha][m[ha]] ||= 0
-        host_attrs[ha][m[ha]]  += 1        
+        host_attrs[ha][m[ha]]  += 1
       end
 
       next unless m.has_key?('os.product')
@@ -85,7 +78,7 @@ class Nizer
     # Select the best host attribute value by highest frequency
     #
     host_attrs.keys.each do |hk|
-      ranked_attr = host_attrs[hk].keys.sort do |a,b| 
+      ranked_attr = host_attrs[hk].keys.sort do |a,b|
         host_attrs[hk][b] <=> host_attrs[hk][a]
       end
       result[hk] = ranked_attr.first
@@ -101,7 +94,7 @@ class Nizer
     # matches within an os.product group. Multiple weak matches can
     # outweigh a single strong match by design.
     #
-    ranked_os = os_products.keys.sort do |a,b|    
+    ranked_os = os_products.keys.sort do |a,b|
       os_products[b].map{ |r| r['os.certainty'] }.inject(:+) <=>
       os_products[a].map{ |r| r['os.certainty'] }.inject(:+)
     end
@@ -151,11 +144,11 @@ class Nizer
     end
 
     #
-    # Select the best service name by combined certainty of all matches 
-    # within an service.product group. Multiple weak matches can 
+    # Select the best service name by combined certainty of all matches
+    # within an service.product group. Multiple weak matches can
     # outweigh a single strong match by design.
     #
-    ranked_service = service_products.keys.sort do |a,b|    
+    ranked_service = service_products.keys.sort do |a,b|
       service_products[b].map{ |r| r['service.certainty'] }.inject(:+) <=>
       service_products[a].map{ |r| r['service.certainty'] }.inject(:+)
     end
@@ -177,7 +170,7 @@ class Nizer
 
     result
   end
- 
+
 end
 end
 
@@ -259,5 +252,5 @@ Current key names:
   timeout
   tomcat.info
   zmailer.ident
-  
+
 =end
