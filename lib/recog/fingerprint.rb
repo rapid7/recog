@@ -57,6 +57,13 @@ class Fingerprint
     return result
   end
 
+  # Ensure all the {#tests} actually match the fingerprint and return the
+  # expected capture groups.
+  #
+  # @yeildparam status [Symbol] One of `:warn`, `:fail`, or `:success` to
+  #   indicate whether a test worked
+  # @yeildparam message [String] A human-readable string explaining the
+  #   `status`
   def verify_tests(&block)
     if tests.size == 0
       yield :warn, "'#{@name}' has no test cases"
