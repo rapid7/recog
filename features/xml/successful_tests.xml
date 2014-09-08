@@ -7,27 +7,12 @@
       <param pos="0" name="os.product" value="IOS"/>
       <param pos="1" name="os.version"/>
    </fingerprint>
-   <fingerprint pattern="^Microsoft Exchange Server 2007 IMAP4 service ready$">
-      <!--  Microsoft Exchange Server 2007 IMAP4 service ready
-        -->
-      <description>Microsoft Exchange Server 2007</description>
-      <param pos="0" name="service.vendor" value="Microsoft"/>
-      <param pos="0" name="service.family" value="Exchange Server"/>
-      <param pos="0" name="service.product" value="Exchange 2007 Server"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.product" value="Windows"/>
-    </fingerprint>
-    <fingerprint pattern="^The Microsoft Exchange IMAP4 service is ready\.?$">
-      <example>The Microsoft Exchange IMAP4 service is ready.</example>
-      <description>Microsoft Exchange Server</description>
-      <param pos="0" name="service.vendor" value="Microsoft"/>
-      <param pos="0" name="service.family" value="Exchange Server"/>
-      <param pos="0" name="service.product" value="Exchange Server"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.product" value="Windows"/>
+   <fingerprint pattern="^bar ([\d.]+)$">
+     <description>bar test</description>
+     <example os.version="1.0" >bar 1.0</example>
+     <example os.version="2.0" >bar 2.0</example>
+     <example os.version="2.1" >bar 2.1</example>
+     <param pos="1" name="os.version" />
+     <param pos="0" name="os.name" value="Bar" />
    </fingerprint>
 </fingerprints>

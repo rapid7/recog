@@ -1,17 +1,33 @@
 module Recog
+
+# A collection of {Fingerprint fingerprints} for matching against a particular
+# kind of fingerprintable data, e.g. an HTTP `Server` header
 class DB
   require 'nokogiri'
   require 'recog/fingerprint'
 
-  attr_accessor :path, :fingerprints, :match_key
+  # @return [String]
+  attr_reader :path
 
+  # @return [Array<Fingerprint>] {Fingerprint} objects that can be matched
+  #   against strings that make sense for the {#match_key}
+  attr_reader :fingerprints
+
+  # @return [String] Taken from the `fingerprints/matches` element, or
+  #   defaults to the basename of {#path} without the `.xml` extension.
+  attr_reader :match_key
+
+  # @param path [String]
   def initialize(path)
-    self.path = path
+    @match_key = nil
+    @path = path
+    @fingerprints = []
+
     parse_fingerprints
   end
 
+  # @return [void]
   def parse_fingerprints
-    self.fingerprints = []
     xml = nil
 
     File.open(self.path, "rb") do |fd|
@@ -20,16 +36,16 @@ class DB
 
     xml.xpath("/fingerprints").each do |fbase|
       if fbase['matches']
-        self.match_key = fbase['matches'].to_s
+        @match_key = fbase['matches'].to_s
       end
     end
 
-    unless self.match_key
-      self.match_key = File.basename(self.path).sub(/\.xml$/, '')
+    unless @match_key
+      @match_key = File.basename(self.path).sub(/\.xml$/, '')
     end
 
     xml.xpath("/fingerprints/fingerprint").each do |fprint|
-      fingerprints << Fingerprint.new(fprint)
+      @fingerprints << Fingerprint.new(fprint)
     end
 
     xml = nil
