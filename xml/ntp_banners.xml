@@ -198,8 +198,8 @@ NTP "banners", taken from a readvar response
       processor="i386", system="JUNOS9.3R4.4", leap=11, stratum=16,
     </example>
     <param pos="0" name="os.vendor" value="Juniper"/>
-    <param pos="0" name="os.family" value="JUNOS"/>
-    <param pos="0" name="os.product" value="JUNOS"/>
+    <param pos="0" name="os.family" value="Junos"/>
+    <param pos="0" name="os.product" value="Junos OS"/>
     <param pos="0" name="service.family" value="NTP"/>
     <param pos="0" name="service.product" value="NTP"/>
     <param pos="1" name="service.version"/>
@@ -352,13 +352,14 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.family" value="HP-UX"/>
     <param pos="0" name="os.product" value="HP-UX"/>
   </fingerprint>
-  <fingerprint pattern="system=&quot;UNIX&quot;" flags="REG_ICASE" certainty="0.5">
+  <fingerprint pattern="system=&quot;UNIX&quot;" flags="REG_ICASE">
     <description>Generic UNIX</description>
     <example>
       version="4", processor="unknown", system="UNIX", leap=0, stratum=2,
     </example>
     <param pos="0" name="os.family" value="UNIX"/>
     <param pos="0" name="os.product" value="UNIX"/>
+    <param pos="0" name="os.certainty" value="0.5"/>
   </fingerprint>
   <fingerprint pattern="system=&quot;VxWorks&quot;" flags="REG_ICASE">
     <description>Generic VxWorks</description>

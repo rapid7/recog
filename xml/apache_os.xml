@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <!--
-When an HTTP server is fingerprinted as Apache, a second analysis pass can be done
-on the server headers to extract OS information.
+When an HTTP server is fingerprinted as Apache, a 2nd analysis pass is done
+on the server headers HTTPProtocolHelper.SERVER_HEADERS: they are matched
+against the following patterns to extract OS information.
 -->
 
 <fingerprints matches="apache_os">
@@ -108,6 +109,51 @@ on the server headers to extract OS information.
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.family" value="Linux"/>
       <param pos="0" name="os.product" value="Cobalt RaQ"/>
+   </fingerprint>
+
+   <fingerprint pattern="^Apache\/2\.2\.11.*\(Fedora\).*">
+      <description>Red Hat Fedora 11</description>
+      <param pos="0" name="os.vendor" value="Red Hat"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.family" value="Linux"/>
+      <param pos="0" name="os.product" value="Fedora Core Linux"/>
+      <param pos="0" name="os.version" value="11"/>
+   </fingerprint>
+
+   <fingerprint pattern="^Apache\/2\.2\.15.*\(Fedora\).*">
+      <description>Red Hat Fedora 13</description>
+      <param pos="0" name="os.vendor" value="Red Hat"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.family" value="Linux"/>
+      <param pos="0" name="os.product" value="Fedora Core Linux"/>
+      <param pos="0" name="os.version" value="13"/>
+   </fingerprint>
+
+   <fingerprint pattern="^Apache\/2\.2\.16.*\(Fedora\).*">
+      <description>Red Hat Fedora 14</description>
+      <param pos="0" name="os.vendor" value="Red Hat"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.family" value="Linux"/>
+      <param pos="0" name="os.product" value="Fedora Core Linux"/>
+      <param pos="0" name="os.version" value="14"/>
+   </fingerprint>
+
+   <fingerprint pattern="^Apache\/2\.2\.23.*\(Fedora\).*">
+      <description>Red Hat Fedora 17</description>
+      <param pos="0" name="os.vendor" value="Red Hat"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.family" value="Linux"/>
+      <param pos="0" name="os.product" value="Fedora Core Linux"/>
+      <param pos="0" name="os.version" value="17"/>
+   </fingerprint>
+
+   <fingerprint pattern="^Apache\/2\.4\.3.*\(Fedora\).*">
+      <description>Red Hat Fedora 18</description>
+      <param pos="0" name="os.vendor" value="Red Hat"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.family" value="Linux"/>
+      <param pos="0" name="os.product" value="Fedora Core Linux"/>
+      <param pos="0" name="os.version" value="18"/>
    </fingerprint>
 
    <fingerprint pattern=".*\(Fedora\).*">

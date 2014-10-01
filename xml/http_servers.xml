@@ -1588,6 +1588,15 @@
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.family" value="Windows"/>
       <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
+    </fingerprint>
+
+   <fingerprint pattern="^Microsoft-IIS/([\d\.]+)$">
+      <example>Microsoft-IIS/9.0</example>
+      <description>Microsoft IIS new, unknown version</description>
+      <param pos="0" name="service.vendor" value="Microsoft"/>
+      <param pos="0" name="service.product" value="IIS"/>
+      <param pos="0" name="service.family" value="IIS"/>
+      <param pos="1" name="service.version"/>
    </fingerprint>
 
    <fingerprint pattern="^Microsoft-IIS$">
@@ -2185,6 +2194,23 @@
       <param pos="0" name="service.family" value="Integrated Lights Out Manager"/>
       <param pos="0" name="hw.vendor" value="Sun"/>
       <param pos="0" name="hw.family" value="Sun Fire"/>
+    </fingerprint>
+
+    <fingerprint pattern="^HP-iLO-Server/(?:[\S]+)">
+      <example>HP-iLO-Server/1.30</example>
+      <description>
+        HP Integrated Lights Out Manager (iLO).  The version in the Server
+        header is the firmware version and is not currently used.  Furthermore,
+        this header value only seems to be present in iLO 4
+      </description>
+      <param pos="0" name="service.vendor" value="HP"/>
+      <param pos="0" name="service.product" value="iLO"/>
+      <param pos="0" name="service.family" value="iLO"/>
+      <param pos="0" name="hw.vendor" value="HP"/>
+      <param pos="0" name="os.vendor" value="HP"/>
+      <param pos="0" name="os.product" value="iLO"/>
+      <param pos="0" name="os.family" value="iLO"/>
+      <param pos="0" name="os.device" value="Lights Out Management"/>
    </fingerprint>
 
    <!--
@@ -2273,6 +2299,7 @@
       <example>nginx/0.8.53</example>
       <param pos="0" name="service.product" value="nginx"/>
       <param pos="0" name="service.family" value="nginx"/>
+      <param pos="0" name="service.vendor" value="nginx"/>
       <param pos="1" name="service.version"/>
     </fingerprint>
 
@@ -2281,6 +2308,7 @@
       <example>nginx</example>
       <param pos="0" name="service.product" value="nginx"/>
       <param pos="0" name="service.family" value="nginx"/>
+      <param pos="0" name="service.vendor" value="nginx"/>
    </fingerprint>
 
    <fingerprint pattern="^Lotus(?:-Domino)?(?:/|/0|/Release)?$">
