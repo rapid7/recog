@@ -218,6 +218,44 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
+  <fingerprint pattern="^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>Solaris with no ntp version</description>
+    <example>
+      processor="sun4m", system="SunOS5.6"
+    </example>
+    <example>
+      processor="sun4m", system="SunOS5.8"
+    </example>
+    <example>
+      processor="sun4u", system="SunOS5.10"
+    </example>
+    <example>
+      processor="sun4u", system="SunOS5.6"
+    </example>
+    <example>
+      processor="sun4u", system="SunOS5.7"
+    </example>
+    <example>
+      processor="sun4u", system="SunOS5.8"
+    </example>
+    <example>
+      processor="sun4u", system="SunOS5.9"
+    </example>
+    <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="1" name="os.arch"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^.*system=&quot;UNIX/SunOS ([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>SunOS with no ntp version</description>
+    <example>
+      system="UNIX/SunOS 4.x",
+    </example>
+    <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+  </fingerprint>
   <fingerprint pattern="processor=&quot;([^ ]+)&quot;,.*system=&quot;JUNOS/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>Juniper/Netscreen JunOS NTP without a version</description>
     <example>processor="i386", system="JUNOS7.0R2.7", leap=0, stratum=3</example>
