@@ -186,8 +186,8 @@ matched against these patterns to fingerprint the printer.
       <param pos="0" name="os.device" value="Printer"/>
       <param pos="1" name="os.product"/>
    </fingerprint>
-   
-   <fingerprint pattern="^Oce (fx[^(?:\s|:)]+):.*$" flags="REG_ICASE">
+
+   <fingerprint pattern="^Oce (fx[^\s:]+):.*$" flags="REG_ICASE">
       <description>Oce FX series multifunction device</description>
       <example os.product="fx3000">Oce fx3000:8C5-B29:Ver.D:U0707161719:B0601271355</example>
       <param pos="0" name="os.vendor" value="Oce"/>
@@ -285,7 +285,7 @@ matched against these patterns to fingerprint the printer.
        <param pos="0" name="os.device" value="Multifunction Device"/>
        <param pos="1" name="os.product"/>
     </fingerprint>
-    
+
     <fingerprint pattern="^HYDRA$" flags="REG_ICASE">
       <description>RSI Hydra printer</description>
       <example>HYDRA</example>
