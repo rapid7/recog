@@ -706,4 +706,13 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
+  <fingerprint pattern=".*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,\s*processor,\s*system=&quot;/&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>NTP on an unknown system</description>
+    <example service.version="4.2.6p2-RC4@1.2180-o">
+      version="ntpd 4.2.6p2-RC4@1.2180-o Sun Jun 13 02:56:12 UTC 2010 (2)", processor, system="/"
+    </example>
+    <param pos="0" name="service.family" value="NTP"/>
+    <param pos="0" name="service.product" value="NTP"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
 </fingerprints>
