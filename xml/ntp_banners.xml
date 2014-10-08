@@ -3,6 +3,83 @@
 NTP "banners", taken from a readvar response
 -->
 <fingerprints matches="ntp.readvar">
+  <fingerprint pattern="^.*version=Domain Time II (\S+),hostname=([^,]+),.*system=Win2003.*,processor=(\S+)" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>Greyware Automation Products, Inc. Domain Time II on Windows Server 2003</description>
+    <example service.version="5.1.b.20100331R" os.arch="x64" host.name="blah">
+      version=Domain Time II 5.1.b.20100331R,hostname=blah,domain=,flat=WORKGROUP,system=Win2003 x64,processor=x64
+    </example>
+    <example service.version="5.2.b.20110831R" os.arch="x86" host.name="blah">
+      version=Domain Time II 5.2.b.20110831R,hostname=blah,domain=blah,flat=blah,system=Win2003,processor=x86
+    </example>
+    <param pos="0" name="service.vendor" value="Greyware Automation Products, Inc."/>
+    <param pos="0" name="service.product" value="Domain Time II"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="host.name"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows Server 2003"/>
+    <param pos="3" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^.*version=Domain Time II (\S+),hostname=([^,]+),.*system=Win2008R2.*,processor=(\S+)" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>Greyware Automation Products, Inc. Domain Time II on Windows Server 2008 R2</description>
+    <example service.version="5.2.b.20120215R" os.arch="x64" host.name="blah">
+      version=Domain Time II 5.2.b.20120215R,hostname=blah,domain=blah,flat=blah,system=Win2008R2 x64,processor=x64
+    </example>
+    <param pos="0" name="service.vendor" value="Greyware Automation Products, Inc."/>
+    <param pos="0" name="service.product" value="Domain Time II"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="host.name"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows 2008 R2"/>
+    <param pos="3" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^.*version=Domain Time II (\S+),hostname=([^,]+),.*system=Win2008.*,processor=(\S+)" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>Greyware Automation Products, Inc. Domain Time II on Windows 2008</description>
+    <example service.version="5.2.b.20140303R" os.arch="x86" host.name="blah">
+      version=Domain Time II 5.2.b.20140303R,hostname=blah,domain=blah,flat=blah,system=Win2008,processor=x86
+    </example>
+    <example service.version="5.2.b.20140523" os.arch="x64" host.name="blah">
+      version=Domain Time II 5.2.b.20140523,hostname=blah,domain=blah,flat=blah,system=Win2008 x64,processor=x64
+    </example>
+    <param pos="0" name="service.vendor" value="Greyware Automation Products, Inc."/>
+    <param pos="0" name="service.product" value="Domain Time II"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="host.name"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows Server 2008"/>
+    <param pos="3" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^.*version=Domain Time II (\S+),hostname=([^,]+),.*system=Win2012.*,processor=(\S+)" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>Greyware Automation Products, Inc. Domain Time II on Windows Server 2012</description>
+    <example service.version="5.2.b.20140101R" os.arch="x64" host.name="blah">
+      version=Domain Time II 5.2.b.20140101R,hostname=blah,domain=blah,flat=blah,system=Win2012 x64,processor=x64
+    </example>
+    <param pos="0" name="service.vendor" value="Greyware Automation Products, Inc."/>
+    <param pos="0" name="service.product" value="Domain Time II"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="host.name"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows Server 2012"/>
+    <param pos="3" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^.*version=Domain Time II (\S+),hostname=([^,]+),.*system=Win7.*,processor=(\S+)" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>Greyware Automation Products, Inc. Domain Time II on Windows 7</description>
+    <example service.version="5.2.b.20130405R" os.arch="x64" host.name="blah">
+      version=Domain Time II 5.2.b.20130405R,hostname=blah,domain=,flat=WORKGROUP,system=Win7 x64,processor=x64
+    </example>
+    <param pos="0" name="service.vendor" value="Greyware Automation Products, Inc."/>
+    <param pos="0" name="service.product" value="Domain Time II"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="host.name"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows 7"/>
+    <param pos="3" name="os.arch"/>
+  </fingerprint>
+
   <fingerprint pattern="^.*version=&quot;ntpd (\S+)[^&quot;]+&quot;,.*system=&quot;Equallogic \(R\) storage array&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on an EqualLogic Storage Array that includes the NTP version</description>
     <example>
