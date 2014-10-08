@@ -194,6 +194,47 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
+  <fingerprint pattern="^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;NetBSD/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>ntpd running on NetBSD</description>
+    <example os.arch="i386" os.version="1.5.3">
+      processor="i386", system="NetBSD1.5.3"
+    </example>
+    <example>
+      processor="i386", system="NetBSD1.6"
+    </example>
+    <example>
+      processor="i386", system="NetBSD1.6.1"
+    </example>
+    <example>
+      processor="i386", system="NetBSD1.6.2_STABLE"
+    </example>
+    <example>
+      processor="sbmips", system="NetBSD3.0"
+    </example>
+    <example>
+      processor="se100", system="NetBSD1.5.3"
+    </example>
+    <example>
+      processor="seil3", system="NetBSD1.6.1_STABLE"
+    </example>
+    <example>
+      processor="seil3", system="NetBSD1.6.2_STABLE"
+    </example>
+    <example>
+      processor="seil4", system="NetBSD1.6.1_STABLE"
+    </example>
+    <example>
+      processor="seil4", system="NetBSD1.6.2_STABLE"
+    </example>
+    <example>
+      processor="siara2k", system="NetBSD1.5.3"
+    </example>
+    <param pos="0" name="os.vendor" value="NetBSD"/>
+    <param pos="0" name="os.family" value="NetBSD"/>
+    <param pos="0" name="os.product" value="NetBSD"/>
+    <param pos="1" name="os.arch"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
   <fingerprint pattern="^.*system=&quot;NetWare&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>NetWare</description>
     <example>
