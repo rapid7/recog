@@ -423,7 +423,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.arch" value="i386"/>
   </fingerprint>
   <fingerprint pattern="system=&quot;UNIX/(Unixware([^ ]+))&quot;" flags="REG_ICASE">
-    <description>Add support for SCO Unixware NTP</description>
+    <description>SCO Unixware NTP</description>
     <example>
       system="UNIX/Unixware2", leap=3, stratum=16, rootdelay=0.00,
       rootdispersion=0.00, peer=0, refid=0.0.0.0, reftime=0x00000000.00000000,
@@ -433,6 +433,16 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="service.product" value="NTP"/>
     <param pos="0" name="os.vendor" value="SCO"/>
     <param pos="1" name="os.product"/>
+  </fingerprint>
+  <fingerprint pattern="^.*processor=&quot;([^&quot;]+)&quot;, system=&quot;SCO_SV([\d\.]+)&quot;" flags="REG_ICASE">
+    <description>SCO Unixware NTP</description>
+    <example os.version="3.2" os.arch="i386">
+      processor="i386", system="SCO_SV3.2", leap=0, stratum=2, precision=-18
+    </example>
+    <param pos="0" name="os.vendor" value="SCO"/>
+    <param pos="0" name="os.product" value="UNIX"/>
+    <param pos="1" name="os.arch"/>
+    <param pos="2" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*\s*processor=&quot;([^ ]+)&quot;,.*system=&quot;SecureOS/([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>McAfee Network Firewall Enterprise NTP (SecureOS)</description>
