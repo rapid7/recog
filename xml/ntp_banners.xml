@@ -114,6 +114,24 @@ NTP "banners", taken from a readvar response
     <param pos="3" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
   </fingerprint>
+  <fingerprint pattern="^.*processor=&quot;([^&quot;]+)&quot;.*system=&quot;BSD/OS([\d.]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>BSD/OS with a version and arch</description>
+    <example os.arch="i386" os.product="BSD/OS" os.version="4.3.1">
+      processor="i386", system="BSD/OS4.3.1", leap=0, stratum=2
+    </example>
+    <param pos="0" name="os.vendor" value="Berkeley Software Design Inc."/>
+    <param pos="0" name="os.product" value="BSD/OS"/>
+    <param pos="1" name="os.arch"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>-->
+  <fingerprint pattern="^.*system=&quot;BSD/OS&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>BSD/OS without a version or arch</description>
+    <example>
+      system="BSD/OS", leap=3, stratum=16, rootdelay=0.00
+    </example>
+    <param pos="0" name="os.vendor" value="Berkeley Software Design Inc."/>
+    <param pos="0" name="os.product" value="BSD/OS"/>
+  </fingerprint>
   <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?11\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Mac OSX 10.7/Lion</description>
     <example>
