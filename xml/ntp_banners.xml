@@ -108,6 +108,20 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.vendor" value="EqualLogic"/>
     <param pos="0" name="os.product" value="Storage Array"/>
   </fingerprint>
+  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;Linux/(?:[^ ]+\.ESX)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>ntpd running on VMware ESX</description>
+    <example service.version="4.2.2p1@1.1570-o" os.arch="x86_64">
+      version="ntpd 4.2.2p1@1.1570-o Thu Nov 26 11:34:34 UTC 2009 (1)",
+      processor="x86_64", system="Linux/2.6.18-194.ESX"
+    </example>
+    <param pos="0" name="service.family" value="NTP"/>
+    <param pos="0" name="service.product" value="NTP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="VMware"/>
+    <param pos="0" name="os.family" value="VMware ESX/ESXi"/>
+    <param pos="0" name="os.product" value="VMware ESX Server"/>
+    <param pos="2" name="os.arch"/>
+  </fingerprint>
   <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;Linux/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Linux</description>
     <example>
