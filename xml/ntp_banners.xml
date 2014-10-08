@@ -308,9 +308,9 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern=".*processor=&quot;([^ ]+)&quot;,.*system=&quot;OSF1/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern=".*processor=&quot;([^ ]+)&quot;,.*system=&quot;OSF1[/V]?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on OSF/1</description>
-    <example>
+    <example os.arch="alpha" os.version="4.0">
       processor="alpha", system="OSF1V4.0", leap=00, stratum=1, precision=-18,
     </example>
     <param pos="0" name="service.family" value="NTP"/>
@@ -319,6 +319,14 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.product" value="OSF/1"/>
     <param pos="2" name="os.version"/>
     <param pos="1" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern=".*system=&quot;UNIX/DECOSF1&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>DEC OSF/1</description>
+    <example>
+      system="UNIX/DECOSF1", leap=0, stratum=3, rootdelay=18.14,
+    </example>
+    <param pos="0" name="os.vendor" value="DEC"/>
+    <param pos="0" name="os.product" value="OSF/1"/>
   </fingerprint>
   <fingerprint pattern="^.*system=&quot;Linux&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>Linux with NTP enabled, no processor/version</description>
