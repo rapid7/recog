@@ -123,6 +123,23 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
+  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?6\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>ntpd running on Mac OSX 10.2/Jaguar</description>
+    <example service.version="4.1.1@1.786" os.version="10.2" os.version.version="8">
+      version="ntpd 4.1.1@1.786 Tue Nov 12 09:30:41 PST 2002 (1)", processor="Power Macintosh", system="Darwin6.8",
+    </example>
+    <param pos="0" name="service.family" value="NTP"/>
+    <param pos="0" name="service.product" value="NTP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS X"/>
+    <param pos="0" name="os.product" value="Mac OS X"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.version" value="10.2"/>
+    <param pos="3" name="os.version.version"/>
+    <param pos="0" name="os.certainty" value="0.9"/>
+  </fingerprint>
   <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?7\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Mac OSX 10.3/Panther</description>
     <param pos="0" name="service.family" value="NTP"/>
