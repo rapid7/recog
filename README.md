@@ -1,7 +1,7 @@
 Recog: A Recognition Framework
 =====
 
-Recog is a framework for identifying products, services, operating systems, and hardware by matching fingerprints against data returned from various network probes. Recog makes it simple to extract useful information from web server banners, snmp system description fields, and a whole lot more. Recog is open source, please see the [LICENSE](https://github.com/recog/LICENSE) file for more information.
+Recog is a framework for identifying products, services, operating systems, and hardware by matching fingerprints against data returned from various network probes. Recog makes it simple to extract useful information from web server banners, snmp system description fields, and a whole lot more. Recog is open source, please see the [LICENSE](https://raw.githubusercontent.com/rapid7/recog/master/LICENSE) file for more information.
 
 [![Build Status](https://travis-ci.org/rapid7/recog.png)](https://travis-ci.org/rapid7/recog)
 ==
