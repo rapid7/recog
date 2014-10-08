@@ -38,7 +38,12 @@ describe Recog::DB do
 
           fp.tests.each do |example|
             it "passes self-test #{example.content.gsub(/\s+/, ' ')[0,32]}..." do
-              expect(fp.match(example.content)).to_not be_nil
+              match = fp.match(example.content)
+              expect(match).to_not be_nil
+              # test any extractions specified in the example
+              example.attributes.each_pair do |k,v|
+                expect(match[k]).to eq(v)
+              end
             end
           end
 
