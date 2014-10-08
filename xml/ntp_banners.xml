@@ -191,6 +191,17 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
+  <fingerprint pattern="processor=&quot;([^ ]+)&quot;,.*system=&quot;JUNOS/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>Juniper/Netscreen JunOS NTP without a version</description>
+    <example>processor="i386", system="JUNOS7.0R2.7", leap=0, stratum=3</example>
+    <example>processor="i386", system="JUNOS6.4R1.6", leap=3, stratum=16</example>
+    <example>processor="i386", system="JUNOS5.5R2.3", leap=0, stratum=3</example>
+    <param pos="0" name="os.vendor" value="Juniper"/>
+    <param pos="0" name="os.family" value="Junos"/>
+    <param pos="0" name="os.product" value="Junos OS"/>
+    <param pos="2" name="os.arch"/>
+    <param pos="3" name="os.version"/>
+  </fingerprint>
   <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;JUNOS/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Juniper/Netscreen JunOS</description>
     <example>
