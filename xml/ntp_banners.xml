@@ -194,6 +194,15 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
+  <fingerprint pattern="^.*system=&quot;NetWare&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>NetWare</description>
+    <example>
+      system="NetWare", leap=0, stratum=2, rootdelay=0.12
+    </example>
+    <param pos="0" name="os.vendor" value="Novell"/>
+    <param pos="0" name="os.family" value="NetWare"/>
+    <param pos="0" name="os.product" value="NetWare"/>
+  </fingerprint>
   <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Solaris</description>
     <example>
