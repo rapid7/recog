@@ -179,6 +179,20 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
+  <fingerprint pattern="^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;FreeBSD/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>ntp without a version on FreeBSD</description>
+    <example os.arch="i386" os.version="4.1-RELEASE">
+      processor="i386", system="FreeBSD4.1-RELEASE"
+    </example>
+    <example os.arch="i386" os.version="2.2.6-RELEASE">
+      processor="i386", system="FreeBSD2.2.6-RELEASE",
+    </example>
+    <param pos="0" name="os.vendor" value="FreeBSD"/>
+    <param pos="0" name="os.family" value="FreeBSD"/>
+    <param pos="0" name="os.product" value="FreeBSD"/>
+    <param pos="1" name="os.arch"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
   <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;NetBSD/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on NetBSD</description>
     <example>
