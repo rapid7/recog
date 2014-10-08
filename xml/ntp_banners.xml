@@ -361,7 +361,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.product" value="UNIX"/>
     <param pos="0" name="os.certainty" value="0.5"/>
   </fingerprint>
-  <fingerprint pattern="system=&quot;VxWorks&quot;" flags="REG_ICASE">
+  <fingerprint pattern="system=&quot;VxWorks(?:/TORNADO)?&quot;" flags="REG_ICASE">
     <description>Generic VxWorks</description>
     <example>
       system="VxWorks", leap=0, stratum=8, rootdelay=63.74,
@@ -369,8 +369,29 @@ NTP "banners", taken from a readvar response
       reftime=0xd4747c5c.5851f000, poll=6, clock=0xd4747c6d.31206000,
       phase=4.131, freq=18961.38, compliance=0
     </example>
+    <example>
+      system="VXWORKS/Tornado", leap=3, stratum=16, rootdelay=0.00, rootdispersion=0.00
+    </example>
     <param pos="0" name="os.vendor" value="Wind River"/>
     <param pos="0" name="os.product" value="VxWorks"/>
+  </fingerprint>
+  <fingerprint pattern="system=&quot;arm-wrs-vxworks&quot;" flags="REG_ICASE">
+    <description>VxWorks ARM, cross-compiled on Linux</description>
+    <example>
+      processor="unknown", system="arm-wrs-vxworks", leap=0, stratum=2, rootdelay=999.86, rootdispersion=17.90, peer=32444
+    </example>
+    <param pos="0" name="os.vendor" value="Wind River"/>
+    <param pos="0" name="os.product" value="VxWorks"/>
+    <param pos="0" name="os.arch" value="arm"/>
+  </fingerprint>
+  <fingerprint pattern="system=&quot;i386-wrs-vxworks&quot;" flags="REG_ICASE">
+    <description>VxWorks x86, cross-compiled on Linux</description>
+    <example>
+      system="i386-wrs-vxworks", leap=0, stratum=2, rootdelay=999.86, rootdispersion=17.90, peer=32444
+    </example>
+    <param pos="0" name="os.vendor" value="Wind River"/>
+    <param pos="0" name="os.product" value="VxWorks"/>
+    <param pos="0" name="os.arch" value="i386"/>
   </fingerprint>
   <fingerprint pattern="system=&quot;UNIX/(Unixware([^ ]+))&quot;" flags="REG_ICASE">
     <description>Add support for SCO Unixware NTP</description>
