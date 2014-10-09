@@ -38,7 +38,7 @@ describe Recog::DB do
           # end
 
           fp.tests.each do |example|
-            it "passes self-test #{example.content.gsub(/\s+/, ' ')[0,32]}..." do
+            it "Example '#{example.content}' matches this regex" do
               match = fp.match(example.content)
               expect(match).to_not be_nil, 'Regex did not match'
               # test any extractions specified in the example
@@ -47,7 +47,7 @@ describe Recog::DB do
               end
             end
 
-            it "matches this regex first" do
+            it "Example '#{example.content}' matches this regex first" do
               db.fingerprints.slice(0, i).each_index do |previous_i|
                 prev_fp = db.fingerprints[previous_i]
                 prev_fp.tests.each do |prev_example|
