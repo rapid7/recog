@@ -34,6 +34,8 @@ class DB
       xml = Nokogiri::XML(fd.read(fd.stat.size))
     end
 
+    raise "#{self.path} is invalid XML: #{xml.errors.join(',')}" unless xml.errors.empty?
+
     xml.xpath("/fingerprints").each do |fbase|
       if fbase['matches']
         @match_key = fbase['matches'].to_s
