@@ -12,7 +12,8 @@ describe Recog::DB do
         expect(db.match_key).not_to be_empty
       end
 
-      db.fingerprints.each do |fp|
+      db.fingerprints.each_index do |i|
+        fp = db.fingerprints[i]
 
         context "#{fp.regex}" do
 
@@ -37,12 +38,22 @@ describe Recog::DB do
           # end
 
           fp.tests.each do |example|
-            it "passes self-test #{example.content.gsub(/\s+/, ' ')[0,32]}..." do
+            it "Example '#{example.content}' matches this regex" do
               match = fp.match(example.content)
-              expect(match).to_not be_nil
+              expect(match).to_not be_nil, 'Regex did not match'
               # test any extractions specified in the example
               example.attributes.each_pair do |k,v|
-                expect(match[k]).to eq(v)
+                expect(match[k]).to eq(v), "Regex didn't extracted expected value for fingerprint attribute #{k}"
+              end
+            end
+
+            it "Example '#{example.content}' matches this regex first" do
+              db.fingerprints.slice(0, i).each_index do |previous_i|
+                prev_fp = db.fingerprints[previous_i]
+                prev_fp.tests.each do |prev_example|
+                  match = prev_fp.match(example.content)
+                  expect(match).to be_nil, "Matched regex ##{previous_i} (#{db.fingerprints[previous_i].regex}) rather than ##{i} (#{db.fingerprints[i].regex})"
+                end
               end
             end
           end
