@@ -37,7 +37,7 @@ option_parser.parse!(ARGV)
 if ARGV.empty?
   $stderr.puts 'Missing XML fingerprint files'
   puts option_parser
-  exit
+  exit(1)
 end
 
 ARGV.each do |file|
