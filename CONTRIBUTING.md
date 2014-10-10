@@ -1,3 +1,5 @@
+# Contributing to Recog
+
 Recog uses a model nearly identical to that of Metasploit as outlined in
 https://github.com/rapid7/metasploit-framework/wiki/Setting-Up-a-Metasploit-Development-Environment,
 at least from a ```git``` perspective.  If you've been through that
@@ -6,7 +8,7 @@ people), you can do exactly what you did for Metasploit but with Recog and ignor
 
 On the other hand, if you haven't, read on!
 
-# Fork and Clone
+## Fork and Clone
 
 Generally, this should only need to be done once, or if you need to start over.
 
@@ -20,7 +22,7 @@ git remote add upstream git://github.com/rapid7/recog.git
 git fetch --all
 ```
 
-# Branch and Improve
+## Branch and Improve
 
 If you have a contribution to make, first create a branch to contain your
 work.  The name is yours to choose, however generally it should roughly
