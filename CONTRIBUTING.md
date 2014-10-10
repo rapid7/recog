@@ -50,4 +50,4 @@ Now push your changes to your fork:
 git push origin FOO
 ```
 
-Finally, submit the PR.
+Finally, submit the PR.  Navigate to https://github.com/<your-github-username>/recog/compare/FOO, fill in the details and submit.
