@@ -418,6 +418,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.vendor" value="Sun"/>
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="1" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;JUNOS/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Juniper/Netscreen JunOS</description>
@@ -640,7 +641,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.product" value="VxWorks"/>
     <param pos="0" name="os.arch" value="i386"/>
   </fingerprint>
-  <fingerprint pattern="system=&quot;UNIX/(Unixware([^ ]+))&quot;" flags="REG_ICASE">
+  <fingerprint pattern="system=&quot;UNIX/Unixware([^ ]+)&quot;" flags="REG_ICASE">
     <description>SCO Unixware NTP</description>
     <example>
       system="UNIX/Unixware2", leap=3, stratum=16, rootdelay=0.00,
