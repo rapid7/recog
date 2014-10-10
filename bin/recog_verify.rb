@@ -9,7 +9,7 @@ require 'recog/verifier_factory'
 options = OpenStruct.new(color: false, detail: false)
 
 option_parser = OptionParser.new do |opts|
-  opts.banner = "Usage: #{$0} [options] XML_FINGERPRINTS_FILE"
+  opts.banner = "Usage: #{$0} [options] XML_FINGERPRINT_FILE1 ..."
   opts.separator "Verifies that each fingerprint passes its internal tests."
   opts.separator ""
   opts.separator "Options"
@@ -34,12 +34,15 @@ option_parser = OptionParser.new do |opts|
 end
 option_parser.parse!(ARGV)
 
-if ARGV.count != 1
+if ARGV.empty?
+  $stderr.puts 'Missing XML fingerprint files'
   puts option_parser
-  exit
+  exit(1)
 end
 
-ndb = Recog::DB.new(ARGV.shift)
-options.fingerprints = ndb.fingerprints
-verifier = Recog::VerifierFactory.build(options)
-verifier.verify_tests
+ARGV.each do |file|
+  ndb = Recog::DB.new(file)
+  options.fingerprints = ndb.fingerprints
+  verifier = Recog::VerifierFactory.build(options)
+  verifier.verify_tests
+end

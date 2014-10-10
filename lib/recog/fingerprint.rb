@@ -45,13 +45,36 @@ class Fingerprint
     match_data = @regex.match(match_string)
     return if match_data.nil?
 
+    # sanity check any positional extractions
+    positions = @params.values.map(&:first).map(&:to_i)
+    captures_size = match_data.captures.size
+    if @params.empty? && captures_size > 0
+      raise "Non-asserting fingerprint with regex #{@regex} captures #{captures_size} time(s); 0 are needed"
+    else
+      if captures_size > 0
+        max_pos = positions.max
+        # if it is actually looking to extract, ensure that there is enough to extract
+        if max_pos > 0 && captures_size < max_pos
+          raise "Regex #{@regex} only has #{captures_size} captures; cannot extract from position #{max_pos}"
+        end
+        # if there is not extraction but capturing is happening, fail since this is a waste
+        if captures_size > max_pos
+          raise "Regex #{@regex} captures #{captures_size - max_pos} too many (#{captures_size} vs #{max_pos})"
+        end
+      end
+    end
+
+    # now do extraction
     result = { 'matched' => @name }
     @params.each_pair do |k,v|
-      if v[0] == 0
+      pos = v[0]
+      if pos == 0
         # A match offset of 0 means this param has a hardcoded value
         result[k] = v[1]
       else
-        result[k] = match_data[ v[0] ]
+        # A match offset other than 0 means the value should come from
+        # the corresponding match result index
+        result[k] = match_data[ pos ]
       end
     end
     return result
@@ -105,7 +128,7 @@ class Fingerprint
   # @return [String] Contents of the source XML's `description` tag
   def parse_description(xml)
     element = xml.xpath('description')
-    element.empty? ? '' : element.first.content
+    element.empty? ? '' : element.first.content.gsub(/[\r\n]+/, ' ').gsub(/\s{3,}/, '  ').strip
   end
 
   # @param xml [Nokogiri::XML::Element]

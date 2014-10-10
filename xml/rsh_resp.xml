@@ -75,7 +75,7 @@ Rservices responses to requests are matched against these patterns to fingerprin
       <param pos="0" name="os.product" value="AIX"/>
    </fingerprint>
 
-   <fingerprint pattern="^.remshd: (getservbyname.+|Kerberos Authentication not enabled\..+|Error! Kerberos authentication failed)$" flags="REG_DOT_NEWLINE">
+   <fingerprint pattern="^.remshd: (?:getservbyname.+|Kerberos Authentication not enabled\..+|Error! Kerberos authentication failed)$" flags="REG_DOT_NEWLINE">
       <example>xremshd: getservbyname
       </example>
       <example>xremshd: Kerberos Authentication not enabled.

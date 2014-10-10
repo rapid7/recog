@@ -139,7 +139,7 @@ NTP "banners", taken from a readvar response
   </fingerprint>
   <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?6\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Mac OSX 10.2/Jaguar</description>
-    <example service.version="4.1.1@1.786" os.version="10.2" os.version.version="8">
+    <example service.version="4.1.1@1.786" os.version.version="8">
       version="ntpd 4.1.1@1.786 Tue Nov 12 09:30:41 PST 2002 (1)", processor="Power Macintosh", system="Darwin6.8",
     </example>
     <param pos="0" name="service.family" value="NTP"/>
@@ -224,7 +224,7 @@ NTP "banners", taken from a readvar response
   </fingerprint>
   <fingerprint pattern="^.*processor=&quot;([^&quot;]+)&quot;.*system=&quot;BSD/OS([\d.]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>BSD/OS with a version and arch</description>
-    <example os.arch="i386" os.product="BSD/OS" os.version="4.3.1">
+    <example os.arch="i386" os.version="4.3.1">
       processor="i386", system="BSD/OS4.3.1", leap=0, stratum=2
     </example>
     <param pos="0" name="os.vendor" value="Berkeley Software Design Inc."/>
@@ -418,6 +418,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.vendor" value="Sun"/>
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="1" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;JUNOS/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Juniper/Netscreen JunOS</description>
@@ -436,14 +437,14 @@ NTP "banners", taken from a readvar response
   </fingerprint>
   <fingerprint pattern="processor=&quot;([^ ]+)&quot;,.*system=&quot;JUNOS/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>Juniper/Netscreen JunOS NTP without a version</description>
-    <example>processor="i386", system="JUNOS7.0R2.7", leap=0, stratum=3</example>
-    <example>processor="i386", system="JUNOS6.4R1.6", leap=3, stratum=16</example>
-    <example>processor="i386", system="JUNOS5.5R2.3", leap=0, stratum=3</example>
+    <example os.arch="i386" os.version="7.0R2.7">processor="i386", system="JUNOS7.0R2.7", leap=0, stratum=3</example>
+    <example os.arch="i386" os.version="6.4R1.6">processor="i386", system="JUNOS6.4R1.6", leap=3, stratum=16</example>
+    <example os.arch="i386" os.version="5.5R2.3">processor="i386", system="JUNOS5.5R2.3", leap=0, stratum=3</example>
     <param pos="0" name="os.vendor" value="Juniper"/>
     <param pos="0" name="os.family" value="Junos"/>
     <param pos="0" name="os.product" value="Junos OS"/>
-    <param pos="2" name="os.arch"/>
-    <param pos="3" name="os.version"/>
+    <param pos="1" name="os.arch"/>
+    <param pos="2" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;Windows/?([^ ]+)?&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Windows</description>
@@ -640,7 +641,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.product" value="VxWorks"/>
     <param pos="0" name="os.arch" value="i386"/>
   </fingerprint>
-  <fingerprint pattern="system=&quot;UNIX/(Unixware([^ ]+))&quot;" flags="REG_ICASE">
+  <fingerprint pattern="system=&quot;UNIX/Unixware([^ ]+)&quot;" flags="REG_ICASE">
     <description>SCO Unixware NTP</description>
     <example>
       system="UNIX/Unixware2", leap=3, stratum=16, rootdelay=0.00,
@@ -652,7 +653,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.vendor" value="SCO"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="^.*processor=&quot;([^&quot;]+)&quot;, system=&quot;SCO_SV([\d\.]+)&quot;" flags="REG_ICASE">
+  <fingerprint pattern="^.*processor=&quot;([^&quot;]+)&quot;, system=&quot;SCO_SV([\d\.]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>SCO Unixware NTP</description>
     <example os.version="3.2" os.arch="i386">
       processor="i386", system="SCO_SV3.2", leap=0, stratum=2, precision=-18

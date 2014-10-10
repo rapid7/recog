@@ -268,7 +268,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^(\S+) FTP server \(EMC-SNAS: ([^\)]+)\)(:? \S+)?$">
+  <fingerprint pattern="^(\S+) FTP server \(EMC-SNAS: ([^\)]+)\)(?: \S+)?$">
     <example>foo2 FTP server (EMC-SNAS: 5.6.47.11)</example>
     <example>foo2 FTP server (EMC-SNAS: 5.6.50.203) ready.</example>
     <example>foo4 FTP server (EMC-SNAS: 5.5.31.6) r</example>
@@ -304,6 +304,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="0" name="os.device" value="Firewall"/>
     <param pos="0" name="os.family" value="Firewall-1"/>
     <param pos="0" name="os.product" value="Firewall-1"/>
+    <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^Blue Coat FTP Service$">
     <example>Blue Coat FTP Service</example>
@@ -355,6 +356,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="0" name="os.vendor" value="D-Link"/>
     <param pos="0" name="os.product" value="DCS-2100"/>
     <param pos="0" name="os.device" value="Web cam"/>
+    <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^Secure Gateway FTP server ready\.$">
     <example>Secure Gateway FTP server ready.</example>
@@ -372,8 +374,8 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Storage"/>
   </fingerprint>
-  <fingerprint pattern="^AXIS (\S+) (?:Network( Fixed Dome)? Camera) ([\d\.]+) .* ready\.?$" flags="REG_ICASE">
-    <example>Axis 2100 Network Camera 2.43 Nov 04 2008 ready.</example>
+  <fingerprint pattern="^AXIS (\S+) (?:Network(?: Fixed Dome)? Camera) ([\d\.]+) .* ready\.?$" flags="REG_ICASE">
+    <example os.product="2100" os.version="2.43">Axis 2100 Network Camera 2.43 Nov 04 2008 ready.</example>
     <example>AXIS 207 Network Camera 4.40.1 (Apr 16 2007) ready.</example>
     <example>AXIS 216FD Network Fixed Dome Camera 4.47 (Mar 13 2008) ready.</example>
     <description>Axis Network Camera</description>
@@ -556,6 +558,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="0" name="os.family" value="LinkCom Xpress"/>
     <param pos="0" name="os.device" value="Print server"/>
     <param pos="1" name="os.product"/>
+    <param pos="2" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="^LinkCom Xpress (.*)$" certainty="1.0">
     <description>MPI Technologies Linkcom Express FTP Server</description>

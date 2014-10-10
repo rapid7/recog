@@ -1728,7 +1728,7 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^Apache Tomcat/(\d\.[\d.]+)(-LE-jdk14)? \(HTTP/1.1 Connector\)$">
+   <fingerprint pattern="^Apache Tomcat/(\d\.[\d.]+)(?:-LE-jdk14)? \(HTTP/1.1 Connector\)$">
       <example>Apache Tomcat/4.0.6 (HTTP/1.1 Connector)</example>
       <example>Apache Tomcat/4.1.12 (HTTP/1.1 Connector)</example>
       <example>Apache Tomcat/4.1.27-LE-jdk14 (HTTP/1.1 Connector)</example>
@@ -2009,6 +2009,7 @@
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.family" value="OS/400"/>
       <param pos="0" name="os.product" value="OS/400"/>
+      <param pos="1" name="os.version"/>
    </fingerprint>
 
    <fingerprint pattern="^(?:IBM_HTTP_Server|IBM_HTTP_SERVER)/([\w.-]+)\s+Apache/([12][\d.]+)\s*(.*)$">
@@ -2116,7 +2117,7 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^(?:Sun-Java-System-Web-Server|Sun-ONE-Web-Server)/(\d\.[\d_]+)$">
+   <fingerprint pattern="^(?:Sun-Java-System-Web-Server|Sun-ONE-Web-Server)/(?:\d\.[\d_]+)$">
       <example>Sun-Java-System-Web-Server/7.0</example>
       <example>Sun-ONE-Web-Server/6.1</example>
       <description>Sun Java System Web Server (formerly Netscape Enterprise Server, iPlanet Web
@@ -2174,7 +2175,7 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^Sun-Java-System-Web-Proxy-Server/(4\.\d+)$">
+   <fingerprint pattern="^Sun-Java-System-Web-Proxy-Server/(?:4\.\d+)$">
      <!-- Some 4.x versions only return a partial version number (4.x instead of 4.x.x). -->
       <example>Sun-Java-System-Web-Proxy-Server/4.0</example>
       <description>Sun Java System Web Proxy Server (formerly iPlanet WebProxy Server,
@@ -2185,7 +2186,7 @@
       <!-- don't specify the version as it is only partially known -->
    </fingerprint>
 
-   <fingerprint pattern="^Sun-ILOM-Web-Server/(\d\.[\d._]+)$">
+   <fingerprint pattern="^Sun-ILOM-Web-Server/(?:\d\.[\d._]+)$">
       <example>Sun-ILOM-Web-Server/1.0</example>
       <description>Sun Integrated Lights Out Manager (ILOM) usually
       bundled with Sun Fire servers</description>
@@ -2322,7 +2323,7 @@
       <param pos="0" name="service.family" value="Lotus Domino"/>
    </fingerprint>
 
-   <fingerprint pattern="^Lotus(?:-Domino)?/(?:Release-?)?([4-7][\d.]+)\s*(.*)$">
+   <fingerprint pattern="^Lotus(?:-Domino)?/(?:Release-?)?([4-7][\d.]+)\s*(?:.*)$">
       <example>Lotus-Domino/5.0.8</example>
       <example>Lotus-Domino/Release-4.6.7(Intl)</example>
       <description>IBM Lotus Notes/Domino with version info</description>
@@ -2332,7 +2333,7 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^WebLogic (?:WebLogic )?Server (\d+\.\d+(\s+SP\d+)?)\s+.*$">
+   <fingerprint pattern="^WebLogic (?:WebLogic )?Server (\d+\.\d+(?:\s+SP\d+)?)\s+.*$">
       <example>WebLogic Server 8.1 SP3 Tue Jun 29 23:11:19 PDT 2004 404973</example>
       <example>WebLogic Server 7.0 SP4 Tue Aug 12 11:22:26 PDT 2003</example>
       <example>WebLogic WebLogic Server 6.1 SP4  11/08/2002 21:50:43 #221641</example>
@@ -2379,7 +2380,7 @@
       <param pos="0" name="os.product" value="Windows"/>
    </fingerprint>
 
-   <fingerprint pattern="^Abyss/(\d\.[\d.]+)-X1-Win32 AbyssLib/(\d\.[\d.]+)$">
+   <fingerprint pattern="^Abyss/(\d\.[\d.]+)-X1-Win32 AbyssLib/(?:\d\.[\d.]+)$">
       <example>Abyss/2.0.0.20-X1-Win32 AbyssLib/2.0.0.20</example>
       <example>Abyss/2.3.2-X1-Win32 AbyssLib/2.3.2</example>
       <description>Aprelium Technologies Abyss Web Server X1
@@ -2608,6 +2609,7 @@
       <param pos="0" name="service.vendor" value="HP"/>
       <param pos="0" name="service.product" value="JetDirect"/>
       <param pos="0" name="service.family" value="JetDirect"/>
+      <param pos="1" name="service.version"/>
       <param pos="0" name="os.vendor" value="HP"/>
       <param pos="0" name="os.device" value="Printer"/>
       <param pos="0" name="os.family" value="JetDirect"/>
@@ -2794,6 +2796,7 @@
       <param pos="0" name="os.family" value="Raptor"/>
       <param pos="0" name="os.device" value="Firewall"/>
       <param pos="0" name="os.product" value="Raptor"/>
+      <param pos="1" name="os.version"/>
    </fingerprint>
 
    <fingerprint pattern="^NS_(\d\.\d)$">
@@ -2873,7 +2876,7 @@
       <param pos="0" name="os.product" value="Linux"/>
    </fingerprint>
 
-   <fingerprint pattern="^RealVNC/(\S+)$">
+   <fingerprint pattern="^RealVNC/(?:\S+)$">
       <description>RealVNC built-in webserver</description>
       <example>RealVNC/4.0</example>
       <param pos="0" name="service.vendor" value="RealVNC Ltd."/>
@@ -3266,7 +3269,7 @@
    </fingerprint>
 
    <!-- Hikvision is OEMd by a number of DVR manufacturers -->
-    <fingerprint pattern="^(Hikvision|DVRDVS)-Webs$">
+    <fingerprint pattern="^(?:Hikvision|DVRDVS)-Webs$">
       <description>Web server found on DVR and webcam servers sourced from Hikvision</description>
       <example>Hikvision-Webs</example>
       <example>DVRDVS-Webs</example>
@@ -3282,6 +3285,7 @@
       <example>NET-DK 1.1</example>
       <param pos="0" name="service.vendor" value="ARRIS"/>
       <param pos="0" name="service.product" value="Net-DK Web Server"/>
+      <param pos="1" name="service.version"/>
       <param pos="0" name="os.vendor" value="ARRIS"/>
       <param pos="0" name="os.device" value="Cable Modem"/>
    </fingerprint>
@@ -3302,7 +3306,7 @@
          assert nothing.</description>
    </fingerprint>
 
-   <fingerprint pattern="^Web-Server/((?:\d+\.)+\d+)$">
+   <fingerprint pattern="^Web-Server/(?:\d+\.+\d+)$">
       <example>Web-Server/3.0</example>
       <!-- Hard to be sure with such a generic name, but I
            suspect this server has been obfuscated. -->

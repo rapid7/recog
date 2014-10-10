@@ -17,15 +17,10 @@ describe Recog::DB do
 
         context "#{fp.regex}" do
 
-          if fp.name.nil? || fp.name.empty?
-            skip "has a name"
+          it "has a name" do
+            expect(fp.name).not_to be_nil
+            expect(fp.name).not_to be_empty
           end
-
-          # Not yet enforced
-          # it "has a name" do
-          #   expect(fp.name).not_to be_nil
-          #   expect(fp.name).not_to be_empty
-          # end
 
           it "has a regex" do
             expect(fp.regex).not_to be_nil
