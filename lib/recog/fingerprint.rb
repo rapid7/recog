@@ -47,15 +47,19 @@ class Fingerprint
 
     # sanity check any positional extractions
     positions = @params.values.map(&:first).map(&:to_i)
-    max_pos = positions.max
     captures_size = match_data.captures.size
-    # if it is actually looking to extract, ensure that there is enough to extract
-    if max_pos > 0 && captures_size < max_pos
-      raise "Regex #{@regex} only has #{captures_size} captures; cannot extract from position #{max_pos}"
-    end
-    # if there is not extraction but capturing is happening, fail since this is a waste
-    if captures_size > max_pos
-      #raise "Regex #{@regex} captures #{captures_size - max_pos} too many (#{captures_size} vs #{max_pos})"
+    if @params.empty? && captures_size > 0
+      raise "Non-asserting fingerprint with regex #{@regex} captures #{captures_size} time(s); 0 are needed"
+    else
+      max_pos = positions.max
+      # if it is actually looking to extract, ensure that there is enough to extract
+      if max_pos > 0 && captures_size < max_pos
+        raise "Regex #{@regex} only has #{captures_size} captures; cannot extract from position #{max_pos}"
+      end
+      # if there is not extraction but capturing is happening, fail since this is a waste
+      if captures_size > max_pos
+        raise "Regex #{@regex} captures #{captures_size - max_pos} too many (#{captures_size} vs #{max_pos})"
+      end
     end
 
     # now do extraction
