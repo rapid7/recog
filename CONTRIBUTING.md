@@ -12,10 +12,10 @@ On the other hand, if you haven't, read on!
 
 Generally, this should only need to be done once, or if you need to start over.
 
-1. Fork Recog Visit https://github.com/rapid7/recog and click Fork,
+1. Fork Recog: Visit https://github.com/rapid7/recog and click Fork,
    selecting your github account if prompted
 2.  Clone ```git@github.com:<your-github-username>/recog.git```, replacing
-```<your-github-username>``` with, you guess it, your Github username.
+```<your-github-username>``` with, you guessed it, your Github username.
 3.  Add the master Recog repository as your upstream:
 ```
 git remote add upstream git://github.com/rapid7/recog.git
