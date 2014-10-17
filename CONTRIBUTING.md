@@ -1,7 +1,6 @@
 # Contributing to Recog
 
-Recog uses a model nearly identical to that of Metasploit as outlined in
-https://github.com/rapid7/metasploit-framework/wiki/Setting-Up-a-Metasploit-Development-Environment,
+Recog uses a model nearly identical to that of [Metasploit](https://github.com/rapid7/metasploit-framework) as outlined [here](https://github.com/rapid7/metasploit-framework/wiki/Setting-Up-a-Metasploit-Development-Environment),
 at least from a ```git``` perspective.  If you've been through that
 process (or, even better, you've been through it many times with many
 people), you can do exactly what you did for Metasploit but with Recog and ignore the rest of this document.
@@ -50,4 +49,4 @@ Now push your changes to your fork:
 git push origin FOO
 ```
 
-Finally, submit the PR.  Navigate to https://github.com/<your-github-username>/recog/compare/FOO, fill in the details and submit.
+Finally, submit the PR.  Navigate to ```https://github.com/<your-github-username>/recog/compare/FOO```, fill in the details and submit.
