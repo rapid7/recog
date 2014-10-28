@@ -1527,6 +1527,30 @@
    <!--======================================================================
                               CISCO
    =======================================================================-->
+   <fingerprint pattern="^(?:Cisco|TANDBERG) Codec SoftW: (.*\d+[\.\d+]*) MCU: Cisco TelePresence ([A-Z]+\d+).*">
+      <description>Cisco TelePresence</description>
+      <example os.version="TC5.1.0.280662" hw.product="SX20">Cisco Codec SoftW: TC5.1.0.280662 MCU: Cisco TelePresence SX20 Date: 2012-02-14 S/N: FTT16070041 BootSW: Board: 101790-6 [28]</example>
+      <example os.version="TE4.1.3.292001" hw.product="SX20">Cisco Codec SoftW: TE4.1.3.292001 MCU: Cisco TelePresence SX20 Date: 2012-06-21 S/N: FTT1625007Z BootSW: Board: 101790-6 [B0]</example>
+      <example os.version="TC4.2.0.259927" hw.product="MX200">TANDBERG Codec SoftW: TC4.2.0.259927 MCU: Cisco TelePresence MX200 Date: 2011-06-30 S/N: FTT1530000O BootSW: Board: 101770-4 [20]</example>
+      <example os.version="TC5.1.3.292001" hw.product="MX300">TANDBERG Codec SoftW: TC5.1.3.292001 MCU: Cisco TelePresence MX300 Date: 2012-06-21 S/N: FTT16030013 BootSW: Board: 101770-5 [22]</example>
+      <param pos="0" name="os.certainty" value="0.85"/>
+      <param pos="0" name="os.vendor" value="Cisco"/>
+      <param pos="0" name="os.product" value="TelePresence"/>
+      <param pos="1" name="os.version"/>
+      <param pos="2" name="hw.product"/>
+   </fingerprint>
+
+   <fingerprint pattern="^Cisco TelePresence (Conductor|MCU (?:MSE )?\d+)">
+      <description>Cisco TelePresence</description>
+      <example hw.product="Conductor">Cisco TelePresence Conductor</example>
+      <example hw.product="MCU 4205">Cisco TelePresence MCU 4205</example>
+      <example hw.product="MCU MSE 8420">Cisco TelePresence MCU MSE 8420</example>
+      <param pos="0" name="os.certainty" value="0.85"/>
+      <param pos="0" name="os.vendor" value="Cisco"/>
+      <param pos="0" name="os.product" value="TelePresence"/>
+      <param pos="1" name="hw.product"/>
+   </fingerprint>
+
    <fingerprint pattern="^Cisco Adaptive Security Appliance Version (\d+\.\d+\(\d+\)\d*)">
       <description>Cisco Adaptive Security Appliance</description>
       <example os.version="8.0(2)">Cisco Adaptive Security Appliance Version 8.0(2)</example>
