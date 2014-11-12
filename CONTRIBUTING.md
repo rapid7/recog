@@ -2,8 +2,9 @@
 
 The users and maintainers of Recog would greatly appreciate any contributions
 you can make to the project.  These contributions typically come in the form of
-filed bugs/issues or pull-requests (PRs) and the process for each is outlined
-below.
+filed bugs/issues or pull requests (PRs).  These contributions routinely result
+in new versions of the [recog gem](https://rubygems.org/gems/recog) to be
+released.  The process for each is outlined below.
 
 ## Contributing Issues / Bug Reports
 
@@ -61,6 +62,9 @@ git add CONTRIBUTING.md
 git commit -m "Add a document on how to contribute to recog" -a
 ```
 
+Please note that changes to [lib/recog/version.rb] in PRs are almost never
+necessary.
+
 Now push your changes to your fork:
 
 ```
@@ -68,3 +72,12 @@ git push origin FOO
 ```
 
 Finally, submit the PR.  Navigate to ```https://github.com/<your-github-username>/recog/compare/FOO```, fill in the details and submit.
+
+## Releasing New Gems
+
+Typically this process is reserved for contributors with push permissions to Recog:
+
+1. Get an account on http://rubygems.org
+2. Contact one of the Recog project contributors and have them add you to the Recog gem
+3. Edit [lib/recog/version.rb] and increment ```VERSION```.  Commit and push to origin/upstream master.
+4. Run ```rake release```
