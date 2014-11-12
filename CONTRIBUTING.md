@@ -62,8 +62,7 @@ git add CONTRIBUTING.md
 git commit -m "Add a document on how to contribute to recog" -a
 ```
 
-Please note that changes to [lib/recog/version.rb] in PRs are almost never
-necessary.
+Please note that changes to [lib/recog/version.rb](https://github.com/rapid7/recog/blob/master/lib/recog/version.rb) in PRs are almost never necessary.
 
 Now push your changes to your fork:
 
@@ -77,7 +76,7 @@ Finally, submit the PR.  Navigate to ```https://github.com/<your-github-username
 
 Typically this process is reserved for contributors with push permissions to Recog:
 
-1. Get an account on http://rubygems.org
+1. Get an account on [Rubygems](https://rubygems.org)
 2. Contact one of the Recog project contributors and have them add you to the Recog gem
-3. Edit [lib/recog/version.rb] and increment ```VERSION```.  Commit and push to origin/upstream master.
+3. Edit [lib/recog/version.rb](https://github.com/rapid7/recog/blob/master/lib/recog/version.rb) and increment ```VERSION```.  Commit and push to origin/upstream master.
 4. Run ```rake release```
