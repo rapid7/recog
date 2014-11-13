@@ -3,8 +3,9 @@
 The users and maintainers of Recog would greatly appreciate any contributions
 you can make to the project.  These contributions typically come in the form of
 filed bugs/issues or pull requests (PRs).  These contributions routinely result
-in new versions of the [recog gem](https://rubygems.org/gems/recog) to be
-released.  The process for each is outlined below.
+in new versions of the [recog gem](https://rubygems.org/gems/recog) and the
+[recog release](https://github.com/rapid7/recog/releases) to be released.  The
+process for each is outlined below.
 
 ## Contributing Issues / Bug Reports
 
@@ -72,11 +73,19 @@ git push origin FOO
 
 Finally, submit the PR.  Navigate to ```https://github.com/<your-github-username>/recog/compare/FOO```, fill in the details and submit.
 
-## Releasing New Gems
+## Releasing New Versions
 
 Typically this process is reserved for contributors with push permissions to Recog:
+
+### Release New Gem
 
 1. Get an account on [Rubygems](https://rubygems.org)
 2. Contact one of the Recog project contributors and have them add you to the Recog gem
 3. Edit [lib/recog/version.rb](https://github.com/rapid7/recog/blob/master/lib/recog/version.rb) and increment ```VERSION```.  Commit and push to origin/upstream master.
 4. Run ```rake release```
+
+### Github Release
+
+Some users may prefer to consume recog in a manner other than using git itself.  For that reason, Github offers [Releases](https://github.com/blog/1547-release-your-software).  Whenever a new version of the software is to be released, be kind and also create a new [Release](https://github.com/rapid7/recog/releases), using a versioning scheme identical to that used for the gem
+
+
