@@ -145,7 +145,20 @@
       <param pos="0" name="os.vendor" value="Linux"/>
       <param pos="0" name="os.product" value="Linux"/>
       <param pos="1" name="os.version"/>
-   </fingerprint>
+    </fingerprint>
+
+    <fingerprint pattern="^Debian\/(\S+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+      <example os.version="wheezy/sid" service.version="1.8">Debian/wheezy/sid UPnP/1.1 MiniUPnPd/1.8</example>
+      <example os.version="4.0" service.version="1.0">Debian/4.0 UPnP/1.0 miniupnpd/1.0</example>
+      <description>miniupnpd on a Debian variant</description>
+      <param pos="0" name="service.product" value="MiniUPnP"/>
+      <param pos="2" name="service.version"/>
+      <param pos="0" name="os.vendor" value="Debian"/>
+      <param pos="0" name="os.product" value="Linux"/>
+      <!-- the version isn't specific enough and is often wrong -->
+      <param pos="0" name="os.certainty" value="0.5"/>
+      <param pos="1" name="os.version"/>
+    </fingerprint>
 
    <fingerprint pattern="^Linux Mips (\S+) UPnP/\S+ MiniUPnPd/(\S+)$">
       <example>Linux Mips 2.4.20 UPnP/1.0 MiniUPnPd/1.2</example>
@@ -327,6 +340,13 @@
       <param pos="0" name="os.vendor" value="Microsoft"/>
       <param pos="0" name="os.product" value="Windows 7"/>
       <param pos="1" name="os.version"/>
+    </fingerprint>
+
+    <fingerprint pattern="^Microsoft-Windows/6.2 UPnP/(\S+) UPnP-Device-Host/(\S+)$">
+      <description>Windows 8 or Windows Server 2012 with unknown UPnP components</description>
+      <param pos="0" name="os.vendor" value="Microsoft"/>
+      <param pos="0" name="os.product" value="Windows 8"/>
+      <param pos="0" name="os.certainty" value="0.65"/>
    </fingerprint>
 
    <fingerprint pattern="^Mac_OS_X-x86_64-(\S+), UPnP/[\d\.]+, PMS/([\d\.]+)$">
