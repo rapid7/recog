@@ -155,6 +155,21 @@
       <param pos="1" name="os.version"/>
     </fingerprint>
 
+    <fingerprint pattern="^Ubuntu\/(\S+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+      <description>miniupnpd on an Ubuntu variant</description>
+      <example os.version="10.04" service.version="1.0">Ubuntu/10.04 UPnP/1.0 miniupnpd/1.0</example>
+      <example os.version="10.10" service.version="1.0">Ubuntu/10.10 UPnP/1.0 miniupnpd/1.0</example>
+      <example os.version="7.10" service.version="1.0">Ubuntu/7.10 UPnP/1.0 miniupnpd/1.0</example>
+      <example os.version="9.04" service.version="1.0">Ubuntu/9.04 UPnP/1.0 miniupnpd/1.0</example>
+      <example os.version="lucid" service.version="1.4">Ubuntu/lucid UPnP/1.0 MiniUPnPd/1.4</example>
+      <param pos="0" name="service.product" value="MiniUPnP"/>
+      <param pos="2" name="service.version"/>
+      <param pos="0" name="os.vendor" value="Ubuntu"/>
+      <param pos="0" name="os.product" value="Linux"/>
+      <param pos="1" name="os.version"/>
+    </fingerprint>
+
+
    <fingerprint pattern="^Linux Mips (\S+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
       <example>Linux Mips 2.4.20 UPnP/1.0 MiniUPnPd/1.2</example>
       <description>Linux MIPS UPnP Server</description>
