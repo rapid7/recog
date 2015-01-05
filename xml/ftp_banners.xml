@@ -808,4 +808,17 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
+  <fingerprint pattern="^Welcome to the (?:Cisco )?(?:Tele[Pp]resence) ([a-zA-Z\s]*?) ((?:MSE )?\d+), version (\d+.\d+\(\d+.\d+\)).*?">
+    <description>Cisco TelePresence</description>
+    <example os.device = "AM GW" os.version="1.1(1.34)" hw.series="3610">Welcome to the Cisco TelePresence AM GW 3610, version 1.1(1.34) </example>
+    <example os.device = "IP GW" os.version="2.0(3.32)" hw.series="3510">Welcome to the Cisco TelePresence IP GW 3510, version 2.0(3.32) </example>
+    <example os.device = "MCU" os.version="4.3(2.18)" hw.series="4210">Welcome to the Cisco TelePresence MCU 4210, version 4.3(2.18) </example>
+    <example os.device = "MCU" os.version="4.3(1.68)" hw.series="MSE 8420">Welcome to the Cisco TelePresence MCU MSE 8420, version 4.3(1.68) </example>
+    <example os.device = "Server" os.version="2.1(1.18)" hw.series="7010">Welcome to the Telepresence Server 7010, version 2.1(1.18) </example>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.product" value="TelePresence"/>
+    <param pos="1" name="os.device"/>
+    <param pos="2" name="hw.series"/>
+    <param pos="3" name="os.version"/>
+  </fingerprint>
 </fingerprints>
