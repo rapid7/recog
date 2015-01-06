@@ -7845,14 +7845,15 @@ Copyright (c) 1995-2005 by Cisco Systems
    =======================================================================-->
 
    <fingerprint pattern="^Tektronix, Inc\., Phaser (\S+), PhaserShare.* \(.*/([^/]+)\)$">
-      <description>Textronix Phaser printer</description>
-      <example>Tektronix, Inc., Phaser 860N, PhaserShare Series B Network Interface, (14.44/13.34/14.46/3.38)</example>
+      <description>Tektronix Phaser printer</description>
+      <example os.product="860N" os.version="3.38">Tektronix, Inc., Phaser 860N, PhaserShare Series B Network Interface, (14.44/13.34/14.46/3.38)</example>
       <!--
          Like the Xerox Phaser printers, the version syntax seems to be
          v(postscript version/network firmware version/?/OS version)
       -->
-      <param pos="0" name="os.vendor" value="Tandberg"/>
-      <param pos="0" name="os.device" value="Web cam"/>
+      <param pos="0" name="os.vendor" value="Tektronix"/>
+      <param pos="0" name="os.family" value="Phaser"/>
+      <param pos="0" name="os.device" value="Printer"/>
       <param pos="1" name="os.product"/>
       <param pos="2" name="os.version"/>
    </fingerprint>
