@@ -1527,28 +1527,66 @@
    <!--======================================================================
                               CISCO
    =======================================================================-->
-   <fingerprint pattern="^(?:Cisco|TANDBERG) Codec SoftW: (.*\d+[\.\d+]*) MCU: Cisco TelePresence ([A-Z]+\d+).*">
+   <fingerprint pattern="^(?:Cisco|TANDBERG) Codec SoftW: (.*\d+[\.\d+]+)(?:(?: )?Beta\d)? (?:\w* )?MCU: (?:Cisco|TANDBERG) (?:\w* )?(\d+MXP|[A-Z]+\d+) .*?">
       <description>Cisco TelePresence</description>
-      <example os.version="TC5.1.0.280662" hw.product="SX20">Cisco Codec SoftW: TC5.1.0.280662 MCU: Cisco TelePresence SX20 Date: 2012-02-14 S/N: FTT16070041 BootSW: Board: 101790-6 [28]</example>
-      <example os.version="TE4.1.3.292001" hw.product="SX20">Cisco Codec SoftW: TE4.1.3.292001 MCU: Cisco TelePresence SX20 Date: 2012-06-21 S/N: FTT1625007Z BootSW: Board: 101790-6 [B0]</example>
-      <example os.version="TC4.2.0.259927" hw.product="MX200">TANDBERG Codec SoftW: TC4.2.0.259927 MCU: Cisco TelePresence MX200 Date: 2011-06-30 S/N: FTT1530000O BootSW: Board: 101770-4 [20]</example>
-      <example os.version="TC5.1.3.292001" hw.product="MX300">TANDBERG Codec SoftW: TC5.1.3.292001 MCU: Cisco TelePresence MX300 Date: 2012-06-21 S/N: FTT16030013 BootSW: Board: 101770-5 [22]</example>
+      <example os.version="TC5.1.0.280662" hw.series="SX20">Cisco Codec SoftW: TC5.1.0.280662 MCU: Cisco TelePresence SX20 Date: 2012-02-14 S/N: FTT16070041 BootSW: Board: 101790-6 [28]</example>
+      <example os.version="TC4.2.0.259927" hw.series="MX200">TANDBERG Codec SoftW: TC4.2.0.259927 MCU: Cisco TelePresence MX200 Date: 2011-06-30 S/N: FTT1530000O BootSW: Board: 101770-4 [20]</example>
+      <example os.version="TC5.1.3.292001" hw.series="MX300">TANDBERG Codec SoftW: TC5.1.3.292001 MCU: Cisco TelePresence MX300 Date: 2012-06-21 S/N: FTT16030013 BootSW: Board: 101770-5 [22]</example>
+      <example os.version="TC5.1.0.279658" hw.series="SX20">Cisco Codec SoftW: TC5.1.0.279658Beta7 MCU: Cisco TelePresence SX20 Date: 2012-02-03 S/N: FTT1616005D BootSW: Board: 101790-6 [B0]</example>
+      <example os.version="TC6.0.0" hw.series="SX20">Cisco Codec SoftW: TC6.0.0 Beta7 MCU: Cisco TelePresence SX20 Date: 2012-09-17 S/N: FTT163100A3 BootSW: Board: 101790-6 [B0]</example>
+      <example os.version="TC4.2.0.255978" hw.series="MX200">TANDBERG Codec SoftW: TC4.2.0.255978Beta2 MCU: Cisco TelePresence MX200 Date: 2011-05-23 S/N: FTT1524000I BootSW: Board: 101770-4 [00]</example>
+      <example os.version="TCNC5.0.1.275220" hw.series="MX200">TANDBERG Codec SoftW: TCNC5.0.1.275220 MCU: Cisco TelePresence MX200 Date: 2011-12-19 S/N: FTT1615003S BootSW: Board: 101770-5 [22]</example>
+      <example os.version="TCNC5.1.0.280662" hw.series="SX20">Cisco Codec SoftW: TCNC5.1.0.280662 MCU: Cisco TelePresence SX20 Date: 2012-02-14 S/N: FTT161300A0 BootSW: Board: 101790-6 [A0]</example>
+      <example os.version="F8.1" hw.series="6000MXP">TANDBERG Codec SoftW: F8.1 PAL MCU: TANDBERG Profile 6000MXP Date: 2009-09-07 S/N: 25A46936 BootSW: Rev. 1.15, 2008-01-04 Board: 100670 rev. 07</example>
+      <example os.version="F9.1" hw.series="6000MXP">TANDBERG Codec SoftW: F9.1 NTSC MCU: TANDBERG 6000MXP PORTABLE Date: 2011-06-08 S/N: 25A07029 BootSW: Rev. 1.16, 2009-01-21 Board: 100670 rev. 07</example>
+      <example os.version="TC4.2.0.260857" hw.series="C40">TANDBERG Codec SoftW: TC4.2.0.260857 MCU: TANDBERG Codec C40 Date: 2011-07-11 S/N: B1AV02D00182 BootSW: Board: 101681-1 [04]</example>
+      <example os.version="TC4.2.1.265253" hw.series="EX60">TANDBERG Codec SoftW: TC4.2.1.265253 MCU: TANDBERG EX60 Date: 2011-09-06 S/N: A1AZ02E00212 BootSW: Board: 101620-6 [22]</example>
+      <example os.version="TE1.0.0.175435" hw.series="E20">TANDBERG Codec SoftW: TE1.0.0.175435 MCU: TANDBERG E20 Date: 2009-02-09 S/N: A1AA11B00658 BootSW: Board: 101390-6</example>
       <param pos="0" name="os.certainty" value="0.85"/>
       <param pos="0" name="os.vendor" value="Cisco"/>
       <param pos="0" name="os.product" value="TelePresence"/>
+      <param pos="0" name="os.device" value="Codec"/>
       <param pos="1" name="os.version"/>
-      <param pos="2" name="hw.product"/>
+      <param pos="2" name="hw.series"/>
    </fingerprint>
 
-   <fingerprint pattern="^Cisco TelePresence (Conductor|MCU (?:MSE )?\d+)">
+   <fingerprint pattern="^Cisco TelePresence (?:(?:HD )?MCU) ((?:MSE )?\d+)">
       <description>Cisco TelePresence</description>
-      <example hw.product="Conductor">Cisco TelePresence Conductor</example>
-      <example hw.product="MCU 4205">Cisco TelePresence MCU 4205</example>
-      <example hw.product="MCU MSE 8420">Cisco TelePresence MCU MSE 8420</example>
+      <example hw.series="4205">Cisco TelePresence MCU 4205</example>
+      <example hw.series="MSE 8420">Cisco TelePresence MCU MSE 8420</example>
+      <example hw.series="4520">Cisco TelePresence HD MCU 4520</example>
       <param pos="0" name="os.certainty" value="0.85"/>
       <param pos="0" name="os.vendor" value="Cisco"/>
       <param pos="0" name="os.product" value="TelePresence"/>
-      <param pos="1" name="hw.product"/>
+      <param pos="0" name="os.device" value="Bridge"/>
+      <param pos="1" name="hw.series"/>
+   </fingerprint>
+
+   <fingerprint pattern="^Cisco TelePresence (Conductor|Supervisor)(?: (MSE \d+))?">
+      <description>Cisco TelePresence</description>
+      <example os.device="Conductor">Cisco TelePresence Conductor</example>
+      <example os.device="Supervisor" hw.series="MSE 8050">Cisco TelePresence Supervisor MSE 8050</example>
+      <param pos="0" name="os.certainty" value="0.85"/>
+      <param pos="0" name="os.vendor" value="Cisco"/>
+      <param pos="0" name="os.product" value="TelePresence"/>
+      <param pos="1" name="os.device"/>
+      <param pos="2" name="hw.series"/>
+   </fingerprint>
+
+   <fingerprint pattern="^TANDBERG Codec$">
+      <description>Tandberg videoconferencing device</description>
+      <example>TANDBERG Codec</example>
+      <param pos="0" name="os.vendor" value="Cisco"/>
+      <param pos="0" name="os.product" value="TelePresence"/>
+      <param pos="0" name="os.device" value="Codec"/>
+   </fingerprint>
+
+   <fingerprint pattern="^TANDBERG MPS-MCU$">
+      <description>Tandberg videoconferencing bridge</description>
+      <example>TANDBERG MPS-MCU</example>
+      <param pos="0" name="os.vendor" value="Cisco"/>
+      <param pos="0" name="os.product" value="MPS-MCU"/>
+      <param pos="0" name="os.device" value="VOIP"/>
    </fingerprint>
 
    <fingerprint pattern="^Cisco Adaptive Security Appliance Version (\d+\.\d+\(\d+\)\d*)">
@@ -7818,26 +7856,6 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="1" name="os.product"/>
       <param pos="0" name="os.device" value="WAP"/>
       <param pos="2" name="os.version"/>
-   </fingerprint>
-
-
-   <!--======================================================================
-                              TANDBERG
-   =======================================================================-->
-
-   <fingerprint pattern="^TANDBERG Codec$">
-      <description>Tandberg videoconferencing device</description>
-      <example>TANDBERG Codec</example>
-      <param pos="0" name="os.vendor" value="Tandberg"/>
-      <param pos="0" name="os.device" value="Web cam"/>
-   </fingerprint>
-
-   <fingerprint pattern="^TANDBERG MPS-MCU$">
-      <description>Tandberg videoconferencing bridge</description>
-      <example>TANDBERG MPS-MCU</example>
-      <param pos="0" name="os.vendor" value="Tandberg"/>
-      <param pos="0" name="os.product" value="MPS-MCU"/>
-      <param pos="0" name="os.device" value="VOIP"/>
    </fingerprint>
 
    <!--======================================================================
