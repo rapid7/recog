@@ -128,7 +128,7 @@ class Fingerprint
   # @return [String] Contents of the source XML's `description` tag
   def parse_description(xml)
     element = xml.xpath('description')
-    element.empty? ? '' : element.first.content.gsub(/[\r\n]+/, ' ').gsub(/\s{3,}/, '  ').strip
+    element.empty? ? '' : element.first.content.to_s.gsub(/\s+/, ' ').strip
   end
 
   # @param xml [Nokogiri::XML::Element]
