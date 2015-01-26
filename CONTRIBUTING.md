@@ -80,12 +80,11 @@ Typically this process is reserved for contributors with push permissions to Rec
 ### Release New Gem
 
 1. Get an account on [Rubygems](https://rubygems.org)
-2. Contact one of the Recog project contributors and have them add you to the Recog gem.  They'll need to run:
-```
-gem owner recog -a EMAIL
-```
-Where ```EMAIL``` is the email address you registered on Rubygems.
-3. Edit [lib/recog/version.rb](https://github.com/rapid7/recog/blob/master/lib/recog/version.rb) and increment ```VERSION```.  Commit and push to origin/upstream master.
+2. Contact one of the Recog project contributors (listed [here under OWNERS](https://rubygems.org/gems/recog) and have them add you to the Recog gem.  They'll need to run:
+  ```
+  gem owner recog -a EMAIL
+  ```
+3. Edit [lib/recog/version.rb](https://github.com/rapid7/recog/blob/master/lib/recog/version.rb) and increment ```VERSION```.  Commit and push to rapid7/recog master.
 4. Run ```rake release```
 
 ### Github Release
