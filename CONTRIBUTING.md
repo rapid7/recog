@@ -84,21 +84,26 @@ In short:
 
 1. Follow the "Fork and Clone" steps from above
 2. Fetch the latest revisions:
-```
-git fetch --all
-```
+
+    ```
+    git fetch --all
+    ```
+    
 3. Checkout and branch the PR for testing.  Replace ```PR``` below with the actual PR # in question:
-```
-git checkout -b landing-PR upstream/pr/PR
-```
+
+    ```
+    git checkout -b landing-PR upstream/pr/PR
+    ```
+    
 4. Test the PR, which typically involves running ```rspec```.
 5. Merge with master, re-test, validate and push:
-```
-  git checkout -b upstream-master --track upstream/master
-  git merge -S --no-ff --edit landing-PR
-  git push upstream upstream-master:master --dry-run # confirm you are pushing what you expect
-  git push upstream upstream-master:master
-```
+
+    ```
+    git checkout -b upstream-master --track upstream/master
+    git merge -S --no-ff --edit landing-PR
+    git push upstream upstream-master:master --dry-run # confirm you are pushing what you expect
+    git push upstream upstream-master:master
+    ```
 
 ## Releasing New Versions
 
