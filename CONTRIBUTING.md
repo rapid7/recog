@@ -5,7 +5,7 @@ you can make to the project.  These contributions typically come in the form of
 filed bugs/issues or pull requests (PRs).  These contributions routinely result
 in new versions of the [recog gem](https://rubygems.org/gems/recog) and the
 [recog release](https://github.com/rapid7/recog/releases) to be released.  The
-process for each is outlined below.
+process for everything is described below.
 
 ## Contributing Issues / Bug Reports
 
@@ -73,9 +73,39 @@ git push origin FOO
 
 Finally, submit the PR.  Navigate to ```https://github.com/<your-github-username>/recog/compare/FOO```, fill in the details and submit.
 
+## Landing PRs
+
+(Note: this portion is a work-in-progress.  Please update it as things change)
+
+Much like with the process of submitting PRs, Recog's process for landing PRs
+is very similar to [Metasploit's process for landing
+PRs](https://github.com/rapid7/metasploit-framework/wiki/Landing-Pull-Requests).
+In short:
+
+1. Follow the "Fork and Clone" steps from above
+2. Fetch the latest revisions:
+  ```git fetch --all```
+3. Checkout and branch the PR for testing.  Replace ```PR``` below with the actual PR # in question:
+  ```git checkout -b landing-PR upstream/pr/PR```
+4. Test the PR, which typically involves running ```rspec```.
+5. Merge with master, re-test, validate and push:
+  ```
+  git checkout -b upstream-master --track upstream/master
+  git merge -S --no-ff --edit landing-PR
+  git push upstream upstream-master:master --dry-run # confirm you are pushing what you expect
+  git push upstream upstream-master:master
+  ```
+
 ## Releasing New Versions
 
-Typically this process is reserved for contributors with push permissions to Recog:
+When Recog's critical parts are modified, for example its fingerprints or
+underlying supporting code, a new version should eventually be released.  These
+new releases can then be optionally included in projects such as Metasploit or
+products such as Rapid7's in a controlled manner.
+
+For now, in general any time Recog is modified you should release a version of
+the Gem and the Github release, described below.  Eventually this process may
+change.
 
 ### Release New Gem
 
