@@ -2996,6 +2996,26 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
+   <fingerprint pattern="^TornadoServer/((?:\d+\.)*\d+)$" flags="REG_ICASE">
+      <example>TornadoServer/4.0.2</example>
+      <description>Tornado Python web framework and asynchronous networking library.</description>
+      <param pos="0" name="service.vendor" value="Tornado"/>
+      <param pos="0" name="service.product" value="Tornado"/>
+      <param pos="0" name="service.family" value="Tornado"/>
+      <param pos="1" name="service.version"/>
+   </fingerprint>
+
+   <fingerprint pattern="^SimpleHTTP/((?:\d+\.)*\d+)\s*Python/((?:\d+\.)*\d+)$" flags="REG_ICASE">
+      <example>SimpleHTTP/0.6 Python/2.7.6</example>
+      <example>SimpleHTTP/0.6 Python/3.4.0</example>
+      <description>SimpleHTTPRequestHandler Python class is a simple HTTP request handler.</description>
+      <param pos="0" name="service.vendor" value="Python Software Foundation"/>
+      <param pos="0" name="service.product" value="SimpleHTTP"/>
+      <param pos="0" name="service.family" value="Python"/>
+      <param pos="1" name="service.version"/>
+      <param pos="2" name="python.version"/>
+   </fingerprint>
+
    <fingerprint pattern="^HP Web Jetadmin/((?:\d+\.)+\d+)\s*(.*)$">
       <example>HP Web Jetadmin/2.0.50 (Win32) mod_auth_sspi/1.0.1 mod_ssl/2.0.50 OpenSSL/0.9.6m</example>
       <description>Apache variant for web access to HP printers.</description>
