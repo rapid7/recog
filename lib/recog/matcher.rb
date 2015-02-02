@@ -22,27 +22,14 @@ class Matcher
         reporter.increment_line_count
 
         line = line.to_s.unpack("C*").pack("C*").strip.gsub(/\\[rn]/, '')
-        found = nil
+        extractions = nil
         fingerprints.each do |fp|
-          m = line.match(fp.regex)
-          if m
-            found = [fp, m]
-            break
-          end
+          break if (extractions = fp.match(line))
         end
 
-        if found
-          info = { }
-          fp, m = found
-          fp.params.each_pair do |k,v|
-            if v[0] == 0
-              info[k] = v[1]
-            else
-              info[k] = m[ v[0] ]
-            end
-          end
-          info['data'] = line
-          reporter.match "MATCH: #{info.inspect}"
+        if extractions
+          extractions['data'] = line
+          reporter.match "MATCH: #{extractions.inspect}"
         else
           reporter.failure "FAIL: #{line}"
         end
