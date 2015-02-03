@@ -48,7 +48,7 @@ describe Recog::DB do
               actual_capture_positions = actual_capture_positions.sort.uniq
               expected_capture_positions = expected_capture_positions.sort.uniq
               expect(actual_capture_positions).to eq(expected_capture_positions),
-                "Regex didn't capture (#{actual_capture_positions}) exactly what it extracted (#{expected_capture_positions})"
+                "Regex didn't capture (#{actual_capture_positions}) exactly what fingerprint extracted (#{expected_capture_positions})"
             end
           end
 
