@@ -8,7 +8,7 @@ matched against these patterns to fingerprint POP3 servers.
 
    <fingerprint pattern="^([^ ]+) +Cyrus POP3 v(\d+\.\d+.*)-OS X(?: Server)? ([\d\.]+).* server ready">
       <description>OSX Cyrus POP</description>
-      <example>8.8.8.8 Cyrus POP3 v2.3.8-OS X Server 10.5: 9A562 server ready &lt;1999107648.1324502155@8.8.8.8&gt;</example>
+      <example host.domain="8.8.8.8" service.version="2.3.8" os.version="10.5">8.8.8.8 Cyrus POP3 v2.3.8-OS X Server 10.5: 9A562 server ready &lt;1999107648.1324502155@8.8.8.8&gt;</example>
       <param pos="0" name="service.family" value="Cyrus"/>
       <param pos="0" name="service.product" value="Cyrus POP"/>
       <param pos="0" name="service.vendor" value="CMU"/>
@@ -18,17 +18,18 @@ matched against these patterns to fingerprint POP3 servers.
       <param pos="0" name="os.product" value="Mac OS X"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="3" name="os.version"/>
+      <param pos="1" name="host.domain"/>
     </fingerprint>
 
-   <fingerprint pattern="^([^ ]+) +Cyrus POP3 v([\d\.]+)[^OS\s+X].*$">
+   <fingerprint pattern="^([^ ]+) +Cyrus POP3 v([\d\.]+)">
       <description>CMU Cyrus POP</description>
-      <example>foo Cyrus POP3 v2.3</example>
-      <example>foo Cyrus POP3 v2.3.14 server ready &lt;13087751828270990591.1301068892@foo&gt;</example>
+      <example host.domain="foo" service.version="2.3">foo Cyrus POP3 v2.3</example>
+      <example host.domain="foo" service.version="2.3.14">foo Cyrus POP3 v2.3.14 server ready &lt;13087751828270990591.1301068892@foo&gt;</example>
       <param pos="0" name="service.vendor" value="CMU"/>
       <param pos="0" name="service.family" value="Cyrus"/>
       <param pos="0" name="service.product" value="Cyrus POP"/>
-      <param pos="1" name="service.version"/>
-      <param pos="2" name="host.domain"/>
+      <param pos="2" name="service.version"/>
+      <param pos="1" name="host.domain"/>
     </fingerprint>
 
     <fingerprint pattern="^Lotus Notes POP3 server version X[^ ]+ ready on .*$">
@@ -248,15 +249,15 @@ matched against these patterns to fingerprint POP3 servers.
 
 // +OK X1 POP3 Mail Server
 
-// +OK server POP3 server (DeskNow POP3 Server 1.0) ready 
+// +OK server POP3 server (DeskNow POP3 Server 1.0) ready
 
 // +OK <1185161310.3352@goto15028.com> [XMail 1.24 POP3 Server] service ready; Mon, 23 Jul 2007 11:28:30 +0800
 
 // +OK IdeaPop3Server v0.50 ready.
 
-// +OK qxztmail POP3 server (STD Ymailserver v1.8 POP3) ready 
+// +OK qxztmail POP3 server (STD Ymailserver v1.8 POP3) ready
 
-// +OK blue.forest-green.lan POP3 server (JAMES POP3 Server 2.2.0) ready 
+// +OK blue.forest-green.lan POP3 server (JAMES POP3 Server 2.2.0) ready
 
 // +OK xxx CMailServer 5.2 POP3 Service Ready
 
@@ -299,7 +300,7 @@ matched against these patterns to fingerprint POP3 servers.
 -ERR sorry, POP server too busy right now.  Try again later.
 -ERR This IP is not configured for POP3 service.  Please contact Allstream at 1-888-655-7670.
 +OK
-+OK 
++OK
 +OK <0bdec6022085d6c34a0e48bb77bf8cf3@juno.thinkburst.com>
 +OK <869521546.23059@mail.tecedge.net>, POP3 server ready.
 +OK host CMailServer 5.2 POP3 Service Ready
@@ -307,7 +308,7 @@ matched against these patterns to fingerprint POP3 servers.
 +OK alakhan.kz POP MDaemon 6.8.4 ready <MDAEMON-F200707231617.AA1715437MD3489@alakhan.kz>
 +OK alquilerpc.com.mx POP3 Server (Version 1.020h) ready.
 +OK ArGoSoft Mail Server Pro for WinNT/2000/XP, Version 1.8 (1.8.8.9)
-+OK blue.forest-green.lan POP3 server (JAMES POP3 Server 2.2.0) ready 
++OK blue.forest-green.lan POP3 server (JAMES POP3 Server 2.2.0) ready
 +OK canoeregatta.org POP3 Server (Version 1.020h) ready.
 +OK codebase.com.au POP MDaemon 9.6.1 ready <MDAEMON-F200707220122.AA2235837MD8039@codebase.com.au>
 +OK Cubic Circle's v1.31 1998/05/13 POP3 ready <0c9300004104a246@www.dvdld.co.za>
@@ -402,9 +403,9 @@ matched against these patterns to fingerprint POP3 servers.
 +OK POP3 www.happytails2u.com 2004.89 server ready
 +OK POP3 www.homebasedwizard.com 2004.89 server ready
 +OK POP3 www.webmail.imperioe.com 2004.89 server ready
-+OK qxztmail POP3 server (STD Ymailserver v1.8 POP3) ready 
++OK qxztmail POP3 server (STD Ymailserver v1.8 POP3) ready
 +OK Radish (Version 3.0.0-b021) ready
-+OK ready  
++OK ready
 +OK ready  <11514.1185210732@freedom.concept69.de>
 +OK ready  <14026.1184992338@s076-129.ub.firstserver.ne.jp>
 +OK ready  <16013.1185110479@p1.in11.squarestart.ne.jp>
@@ -417,7 +418,7 @@ matched against these patterns to fingerprint POP3 servers.
 +OK recvmail/he.net POP3 Server
 +OK refinanceloanjones.com POP3 Server (Version 1.020h) ready.
 +OK samare.it POP MDaemon 6.8.5 ready <MDAEMON-F200707220351.AA513460MD5338@samare.it>
-+OK server POP3 server (DeskNow POP3 Server 1.0) ready 
++OK server POP3 server (DeskNow POP3 Server 1.0) ready
 +OK silexaviacion.com POP3 Server (Version 1.020h) ready.
 +OK simple-photography.com POP3 Server (Version 1.020h) ready.
 +OK Solid POP3 server ready
