@@ -117,11 +117,11 @@ to fingerprint H.323 servers.
       <param pos="2" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^0x(82000002|a5000001)\:(.*)\:.*?(\d*\.*\d*\.*\d*).*$" flags="REG_ICASE">
+   <fingerprint pattern="^0x(?:82000002|a5000001)\:(.*)\:.*?(\d*\.*\d*\.*\d*).*$" flags="REG_ICASE">
       <description>Ericsson H.323 Server</description>
       <param pos="0" name="service.vendor" value="Ericsson"/>
-      <param pos="2" name="service.product"/>
-      <param pos="3" name="service.version"/>
+      <param pos="1" name="service.product"/>
+      <param pos="2" name="service.version"/>
    </fingerprint>
 
    <fingerprint pattern="^0x8a000003\:(.*)\:.*?(\d*\.*\d*\.*\d*).*$" flags="REG_ICASE">
@@ -657,11 +657,11 @@ to fingerprint H.323 servers.
       <param pos="2" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^0xb500(4c54|600d)\:(.*)\:.*?(\d*\.*\d*\.*\d*).*$" flags="REG_ICASE">
+   <fingerprint pattern="^0xb500(?:4c54|600d)\:(.*)\:.*?(\d*\.*\d*\.*\d*).*$" flags="REG_ICASE">
       <description>Lucent Technologies H.323 Server</description>
       <param pos="0" name="service.vendor" value="Lucent Technologies"/>
-      <param pos="2" name="service.product"/>
-      <param pos="3" name="service.version"/>
+      <param pos="1" name="service.product"/>
+      <param pos="2" name="service.version"/>
    </fingerprint>
 
    <fingerprint pattern="^0xb5004d47\:(.*)\:.*?(\d*\.*\d*\.*\d*).*$" flags="REG_ICASE">
