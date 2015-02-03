@@ -188,15 +188,15 @@
       <param pos="1" name="os.product"/>
    </fingerprint>
 
-   <fingerprint pattern="^3Com (11 Mbps|11a/b/g) (Wireless .*)$">
+   <fingerprint pattern="^3Com (?:11 Mbps|11a/b/g) (Wireless .*)$">
       <description>3COM WAP</description>
-      <example>3Com 11 Mbps Wireless Building to Building Bridge</example>
-      <example>3Com 11 Mbps Wireless LAN Access Point 2000</example>
-      <example>3Com 11 Mbps Wireless LAN Access Point 8000</example>
-      <example>3Com 11a/b/g Wireless Workgroup Bridge</example>
+      <example os.product="Wireless Building to Building Bridge">3Com 11 Mbps Wireless Building to Building Bridge</example>
+      <example os.product="Wireless LAN Access Point 2000">3Com 11 Mbps Wireless LAN Access Point 2000</example>
+      <example os.product="Wireless LAN Access Point 8000">3Com 11 Mbps Wireless LAN Access Point 8000</example>
+      <example os.product="Wireless Workgroup Bridge">3Com 11a/b/g Wireless Workgroup Bridge</example>
       <param pos="0" name="os.vendor" value="3Com"/>
       <param pos="0" name="os.device" value="WAP"/>
-      <param pos="2" name="os.product"/>
+      <param pos="1" name="os.product"/>
    </fingerprint>
 
    <fingerprint pattern="^3Com 3Com (?:SuperStack 4 )?Switch (\S+).*Software Version 3Com OS V(\S+)$">
@@ -672,7 +672,7 @@
       <param pos="2" name="os.product"/>
    </fingerprint>
 
-   <fingerprint pattern="^APC (Environmental (Management System|Manager|Monitoring Unit)|InfraStruXure Manager|.* Rack PDU|NetBotz Rack Access|Web/SNMP Management Card ).*AF1:\s*v?(\S+).*MN:\s*(\S+).*$">
+   <fingerprint pattern="^APC (?:Environmental (?:Management System|Manager|Monitoring Unit)|InfraStruXure Manager|.* Rack PDU|NetBotz Rack Access|Web/SNMP Management Card).*AF1:\s*v?(\S+).*MN:\s*(\S+).*$">
       <description>APC UPS</description>
       <example>APC Environmental Management System (MB:v3.6.9 PF:v2.6.4 PN:apc_hw02_aos_264.bin AF1:v2.6.7 AN1:apc_hw02_ems_267.bin MN:AP9320 HR:4 SN: ZA0747015277 MD:11/25/2007)</example>
       <example>APC Environmental Manager (MB:v3.8.0 PF:v3.0.3 PN:apc_hw03_aos_303.bin AF1:v3.0.4 AN1:apc_hw03_mem_304.bin MN:AP9340 HR:05 SN: ZA0739002849 MD:09/25/2007)</example>
@@ -688,8 +688,8 @@
       <example>APC Web/SNMP Management Card (MB:v3.2.0 PF:v3.0.9.a PN:aos309a.bin AF1:v2.2.5.a AN1:ms225a.bin MN: AP9606 HR: J9 SN: WA0121006888 MD: 12/20/2002)</example>
       <param pos="0" name="os.vendor" value="APC"/>
       <param pos="0" name="os.device" value="UPS"/>
-      <param pos="3" name="os.version"/>
-      <param pos="4" name="os.product"/>
+      <param pos="1" name="os.version"/>
+      <param pos="2" name="os.product"/>
    </fingerprint>
 
    <!--
@@ -805,20 +805,15 @@
       <param pos="2" name="os.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^Avaya (Inc.\s*\-\s*)?([^,]+),.*SW version (\S+).*$">
+   <fingerprint pattern="^Avaya (?:Inc\.\s*\-\s*)?([^,]+?)[\s,]*SW version (\S+).*$">
       <description>Avaya Switch</description>
-      <example>Avaya Inc. - C360 , SW version 4.3.12 , CS 1.1</example>
-      <example>Avaya Inc. - C360 , SW version 4.5.14 , CS 1.2</example>
-      <example>Avaya Inc. - P330 Stackable Switch, SW version 3.12.0</example>
-      <example>Avaya Inc. - P330 Stackable Switch, SW version 3.12.1</example>
-      <example>Avaya Inc. - P333R , SW version 3.9.1 , CS 2.4</example>
-      <example>Avaya Inc.- C360 Stackable Switch, SW version 4.5.14</example>
-      <example>Avaya Inc.- P330 Stackable Switch, SW version 4.5.8</example>
-      <example>Avaya P130 workgroup switch, SW version 2.9.2</example>
+      <example os.product="C360" os.version="4.3.12">Avaya Inc. - C360 , SW version 4.3.12 , CS 1.1</example>
+      <example os.product="C360 Stackable Switch" os.version="4.5.14">Avaya Inc.- C360 Stackable Switch, SW version 4.5.14</example>
+      <example os.product="P130 workgroup switch" os.version="2.9.2">Avaya P130 workgroup switch, SW version 2.9.2</example>
       <param pos="0" name="os.vendor" value="Avaya"/>
       <param pos="0" name="os.device" value="Switch"/>
-      <param pos="2" name="os.product"/>
-      <param pos="3" name="os.version"/>
+      <param pos="1" name="os.product"/>
+      <param pos="2" name="os.version"/>
    </fingerprint>
 
    <fingerprint pattern="^Avaya Inc\., (.* Media Gateway), SW Version (\S+).*$">
@@ -972,28 +967,25 @@
       <param pos="1" name="os.product"/>
       <param pos="2" name="os.version"/>
    </fingerprint>
+
    <!--======================================================================
                               AXIS
    =======================================================================-->
 
-   <fingerprint pattern="^AXIS (.*server)\s*.*?(v|Version:\s*)(\S+).*$" flags="REG_ICASE">
+   <fingerprint pattern="^AXIS (.*server).*(?:v|Version:\s*)([\d\.]+)" flags="REG_ICASE">
       <description>AXIS Network Print Server</description>
-      <example>AXIS 5470e Network Print Server V6.21 Dec  5 2000</example>
-      <example>AXIS 70U Network Document Server,Version: 1.08</example>
-      <example>AXIS 540/542 Print Server V5.43 Feb 2 1998</example>
-      <example>AXIS 540/542 Print Server V5.48 Dec 14 1998</example>
-      <example>AXIS 560Print serverV5.36 Jul 7 1997</example>
-      <example>AXIS OfficeBasic Parallel Network Print Server V6.43 Sep 4 2003</example>
-      <example>AXIS OfficeBasic Parallel Network Print Server V7.06 Nov 3 2005</example>
-      <example>AXIS OfficeBasic USB Network Print Server V6.43 Sep 4 2003</example>
-      <example>AXIS OfficeBasic USB Network Print Server V7.03 Feb 14 2005</example>
-      <example>AXIS PrintPoint 560/100 Print server V5.39 Dec 12 1997</example>
-      <example>Axis NPS 550R Printer Server V4.11 Mar 1 1994</example>
-      <example>Axis NPS 550RPrint serverV5.22 Oct 07 1996</example>
+      <example os.product="5470e Network Print Server" os.version="6.21">AXIS 5470e Network Print Server V6.21 Dec  5 2000</example>
+      <example os.product="70U Network Document Server" os.version="1.08">AXIS 70U Network Document Server,Version: 1.08</example>
+      <example os.product="540/542 Print Server" os.version="5.43">AXIS 540/542 Print Server V5.43 Feb 2 1998</example>
+      <example os.product="560Print server" os.version="5.36">AXIS 560Print serverV5.36 Jul 7 1997</example>
+      <example os.product="OfficeBasic USB Network Print Server" os.version="7.03">AXIS OfficeBasic USB Network Print Server V7.03 Feb 14 2005</example>
+      <example os.product="PrintPoint 560/100 Print server" os.version="5.39">AXIS PrintPoint 560/100 Print server V5.39 Dec 12 1997</example>
+      <example os.product="NPS 550R Printer Server" os.version="4.11">Axis NPS 550R Printer Server V4.11 Mar 1 1994</example>
+      <example os.product="NPS 550RPrint server" os.version="5.22">Axis NPS 550RPrint serverV5.22 Oct 07 1996</example>
       <param pos="0" name="os.vendor" value="Axis"/>
       <param pos="0" name="os.device" value="Print Server"/>
       <param pos="1" name="os.product"/>
-      <param pos="3" name="os.version"/>
+      <param pos="2" name="os.version"/>
    </fingerprint>
 
 
@@ -1001,33 +993,27 @@
                               BLUE COAT
    =======================================================================-->
 
-   <fingerprint pattern="^Blue Coat (SG\S+)( Series)?,.*\s+SGOS ([^,]+), Release id:\s*(\S+).*$">
+   <fingerprint pattern="^Blue Coat (SG\S+)(?: Series)?,.*\s+SGOS ([^,]+), Release id:\s*(\S+).*$">
       <description>Blue Coat Proxy SG</description>
-      <example>Blue Coat SG400 Series, Version: SGOS 5.2.4.8, Release id: 35838 Proxy Edition</example>
-      <example>Blue Coat SG200 Series, ProxySG Version: SGOS 4.3.2.3, Release id: 37535</example>
-      <example>Blue Coat SG400, ProxySG Version: SGOS 4.1.1.1, Release id: 22695</example>
-      <example>Blue Coat SG510 Series, ProxySG Version: SGOS 4.2.3.12, Release id: 28131</example>
-      <example>Blue Coat SG6000 Series, ProxySG Version: SGOS 3.2.4.8, Release id: 22001</example>
-      <example>Blue Coat SG800 Series, ProxySG Version: SGOS 4.3.3.1, Release id: 39753</example>
-      <example>Blue Coat SG800 Series, Security-Gateway Version: SGOS 2.1.6044, Release id: 19480 Service Pack 4</example>
-      <example>Blue Coat SG810 Series, ProxySG Version: SGOS 4.3.3.1, Release id: 39753</example>
-      <example>Blue Coat SG8100 Series, ProxySG Version: SGOS 4.3.3.16, Release id: 50237</example>
-      <example>Blue Coat SG8100 Series, ProxySG Version: SGOS 4.3.4.1, Release id: 52168</example>
+      <example os.product="SG400" os.version="5.2.4.8" os.version.version="35838">Blue Coat SG400 Series, Version: SGOS 5.2.4.8, Release id: 35838 Proxy Edition</example>
+      <example os.product="SG800" os.version="2.1.6044" os.version.version="19480">Blue Coat SG800 Series, Security-Gateway Version: SGOS 2.1.6044, Release id: 19480 Service Pack 4</example>
+      <example os.product="SG400" os.version="4.1.1.1" os.version.version="22695">Blue Coat SG400, ProxySG Version: SGOS 4.1.1.1, Release id: 22695</example>
+      <example os.product="SG8100" os.version="4.3.4.1" os.version.version="52168">Blue Coat SG8100 Series, ProxySG Version: SGOS 4.3.4.1, Release id: 52168</example>
       <param pos="0" name="os.vendor" value="Blue Coat"/>
       <param pos="0" name="os.device" value="Web proxy"/>
       <param pos="1" name="os.product"/>
-      <param pos="3" name="os.version"/>
-      <param pos="4" name="os.version.version"/>
+      <param pos="2" name="os.version"/>
+      <param pos="3" name="os.version.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^Blue Coat (AV\S+)( Series)?, ProxyAV Version: ([^,]+). Release id:\s*(\S+).*$">
+   <fingerprint pattern="^Blue Coat (AV\S+)(?: Series)?, ProxyAV Version: ([^,]+). Release id:\s*(\S+).*$">
       <description>Blue Coat ProxyAV</description>
-      <example>Blue Coat AV1200 Series, ProxyAV Version: 3.2.6.1, Release id: 51482</example>
+      <example os.product="AV1200" os.version="3.2.6.1" os.version.version="51482">Blue Coat AV1200 Series, ProxyAV Version: 3.2.6.1, Release id: 51482</example>
       <param pos="0" name="os.vendor" value="Blue Coat"/>
       <param pos="0" name="os.device" value="Web proxy"/>
       <param pos="1" name="os.product"/>
-      <param pos="3" name="os.version"/>
-      <param pos="4" name="os.version.version"/>
+      <param pos="2" name="os.version"/>
+      <param pos="3" name="os.version.version"/>
    </fingerprint>
 
    <fingerprint pattern="^Blue Coat PacketShaper (\S+)$">
@@ -2216,25 +2202,17 @@ Copyright (c) 1995-2005 by Cisco Systems
 
 
    <!-- Epson uses the 201207171045 / 02.23.00 version format, but the latter is more consistent -->
-   <fingerprint pattern="^EPSON ([A-Z]\S+); Net ([^,]+),ESS ([^,]+),IOT (\S+)$">
+   <fingerprint pattern="^EPSON ([A-Z]\S+); Net ([^,]+),ESS (?:[^,]+),IOT (\S+)$">
       <description>Epson Printer</description>
-      <example>EPSON AL-C1750N; Net 98.48,ESS 201103111031,IOT 02.17.00</example>
-      <example>EPSON AL-C1750N; Net 98.49,ESS 201107271418,IOT 02.17.00</example>
-      <example>EPSON AL-C1750N; Net 98.49,ESS 201107271418,IOT 02.17.02</example>
-      <example>EPSON AL-C1750N; Net 98.49,ESS 201107271418,IOT 02.17.04</example>
-      <example>EPSON AL-C1750W; Net 98.49,ESS 201107271419,IOT 02.17.00</example>
-      <example>EPSON AL-C1750W; Net 98.49,ESS 201107271419,IOT 02.17.02</example>
-      <example>EPSON AL-C1750W; Net 98.49,ESS 201107271419,IOT 02.17.04</example>
-      <example>EPSON AL-C2900; Net 96.51,ESS 201103101328,IOT 04.00.00</example>
-      <example>EPSON AL-C2900; Net 96.55,ESS 201108091219,IOT 04.00.01</example>
-      <example>EPSON AL-CX29; Net 96.55,ESS 201106281159,IOT 04.00.00</example>
-      <example>EPSON AL-CX29; Net 96.55,ESS 201110211025,IOT 04.00.01</example>
-      <example>EPSON LP-S620; Net 98.48,ESS 201103111031,IOT 02.17.02</example>
+      <example os.product="AL-C1750N" os.version="02.17.00" os.version.version="98.48">EPSON AL-C1750N; Net 98.48,ESS 201103111031,IOT 02.17.00</example>
+      <example os.product="AL-C2900" os.version="04.00.00" os.version.version="96.51">EPSON AL-C2900; Net 96.51,ESS 201103101328,IOT 04.00.00</example>
+      <example os.product="AL-CX29" os.version="04.00.00" os.version.version="96.55">EPSON AL-CX29; Net 96.55,ESS 201106281159,IOT 04.00.00</example>
+      <example os.product="LP-S620" os.version="02.17.02" os.version.version="98.48">EPSON LP-S620; Net 98.48,ESS 201103111031,IOT 02.17.02</example>
       <param pos="0" name="os.vendor" value="Epson"/>
       <param pos="0" name="os.device" value="Printer"/>
       <param pos="1" name="os.product"/>
-      <param pos="4" name="os.version"/>
-      <param pos="3" name="os.version.version"/>
+      <param pos="3" name="os.version"/>
+      <param pos="2" name="os.version.version"/>
    </fingerprint>
 
    <fingerprint pattern="^EPSON ([A-Z]\S+) (\d+\.\S+)$">
@@ -4992,23 +4970,21 @@ Copyright (c) 1995-2005 by Cisco Systems
       Note: The "hostname" is not really a hostname in this case, it is the MAC
       address.
    -->
-   <fingerprint pattern="^Linux (SUNSP00144F\S+) (2\.4\.22).* (\S+)$">
+   <fingerprint pattern="^Linux (?:SUNSP00144F\S+) (\S*).* (\S+)$">
       <description>Ubuntu Linux 7.04</description>
-      <example>Linux SUNSP00144F9E0508 2.4.22 #1 Sat Apr 21 11:28:21 PDT 2007 ppc</example>
-      <example>Linux SUNSP00144F794047 2.4.22 #1 Tue Feb 27 19:45:33 PST 2007 ppc</example>
-      <example>Linux SUNSP00144F8E3F54 2.4.22 #1 Tue Feb 27 19:45:33 PST 2007 ppc</example>
+      <example os.arch="ppc" linux.kernel.version="2.4.22">Linux SUNSP00144F9E0508 2.4.22 #1 Sat Apr 21 11:28:21 PDT 2007 ppc</example>
       <param pos="0" name="os.certainty" value="0.9"/>
       <param pos="0" name="os.family" value="Linux"/>
       <param pos="0" name="os.vendor" value="Sun"/>
       <param pos="0" name="os.product" value="Integrated Lights Out Manager"/>
       <param pos="0" name="os.device" value="Lights Out Management"/>
-      <param pos="2" name="linux.kernel.version"/>
-      <param pos="3" name="os.arch"/>
+      <param pos="1" name="linux.kernel.version"/>
+      <param pos="2" name="os.arch"/>
    </fingerprint>
 
-   <fingerprint pattern="^Silver Peak Systems, Inc\. (\S+) Linux (.*?) ([0-9]+\.[0-9]+\.[0-9]+\S*).* ([0-9]{4}|[A-Z][A-Z][A-Z]{1,2}|\+[0-9]+|Local time.*(manual|zic|m\S*)) (\S+).*$">
+   <fingerprint pattern="^Silver Peak Systems, Inc\. (\S+) Linux (.*?) ([0-9]+\.[0-9]+\.[0-9]+\S*).* (?:[0-9]{4}|[A-Z][A-Z][A-Z]{1,2}|\+[0-9]+|Local time.*(?:manual|zic|m\S*)) (\S+).*$">
       <description>Silver Peak Systems</description>
-      <example>Silver Peak Systems, Inc. NX7600 Linux Baghdad1C 2.6.22.14 hidalgo 3.3.0.0_32549 #1 2010-07-20 04:25:08 SMP x86_64</example>
+      <example os.product="NX7600" host.name="foo" os.version="2.6.22.14" os.arch="x86_64">Silver Peak Systems, Inc. NX7600 Linux foo 2.6.22.14 hidalgo 3.3.0.0_32549 #1 2010-07-20 04:25:08 SMP x86_64</example>
       <param pos="0" name="os.certainty" value="0.9"/>
       <param pos="0" name="os.family" value="Linux"/>
       <param pos="0" name="os.device" value="WAN Accelerator"/>
@@ -5017,7 +4993,7 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="3" name="os.version"/>
       <param pos="2" name="host.name"/>
       <param pos="3" name="linux.kernel.version"/>
-      <param pos="6" name="os.arch"/>
+      <param pos="4" name="os.arch"/>
    </fingerprint>
 
    <!--
@@ -5025,9 +5001,9 @@ Copyright (c) 1995-2005 by Cisco Systems
       specific pattern available.
    -->
 
-   <fingerprint pattern="^Linux (.*?) ([0-9]+\.[0-9]+\.[0-9]+\S*).* ([0-9]{4}|[A-Z][A-Z][A-Z]{1,2}|\+[0-9]+|Local time.*(manual|zic|m\S*)) (\S+).*$">
+   <fingerprint pattern="^Linux (.*?) ([0-9]+\.[0-9]+\.[0-9]+\S*).* (?:[0-9]{4}|[A-Z][A-Z][A-Z]{1,2}|\+[0-9]+|Local time.*(?:manual|zic|m\S*)) (\S+).*$">
       <description>Linux Generic</description>
-      <example>Linux hostname 2.6.9 #2 SMP Tue Jun 26 16:10:49 EDT 2012 x86_64</example>
+      <example os.arch="x86_64" os.version="2.6.9" linux.kernel.version="2.6.9" host.name="hostname">Linux hostname 2.6.9 #2 SMP Tue Jun 26 16:10:49 EDT 2012 x86_64</example>
       <param pos="0" name="os.certainty" value="0.5"/>
       <param pos="0" name="os.family" value="Linux"/>
       <param pos="0" name="os.product" value="Linux"/>
@@ -5035,19 +5011,19 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="2" name="os.version"/>
       <param pos="1" name="host.name"/>
       <param pos="2" name="linux.kernel.version"/>
-      <param pos="5" name="os.arch"/>
+      <param pos="3" name="os.arch"/>
    </fingerprint>
 
-   <fingerprint pattern="^Linux ([0-9]+\.[0-9]+\.[0-9]+\S*).* ([0-9]{4}|[A-Z][A-Z][A-Z]{1,2}|\+[0-9]+|Local time.*(manual|zic|m\S*)) (\S+).*$">
+   <fingerprint pattern="^Linux ([0-9]+\.[0-9]+\.[0-9]+\S*).* (?:[0-9]{4}|[A-Z][A-Z][A-Z]{1,2}|\+[0-9]+|Local time.*(?:manual|zic|m\S*)) (\S+).*$">
       <description>Linux Generic</description>
-      <example>Linux 2.6.9 #2 SMP Tue Jun 26 16:10:49 EDT 2012 x86_64</example>
+      <example os.version="2.6.9" linux.kernel.version="2.6.9" os.arch="x86_64">Linux 2.6.9 #2 SMP Tue Jun 26 16:10:49 EDT 2012 x86_64</example>
       <param pos="0" name="os.certainty" value="0.5"/>
       <param pos="0" name="os.family" value="Linux"/>
       <param pos="0" name="os.product" value="Linux"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="1" name="os.version"/>
       <param pos="1" name="linux.kernel.version"/>
-      <param pos="4" name="os.arch"/>
+      <param pos="2" name="os.arch"/>
    </fingerprint>
 
    <fingerprint pattern="^Linux (.*?) ([0-9]+\.[0-9]+\.[0-9]+\S*) (\S+)$">
@@ -5611,15 +5587,15 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="1" name="os.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^Nortel( Networks|), CS 1000 Signaling Server, Software Release (\S+)$">
+   <fingerprint pattern="^Nortel(?: Networks)?, CS 1000 Signaling Server, Software Release (\S+)$">
       <description>Nortel CS 1000</description>
-      <example>Nortel, CS 1000 Signaling Server, Software Release sse-4.50.88</example>
-      <example>Nortel Networks, CS 1000 Signaling Server, Software Release sse-4.00.55</example>
+      <example os.version="sse-4.50.88">Nortel, CS 1000 Signaling Server, Software Release sse-4.50.88</example>
+      <example os.version="sse-4.00.55">Nortel Networks, CS 1000 Signaling Server, Software Release sse-4.00.55</example>
       <param pos="0" name="os.vendor" value="Nortel"/>
       <param pos="0" name="os.family" value="CS 1000"/>
       <param pos="0" name="os.device" value="VoIP"/>
       <param pos="0" name="os.product" value="CS 1000 Signaling Server"/>
-      <param pos="2" name="os.version"/>
+      <param pos="1" name="os.version"/>
    </fingerprint>
 
    <fingerprint pattern="^Nortel, CS 1000 VGMC, Software Release (\S+)$">
@@ -5656,17 +5632,17 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="1" name="os.version.version.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^Nortel( Networks|), Meridian 1 Call Server, System (\S+), Release (\S+), Issue (\S+)$">
+   <fingerprint pattern="^Nortel(?: Networks)?, Meridian 1 Call Server, System (\S+), Release (\S+), Issue (\S+)$">
       <description>Nortel Networks Meridian 1 Call Server</description>
-      <example>Nortel Networks, Meridian 1 Call Server, System 2121, Release 4, Issue 0</example>
-      <example>Nortel, Meridian 1 Call Server, System 2121, Release 4, Issue 50</example>
+      <example os.version.version.version="2121" os.version="4" os.version.version="0">Nortel Networks, Meridian 1 Call Server, System 2121, Release 4, Issue 0</example>
+      <example os.version.version.version="2121" os.version="4" os.version.version="50">Nortel, Meridian 1 Call Server, System 2121, Release 4, Issue 50</example>
       <param pos="0" name="os.vendor" value="Nortel"/>
       <param pos="0" name="os.family" value="Meridian 1"/>
       <param pos="0" name="os.device" value="VoIP"/>
       <param pos="0" name="os.product" value="Meridian 1 Call Server"/>
-      <param pos="3" name="os.version"/>
-      <param pos="4" name="os.version.version"/>
-      <param pos="2" name="os.version.version.version"/>
+      <param pos="2" name="os.version"/>
+      <param pos="3" name="os.version.version"/>
+      <param pos="1" name="os.version.version.version"/>
    </fingerprint>
 
    <fingerprint pattern="^Nortel Application Switch (\S+)(?:\s+\S+|)$">
@@ -5678,15 +5654,15 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="1" name="os.product"/>
    </fingerprint>
 
-   <fingerprint pattern="^Ethernet Routing Switch (\S+)\s+(\(Stack Enabled\)\s+|)HW:.*FW:.*SW:(\S+).*\(c\) Nortel Networks$">
+   <fingerprint pattern="^Ethernet Routing Switch (\S+)\s+(?:\(Stack Enabled\)\s+)?HW:.*FW:.*SW:(\S+).*\(c\) Nortel Networks$">
       <description>Nortel Ethernet switch</description>
-      <example>Ethernet Routing Switch 5520-48T-PWR  HW:32       FW:5.0.0.3   SW:v5.0.4.011 BN:00 (c) Nortel Networks</example>
-      <example>Ethernet Routing Switch 2526T (Stack Enabled) HW:01 FW:1.0.0.13 SW:v4.1.0.000 BN:00 (c) Nortel Networks</example>
+      <example os.product="5520-48T-PWR" os.version="v5.0.4.011">Ethernet Routing Switch 5520-48T-PWR  HW:32       FW:5.0.0.3   SW:v5.0.4.011 BN:00 (c) Nortel Networks</example>
+      <example os.product="2526T" os.version="v4.1.0.000">Ethernet Routing Switch 2526T (Stack Enabled) HW:01 FW:1.0.0.13 SW:v4.1.0.000 BN:00 (c) Nortel Networks</example>
       <param pos="0" name="os.vendor" value="Nortel"/>
       <param pos="0" name="os.family" value="Ethernet Routing Switch"/>
       <param pos="0" name="os.device" value="Switch"/>
       <param pos="1" name="os.product"/>
-      <param pos="3" name="os.version"/>
+      <param pos="2" name="os.version"/>
    </fingerprint>
 
    <fingerprint pattern="^Nortel SR ([^,\s]+).*Software Version = ([^,]+),.*$">
@@ -6298,28 +6274,28 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="2" name="os.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^Paradyne (ATM (ReachDSL|ADSL) Unit); Model: ([^;]+);.*S/W Release: ([^;]+);.*$">
+   <fingerprint pattern="^Paradyne (ATM (?:ReachDSL|ADSL) Unit); Model: ([^;]+);.*S/W Release: ([^;]+);.*$">
       <description>Paradyne ATM DSL Unit</description>
-      <example>Paradyne ATM ADSL Unit; Model: 4223-A1-532; CCA: 868-5969-8200; S/W Release: 02.03.08; Hardware Revision: 5969-82A; Serial number: 6963727 ;</example>
-      <example>Paradyne ATM ReachDSL Unit; Model: 4211-A1-530; CCA: 868-5315-8200; S/W Release: 02.03.04; Hardware Revision: 5315-82G; Serial number: 6066448 ;</example>
+      <example os.family="ATM ADSL Unit" os.product="4223-A1-532" os.version="02.03.08">Paradyne ATM ADSL Unit; Model: 4223-A1-532; CCA: 868-5969-8200; S/W Release: 02.03.08; Hardware Revision: 5969-82A; Serial number: 6963727 ;</example>
+      <example os.family="ATM ReachDSL Unit" os.product="4211-A1-530" os.version="02.03.04">Paradyne ATM ReachDSL Unit; Model: 4211-A1-530; CCA: 868-5315-8200; S/W Release: 02.03.04; Hardware Revision: 5315-82G; Serial number: 6066448 ;</example>
       <param pos="0" name="os.certainty" value="1.0"/>
       <param pos="0" name="os.vendor" value="Paradyne"/>
       <param pos="0" name="os.device" value="ATM DSL Unit"/>
       <param pos="1" name="os.family"/>
-      <param pos="3" name="os.product"/>
-      <param pos="4" name="os.version"/>
+      <param pos="2" name="os.product"/>
+      <param pos="3" name="os.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^Paradyne (Hot[wW]ire [^;]+); Model: ([^;]+);.*S/W Release: ([^;]+);.*$">
+   <fingerprint pattern="^Paradyne (?:Hot[wW]ire [^;]+); Model: ([^;]+);.*S/W Release: ([^;]+);.*$">
       <description>Paradyne HotWire</description>
-      <example>Paradyne Hotwire DSL4; Model: 8546-B1-000; Card: R4IP; S/W Release: 02.03.15; H/W Revision: 1004-80A; Serial number: 7HMOC</example>
-      <example>Paradyne HotWire MCC; Model: 8000-B1-000; Card: MC-M; S/W Release: 02.00.22; H/W Revision: 1010-80A; Serial number: 7HHJR</example>
+      <example os.product="8546-B1-000" os.version="02.03.15">Paradyne Hotwire DSL4; Model: 8546-B1-000; Card: R4IP; S/W Release: 02.03.15; H/W Revision: 1004-80A; Serial number: 7HMOC</example>
+      <example os.product="8000-B1-000" os.version="02.00.22">Paradyne HotWire MCC; Model: 8000-B1-000; Card: MC-M; S/W Release: 02.00.22; H/W Revision: 1010-80A; Serial number: 7HHJR</example>
       <param pos="0" name="os.certainty" value="1.0"/>
       <param pos="0" name="os.vendor" value="Paradyne"/>
       <param pos="0" name="os.device" value="DSL Modem"/>
       <param pos="0" name="os.family" value="HotWire"/>
-      <param pos="2" name="os.product"/>
-      <param pos="3" name="os.version"/>
+      <param pos="1" name="os.product"/>
+      <param pos="2" name="os.version"/>
    </fingerprint>
 
    <!--
@@ -7164,38 +7140,38 @@ Copyright (c) 1995-2005 by Cisco Systems
                               SGI
    =======================================================================-->
 
-   <fingerprint pattern="^.* IRIX (version )?(\d+\S+).*$">
+   <fingerprint pattern="^.* IRIX (?:version )?(\d+\S+).*$">
       <description>SGI IRIX</description>
-      <example>Silicon Graphics IRIS Indigo2  running IRIX version 6.5</example>
-      <example>Silicon Graphics IRIS Indigo2 Elan running IRIX 5.3</example>
-      <example>Silicon Graphics IRIS Indigo2 running IRIX 5.3</example>
-      <example>Silicon Graphics IRIS O2 CRM running IRIX 6.3</example>
+      <example os.version="6.5">Silicon Graphics IRIS Indigo2  running IRIX version 6.5</example>
+      <example os.version="5.3">Silicon Graphics IRIS Indigo2 Elan running IRIX 5.3</example>
+      <example os.version="5.3">Silicon Graphics IRIS Indigo2 running IRIX 5.3</example>
+      <example os.version="6.3">Silicon Graphics IRIS O2 CRM running IRIX 6.3</example>
       <param pos="0" name="os.certainty" value="0.9"/>
       <param pos="0" name="os.vendor" value="SGI"/>
       <param pos="0" name="os.family" value="IRIX"/>
       <param pos="0" name="os.product" value="IRIX"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.arch" value="MIPS"/> <!-- We should differentiate Indigo2 vs. Indigo -->
-      <param pos="2" name="os.version"/>
+      <param pos="1" name="os.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^.* IRIX64 (version )?(\d+\S+).*$">
+   <fingerprint pattern="^.* IRIX64 (?:version )?(\d+\S+).*$">
       <description>SGI IRIX</description>
-      <example>Silicon Graphics Challenge/1 running IRIX64 6.5</example>
-      <example>Silicon Graphics Fuel running IRIX64 version 6.5</example>
-      <example>Silicon Graphics IRIS Octane running IRIX64 version 6.5</example>
-      <example>Silicon Graphics Octane2 running IRIX64 version 6.5</example>
-      <example>Silicon Graphics Onyx2 running IRIX64 version 6.5</example>
-      <example>Silicon Graphics Origin 200 running IRIX64 version 6.5</example>
-      <example>Silicon Graphics Origin 2000 running IRIX64 version 6.5</example>
-      <example>Silicon Graphics Origin 3000 running IRIX64 version 6.5</example>
+      <example os.version="6.5">Silicon Graphics Challenge/1 running IRIX64 6.5</example>
+      <example os.version="6.5">Silicon Graphics Fuel running IRIX64 version 6.5</example>
+      <example os.version="6.5">Silicon Graphics IRIS Octane running IRIX64 version 6.5</example>
+      <example os.version="6.5">Silicon Graphics Octane2 running IRIX64 version 6.5</example>
+      <example os.version="6.5">Silicon Graphics Onyx2 running IRIX64 version 6.5</example>
+      <example os.version="6.5">Silicon Graphics Origin 200 running IRIX64 version 6.5</example>
+      <example os.version="6.5">Silicon Graphics Origin 2000 running IRIX64 version 6.5</example>
+      <example os.version="6.5">Silicon Graphics Origin 3000 running IRIX64 version 6.5</example>
       <param pos="0" name="os.certainty" value="0.9"/>
       <param pos="0" name="os.vendor" value="SGI"/>
       <param pos="0" name="os.family" value="IRIX"/>
       <param pos="0" name="os.product" value="IRIX"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.arch" value="MIPS64"/>
-      <param pos="2" name="os.version"/>
+      <param pos="1" name="os.version"/>
    </fingerprint>
 
 
@@ -7250,9 +7226,9 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="1" name="os.product"/>
    </fingerprint>
 
- <fingerprint pattern="^HiPath Wireless Access Controller - (\S+( \S+)?)\s*, System Version (V\d+ )?(\S+)$">
+ <fingerprint pattern="^HiPath Wireless Access Controller - ([^,]+)\s*, System Version ((?:V\d+ )?\S+)$">
       <description>Siemens HiPath Wireless Access Point</description>
-      <example>HiPath Wireless Access Controller - C20 Office, System Version V6R1.10507.0</example>
+      <example os.product="C20 Office" os.version="V6R1.10507.0">HiPath Wireless Access Controller - C20 Office, System Version V6R1.10507.0</example>
       <example>HiPath Wireless Access Controller - C2400 Enterprise, System Version 07.41.01.0192</example>
       <example>HiPath Wireless Access Controller - C2400 Enterprise, System Version 07.41.03.0006</example>
       <example>HiPath Wireless Access Controller - C25, System Version 07.41.02.0009</example>
@@ -7266,7 +7242,7 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="0" name="os.device" value="HiPath"/>
       <param pos="0" name="os.family" value="WAP"/>
       <param pos="1" name="os.product"/>
-      <param pos="4" name="os.version"/>
+      <param pos="2" name="os.version"/>
    </fingerprint>
 
  <fingerprint pattern="^HiPath (optiPoint \S+ \S+) HFA$">
@@ -7386,28 +7362,18 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="2" name="os.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^Siemens, SIMATIC NET, ([^,]+),.*FW:\s*(Version )?V?([^,]+).*$">
+   <fingerprint pattern="^Siemens, SIMATIC NET, ([^,]+),.*FW:\s*(?:Version )?V?([^,]+).*$">
       <description>Siemens NET</description>
-      <example>Siemens, SIMATIC NET, CP 343-1 Advanced, 6GK7 343-1GX30-0XE0, HW: Version 3, FW: Version V1.2.3, VPB9502953</example>
-      <example>Siemens, SIMATIC NET, CP 343-1 Lean, 6GK7 343-1CX10-0XE0, HW: Version 6, FW: Version V2.6.0, VPC3513639</example>
-      <example>Siemens, SIMATIC NET, CP 343-1, 6GK7 343-1EX30-0XE0, HW: Version 3, FW: Version V2.2.20, VPXN545808</example>
-      <example>Siemens, SIMATIC NET, CP 343-1, 6GK7 343-1EX30-0XE0, HW: Version 6, FW: Version V2.6.0, VPC3523329</example>
-      <example>Siemens, SIMATIC NET, CP 443-1 Advanced, 6GK7 443-1GX20-0XE0, HW: Version 4, FW: Version V2.1.12, VPAO470672</example>
-      <example>Siemens, SIMATIC NET, CP343-1 Advanced, 6GK7 343-1GX30-0XE0, HW: Version 2, FW: Version V1.0.23, VPX1507972</example>
-      <example>Siemens, SIMATIC NET, CP343-1, 6GK7 343-1CX10-0XE0, HW: Version 2, FW: Version V2.0.16, VPV2516052</example>
-      <example>Siemens, SIMATIC NET, CP443-1 Advanced, 6GK7 443-1GX20-0XE0, HW: Version 3, FW: Version V2.0.49, VPA2470202</example>
-      <example>Siemens, SIMATIC NET, CP443-1, 6GK7 443-1EX20-0XE0, HW: Version 2, FW: Version V1.0.26, VPW6470099</example>
-      <example>Siemens, SIMATIC NET, SCALANCE X204-2, 6GK5 204-2BB10-2AA3, HW: 4, FW: V4.01</example>
-      <example>Siemens, SIMATIC NET, SCALANCE X204-2, 6GK5 204-2BB10-2AA3, HW: 7, FW: V4.03</example>
-      <example>Siemens, SIMATIC NET, SCALANCE X208, 6GK5 208-0BA10-2AA3, HW: 2, FW: V4.00</example>
-      <example>Siemens, SIMATIC NET, SCALANCE X208, 6GK5 208-0BA10-2AA3, HW: 5, FW: V4.02</example>
-      <example>Siemens, SIMATIC NET, Scalance S612, 6GK56120BA102AA3, HW: Version 6, FW: Version S03.01.00.00_01.00.00.01, VPB9542952</example>
-      <example>Siemens, SIMATIC NET, Scalance S612, 6GK56120BA102AA3, HW: Version 6, FW: Version T03.00.00.00_25.00.00.01, VPB9542952</example>
+      <example os.product="CP 343-1 Advanced" os.version="1.2.3">Siemens, SIMATIC NET, CP 343-1 Advanced, 6GK7 343-1GX30-0XE0, HW: Version 3, FW: Version V1.2.3, VPB9502953</example>
+      <example os.product="CP 343-1 Lean" os.version="2.6.0">Siemens, SIMATIC NET, CP 343-1 Lean, 6GK7 343-1CX10-0XE0, HW: Version 6, FW: Version V2.6.0, VPC3513639</example>
+      <example os.product="CP 343-1" os.version="2.2.20">Siemens, SIMATIC NET, CP 343-1, 6GK7 343-1EX30-0XE0, HW: Version 3, FW: Version V2.2.20, VPXN545808</example>
+      <example os.product="SCALANCE X204-2" os.version="4.01">Siemens, SIMATIC NET, SCALANCE X204-2, 6GK5 204-2BB10-2AA3, HW: 4, FW: V4.01</example>
+      <example os.product="Scalance S612" os.version="T03.00.00.00_25.00.00.01">Siemens, SIMATIC NET, Scalance S612, 6GK56120BA102AA3, HW: Version 6, FW: Version T03.00.00.00_25.00.00.01, VPB9542952</example>
       <param pos="0" name="os.vendor" value="Siemens"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.family" value="Simatic NET"/>
       <param pos="1" name="os.product"/>
-      <param pos="3" name="os.version"/>
+      <param pos="2" name="os.version"/>
    </fingerprint>
 
    <fingerprint pattern="^Siemens, SIMATIC NET (\S+) FW V (\S+)$">
@@ -7420,21 +7386,16 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="2" name="os.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^Siemens, SIMATIC S7, ([^,]+), .*?FW: (Version )?V?\.?([^,]+).*$">
+   <fingerprint pattern="^Siemens, SIMATIC S7, ([^,]+), .*?FW: (?:Version )?V?\.?([^,]+).*$">
       <description>Siemens S7</description>
-      <example>Siemens, SIMATIC S7, CPU-1200, 6ES7 211-1BD30-0XB0, HW: 1, FW: V.2.0.2, SZVX8YU9000553</example>
-      <example>Siemens, SIMATIC S7, CPU-1200, 6ES7 212-1BD30-0XB0, HW: 1, FW: V.2.0.2, SZVB5YU6023612</example>
-      <example>Siemens, SIMATIC S7, CPU-1200, 6ES7 214-1AE30-0XB0, HW: 1, FW: V.2.0.2, SZVB5YYW030600</example>
-      <example>Siemens, SIMATIC S7, CPU-1200, 6ES7 214-1BE30-0XB0, HW: 1, FW: V.2.0.2, SZVB5YYY021744</example>
-      <example>Siemens, SIMATIC S7, CPU314C-2 PN/DP, 6ES7 314-6EH04-0AB0 , HW: 1, FW: V3.3.6, S C-C2TP66392012</example>
-      <example>Siemens, SIMATIC S7, CPU315-2 PN/DP, 6ES7 315-2EH13-0AB0 , HW: 3, FW: V2.5.0, S C-V4P07826200</example>
-      <example>Siemens, SIMATIC S7, IM151-8, 6ES7 151-8AB00-0AB0 , HW: 2, FW: V2.7.1, S C-X7UR7434200</example>
-      <example>Siemens, SIMATIC S7, IM151-8, 6ES7 151-8AB01-0AB0 , HW: 2, FW: V3.2.3, S C-B3UC78192011</example>
+      <example os.product="CPU-1200" os.version="2.0.2">Siemens, SIMATIC S7, CPU-1200, 6ES7 211-1BD30-0XB0, HW: 1, FW: V.2.0.2, SZVX8YU9000553</example>
+      <example os.product="CPU315-2 PN/DP" os.version="2.5.0">Siemens, SIMATIC S7, CPU315-2 PN/DP, 6ES7 315-2EH13-0AB0 , HW: 3, FW: V2.5.0, S C-V4P07826200</example>
+      <example os.product="IM151-8" os.version="3.2.3">Siemens, SIMATIC S7, IM151-8, 6ES7 151-8AB01-0AB0 , HW: 2, FW: V3.2.3, S C-B3UC78192011</example>
       <param pos="0" name="os.vendor" value="Siemens"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.family" value="Simatic S7"/>
       <param pos="1" name="os.product"/>
-      <param pos="3" name="os.version"/>
+      <param pos="2" name="os.version"/>
    </fingerprint>
 
    <fingerprint pattern="^Siemens, SIMATIC S7, ([^,]+), .*?, V\.([^,]+).*$">
@@ -7810,16 +7771,16 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="0" name="os.device" value="WAP"/>
    </fingerprint>
 
-   <fingerprint pattern="^Symbol ((Spectrum24 (FHSS|Ethernet) )?Access Point)[,-].*S/W rev:\s*(\S+).*$">
+   <fingerprint pattern="^Symbol ((?:Spectrum24 (?:FHSS|Ethernet) )?Access Point)[,-].*S/W rev:\s*(\S+).*$">
       <description>Symbol Access Point</description>
-      <example>Symbol Access Point, S/W rev:- S/W rev: 02.70-06</example>
-      <example>Symbol Access Point, S/W rev:02.21-01</example>
-      <example>Symbol Spectrum24 FHSS Access Point, S/W rev: 04.02-12</example>
-      <example>Symbol Access Point- S/W rev: 03.50-26</example>
+      <example os.product="Access Point" os.version="02.70-06">Symbol Access Point, S/W rev:- S/W rev: 02.70-06</example>
+      <example os.product="Access Point" os.version="02.21-01">Symbol Access Point, S/W rev:02.21-01</example>
+      <example os.product="Spectrum24 FHSS Access Point" os.version="04.02-12">Symbol Spectrum24 FHSS Access Point, S/W rev: 04.02-12</example>
+      <example os.product="Access Point" os.version="03.50-26">Symbol Access Point- S/W rev: 03.50-26</example>
       <param pos="0" name="os.vendor" value="Symbol"/>
       <param pos="1" name="os.product"/>
       <param pos="0" name="os.device" value="WAP"/>
-      <param pos="4" name="os.version"/>
+      <param pos="2" name="os.version"/>
    </fingerprint>
 
    <fingerprint pattern="^Symbol (AP\S+|WS\S+) .* SW=(\S+) .*$">
