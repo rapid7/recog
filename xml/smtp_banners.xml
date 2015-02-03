@@ -15,7 +15,7 @@ These XML files are used in this order:
    smtp_turn.xml
    smtp_rset.xml
    smtp_quit.xml
-   
+
 The system or service fingerprint with the highest certainty overwrites the others.
 -->
 
@@ -55,17 +55,19 @@ The system or service fingerprint with the highest certainty overwrites the othe
          AnalogX proxy
          http://www.analogx.com/contents/download/network/proxy.htm
       </description>
+      <example host.name="192.168.1.1" service.version="4.15">192.168.1.1 SMTP AnalogX Proxy 4.15 (Release) ready</example>
       <param pos="0" name="service.vendor" value="AnalogX"/>
       <param pos="0" name="service.family" value="Proxy"/>
       <param pos="0" name="service.product" value="Proxy"/>
-      <param pos="1" name="service.version"/>
+      <param pos="2" name="service.version"/>
+      <param pos="1" name="host.name"/>
    </fingerprint>
 
    <fingerprint pattern="^ArGoSoft Mail Server, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
       <description>
          ArGoSoft Mail Server is fully functional STMP/POP3/Finger server for Windows 95/98/NT/2000.
          http://www.argosoft.com/applications/mailserver/
-         Example: 220 ArGoSoft Mail Server, Version 1.4 (1.4.0.3)      
+         Example: 220 ArGoSoft Mail Server, Version 1.4 (1.4.0.3)
       </description>
       <param pos="0" name="service.vendor" value="ArGoSoft"/>
       <param pos="0" name="service.family" value="Mail Server"/>
@@ -124,7 +126,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="0" name="service.version" value="4"/>
    </fingerprint>
 
-   <fingerprint pattern="^([\*20 ]+)$">
+   <fingerprint pattern="^[\*20 ]+$">
       <description>
          Cisco PIX firewall: PIX sits between an internal SMTP server and the rest of the world.
 
@@ -275,7 +277,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="0" name="service.product" value="IIS"/>
       <param pos="3" name="service.version"/>
       <param pos="1" name="host.name"/>
-      <param pos="2" name="system.time"/>      
+      <param pos="2" name="system.time"/>
       <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
       <param pos="0" name="os.vendor" value="Microsoft"/>
       <param pos="0" name="os.family" value="Windows"/>
@@ -330,7 +332,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="1" name="host.name"/>
    </fingerprint>
 
-   <fingerprint pattern="^([^ ]+) +SMTP/smap Ready\.$">
+   <fingerprint pattern="^(?:[^ ]+) +SMTP/smap Ready\.$">
       <description>
          TIS FWTK and derivatives
          http://www.tis.com/research/software/
@@ -418,11 +420,12 @@ The system or service fingerprint with the highest certainty overwrites the othe
          Syntegra/CDC IntraStore TurboSendmail, part of the IntraStore server which runs on
          the following platforms ONLY: Linux, HP-UX, Solaris, AIX, and Windows NT/2000
          see http://www.cdc.com for more information
-         example: 220 tigger.disneyonline.com (IntraStore TurboSendmail) ESMTP Service ready
       </description>
+      <example host.name="192.168.1.1">192.168.1.1 (IntraStore TurboSendmail) ESMTP Service ready</example>
       <param pos="0" name="service.vendor" value="BT"/>
       <param pos="0" name="service.family" value="IntraStore"/>
       <param pos="0" name="service.product" value="IntraStore"/>
+      <param pos="1" name="host.name"/>
    </fingerprint>
 
    <fingerprint pattern="^([^ ]+) \(Mail-Max Version (\d+\.\d+\.\d+\.\d+), (.+, .+)\) ESMTP Mail Server Ready. *$">
@@ -436,7 +439,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
       <param pos="1" name="host.name"/>
       <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>         
+      <param pos="3" name="system.time"/>
    </fingerprint>
 
    <fingerprint pattern="^([^ ]+) \(Mail-Max Version (\d+\.\d+), (.+, .+)\) ESMTP Mail Server Ready. *$">
@@ -450,7 +453,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
       <param pos="1" name="host.name"/>
       <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>         
+      <param pos="3" name="system.time"/>
    </fingerprint>
 
    <fingerprint pattern="^([^ ]+) +MailSite ESMTP Receiver Version ([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+) Ready *$">
@@ -491,7 +494,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
 
    <fingerprint pattern="^([^ ]+) +ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+) UNREGISTERED; *(.+) *$">
       <description>
-         MDaemon mail server 
+         MDaemon mail server
          220 foo.bar ESMTP MDaemon 4.0.5 UNREGISTERED; Sat, 06 Oct 2001 09:10:56 +0400
       </description>
       <param pos="0" name="service.vendor" value="Alt-N"/>
@@ -511,7 +514,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
 
    <fingerprint pattern="^([^ ]+) +ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+); *(.+) *$">
       <description>
-         MDaemon mail server 
+         MDaemon mail server
          220 foo.bar ESMTP MDaemon 4.0.2; Sat, 06 Oct 2001 01:46:44 -0500
       </description>
       <param pos="0" name="service.vendor" value="Alt-N"/>
@@ -530,7 +533,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
 
    <fingerprint pattern="^([^ ]+) +ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+) ready *$">
       <description>
-         MDaemon mail server 
+         MDaemon mail server
          220 foo.bar ESMTP MDaemon 3.5.7 ready
       </description>
       <param pos="0" name="service.vendor" value="Alt-N"/>
@@ -547,7 +550,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
 
    <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] MDaemon v([^ ]+\.[^ ]+) ([^ ]+) *$">
       <description>
-         MDaemon mail server 
+         MDaemon mail server
          220 foo.bar.com ESMTP service ready [1] MDaemon v2.84 R
       </description>
       <param pos="0" name="service.vendor" value="Alt-N"/>
@@ -565,7 +568,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
 
    <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] using MDaemon v([^ ]+\.[^ ]+\.[^ ]+) ([^ ]+) *$">
       <description>
-         MDaemon mail server 
+         MDaemon mail server
          220 foo.bar.com ESMTP service ready [1] using MDaemon v3.0.3 R
       </description>
       <param pos="0" name="service.vendor" value="Alt-N"/>
@@ -583,7 +586,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
 
    <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] MDaemon v([^ ]+\.[^ ]+) ([^ ]+) ([^ ]+) *$">
       <description>
-         MDaemon mail server 
+         MDaemon mail server
          220 foo.bar.com ESMTP service ready [1] MDaemon v2.7 SP5 R
       </description>
       <param pos="0" name="service.vendor" value="Alt-N"/>
@@ -602,7 +605,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
 
    <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] MDaemon v([^ ]+)\.([^ ]+)\.([^ ]+)\.([^ ]+) ([^ ]+) *$">
       <description>
-         MDaemon mail server 
+         MDaemon mail server
          220 foo.bar.com ESMTP service ready [1] MDaemon v2.8.7.0 R
       </description>
       <param pos="0" name="service.vendor" value="Alt-N"/>
@@ -623,7 +626,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
 
    <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] \(MDaemon v([^ ]+\.[^ ]+) ([^ ]+) ([^ ]+)\) *$">
       <description>
-         MDaemon mail server 
+         MDaemon mail server
          220 foo.bar.com ESMTP service ready [2] (MDaemon v2.7 SP4 R)
       </description>
       <param pos="0" name="service.vendor" value="Alt-N"/>
@@ -642,7 +645,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
 
    <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] \(MDaemon v([^ ]+\.[^ ]+) ([^ ]+) ([^ ]+) ([^ ]+)\) *$">
       <description>
-         MDaemon mail server 
+         MDaemon mail server
          220 foo.bar.com ESMTP service ready [1] (MDaemon v2.5 rB b1 32-T)
       </description>
       <param pos="0" name="service.vendor" value="Alt-N"/>
@@ -700,7 +703,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy  HH:mm:ss zzz"/>
       <param pos="1" name="service.version"/>
       <param pos="2" name="service.version.version"/>
-      <param pos="3" name="service.version.version.version"/>         
+      <param pos="3" name="service.version.version.version"/>
       <param pos="4" name="mercur.os.info"/>
       <param pos="5" name="system.time"/>
    </fingerprint>
@@ -797,7 +800,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
 
    <fingerprint pattern="^([^ ]+) Lotus SMTP MTA Service Ready *$">
       <description>
-         Lotus Notes 4 SMTP MTA      
+         Lotus Notes 4 SMTP MTA
       </description>
       <param pos="0" name="service.vendor" value="Lotus"/>
       <param pos="0" name="service.family" value="Lotus Domino"/>
@@ -808,7 +811,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
 
    <fingerprint pattern="^([^ ]+) ESMTP Service \(Lotus Domino Release (\d+\.\d+\.\w+)\) ready at (.+) *$">
       <description>
-         Lotus Domino 5 SMTP MTA 
+         Lotus Domino 5 SMTP MTA
          220 foo.bar.com ESMTP Service (Lotus Domino Release 5.0.5) ready at Wed, 19 Dec 2001 19:54:55 -0500
       </description>
       <param pos="0" name="service.vendor" value="Lotus"/>
@@ -822,7 +825,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
 
    <fingerprint pattern="^([^ ]+) ESMTP Service \(Lotus Domino Release (\d+\.\w+)\) ready at (.+) *$">
       <description>
-         Lotus Domino 5 SMTP MTA 
+         Lotus Domino 5 SMTP MTA
          example: 220 foo.bar.com ESMTP Service (Lotus Domino Release 5.0a) ready at Wed, 20 Jun 2001 08:59:17 +0200
       </description>
       <param pos="0" name="service.vendor" value="Lotus"/>
@@ -836,17 +839,17 @@ The system or service fingerprint with the highest certainty overwrites the othe
 
    <fingerprint pattern="^([^ ]+) ESMTP Service \(Lotus Domino Release (\d+\.\d+\.\w+) \(Intl\)\) ready at (.+) *$">
       <description>
-         Lotus Domino 5 SMTP MTA, International product version      
+         Lotus Domino 5 SMTP MTA, International product version
          example: 220 foo.bar.com ESMTP Service (Lotus Domino Release 5.0.5 (Intl)) ready at Tue, 6 Feb 2001 18:54:23 -0500
       </description>
       <param pos="0" name="service.vendor" value="Lotus"/>
       <param pos="0" name="service.family" value="Lotus Domino"/>
       <param pos="0" name="service.product" value="Lotus Domino"/>
       <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="0" name="notes.intl" value="yes"/>         
+      <param pos="0" name="notes.intl" value="yes"/>
       <param pos="1" name="host.name"/>
       <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>            
+      <param pos="3" name="system.time"/>
    </fingerprint>
 
    <fingerprint pattern="^([^ ]+) ESMTP Service \(Lotus Domino Build (\d+\.\d+)\) ready at (.+) *$">
@@ -894,10 +897,10 @@ The system or service fingerprint with the highest certainty overwrites the othe
          versions 3.x and earlier of NTMail http://www.gordano.com (it was called Internet Shopper's something or other)
          example: 220 mail.Networkengineering WindowsNT SMTP Server v3.03.0018/1.aio1/SP ESMTP ready at Wed, 25 Jul 2001 23:03:11 -0400
          example: 220 mars.wvwc.edu WindowsNT SMTP Server v3.03.0018/1.ajhf/SP ESMTP ready at Thu, 29 Oct 1998 18:01:30 -0500
-         example: 220 mail.someisp.net WindowsNT SMTP Server v3.03.0017/1.aihl/SP ESMTP ready at Sun, 6 Jun 1999 10:39:30 -0400 
+         example: 220 mail.someisp.net WindowsNT SMTP Server v3.03.0017/1.aihl/SP ESMTP ready at Sun, 6 Jun 1999 10:39:30 -0400
          example: 220 nt03s02.switchlink.be WindowsNT SMTP Server v3.03.0014/1.aiss/SP ESMTP ready at Fri, 17 Apr 1998 16:59:04 +0100
          example: 220 www.afsc.org WindowsNT SMTP Server v3.03.0017/1.abkz/SP ESMTP ready at Mon, 2 Oct 2000 11:50:29 -0400
-         example: 220 wwmerchant.osopinion.com WindowsNT SMTP Server v3.03.0017/4c.adur/SP ESMTP ready at Fri, 26 Mar 1999 13:20:30 -0700 
+         example: 220 wwmerchant.osopinion.com WindowsNT SMTP Server v3.03.0017/4c.adur/SP ESMTP ready at Fri, 26 Mar 1999 13:20:30 -0700
          example: 220 digital-hoon.tecdm.dmi.co.kr WindowsNT SMTP Server v3.02.07/2c.aaaj ready at Thu, 5 Dec 1996 22:46:12 +0000
       </description>
       <param pos="0" name="service.vendor" value="Gordano"/>
@@ -1029,9 +1032,9 @@ The system or service fingerprint with the highest certainty overwrites the othe
 
    <fingerprint pattern="^([^ ]+) ESMTP server \(P|post\.O|office v([^ ]+\.[^ ]+) release (.+) ID# ([^ ]+)\) ready (.+) *$">
       <description>
-         Post.Office (2 version numbers)
-         example: 220 birg.connect.co.at ESMTP server (Post.Office v3.1 release PO205e ID# 0-42000U100L2S100) ready Tue, 6 Feb 2001 19:38:32 +0100
+        Post.Office (2 version numbers)
       </description>
+      <example host.name="192.168.1.1" service.version="3.1" postoffice.build="P0205e" postoffice.id="0-42000U100L2S100" system.time="Tue, 6 Feb 2001 19:38:32 +0100">192.168.1.1 ESMTP server (Post.Office v3.1 release PO205e ID# 0-42000U100L2S100) ready Tue, 6 Feb 2001 19:38:32 +0100</example>
       <param pos="0" name="service.family" value="Post.Office"/>
       <param pos="0" name="service.product" value="Post.Office"/>
       <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
@@ -1079,7 +1082,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
       <param pos="1" name="host.name"/>
       <param pos="2" name="service.version"/>
-      <param pos="3" name="sendmail.hpux.phne.version"/>         
+      <param pos="3" name="sendmail.hpux.phne.version"/>
       <param pos="4" name="sendmail.config.version"/>
       <param pos="5" name="system.time"/>
    </fingerprint>
@@ -1527,7 +1530,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
    <!-- these suckers can have LOTS of version numbers -->
    <fingerprint pattern="^([^ ]+) -- Server ESMTP \(Sun Internet Mail Server sims\.([^\.]+\.[^\.]+\.[^\.]+\.[^\.]+\.[^\.]+\.[^\.]+\.[^\.]+)\)$">
       <description>
-      220 mercury.doc.ntu.ac.uk -- Server ESMTP (Sun Internet Mail Server sims.4.0.1999.06.13.00.20)      
+      220 mercury.doc.ntu.ac.uk -- Server ESMTP (Sun Internet Mail Server sims.4.0.1999.06.13.00.20)
       </description>
       <param pos="0" name="service.vendor" value="Sun"/>
       <param pos="0" name="service.family" value="Internet Mail Server"/>
@@ -1604,7 +1607,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="0" name="service.product" value="VOPMail"/>
       <param pos="1" name="host.name"/>
       <param pos="2" name="service.version"/>
-   </fingerprint>   
+   </fingerprint>
 
    <fingerprint pattern="^([^ ]+) VPOP3 SMTP Server Ready *$">
       <description>
@@ -1718,12 +1721,12 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="0" name="service.family" value="ZMailer"/>
       <param pos="0" name="service.product" value="ZMailer"/>
       <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="0" name="zmailer.ident" value="yes"/>         
+      <param pos="0" name="zmailer.ident" value="yes"/>
       <param pos="1" name="host.name"/>
       <param pos="2" name="service.version"/>
       <param pos="3" name="service.version.version"/>
       <param pos="4" name="system.time"/>
-    </fingerprint>   
+    </fingerprint>
 
    <fingerprint pattern="^([^ ]+) E?SMTP(?: Ready\.?)?$">
      <description>
