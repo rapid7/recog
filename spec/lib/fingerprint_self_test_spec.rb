@@ -45,7 +45,10 @@ describe Recog::DB do
               end
               # compare the captures actually performed to those being used and ensure that they contain
               # the same elements regardless of order, preventing, over-, under- and other forms of mis-capturing.
-              expect(actual_capture_positions.sort.uniq).to eq(expected_capture_positions.sort.uniq)
+              actual_capture_positions = actual_capture_positions.sort.uniq
+              expected_capture_positions = expected_capture_positions.sort.uniq
+              expect(actual_capture_positions).to eq(expected_capture_positions),
+                "Regex didn't capture (#{actual_capture_positions}) exactly what it extracted (#{expected_capture_positions})"
             end
           end
 
@@ -60,7 +63,7 @@ describe Recog::DB do
               expect(match).to_not be_nil, 'Regex did not match'
               # test any extractions specified in the example
               example.attributes.each_pair do |k,v|
-                expect(match[k]).to eq(v), "Regex didn't extracted expected value for fingerprint attribute #{k}"
+                expect(match[k]).to eq(v), "Regex didn't extract expected value for fingerprint attribute #{k} -- got #{v} instead of #{match[k]}"
               end
             end
 
