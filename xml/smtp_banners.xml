@@ -1015,31 +1015,16 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="1" name="host.name"/>
    </fingerprint>
 
-   <fingerprint pattern="^([^ ]+) ESMTP server \(Post\.Office v([^ ]+\.[^ ]+\.[^ ]+) release (.+) ID# ([^ ]+)\) ready (.+) *$">
+   <fingerprint pattern="^([^ ]+) ESMTP server \(Post\.Office v([^ ]+) release (.+) ID# ([^ ]+)\) ready (.+) *$">
       <description>
          Post.Office (3 version numbers)
-         example: 220 birg.connect.co.at ESMTP server (Post.Office v3.1 release PO205e ID# 0-42000U100L2S100) ready Tue, 6 Feb 2001 19:38:32 +0100
       </description>
+      <example host.name="192.168.1.1" service.version="3.1" postoffice.build="PO205e" postoffice.id="0-42000U100L2S100" system.time="Tue, 6 Feb 2001 19:38:32 +0100">192.168.1.1 ESMTP server (Post.Office v3.1 release PO205e ID# 0-42000U100L2S100) ready Tue, 6 Feb 2001 19:38:32 +0100</example>
       <param pos="0" name="service.family" value="Post.Office"/>
       <param pos="0" name="service.product" value="Post.Office"/>
+      <param pos="2" name="service.version"/>
       <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
       <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="postoffice.build"/>
-      <param pos="3" name="postoffice.id"/>
-      <param pos="4" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP server \(P|post\.O|office v([^ ]+\.[^ ]+) release (.+) ID# ([^ ]+)\) ready (.+) *$">
-      <description>
-        Post.Office (2 version numbers)
-      </description>
-      <example host.name="192.168.1.1" service.version="3.1" postoffice.build="P0205e" postoffice.id="0-42000U100L2S100" system.time="Tue, 6 Feb 2001 19:38:32 +0100">192.168.1.1 ESMTP server (Post.Office v3.1 release PO205e ID# 0-42000U100L2S100) ready Tue, 6 Feb 2001 19:38:32 +0100</example>
-      <param pos="0" name="service.family" value="Post.Office"/>
-      <param pos="0" name="service.product" value="Post.Office"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
       <param pos="3" name="postoffice.build"/>
       <param pos="4" name="postoffice.id"/>
       <param pos="5" name="system.time"/>
