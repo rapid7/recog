@@ -30,26 +30,22 @@ describe Recog::DB do
 
           it 'uses capturing regular expressions properly' do
             # the list of index-based captures that the fingerprint is expecting
-            expected_capture_positions = fp.params.values.map(&:first).map(&:to_i)
+            expected_capture_positions = fp.params.values.map(&:first).map(&:to_i).select { |i| i > 0 }
             if fp.params.empty? && expected_capture_positions.size > 0
               fail "Non-asserting fingerprint with regex #{fp.regex} captures #{expected_capture_positions.size} time(s); 0 are needed"
             else
-              # the actual captures that the regex will actually extract given matching input
-              actual_captures = Regexp::Scanner.scan(fp.regex).select do |token_parts|
-                token_parts.first == :group  && ![:close, :passive].include?(token_parts[1])
-              end
-              captures_size = actual_captures.size
-              if captures_size > 0
-                max_pos = expected_capture_positions.max
-                # if it is actually looking to extract, ensure that there is enough to extract
-                if max_pos > 0 && captures_size < max_pos
-                  fail "Regex #{fp.regex} only has #{captures_size} captures; cannot extract from position #{max_pos}"
-                end
-                # if there is not capture but capturing is happening, fail since this is a waste
-                if captures_size > max_pos
-                  fail "Regex #{fp.regex} captures #{captures_size - max_pos} too many (#{captures_size} vs #{max_pos})"
+              # parse the regex and count the number of captures
+              actual_capture_positions = []
+              capture_number = 1
+              Regexp::Scanner.scan(fp.regex).each do |token_parts|
+                if token_parts.first == :group  && ![:close, :passive].include?(token_parts[1])
+                  actual_capture_positions << capture_number
+                  capture_number += 1
                 end
               end
+              # compare the captures actually performed to those being used and ensure that they contain
+              # the same elements regardless of order, preventing, over-, under- and other forms of mis-capturing.
+              expect(actual_capture_positions.sort.uniq).to eq(expected_capture_positions.sort.uniq)
             end
           end
 
