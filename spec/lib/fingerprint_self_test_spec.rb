@@ -1,4 +1,5 @@
 require 'recog/db'
+require 'regexp_parser'
 
 describe Recog::DB do
   Dir[File.expand_path File.join('xml', '*.xml')].each do |xml_file_name|
@@ -25,6 +26,31 @@ describe Recog::DB do
           it "has a regex" do
             expect(fp.regex).not_to be_nil
             expect(fp.regex.class).to be ::Regexp
+          end
+
+          it 'uses capturing regular expressions properly' do
+            # the list of index-based captures that the fingerprint is expecting
+            expected_capture_positions = fp.params.values.map(&:first).map(&:to_i)
+            if fp.params.empty? && expected_capture_positions.size > 0
+              fail "Non-asserting fingerprint with regex #{fp.regex} captures #{expected_capture_positions.size} time(s); 0 are needed"
+            else
+              # the actual captures that the regex will actually extract given matching input
+              actual_captures = Regexp::Scanner.scan(fp.regex).select do |token_parts|
+                token_parts.first == :group  && ![:close, :passive].include?(token_parts[1])
+              end
+              captures_size = actual_captures.size
+              if captures_size > 0
+                max_pos = expected_capture_positions.max
+                # if it is actually looking to extract, ensure that there is enough to extract
+                if max_pos > 0 && captures_size < max_pos
+                  fail "Regex #{fp.regex} only has #{captures_size} captures; cannot extract from position #{max_pos}"
+                end
+                # if there is not capture but capturing is happening, fail since this is a waste
+                if captures_size > max_pos
+                  fail "Regex #{fp.regex} captures #{captures_size - max_pos} too many (#{captures_size} vs #{max_pos})"
+                end
+              end
+            end
           end
 
           # Not yet enforced
