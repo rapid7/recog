@@ -139,14 +139,14 @@
    </fingerprint>
 
    <!-- TODO: Need an example string -->
-   <fingerprint pattern="^Windows \(R\) Storage Server 2008 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
+   <fingerprint pattern="^Windows \(R\) Storage Server 2008 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
       <description>Windows Server 2008 Storage (SP)</description>
       <param pos="0" name="os.certainty" value="1.0"/>
       <param pos="0" name="os.vendor" value="Microsoft"/>
       <param pos="0" name="os.product" value="Windows Server 2008"/>
       <param pos="0" name="os.edition" value="Storage"/>
-      <param pos="2" name="os.build"/>
-      <param pos="3" name="os.version"/>
+      <param pos="1" name="os.build"/>
+      <param pos="2" name="os.version"/>
    </fingerprint>
 
    <!-- TODO: Need an example string -->
@@ -337,25 +337,25 @@
       <param pos="2" name="os.build"/>
    </fingerprint>
 
-   <fingerprint pattern="^Windows MultiPoint Server 2012 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
+   <fingerprint pattern="^Windows MultiPoint Server 2012 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
       <description>Windows MultiPoint Server 2012 (SP)</description>
-      <example>Windows MultiPoint Server 2012 Premium 9201 Service Pack 1</example>
+      <example os.build="9201" os.version="Service Pack 1">Windows MultiPoint Server 2012 Premium 9201 Service Pack 1</example>
       <param pos="0" name="os.certainty" value="1.0"/>
       <param pos="0" name="os.vendor" value="Microsoft"/>
       <param pos="0" name="os.product" value="Windows Server 2012"/>
       <param pos="0" name="os.edition" value="MultiPoint"/>
-      <param pos="2" name="os.build"/>
-      <param pos="3" name="os.version"/>
+      <param pos="1" name="os.build"/>
+      <param pos="2" name="os.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^Windows MultiPoint Server 2012 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
+   <fingerprint pattern="^Windows MultiPoint Server 2012 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
       <description>Windows MultiPoint Server 2012</description>
-      <example>Windows MultiPoint Server 2012 Premium 9200</example>
+      <example os.build="9200">Windows MultiPoint Server 2012 Premium 9200</example>
       <param pos="0" name="os.certainty" value="1.0"/>
       <param pos="0" name="os.vendor" value="Microsoft"/>
       <param pos="0" name="os.product" value="Windows Server 2012"/>
       <param pos="0" name="os.edition" value="MultiPoint"/>
-      <param pos="2" name="os.build"/>
+      <param pos="1" name="os.build"/>
    </fingerprint>
 
    <!-- TODO: Detect vendor, distribution, and package versions -->
