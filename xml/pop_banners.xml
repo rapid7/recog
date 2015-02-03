@@ -21,10 +21,10 @@ matched against these patterns to fingerprint POP3 servers.
       <param pos="1" name="host.domain"/>
     </fingerprint>
 
-   <fingerprint pattern="^([^ ]+) +Cyrus POP3 v([\d\.]+)[^OS\s+X].*$">
+   <fingerprint pattern="^([^ ]+) +Cyrus POP3 v([\d\.]+)">
       <description>CMU Cyrus POP</description>
       <example host.domain="foo" service.version="2.3">foo Cyrus POP3 v2.3</example>
-      <example host.domain="foo" service.version="2.3.13">foo Cyrus POP3 v2.3.14 server ready &lt;13087751828270990591.1301068892@foo&gt;</example>
+      <example host.domain="foo" service.version="2.3.14">foo Cyrus POP3 v2.3.14 server ready &lt;13087751828270990591.1301068892@foo&gt;</example>
       <param pos="0" name="service.vendor" value="CMU"/>
       <param pos="0" name="service.family" value="Cyrus"/>
       <param pos="0" name="service.product" value="Cyrus POP"/>
