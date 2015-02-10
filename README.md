@@ -38,16 +38,16 @@ A fingerprint file consists of an XML document like the following:
     12:
     13: </fingerprints>
 
-The first line should always consist of the XML version declaration. The first element should always be a `fingerpints` block with a `matches` attribute indicating what this fingerprint file is supposed to match. The `matches` attribute is normally in the form of `protocol.field`.
+The first line should always consist of the XML version declaration. The first element should always be a `fingerpints` block with a `matches` attribute indicating what data this fingerprint file is supposed to match. The `matches` attribute is normally in the form of `protocol.field`.
 
-Inside of the `fingerprints` element there should be one or more `fingerprint` elements. Every `fingerprint` must contain a `pattern` attribute, which contains the regular expression to be used against the match key.  
+Inside of the `fingerprints` element there should be one or more `fingerprint` elements. Every `fingerprint` must contain a `pattern` attribute, which contains the regular expression to be used to match against the data.  An optional `flags` attribute can be specified to control how the regular expression is to be interpreted.  See [the Recog documentation for `FLAG_MAP`](http://www.rubydoc.info/gems/recog/Recog/Fingerprint/RegexpFactory#FLAG_MAP-constant) for more information.
 
 Inside of the fingerprint, a `description` element should contain a human-readable string describing this fingerprint.
 
 At least one `example` element should be present, however multiple `example` elements are preferred.  These elements are used as part of the test coverage present in rspec which validates that the provided data matches the specified regular expression.  Additionally, if the fingerprint is using the `param` elements to extract field values from the data (described next), you can add these expected extractions as attributes for the `example` elements.  In the example above, this:
 
     07:  <example service.version="4.62">RomSShell_4.62</example>
-    
+
 tests that `RomSShell_4.62` matches the provided regular expression and that the value of `service.version` is 4.62.
 
 The `param` elements contain a `pos` attribute, which indicates what capture field from the `pattern` should be extracted, or `0` for a static string. The `name` attribute is the key that will be reported in the case of a successful match and the `value` will either be a static string for `pos` values of `0` or missing and taken from the captured field.
