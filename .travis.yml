@@ -4,7 +4,9 @@ rvm:
   - 2.1.5
   - 1.9.3
   - jruby
-matrix:
-  allow_failures:
-    - rvm: jruby
+before_install:
+  - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+  - rake --version
+before_script:
+  - bundle exec rake --version
 script: bundle exec rake tests
