@@ -30,7 +30,7 @@ describe Recog::DB do
 
           it 'uses capturing regular expressions properly' do
             # the list of index-based captures that the fingerprint is expecting
-            expected_capture_positions = fp.params.values.map(&:first).map(&:to_i).select { |i| i > 0 }
+            expected_capture_positions = fp.params.values.map(&:first).map(&:to_i).select { |position| position > 0 }
             if fp.params.empty? && expected_capture_positions.size > 0
               fail "Non-asserting fingerprint with regex #{fp.regex} captures #{expected_capture_positions.size} time(s); 0 are needed"
             else
