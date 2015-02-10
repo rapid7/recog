@@ -40,7 +40,7 @@ A fingerprint file consists of an XML document like the following:
 
 The first line should always consist of the XML version declaration. The first element should always be a `fingerpints` block with a `matches` attribute indicating what this fingerprint file is supposed to match. The `matches` attribute is normally in the form of `protocol.field`.
 
-Inside of the `fingerprints` element there should be one or more `fingerprint` elements. Every fingerprint should contain a `pattern` attribute, which contains the regular expression to be used against the match key.
+Inside of the `fingerprints` element there should be one or more `fingerprint` elements. Every `fingerprint` must contain a `pattern` attribute, which contains the regular expression to be used against the match key.  
 
 Inside of the fingerprint, a `description` element should contain a human-readable string describing this fingerprint.
 
