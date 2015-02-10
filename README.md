@@ -48,13 +48,13 @@ The <example/> element should contain a successful match for the fingerprint's `
 
 the <param/> elements contain a `pos` attribute, which indicates what capture field from the `pattern` should be extracted, or `0` for a static string. The `name` attribute is the key that will be reported in the case of a successful match and the `value` will either be a static string for `pos` values of `0` or missing and taken from the captured field.
 
-Once a fingerprint has been added, the <examples/> entries can be tested by executing `bin/recog_verify.rb` against the fingerprint file:
+Once a fingerprint has been added, the <examples/> entries can be tested by executing `bin/recog_verify` against the fingerprint file:
 
-    $ bin/recog_verify.rb xml/ssh_banners.xml
+    $ bin/recog_verify xml/ssh_banners.xml
 
 Matches can be tested on the command-line in a similar fashion:
 
-    $ echo 'OpenSSH_6.6p1 Ubuntu-2ubuntu1' | bin/recog_match.rb xml/ssh_banners.xml -
+    $ echo 'OpenSSH_6.6p1 Ubuntu-2ubuntu1' | bin/recog_match xml/ssh_banners.xml -
     MATCH: {"service.version"=>"6.6p1", "openssh.comment"=>"Ubuntu-2ubuntu1", "service.vendor"=>"OpenBSD", "service.family"=>"OpenSSH", "service.product"=>"OpenSSH", "data"=>"OpenSSH_6.6p1 Ubuntu-2ubuntu1"}
 
 

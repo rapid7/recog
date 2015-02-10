@@ -1,20 +1,20 @@
 Feature: Verify
   Scenario: No tests
-    When I run `recog_verify.rb no_tests.xml`
+    When I run `recog_verify no_tests.xml`
     Then it should pass with:
       """
       SUMMARY: Test completed with 0 successful, 0 warnings, and 0 failures
       """
 
   Scenario: Successful tests
-    When I run `recog_verify.rb successful_tests.xml`
+    When I run `recog_verify successful_tests.xml`
     Then it should pass with:
       """
       SUMMARY: Test completed with 4 successful, 0 warnings, and 0 failures
       """
 
   Scenario: Tests with warnings
-    When I run `recog_verify.rb tests_with_warnings.xml`
+    When I run `recog_verify tests_with_warnings.xml`
     Then it should pass with:
       """
       WARN: 'Pure-FTPd' has no test cases
@@ -22,7 +22,7 @@ Feature: Verify
       """
 
   Scenario: Tests with failures
-    When I run `recog_verify.rb tests_with_failures.xml`
+    When I run `recog_verify tests_with_failures.xml`
     Then it should pass with:
       """
       FAIL: 'foo test' failed to match "bar" with (?-mix:^foo$)'
