@@ -30,7 +30,7 @@ A fingerprint file consists of an XML document like the following:
     04:
     05: <fingerprint pattern="^RomSShell_([\d\.]+)$">
     06:  <description>Allegro RomSShell SSH</description>
-    07:  <example>RomSShell_4.62</example>
+    07:  <example service.version="4.62">RomSShell_4.62</example>
     08:  <param pos="0" name="service.vendor" value="Allegro"/>
     09:  <param pos="0" name="service.product" value="RomSShell"/>
     10:  <param pos="1" name="service.version"/>
@@ -38,13 +38,17 @@ A fingerprint file consists of an XML document like the following:
     12:
     13: </fingerprints>
 
-The first line should always consist of the XML version declaration. The first element should always be a `fingerpints` block with a `matches` attribute indicating what this fingerprint file is supposed to match. The `matches` attribute is normally in the form of protocol.field.
+The first line should always consist of the XML version declaration. The first element should always be a `fingerpints` block with a `matches` attribute indicating what this fingerprint file is supposed to match. The `matches` attribute is normally in the form of `protocol.field`.
 
 Inside of the `fingerprints` element there should be one or more `fingerprint` elements. Every fingerprint should contain a `pattern` attribute, which contains the regular expression to be used against the match key.
 
 Inside of the fingerprint, a `description` element should contain a human-readable string describing this fingerprint.
 
-The `example` element should contain a successful match for the fingerprint's `pattern`. Multiple `example` elements are preferred, as these elements are used for the built-in regression testing suite.
+At least one `example` element should be present, however multiple `example` elements are preferred.  These elements are used as part of the test coverage present in rspec which validates that the provided data matches the specified regular expression.  Additionally, if the fingerprint is using the `param` elements to extract field values from the data (described next), you can add these expected extractions as attributes for the `example` elements.  In the example above, this:
+
+    07:  <example service.version="4.62">RomSShell_4.62</example>
+    
+tests that `RomSShell_4.62` matches the provided regular expression and that the value of `service.version` is 4.62.
 
 The `param` elements contain a `pos` attribute, which indicates what capture field from the `pattern` should be extracted, or `0` for a static string. The `name` attribute is the key that will be reported in the case of a successful match and the `value` will either be a static string for `pos` values of `0` or missing and taken from the captured field.
 
