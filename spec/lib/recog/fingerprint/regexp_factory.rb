@@ -6,8 +6,8 @@ describe Recog::Fingerprint::RegexpFactory do
   describe 'FLAG_MAP' do
     subject { described_class::FLAG_MAP }
 
-    it "should have three flags" do
-      expect(subject.size).to be 3
+    it "should have the right number of flags" do
+      expect(subject.size).to be 5
     end
   end
 
@@ -56,6 +56,11 @@ describe Recog::Fingerprint::RegexpFactory do
       end
     end
 
+    context 'with invalid flags' do
+      let(:flags) { %w(SYN ACK FIN) } # oh, wrong flags!
+      specify 'raises and lists supported/unsupported flags' do
+        expect { subject }.to raise_error(/SYN,ACK,FIN. Must be one of: .+/)
+      end
+    end
   end
 end
-
