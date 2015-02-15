@@ -36,7 +36,8 @@
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="Oracle"/>
       <param pos="0" name="service.family" value="MySQL"/>
-      <param pos="0" name="service.product" value="MySQL Community Edition"/>
+      <param pos="0" name="service.product" value="MySQL"/>
+      <param pos="0" name="service.edition" value="Community Edition"/>
       <param pos="0" name="os.vendor" value="Microsoft"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.family" value="Windows"/>
@@ -55,7 +56,8 @@
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="Oracle"/>
       <param pos="0" name="service.family" value="MySQL"/>
-      <param pos="0" name="service.product" value="MySQL Community Edition"/>
+      <param pos="0" name="service.product" value="MySQL"/>
+      <param pos="0" name="service.edition" value="Community Edition"/>
    </fingerprint>
 
    <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})(?:-alpha)?(?:-beta)?(?:-rc)?(?:-gamma)?(?:-max)?-nt(?:-max)?(?:-log)?$">
@@ -92,7 +94,8 @@
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="Oracle"/>
       <param pos="0" name="service.family" value="MySQL"/>
-      <param pos="0" name="service.product" value="MySQL Community Edition"/>
+      <param pos="0" name="service.product" value="MySQL"/>
+      <param pos="0" name="service.edition" value="Community Edition"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.family" value="Linux"/>
    </fingerprint>
@@ -116,7 +119,8 @@
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="Oracle"/>
       <param pos="0" name="service.family" value="MySQL"/>
-      <param pos="0" name="service.product" value="MySQL Community Edition"/>
+      <param pos="0" name="service.product" value="MySQL"/>
+      <param pos="0" name="service.edition" value="Community Edition"/>
       <param pos="0" name="os.vendor" value="CloudLinux"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.family" value="Linux"/>
@@ -172,9 +176,43 @@
       <param pos="0" name="os.product" value="Linux"/>
    </fingerprint>
 
-   <fingerprint pattern="^(\d\.\d{1,2}\.[^+]+)\+squeeze">
-      <example>5.1.66-0+squeeze1</example>
-      <example>5.1.66-0+squeeze1-log </example>
+
+   <fingerprint pattern="^(\d\.\d{1,2}\.[^+]+)\+deb\.sury\.org~precise\+\d(?:-log)?$">
+      <example service.version="5.6.19-1">5.6.19-1+deb.sury.org~precise+1</example>
+      <example service.version="5.6.20-1">5.6.20-1+deb.sury.org~precise+1-log</example>
+      <description>Oracle MySQL on Ubuntu 12.04 (Precise Pangolin) packaged by deb.sury.org</description>
+      <param pos="1" name="service.version"/>
+      <param pos="0" name="service.vendor" value="Oracle"/>
+      <param pos="0" name="service.family" value="MySQL"/>
+      <param pos="0" name="service.product" value="MySQL"/>
+      <param pos="0" name="os.vendor" value="Ubuntu"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.family" value="Linux"/>
+      <param pos="0" name="os.product" value="Linux"/>
+      <param pos="0" name="os.version" value="12.04"/>
+   </fingerprint>
+
+   <fingerprint pattern="^(\d\.\d{1,2}\.[^+]+)\+deb\.sury\.org~trusty\+\d(?:-log)?$">
+      <example service.version="5.6.21-1">5.6.21-1+deb.sury.org~trusty+1</example>
+      <example service.version="5.6.19-1">5.6.19-1+deb.sury.org~trusty+1-log</example>
+      <description>Oracle MySQL on Ubuntu 14.04 (Trusty Tahr) packaged by deb.sury.org</description>
+      <param pos="1" name="service.version"/>
+      <param pos="0" name="service.vendor" value="Oracle"/>
+      <param pos="0" name="service.family" value="MySQL"/>
+      <param pos="0" name="service.product" value="MySQL"/>
+      <param pos="0" name="os.vendor" value="Ubuntu"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.family" value="Linux"/>
+      <param pos="0" name="os.product" value="Linux"/>
+      <param pos="0" name="os.version" value="14.04"/>
+   </fingerprint>
+
+
+
+   <fingerprint pattern="^(\d\.\d{1,2}\.[^+]+)\+(?:squeeze\d|deb6u1)(?:-log)?$">
+      <example service.version="5.1.66-0">5.1.66-0+squeeze1</example>
+      <example service.version="5.1.66-0">5.1.66-0+squeeze1-log</example>
+      <example service.version="5.1.73-1">5.1.73-1+deb6u1</example>
       <description>Oracle MySQL on Debian 6.0 (squeeze)</description>
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="Oracle"/>
@@ -186,6 +224,26 @@
       <param pos="0" name="os.product" value="Linux"/>
       <param pos="0" name="os.version" value="6.0"/>
    </fingerprint>
+
+
+
+   <fingerprint pattern="^(\d\.\d{1,2}\.[^+]+)\+wheezy\d(?:-log)?$">
+      <example service.version="5.5.41-0">5.5.41-0+wheezy1</example>
+      <example service.version="5.5.35-0">5.5.35-0+wheezy1-log</example>
+      <description>Oracle MySQL on Debian 7.0 (wheezy)</description>
+      <param pos="1" name="service.version"/>
+      <param pos="0" name="service.vendor" value="Oracle"/>
+      <param pos="0" name="service.family" value="MySQL"/>
+      <param pos="0" name="service.product" value="MySQL"/>
+      <param pos="0" name="os.vendor" value="Debian"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.family" value="Linux"/>
+      <param pos="0" name="os.product" value="Linux"/>
+      <param pos="0" name="os.version" value="7.0"/>
+   </fingerprint>
+
+
+
 
    <fingerprint pattern="^(\d\.\d{1,2}\.[^+]+)\+lenny">
       <example>5.0.51a-24+lenny1-log</example>
@@ -260,6 +318,22 @@
       <param pos="0" name="os.version" value="3.1"/>
    </fingerprint>
 
+   <fingerprint pattern="^(\d\.\d{1,2}\.\d{1,2})[_-]Debian[_-]\d{1,2}woody\d">
+      <example service.version="4.0.24">4.0.24_Debian-4woody1</example>
+      <description>Oracle MySQL on Debian 3.0 (woody)</description>
+      <param pos="1" name="service.version"/>
+      <param pos="0" name="service.vendor" value="Oracle"/>
+      <param pos="0" name="service.family" value="MySQL"/>
+      <param pos="0" name="service.product" value="MySQL"/>
+      <param pos="0" name="os.vendor" value="Debian"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.family" value="Linux"/>
+      <param pos="0" name="os.product" value="Linux"/>
+      <param pos="0" name="os.version" value="3.0"/>
+   </fingerprint>
+
+
+
    <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})(?:[_-]\d{8})?[_-]Debian[_-]\d{1,2}(?:-log)?$">
       <example>4.0.23_Debian-3-log</example>
       <example>4.0.31-20070605_Debian-7-log</example>
@@ -311,7 +385,8 @@
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="Oracle"/>
       <param pos="0" name="service.family" value="MySQL"/>
-      <param pos="0" name="service.product" value="MySQL Standard Edition"/>
+      <param pos="0" name="service.product" value="MySQL"/>
+      <param pos="0" name="service.edition" value="Standard Edition"/>
    </fingerprint>
 
    <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-pro(?:-gpl)?-nt(?:-log)?$">
@@ -321,7 +396,8 @@
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="Oracle"/>
       <param pos="0" name="service.family" value="MySQL"/>
-      <param pos="0" name="service.product" value="MySQL Commercial Edition"/>
+      <param pos="0" name="service.product" value="MySQL"/>
+      <param pos="0" name="service.edition" value="Commercial Edition"/>
       <param pos="0" name="os.vendor" value="Microsoft"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.family" value="Windows"/>
@@ -335,7 +411,8 @@
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="Oracle"/>
       <param pos="0" name="service.family" value="MySQL"/>
-      <param pos="0" name="service.product" value="MySQL Commercial Edition"/>
+      <param pos="0" name="service.product" value="MySQL"/>
+      <param pos="0" name="service.edition" value="Commercial Edition"/>
    </fingerprint>
 
    <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3}sp1)">
@@ -345,7 +422,8 @@
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="Oracle"/>
       <param pos="0" name="service.family" value="MySQL"/>
-      <param pos="0" name="service.product" value="MySQL Enterprise Edition"/>
+      <param pos="0" name="service.product" value="MySQL"/>
+      <param pos="0" name="service.edition" value="Enterprise Edition"/>
    </fingerprint>
 
    <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-enterprise-nt">
@@ -354,7 +432,8 @@
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="Oracle"/>
       <param pos="0" name="service.family" value="MySQL"/>
-      <param pos="0" name="service.product" value="MySQL Enterprise Edition"/>
+      <param pos="0" name="service.product" value="MySQL"/>
+      <param pos="0" name="service.edition" value="Enterprise Edition"/>
       <param pos="0" name="os.vendor" value="Microsoft"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.family" value="Windows"/>
@@ -368,7 +447,8 @@
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="Oracle"/>
       <param pos="0" name="service.family" value="MySQL"/>
-      <param pos="0" name="service.product" value="MySQL Enterprise Edition"/>
+      <param pos="0" name="service.product" value="MySQL"/>
+      <param pos="0" name="service.edition" value="Enterprise Edition"/>
    </fingerprint>
 
 
@@ -379,7 +459,8 @@
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="Oracle"/>
       <param pos="0" name="service.family" value="MySQL"/>
-      <param pos="0" name="service.product" value="MySQL Cluster Edition"/>
+      <param pos="0" name="service.product" value="MySQL"/>
+      <param pos="0" name="service.edition" value="Cluster Edition"/>
    </fingerprint>
 
    <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-CLUSTERS?(?:-log)?$" flags="REG_ICASE">
@@ -389,7 +470,8 @@
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="Oracle"/>
       <param pos="0" name="service.family" value="MySQL"/>
-      <param pos="0" name="service.product" value="MySQL Cluster Edition"/>
+      <param pos="0" name="service.product" value="MySQL"/>
+      <param pos="0" name="service.edition" value="Cluster Edition"/>
    </fingerprint>
 
    <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-classic(?:-log)?">
@@ -398,7 +480,8 @@
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="Oracle"/>
       <param pos="0" name="service.family" value="MySQL"/>
-      <param pos="0" name="service.product" value="MySQL Classic Edition"/>
+      <param pos="0" name="service.product" value="MySQL"/>
+      <param pos="0" name="service.edition" value="Classic Edition"/>
    </fingerprint>
 
    <!-- Linux only - http://www.percona.com/services/mysql-support/supported-platforms -->
@@ -410,7 +493,7 @@
       <description>Percona Server (MySQL fork)</description>
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="Percona"/>
-      <param pos="0" name="service.family" value="Percona"/>
+      <param pos="0" name="service.family" value="MySQL"/>
       <param pos="0" name="service.product" value="Percona Server"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.family" value="Linux"/>
@@ -422,7 +505,7 @@
       <description>Percona Server (MySQL fork)</description>
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="Percona"/>
-      <param pos="0" name="service.family" value="Percona"/>
+      <param pos="0" name="service.family" value="MySQL"/>
       <param pos="0" name="service.product" value="Percona Server"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.family" value="Linux"/>
@@ -436,7 +519,7 @@
       <description>Percona Server (MySQL fork)</description>
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="Percona"/>
-      <param pos="0" name="service.family" value="Percona"/>
+      <param pos="0" name="service.family" value="MySQL"/>
       <param pos="0" name="service.product" value="Percona Server"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.family" value="Linux"/>
@@ -530,7 +613,7 @@
       <description>MariaDB MariaDB on Debian Lenny</description>
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="MariaDB"/>
-      <param pos="0" name="service.family" value="MariaDB"/>
+      <param pos="0" name="service.family" value="MySQL"/>
       <param pos="0" name="service.product" value="MariaDB"/>
       <param pos="0" name="os.vendor" value="Debian"/>
       <param pos="0" name="os.device" value="General"/>
@@ -545,7 +628,7 @@
       <description>MariaDB MariaDB</description>
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="MariaDB"/>
-      <param pos="0" name="service.family" value="MariaDB"/>
+      <param pos="0" name="service.family" value="MySQL"/>
       <param pos="0" name="service.product" value="MariaDB"/>
    </fingerprint>
 
@@ -567,7 +650,7 @@
       <description>Tokutek customized MariaDB</description>
       <param pos="1" name="service.version"/>
       <param pos="0" name="service.vendor" value="Tokutek"/>
-      <param pos="0" name="service.family" value="MariaDB"/>
+      <param pos="0" name="service.family" value="MySQL"/>
       <param pos="0" name="service.product" value="MariaDB"/>
    </fingerprint>
 
