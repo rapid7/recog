@@ -302,6 +302,28 @@
       <param pos="0" name="os.vendor" value="TP-LINK"/>
       <param pos="0" name="os.device" value="WAP"/>
       <param pos="1" name="os.product"/>
+    </fingerprint>
+
+    <fingerprint pattern="^(?:Basic|Digest) realm=&quot;HP (J[3]\d{3}A)&quot;$">
+      <description>HP ProCurve Hubs</description>
+      <example os.product="J3295A">Basic realm="HP J3295A"</example>
+      <param pos="0" name="os.vendor" value="HP"/>
+      <param pos="0" name="os.family" value="ProCurve"/>
+      <param pos="0" name="os.device" value="Hub"/>
+      <param pos="1" name="os.product"/>
+   </fingerprint>
+
+   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;HP (J[489]\d{3}A)&quot;$">
+      <description>HP ProCurve Switches</description>
+      <example os.product="J4110A">Basic realm="HP J4110A"</example>
+      <example os.product="J4120A">Basic realm="HP J4120A"</example>
+      <example os.product="J4813A">Basic realm="HP J4813A"</example>
+      <example os.product="J8165A">Basic realm="HP J8165A"</example>
+      <example os.product="J9021A">Basic realm="HP J9021A"</example>
+      <param pos="0" name="os.vendor" value="HP"/>
+      <param pos="0" name="os.family" value="ProCurve"/>
+      <param pos="0" name="os.device" value="Switch"/>
+      <param pos="1" name="os.product"/>
    </fingerprint>
 
    <!--
