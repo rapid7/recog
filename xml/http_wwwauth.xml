@@ -358,6 +358,11 @@
       <example>Digest qop="auth", realm="172.16.0.1", nonce="AAAAAAAAAAAAAP//DwHpM0IvM78=", algorithm="MD5"</example>
     </fingerprint>
 
+    <fingerprint pattern="^(?:Basic|Digest) .*realm=&quot;config&quot;.*$">
+      <description>Ignore generic 'config' realms</description>
+      <example>Digest realm="config", nonce="1155041914", algorithm="MD5", qop="auth"</example>
+    </fingerprint>
+
 
    <!--
    Temporarily disable this version-less fingerprint because it overrode the
