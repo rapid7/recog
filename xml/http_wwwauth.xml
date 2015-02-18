@@ -313,10 +313,17 @@
 
     <fingerprint pattern="^(?:Basic|Digest) .*realm=&quot;SWAT&quot;.*$">
       <description>Samba Web Administration Tool (SWAT)</description>
-      <example></example>
+      <example>Basic realm="SWAT"</example>
       <param pos="0" name="service.vendor" value="Samba"/>
       <param pos="0" name="service.family" value="Samba"/>
       <param pos="0" name="service.product" value="SWAT"/>
+    </fingerprint>
+
+    <fingerprint pattern="^.*(?:Basic|Digest) realm=&quot;SPIP Configuration&quot;.*$">
+      <description>SPIP publishing system (www.spip.net)</description>
+      <example>Basic realm="SPIP Configuration", Digest realm="SPIP Configuration", nonce="116761147", algorithm="MD5"</example>
+      <param pos="0" name="service.vendor" value="SPIP"/>
+      <param pos="0" name="service.product" value="SPIP"/>
     </fingerprint>
 
     <!-- a variety of headers we currently just ignore -->
