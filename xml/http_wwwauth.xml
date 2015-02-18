@@ -326,6 +326,14 @@
       <param pos="0" name="service.product" value="SPIP"/>
     </fingerprint>
 
+    <fingerprint pattern="^.*(?:Basic|Digest) .*realm=&quot;HP ISEE @ ([^&quot;]+)&quot;.*$">
+      <description>HP Instant Support Enterprise Edition with a hostname</description>
+      <example host.name="blah">Basic realm="HP ISEE @ blah"</example>
+      <param pos="0" name="service.vendor" value="HP"/>
+      <param pos="0" name="service.product" value="ISEE"/>
+      <param pos="1" name="host.name"/>
+    </fingerprint>
+
     <!-- a variety of headers we currently just ignore -->
 
     <fingerprint pattern="^NTLM$" flags="REG_ICASE">
