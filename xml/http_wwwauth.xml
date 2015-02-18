@@ -302,7 +302,32 @@
       <param pos="0" name="os.vendor" value="TP-LINK"/>
       <param pos="0" name="os.device" value="WAP"/>
       <param pos="1" name="os.product"/>
-   </fingerprint>
+    </fingerprint>
+
+    <!-- a variety of headers we currently just ignore -->
+
+    <fingerprint pattern="^NTLM$" flags="REG_ICASE">
+      <example>NTLM</example>
+      <example>Ntlm</example>
+      <description>Ignore NTLM-only</description>
+    </fingerprint>
+
+    <fingerprint pattern="^Negotiate$">
+      <description>Ignore Negotiate-only</description>
+      <example>Negotiate</example>
+    </fingerprint>
+
+    <fingerprint pattern="^(?:Basic|Digest) .*realm=&quot;null&quot;">
+      <description>Ignore null</description>
+      <example>Basic realm="null"</example>
+    </fingerprint>
+
+    <fingerprint pattern="^(?:Basic|Digest) .*realm=&quot;(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)&quot;.*$">
+      <description>Ignore realms with an IPv4 address</description>
+      <example>Basic realm="192.168.0.1"</example>
+      <example>Digest qop="auth", realm="172.16.0.1", nonce="AAAAAAAAAAAAAP//DwHpM0IvM78=", algorithm="MD5"</example>
+    </fingerprint>
+
 
    <!--
    Temporarily disable this version-less fingerprint because it overrode the
