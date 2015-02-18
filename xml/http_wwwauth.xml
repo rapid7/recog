@@ -304,6 +304,13 @@
       <param pos="1" name="os.product"/>
     </fingerprint>
 
+    <fingerprint pattern="^(?:Basic|Digest) .*realm=&quot;Broadcom Management Service&quot;.*$" flags="REG_ICASE">
+      <description>Supposedly part of Broadcom Advanced Control Suite 3 (BACS3) or something similar</description>
+      <example>Digest qop="auth", realm="Broadcom Management Service", nonce="AAAAAAAAAAAAAP//DwHpMwYy1zc=", algorithm="MD5"</example>
+      <param pos="0" name="service.vendor" value="Broadcom"/>
+      <param pos="0" name="service.product" value="Management Service"/>
+    </fingerprint>
+
     <!-- a variety of headers we currently just ignore -->
 
     <fingerprint pattern="^NTLM$" flags="REG_ICASE">
