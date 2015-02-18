@@ -334,6 +334,13 @@
       <param pos="1" name="host.name"/>
     </fingerprint>
 
+    <fingerprint pattern="^.*(?:Basic|Digest) .*realm=&quot;BIG-IP&quot;.*$">
+      <description>Generic F5 Big-IP</description>
+      <example>Basic realm="BIG-IP"</example>
+      <param pos="0" name="os.vendor" value="F5"/>
+      <param pos="0" name="os.product" value="BIG-IP"/>
+    </fingerprint>
+
     <!-- a variety of headers we currently just ignore -->
 
     <fingerprint pattern="^NTLM$" flags="REG_ICASE">
