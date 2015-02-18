@@ -100,23 +100,23 @@ In short:
 
     ```
     git checkout -b upstream-master --track upstream/master
-    git merge -S --no-ff --edit landing-PR
+    git merge -S --no-ff --edit landing-PR # merge the PR into upstream-master
+    # re-test if/as necessary
     git push upstream upstream-master:master --dry-run # confirm you are pushing what you expect
-    git push upstream upstream-master:master
+    git push upstream upstream-master:master # push upstream-master to upstream:master
     ```
+6. If applicable, release a new version (see next section)
 
 ## Releasing New Versions
 
-When Recog's critical parts are modified, for example its fingerprints or
-underlying supporting code, a new version should eventually be released.  These
-new releases can then be optionally included in projects such as Metasploit or
-products such as Rapid7's in a controlled manner.
+When Recog's critical parts are modified, for example its fingerprints or underlying supporting code, a new version _must_ eventually be released.  These new releases can then be optionally included in projects such as Metasploit or products such as Rapid7's Nexpose in a controlled manner.  Releases for non-functional updates such as updates to documentation are not necessary.
 
-For now, in general any time Recog is modified you should release a version of
-the Gem and the Github release, described below.  Eventually this process may
-change.
+When a new version of Recog is released, you _must_ do so in two different places:
 
-### Release New Gem
+   * Gem -- for systems that use Gemspec or similar tools to control what version of Recog to include
+   * Github -- for systems that use Git tags to control what version of Recog to include
+
+### Gem Release
 
 1. Get an account on [Rubygems](https://rubygems.org)
 2. Contact one of the Recog project contributors (listed [here under OWNERS](https://rubygems.org/gems/recog) and have them add you to the Recog gem.  They'll need to run:
