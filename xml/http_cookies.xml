@@ -403,4 +403,9 @@ servers.
       <example>_session_id=18b3e173aa11db0533fd01752e81f583; path=/; HttpOnly</example>
     </fingerprint>
 
+    <fingerprint pattern="^sid=[^;]+;.*$" flags="REG_ICASE">
+      <description>Ignore simple SID and related cookies</description>
+      <example>sid=sfd10bf73-654458f687aa3c68b3874915f651e0ca;path=/;"</example>
+    </fingerprint>
+
 </fingerprints>
