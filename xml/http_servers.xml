@@ -1876,6 +1876,19 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
+   <fingerprint pattern="^eHTTP[/ ]v?(\d+\.\d+)" flags="REG_ICASE">
+      <example service.version="1.1">EHTTP/1.1</example>
+      <example service.version="2.0">eHTTP v2.0</example>
+      <description>HTTP Server present on seemingly only HP ProCurve network devices</description>
+      <param pos="0" name="service.vendor" value="HP"/>
+      <param pos="0" name="service.product" value="HTTP"/>
+      <param pos="0" name="service.family" value="ProCurve"/>
+      <param pos="1" name="service.version"/>
+      <param pos="0" name="os.vendor" value="HP"/>
+      <param pos="0" name="os.family" value="ProCurve"/>
+      <param pos="0" name="os.certainty" value="0.75"/>
+   </fingerprint>
+
    <fingerprint pattern = "^com.hp.openview.Coda (\d\.\d.\d)$">
       <description>HP Openview Coda</description>
       <example>com.hp.openview.Coda 0.0.1</example>
