@@ -375,5 +375,23 @@ servers.
       <param pos="0" name="service.vendor" value="Oracle"/>
       <param pos="0" name="service.family" value="OracleAS"/>
       <param pos="0" name="service.product" value="OracleAS Portal"/>
-   </fingerprint>
+    </fingerprint>
+
+    <fingerprint pattern="^Compaq-HMMD=[^;]+;.*$">
+      <description>HP System Management Homepage (SMH)</description>
+      <example>Compaq-HMMD=0001-c01fffff-487a-394a-aab0-ffffffffffff-ffffffffffffffff; path=/</example>
+      <example>Compaq-HMMD=0001-c01fffff-487a-394a-aab0-ffffffffffff-ffffffffffffffff; path=/; Secure</example>
+      <param pos="0" name="service.vendor" value="HP"/>
+      <param pos="0" name="service.family" value="SMH"/>
+      <param pos="0" name="service.product" value="SMH"/>
+    </fingerprint>
+
+    <!-- various cookies that should just be ignored -->
+    <fingerprint pattern="^JSESSIONID(?:\.[^=]+)?=[^;]+;.*$" flags="REG_ICASE">
+      <description>Ignore simple JSESSIONID and related cookies</description>
+      <example>JSESSIONID=6ooov35i4l3n36qtaf8csvg0;Path=/</example>
+      <example>jsessionid=6nkp66iogcdc92720%2Dc6e4%2D4989%2Db7b2%2D5021624cfdff;Path=/;secure</example>
+      <example>JSESSIONID.c00a9623=v216643eijh19p9duve5srgf;Path=/;HttpOnly</example>
+    </fingerprint>
+
 </fingerprints>
