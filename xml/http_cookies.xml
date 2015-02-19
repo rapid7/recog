@@ -386,7 +386,13 @@ servers.
       <param pos="0" name="service.product" value="SMH"/>
     </fingerprint>
 
-    <!-- various cookies that should just be ignored -->
+    <!--
+        Ignore various cookies that are very generic cookies for session IDs
+        that are not necessarily indicative of any particular
+        product/device/etc.  If a future fingerprint comes along that utilizes
+        a similar cookie name, you must ensure that it is located prior to
+        these and this is enforced by rspec.
+    -->
 
     <fingerprint pattern="^JSESSIONID(?:\.[^=]+)?=[^;]+;.*$" flags="REG_ICASE">
       <description>Ignore simple JSESSIONID and related cookies</description>
@@ -407,5 +413,4 @@ servers.
       <description>Ignore simple SID and related cookies</description>
       <example>sid=sfd10bf73-654458f687aa3c68b3874915f651e0ca;path=/;"</example>
     </fingerprint>
-
 </fingerprints>
