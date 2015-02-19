@@ -341,6 +341,29 @@
       <param pos="0" name="os.product" value="BIG-IP"/>
     </fingerprint>
 
+   <!-- HP ProCurve -->
+
+    <fingerprint pattern="^(?:Basic|Digest) realm=&quot;(?:HP|ProCurve) (J[3]\d{3}A)&quot;$" flags="REG_ICASE">
+      <description>HP ProCurve Hubs</description>
+      <example os.product="J3295A">Basic realm="HP J3295A"</example>
+      <param pos="0" name="os.vendor" value="HP"/>
+      <param pos="0" name="os.family" value="ProCurve"/>
+      <param pos="0" name="os.device" value="Hub"/>
+      <param pos="1" name="os.product"/>
+   </fingerprint>
+
+   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;(?:HP|ProCurve) (J[489]\d{3}A)&quot;$" flags="REG_ICASE">
+      <description>HP ProCurve Switches</description>
+      <example os.product="J4110A">Basic realm="HP J4110A"</example>
+      <example os.product="J8164A">Basic realm="ProCurve J8164A"</example>
+      <example os.product="J8165A">Basic realm="HP J8165A"</example>
+      <example os.product="J9021A">Basic realm="HP J9021A"</example>
+      <param pos="0" name="os.vendor" value="HP"/>
+      <param pos="0" name="os.family" value="ProCurve"/>
+      <param pos="0" name="os.device" value="Switch"/>
+      <param pos="1" name="os.product"/>
+   </fingerprint>
+
     <!-- a variety of headers we currently just ignore -->
 
     <fingerprint pattern="^NTLM$" flags="REG_ICASE">
@@ -369,6 +392,7 @@
       <description>Ignore generic 'config' realms</description>
       <example>Digest realm="config", nonce="1155041914", algorithm="MD5", qop="auth"</example>
     </fingerprint>
+
 
 
    <!--
