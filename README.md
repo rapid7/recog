@@ -52,6 +52,8 @@ tests that `RomSShell_4.62` matches the provided regular expression and that the
 
 The `param` elements contain a `pos` attribute, which indicates what capture field from the `pattern` should be extracted, or `0` for a static string. The `name` attribute is the key that will be reported in the case of a successful match and the `value` will either be a static string for `pos` values of `0` or missing and taken from the captured field.
 
+### Testing
+
 Once a fingerprint has been added, the `example` entries can be tested by executing `bin/recog_verify` against the fingerprint file:
 
     $ bin/recog_verify xml/ssh_banners.xml
@@ -61,9 +63,7 @@ Matches can be tested on the command-line in a similar fashion:
     $ echo 'OpenSSH_6.6p1 Ubuntu-2ubuntu1' | bin/recog_match xml/ssh_banners.xml -
     MATCH: {"service.version"=>"6.6p1", "openssh.comment"=>"Ubuntu-2ubuntu1", "service.vendor"=>"OpenBSD", "service.family"=>"OpenSSH", "service.product"=>"OpenSSH", "data"=>"OpenSSH_6.6p1 Ubuntu-2ubuntu1"}
 
-
-
-
-
-
+### Best Practices
+* Create a single fingerprint for each product as long as the pattern remains clear and readable. If that is not possible, the pattern should be logically decomposed into additional fingerprints.
+* Create regular expressions that allow for flexible version number matching. This ensures greater probability of matching a product. For example, all known public releases of a product report either `major.minor` or `major.minor.build` format version numbers. If the fingerprint strictly matches this version number format, it would fail to match a modified build of the product that reports only a `major` version number format.
 
