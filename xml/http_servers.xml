@@ -1891,9 +1891,9 @@
 
    <fingerprint pattern = "^(?:BBC \d+\.\d+\.\d+\.?\d*; )?(?:com.hp.openview.)?[c|C]oda (\d+\.\d+\.\d+\.?\d*)$">
       <description>HP Openview Coda (Communications Daemon)</description>
-      <example>com.hp.openview.Coda 0.0.1</example>
-      <example>BBC 05.20.050; coda 10.00.123</example>
-      <example>BBC 2.6.0.7; com.hp.openview.Coda 0.0.1</example>
+      <example service.component.version="0.0.1">com.hp.openview.Coda 0.0.1</example>
+      <example service.component.version="10.00.123">BBC 05.20.050; coda 10.00.123</example>
+      <example service.component.version="0.0.1">BBC 2.6.0.7; com.hp.openview.Coda 0.0.1</example>
       <param pos="0" name="service.vendor" value="HP"/>
       <param pos="0" name="service.family" value="OpenView"/>
       <param pos="0" name="service.component.vendor" value="HP"/>
@@ -1903,8 +1903,8 @@
    </fingerprint>
 
    <fingerprint pattern="^BBC \d+\.\d+\.\d+\.?\d*; ovbbcrcp (\d+\.\d+\.\d+\.?\d*)$">
-      <example>BBC 11.00.044; ovbbcrcp 11.00.044</example>
       <description>OpenView Reverse Channel Proxy (RCP)</description>
+      <example service.component.version="11.00.044">BBC 11.00.044; ovbbcrcp 11.00.044</example>
       <param pos="0" name="service.vendor" value="HP"/>
       <param pos="0" name="service.family" value="OpenView"/>
       <param pos="0" name="service.component.vendor" value="HP"/>
@@ -1915,8 +1915,8 @@
 
    <fingerprint pattern = "^(?:BBC \d+\.\d+\.\d+\.?\d*; )?com.hp.openview.bbc.LLBServer (\d+\.\d+\.\d+\.?\d*)$">
       <description>HP Openview LLBServer (Local Location Broker)</description>
-      <example>com.hp.openview.bbc.LLBServer 2.6.8.1</example>
-		<example>BBC 2.6.0.7; com.hp.openview.bbc.LLBServer 2.6.0.7</example>
+      <example service.component.version="2.6.8.1">com.hp.openview.bbc.LLBServer 2.6.8.1</example>
+      <example service.component.version="2.6.0.7">BBC 2.6.0.7; com.hp.openview.bbc.LLBServer 2.6.0.7</example>
       <param pos="0" name="service.vendor" value="HP"/>
       <param pos="0" name="service.family" value="OpenView"/>
       <param pos="0" name="service.component.vendor" value="HP"/>
@@ -1926,10 +1926,9 @@
    </fingerprint>
 
    <fingerprint pattern="^BBC \d+\.\d+\.\d+; ovbbccb (\d+\.\d+\.\d+)$">
-      <example>BBC 06.00.083; ovbbccb 06.00.083</example>
-      <example>BBC 06.20.050; ovbbccb 06.20.050</example>
-      <example>BBC 11.10.035; ovbbccb 11.10.035</example>
       <description>OpenView Communication Broker (ovbbccb)</description>
+      <example service.component.version="06.00.083">BBC 06.00.083; ovbbccb 06.00.083</example>
+      <example service.component.version="11.10.035">BBC 11.10.035; ovbbccb 11.10.035</example>
       <param pos="0" name="service.vendor" value="HP"/>
       <param pos="0" name="service.family" value="OpenView"/>
       <param pos="0" name="service.component.vendor" value="HP"/>
@@ -1939,8 +1938,8 @@
    </fingerprint>
 
 	<fingerprint pattern="^BBC \d+\.\d+\.\d+; ovbbccb unknown version$">
-      <example>BBC 11.13.007; ovbbccb unknown version</example>
       <description>OpenView Communication Broker (ovbbccb) with no version</description>
+      <example>BBC 11.13.007; ovbbccb unknown version</example>
       <param pos="0" name="service.vendor" value="HP"/>
       <param pos="0" name="service.family" value="OpenView"/>
       <param pos="0" name="service.component.vendor" value="HP"/>
