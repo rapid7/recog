@@ -777,7 +777,18 @@ fingerprint SSH servers.
       <param pos="0" name="os.family" value="Windows"/>
       <param pos="0" name="os.product" value="Windows"/>
    </fingerprint>
-
+   
+   <fingerprint pattern="^Comware-(\d+\.?\d*\.?\d*)$">
+      <description>SSH on H3C Comware</description>
+      <example os.version="5.20.105">Comware-5.20.105</example>
+      <example os.version="5.20">Comware-5.20</example>
+      <param pos="0" name="service.vendor" value="H3C"/>
+      <param pos="0" name="service.product" value="SSH"/>
+      <param pos="0" name="os.vendor" value="H3C"/>
+      <param pos="0" name="os.device" value="Network"/>
+      <param pos="0" name="os.family" value="Comware"/>
+      <param pos="1" name="os.version"/>
+   </fingerprint>
 <!--
 1.2.22j4rad
 2.40
