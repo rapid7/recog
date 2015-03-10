@@ -1,11 +1,5 @@
 require "bundler/gem_tasks"
 
-# append to the release task to tag this as 'release',
-# meaning it is the most recent release
-task :release do |t|
-  sh "git tag -a -f release -m \"Update release tag for #{Bundler::GemHelper.gemspec.version}\""
-end
-
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new do |t|
     t.pattern = "spec/**/*_spec.rb"
