@@ -3030,10 +3030,11 @@
    </fingerprint>
    -->
 
-   <fingerprint pattern="^SentinelProtectionServer/((?:\d+\.)+\d+)$">
+   <fingerprint pattern="^SentinelProtectionServer/((?:\d+\.)*\d+)$">
       <example>SentinelProtectionServer/7.1</example>
       <example>SentinelProtectionServer/7.3</example>
       <example>SentinelProtectionServer/7.0</example>
+      <example>SentinelProtectionServer/7</example>
       <description>Embedded web server in SafeNet's memory key dongles.</description>
       <param pos="0" name="service.vendor" value="SafeNet"/>
       <param pos="0" name="service.product" value="Sentinel Protection Server"/>
@@ -3041,9 +3042,10 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^SentinelKeysServer/((?:\d+\.)+\d+)$">
+   <fingerprint pattern="^SentinelKeysServer/((?:\d+\.)*\d+)$">
       <example>SentinelKeysServer/1.3.1</example>
       <example>SentinelKeysServer/1.0</example>
+      <example>SentinelKeysServer/1</example>
       <description>Embedded web server in SafeNet's memory key dongles.</description>
       <param pos="0" name="service.vendor" value="SafeNet"/>
       <param pos="0" name="service.product" value="Sentinel Keys Server"/>
@@ -3051,8 +3053,9 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^CherryPy/((?:\d+\.)+\d+)$">
+   <fingerprint pattern="^CherryPy/((?:\d+\.)*\d+)$">
       <example>CherryPy/3.1.2</example>
+      <example>CherryPy/3</example>
       <description>Web server component of CherryPy web application framework.</description>
       <param pos="0" name="service.vendor" value="CherryPy"/>
       <param pos="0" name="service.product" value="CherryPy"/>
@@ -3080,8 +3083,9 @@
       <param pos="2" name="python.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^HP Web Jetadmin/((?:\d+\.)+\d+)\s*(.*)$">
+   <fingerprint pattern="^HP Web Jetadmin/((?:\d+\.)*\d+)\s*(.*)$">
       <example>HP Web Jetadmin/2.0.50 (Win32) mod_auth_sspi/1.0.1 mod_ssl/2.0.50 OpenSSL/0.9.6m</example>
+      <example>HP Web Jetadmin/2 (Win32) mod_auth_sspi/1.0.1 mod_ssl/2.0.50 OpenSSL/0.9.6m</example>
       <description>Apache variant for web access to HP printers.</description>
       <param pos="0" name="service.vendor" value="Apache"/>
       <param pos="0" name="service.product" value="HTTPD"/>
@@ -3101,8 +3105,9 @@
       <param pos="0" name="service.family" value="Web PN Server"/>
    </fingerprint>
 
-   <fingerprint pattern="^Lotus Expeditor Web Container/((?:\d+\.)+\d+)$">
+   <fingerprint pattern="^Lotus Expeditor Web Container/((?:\d+\.)*\d+)$">
       <example>Lotus Expeditor Web Container/6.1</example>
+      <example>Lotus Expeditor Web Container/6</example>
       <description>Expeditor is a framework used by IBM in many products in the Lotus brand, such as Sametime and Notes.</description>
       <param pos="0" name="service.vendor" value="IBM"/>
       <param pos="0" name="service.product" value="Lotus Expeditor Server"/>
@@ -3118,9 +3123,10 @@
       <param pos="0" name="service.family" value="GoAhead Webserver"/>
    </fingerprint>
 
-   <fingerprint pattern="^Mbedthis-Appweb/((?:\d+\.)+\d+)$">
+   <fingerprint pattern="^Mbedthis-Appweb/((?:\d+\.)*\d+)$">
       <example>Mbedthis-Appweb/2.4.0</example>
       <example>Mbedthis-Appweb/2.4.2</example>
+      <example>Mbedthis-Appweb/2</example>
       <description>An embedded web server for hosting dynamic web applications.</description>
       <param pos="0" name="service.vendor" value="Embedthis"/>
       <param pos="0" name="service.product" value="Appweb"/>
@@ -3128,8 +3134,9 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^Avaya CMBE/((?:\d+\.)+\d+)$">
+   <fingerprint pattern="^Avaya CMBE/((?:\d+\.)*\d+)$">
       <example>Avaya CMBE/2.0.0</example>
+      <example>Avaya CMBE/2</example>
       <description>Web server for Avaya Aura Communication Manager Branch, a SIP-based communications platform.</description>
       <param pos="0" name="service.vendor" value="Avaya"/>
       <param pos="0" name="service.product" value="Aura Communication Manager"/>
@@ -3138,8 +3145,9 @@
    </fingerprint>
 
 
-   <fingerprint pattern="^Rapid Logic/((?:\d+\.)+\d+)$">
+   <fingerprint pattern="^Rapid Logic/((?:\d+\.)*\d+)$">
       <example>Rapid Logic/1.1</example>
+      <example>Rapid Logic/1</example>
       <description>Embedded web server by Rapid Logic, which was acquired by Wind River.</description>
       <!-- From Googling, it sounds like this is just referred to as the
            Rapid Logic web server. -->
@@ -3177,8 +3185,9 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^mini_httpd/((?:\d+\.)+\d+) \S*$">
+   <fingerprint pattern="^mini_httpd/((?:\d+\.)*\d+) \S*$">
       <example>mini_httpd/1.14 23jun2000</example>
+      <example>mini_httpd/1 23jun2000</example>
       <description>A small HTTP server</description>
       <param pos="0" name="service.vendor" value="ACME Laboratories"/>
       <param pos="0" name="service.product" value="mini_httpd"/>
@@ -3186,8 +3195,9 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^thin ((?:\d+\.)+\d+) codename .+$">
+   <fingerprint pattern="^thin ((?:\d+\.)*\d+) codename .+$">
       <example>thin 1.2.4 codename Flaming Astroboy</example>
+      <example>thin 1 codename Flaming Astroboy</example>
       <description>A Ruby-based web server.</description>
       <!-- By private developer Marc-Andre Cournoyer; assert
            nothing for service.vendor. -->
@@ -3196,8 +3206,9 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^Avocent DSView \d+/((?:\d+\.)+\d+)$">
+   <fingerprint pattern="^Avocent DSView \d+/((?:\d+\.)*\d+)$">
       <example>Avocent DSView 3/3.7.0.71</example>
+      <example>Avocent DSView 3/3</example>
       <description>Web server interface for controlling data centers.</description>
       <param pos="0" name="service.vendor" value="Avocent"/>
       <param pos="0" name="service.product" value="DSView"/>
@@ -3205,8 +3216,9 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^Mongrel ((?:\d+\.)+\d+)$">
+   <fingerprint pattern="^Mongrel ((?:\d+\.)*\d+)$">
       <example>Mongrel 1.1.5</example>
+      <example>Mongrel 1</example>
       <description>Ruby-based web server and HTTP library.</description>
       <!-- By private developer Zed A. Shaw; assert
            nothing for service.vendor. -->
@@ -3215,9 +3227,10 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^Microplex emHTTPD/((?:\d+\.)+\d+)$">
+   <fingerprint pattern="^Microplex emHTTPD/((?:\d+\.)*\d+)$">
       <example>Microplex emHTTPD/1.0</example>
       <example>Microplex emHTTPD/1.1</example>
+      <example>Microplex emHTTPD/1</example>
       <description>Embedded web server used by Microplex.</description>
       <param pos="0" name="service.vendor" value="Microplex"/>
       <!-- Per Microplex M307 data sheet, the device is manageable
@@ -3232,8 +3245,9 @@
       <param pos="0" name="os.device" value="Print server"/>
    </fingerprint>
 
-   <fingerprint pattern="^UPS_Server/((?:\d+\.)+\d+)$">
+   <fingerprint pattern="^UPS_Server/((?:\d+\.)*\d+)$">
       <example>UPS_Server/1.0</example>
+      <example>UPS_Server/1</example>
       <description>An embedded web server used for UPS management; primarily by Eaton, but also by APC.</description>
       <param pos="0" name="service.vendor" value="Eaton"/>
       <param pos="0" name="service.product" value="ConnectUPS"/>
@@ -3243,8 +3257,9 @@
       <param pos="0" name="os.device" value="UPS"/>
    </fingerprint>
 
-   <fingerprint pattern="^JC-HTTPD/((?:\d+\.)+\d+)$">
+   <fingerprint pattern="^JC-HTTPD/((?:\d+\.)*\d+)$">
       <example>JC-HTTPD/1.11.14</example>
+      <example>JC-HTTPD/1</example>
       <!-- Shodan shows multiple printers with servers having this
            banner, but I can't find a project page. -->
       <description>An embedded web server, used notably by Oki and Kyocera in printers.</description>
@@ -3253,8 +3268,9 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^JC-SHTTPD/((?:\d+\.)+\d+)$">
+   <fingerprint pattern="^JC-SHTTPD/((?:\d+\.)*\d+)$">
       <example>JC-SHTTPD/1.17.20</example>
+      <example>JC-SHTTPD/1</example>
       <!-- The only Google hits for "JC-SHTTPD" list it as being
       a Sharp printer. There is a project called SHTTPD (now Mongoose),
       but version 1.17 does not have this banner.
@@ -3268,8 +3284,9 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^Oracle XML DB/Oracle\S+ Enterprise Edition Release ((?:\d+\.)+\d+) - Production$">
+   <fingerprint pattern="^Oracle XML DB/Oracle\S+ Enterprise Edition Release ((?:\d+\.)*\d+) - Production$">
       <example>Oracle XML DB/Oracle9i Enterprise Edition Release 9.2.0.1.0 - Production</example>
+      <example>Oracle XML DB/Oracle9i Enterprise Edition Release 9 - Production</example>
       <!-- Oracle provides a laundry list of HTTP(S) features not
       supported by the XML DB's web server; I think it's safe
       to say that it is almost certainly not Apache under the hood:
@@ -3300,8 +3317,9 @@
       <param pos="0" name="os.device" value="Firewall"/>
    </fingerprint>
 
-   <fingerprint pattern="^Ews/((?:\d+\.)+\d+)$">
+   <fingerprint pattern="^Ews/((?:\d+\.)*\d+)$">
       <example>Ews/0.1</example>
+      <example>Ews/0</example>
       <description>IBM Network Printer Manager.</description>
       <param pos="0" name="service.vendor" value="IBM"/>
       <param pos="0" name="service.product" value="Network Printer Manager"/>
@@ -3411,8 +3429,9 @@
       <param pos="0" name="service.family" value="Google Web Server"/>
    </fingerprint>
 
-   <fingerprint pattern="^GFE/((?:\d+\.)+\d+)$">
+   <fingerprint pattern="^GFE/((?:\d+\.)*\d+)$">
       <example>GFE/1.3</example>
+      <example>GFE/1</example>
       <description>Google Front End for apps running on Google services.</description>
       <param pos="0" name="service.vendor" value="Google"/>
       <param pos="0" name="service.product" value="Google Front End"/>
