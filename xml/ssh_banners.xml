@@ -778,10 +778,11 @@ fingerprint SSH servers.
       <param pos="0" name="os.product" value="Windows"/>
    </fingerprint>
    
-   <fingerprint pattern="^Comware-(\d+\.?\d*\.?\d*)$">
+   <fingerprint pattern="^(?:SSH-[1|2]\.\d{1,2}-)?Comware-(\d+\.?\d*\.?\d*)$">
       <description>SSH on H3C Comware</description>
       <example os.version="5.20.105">Comware-5.20.105</example>
       <example os.version="5.20">Comware-5.20</example>
+      <example os.version="5.20">SSH-1.99-Comware-5.20</example>
       <param pos="0" name="service.vendor" value="H3C"/>
       <param pos="0" name="service.product" value="SSH"/>
       <param pos="0" name="os.vendor" value="H3C"/>
