@@ -791,28 +791,27 @@ fingerprint SSH servers.
       <param pos="1" name="os.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^(?:SSH-2\.0-)?(\d\.\d\.\d) SSH Secure Shell OpenVMS V\d\.\d$">
+   <fingerprint pattern="^(\d\.\d\.\d) SSH Secure Shell OpenVMS V\d\.\d$">
       <description>SSH for OpenVMS </description>
       <example service.component.version="3.2.0">3.2.0 SSH Secure Shell OpenVMS V5.5</example>
-      <example>SSH-2.0-3.2.0 SSH Secure Shell OpenVMS V5.5</example>
       <!--V5.5 refers to TCP/IP Services for OpenVMS version -->		
       <param pos="1" name="service.component.version"/>
       <param pos="0" name="service.component.vendor" value="SSH Communication Security"/>
       <param pos="0" name="service.component.family" value="SSH Secure Shell"/>
-      <param pos="0" name="service.component.product" value="SSH Secure Shell"/>		
-      <param pos="2" name="service.version"/>      
+      <param pos="0" name="service.component.product" value="SSH Secure Shell"/>		  
       <param pos="0" name="service.vendor" value="HP"/>
       <param pos="0" name="service.family" value="OpenVMS"/>
       <param pos="0" name="service.product" value="SSH Server"/>
       <param pos="0" name="os.vendor" value="HP"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.family" value="OpenVMS"/>
+      <param pos="0" name="os.certainty" value="0.75"/>
    </fingerprint>
 
-   <fingerprint pattern="^SSH-2\.0-(\d\.\d\.\d) SSH (?:Secure Shell )?OpenVMS V\d\.\d VMS_sftp_version (\d)$">
+   <fingerprint pattern="^(\d\.\d\.\d) SSH (?:Secure Shell )?OpenVMS V\d\.\d VMS_sftp_version (\d)$">
       <description>SSH for OpenVMS sftp</description>
-      <example service.component.version="3.2.0">SSH-2.0-3.2.0 SSH Secure Shell OpenVMS V5.5 VMS_sftp_version 3</example>
-      <example service.component.version="3.2.0" >SSH-2.0-3.2.0 SSH OpenVMS V5.5 VMS_sftp_version 3</example>	
+      <example service.component.version="3.2.0">3.2.0 SSH Secure Shell OpenVMS V5.5 VMS_sftp_version 3</example>
+      <example service.component.version="3.2.0" >3.2.0 SSH OpenVMS V5.5 VMS_sftp_version 3</example>	
       <!--V5.5 refers to TCP/IP Services for OpenVMS version -->
       <param pos="1" name="service.component.version"/>		
       <param pos="0" name="service.component.vendor" value="SSH Communication Security"/>
@@ -820,10 +819,12 @@ fingerprint SSH servers.
       <param pos="0" name="service.component.product" value="SSH Secure Shell"/>		
       <param pos="0" name="service.vendor" value="HP"/>
       <param pos="0" name="service.family" value="OpenVMS"/>
-      <param pos="0" name="service.product" value="SSH Server"/>
+      <param pos="0" name="service.product" value="VMS SFTP Server"/>
+      <param pos="2" name="service.version"/> 
       <param pos="0" name="os.vendor" value="HP"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.family" value="OpenVMS"/>
+      <param pos="0" name="os.certainty" value="0.75"/>
    </fingerprint>
 
 <!--
