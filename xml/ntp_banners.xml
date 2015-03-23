@@ -797,7 +797,19 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern=".*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,\s*processor=&quot;([^ ]+)&quot;,\s*system=&quot;[^ ]+.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="version=&quot;ntpd version = ([^ ]+)&quot;,\s*processor=&quot;unknown&quot;,\s*system=&quot;OpenVMS AXP&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>OpenVMS AXP (Alpha) NTP Server</description>
+    <example service.version="4.1.0" os.arch="Alpha">
+      version="ntpd version = 4.1.0", processor="unknown", system="OpenVMS AXP"
+    </example>
+    <param pos="0" name="service.family" value="NTP"/>
+    <param pos="0" name="service.product" value="NTP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="OpenVMS"/>
+    <param pos="0" name="os.product" value="OpenVMS"/>
+    <param pos="0" name="os.arch" value="Alpha"/>
+  </fingerprint>
+  <fingerprint pattern=".*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,\s*processor=&quot;([^ ]+)&quot;,\s*system=&quot;BIG-IPBIG-IP\s+([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>F5 Big-IP Load Balancers NTP</description>
     <example service.version="4.1.1a@1.791" os.arch="i386" os.version="4.5PTF-0">
       version="ntpd 4.1.1a@1.791 Fri Aug  8 04:08:19 PDT 2003 (1)",
