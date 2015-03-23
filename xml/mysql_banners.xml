@@ -1,97 +1,10 @@
 <?xml version="1.0"?>
-<fingerprints>
-  <!-- Common Errors -->
+<fingerprints matches="mysql.banners">
 
-  <fingerprint pattern="^(?:#HY000)?Host '[^']+' is not allowed to connect to this MySQL server$">
-    <example>Host '10.10.10.10' is not allowed to connect to this MySQL server</example>
-    <example>#HY000Host '10.10.10.10' is not allowed to connect to this MySQL server</example>
-    <description>Oracle MySQL - Error: Host not allowed to connect (English)</description>
-    <param pos="0" name="service.vendor" value="Oracle"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MySQL"/>
-  </fingerprint>
-
-  <fingerprint pattern="^Le h.te '[^']+' n'est pas authoris. . se connecter . ce serveur MySQL$">
-    <example>Le h�te '10.10.10.10' n'est pas authoris� � se connecter � ce serveur MySQL</example>
-    <description>Oracle MySQL - Error: Host not allowed to connect (French)</description>
-    <param pos="0" name="service.vendor" value="Oracle"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MySQL"/>
-  </fingerprint>
-
-  <fingerprint pattern="^'Host' '[^']+' n.o tem permiss.o para se conectar com este servidor MySQL$">
-    <example>'Host' '10.10.10.10' n�o tem permiss�o para se conectar com este servidor MySQL</example>
-    <description>Oracle MySQL - Error: Host not allowed to connect (Spanish)</description>
-    <param pos="0" name="service.vendor" value="Oracle"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MySQL"/>
-  </fingerprint>
-
-  <fingerprint pattern="^Host.+?hat keine Berechtigung,.+?diesem MySQL">
-    <example>Host '10.10.10.10' hat keine Berechtigung, sich mit diesem MySQL-Server zu verbinden</example>
-    <example>Host hat keine Berechtigung, eine Verbindung zu diesem MySQL Server herzustellen.</example>
-    <description>Oracle MySQL - Error: Host not allowed to connect (German)</description>
-    <param pos="0" name="service.vendor" value="Oracle"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MySQL"/>
-  </fingerprint>
-
-  <fingerprint pattern="^(?:#HY000)?Host '[^']+' is blocked because of many connection errors.\s{1,2}[Uu]nblock with 'mysqladmin flush-hosts'$">
-    <example>Host '10.10.10.10' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'</example>
-    <example>Host '10.10.10.10' is blocked because of many connection errors.  Unblock with 'mysqladmin flush-hosts'</example>
-    <description>Oracle MySQL - Error: Blocked, too many errors from this host</description>
-    <param pos="0" name="service.vendor" value="Oracle"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MySQL"/>
-  </fingerprint>
-
-  <fingerprint pattern="^Host.+?blockiert wegen zu vieler Verbindungsfehler. Aufheben der Blockierung mit 'mysqladmin flush-hosts'">
-    <example>Host blockiert wegen zu vieler Verbindungsfehler. Aufheben der Blockierung mit 'mysqladmin flush-hosts'.</example>
-    <example>Host '10.10.10.10' blockiert wegen zu vieler Verbindungsfehler. Aufheben der Blockierung mit 'mysqladmin flush-hosts'</example>
-    <description>Oracle MySQL - Error: Blocked, too many errors from this host (German)</description>
-    <param pos="0" name="service.vendor" value="Oracle"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MySQL"/>
-  </fingerprint>
-
-  <fingerprint pattern="^Host '[^']+' is not allowed to connect to this MariaDB server$">
-    <example>Host '10.10.10.10' is not allowed to connect to this MariaDB server</example>
-    <description>MariaDB MariaDB - Error: Host not allowed to connect (English) </description>
-    <param pos="0" name="service.vendor" value="MariaDB"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MariaDB"/>
-  </fingerprint>
-
-  <fingerprint pattern="^Can't create a new thread \(errno -?[12]{1,2}\)">
-    <example>Can't create a new thread (errno -1); if you are not out of available memory, you can consult the manual for a possible OS-dependent bug</example>
-    <example>Can't create a new thread (errno 12); if you are not out of available memory, you can consult the manual for a possible OS-dependent bug</example>
-    <description>Oracle MySQL - Error: Out of memory</description>
-    <param pos="0" name="service.vendor" value="Oracle"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MySQL"/>
-  </fingerprint>
-
-  <fingerprint pattern="^Too many connections$">
-    <example>Too many connections</example>
-    <description>Oracle MySQL - Error: Too many connections</description>
-    <param pos="0" name="service.vendor" value="Oracle"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MySQL"/>
-  </fingerprint>
-
-  <fingerprint pattern="^Can't get hostname for your address$">
-    <example>Can't get hostname for your address</example>
-    <description>Oracle MySQL - Error: Unable to resolve client hostname</description>
-    <param pos="0" name="service.vendor" value="Oracle"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MySQL"/>
-  </fingerprint>
-
-  <!-- Standard Banner Matches -->
-
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3}(?:[.-]\d{1,2})?)(?:-m\d{1,2})?(?:-rc)?(?:-alpha)?(?:-beta)?(?:-gamma)?(?:-?[Mm]ax)?(?:-rs)?(?:-modified)?(?:-debug)?(?:-log)?$">
+   <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3}(?:[.-]\d{1,2})?(?:[.-]\d{1,2})?)(?:-m\d{1,2})?(?:-rc)?(?:-alpha)?(?:-beta)?(?:-gamma)?(?:-?[Mm]ax)?(?:-rs)?(?:-modified)?(?:-debug)?(?:-log)?$">
     <example service.version="4.1.20">4.1.20</example>
     <example service.version="5.5.23-55">5.5.23-55</example>
+    <example service.version="5.5.30-1.1">5.5.30-1.1</example>
     <example service.version="5.5.18.1">5.5.18.1-log</example>
     <example service.version="5.7.4">5.7.4-m14</example>
     <example service.version="5.0.95">5.0.95-rs</example>
@@ -110,23 +23,6 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})(?:-alpha)?(?:-beta)?(?:-rc)?-community(?:-max)?-nt(?:-log)?(?:-debug)?(?:-log)?$">
-    <example service.version="4.1.22">4.1.22-community-max-nt</example>
-    <example service.version="5.0.88">5.0.88-community-nt</example>
-    <example service.version="5.0.67">5.0.67-community-nt-log</example>
-    <example service.version="5.1.20">5.1.20-beta-community-nt-debug</example>
-    <example service.version="6.0.0">6.0.0-alpha-community-nt-debug</example>
-    <example service.version="6.0.2">6.0.2-alpha-community-nt-debug-log</example>
-    <description>Oracle MySQL Community Edition with Named Pipes (Windows)</description>
-    <param pos="1" name="service.version"/>
-    <param pos="0" name="service.vendor" value="Oracle"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MySQL"/>
-    <param pos="0" name="service.edition" value="Community Edition"/>
-    <param pos="0" name="os.vendor" value="Microsoft"/>
-    <param pos="0" name="os.family" value="Windows"/>
-  </fingerprint>
-
   <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})(?:-m\d)?(?:-rc)?(?:-alpha)?(?:-beta)?-[Cc]ommunity(?:-max)?(?:-debug)?(?:-log)?(?:-debug)?$">
     <example service.version="5.0.95">5.0.95-community-log</example>
     <example service.version="5.0.37">5.0.37-Community-log</example>
@@ -141,6 +37,23 @@
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MySQL"/>
     <param pos="0" name="service.edition" value="Community Edition"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})(?:-alpha)?(?:-beta)?(?:-rc)?-[Cc]ommunity(?:-max)?-nt(?:-log)?(?:-debug)?(?:-log)?$">
+    <example service.version="4.1.22">4.1.22-community-max-nt</example>
+    <example service.version="5.0.88">5.0.88-community-nt</example>
+    <example service.version="5.0.67">5.0.67-community-nt-log</example>
+    <example service.version="5.1.20">5.1.20-beta-community-nt-debug</example>
+    <example service.version="6.0.0">6.0.0-alpha-community-nt-debug</example>
+    <example service.version="6.0.2">6.0.2-alpha-community-nt-debug-log</example>
+    <description>Oracle MySQL Community Edition with Named Pipes (Windows)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+    <param pos="0" name="service.edition" value="Community Edition"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
   </fingerprint>
 
   <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})(?:-alpha)?(?:-beta)?(?:-rc)?(?:-gamma)?(?:-max)?-nt(?:-max)?(?:-log)?$">
@@ -536,7 +449,7 @@
     <example service.version="5.1.57-rel12.8">5.1.57-rel12.8</example>
     <example service.version="5.1.60rel13.1">5.1.60rel13.1-log</example>
     <example service.version="5.1.67-rel14.3">5.1.67-rel14.3-log</example>
-    <description>Percona Server (MySQL fork)</description>
+    <description>Percona Server (MySQL fork) match w/ 'rel'</description>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="Percona"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -662,14 +575,42 @@
     <param pos="0" name="os.version" value="5.0"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-[Mm]aria">
+
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,2}\.\h{1,3})-MariaDB.+~wheezy(?:-log)?$">
+    <example service.version="5.5.37">5.5.37-MariaDB-1~wheezy-log</example>
+    <example service.version="10.0.11">10.0.11-MariaDB-1~wheezy-log</example>
+    <description>MariaDB MariaDB on Debian Wheezy</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="7.0"/>
+  </fingerprint>
+
+ <!-- This needs a end of line anchor added to the regex and retested -->
+  <fingerprint pattern="^(\d{1,2}\.\d{1,2}\.\h{1,3})-[Mm]aria">
     <example service.version="5.1.39">5.1.39-maria-beta</example>
     <example service.version="5.5.24">5.5.24-MariaDB-mariadb1~0.1</example>
+    <example service.version="10.0.1">10.0.1-MariaDB-log</example>
     <description>MariaDB MariaDB</description>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MariaDB"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,2}\.\h{1,3})-[Cc]ommunity-[Mm]aria(?:-log)?$">
+    <example service.version="5.1.44">5.1.44-community-maria-log</example>
+    <description>MariaDB MariaDB Community Edition</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="service.edition" value="Community Edition"/>
   </fingerprint>
 
   <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-falcon-alpha-community-nt">
@@ -690,6 +631,15 @@
     <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-tokudb-\d\.\d\.\d{1,2}(?:-log)?$">
+    <example service.version="5.5.40">5.5.40-tokudb-7.5.3-log</example>
+    <description>Tokutek customized MySQL</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="Tokutek"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
   </fingerprint>
 
   <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-tokudb-.*MariaDB(?:-log)?$">
@@ -794,19 +744,4 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^#07000Proxy Warning - IP Forbidden$">
-    <example>#07000Proxy Warning - IP Forbidden</example>
-    <description>Oracle MySQL Proxy - Error: Host not allowed to connect</description>
-    <param pos="0" name="service.vendor" value="Oracle"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MySQL Proxy"/>
-  </fingerprint>
-
-  <fingerprint pattern="^\(proxy\) all backends are down$">
-    <example>(proxy) all backends are down</example>
-    <description>Oracle MySQL Proxy - Error: Backends down</description>
-    <param pos="0" name="service.vendor" value="Oracle"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MySQL Proxy"/>
-  </fingerprint>
 </fingerprints>
