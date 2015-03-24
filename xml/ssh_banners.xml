@@ -790,7 +790,7 @@ fingerprint SSH servers.
       <param pos="1" name="os.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^(\d\.\d\.\d) SSH Secure Shell OpenVMS V\d\.\d$">
+   <fingerprint pattern="^(\d\.\d+\.\d+) SSH Secure Shell OpenVMS V\d\.\d$">
       <description>SSH for OpenVMS </description>
       <example service.component.version="3.2.0">3.2.0 SSH Secure Shell OpenVMS V5.5</example>
       <!--V5.5 refers to TCP/IP Services for OpenVMS version -->
@@ -807,7 +807,7 @@ fingerprint SSH servers.
       <param pos="0" name="os.certainty" value="0.75"/>
    </fingerprint>
 
-   <fingerprint pattern="^(\d\.\d\.\d) SSH (?:Secure Shell )?OpenVMS V\d\.\d VMS_sftp_version (\d)$">
+   <fingerprint pattern="^(\d\.\d+\.\d+) SSH (?:Secure Shell )?OpenVMS V\d\.\d VMS_sftp_version (\d)$">
       <description>SSH for OpenVMS sftp</description>
       <example service.component.version="3.2.0" service.version="3">3.2.0 SSH Secure Shell OpenVMS V5.5 VMS_sftp_version 3</example>
       <example service.component.version="3.2.0" service.version="3">3.2.0 SSH OpenVMS V5.5 VMS_sftp_version 3</example>
