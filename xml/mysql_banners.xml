@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <fingerprints matches="mysql.banners">
 
-   <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3}(?:[.-]\d{1,2})?(?:[.-]\d{1})?)(?:-m\d{1,2})?(?:-rc)?(?:-alpha)?(?:-beta)?(?:-gamma)?(?:-?[Mm]ax)?(?:-rs)?(?:-modified)?(?:-debug)?(?:-log)?$">
+   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3}(?:[.-]\d{1,2})?(?:[.-]\d{1})?)(?:-m\d{1,2})?(?:-rc)?(?:-alpha)?(?:-beta)?(?:-gamma)?(?:-?[Mm]ax)?(?:-rs)?(?:-modified)?(?:-debug)?(?:-log)?$">
     <example service.version="4.1.20">4.1.20</example>
     <example service.version="5.5.23-55">5.5.23-55</example>
     <example service.version="5.5.30-1.1">5.5.30-1.1</example>
@@ -23,7 +23,7 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})(?:-m\d)?(?:-rc)?(?:-alpha)?(?:-beta)?-[Cc]ommunity(?:-max)?(?:-debug)?(?:-log)?(?:-debug)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-m\d)?(?:-rc)?(?:-alpha)?(?:-beta)?-[Cc]ommunity(?:-max)?(?:-debug)?(?:-log)?(?:-debug)?$">
     <example service.version="5.0.95">5.0.95-community-log</example>
     <example service.version="5.0.37">5.0.37-Community-log</example>
     <example service.version="5.0.21">5.0.21-community-max</example>
@@ -39,7 +39,7 @@
     <param pos="0" name="service.edition" value="Community Edition"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})(?:-alpha)?(?:-beta)?(?:-rc)?-[Cc]ommunity(?:-max)?-nt(?:-log)?(?:-debug)?(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-alpha)?(?:-beta)?(?:-rc)?-[Cc]ommunity(?:-max)?-nt(?:-log)?(?:-debug)?(?:-log)?$">
     <example service.version="4.1.22">4.1.22-community-max-nt</example>
     <example service.version="5.0.88">5.0.88-community-nt</example>
     <example service.version="5.0.67">5.0.67-community-nt-log</example>
@@ -56,7 +56,7 @@
     <param pos="0" name="os.family" value="Windows"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})(?:-alpha)?(?:-beta)?(?:-rc)?(?:-gamma)?(?:-max)?-nt(?:-max)?(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-alpha)?(?:-beta)?(?:-rc)?(?:-gamma)?(?:-max)?-nt(?:-max)?(?:-log)?$">
     <example service.version="5.0.18">5.0.18-nt</example>
     <example service.version="4.1.12a">4.1.12a-nt-max-log</example>
     <example service.version="3.23.58">3.23.58-max-nt</example>
@@ -71,7 +71,7 @@
     <param pos="0" name="os.family" value="Windows"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-cll$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-cll$">
     <example service.version="5.5.25a">5.5.25a-cll</example>
     <description>Oracle MySQL hosted on CPanel</description>
     <param pos="1" name="service.version"/>
@@ -81,7 +81,7 @@
     <param pos="0" name="os.family" value="Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-community-cll$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-community-cll$">
     <example service.version="5.0.91">5.0.91-community-cll</example>
     <description>Oracle MySQL Community hosted on CPanel</description>
     <param pos="1" name="service.version"/>
@@ -92,7 +92,7 @@
     <param pos="0" name="os.family" value="Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-cll-lve$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-cll-lve$">
     <example service.version="5.1.66">5.1.66-cll-lve</example>
     <description>Oracle MySQL on CloudLinux in a Lightweight Virtual Environment (LVE)</description>
     <param pos="1" name="service.version"/>
@@ -104,7 +104,7 @@
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-community-cll-lve$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-community-cll-lve$">
     <example service.version="5.0.95">5.0.95-community-cll-lve</example>
     <description>Oracle MySQL Community on CloudLinux in a Lightweight Virtual Environment (LVE)</description>
     <param pos="1" name="service.version"/>
@@ -117,9 +117,9 @@
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\d{1,2})-0ubuntu0.(\d\d\.\d\d)[.\d]*(?:-log)?$">
-    <example service.version="5.1.66">5.1.66-0ubuntu0.10.04.3-log</example>
-    <example service.version="5.5.28">5.5.28-0ubuntu0.12.04.3-log</example>
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\d{1,2})-0ubuntu0.(\d\d\.\d\d)[.\d]*(?:-log)?$">
+    <example service.version="5.1.66" os.version="10.04">5.1.66-0ubuntu0.10.04.3-log</example>
+    <example service.version="5.5.28" os.version="12.04">5.5.28-0ubuntu0.12.04.3-log</example>
     <description>Oracle MySQL on Ubuntu</description>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="Oracle"/>
@@ -131,9 +131,9 @@
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\d{1,2})-(?:Debian_)?\dubuntu(\d{1,2}\.\d\d)[.\d]*(?:-log)?$">
-    <example service.version="5.0.22">5.0.22-Debian_0ubuntu6.06.14-log</example>
-    <example service.version="5.1.41">5.1.41-3ubuntu12.10</example>
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\d{1,2})-(?:Debian_)?\dubuntu(\d{1,2}\.\d\d)[.\d]*(?:-log)?$">
+    <example service.version="5.0.22" os.version="6.06">5.0.22-Debian_0ubuntu6.06.14-log</example>
+    <example service.version="5.1.41" os.version="12.10">5.1.41-3ubuntu12.10</example>
     <description>Oracle MySQL on Ubuntu</description>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="Oracle"/>
@@ -145,7 +145,7 @@
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})[-_](?:Ubuntu[_-])?(?:Debian[_-])?\d{1,2}(?:~exp1)?ubuntu\d{1,2}(?:\.\d)?(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})[-_](?:Ubuntu[_-])?(?:Debian[_-])?\d{1,2}(?:~exp1)?ubuntu\d{1,2}(?:\.\d)?(?:-log)?$">
     <example service.version="5.0.45">5.0.45-Debian_1ubuntu3.4</example>
     <example service.version="5.0.51a">5.0.51a-3ubuntu5.5</example>
     <example service.version="5.0.51a">5.0.51a-3ubuntu5.8-log</example>
@@ -163,7 +163,7 @@
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.[^+]+)\+deb\.sury\.org~precise\+\d(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[^+]+)\+deb\.sury\.org~precise\+\d(?:-log)?$">
     <example service.version="5.6.19-1">5.6.19-1+deb.sury.org~precise+1</example>
     <example service.version="5.6.20-1">5.6.20-1+deb.sury.org~precise+1-log</example>
     <description>Oracle MySQL on Ubuntu 12.04 (Precise Pangolin) packaged by deb.sury.org</description>
@@ -177,7 +177,7 @@
     <param pos="0" name="os.version" value="12.04"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.[^+]+)\+deb\.sury\.org~trusty\+\d(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[^+]+)\+deb\.sury\.org~trusty\+\d(?:-log)?$">
     <example service.version="5.6.21-1">5.6.21-1+deb.sury.org~trusty+1</example>
     <example service.version="5.6.19-1">5.6.19-1+deb.sury.org~trusty+1-log</example>
     <description>Oracle MySQL on Ubuntu 14.04 (Trusty Tahr) packaged by deb.sury.org</description>
@@ -191,7 +191,7 @@
     <param pos="0" name="os.version" value="14.04"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.[^+]+)\+(?:squeeze\d|deb6u1)(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[^+]+)\+(?:squeeze\d|deb6u1)(?:-log)?$">
     <example service.version="5.1.66-0">5.1.66-0+squeeze1</example>
     <example service.version="5.1.66-0">5.1.66-0+squeeze1-log</example>
     <example service.version="5.1.73-1">5.1.73-1+deb6u1</example>
@@ -206,7 +206,7 @@
     <param pos="0" name="os.version" value="6.0"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.[^+]+)\+wheezy\d(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[^+]+)\+wheezy\d(?:-log)?$">
     <example service.version="5.5.41-0">5.5.41-0+wheezy1</example>
     <example service.version="5.5.35-0">5.5.35-0+wheezy1-log</example>
     <description>Oracle MySQL on Debian 7.0 (wheezy)</description>
@@ -220,7 +220,7 @@
     <param pos="0" name="os.version" value="7.0"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.[^+]+)\+lenny\d*(?:\+spu\d)?(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[^+]+)\+lenny\d*(?:\+spu\d)?(?:-log)?$">
     <example service.version="5.0.51a-24">5.0.51a-24+lenny1-log</example>
     <example service.version="5.0.51a-24">5.0.51a-24+lenny2</example>
     <example service.version="5.0.51a-24">5.0.51a-24+lenny2+spu1-log</example>
@@ -235,7 +235,7 @@
     <param pos="0" name="os.version" value="5.0"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-\d~bpo50">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-\d~bpo50">
     <example service.version="5.1.49">5.1.49-3~bpo50+1-log</example>
     <description>Oracle MySQL Backport on Debian 5.0 (lenny)</description>
     <param pos="1" name="service.version"/>
@@ -248,7 +248,7 @@
     <param pos="0" name="os.version" value="5.0"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-Debian_\d~?bpo\.?\d">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-Debian_\d~?bpo\.?\d">
     <example service.version="5.0.22">5.0.22-Debian_2bpo1</example>
     <example service.version="5.0.32">5.0.32-Debian_7~bpo.1-log</example>
     <description>Oracle MySQL Backport on Debian</description>
@@ -261,7 +261,7 @@
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\d{1,2})-Debian_\d?etch\d*(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\d{1,2})-Debian_\d?etch\d*(?:-log)?$">
     <example service.version="4.1.11">4.1.11-Debian_etch1-log</example>
     <example service.version="5.0.32">5.0.32-Debian_7etch6-log</example>
     <description>Oracle MySQL on Debian 4.0 (etch)</description>
@@ -275,7 +275,7 @@
     <param pos="0" name="os.version" value="4.0"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\d{1,2})[_-]Debian[_-]\d{1,2}sarge\d*(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\d{1,2})[_-]Debian[_-]\d{1,2}sarge\d*(?:-log)?$">
     <example service.version="4.0.24">4.0.24_Debian-10sarge2-log</example>
     <example service.version="4.1.11">4.1.11-Debian_4sarge7-log</example>
     <description>Oracle MySQL on Debian 3.1 (sarge)</description>
@@ -289,7 +289,7 @@
     <param pos="0" name="os.version" value="3.1"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\d{1,2})[_-]Debian[_-]\d{1,2}woody\d*(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\d{1,2})[_-]Debian[_-]\d{1,2}woody\d*(?:-log)?$">
     <example service.version="4.0.24">4.0.24_Debian-4woody1</example>
     <description>Oracle MySQL on Debian 3.0 (woody)</description>
     <param pos="1" name="service.version"/>
@@ -302,7 +302,7 @@
     <param pos="0" name="os.version" value="3.0"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})(?:[_-]\d{8})?[_-]Debian[_-]\d{1,2}(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:[_-]\d{8})?[_-]Debian[_-]\d{1,2}(?:-log)?$">
     <example service.version="4.0.23">4.0.23_Debian-3-log</example>
     <example service.version="4.0.31">4.0.31-20070605_Debian-7-log</example>
     <description>Oracle MySQL on Debian (Generic match)</description>
@@ -315,7 +315,7 @@
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\d{1,2})(?:-rc)?[_-]Debian[_-]\d{1,2}~ppa\d(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\d{1,2})(?:-rc)?[_-]Debian[_-]\d{1,2}~ppa\d(?:-log)?$">
     <example service.version="5.1.22">5.1.22-rc-Debian_2~ppa5-log</example>
     <description>Oracle MySQL on Debian (Generic match) using PPA</description>
     <param pos="1" name="service.version"/>
@@ -327,7 +327,7 @@
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})(?:-\d{1,2})?(?:-Debian)?(?:-Dotdeb)?[-~_\d\.]+dotdeb\.\d(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2})?(?:-Debian)?(?:-Dotdeb)?[-~_\d\.]+dotdeb\.\d(?:-log)?$">
     <example service.version="5.1.54">5.1.54-0.dotdeb.0</example>
     <example service.version="5.1.58">5.1.58-1~dotdeb.0</example>
     <example service.version="5.5.30">5.5.30-1~dotdeb.0-log</example>
@@ -342,7 +342,7 @@
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})(?:-alpha)?(?:-beta)?(?:-gamma)?(?:-rc)?-standard(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-alpha)?(?:-beta)?(?:-gamma)?(?:-rc)?-standard(?:-log)?$">
     <example service.version="5.0.13">5.0.13-rc-standard-log</example>
     <example service.version="5.0.37">5.0.37-standard</example>
     <example service.version="5.0.51a">5.0.51a-standard-log</example>
@@ -354,7 +354,7 @@
     <param pos="0" name="service.edition" value="Standard Edition"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-pro(?:-gpl)?-nt(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-pro(?:-gpl)?-nt(?:-log)?$">
     <example service.version="5.0.24">5.0.24-pro-nt</example>
     <example service.version="4.1.25">4.1.25-pro-gpl-nt-log</example>
     <description>Oracle MySQL Commercial Edition with Named Pipes (Windows)</description>
@@ -367,7 +367,7 @@
     <param pos="0" name="os.family" value="Windows"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-pro(?:-gpl)?(?:-cert)?(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-pro(?:-gpl)?(?:-cert)?(?:-log)?$">
     <example service.version="4.1.23">4.1.23-pro-gpl-log</example>
     <example service.version="5.0.17c">5.0.17c-pro-gpl-cert</example>
     <description>Oracle MySQL Commercial Edition</description>
@@ -378,7 +378,7 @@
     <param pos="0" name="service.edition" value="Commercial Edition"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3}sp1)">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3}sp1)">
     <example service.version="5.0.82sp1">5.0.82sp1</example>
     <example service.version="5.1.46sp1">5.1.46sp1-enterprise-gpl-advanced-log</example>
     <description>Oracle MySQL Enterprise Edition</description>
@@ -389,7 +389,7 @@
     <param pos="0" name="service.edition" value="Enterprise Edition"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-enterprise-nt">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-enterprise-nt">
     <example service.version="5.0.84">5.0.84-enterprise-nt</example>
     <description>Oracle MySQL Enterprise Edition with Named Pipes (Windows)</description>
     <param pos="1" name="service.version"/>
@@ -401,7 +401,7 @@
     <param pos="0" name="os.family" value="Windows"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})(?:-rc)?-enterprise">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-rc)?-enterprise">
     <example service.version="5.1.26">5.1.26-rc-enterprise-gpl-log</example>
     <example service.version="5.5.27">5.5.27-enterprise-commercial-advanced-log</example>
     <description>Oracle MySQL Enterprise Edition</description>
@@ -412,7 +412,7 @@
     <param pos="0" name="service.edition" value="Enterprise Edition"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3}-ndb-\d\.\d{1,2}\.\h{1,3})">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3}-ndb-\d\.\d{1,2}\.\h{1,3})">
     <example service.version="5.1.30-ndb-6.3.20">5.1.30-ndb-6.3.20-cluster-gpl-log</example>
     <example service.version="5.5.20-ndb-7.2.5">5.5.20-ndb-7.2.5-gpl</example>
     <description>Oracle MySQL Cluster Edition</description>
@@ -423,7 +423,7 @@
     <param pos="0" name="service.edition" value="Cluster Edition"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-CLUSTERS?(?:-log)?$" flags="REG_ICASE">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-CLUSTERS?(?:-log)?$" flags="REG_ICASE">
     <example service.version="4.1.21">4.1.21-CLUSTERS</example>
     <example service.version="5.0.46">5.0.46-cluster</example>
     <description>Oracle MySQL Cluster Edition</description>
@@ -434,7 +434,7 @@
     <param pos="0" name="service.edition" value="Cluster Edition"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-classic(?:-log)?">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-classic(?:-log)?">
     <example service.version="5.0.86">5.0.86-classic-log</example>
     <description>Oracle MySQL Classic Edition</description>
     <param pos="1" name="service.version"/>
@@ -446,7 +446,7 @@
 
   <!-- Linux only - http://www.percona.com/services/mysql-support/supported-platforms -->
   <!-- Build list - http://www.percona.com/doc/percona-server/5.1/release-notes/release-notes_index.html -->
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3}-?rel\d\d\.\d)(?:-log)?">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3}-?rel\d\d\.\d)(?:-log)?">
     <example service.version="5.1.57-rel12.8">5.1.57-rel12.8</example>
     <example service.version="5.1.60rel13.1">5.1.60rel13.1-log</example>
     <example service.version="5.1.67-rel14.3">5.1.67-rel14.3-log</example>
@@ -459,7 +459,7 @@
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-(?:rc)?[Pp]ercona">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-(?:rc)?[Pp]ercona$">
     <example service.version="5.1.50">5.1.50-percona</example>      
     <example service.version="5.5.27">5.5.27-percona-sure1-log</example>
     <example service.version="5.5.7">5.5.7-rcPercona-Server-log</example>
@@ -472,7 +472,71 @@
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-nmm">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-\d\d\.\d{1,2}(?:-\d\d)?(?:-log)?$">
+    <example service.version="5.1.73">5.1.73-14.12</example>      
+    <example service.version="5.6.20">5.6.20-68.0-56</example>
+    <example service.version="5.6.16">5.6.16-64.2-25-log</example>
+    <description>Percona Server (MySQL fork) (just version number match)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="Percona"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="Percona Server"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-rc\d\d\.\d(?:-log)?$">
+    <example service.version="5.6.13">5.6.13-rc60.6</example>      
+    <example service.version="5.6.13">5.6.13-rc61.0-log</example>
+    <description>Percona Server (MySQL fork) match w/ 'rc'</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="Percona"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="Percona Server"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-\d\d\.\d-\d{3}\.precise(?:-log)?$">
+    <example service.version="5.6.16">5.6.16-64.2-569.precise-log</example>      
+    <description>Percona Server (MySQL fork) on Ubuntu 12.04 LTS (Precise Pangolin)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="Percona"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="Percona Server"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="12.04"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-\d\d\.\d-\d{3}\.wheezy(?:-log)?$">
+    <example service.version="5.5.36">5.5.36-34.2-648.wheezy-log</example>      
+    <description>Percona Server (MySQL fork) on Debian 7.0 (wheezy)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="Percona"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="Percona Server"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="7.0"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-\d\d\.\d-\d{3}\.squeeze(?:-log)?$">
+    <example service.version="5.5.36">5.5.36-34.2-648.squeeze</example>      
+    <description>Percona Server (MySQL fork) on Debian 6.0 (squeeze)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="Percona"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="Percona Server"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="6.0"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-nmm">
     <example service.version="4.0.27">4.0.27-nmm1-log</example>
     <example service.version="4.1.22">4.1.22-nmm-1-log</example>
     <description>Oracle MySQL (nmm variant)</description>
@@ -482,7 +546,7 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-nightly-\d{8}(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-nightly-\d{8}(?:-log)?$">
     <example service.version="3.23.59">3.23.59-nightly-20050301-log</example>
     <description>Oracle MySQL nightly build</description>
     <param pos="1" name="service.version"/>
@@ -491,7 +555,7 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-SERVER">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-SERVER">
     <example service.version="5.1.30">5.1.30-SERVER-104</example>
     <description>Oracle MySQL (SERVER variant)</description>
     <param pos="1" name="service.version"/>
@@ -500,7 +564,7 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-ISPrime">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-ISPrime">
     <example service.version="4.0.15a">4.0.15a-ISPrime</example>
     <description>Oracle MySQL (ISPrime variant)</description>
     <param pos="1" name="service.version"/>
@@ -509,7 +573,7 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-rc-\d\.\d{1,2}\.\h{1,3}">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-rc-\d\.\d{1,2}\.\h{1,3}">
     <example service.version="5.1.26">5.1.26-rc-5.1.26rc-log</example>
     <description>Oracle MySQL possibly Debian specific</description>
     <param pos="1" name="service.version"/>
@@ -518,7 +582,7 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-ius(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-ius(?:-log)?$">
     <example service.version="5.1.66">5.1.66-ius-log</example>
     <description>Oracle MySQL packaged for RHEL/CentOS by IUS</description>
     <param pos="1" name="service.version"/>
@@ -529,7 +593,7 @@
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})[\.-]d\d{1,2}-ourdelta\d{0,2}(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})[\.-]d\d{1,2}-ourdelta\d{0,2}(?:-log)?$">
     <example service.version="5.0.67">5.0.67.d7-ourdelta-log</example>
     <example service.version="5.0.87">5.0.87-d10-ourdelta65-log</example>
     <description>Oracle MySQL tweaked and packaged by OurDelta</description>
@@ -542,7 +606,7 @@
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-Alibaba(?:-rds)?-\d{6}(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-Alibaba(?:-rds)?-\d{6}(?:-log)?$">
     <example service.version="5.1.61">5.1.61-Alibaba-121011-log</example>
     <example service.version="5.1.61">5.1.61-Alibaba-rds-201404-log</example>
     <description>Oracle MySQL Alibaba build? distro? Aliyun.com hosted?</description>
@@ -552,9 +616,22 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-MariaDB.+~lenny(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB-cll-lve$">
+    <example service.version="5.5.34">5.5.34-MariaDB-cll-lve</example>
+    <example service.version="5.5.5">5.5.5-10.0.15-MariaDB-cll-lve</example>
+    <description>MariaDB MariaDB on CloudLinux in a Lightweight Virtual Environment (LVE)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="os.vendor" value="CloudLinux"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-MariaDB.+~lenny(?:-log)?$">
     <example service.version="5.3.2">5.3.2-MariaDB-beta-mariadb102~lenny</example>
-    <description>MariaDB MariaDB on Debian Lenny</description>
+    <description>MariaDB MariaDB on Debian 5.0 (lenny)</description>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -565,10 +642,11 @@
     <param pos="0" name="os.version" value="5.0"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d{1,2}\.\d{1,2}\.\h{1,3})-MariaDB.+~wheezy(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB.+~wheezy(?:-log)?$">
     <example service.version="5.5.37">5.5.37-MariaDB-1~wheezy-log</example>
     <example service.version="10.0.11">10.0.11-MariaDB-1~wheezy-log</example>
-    <description>MariaDB MariaDB on Debian Wheezy</description>
+    <example service.version="5.5.5">5.5.5-10.0.14-MariaDB-1~wheezy-log</example>
+    <description>MariaDB MariaDB on Debian 7.0 (wheezy)</description>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -579,11 +657,170 @@
     <param pos="0" name="os.version" value="7.0"/>
   </fingerprint>
 
- <!-- This needs a end of line anchor added to the regex and retested -->
-  <fingerprint pattern="^(\d{1,2}\.\d{1,2}\.\h{1,3})-[Mm]aria">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB.+~squeeze(?:-log)?$">
+    <example service.version="5.5.31">5.5.31-MariaDB-1~squeeze-log</example> 
+    <example service.version="5.5.5">5.5.5-10.0.15-MariaDB-1~squeeze-log</example>
+    <description>MariaDB MariaDB on Debian 6.0 (squeeze)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="6.0"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\d{1,4})-MariaDB-\dubuntu\d\.(\d{1,2}\.\d\d)[\.\d]*(?:-log)?$">
+    <example service.version="5.5.39" os.version="14.04">5.5.39-MariaDB-0ubuntu0.14.04.1</example>
+    <description>MariaDB MariaDB on Ubuntu</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB.+~trusty(?:-log)?$">
+    <example service.version="5.5.5">5.5.5-10.0.15-MariaDB-1~trusty</example>
+    <description>MariaDB MariaDB on Ubuntu 14.04 (Trusty Tahr)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="14.04"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB.+~utopic(?:-log)?$">
+    <example service.version="5.5.5">5.5.5-10.0.16-MariaDB-1~utopic-log</example>
+    <description>MariaDB MariaDB on Ubuntu 14.04 LTS (Utopic Unicorn)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="14.04"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB.+~saucy(?:-log)?$">
+    <example service.version="5.5.39">5.5.39-MariaDB-1~saucy-log</example>
+    <description>MariaDB MariaDB on Ubuntu 13.10 (Saucy Salamander)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="13.10"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB.+~raring(?:-log)?$">
+    <example service.version="5.5.32">5.5.32-MariaDB-1~raring-log</example>
+    <description>MariaDB MariaDB on Ubuntu 13.04 (Raring Ringtail)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="13.04"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB.+~precise(?:-log)?$">
+    <example service.version="5.5.41">5.5.41-MariaDB-1~precise-log</example>
+    <description>MariaDB MariaDB on Ubuntu 12.04 LTS (Precise Pangolin)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="12.04"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB.+~lucid(?:-log)?$">
+    <example service.version="5.5.34">5.5.34-MariaDB-1~lucid-log</example>
+    <description>MariaDB MariaDB on Ubuntu 10.04 (Lucid Lynx)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="10.04"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-[Mm]ariaDB.+~trusty-wsrep(?:-log)?$">
+    <example service.version="5.5.5">5.5.5-10.1.1-MariaDB-1~trusty-wsrep-log</example>
+    <description>MariaDB MariaDB with Galera Cluster on Ubuntu 14.04 (Trusty Tahr)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="service.edition" value="Galera Cluster"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="14.04"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB.+~precise-wsrep(?:-log)?$">
+    <example service.version="5.5.5">5.5.5-10.1.1-MariaDB-1~precise-wsrep</example>
+    <description>MariaDB MariaDB with Galera Cluster on Ubuntu 12.04 (Precise Pangolin)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="service.edition" value="Galera Cluster"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="12.04"/>
+  </fingerprint>
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB.+~wheezy-wsrep(?:-log)?$">
+    <example service.version="5.5.5">5.5.5-10.1.1-MariaDB-1~wheezy-wsrep-log</example>
+    <description>MariaDB MariaDB with Galera Cluster on Debian 7.0 (wheezy)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="service.edition" value="Galera Cluster"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="7.0"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-[Mm]ariaDB-wsrep(?:-log)?$">
+    <example service.version="5.5.5">5.5.5-10.0.15-MariaDB-wsrep</example>
+    <description>MariaDB MariaDB with Galera Cluster</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="service.edition" value="Galera Cluster"/>
+  </fingerprint>
+
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-[Mm]aria(?:DB)?[-\d]*(?:-debug)?(?:-beta)?(?:-mariadb)?[~\.\d]*(?:-log)?$">
     <example service.version="5.1.39">5.1.39-maria-beta</example>
     <example service.version="5.5.24">5.5.24-MariaDB-mariadb1~0.1</example>
     <example service.version="10.0.1">10.0.1-MariaDB-log</example>
+    <example service.version="5.5.5">5.5.5-10.0.16-MariaDB-log</example>
+    <example service.version="5.5.30">5.5.30-MariaDB-debug</example>
+    <example service.version="5.2.10">5.2.10-MariaDB-mariadb107</example>
     <description>MariaDB MariaDB</description>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
@@ -591,7 +828,7 @@
     <param pos="0" name="service.product" value="MariaDB"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d{1,2}\.\d{1,2}\.\h{1,3})-[Cc]ommunity-[Mm]aria(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-[Cc]ommunity-[Mm]aria(?:DB)?(?:-log)?$">
     <example service.version="5.1.44">5.1.44-community-maria-log</example>
     <description>MariaDB MariaDB Community Edition</description>
     <param pos="1" name="service.version"/>
@@ -601,7 +838,7 @@
     <param pos="0" name="service.edition" value="Community Edition"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-falcon-alpha-community-nt">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-falcon-alpha-community-nt">
     <example service.version="5.2.0">5.2.0-falcon-alpha-community-nt</example>
     <description>Oracle MySQL with defunct Falcon Storage Engine with Named Pipes (Windows)</description>
     <param pos="1" name="service.version"/>
@@ -612,7 +849,7 @@
     <param pos="0" name="os.family" value="Windows"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-falcon-alpha(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-falcon-alpha(?:-log)?$">
     <example service.version="5.2.0">5.2.0-falcon-alpha-log</example>
     <description>Oracle MySQL with defunct Falcon Storage Engine</description>
     <param pos="1" name="service.version"/>
@@ -621,7 +858,7 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-tokudb-\d\.\d\.\d{1,2}(?:-\d*)?(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-tokudb-\d\.\d\.\d{1,2}(?:-\d*)?(?:-log)?$">
     <example service.version="5.5.40">5.5.40-tokudb-7.5.3-log</example>
     <example service.version="5.5.21">5.5.21-tokudb-6.0.0-42634</example>
     <description>Tokutek customized MySQL</description>
@@ -631,7 +868,7 @@
     <param pos="0" name="service.product" value="MariaDB"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-tokudb-.*MariaDB(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-tokudb-.*MariaDB(?:-log)?$">
     <example service.version="5.5.25">5.5.25-tokudb-6.1.1-47477-MariaDB-log</example>
     <description>Tokutek customized MariaDB</description>
     <param pos="1" name="service.version"/>
@@ -640,7 +877,7 @@
     <param pos="0" name="service.product" value="MariaDB"/>
   </fingerprint>
 
-  <fingerprint pattern="^^(\d\.\d{1,2}\.\h{1,3})-Sphinx">
+  <fingerprint pattern="^^(\d{1,2}\.\d{1,2}\.\h{1,3})-Sphinx">
     <example service.version="5.1.40">5.1.40-Sphinx</example>
     <description>Oracle MySQL with the Sphinx full text search engine</description>
     <param pos="1" name="service.version"/>
@@ -649,7 +886,7 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})(?:[^+]+)?\+tld\d">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:[^+]+)?\+tld\d">
     <example service.version="5.0.91">5.0.91+tld0-log</example>
     <example service.version="5.1.57">5.1.57-5.1.57+tld2-log</example>
     <description>Oracle MySQL packaged by TLD Linux</description>
@@ -662,7 +899,7 @@
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-Debian_\d\.infrant\d$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-Debian_\d\.infrant\d$">
     <example service.version="5.0.24a">5.0.24a-Debian_3.infrant1</example>
     <description>Oracle MySQL on a Netgear ReadyNAS</description>
     <param pos="1" name="service.version"/>
@@ -678,7 +915,7 @@
     <param pos="0" name="hw.product" value="ReadyNAS"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-beget(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-beget(?:-log)?$">
     <example service.version="5.1.61">5.1.61-beget-log</example>
     <description>Oracle MySQL at Ukrainian hoster BeGet(?)</description>
     <param pos="1" name="service.version"/>
@@ -687,7 +924,7 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-(?:Linuxtone.Org|LTOPS)(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-(?:Linuxtone.Org|LTOPS)(?:-log)?$">
     <example service.version="5.0.56">5.0.56-Linuxtone.Org</example>
     <example service.version="5.1.53">5.1.53-LTOPS-log</example>
     <description>Oracle MySQL at Chinese hoster Linuxtone.org</description>
@@ -697,7 +934,7 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-xencdn.net(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-xencdn.net(?:-log)?$">
     <example service.version="5.1.66">5.1.66-xencdn.net-log</example>
     <description>Oracle MySQL at Chinese hoster Xencdn.net</description>
     <param pos="1" name="service.version"/>
@@ -706,7 +943,7 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})-Comsenz(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-Comsenz(?:-log)?$">
     <example service.version="5.0.27">5.0.27-Comsenz-log</example>
     <description>Oracle MySQL at Chinese hoster Comsenz</description>
     <param pos="1" name="service.version"/>
@@ -715,7 +952,17 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})yes(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3}(?:[.-]\d{1,2})?(?:[.-]\d{1})?)[-\d]*-beget(?:-log)?$">
+    <example service.version="5.6.16-64.0">5.6.16-64.0-beget-log</example>
+    <example service.version="5.6.21-70.0">5.6.21-70.0-1-beget-log</example>
+    <description>Oracle MySQL at Russian hoster Beget</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})yes(?:-log)?$">
     <example service.version="4.0.27">4.0.27yes</example>
     <description>Oracle MySQL part of KB2 / Kimsboard (Korean site mgmt)?</description>
     <param pos="1" name="service.version"/>
@@ -724,7 +971,7 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d\.\d{1,2}\.\h{1,3})\.t\d{1,2}(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})\.t\d{1,2}(?:-log)?$">
     <example service.version="5.5.24">5.5.24.t7-log</example>
     <description>Oracle MySQL audited/published by Twitter</description>
     <param pos="1" name="service.version"/>
