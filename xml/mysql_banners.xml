@@ -865,6 +865,19 @@
     <param pos="0" name="os.version" value="10.04"/>
   </fingerprint>
 
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB.+~hardy(?:-log)?$">
+    <example service.version="5.5.34">5.5.34-MariaDB-mariadb122~hardy-log</example>
+    <description>MariaDB MariaDB on Ubuntu 8.04 LTS (Hardy Heron)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="8.04"/>
+  </fingerprint>
+
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-[Mm]ariaDB.+~trusty-wsrep(?:-log)?$">
     <example service.version="5.5.5">5.5.5-10.1.1-MariaDB-1~trusty-wsrep-log</example>
     <description>MariaDB MariaDB with Galera Cluster on Ubuntu 14.04 (Trusty Tahr)</description>
@@ -877,6 +890,20 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="14.04"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB.+~saucy-wsrep(?:-log)?$">
+    <example service.version="5.5.5">5.5.5-10.0.10-MariaDB-1~saucy-wsrep-log</example>
+    <description>MariaDB MariaDB with Galera Cluster on Ubuntu 13.10 (Saucy Salamander)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="service.edition" value="Galera Cluster"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="13.10"/>
   </fingerprint>
 
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB.+~precise-wsrep(?:-log)?$">
@@ -893,6 +920,20 @@
     <param pos="0" name="os.version" value="12.04"/>
   </fingerprint>
 
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB.+~lucid-wsrep(?:-log)?$">
+    <example service.version="5.5.34">5.5.34-MariaDB-1~lucid-wsrep-log</example>
+    <description>MariaDB MariaDB with Galera Cluster on Ubuntu 10.04 TLS (Lucid Lynx)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="service.edition" value="Galera Cluster"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="10.04"/>
+  </fingerprint>
+
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB.+~wheezy-wsrep(?:-log)?$">
     <example service.version="5.5.5">5.5.5-10.1.1-MariaDB-1~wheezy-wsrep-log</example>
     <description>MariaDB MariaDB with Galera Cluster on Debian 7.0 (wheezy)</description>
@@ -905,6 +946,20 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="7.0"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB.+~squeeze-wsrep(?:-log)?$">
+    <example service.version="5.5.5">5.5.5-10.1.1-MariaDB-1~squeeze-wsrep</example>
+    <description>MariaDB MariaDB with Galera Cluster on Debian 6.0 (squeeze)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="service.edition" value="Galera Cluster"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="6.0"/>
   </fingerprint>
 
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB.+~sid-wsrep(?:-log)?$">
@@ -967,8 +1022,9 @@
     <param pos="0" name="os.family" value="Windows"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-falcon-alpha(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-falcon-alpha(?:-community)?(?:-log)?$">
     <example service.version="5.2.0">5.2.0-falcon-alpha-log</example>
+    <example service.version="5.2.0">5.2.0-falcon-alpha-community</example>
     <description>Oracle MySQL with defunct Falcon Storage Engine</description>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="Oracle"/>
@@ -1070,6 +1126,16 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-www\.gamewave\.net(?:-edition)?(?:-log)?$">
+    <example service.version="5.1.56">5.1.56-www.gamewave.net-edition-log</example>
+    <example service.version="5.1.56">5.1.56-www.gamewave.net-log</example>
+    <description>Oracle MySQL at Chinese game hoster Gamewave</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3}(?:[.-]\d{1,2})?(?:[.-]\d{1})?)[-\d]*-beget(?:-log)?$">
     <example service.version="5.6.16-64.0">5.6.16-64.0-beget-log</example>
     <example service.version="5.6.21-70.0">5.6.21-70.0-1-beget-log</example>
@@ -1096,6 +1162,48 @@
     <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3}) Hybrid Cluster MySQL Proxy to$">
+    <example service.version="5.5.15">5.5.15 Hybrid Cluster MySQL Proxy to</example>
+    <description>Oracle MySQL by Hybrid Cluster (hosted?)</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3}) ScaleBase Data Traffic Manager [\.\d]+$">
+    <example service.version="5.1.53">5.1.53 ScaleBase Data Traffic Manager 3.2.3</example>
+    <description>Oracle MySQL behind ScaleBase Data Traffic Manager</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-\d\d\.\d{1,2}-\d\.ctbanco\d+(?:-log)?$">
+    <example service.version="5.6.16">5.6.16-64.1-1.ctbanco60-log</example>
+    <example service.version="5.6.16">5.6.16-64.1-1.ctbanco7-log</example>
+    <description>Percona Server (MySQL fork) with 'ctbanco' </description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="Percona"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="Percona Server"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3}) Complete MySQL by Server Logistics(?:-log)?$">
+    <example service.version="4.0.21">4.0.21 Complete MySQL by Server Logistics-log</example>
+    <description>Oracle MySQL packaged by Server Logistics, Mac specific</description>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS X"/>
+    <param pos="0" name="os.product" value="Mac OS X"/>
   </fingerprint>
 
 </fingerprints>
