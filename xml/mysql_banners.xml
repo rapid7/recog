@@ -1,4 +1,15 @@
 <?xml version="1.0"?>
+<!--
+     Upon successful connection to an MySQL/derivative TCP endpoint, provided
+     the connecting client is allowed to speak to the MySQL service (for
+     example, it hasn't been blocked for too many failed password attempts and
+     is explicitly allowed to connect from this client), the first packet
+     recieved will contain the MySQL server greeting which contains things like
+     the protocol spoken, capabilities and, most importantly, a version.  This
+     version is a null-terminated, free-form field starting at the 6th byte of
+     the TCP payload and the fingerprints below are used to match and extract
+     from this version.
+-->
 <fingerprints matches="mysql.banners">
 
    <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3}(?:[.-]\d{1,2})?(?:[.-]\d{1})?)(?:-m\d{1,2})?(?:-rc)?(?:-alpha)?(?:-beta)?(?:-gamma)?(?:-?[Mm]ax)?(?:-rs)?(?:-modified)?(?:-debug)?(?:-log)?$">
@@ -498,7 +509,7 @@
   </fingerprint>
 
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-(?:rc)?[Pp]ercona">
-    <example service.version="5.1.50">5.1.50-percona</example>      
+    <example service.version="5.1.50">5.1.50-percona</example>
     <example service.version="5.5.27">5.5.27-percona-sure1-log</example>
     <example service.version="5.5.7">5.5.7-rcPercona-Server-log</example>
     <description>Percona Server (MySQL fork) w/ percona in banner</description>
@@ -511,7 +522,7 @@
   </fingerprint>
 
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-\d\d\.\d{1,2}(?:-\d\d)?(?:-log)?$">
-    <example service.version="5.1.73">5.1.73-14.12</example>      
+    <example service.version="5.1.73">5.1.73-14.12</example>
     <example service.version="5.6.20">5.6.20-68.0-56</example>
     <example service.version="5.6.16">5.6.16-64.2-25-log</example>
     <description>Percona Server (MySQL fork) (just version number match)</description>
@@ -524,7 +535,7 @@
   </fingerprint>
 
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-rc\d\d\.\d(?:-log)?$">
-    <example service.version="5.6.13">5.6.13-rc60.6</example>      
+    <example service.version="5.6.13">5.6.13-rc60.6</example>
     <example service.version="5.6.13">5.6.13-rc61.0-log</example>
     <description>Percona Server (MySQL fork) match w/ 'rc'</description>
     <param pos="1" name="service.version"/>
@@ -536,7 +547,7 @@
   </fingerprint>
 
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-\d\d\.\d-\d{3}\.trusty(?:-log)?$">
-    <example service.version="5.6.17">5.6.17-65.0-583.trusty</example>      
+    <example service.version="5.6.17">5.6.17-65.0-583.trusty</example>
     <description>Percona Server (MySQL fork) on Ubuntu 14.04 (Trusty Tahr)</description>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="Percona"/>
@@ -549,7 +560,7 @@
   </fingerprint>
 
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-\d\d\.\d-\d{3}\.saucy(?:-log)?$">
-    <example service.version="5.6.17">5.6.17-65.0-587.saucy</example>      
+    <example service.version="5.6.17">5.6.17-65.0-587.saucy</example>
     <description>Percona Server (MySQL fork) on Ubuntu 13.10 (Saucy Salamander)</description>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="Percona"/>
@@ -562,7 +573,7 @@
   </fingerprint>
 
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-\d\d\.\d-\d{3}\.quantal(?:-log)?$">
-    <example service.version="5.6.16">5.6.16-64.2-569.quantal-log</example>      
+    <example service.version="5.6.16">5.6.16-64.2-569.quantal-log</example>
     <description>Percona Server (MySQL fork) on Ubuntu 12.10 (Quantal Quetzal)</description>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="Percona"/>
@@ -575,7 +586,7 @@
   </fingerprint>
 
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-\d\d\.\d-\d{3}\.precise(?:-log)?$">
-    <example service.version="5.6.16">5.6.16-64.2-569.precise-log</example>      
+    <example service.version="5.6.16">5.6.16-64.2-569.precise-log</example>
     <description>Percona Server (MySQL fork) on Ubuntu 12.04 LTS (Precise Pangolin)</description>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="Percona"/>
@@ -588,7 +599,7 @@
   </fingerprint>
 
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-\d\d\.\d-\d{3}\.wheezy(?:-log)?$">
-    <example service.version="5.5.36">5.5.36-34.2-648.wheezy-log</example>      
+    <example service.version="5.5.36">5.5.36-34.2-648.wheezy-log</example>
     <description>Percona Server (MySQL fork) on Debian 7.0 (wheezy)</description>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="Percona"/>
@@ -601,7 +612,7 @@
   </fingerprint>
 
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})-\d\d\.\d-\d{3}\.squeeze(?:-log)?$">
-    <example service.version="5.5.36">5.5.36-34.2-648.squeeze</example>      
+    <example service.version="5.5.36">5.5.36-34.2-648.squeeze</example>
     <description>Percona Server (MySQL fork) on Debian 6.0 (squeeze)</description>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="Percona"/>
@@ -722,7 +733,7 @@
   </fingerprint>
 
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB.+~squeeze(?:-log)?$">
-    <example service.version="5.5.31">5.5.31-MariaDB-1~squeeze-log</example> 
+    <example service.version="5.5.31">5.5.31-MariaDB-1~squeeze-log</example>
     <example service.version="5.5.5">5.5.5-10.0.15-MariaDB-1~squeeze-log</example>
     <description>MariaDB MariaDB on Debian 6.0 (squeeze)</description>
     <param pos="1" name="service.version"/>

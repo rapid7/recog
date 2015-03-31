@@ -1,4 +1,18 @@
 <?xml version="1.0"?>
+<!--
+     Upon successful connection to an MySQL/derivative TCP endpoint, if
+     the connecting client is not allowed to speak to the MySQL service (for
+     example, it has been blocked for too many failed password attempts or it
+     isn't explicitly allowed to connect from this client), the first packet
+     received will contain an error message that is used to inform the client
+     of this failure prior to forcibly disconnecting the client:
+
+     $  mysql -u root -h mysql.example.com
+     ERROR 1130 (HY000): Host '192.168.0.100' is not allowed to connect to this MySQL server
+
+     This free-form field starts at the 7th byte and ends at the end of the TCP
+     payload.  The fingerprints below are used to match and extract from this field.
+-->
 <fingerprints matches="mysql.error">
 
   <fingerprint pattern="^(?:#HY000)?Host '[^']+' is not allowed to connect to this MySQL server$">
