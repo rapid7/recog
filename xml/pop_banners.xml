@@ -225,6 +225,21 @@ matched against these patterns to fingerprint POP3 servers.
       <param pos="0" name="os.certainty" value="0.5"/>
    </fingerprint>
 
+   <fingerprint pattern="^TCPIP POP server V\d\.\d\S-\S{3}, OpenVMS V(\d\.\d-\d)(?:\s+\S+)?\s+at\s+(\S+), .*$">
+      <description>TCP/IP Services for OpenVMS POP server</description>
+      <example os.version="7.3-2" host.name="example.com">TCPIP POP server V5.4J-15A, OpenVMS V7.3-2 Alpha at example.com, up since 2015-02-12 08:44:53 20400434.2</example>
+      <!--V5.4J-15A refers to TCP/IP Services for OpenVMS version-->
+      <param pos="0" name="service.family" value="OpenVMS"/>
+      <param pos="0" name="service.product" value="TCPIP POP server"/>
+      <param pos="0" name="service.vendor" value="HP"/>
+      <param pos="0" name="os.vendor" value="HP"/>
+      <param pos="0" name="os.family" value="OpenVMS"/>
+      <param pos="0" name="os.product" value="OpenVMS"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="1" name="os.version"/>
+      <param pos="2" name="host.name"/>
+   </fingerprint>
+
 <!--
 
 ; Mandrake 8.1 - uses UW IMAP
