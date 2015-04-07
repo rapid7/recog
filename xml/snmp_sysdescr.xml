@@ -2486,29 +2486,20 @@ Copyright (c) 1995-2005 by Cisco Systems
                               FreeBSD
    =======================================================================-->
 
-   <fingerprint pattern="(^FreeBSD) \S+ ([\d\.]+-(?:STABLE|RELEASE)(?:-p\d+)?).*\s(\w+)$">
+   <fingerprint pattern="^FreeBSD \S+ ([\d\.]+-(?:STABLE|RELEASE)(?:-p\d+)?).*\s(\w+)$">
       <description>FreeBSD 10.0</description>
-      <example>FreeBSD freebsd-10-x64-ports-p 10.0-RELEASE-p4 FreeBSD 10.0-RELEASE-p4 #0: Tue Jun 3 13:14:57 UTC 2014 root@amd64-builder.daemonology.net:/usr/obj/usr/src/sys/GENERIC amd64</example>
-      <example>FreeBSD freebsd-92-x64-snmp 9.2-RELEASE FreeBSD 9.2-RELEASE #0 r255898: Thu Sep 26 22:50:31 UTC 2013 root@bake.isc.freebsd.org:/usr/obj/usr/src/sys/GENERIC amd64</example>
-      <example>FreeBSD freebsd-84-x64-pkgng-p.vuln.lax.rapid7.com 8.4-RELEASE-p11 FreeBSD 8.4-RELEASE-p11 #0: Tue Jun 3 07:47:34 UTC 2014 root@amd64-builder.daemonology.net:/usr/obj/usr/src/sys/GENERIC amd64</example>
-      <example>FreeBSD freebsd-8-stable-x64-p.vuln.lax.rapid7.com 8.4-STABLE FreeBSD 8.4-STABLE #0 r266809: Wed May 28 16:54:28 EDT 2014 root@freebsd-8-stable-x64-p.vuln.lax.rapid7.com:/usr/obj/usr/src/sys/GENERIC amd64</example>
-      <example>FreeBSD freebsd-64-x64-u.vuln.lax.rapid7.com 6.4-RELEASE FreeBSD 6.4-RELEASE #0: Wed Nov 26 08:21:48 UTC 2008 root@palmer.cse.buffalo.edu:/usr/obj/usr/src/sys/GENERIC amd64</example>
+      <example os.version="10.0-RELEASE-p4" os.arch="amd64">FreeBSD freebsd-10-x64-ports-p 10.0-RELEASE-p4 FreeBSD 10.0-RELEASE-p4 #0: Tue Jun 3 13:14:57 UTC 2014 root@amd64-builder.daemonology.net:/usr/obj/usr/src/sys/GENERIC amd64</example>
+      <example os.version="9.2-RELEASE" os.arch="amd64">FreeBSD freebsd-92-x64-snmp 9.2-RELEASE FreeBSD 9.2-RELEASE #0 r255898: Thu Sep 26 22:50:31 UTC 2013 root@bake.isc.freebsd.org:/usr/obj/usr/src/sys/GENERIC amd64</example>
+      <example os.version="8.4-RELEASE-p11" os.arch="amd64">FreeBSD freebsd-84-x64-pkgng-p.vuln.lax.rapid7.com 8.4-RELEASE-p11 FreeBSD 8.4-RELEASE-p11 #0: Tue Jun 3 07:47:34 UTC 2014 root@amd64-builder.daemonology.net:/usr/obj/usr/src/sys/GENERIC amd64</example>
+      <example os.version="8.4-STABLE" os.arch="amd64">FreeBSD freebsd-8-stable-x64-p.vuln.lax.rapid7.com 8.4-STABLE FreeBSD 8.4-STABLE #0 r266809: Wed May 28 16:54:28 EDT 2014 root@freebsd-8-stable-x64-p.vuln.lax.rapid7.com:/usr/obj/usr/src/sys/GENERIC amd64</example>
+      <example os.version="6.4-RELEASE" os.arch="amd64">FreeBSD freebsd-64-x64-u.vuln.lax.rapid7.com 6.4-RELEASE FreeBSD 6.4-RELEASE #0: Wed Nov 26 08:21:48 UTC 2008 root@palmer.cse.buffalo.edu:/usr/obj/usr/src/sys/GENERIC amd64</example>
       <param pos="0" name="os.certainty" value="0.9"/>
-      <param pos="0" name="os.family" value="Linux"/>
-      <param pos="0" name="os.vendor" value="Linux"/>
+      <param pos="0" name="os.vendor" value="FreeBSD"/>
+      <param pos="0" name="os.product" value="FreeBSD"/>
+      <param pos="0" name="os.family" value="FreeBSD"/>
       <param pos="0" name="os.device" value="General"/>
-      <param pos="1" name="os.product"/>
-      <param pos="2" name="os.version"/>
-      <param pos="3" name="os.arch"/>
-   </fingerprint>
-
-   <fingerprint pattern="^FreeBSD">
-      <description>FreeBSD generic</description>
-      <example>FreeBSD freebsd</example>
-      <param pos="0" name="os.certainty" value="0.5"/>
-      <param pos="0" name="os.family" value="Linux"/>
-      <param pos="0" name="os.product" value="Linux"/>
-      <param pos="0" name="os.device" value="General"/>
+      <param pos="1" name="os.version"/>
+      <param pos="2" name="os.arch"/>
    </fingerprint>
 
    <!--======================================================================
