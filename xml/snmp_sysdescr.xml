@@ -2592,7 +2592,17 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="0" name="os.device" value="KVM"/>
       <param pos="1" name="os.product"/>
       <param pos="2" name="os.version"/>
-    </fingerprint>
+   </fingerprint>
+
+   <fingerprint pattern="^HP IP Console Switch G2 \S+ - (AF\d+) \d+\.\d+\.\d+\.\d+$">
+      <description>HP Console Switch</description>
+      <example hw.product="AF622">HP IP Console Switch G2 4x1Ex32 - AF622 1.20.19.23386</example>
+      <example hw.product="AF621">HP IP Console Switch G2 2x1Ex16 - AF621 1.20.0.22575</example>
+      <param pos="0" name="os.vendor" value="HP"/>
+      <param pos="0" name="os.device" value="KVM"/>
+      <param pos="0" name="os.product" value="G2 Console Switch"/>
+      <param pos="1" name="hw.product"/>
+   </fingerprint>
 
    <fingerprint pattern="^HP-UX (\S+) (\S+) .*$">
       <description>HP-UX</description>
@@ -3344,7 +3354,6 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="0" name="os.device" value="iLO"/>
       <param pos="1" name="os.version"/>
    </fingerprint>
-
 
    <!--======================================================================
                               HUAWEI
@@ -8172,4 +8181,16 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="0" name="os.product" value="Prestige 650R-T3"/>
       <param pos="0" name="os.device" value="Broadband Router"/>
    </fingerprint>
+ 
+   <fingerprint pattern="^(VMware ESX(?:i)?) (\d\.\d+\.\d+) build-\d+ VMware, Inc\. (\S+)$">
+      <description>VMware ESXi</description>
+      <example os.product="VMware ESXi" os.version="5.1.0" os.arch="x86_64">VMware ESXi 5.1.0 build-1157734 VMware, Inc. x86_64</example>
+      <example os.product="VMware ESX" os.version="5.0.0" os.arch="x86_64">VMware ESX 5.0.0 build-623860 VMware, Inc. x86_64</example>
+      <param pos="0" name="os.vendor" value="VMware"/>
+      <param pos="0" name="os.family" value="VMware ESX/ESXi"/>
+      <param pos="1" name="os.product"/>
+      <param pos="2" name="os.version"/>
+      <param pos="3" name="os.arch"/>
+   </fingerprint>
+
 </fingerprints>
