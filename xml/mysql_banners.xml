@@ -973,7 +973,7 @@
     <param pos="0" name="os.version" value="6.0"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:-\d{1,2}\.\d{1,3}\.\h{1,4})?-MariaDB.+~sid-wsrep(?:-log)?$">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(-\d{1,2}\.\d{1,3}\.\h{1,4})*-MariaDB.+~sid-wsrep(-log)*$">
     <example service.version="5.5.5">5.5.5-10.0.16-MariaDB-1~sid-wsrep</example>
     <description>MariaDB MariaDB with Galera Cluster on Debian Unstable/No version (sid)</description>
     <param pos="1" name="service.version"/>
@@ -1071,7 +1071,7 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})(?:[^+]+)?\+tld\d">
+  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\h{1,3})([^+]+)?\+tld\d">
     <example service.version="5.0.91">5.0.91+tld0-log</example>
     <example service.version="5.1.57">5.1.57-5.1.57+tld2-log</example>
     <description>Oracle MySQL packaged by TLD Linux</description>
