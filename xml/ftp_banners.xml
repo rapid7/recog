@@ -797,16 +797,11 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^(\S+) FTP server \(Version (\S+) \w+ \w+ \d{1,2} \d{1,2}:\d{1,2}:\d{1,2} [A-Z]+ (?:1|2)\d{3}\) ready\.?$">
-    <description>IBM AIX FTP Server</description>
-    <example host.name="ibmoz.tor.rapid7.com" service.version="4.1">ibmoz.tor.rapid7.com FTP server (Version 4.1 Sat Sep 7 14:31:53 CDT 2002) ready.</example>
-    <example>ibmoz.tor.rapid7.com FTP server (Version 5.3 Sat Jan 10 14:01:03 CDT 2012) ready</example>
-    <param pos="0" name="os.vendor" value="IBM"/>
-    <param pos="0" name="os.product" value="AIX"/>
-    <param pos="0" name="service.vendor" value="AIX"/>
-    <param pos="0" name="service.product" value="AIX FTP Server"/>
+  <fingerprint pattern="^(\S+) FTP server \(Version \S+ \w+ \w+ \d{1,2} \d{1,2}:\d{1,2}:\d{1,2} [A-Z]+ (?:1|2)\d{3}\) ready\.?$">
+    <description>Generic/unknown FTP Server found on HP-UX and AIX systems</description>
+    <example host.name="host.example.com">host.example.com FTP server (Version 4.1 Sat Sep 7 14:31:53 CDT 2002) ready.</example>
+    <example host.name="host.example.com">host.example.com FTP server (Version 5.3 Sat Jan 10 14:01:03 CDT 2012) ready</example>
     <param pos="1" name="host.name"/>
-    <param pos="2" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^Welcome to the (?:Cisco )?(?:TelePresence) ([a-zA-Z\s]*?) ((?:MSE )?\d+), version (\d+.\d+\(\d+.\d+\)).*?" flags="REG_ICASE">
     <description>Cisco TelePresence</description>
