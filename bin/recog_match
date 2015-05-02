@@ -9,12 +9,12 @@ require 'recog/matcher_factory'
 options = OpenStruct.new(color: false, detail: false, fail_fast: false)
 
 option_parser = OptionParser.new do |opts|
-  opts.banner = "Usage: #{$0} [options] XML_FINGERPRINT_FILE <BANNERS_FILE>"
-  opts.separator "Identifies the matches and misses between the fingerprints and the banners file."
+  opts.banner = "Usage: #{$0} [options] XML_FINGERPRINT_FILE [BANNERS_FILE]"
+  opts.separator "Identifies the matches and misses between the fingerprints and the banners file or STDIN"
   opts.separator ""
   opts.separator "Options"
 
-  opts.on("-f", "--format FORMATTER", 
+  opts.on("-f", "--format FORMATTER",
           "Choose a formatter.",
           "  [s]ummary (default - failure/match msgs)",
           "  [d]etail  (msgs with total counts)") do |format|
@@ -40,9 +40,9 @@ option_parser = OptionParser.new do |opts|
 end
 option_parser.parse!(ARGV)
 
-if ARGV.count != 2
+if ARGV.count != 1 && ARGV.count != 2
   puts option_parser
-  exit
+  exit(1)
 end
 
 ndb = Recog::DB.new(ARGV.shift)
