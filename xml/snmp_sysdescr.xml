@@ -2486,29 +2486,20 @@ Copyright (c) 1995-2005 by Cisco Systems
                               FreeBSD
    =======================================================================-->
 
-   <fingerprint pattern="(^FreeBSD) \S+ ([\d\.]+-(?:STABLE|RELEASE)(?:-p\d+)?).*\s(\w+)$">
+   <fingerprint pattern="^FreeBSD \S+ ([\d\.]+-(?:STABLE|RELEASE)(?:-p\d+)?).*\s(\w+)$">
       <description>FreeBSD 10.0</description>
-      <example>FreeBSD freebsd-10-x64-ports-p 10.0-RELEASE-p4 FreeBSD 10.0-RELEASE-p4 #0: Tue Jun 3 13:14:57 UTC 2014 root@amd64-builder.daemonology.net:/usr/obj/usr/src/sys/GENERIC amd64</example>
-      <example>FreeBSD freebsd-92-x64-snmp 9.2-RELEASE FreeBSD 9.2-RELEASE #0 r255898: Thu Sep 26 22:50:31 UTC 2013 root@bake.isc.freebsd.org:/usr/obj/usr/src/sys/GENERIC amd64</example>
-      <example>FreeBSD freebsd-84-x64-pkgng-p.vuln.lax.rapid7.com 8.4-RELEASE-p11 FreeBSD 8.4-RELEASE-p11 #0: Tue Jun 3 07:47:34 UTC 2014 root@amd64-builder.daemonology.net:/usr/obj/usr/src/sys/GENERIC amd64</example>
-      <example>FreeBSD freebsd-8-stable-x64-p.vuln.lax.rapid7.com 8.4-STABLE FreeBSD 8.4-STABLE #0 r266809: Wed May 28 16:54:28 EDT 2014 root@freebsd-8-stable-x64-p.vuln.lax.rapid7.com:/usr/obj/usr/src/sys/GENERIC amd64</example>
-      <example>FreeBSD freebsd-64-x64-u.vuln.lax.rapid7.com 6.4-RELEASE FreeBSD 6.4-RELEASE #0: Wed Nov 26 08:21:48 UTC 2008 root@palmer.cse.buffalo.edu:/usr/obj/usr/src/sys/GENERIC amd64</example>
+      <example os.version="10.0-RELEASE-p4" os.arch="amd64">FreeBSD freebsd-10-x64-ports-p 10.0-RELEASE-p4 FreeBSD 10.0-RELEASE-p4 #0: Tue Jun 3 13:14:57 UTC 2014 root@amd64-builder.daemonology.net:/usr/obj/usr/src/sys/GENERIC amd64</example>
+      <example os.version="9.2-RELEASE" os.arch="amd64">FreeBSD freebsd-92-x64-snmp 9.2-RELEASE FreeBSD 9.2-RELEASE #0 r255898: Thu Sep 26 22:50:31 UTC 2013 root@bake.isc.freebsd.org:/usr/obj/usr/src/sys/GENERIC amd64</example>
+      <example os.version="8.4-RELEASE-p11" os.arch="amd64">FreeBSD freebsd-84-x64-pkgng-p.vuln.lax.rapid7.com 8.4-RELEASE-p11 FreeBSD 8.4-RELEASE-p11 #0: Tue Jun 3 07:47:34 UTC 2014 root@amd64-builder.daemonology.net:/usr/obj/usr/src/sys/GENERIC amd64</example>
+      <example os.version="8.4-STABLE" os.arch="amd64">FreeBSD freebsd-8-stable-x64-p.vuln.lax.rapid7.com 8.4-STABLE FreeBSD 8.4-STABLE #0 r266809: Wed May 28 16:54:28 EDT 2014 root@freebsd-8-stable-x64-p.vuln.lax.rapid7.com:/usr/obj/usr/src/sys/GENERIC amd64</example>
+      <example os.version="6.4-RELEASE" os.arch="amd64">FreeBSD freebsd-64-x64-u.vuln.lax.rapid7.com 6.4-RELEASE FreeBSD 6.4-RELEASE #0: Wed Nov 26 08:21:48 UTC 2008 root@palmer.cse.buffalo.edu:/usr/obj/usr/src/sys/GENERIC amd64</example>
       <param pos="0" name="os.certainty" value="0.9"/>
-      <param pos="0" name="os.family" value="Linux"/>
-      <param pos="0" name="os.vendor" value="Linux"/>
+      <param pos="0" name="os.vendor" value="FreeBSD"/>
+      <param pos="0" name="os.product" value="FreeBSD"/>
+      <param pos="0" name="os.family" value="FreeBSD"/>
       <param pos="0" name="os.device" value="General"/>
-      <param pos="1" name="os.product"/>
-      <param pos="2" name="os.version"/>
-      <param pos="3" name="os.arch"/>
-   </fingerprint>
-
-   <fingerprint pattern="^FreeBSD">
-      <description>FreeBSD generic</description>
-      <example>FreeBSD freebsd</example>
-      <param pos="0" name="os.certainty" value="0.5"/>
-      <param pos="0" name="os.family" value="Linux"/>
-      <param pos="0" name="os.product" value="Linux"/>
-      <param pos="0" name="os.device" value="General"/>
+      <param pos="1" name="os.version"/>
+      <param pos="2" name="os.arch"/>
    </fingerprint>
 
    <!--======================================================================
@@ -2592,7 +2583,17 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="0" name="os.device" value="KVM"/>
       <param pos="1" name="os.product"/>
       <param pos="2" name="os.version"/>
-    </fingerprint>
+   </fingerprint>
+
+   <fingerprint pattern="^HP IP Console Switch G2 \S+ - (AF\d+) \d+\.\d+\.\d+\.\d+$">
+      <description>HP Console Switch</description>
+      <example hw.product="AF622">HP IP Console Switch G2 4x1Ex32 - AF622 1.20.19.23386</example>
+      <example hw.product="AF621">HP IP Console Switch G2 2x1Ex16 - AF621 1.20.0.22575</example>
+      <param pos="0" name="os.vendor" value="HP"/>
+      <param pos="0" name="os.device" value="KVM"/>
+      <param pos="0" name="os.product" value="G2 Console Switch"/>
+      <param pos="1" name="hw.product"/>
+   </fingerprint>
 
    <fingerprint pattern="^HP-UX (\S+) (\S+) .*$">
       <description>HP-UX</description>
@@ -2828,8 +2829,9 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="2" name="os.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^HP ProCurve (\S+) - \d+ GE, P\.([^,]+), .*$">
+   <fingerprint pattern="^HP ProCurve (\S+) - \d+ GE, ([A-Z]{1,2}\.[^,]+), .*$">
       <description>HP ProCurve Switch</description>
+      <example os.product="1810G" os.version="H.1.2">HP ProCurve 1810G - 8 GE, H.1.2, eCos-2.0</example>
       <example>HP ProCurve 1810G - 24 GE, P.1.14, eCos-2.0</example>
       <example>HP ProCurve 1810G - 24 GE, P.1.16, eCos-2.0</example>
       <example>HP ProCurve 1810G - 24 GE, P.1.17, eCos-2.0</example>
@@ -2849,6 +2851,16 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="0" name="os.device" value="Switch"/>
       <param pos="1" name="os.product"/>
       <param pos="2" name="os.version"/>
+   </fingerprint>
+
+   <fingerprint pattern="^HP V1810\S+ ([A-Z]{1,2}\.[^,]+), .*$">
+      <description>HP Procurve 1810 Series Switch</description>
+      <example os.version="PK.1.4">HP V1810-48G, PK.1.4, eCos-2.0, CFE-3.8</example>
+      <param pos="0" name="os.vendor" value="HP"/>
+      <param pos="0" name="os.family" value="Procurve"/>
+      <param pos="0" name="os.device" value="Switch"/>
+      <param pos="0" name="os.product" value="1810"/>
+      <param pos="1" name="os.version"/>
    </fingerprint>
 
    <fingerprint pattern="^ProCurve (\S+) (.*?) Switch, revision ([^,]+),.*$">
@@ -3315,7 +3327,24 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="1" name="os.product"/>
    </fingerprint>
 
+   <fingerprint pattern="^TippingPoint Core Controller$">
+      <description>TippingPoint Core Controller</description>
+      <example>TippingPoint Core Controller</example>
+      <param pos="0" name="os.vendor" value="HP"/>
+      <param pos="0" name="os.family" value="TippingPoint"/>
+      <param pos="0" name="os.device" value="IPS"/>
+      <param pos="0" name="hw.device" value="TippingPoint Core Controller"/>
+   </fingerprint>
 
+   <fingerprint pattern="^Integrated Lights-Out (\d) \d+\.\d+ [A-Za-z]{3} \d{1,2} \d{4}$">
+      <description>HP Integrated Lights-Out (iLO)</description>
+      <example os.version="4">Integrated Lights-Out 4 2.02 Aug 18 2014</example>
+      <!--2.02 is firmware version-->
+      <param pos="0" name="os.vendor" value="HP"/>
+      <param pos="0" name="os.family" value="iLO"/>
+      <param pos="0" name="os.device" value="iLO"/>
+      <param pos="1" name="os.version"/>
+   </fingerprint>
 
    <!--======================================================================
                               HUAWEI
@@ -8143,4 +8172,16 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="0" name="os.product" value="Prestige 650R-T3"/>
       <param pos="0" name="os.device" value="Broadband Router"/>
    </fingerprint>
+
+   <fingerprint pattern="^(VMware ESXi?) (\d\.\d+\.\d+) build-\d+ VMware, Inc\. (\S+)$">
+      <description>VMware ESX/ESXi</description>
+      <example os.product="VMware ESXi" os.version="5.1.0" os.arch="x86_64">VMware ESXi 5.1.0 build-1157734 VMware, Inc. x86_64</example>
+      <example os.product="VMware ESX" os.version="5.0.0" os.arch="x86_64">VMware ESX 5.0.0 build-623860 VMware, Inc. x86_64</example>
+      <param pos="0" name="os.vendor" value="VMware"/>
+      <param pos="0" name="os.family" value="VMware ESX/ESXi"/>
+      <param pos="1" name="os.product"/>
+      <param pos="2" name="os.version"/>
+      <param pos="3" name="os.arch"/>
+   </fingerprint>
+
 </fingerprints>
