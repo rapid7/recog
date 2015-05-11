@@ -2,7 +2,9 @@
 <!--
   Fingerprint definitions that are matched against the string values in the
   TXT record returned by an mDNS endpoint for the '_device-info._tcp.local.'
-  domain name.
+  domain name (class IN). Note that the host name may need to be prepended
+  to the domain name for a server to respond with the record:
+  e.g. 'host-name._device-info._tcp.local'.
 -->
 <fingerprints matches="mdns.device-info.txt">
 
@@ -124,8 +126,7 @@
 
    <fingerprint pattern="^model=AirPort.*$">
       <description>AirPort</description>
-      <!-- TODO: example -->
-      <param pos="0" name="os.certainty" value="0.8"/>
+      <example>model=AirPort5,114</example>
       <param pos="0" name="os.vendor" value="Apple"/>
       <param pos="0" name="os.family" value="AirPort"/>
       <param pos="0" name="os.product" value="AirPort"/>

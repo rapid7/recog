@@ -2,7 +2,9 @@
 <!--
   Fingerprint definitions that are matched against the string values in the
   TXT record returned by an mDNS endpoint for the '_workstation._tcp.local.'
-  domain name.
+  domain name (class IN). Note that the host name may need to be prepended
+  to the domain name for a server to respond with the record:
+  e.g. 'host-name._workstation._tcp.local'.
 -->
 <fingerprints matches="mdns.workstation.txt">
    <fingerprint pattern="^org\.freedesktop\.Avahi\.cookie=\S+$">
