@@ -5,6 +5,7 @@ require 'recog/version'
 Gem::Specification.new do |s|
   s.name        = 'recog'
   s.version     = Recog::VERSION
+  s.required_ruby_version = '>= 2.1'
   s.authors     = [
       'Rapid7 Research'
   ]
