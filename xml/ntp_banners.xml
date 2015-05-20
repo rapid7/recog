@@ -480,6 +480,19 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
+  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=,.*system=&quot;HP-UX/&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>ntpd running on HP-UX with an empty processor</description>
+    <example service.version="4.2.6">
+      version="ntpd 4.2.6 Revision 0.0 Tue Nov 5 14:21:22 UTC 2012",
+      processor=, system="HP-UX/"
+    </example>
+    <param pos="0" name="service.family" value="NTP"/>
+    <param pos="0" name="service.product" value="NTP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="HP"/>
+    <param pos="0" name="os.family" value="HP-UX"/>
+    <param pos="0" name="os.product" value="HP-UX"/>
+  </fingerprint>
   <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;[^ ]+&quot;,.*system=&quot;([^ ]+)-hp-hpux([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on HP-UX, where the processor is in the 'system' variable</description>
     <example>
