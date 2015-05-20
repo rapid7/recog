@@ -374,10 +374,11 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Storage"/>
   </fingerprint>
-  <fingerprint pattern="^AXIS (\S+) (?:Network(?: Fixed Dome)? Camera) ([\d\.]+) .* ready\.?$" flags="REG_ICASE">
+  <fingerprint pattern="^AXIS (\S+) (?:(?:Fixed Dome )?Network(?: Fixed Dome)? Camera) ([\d\.]+) .* ready\.?$" flags="REG_ICASE">
     <example os.product="2100" os.version="2.43">Axis 2100 Network Camera 2.43 Nov 04 2008 ready.</example>
     <example>AXIS 207 Network Camera 4.40.1 (Apr 16 2007) ready.</example>
     <example>AXIS 216FD Network Fixed Dome Camera 4.47 (Mar 13 2008) ready.</example>
+    <example>AXIS M3203 Fixed Dome Network Camera 5.12.1 (Feb 07 2011) ready.</example>
     <description>Axis Network Camera</description>
     <param pos="0" name="os.vendor" value="Axis"/>
     <param pos="0" name="os.device" value="Web cam"/>
