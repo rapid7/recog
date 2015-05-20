@@ -2765,6 +2765,18 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="2" name="os.version.version"/>
    </fingerprint>
 
+   <fingerprint pattern="^H3C Comware Platform Software, Software Version ([\d\.]+) Release \d+.*H3C (\S+).*Copyright.*$" flags="REG_DOT_NEWLINE">
+     <description>H3C Comware, generic, pre-HP acquisition</description>
+     <example os.version="5.20" hw.product="S5500-28C-EI">H3C Comware Platform Software, Software Version 5.20 Release 2208
+       H3C S5500-28C-EI
+     Copyright (c) 2004-2010 Hangzhou H3C Tech. Co., Ltd. All rights reserved.</example>
+      <param pos="0" name="os.vendor" value="H3C"/>
+      <param pos="0" name="os.family" value="Comware"/>
+      <param pos="1" name="os.version"/>
+      <param pos="0" name="os.product" value="Comware"/>
+      <param pos="2" name="hw.product"/>
+   </fingerprint>
+
    <fingerprint pattern="^HP (V1910\S+) (?:\(.*?\) )?Switch Software Version (\S+).? Release (\S+) Copyright.*$">
       <description>HP Switch</description>
       <example>HP V1910-16G Switch Software Version 5.20 Release 1108 Copyright (c) 2004-2011 Hewlett-Packard Development Company, L.P.</example>
