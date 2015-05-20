@@ -8208,6 +8208,13 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="1" name="os.product"/>
       <param pos="2" name="os.version"/>
       <param pos="3" name="os.arch"/>
-   </fingerprint>
+    </fingerprint>
 
+   <fingerprint pattern="^&quot;vSphere Management Assistant ([\d\.]+)&quot;$">
+      <description>VMware vSphere Management assistant, which is a virtual machine (https://www.vmware.com/support/developer/vima/)</description>
+      <example os.version="4.1.0">"vSphere Management Assistant 4.1.0"</example>
+      <param pos="0" name="os.vendor" value="VMware"/>
+      <param pos="0" name="os.product" value="vSphere Management Assistant"/>
+      <param pos="1" name="os.version"/>
+   </fingerprint>
 </fingerprints>
