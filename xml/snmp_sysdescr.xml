@@ -5335,6 +5335,26 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="0" name="os.product" value="Windows 8"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.arch" value="x86"/>
+    </fingerprint>
+
+    <fingerprint pattern="^Hardware: \S+64.*Software: Windows Version 6.3 \(Build 9600">
+      <description>Windows 8 on x86_64</description>
+      <example>Hardware: AMD64 Family 21 Model 0 Stepping 2 AT/AT COMPATIBLE - Software: Windows Version 6.3 (Build 9600 Multiprocessor Free)</example>
+      <param pos="0" name="os.vendor" value="Microsoft"/>
+      <param pos="0" name="os.family" value="Windows"/>
+      <param pos="0" name="os.product" value="Windows 8.1"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.arch" value="x86_64"/>
+    </fingerprint>
+
+    <fingerprint pattern="^Hardware: x86.*Software: Windows Version 6.3 \(Build 9600">
+      <description>Windows 8 on x86</description>
+      <example>Hardware: x86 Family 21 Model 0 Stepping 2 AT/AT COMPATIBLE - Software: Windows Version 6.3 (Build 9600 Multiprocessor Free)</example>
+      <param pos="0" name="os.vendor" value="Microsoft"/>
+      <param pos="0" name="os.family" value="Windows"/>
+      <param pos="0" name="os.product" value="Windows 8.1"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.arch" value="x86"/>
    </fingerprint>
 
    <fingerprint pattern="Windows\s\S+\s(6\.2\.\d+)\s+Server\s[\d\.]+\s(\w+).*">
