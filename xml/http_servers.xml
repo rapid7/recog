@@ -2680,10 +2680,11 @@
       <param pos="0" name="os.product" value="JetDirect"/>
     </fingerprint>
 
-    <fingerprint pattern="^HP HTTP Server; HP ((\S+) \S+)">
+    <fingerprint pattern="^HP HTTP Server; (?:Hewlett-Packard )?HP ((\S+) \S+)">
       <description>HP Printer</description>
-      <example>HP HTTP Server; HP Photosmart C309a series - CC335A; Serial Number: abc123; Vader Built:Wed Apr 15, 2009 11:40:58AM {abc123, ASIC id 0x00280004}</example>
-      <example>HP HTTP Server; HP Officejet 6500 E709n - CB057A; Serial Number: abc123; Rainbow Built:Sat Dec 13, 2008 10:58:21AM {abc123, ASIC id 0x00ffc2105}</example>
+      <example os.product="Photosmart C309a" os.family="Photosmart">HP HTTP Server; HP Photosmart C309a series - CC335A; Serial Number: abc123; Vader Built:Wed Apr 15, 2009 11:40:58AM {abc123, ASIC id 0x00280004}</example>
+      <example os.product="Officejet 6500" os.family="Officejet">HP HTTP Server; HP Officejet 6500 E709n - CB057A; Serial Number: abc123; Rainbow Built:Sat Dec 13, 2008 10:58:21AM {abc123, ASIC id 0x00ffc2105}</example>
+      <example os.product="Designjet T520" os.family="Designjet">HP HTTP Server; Hewlett-Packard HP Designjet T520 36in - ABC123; Serial Number: 0123456789; Built:Tue Sep 09, 2014 08:32:54AM {012345678901}</example>
       <param pos="0" name="service.vendor" value="HP"/>
       <param pos="0" name="service.product" value="JetDirect"/>
       <param pos="0" name="service.family" value="JetDirect"/>
