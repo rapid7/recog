@@ -633,9 +633,10 @@ fingerprint SSH servers.
       <param pos="0" name="os.product" value="Windows"/>
    </fingerprint>
 
-   <fingerprint pattern="^VShell_(\d+)_(\d+)_(\d+)_(\d+) VShell$">
+   <fingerprint pattern="^VShell_(?:Special_Edition_)?(\d+)_(\d+)_(\d+)_(\d+) VShell$">
       <description>VanDyke VShell</description>
-      <example>VShell_3_6_2_446 VShell</example>
+      <example service.version="3" service.version.version="6" service.version.version.version="2" service.version.version.version.version="446">VShell_3_6_2_446 VShell</example>
+      <example service.version="2" service.version.version="5" service.version.version.version="0" service.version.version.version.version="204">VShell_Special_Edition_2_5_0_204 VShell</example>
       <param pos="1" name="service.version"/>
       <param pos="2" name="service.version.version"/>
       <param pos="3" name="service.version.version.version"/>
