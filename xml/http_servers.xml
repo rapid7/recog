@@ -3089,6 +3089,15 @@
       <param pos="0" name="apache.variant" value="HP Web Jetadmin"/>
       <param pos="1" name="service.version"/>
       <param pos="2" name="apache.info"/>
+    </fingerprint>
+
+   <fingerprint pattern="^HP Web Jetadmin ([\d\.]+)(?: \([^\)]+\))?$">
+      <description>HP printers, perhaps Apache, but we can't say for sure</description>
+      <example service.version="10.3.85669">HP Web Jetadmin 10.3.85669</example>
+      <example service.version="10.3.91358">HP Web Jetadmin 10.3.91358 (10.3 SR5)</example>
+      <param pos="0" name="service.vendor" value="HP"/>
+      <param pos="0" name="service.product" value="Web Jetadmin"/>
+      <param pos="1" name="service.version"/>
    </fingerprint>
 
    <fingerprint pattern="^Citrix Web PN Server$">
