@@ -3363,9 +3363,18 @@ Copyright (c) 1995-2005 by Cisco Systems
    </fingerprint>
 
    <fingerprint pattern="^Integrated Lights-Out (\d) \d+\.\d+ [A-Za-z]{3} \d{1,2} \d{4}$">
-      <description>HP Integrated Lights-Out (iLO)</description>
+      <description>HP Integrated Lights-Out (iLO) with firmware version</description>
       <example os.version="4">Integrated Lights-Out 4 2.02 Aug 18 2014</example>
       <!--2.02 is firmware version-->
+      <param pos="0" name="os.vendor" value="HP"/>
+      <param pos="0" name="os.family" value="iLO"/>
+      <param pos="0" name="os.device" value="iLO"/>
+      <param pos="1" name="os.version"/>
+    </fingerprint>
+
+   <fingerprint pattern="^Integrated Lights-Out (\d) \(iLO \d\) for Integrity$">
+      <description>HP Integrated Lights-Out (iLO) without firmware version</description>
+      <example os.version="2">Integrated Lights-Out 2 (iLO 2) for Integrity</example>
       <param pos="0" name="os.vendor" value="HP"/>
       <param pos="0" name="os.family" value="iLO"/>
       <param pos="0" name="os.device" value="iLO"/>
