@@ -4801,6 +4801,23 @@ Copyright (c) 1995-2005 by Cisco Systems
    </fingerprint>
 
    <!--======================================================================
+                              Lenel
+   =======================================================================-->
+
+   <fingerprint pattern="^(LNL-\d+) (.*) Firmware Version ([\d\.]+) Build \d+$">
+      <description>Various Lenel hardware, typically door controllers, etc</description>
+      <example hw.product="LNL-2210" os.device="Intelligent Single Door Controller" os.version="1.17.6">LNL-2210 Intelligent Single Door Controller Firmware Version 1.17.6 Build 359</example>
+      <example hw.product="LNL-2220" os.device="Intelligent Dual Reader Controller" os.version="1.17.3">LNL-2220 Intelligent Dual Reader Controller Firmware Version 1.17.3 Build 351</example>
+      <example hw.product="LNL-3300" os.device="Intelligent System Controller" os.version="1.17.6">LNL-3300 Intelligent System Controller Firmware Version 1.17.6 Build 359</example>
+      <param pos="0" name="os.vendor" value="Lenel"/>
+      <!-- it isn't clear what the OS is... -->
+      <param pos="1" name="hw.product"/>
+      <param pos="2" name="os.device"/>
+      <param pos="3" name="os.version"/>
+   </fingerprint>
+
+
+   <!--======================================================================
                               LINUX
 
    Note that we try to be very exact with our Linux fingerprints,
