@@ -3466,7 +3466,12 @@
       <param pos="0" name="service.vendor" value="CloudFlare"/>
       <param pos="0" name="service.product" value="CloudFlare Load Balancer"/>
       <param pos="0" name="service.family" value="CloudFlare"/>
-   </fingerprint>
+    </fingerprint>
 
+    <fingerprint pattern="^gSOAP/([\d\.]+)$">
+      <example service.version="2.7">gSOAP/2.7</example>
+      <description>gSOAP</description>
+      <param pos="0" name="service.product" value="gSOAP"/>
+      <param pos="1" name="service.version"/>
+    </fingerprint>
 </fingerprints>
-
