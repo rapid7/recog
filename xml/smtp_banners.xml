@@ -1070,6 +1070,24 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="3" name="sendmail.hpux.phne.version"/>
       <param pos="4" name="sendmail.config.version"/>
       <param pos="5" name="system.time"/>
+    </fingerprint>
+
+   <fingerprint pattern="^(\S+) ESMTP Sendmail \S+ version ([\d\.]+) - Revision \S+ HP-UX([\d\.]+).*(\S{3}, \d{2} \S{3} \d{4} \d{2}:\d{2}:\d{2} \S{3})$">
+      <description>
+         sendmail on HPUX
+       </description>
+      <example host.name="example.com" os.version="11.31" service.version="8.13.3">example.com ESMTP Sendmail @(#)Sendmail version 8.13.3 - Revision 1.004:: HP-UX11.31 - 03rd February,2010/8.11.1; Wed, 20 May 2015 23:35:38 GMT</example>
+      <param pos="0" name="service.family" value="Sendmail"/>
+      <param pos="0" name="service.product" value="Sendmail"/>
+      <param pos="0" name="os.vendor" value="HP"/>
+      <param pos="0" name="os.family" value="HP-UX"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.product" value="HP-UX"/>
+      <param pos="3" name="os.version"/>
+      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+      <param pos="1" name="host.name"/>
+      <param pos="2" name="service.version"/>
+      <param pos="4" name="system.time"/>
    </fingerprint>
 
    <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail +([^ ]+)/UW([^ ]+) ready at *(.+) \(.+\) *$">
