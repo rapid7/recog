@@ -3167,16 +3167,23 @@
 
 
    <fingerprint pattern="^Rapid Logic/((?:\d+\.)*\d+)$">
-      <example>Rapid Logic/1.1</example>
-      <example>Rapid Logic/1</example>
+      <example service.version="1.1">Rapid Logic/1.1</example>
+      <example service.version="1">Rapid Logic/1</example>
       <description>Embedded web server by Rapid Logic, which was acquired by Wind River.</description>
       <!-- From Googling, it sounds like this is just referred to as the
            Rapid Logic web server. -->
       <param pos="0" name="service.vendor" value="Wind River"/>
       <param pos="0" name="service.product" value="Rapid Logic"/>
       <param pos="1" name="service.version"/>
-   </fingerprint>
+    </fingerprint>
 
+   <fingerprint pattern="^WindRiver-WebServer/((?:\d+\.)*\d+)$">
+      <example service.version="4.4">WindRiver-WebServer/4.4</example>
+      <description>Wind River HTTP server</description>
+      <param pos="0" name="service.vendor" value="Wind River"/>
+      <param pos="0" name="service.product" value="WebServer"/>
+      <param pos="1" name="service.version"/>
+   </fingerprint>
 
    <fingerprint pattern="^Sophos Email Appliance$">
       <example>Sophos Email Appliance</example>
