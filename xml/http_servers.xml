@@ -1874,7 +1874,15 @@
       <param pos="0" name="service.product" value="HTTP"/>
       <param pos="0" name="service.family" value="Compaq HTTP Server"/>
       <param pos="1" name="service.version"/>
-   </fingerprint>
+    </fingerprint>
+
+    <fingerprint pattern="^HPSMH$">
+      <description>HP System Management Homepage (SMH)</description>
+      <example>HPSMH</example>
+      <param pos="0" name="service.vendor" value="HP"/>
+      <param pos="0" name="service.family" value="SMH"/>
+      <param pos="0" name="service.product" value="SMH"/>
+    </fingerprint>
 
    <fingerprint pattern="^eHTTP[/ ]v?(\d+\.\d+)" flags="REG_ICASE">
       <example service.version="1.1">EHTTP/1.1</example>
