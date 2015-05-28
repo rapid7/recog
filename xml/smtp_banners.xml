@@ -913,6 +913,19 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="4" name="system.time"/>
    </fingerprint>
 
+   <fingerprint pattern="^(\S+) V\S+, OpenVMS V(\S+) (\S+) ready at .*$">
+      <description>Some unknown mail server on OpenVMS</description>
+      <example host.name="example.com" os.arch="IA64" os.version="8.4">example.com V5.7-ECO4, OpenVMS V8.4 IA64 ready at Wed, 20 May 2015 01:22:32 +0100 (BST)</example>
+      <example host.name="example.com" os.arch="Alpha" os.version="7.3-2">example.com V5.4-15E, OpenVMS V7.3-2 Alpha ready at Wed, 20 May 2015 01:22:18 +0100 (BST)</example>
+      <param pos="1" name="host.name"/>
+      <param pos="0" name="os.vendor" value="HP"/>
+      <param pos="0" name="os.family" value="OpenVMS"/>
+      <param pos="0" name="os.product" value="OpenVMS"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="2" name="os.version"/>
+      <param pos="3" name="os.arch"/>
+    </fingerprint>
+
    <fingerprint pattern="^([^ ]+) Postfix \(Postfix-([^ ]+)-([^ ]+)\) \(([^ ]+)\) *$">
       <!--
       220 foo.bar.com ESMTP Postfix (Postfix-19991231-pl08) (Linux-Mandrake)
