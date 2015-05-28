@@ -76,14 +76,13 @@ The system or service fingerprint with the highest certainty overwrites the othe
     </fingerprint>
 
    <fingerprint pattern="^(\S+) ArGoSoft Mail Server Freeware, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
-      <description>ArGoSoft Mail, freeware version
-       </description>
+     <description>ArGoSoft Mail, freeware version</description>
       <example host.name="example.com" service.version="1.8.8.8">example.com ArGoSoft Mail Server Freeware, Version 1.8 (1.8.8.8)</example>
       <param pos="0" name="service.vendor" value="ArGoSoft"/>
       <param pos="0" name="service.family" value="Mail Server"/>
       <param pos="0" name="service.product" value="Mail Server"/>
-      <param pos="1" name="service.version"/>
-      <param pos="2" name="host.name"/>
+      <param pos="2" name="service.version"/>
+      <param pos="1" name="host.name"/>
    </fingerprint>
 
    <fingerprint pattern="^ArGoSoft Mail Server Pro for WinNT/2000, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
@@ -454,7 +453,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     </fingerprint>
 
     <fingerprint pattern="^(\S+) E?SMTP MailEnable Service, Version: ([\d\.]+)-- ready at (\d{2}/\d{2}/\d{2} \d{2}:\d{2}:\d{2})$">
-      <description></description>
+      <description>Simple MailEnable</description>
       <example host.name="example.com">example.com ESMTP MailEnable Service, Version: 1.8-- ready at 05/20/15 08:50:22</example>
       <param pos="0" name="service.vendor" value="MailEnable"/>
       <param pos="0" name="service.family" value="MailEnable"/>
@@ -959,6 +958,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss"/>
       <param pos="1" name="host.name"/>
       <param pos="2" name="service.version"/>
+      <param pos="3" name="system.time"/>
     </fingerprint>
 
    <fingerprint pattern="^([^ ]+) Postfix \(Postfix-([^ ]+)-([^ ]+)\) \(([^ ]+)\) *$">
