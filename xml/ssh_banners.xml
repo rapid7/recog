@@ -590,10 +590,11 @@ fingerprint SSH servers.
       <param pos="0" name="os.product" value="Windows"/>
     </fingerprint>
 
-   <fingerprint pattern="^([^\s]+) FlowSsh: WinSSHD ([^ ]+):?.*$">
+   <fingerprint pattern="^([^\s]+) FlowSsh: (?:Bitvise SSH Server \(WinSSHD\)|WinSSHD) ([^ ]+):?.*$">
      <description>Bitvise WinSSHD (which uses Bitvise flowssh)</description>
-      <example>1.03 FlowSsh: WinSSHD 5.09</example>
-      <example>1.07 FlowSsh: WinSSHD 5.20: free only for personal non-commercial use</example>
+      <example service.version="5.09" service.component.version="1.03">1.03 FlowSsh: WinSSHD 5.09</example>
+      <example service.version="5.20" service.component.version="1.07">1.07 FlowSsh: WinSSHD 5.20: free only for personal non-commercial use</example>
+      <example service.version="6.03" service.component.version="5.21">5.21 FlowSsh: Bitvise SSH Server (WinSSHD) 6.03: free only for personal non-commercial use</example>
       <param pos="1" name="service.component.version"/>
       <param pos="2" name="service.version"/>
       <param pos="0" name="service.component.vendor" value="Bitvise"/>
