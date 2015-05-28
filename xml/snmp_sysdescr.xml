@@ -5212,6 +5212,28 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="0" name="os.product" value="Windows Server 2003"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.arch" value="x86_64"/>
+    </fingerprint>
+
+   <fingerprint pattern="^Windows_NT Microsoft Windows Server 2003 5.2 3790 Service Pack 2, GenuineIntel \S+64.*$">
+      <description>Rare Windows 2003 SP2 sysDescr, x64</description>
+      <example>Windows_NT Microsoft Windows Server 2003 5.2 3790 Service Pack 2, GenuineIntel EM64T Family 6 Model 23 Stepping 6</example>
+      <param pos="0" name="os.vendor" value="Microsoft"/>
+      <param pos="0" name="os.family" value="Windows"/>
+      <param pos="0" name="os.product" value="Windows Server 2003"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.arch" value="x86_64"/>
+      <param pos="0" name="os.version" value="SP1"/>
+    </fingerprint>
+
+   <fingerprint pattern="^Windows_NT Microsoft Windows Server 2003 5.2 3790 Service Pack 2, GenuineIntel x86.*$">
+      <description>Rare Windows 2003 SP2 sysDescr, x86</description>
+      <example>Windows_NT Microsoft Windows Server 2003 5.2 3790 Service Pack 2, GenuineIntel x86 Family 6 Model 23 Stepping 6</example>
+      <param pos="0" name="os.vendor" value="Microsoft"/>
+      <param pos="0" name="os.family" value="Windows"/>
+      <param pos="0" name="os.product" value="Windows Server 2003"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.arch" value="x86"/>
+      <param pos="0" name="os.version" value="SP1"/>
    </fingerprint>
 
    <fingerprint pattern="^Microsoft Windows CE Version ([\d.]+).*$">
