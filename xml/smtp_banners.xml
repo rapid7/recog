@@ -440,6 +440,18 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="1" name="host.name"/>
       <param pos="2" name="service.version"/>
       <param pos="3" name="system.time"/>
+    </fingerprint>
+
+    <fingerprint pattern="^(\S+) E?SMTP MailEnable Service, Version: ([\d\.]+)-- ready at (\d{2}/\d{2}/\d{2} \d{2}:\d{2}:\d{2})$">
+      <description></description>
+      <example host.name="example.com">example.com ESMTP MailEnable Service, Version: 1.8-- ready at 05/20/15 08:50:22</example>
+      <param pos="0" name="service.vendor" value="MailEnable"/>
+      <param pos="0" name="service.family" value="MailEnable"/>
+      <param pos="0" name="service.product" value="MailEnable"/>
+      <param pos="0" name="system.time.format" value="MM/dd/yy HH:mm:ss"/>
+      <param pos="1" name="host.name"/>
+      <param pos="2" name="service.version"/>
+      <param pos="3" name="system.time"/>
    </fingerprint>
 
    <fingerprint pattern="^([^ ]+) \(Mail-Max Version (\d+\.\d+), (.+, .+)\) ESMTP Mail Server Ready. *$">
