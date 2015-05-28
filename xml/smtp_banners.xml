@@ -940,6 +940,16 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="3" name="os.arch"/>
     </fingerprint>
 
+    <fingerprint pattern="^(\S+) E?SMTP PMailServer(?: \[Free Edition\]) ([\d\.]+); (\S{3}, \d{2} \S{3} \d{4} \d{2}:\d{2}:\d{2})$">
+      <description>A.K.I PMail</description>
+      <example host.name="example.com" service.version="1.91">example.com ESMTP PMailServer [Free Edition] 1.91; Fri, 22 May 2015 02:04:56</example>
+      <param pos="0" name="service.vendor" value="A.K.I Software"/>
+      <param pos="0" name="service.product" value="PMail Server"/>
+      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss"/>
+      <param pos="1" name="host.name"/>
+      <param pos="2" name="service.version"/>
+    </fingerprint>
+
    <fingerprint pattern="^([^ ]+) Postfix \(Postfix-([^ ]+)-([^ ]+)\) \(([^ ]+)\) *$">
       <!--
       220 foo.bar.com ESMTP Postfix (Postfix-19991231-pl08) (Linux-Mandrake)
