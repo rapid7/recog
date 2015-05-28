@@ -590,7 +590,7 @@ fingerprint SSH servers.
       <param pos="0" name="os.product" value="Windows"/>
     </fingerprint>
 
-   <fingerprint pattern="^([^\s]+) FlowSsh: (?:Bitvise SSH Server \(WinSSHD\)|WinSSHD) ([^ ]+):?.*$">
+   <fingerprint pattern="^([^\s]+) FlowSsh: (?:Bitvise SSH Server \(WinSSHD\)|WinSSHD) ([\d\.]+):?.*$">
      <description>Bitvise WinSSHD (which uses Bitvise flowssh)</description>
       <example service.version="5.09" service.component.version="1.03">1.03 FlowSsh: WinSSHD 5.09</example>
       <example service.version="5.20" service.component.version="1.07">1.07 FlowSsh: WinSSHD 5.20: free only for personal non-commercial use</example>
@@ -790,6 +790,14 @@ fingerprint SSH servers.
       <param pos="0" name="os.device" value="Network"/>
       <param pos="0" name="os.family" value="Comware"/>
       <param pos="1" name="os.version"/>
+    </fingerprint>
+
+   <fingerprint pattern="^Data ONTAP SSH [\d\.]+$">
+      <description>SSH NetApp appliances</description>
+      <example>Data ONTAP SSH 1.0</example>
+      <param pos="0" name="os.vendor" value="NetApp"/>
+      <param pos="0" name="os.family" value="Data ONTAP"/>
+      <param pos="0" name="os.product" value="Data ONTAP"/>
    </fingerprint>
 
    <fingerprint pattern="^(\d\.\d+\.\d+) SSH Secure Shell OpenVMS V\d\.\d$">
