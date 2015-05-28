@@ -818,4 +818,10 @@ against these patterns to fingerprint FTP servers.
     <param pos="2" name="hw.series"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
+
+  <fingerprint pattern="^(\S+) FTP server ready.?$" flags="REG_ICASE">
+    <description>Generic FTP fingerprint</description>
+    <example host.name="example.com">example.com FTP server ready.</example>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
 </fingerprints>
