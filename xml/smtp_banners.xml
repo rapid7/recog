@@ -134,7 +134,16 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="0" name="service.family" value="PIX"/>
       <param pos="0" name="service.product" value="PIX"/>
       <param pos="0" name="service.version" value="4"/>
-   </fingerprint>
+    </fingerprint>
+
+    <fingerprint pattern="CCProxy (\S+) SMTP Service Ready(?:\(Unregistered\))?$">
+      <description>Youngzsoft CCProxy SMTP</description>
+      <example service.version="7.3">CCProxy 7.3 SMTP Service Ready(Unregistered)</example>
+      <param pos="0" name="service.vendor" value="Youngzsoft"/>
+      <param pos="0" name="service.family" value="CCProxy"/>
+      <param pos="0" name="service.product" value="CCProxy"/>
+      <param pos="0" name="service.version" value="1"/>
+    </fingerprint>
 
    <fingerprint pattern="^[\*20 ]+$">
       <description>
