@@ -73,6 +73,17 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="0" name="service.family" value="Mail Server"/>
       <param pos="0" name="service.product" value="Mail Server"/>
       <param pos="1" name="service.version"/>
+    </fingerprint>
+
+   <fingerprint pattern="^(\S+) ArGoSoft Mail Server Freeware, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
+      <description>ArGoSoft Mail, freeware version
+       </description>
+      <example host.name="example.com" service.version="1.8.8.8">example.com ArGoSoft Mail Server Freeware, Version 1.8 (1.8.8.8)</example>
+      <param pos="0" name="service.vendor" value="ArGoSoft"/>
+      <param pos="0" name="service.family" value="Mail Server"/>
+      <param pos="0" name="service.product" value="Mail Server"/>
+      <param pos="1" name="service.version"/>
+      <param pos="2" name="host.name"/>
    </fingerprint>
 
    <fingerprint pattern="^ArGoSoft Mail Server Pro for WinNT/2000, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
