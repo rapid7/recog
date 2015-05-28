@@ -1526,6 +1526,18 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="1" name="host.name"/>
    </fingerprint>
 
+   <fingerprint pattern="^(\S+) ESMTP Sendmail (\S{3}, \d{2} \S{3} \d{4} \d{2}:\d{2}:\d{2} \S+)$">
+      <description>
+         catch all for other versions of sendmail, with a date/time
+      </description>
+      <example host.name="example.com">example.com ESMTP Sendmail Wed, 20 May 2015 17:17:56 -0600</example>
+      <param pos="0" name="service.family" value="Sendmail"/>
+      <param pos="0" name="service.product" value="Sendmail"/>
+      <param pos="1" name="host.name"/>
+      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+      <param pos="2" name="system.time"/>
+   </fingerprint>
+
    <!-- Sun Internet Mail Server -->
    <!-- Sun Internet Mail Server sims\.([^\.]+)([^\.]+)([^\.]+)([^\.]+)([^\.]+)([^\.]+)([^\.]+)([^\.]+) -->
 
