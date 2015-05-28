@@ -142,7 +142,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="0" name="service.vendor" value="Youngzsoft"/>
       <param pos="0" name="service.family" value="CCProxy"/>
       <param pos="0" name="service.product" value="CCProxy"/>
-      <param pos="0" name="service.version" value="1"/>
+      <param pos="1" name="service.version"/>
     </fingerprint>
 
    <fingerprint pattern="^[\*20 ]+$">
@@ -445,6 +445,17 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="0" name="service.family" value="IntraStore"/>
       <param pos="0" name="service.product" value="IntraStore"/>
       <param pos="1" name="host.name"/>
+    </fingerprint>
+
+    <fingerprint pattern="^(\S+) E?SMTP Server \(JAMES E?SMTP Server ([\d\.]+)\) ready (\S{3}, \d{2} \S{3} \d{4} \d{2}:\d{2}:\d{2} \S+) \(\S+\)$">
+      <description>JAMES SMTP Server</description>
+      <example host.name="example.com" service.version="2.3.2">example.com SMTP Server (JAMES SMTP Server 2.3.2) ready Tue, 19 May 2015 00:36:13 +0200 (CEST)</example>
+      <param pos="0" name="service.vendor" value="Apache"/>
+      <param pos="0" name="service.product" value="James"/>
+      <param pos="2" name="service.version"/>
+      <param pos="1" name="host.name"/>
+      <param pos="3" name="system.time"/>
+      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
    </fingerprint>
 
    <fingerprint pattern="^([^ ]+) \(Mail-Max Version (\d+\.\d+\.\d+\.\d+), (.+, .+)\) ESMTP Mail Server Ready. *$">
