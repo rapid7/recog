@@ -1099,6 +1099,15 @@ The system or service fingerprint with the highest certainty overwrites the othe
       </description>
       <param pos="0" name="service.product" value="raptor"/>
       <param pos="1" name="host.name"/>
+    </fingerprint>
+
+   <fingerprint pattern="^(\S+) SAP (\S+) E?SMTP service ready$">
+      <description>SAP SMTP Server</description>
+      <example host.name="example.com" service.version="8.04(53)">example.com SAP 8.04(53) ESMTP service ready</example>
+      <param pos="0" name="service.vendor" value="SAP"/>
+      <param pos="0" name="service.product" value="SMTP"/>
+      <param pos="2" name="service.version"/>
+      <param pos="1" name="host.name"/>
    </fingerprint>
 
    <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail +([^ ]+) \(PHNE_([^ ]+)\) */ *(.+); *(.+) \(.+\)$">
