@@ -258,6 +258,42 @@ NTP "banners", taken from a readvar response
     <param pos="3" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
   </fingerprint>
+  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?12\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>ntpd running on Mac OSX 10.8/Mountain Lion</description>
+    <example service.version="4.2.6@1.2089-o" os.arch="x86_64" os.version.version="1.0">
+      version="ntpd 4.2.6@1.2089-o Fri May 28 01:20:53 UTC 2010 (1)",
+      processor="x86_64", system="Darwin/12.1.0", leap=3, stratum=16,
+    </example>
+    <param pos="0" name="service.family" value="NTP"/>
+    <param pos="0" name="service.product" value="NTP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS X"/>
+    <param pos="0" name="os.product" value="Mac OS X"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.version" value="10.8"/>
+    <param pos="3" name="os.version.version"/>
+    <param pos="0" name="os.certainty" value="0.9"/>
+  </fingerprint>
+  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?13\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description>ntpd running on Mac OSX 10.9/Lion</description>
+    <example service.version="4.2.6@1.2089-o" os.arch="x86_64" os.version.version="4.0">
+      version="ntpd 4.2.6@1.2089-o Fri May 28 01:20:53 UTC 2010 (1)",
+      processor="x86_64", system="Darwin/13.4.0", leap=3, stratum=16,
+    </example>
+    <param pos="0" name="service.family" value="NTP"/>
+    <param pos="0" name="service.product" value="NTP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS X"/>
+    <param pos="0" name="os.product" value="Mac OS X"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.version" value="10.9"/>
+    <param pos="3" name="os.version.version"/>
+    <param pos="0" name="os.certainty" value="0.9"/>
+  </fingerprint>
   <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;FreeBSD/?(?:[^ ]+-NETSCALER-([^ ]+))&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Citrix Netscaler, which is based on FreeBSD</description>
     <example>
