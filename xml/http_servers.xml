@@ -1874,7 +1874,15 @@
       <param pos="0" name="service.product" value="HTTP"/>
       <param pos="0" name="service.family" value="Compaq HTTP Server"/>
       <param pos="1" name="service.version"/>
-   </fingerprint>
+    </fingerprint>
+
+    <fingerprint pattern="^HPSMH$">
+      <description>HP System Management Homepage (SMH)</description>
+      <example>HPSMH</example>
+      <param pos="0" name="service.vendor" value="HP"/>
+      <param pos="0" name="service.family" value="SMH"/>
+      <param pos="0" name="service.product" value="SMH"/>
+    </fingerprint>
 
    <fingerprint pattern="^eHTTP[/ ]v?(\d+\.\d+)" flags="REG_ICASE">
       <example service.version="1.1">EHTTP/1.1</example>
@@ -1896,6 +1904,7 @@
       <example service.component.version="0.0.1">BBC 2.6.0.7; com.hp.openview.Coda 0.0.1</example>
       <param pos="0" name="service.vendor" value="HP"/>
       <param pos="0" name="service.family" value="OpenView"/>
+      <param pos="0" name="service.product" value="OpenView"/>
       <param pos="0" name="service.component.vendor" value="HP"/>
       <param pos="0" name="service.component.family" value="OpenView"/>
       <param pos="0" name="service.component.product" value="CODA"/>
@@ -1907,6 +1916,7 @@
       <example service.component.version="11.00.044">BBC 11.00.044; ovbbcrcp 11.00.044</example>
       <param pos="0" name="service.vendor" value="HP"/>
       <param pos="0" name="service.family" value="OpenView"/>
+      <param pos="0" name="service.product" value="OpenView"/>
       <param pos="0" name="service.component.vendor" value="HP"/>
       <param pos="0" name="service.component.family" value="OpenView"/>
       <param pos="0" name="service.component.product" value="Reverse Channel Proxy"/>
@@ -1919,6 +1929,7 @@
       <example service.component.version="2.6.0.7">BBC 2.6.0.7; com.hp.openview.bbc.LLBServer 2.6.0.7</example>
       <param pos="0" name="service.vendor" value="HP"/>
       <param pos="0" name="service.family" value="OpenView"/>
+      <param pos="0" name="service.product" value="OpenView"/>
       <param pos="0" name="service.component.vendor" value="HP"/>
       <param pos="0" name="service.component.family" value="OpenView"/>
       <param pos="0" name="service.component.product" value="LLBServer"/>
@@ -1931,6 +1942,7 @@
       <example service.component.version="11.10.035">BBC 11.10.035; ovbbccb 11.10.035</example>
       <param pos="0" name="service.vendor" value="HP"/>
       <param pos="0" name="service.family" value="OpenView"/>
+      <param pos="0" name="service.product" value="OpenView"/>
       <param pos="0" name="service.component.vendor" value="HP"/>
       <param pos="0" name="service.component.family" value="OpenView"/>
       <param pos="0" name="service.component.product" value="Communication Broker"/>
@@ -1942,6 +1954,7 @@
       <example>BBC 11.13.007; ovbbccb unknown version</example>
       <param pos="0" name="service.vendor" value="HP"/>
       <param pos="0" name="service.family" value="OpenView"/>
+      <param pos="0" name="service.product" value="OpenView"/>
       <param pos="0" name="service.component.vendor" value="HP"/>
       <param pos="0" name="service.component.family" value="OpenView"/>
       <param pos="0" name="service.component.product" value="Communication Broker"/>
@@ -2680,10 +2693,11 @@
       <param pos="0" name="os.product" value="JetDirect"/>
     </fingerprint>
 
-    <fingerprint pattern="^HP HTTP Server; HP ((\S+) \S+)">
+    <fingerprint pattern="^HP HTTP Server; (?:Hewlett-Packard )?HP ((\S+) \S+)">
       <description>HP Printer</description>
-      <example>HP HTTP Server; HP Photosmart C309a series - CC335A; Serial Number: abc123; Vader Built:Wed Apr 15, 2009 11:40:58AM {abc123, ASIC id 0x00280004}</example>
-      <example>HP HTTP Server; HP Officejet 6500 E709n - CB057A; Serial Number: abc123; Rainbow Built:Sat Dec 13, 2008 10:58:21AM {abc123, ASIC id 0x00ffc2105}</example>
+      <example os.product="Photosmart C309a" os.family="Photosmart">HP HTTP Server; HP Photosmart C309a series - CC335A; Serial Number: abc123; Vader Built:Wed Apr 15, 2009 11:40:58AM {abc123, ASIC id 0x00280004}</example>
+      <example os.product="Officejet 6500" os.family="Officejet">HP HTTP Server; HP Officejet 6500 E709n - CB057A; Serial Number: abc123; Rainbow Built:Sat Dec 13, 2008 10:58:21AM {abc123, ASIC id 0x00ffc2105}</example>
+      <example os.product="Designjet T520" os.family="Designjet">HP HTTP Server; Hewlett-Packard HP Designjet T520 36in - ABC123; Serial Number: 0123456789; Built:Tue Sep 09, 2014 08:32:54AM {012345678901}</example>
       <param pos="0" name="service.vendor" value="HP"/>
       <param pos="0" name="service.product" value="JetDirect"/>
       <param pos="0" name="service.family" value="JetDirect"/>
@@ -2708,13 +2722,7 @@
       <param pos="0" name="os.product" value="JetDirect"/>
    </fingerprint>
 
-   <!-- This is not the normal form (with a space before version).
-        Since this version is vulnerable to a DoS attack, I suspect
-        it is actually a bogus banner generated by a honeypot.
-
-          Allegro-Software-RomPager/ 2.10
-   -->
-   <fingerprint pattern="^(?:Allegro-Software-)?RomPager/(\S+)">
+   <fingerprint pattern="^(?:Allegro-Software-)?RomPager/\s*(\S+)">
       <description>Embedded HTTP server used by many vendors and device
       types, including APC, 3Com, Andover Controls, Cisco VoIP, D-Link,
       Extreme Networks, Foundry Networks, Konica Minolta, Kronos
@@ -2723,6 +2731,7 @@
       <example service.version="4.01">Allegro-Software-RomPager/4.01</example>
       <example service.version="4.07">RomPager/4.07 UPnP/1.0</example>
       <example service.version="4.30b3">Allegro-Software-RomPager/4.30b3</example>
+      <example service.version="2.10">Allegro-Software-RomPager/ 2.10</example>
       <param pos="0" name="service.vendor" value="Allegro Software"/>
       <param pos="0" name="service.product" value="RomPager"/>
       <param pos="1" name="service.version"/>
@@ -3093,6 +3102,15 @@
       <param pos="0" name="apache.variant" value="HP Web Jetadmin"/>
       <param pos="1" name="service.version"/>
       <param pos="2" name="apache.info"/>
+    </fingerprint>
+
+   <fingerprint pattern="^HP Web Jetadmin ([\d\.]+)(?: \([^\)]+\))?$">
+      <description>HP printers, perhaps Apache, but we can't say for sure</description>
+      <example service.version="10.3.85669">HP Web Jetadmin 10.3.85669</example>
+      <example service.version="10.3.91358">HP Web Jetadmin 10.3.91358 (10.3 SR5)</example>
+      <param pos="0" name="service.vendor" value="HP"/>
+      <param pos="0" name="service.product" value="Web Jetadmin"/>
+      <param pos="1" name="service.version"/>
    </fingerprint>
 
    <fingerprint pattern="^Citrix Web PN Server$">
@@ -3134,6 +3152,14 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
+   <fingerprint pattern="^Embedthis-http$">
+      <example>Embedthis-http</example>
+      <description>An embedded web server for hosting dynamic web applications.</description>
+      <param pos="0" name="service.vendor" value="Embedthis"/>
+      <param pos="0" name="service.product" value="Appweb"/>
+      <param pos="0" name="service.family" value="Appweb"/>
+   </fingerprint>
+
    <fingerprint pattern="^Avaya CMBE/((?:\d+\.)*\d+)$">
       <example>Avaya CMBE/2.0.0</example>
       <example>Avaya CMBE/2</example>
@@ -3146,16 +3172,23 @@
 
 
    <fingerprint pattern="^Rapid Logic/((?:\d+\.)*\d+)$">
-      <example>Rapid Logic/1.1</example>
-      <example>Rapid Logic/1</example>
+      <example service.version="1.1">Rapid Logic/1.1</example>
+      <example service.version="1">Rapid Logic/1</example>
       <description>Embedded web server by Rapid Logic, which was acquired by Wind River.</description>
       <!-- From Googling, it sounds like this is just referred to as the
            Rapid Logic web server. -->
       <param pos="0" name="service.vendor" value="Wind River"/>
       <param pos="0" name="service.product" value="Rapid Logic"/>
       <param pos="1" name="service.version"/>
-   </fingerprint>
+    </fingerprint>
 
+   <fingerprint pattern="^WindRiver-WebServer/((?:\d+\.)*\d+)$">
+      <example service.version="4.4">WindRiver-WebServer/4.4</example>
+      <description>Wind River HTTP server</description>
+      <param pos="0" name="service.vendor" value="Wind River"/>
+      <param pos="0" name="service.product" value="WebServer"/>
+      <param pos="1" name="service.version"/>
+   </fingerprint>
 
    <fingerprint pattern="^Sophos Email Appliance$">
       <example>Sophos Email Appliance</example>
@@ -3453,7 +3486,12 @@
       <param pos="0" name="service.vendor" value="CloudFlare"/>
       <param pos="0" name="service.product" value="CloudFlare Load Balancer"/>
       <param pos="0" name="service.family" value="CloudFlare"/>
-   </fingerprint>
+    </fingerprint>
 
+    <fingerprint pattern="^gSOAP/([\d\.]+)$">
+      <example service.version="2.7">gSOAP/2.7</example>
+      <description>gSOAP</description>
+      <param pos="0" name="service.product" value="gSOAP"/>
+      <param pos="1" name="service.version"/>
+    </fingerprint>
 </fingerprints>
-
