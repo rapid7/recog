@@ -1031,9 +1031,10 @@
                               BROCADE
    =======================================================================-->
 
-   <fingerprint pattern="^Fibre Channel Switch\.$">
+   <fingerprint pattern="^Fibre Channel Switch\.?$">
       <description>Brocade FabricOS switch</description>
       <example>Fibre Channel Switch.</example>
+      <example>Fibre Channel Switch</example>
       <param pos="0" name="os.vendor" value="Brocade"/>
       <param pos="0" name="os.product" value="Fabric OS"/>
       <param pos="0" name="os.device" value="Switch"/>
@@ -2631,22 +2632,10 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="4" name="os.version.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^(\S+) (.*?) Digital UNIX V(\S+) \(Rev\. ([^\)]+)\).*TCP/IP$">
+   <fingerprint pattern="^(\S+) (.*?) Digital UNIX V(\S+)\s+\(Rev\. ([^\)]+)\).*TCP/IP$">
       <description>Digital/Compaq/HP Tru64 Unix</description>
-      <example>clima.igpsdfpe COMPAQ AlphaServer DS20E 500 MHz Digital UNIX V4.0F (Rev. 1229); Mon Apr 12 13:30:41 EDT 1999 TCP/IP</example>
-      <example>dino.snusdfr COMPAQ Professional Workstation XP1000 Digital UNIX V4.0F (Rev. 1229); Thu Oct 21 13:13:28 KST 1999 TCP/IP</example>
-      <example>george1.sdftw COMPAQ Professional Workstation XP1000 Digital UNIX V4.0F (Rev. 1229); Fri Apr 21 14:49:53 CST 2000 TCP/IP</example>
-      <example>hsdfdf.it COMPAQ AlphaServer DS20E 666 MHz Digital UNIX V4.0F (Rev. 1229); Fri Apr 27 12:22:53 MET DST 2001 TCP/IP</example>
-      <example>hisdfcfdcnr.it COMPAQ Professional Workstation XP1000 Digital UNIX V4.0F (Rev. 1229); Thu Jan 20 21:51:21 GMT 2000 TCP/IP</example>
-      <example>ingriv.na.infn.it COMPAQ Professional Workstation XP1000 Digital UNIX V4.0F (Rev. 1229); Mon Feb 5 12:09:16 MET 2001 TCP/IP</example>
-      <example>lib.nthsdfv.tw COMPAQ AlphaServer DS20E 833 MHz Digital UNIX V4.0F (Rev. 1229); Sat Oct 31 14:16:13 CST 2009 TCP/IP</example>
-      <example>main.chemisdfna.it COMPAQ AlphaServer DS10 466 MHz Digital UNIX V4.0F (Rev. 1229); Sat Nov 27 14:08:50 GMT+0100 2004 TCP/IP</example>
-      <example>moldyn.cscp.sdfr.it COMPAQ Professional Workstation XP1000 Digital UNIX V5.0 (Rev. 910); Fri Nov 17 15:54:45 MET 2000 TCP/IP</example>
-      <example>nambukdb COMPAQ AlphaServer DS20E 666 MHz Digital UNIX V4.0F (Rev. 1229); Mon Aug 13 22:11:20 KST 2007 TCP/IP</example>
-      <example>nctsphys1.phsdfthu.edu.tw COMPAQ Professional Workstation XP1000 Digital UNIX V4.0E (Rev. 1091); Wed Jul 14 15:57:17 CST 1999 TCP/IP</example>
-      <example>oya.gesdfcsb.edu COMPAQ Professional Workstation XP1000 Digital UNIX V4.0F (Rev. 1229); Fri Sep 13 13:44:20 PDT 2002 TCP/IP</example>
-      <example>quarsdfctecsdfr.th COMPAQ AlphaServer DS10 466 MHz Digital UNIX V4.0G (Rev. 1530); Fri Jun 20 14:03:00 GMT+0700 2003 TCP/IP</example>
-      <example>tunisdf.nhisdfdu.tw COMPAQ AlphaServer DS10 617 MHz Digital UNIX V4.0F (Rev. 1229); Wed May 22 13:55:58 CST 2002 TCP/IP</example>
+      <example host.name="example.com" hw.product="COMPAQ AlphaServer DS10 617 MHz" os.version="4.0F" os.version.version="1229">example.com COMPAQ AlphaServer DS10 617 MHz Digital UNIX V4.0F (Rev. 1229); Wed May 22 13:55:58 CST 2002 TCP/IP</example>
+      <example host.name="example.com" hw.product="COMPAQ Professional Workstation XP1000" os.version="4.0F" os.version.version="1229">example.com COMPAQ Professional Workstation XP1000 Digital UNIX V4.0F  (Rev. 1229); Wed Jun 30 14:32:53 MET DST 2004 . TCP/IP</example>
       <param pos="0" name="os.vendor" value="HP"/>
       <param pos="0" name="os.family" value="Unix"/>
       <param pos="0" name="os.product" value="Digital Unix"/>
@@ -3363,9 +3352,18 @@ Copyright (c) 1995-2005 by Cisco Systems
    </fingerprint>
 
    <fingerprint pattern="^Integrated Lights-Out (\d) \d+\.\d+ [A-Za-z]{3} \d{1,2} \d{4}$">
-      <description>HP Integrated Lights-Out (iLO)</description>
+      <description>HP Integrated Lights-Out (iLO) with firmware version</description>
       <example os.version="4">Integrated Lights-Out 4 2.02 Aug 18 2014</example>
       <!--2.02 is firmware version-->
+      <param pos="0" name="os.vendor" value="HP"/>
+      <param pos="0" name="os.family" value="iLO"/>
+      <param pos="0" name="os.device" value="iLO"/>
+      <param pos="1" name="os.version"/>
+    </fingerprint>
+
+   <fingerprint pattern="^Integrated Lights-Out (\d) \(iLO \d\) for Integrity$">
+      <description>HP Integrated Lights-Out (iLO) without firmware version</description>
+      <example os.version="2">Integrated Lights-Out 2 (iLO 2) for Integrity</example>
       <param pos="0" name="os.vendor" value="HP"/>
       <param pos="0" name="os.family" value="iLO"/>
       <param pos="0" name="os.device" value="iLO"/>
@@ -4804,6 +4802,23 @@ Copyright (c) 1995-2005 by Cisco Systems
    </fingerprint>
 
    <!--======================================================================
+                              Lenel
+   =======================================================================-->
+
+   <fingerprint pattern="^(LNL-\d+) (.*) Firmware Version ([\d\.]+) Build \d+$">
+      <description>Various Lenel hardware, typically door controllers, etc</description>
+      <example hw.product="LNL-2210" os.device="Intelligent Single Door Controller" os.version="1.17.6">LNL-2210 Intelligent Single Door Controller Firmware Version 1.17.6 Build 359</example>
+      <example hw.product="LNL-2220" os.device="Intelligent Dual Reader Controller" os.version="1.17.3">LNL-2220 Intelligent Dual Reader Controller Firmware Version 1.17.3 Build 351</example>
+      <example hw.product="LNL-3300" os.device="Intelligent System Controller" os.version="1.17.6">LNL-3300 Intelligent System Controller Firmware Version 1.17.6 Build 359</example>
+      <param pos="0" name="os.vendor" value="Lenel"/>
+      <!-- it isn't clear what the OS is... -->
+      <param pos="1" name="hw.product"/>
+      <param pos="2" name="os.device"/>
+      <param pos="3" name="os.version"/>
+   </fingerprint>
+
+
+   <!--======================================================================
                               LINUX
 
    Note that we try to be very exact with our Linux fingerprints,
@@ -5197,6 +5212,28 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="0" name="os.product" value="Windows Server 2003"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.arch" value="x86_64"/>
+    </fingerprint>
+
+   <fingerprint pattern="^Windows_NT Microsoft Windows Server 2003 5.2 3790 Service Pack 2, GenuineIntel \S+64.*$">
+      <description>Rare Windows 2003 SP2 sysDescr, x64</description>
+      <example>Windows_NT Microsoft Windows Server 2003 5.2 3790 Service Pack 2, GenuineIntel EM64T Family 6 Model 23 Stepping 6</example>
+      <param pos="0" name="os.vendor" value="Microsoft"/>
+      <param pos="0" name="os.family" value="Windows"/>
+      <param pos="0" name="os.product" value="Windows Server 2003"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.arch" value="x86_64"/>
+      <param pos="0" name="os.version" value="SP1"/>
+    </fingerprint>
+
+   <fingerprint pattern="^Windows_NT Microsoft Windows Server 2003 5.2 3790 Service Pack 2, GenuineIntel x86.*$">
+      <description>Rare Windows 2003 SP2 sysDescr, x86</description>
+      <example>Windows_NT Microsoft Windows Server 2003 5.2 3790 Service Pack 2, GenuineIntel x86 Family 6 Model 23 Stepping 6</example>
+      <param pos="0" name="os.vendor" value="Microsoft"/>
+      <param pos="0" name="os.family" value="Windows"/>
+      <param pos="0" name="os.product" value="Windows Server 2003"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.arch" value="x86"/>
+      <param pos="0" name="os.version" value="SP1"/>
    </fingerprint>
 
    <fingerprint pattern="^Microsoft Windows CE Version ([\d.]+).*$">
@@ -5336,6 +5373,26 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="0" name="os.vendor" value="Microsoft"/>
       <param pos="0" name="os.family" value="Windows"/>
       <param pos="0" name="os.product" value="Windows 8"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.arch" value="x86"/>
+    </fingerprint>
+
+    <fingerprint pattern="^Hardware: \S+64.*Software: Windows Version 6.3 \(Build 9600">
+      <description>Windows 8 on x86_64</description>
+      <example>Hardware: AMD64 Family 21 Model 0 Stepping 2 AT/AT COMPATIBLE - Software: Windows Version 6.3 (Build 9600 Multiprocessor Free)</example>
+      <param pos="0" name="os.vendor" value="Microsoft"/>
+      <param pos="0" name="os.family" value="Windows"/>
+      <param pos="0" name="os.product" value="Windows 8.1"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.arch" value="x86_64"/>
+    </fingerprint>
+
+    <fingerprint pattern="^Hardware: x86.*Software: Windows Version 6.3 \(Build 9600">
+      <description>Windows 8 on x86</description>
+      <example>Hardware: x86 Family 21 Model 0 Stepping 2 AT/AT COMPATIBLE - Software: Windows Version 6.3 (Build 9600 Multiprocessor Free)</example>
+      <param pos="0" name="os.vendor" value="Microsoft"/>
+      <param pos="0" name="os.family" value="Windows"/>
+      <param pos="0" name="os.product" value="Windows 8.1"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.arch" value="x86"/>
    </fingerprint>
@@ -7943,6 +8000,29 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="0" name="os.product" value="VxWorks"/>
    </fingerprint>
 
+   <!--======================================================================
+                             VMware
+   =======================================================================-->
+
+   <fingerprint pattern="^(VMware ESXi?) (\d\.\d+\.\d+) build-\d+ VMware, Inc\. (\S+)$">
+      <description>VMware ESX/ESXi</description>
+      <example os.product="VMware ESXi" os.version="5.1.0" os.arch="x86_64">VMware ESXi 5.1.0 build-1157734 VMware, Inc. x86_64</example>
+      <example os.product="VMware ESX" os.version="5.0.0" os.arch="x86_64">VMware ESX 5.0.0 build-623860 VMware, Inc. x86_64</example>
+      <param pos="0" name="os.vendor" value="VMware"/>
+      <param pos="0" name="os.family" value="VMware ESX/ESXi"/>
+      <param pos="1" name="os.product"/>
+      <param pos="2" name="os.version"/>
+      <param pos="3" name="os.arch"/>
+    </fingerprint>
+
+   <fingerprint pattern="^&quot;vSphere Management Assistant ([\d\.]+)&quot;$">
+      <description>VMware vSphere Management assistant, which is a virtual machine (https://www.vmware.com/support/developer/vima/)</description>
+      <example os.version="4.1.0">"vSphere Management Assistant 4.1.0"</example>
+      <param pos="0" name="os.vendor" value="VMware"/>
+      <param pos="0" name="os.product" value="vSphere Management Assistant"/>
+      <param pos="1" name="os.version"/>
+   </fingerprint>
+
 
    <!--======================================================================
                               XEROX
@@ -8197,24 +8277,5 @@ Copyright (c) 1995-2005 by Cisco Systems
       <param pos="0" name="os.vendor" value="ZyXEL"/>
       <param pos="0" name="os.product" value="Prestige 650R-T3"/>
       <param pos="0" name="os.device" value="Broadband Router"/>
-   </fingerprint>
-
-   <fingerprint pattern="^(VMware ESXi?) (\d\.\d+\.\d+) build-\d+ VMware, Inc\. (\S+)$">
-      <description>VMware ESX/ESXi</description>
-      <example os.product="VMware ESXi" os.version="5.1.0" os.arch="x86_64">VMware ESXi 5.1.0 build-1157734 VMware, Inc. x86_64</example>
-      <example os.product="VMware ESX" os.version="5.0.0" os.arch="x86_64">VMware ESX 5.0.0 build-623860 VMware, Inc. x86_64</example>
-      <param pos="0" name="os.vendor" value="VMware"/>
-      <param pos="0" name="os.family" value="VMware ESX/ESXi"/>
-      <param pos="1" name="os.product"/>
-      <param pos="2" name="os.version"/>
-      <param pos="3" name="os.arch"/>
-    </fingerprint>
-
-   <fingerprint pattern="^&quot;vSphere Management Assistant ([\d\.]+)&quot;$">
-      <description>VMware vSphere Management assistant, which is a virtual machine (https://www.vmware.com/support/developer/vima/)</description>
-      <example os.version="4.1.0">"vSphere Management Assistant 4.1.0"</example>
-      <param pos="0" name="os.vendor" value="VMware"/>
-      <param pos="0" name="os.product" value="vSphere Management Assistant"/>
-      <param pos="1" name="os.version"/>
    </fingerprint>
 </fingerprints>
