@@ -93,11 +93,12 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="^(\S+)(?: \S+)? FTP Server \(Version wu(?:ftpd)?-([\d\.]+).*\) ready.?$" flags="REG_ICASE">
+  <fingerprint pattern="^(\S+)(?: \S+)? FTP Server \((?:Revision [\d\.]+ )?Version wu(?:ftpd)?-([\d\.]+).*\) ready.?$" flags="REG_ICASE">
     <description>WU-FTPD on various OS</description>
-    <example>example.com FTP server (Version wu-2.6.2(1) Sat Jul 19 16:21:30 UTC 2008) ready.</example>
-    <example>example.com 192.168.0.1 FTP server (Version wu-2.6.2(1) Wed Sep 21 11:16:21 MEST 2005) ready.</example>
-    <example>example.com FTP server (Version wu-2.6.2-11.73.1) ready.</example>
+    <example host.name="example.com" service.version="2.6.2">example.com FTP server (Version wu-2.6.2(1) Sat Jul 19 16:21:30 UTC 2008) ready.</example>
+    <example host.name="example.com" service.version="2.6.2">example.com 192.168.0.1 FTP server (Version wu-2.6.2(1) Wed Sep 21 11:16:21 MEST 2005) ready.</example>
+    <example host.name="example.com" service.version="2.6.2">example.com FTP server (Version wu-2.6.2-11.73.1) ready.</example>
+    <example host.name="example.com" service.version="2.6.1">example.com FTP server (Revision 5.0 Version wuftpd-2.6.1 Thu Apr 29 06:48:40 GMT 2010) ready.</example>
     <param pos="0" name="service.vendor" value="Washington University"/>
     <param pos="0" name="service.product" value="WU-FTPD"/>
     <param pos="1" name="host.name"/>
@@ -816,5 +817,41 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="os.device"/>
     <param pos="2" name="hw.series"/>
     <param pos="3" name="os.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\S+) FTP server \((?:HP|Compaq) Tru64 UNIX Version (\S+)\) ready\.?$">
+    <description>Digital/Compaq/HP Tru64 Unix</description>
+    <example host.name="example.com" os.version="5.60">example.com FTP server (Compaq Tru64 UNIX Version 5.60) ready.</example>
+    <param pos="0" name="os.vendor" value="HP"/>
+    <param pos="0" name="os.family" value="Unix"/>
+    <param pos="0" name="os.product" value="Tru64 Unix"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\S+) FTP server \(Digital UNIX Version (\S+)\) ready\.?$">
+    <description>Digital/Compaq/HP Tru64 Unix</description>
+    <example host.name="example.com" os.version="5.60">example.com FTP server (Digital UNIX Version 5.60) ready.</example>
+    <param pos="0" name="os.vendor" value="HP"/>
+    <param pos="0" name="os.family" value="Unix"/>
+    <param pos="0" name="os.product" value="Digital Unix"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\S+) FTP server ready.?$" flags="REG_ICASE">
+    <description>Generic FTP fingerprint with a hostname</description>
+    <example host.name="example.com">example.com FTP server ready.</example>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+
+  <fingerprint pattern="^FTP (?:server|service)?(?: is)? ready\.?$" flags="REG_ICASE">
+    <description>Generic FTP fingerprint without a hostname</description>
+    <example>FTP server is ready.</example>
+    <example>FTP Server ready.</example>
+    <example>FTP Server Ready</example>
+    <example>FTP service ready.</example>
   </fingerprint>
 </fingerprints>
