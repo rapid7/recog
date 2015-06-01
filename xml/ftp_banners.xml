@@ -184,8 +184,9 @@ against these patterns to fingerprint FTP servers.
     <param pos="0" name="service.family" value="ProFTPD"/>
     <param pos="0" name="service.product" value="ProFTPD"/>
   </fingerprint>
-  <fingerprint pattern="^-{10} Welcome to Pure-FTPd (.*)-{10}$">
+  <fingerprint pattern="^-{9,10} Welcome to Pure-FTPd (.*)-{9,10}$">
     <example>---------- Welcome to Pure-FTPd ----------</example>
+    <example>--------- Welcome to Pure-FTPd [privsep] [TLS] ----------</example>
     <description>Pure-FTPd
       Config data can be zero or more of: [privsep] [TLS]
       </description>
