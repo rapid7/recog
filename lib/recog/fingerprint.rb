@@ -42,7 +42,7 @@ class Fingerprint
   # @param match_string [String]
   # @return [Hash,nil] Keys will be host, service, and os attributes
   def match(match_string)
-    match_string.force_encoding('BINARY') if match_string
+    # match_string.force_encoding('BINARY') if match_string
     match_data = @regex.match(match_string)
     return if match_data.nil?
 
