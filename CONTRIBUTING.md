@@ -84,24 +84,23 @@ In short:
 
 1. Follow the "Fork and Clone" steps from above
 2. Update your `.git/config` to ensure that the `remote ["upstream"]` section is configure to pull both branches and PRs from upstream.  It should look something like the following, in particular the second `fetch` option:
-```
-[remote "upstream"]
-  url = git@github.com:rapid7/recog.git
-  fetch = +refs/heads/*:refs/remotes/upstream/*
-  fetch = +refs/pull/*/head:refs/remotes/upstream/pr/*
-```
+
+    ```
+     [remote "upstream"]
+      url = git@github.com:rapid7/recog.git
+      fetch = +refs/heads/*:refs/remotes/upstream/*
+      fetch = +refs/pull/*/head:refs/remotes/upstream/pr/*
+     ```
 3. Fetch the latest revisions, including PRs:
 
     ```
     git fetch --all
     ```
-
 4. Checkout and branch the PR for testing.  Replace ```PR``` below with the actual PR # in question:
 
     ```
     git checkout -b landing-PR upstream/pr/PR
     ```
-
 5. Test the PR, which typically involves running ```rspec```.
 6. Merge with master, re-test, validate and push:
 
