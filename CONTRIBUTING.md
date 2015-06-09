@@ -83,20 +83,27 @@ PRs](https://github.com/rapid7/metasploit-framework/wiki/Landing-Pull-Requests).
 In short:
 
 1. Follow the "Fork and Clone" steps from above
-2. Fetch the latest revisions:
+2. Update your `.git/config` to ensure that the `remote ["upstream"]` section is configure to pull both branches and PRs from upstream.  It should look something like the following, in particular the second `fetch` option:
+```
+[remote "upstream"]
+  url = git@github.com:rapid7/recog.git
+  fetch = +refs/heads/*:refs/remotes/upstream/*
+  fetch = +refs/pull/*/head:refs/remotes/upstream/pr/*
+```
+3. Fetch the latest revisions, including PRs:
 
     ```
     git fetch --all
     ```
 
-3. Checkout and branch the PR for testing.  Replace ```PR``` below with the actual PR # in question:
+4. Checkout and branch the PR for testing.  Replace ```PR``` below with the actual PR # in question:
 
     ```
     git checkout -b landing-PR upstream/pr/PR
     ```
 
-4. Test the PR, which typically involves running ```rspec```.
-5. Merge with master, re-test, validate and push:
+5. Test the PR, which typically involves running ```rspec```.
+6. Merge with master, re-test, validate and push:
 
     ```
     git checkout -b upstream-master --track upstream/master
@@ -105,7 +112,7 @@ In short:
     git push upstream upstream-master:master --dry-run # confirm you are pushing what you expect
     git push upstream upstream-master:master # push upstream-master to upstream:master
     ```
-6. If applicable, release a new version (see next section)
+7. If applicable, release a new version (see next section)
 
 ## Releasing New Versions
 
