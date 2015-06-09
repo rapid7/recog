@@ -56,6 +56,13 @@ describe Recog::Fingerprint::RegexpFactory do
       end
     end
 
+    context 'with multiple flags' do
+      let(:flags) { [ 'REG_LINE_ANY_CRLF', 'REG_ICASE' ] }
+      specify "sets correct flags" do
+        expect(subject).to be (Recog::Fingerprint::RegexpFactory::DEFAULT_FLAGS | Regexp::MULTILINE | Regexp::IGNORECASE)
+      end
+    end
+
     context 'with invalid flags' do
       let(:flags) { %w(SYN ACK FIN) } # oh, wrong flags!
       specify 'raises and lists supported/unsupported flags' do
