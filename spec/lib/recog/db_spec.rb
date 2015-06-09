@@ -61,7 +61,7 @@ describe Recog::DB do
           pending "Bug in jruby"
         end
         expect(entry.regex).to be_a(Regexp)
-        expect(entry.regex.options).to eq(Regexp::NOENCODING | Regexp::IGNORECASE)
+        expect(entry.regex.options).to eq(Recog::Fingerprint::RegexpFactory::DEFAULT_FLAGS | Regexp::IGNORECASE)
       end
 
       it "has a pattern" do

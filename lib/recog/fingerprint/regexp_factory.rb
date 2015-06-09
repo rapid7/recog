@@ -27,6 +27,8 @@ module Recog
         'IGNORECASE'        => Regexp::IGNORECASE
       }
 
+      DEFAULT_FLAGS = 0
+
       # @return [Regexp]
       def self.build(pattern, flags)
         options = build_options(flags)
@@ -44,7 +46,7 @@ module Recog
         unless unsupported_flags.empty?
           fail "Unsupported regular expression flags found: #{unsupported_flags.join(',')}. Must be one of: #{FLAG_MAP.keys.join(',')}"
         end
-        flags.reduce(Regexp::NOENCODING) do |sum, flag|
+        flags.reduce(DEFAULT_FLAGS) do |sum, flag|
           sum |= (FLAG_MAP[flag] || 0)
         end
       end
