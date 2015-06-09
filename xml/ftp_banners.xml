@@ -184,11 +184,21 @@ against these patterns to fingerprint FTP servers.
     <param pos="0" name="service.family" value="ProFTPD"/>
     <param pos="0" name="service.product" value="ProFTPD"/>
   </fingerprint>
-  <fingerprint pattern="^-{10} Welcome to Pure-FTPd (.*)-{10}$">
+  <fingerprint pattern="^=\(&lt;\*&gt;\)=-\.:\. \(\( Welcome to Pure-FTPd ([\d.]+) \)\) \.:\.-=\(&lt;\*&gt;\)=-$">
+    <!-- yes, the leading and trailing text is not balanced.
+         the leading text is missing the - at the beginning -->
+    <example service.version="1.0.11">=(&lt;*&gt;)=-.:. (( Welcome to Pure-FTPd 1.0.11 )) .:.-=(&lt;*&gt;)=-</example>
+    <description>Pure-FTPd versions &lt;= 1.0.13 (at least as far back as 1.0.11)</description>
+    <param pos="0" name="service.family" value="Pure-FTPd"/>
+    <param pos="0" name="service.product" value="Pure-FTPd"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^-{9,10} Welcome to Pure-FTPd (.*)-{9,10}$">
     <example>---------- Welcome to Pure-FTPd ----------</example>
-    <description>Pure-FTPd
+    <example>--------- Welcome to Pure-FTPd [privsep] [TLS] ----------</example>
+    <description>Pure-FTPd versions >= 1.0.14
       Config data can be zero or more of: [privsep] [TLS]
-      </description>
+    </description>
     <param pos="1" name="pureftpd.config"/>
     <param pos="0" name="service.family" value="Pure-FTPd"/>
     <param pos="0" name="service.product" value="Pure-FTPd"/>
@@ -841,7 +851,16 @@ against these patterns to fingerprint FTP servers.
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) FTP server ready.?$" flags="REG_ICASE">
+  <fingerprint pattern="^(\S+) FTP server \(MikroTik ([\d\.]+)\) ready\.?$">
+    <description>MikroTik</description>
+    <example host.name="example.com" os.version="6.18">example.com FTP server (MikroTik 6.18) ready</example>
+    <param pos="0" name="os.vendor" value="MikroTik"/>
+    <param pos="0" name="os.product" value="RouterOS"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\S+) FTP server ready\.?$" flags="REG_ICASE">
     <description>Generic FTP fingerprint with a hostname</description>
     <example host.name="example.com">example.com FTP server ready.</example>
     <param pos="1" name="host.name"/>
