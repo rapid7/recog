@@ -10,7 +10,7 @@ Recog is a framework for identifying products, services, operating systems, and 
 
 ## Installation
 
-Recog consists of both XML fingerprint files and an assortment of code, mostly in Ruby, that makes it easy to develop, test, and use the contained fingerprints. In order to use the included ruby code, a recent version of Ruby (1.9.3+) is required, along with Rubygems and the `bundler` gem. Once these dependencies are in place, use the following commands to grab the latest source code and install any additional dependencies.
+Recog consists of both XML fingerprint files and an assortment of code, mostly in Ruby, that makes it easy to develop, test, and use the contained fingerprints. In order to use the included ruby code, a recent version of Ruby (2.1+) is required, along with Rubygems and the `bundler` gem. Once these dependencies are in place, use the following commands to grab the latest source code and install any additional dependencies.
 
     $ git clone git@github.com:rapid7/recog.git
     $ cd recog
@@ -66,6 +66,7 @@ Matches can be tested on the command-line in a similar fashion:
     MATCH: {"service.version"=>"6.6p1", "openssh.comment"=>"Ubuntu-2ubuntu1", "service.vendor"=>"OpenBSD", "service.family"=>"OpenSSH", "service.product"=>"OpenSSH", "data"=>"OpenSSH_6.6p1 Ubuntu-2ubuntu1"}
 
 ### Best Practices
+
 * Create a single fingerprint for each product as long as the pattern remains clear and readable. If that is not possible, the pattern should be logically decomposed into additional fingerprints.
 * Create regular expressions that allow for flexible version number matching. This ensures greater probability of matching a product. For example, all known public releases of a product report either `major.minor` or `major.minor.build` format version numbers. If the fingerprint strictly matches this version number format, it would fail to match a modified build of the product that reports only a `major` version number format.
 
