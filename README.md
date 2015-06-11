@@ -26,19 +26,17 @@ The fingerprints within Recog are stored in XML files, each of which is designed
 
 A fingerprint file consists of an XML document like the following:
 
-    01: <?xml version="1.0"?>
-    02:
-    03: <fingerprints matches="ssh.banner">
-    04:
-    05: <fingerprint pattern="^RomSShell_([\d\.]+)$">
-    06:  <description>Allegro RomSShell SSH</description>
-    07:  <example service.version="4.62">RomSShell_4.62</example>
-    08:  <param pos="0" name="service.vendor" value="Allegro"/>
-    09:  <param pos="0" name="service.product" value="RomSShell"/>
-    10:  <param pos="1" name="service.version"/>
-    11: </fingerprint>
-    12:
-    13: </fingerprints>
+```
+<fingerprints matches="ssh.banner">
+  <fingerprint pattern="^RomSShell_([\d\.]+)$">
+    <description>Allegro RomSShell SSH</description>
+    <example service.version="4.62">RomSShell_4.62</example>
+    <param pos="0" name="service.vendor" value="Allegro"/>
+    <param pos="0" name="service.product" value="RomSShell"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+</fingerprints>
+```
 
 The first line should always consist of the XML version declaration. The first element should always be a `fingerpints` block with a `matches` attribute indicating what data this fingerprint file is supposed to match. The `matches` attribute is normally in the form of `protocol.field`.
 
@@ -48,7 +46,9 @@ Inside of the fingerprint, a `description` element should contain a human-readab
 
 At least one `example` element should be present, however multiple `example` elements are preferred.  These elements are used as part of the test coverage present in rspec which validates that the provided data matches the specified regular expression.  Additionally, if the fingerprint is using the `param` elements to extract field values from the data (described next), you can add these expected extractions as attributes for the `example` elements.  In the example above, this:
 
-    07:  <example service.version="4.62">RomSShell_4.62</example>
+```
+<example service.version="4.62">RomSShell_4.62</example>
+```
 
 tests that `RomSShell_4.62` matches the provided regular expression and that the value of `service.version` is 4.62.
 
@@ -58,12 +58,16 @@ The `param` elements contain a `pos` attribute, which indicates what capture fie
 
 Once a fingerprint has been added, the `example` entries can be tested by executing `bin/recog_verify` against the fingerprint file:
 
+```
     $ bin/recog_verify xml/ssh_banners.xml
+```
 
 Matches can be tested on the command-line in a similar fashion:
 
+```
     $ echo 'OpenSSH_6.6p1 Ubuntu-2ubuntu1' | bin/recog_match xml/ssh_banners.xml -
     MATCH: {"service.version"=>"6.6p1", "openssh.comment"=>"Ubuntu-2ubuntu1", "service.vendor"=>"OpenBSD", "service.family"=>"OpenSSH", "service.product"=>"OpenSSH", "data"=>"OpenSSH_6.6p1 Ubuntu-2ubuntu1"}
+```
 
 ### Best Practices
 
