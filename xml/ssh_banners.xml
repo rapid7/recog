@@ -238,10 +238,11 @@ fingerprint SSH servers.
       <param pos="0" name="os.version" value="10.04"/>
    </fingerprint>
 
-   <fingerprint pattern="^OpenSSH_(5\.5p1) (Debian-4ubuntu[45])$">
+   <fingerprint pattern="^OpenSSH_(5\.5p1) (Debian-4ubuntu\d+(?:\.\d+)?)$">
       <description>OpenSSH running on Ubuntu 10.10</description>
-      <example>OpenSSH_5.5p1 Debian-4ubuntu4</example>
-      <example>OpenSSH_5.5p1 Debian-4ubuntu5</example>
+      <example service.version="5.5p1" openssh.comment="Debian-4ubuntu4">OpenSSH_5.5p1 Debian-4ubuntu4</example>
+      <example service.version="5.5p1" openssh.comment="Debian-4ubuntu5">OpenSSH_5.5p1 Debian-4ubuntu5</example>
+      <example service.version="5.5p1" openssh.comment="Debian-4ubuntu6">OpenSSH_5.5p1 Debian-4ubuntu6</example>
       <param pos="1" name="service.version"/>
       <param pos="2" name="openssh.comment"/>
       <param pos="0" name="service.vendor" value="OpenBSD"/>
