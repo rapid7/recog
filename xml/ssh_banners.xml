@@ -309,9 +309,10 @@ fingerprint SSH servers.
       <param pos="0" name="os.version" value="11.10"/>
    </fingerprint>
 
-   <fingerprint pattern="^OpenSSH_(5\.9p1) (Debian-5ubuntu1(?:\.3|))$">
+   <fingerprint pattern="^OpenSSH_(5\.9p1) (Debian-5ubuntu1(?:\.\d)?)$">
       <description>OpenSSH running on Ubuntu 12.04</description>
-      <example>OpenSSH_5.9p1 Debian-5ubuntu1</example>
+      <example service.version="5.9p1" openssh.comment="Debian-5ubuntu1">OpenSSH_5.9p1 Debian-5ubuntu1</example>
+      <example service.version="5.9p1" openssh.comment="Debian-5ubuntu1.4">OpenSSH_5.9p1 Debian-5ubuntu1.4</example>
       <param pos="1" name="service.version"/>
       <param pos="2" name="openssh.comment"/>
       <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -367,19 +368,6 @@ fingerprint SSH servers.
       <param pos="0" name="os.family" value="Linux"/>
       <param pos="0" name="os.product" value="Linux"/>
       <param pos="0" name="os.version" value="14.04"/>
-   </fingerprint>
-
-   <fingerprint pattern="^OpenSSH_([^\s]+)\s+((?:Debian|Ubuntu).+ubuntu.*)$">
-      <description>OpenSSH running on Ubuntu</description>
-      <param pos="1" name="service.version"/>
-      <param pos="2" name="openssh.comment"/>
-      <param pos="0" name="service.vendor" value="OpenBSD"/>
-      <param pos="0" name="service.family" value="OpenSSH"/>
-      <param pos="0" name="service.product" value="OpenSSH"/>
-      <param pos="0" name="os.vendor" value="Ubuntu"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.family" value="Linux"/>
-      <param pos="0" name="os.product" value="Linux"/>
    </fingerprint>
 
    <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Debian.+etch.*)$">
