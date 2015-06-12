@@ -157,9 +157,10 @@ fingerprint SSH servers.
       <param pos="0" name="os.version" value="7.10"/>
    </fingerprint>
 
-   <fingerprint pattern="^OpenSSH_(4\.7p1) (Debian-8ubuntu1.*)$">
+   <fingerprint pattern="^OpenSSH_(4\.7p1) (Debian-8ubuntu[13].*)$">
       <description>OpenSSH running on Ubuntu 8.04</description>
-      <example>OpenSSH_4.7p1 Debian-8ubuntu1.2</example>
+      <example service.version="4.7p1" openssh.comment="Debian-8ubuntu1.2">OpenSSH_4.7p1 Debian-8ubuntu1.2</example>
+      <example service.version="4.7p1" openssh.comment="Debian-8ubuntu3">OpenSSH_4.7p1 Debian-8ubuntu3</example>
       <param pos="1" name="service.version"/>
       <param pos="2" name="openssh.comment"/>
       <param pos="0" name="service.vendor" value="OpenBSD"/>
