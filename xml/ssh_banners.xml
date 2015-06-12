@@ -362,6 +362,23 @@ fingerprint SSH servers.
       <param pos="0" name="os.version" value="15.04"/>
    </fingerprint>
 
+   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Debian-4(?:\+deb7u\d+)?)$">
+      <description>OpenSSH running on Debian 7.x (wheezy)</description>
+      <example service.version="6.0p1" openssh.comment="Debian-4">OpenSSH_6.0p1 Debian-4</example>
+      <example service.version="6.0p1" openssh.comment="Debian-4+deb7u1">OpenSSH_6.0p1 Debian-4+deb7u1</example>
+      <example service.version="6.0p1" openssh.comment="Debian-4+deb7u2">OpenSSH_6.0p1 Debian-4+deb7u2</example>
+      <param pos="1" name="service.version"/>
+      <param pos="2" name="openssh.comment"/>
+      <param pos="0" name="service.vendor" value="OpenBSD"/>
+      <param pos="0" name="service.family" value="OpenSSH"/>
+      <param pos="0" name="service.product" value="OpenSSH"/>
+      <param pos="0" name="os.vendor" value="Debian"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="os.family" value="Linux"/>
+      <param pos="0" name="os.product" value="Linux"/>
+      <param pos="0" name="os.version" value="7.0"/>
+    </fingerprint>
+
    <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Debian.+squeeze.*)$">
       <description>OpenSSH running on Debian 6.0 (squeeze)</description>
       <example service.version="5.5p1" openssh.comment="Debian-6+squeeze4">OpenSSH_5.5p1 Debian-6+squeeze4</example>
