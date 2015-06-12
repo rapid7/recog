@@ -465,6 +465,16 @@ fingerprint SSH servers.
       <param pos="0" name="os.product" value="Windows"/>
    </fingerprint>
 
+   <fingerprint pattern="^OpenSSH_(\d+\.\d+(?:p\d+)?)$">
+      <description>OpenSSH with just a version, no comment by vendor</description>
+      <example service.version="5.9p1">OpenSSH_5.9p1</example>
+      <example service.version="5.9">OpenSSH_5.9</example>
+      <param pos="1" name="service.version"/>
+      <param pos="0" name="service.vendor" value="OpenBSD"/>
+      <param pos="0" name="service.family" value="OpenSSH"/>
+      <param pos="0" name="service.product" value="OpenSSH"/>
+    </fingerprint>
+
    <!-- SSH-1.99-OpenSSH_4.3p2-4.cern-hpn-CERN-4.3p2-4.cern -->
 
    <fingerprint pattern="^OpenSSH_?([^\s]*)\s*(.*)$">
