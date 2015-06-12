@@ -57,11 +57,8 @@ describe Recog::DB do
       end
 
       it 'creates a Regexp with expected flags' do
-        if RUBY_PLATFORM =~ /java/i
-          pending "Bug in jruby"
-        end
         expect(entry.regex).to be_a(Regexp)
-        expect(entry.regex.options).to eq(Regexp::NOENCODING | Regexp::IGNORECASE)
+        expect(entry.regex.options).to eq(Recog::Fingerprint::RegexpFactory::DEFAULT_FLAGS | Regexp::IGNORECASE)
       end
 
       it "has a pattern" do

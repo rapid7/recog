@@ -28,31 +28,38 @@ describe Recog::Fingerprint::RegexpFactory do
     let(:flags) { [ ] }
     it { is_expected.to be_a(Fixnum) }
 
-    specify "sets NOENCODING" do
-      expect(subject & Regexp::NOENCODING).to_not be_zero
+    context 'without any explicit flags' do
+      let(:flags) { [ ] }
+      specify "sets default flags" do
+        expect(subject).to be Recog::Fingerprint::RegexpFactory::DEFAULT_FLAGS
+      end
     end
 
     context 'with REG_ICASE' do
       let(:flags) { [ 'REG_ICASE' ] }
-      specify "sets NOENCODING & IGNORECASE" do
-        expect(subject & Regexp::NOENCODING).to_not be_zero
-        expect(subject & Regexp::IGNORECASE).to_not be_zero
+      specify "sets IGNORECASE" do
+        expect(subject).to be (Recog::Fingerprint::RegexpFactory::DEFAULT_FLAGS | Regexp::IGNORECASE)
       end
     end
 
     context 'with REG_DOT_NEWLINE' do
       let(:flags) { [ 'REG_DOT_NEWLINE' ] }
-      specify "sets NOENCODING & MULTILINE" do
-        expect(subject & Regexp::NOENCODING).to_not be_zero
-        expect(subject & Regexp::MULTILINE).to_not be_zero
+      specify "sets MULTILINE" do
+        expect(subject).to be (Recog::Fingerprint::RegexpFactory::DEFAULT_FLAGS | Regexp::MULTILINE)
       end
     end
 
     context 'with REG_LINE_ANY_CRLF' do
       let(:flags) { [ 'REG_LINE_ANY_CRLF' ] }
-      specify "sets NOENCODING & MULTILINE" do
-        expect(subject & Regexp::NOENCODING).to_not be_zero
-        expect(subject & Regexp::MULTILINE).to_not be_zero
+      specify "sets MULTILINE" do
+        expect(subject).to be (Recog::Fingerprint::RegexpFactory::DEFAULT_FLAGS | Regexp::MULTILINE)
+      end
+    end
+
+    context 'with multiple flags' do
+      let(:flags) { [ 'REG_LINE_ANY_CRLF', 'REG_ICASE' ] }
+      specify "sets correct flags" do
+        expect(subject).to be (Recog::Fingerprint::RegexpFactory::DEFAULT_FLAGS | Regexp::MULTILINE | Regexp::IGNORECASE)
       end
     end
 
