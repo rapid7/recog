@@ -331,9 +331,10 @@ fingerprint SSH servers.
       <param pos="0" name="os.version" value="13.04"/>
    </fingerprint>
 
-   <fingerprint pattern="^OpenSSH_(6\.6p1) (Ubuntu-2ubuntu\d+(?:\.\d+)?)$">
+   <fingerprint pattern="^OpenSSH_(6\.6(?:\.\d)?p1) (Ubuntu-2ubuntu\d+(?:\.\d+)?)$">
       <description>OpenSSH running on Ubuntu 14.04</description>
-      <example>OpenSSH_6.6p1 Ubuntu-2ubuntu1</example>
+      <example service.version="6.6p1" openssh.comment="Ubuntu-2ubuntu1">OpenSSH_6.6p1 Ubuntu-2ubuntu1</example>
+      <example service.version="6.6.1p1" openssh.comment="Ubuntu-2ubuntu2">OpenSSH_6.6.1p1 Ubuntu-2ubuntu2</example>
       <param pos="1" name="service.version"/>
       <param pos="2" name="openssh.comment"/>
       <param pos="0" name="service.vendor" value="OpenBSD"/>
