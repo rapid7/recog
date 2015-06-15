@@ -127,6 +127,13 @@ against these patterns to fingerprint FTP servers.
     <param pos="0" name="os.product" value="Mac OS X Server"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
+  <fingerprint pattern="^(\S+)\s+FTP Server \(tnftpd (.*)\) ready\.?$" flags="REG_ICASE">
+    <description>Simple tnftpd banner with a version</description>
+    <example host.name="example.com" service.version="20061217">example.com FTP server (tnftpd 20061217) ready.</example>
+    <param pos="0" name="service.product" value="tnftpd"/>
+    <param pos="2" name="service.version"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
   <fingerprint pattern="^(\S+) FTP Server \(SunOS (\S+)\) ready\.?$" flags="REG_ICASE">
     <description>SunOS/Solaris</description>
     <example>example.com FTP server (SunOS 5.7) ready.</example>
