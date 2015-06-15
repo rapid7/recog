@@ -104,9 +104,10 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="^(\S+)\s+FTP Server \(Version:\s+Mac OS X Server\s+([\d\.]+).*\) ready\.?$" flags="REG_ICASE">
+  <fingerprint pattern="^(\S+)\s+FTP Server \(Version:\s+Mac OS X Server\s+([\d\.]+).*\) ready\.?" flags="REG_ICASE,MULTILINE">
     <description>FTPD on Mac OS X Server with a version</description>
     <example host.name="example.com" os.version="10.3">example.com FTP server (Version:  Mac OS X Server 10.3 - +GSSAPI) ready.</example>
+    <example host.name="example.com" os.version="10.3">this is a banner.  change it.&#13;&#10;example.com FTP server (Version:  Mac OS X Server 10.3 - +GSSAPI) ready.</example>
     <param pos="0" name="service.vendor" value="Apple"/>
     <param pos="0" name="service.product" value="FTP"/>
     <param pos="0" name="os.vendor" value="Apple"/>
@@ -116,9 +117,10 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^(\S+)\s+FTP Server \(Version:\s+Mac OS X Server\) ready\.?$" flags="REG_ICASE">
+  <fingerprint pattern="^(\S+)\s+FTP Server \(Version:\s+Mac OS X Server\) ready\.?" flags="REG_ICASE,MULTILINE">
     <description>FTPD on Mac OS X Server without a version</description>
     <example host.name="example.com">example.com FTP server (Version:  Mac OS X Server) ready.</example>
+    <example host.name="example.com">this is a banner.  change it.&#13;&#10;example.com FTP server (Version:  Mac OS X Server) ready.</example>
     <param pos="0" name="service.vendor" value="Apple"/>
     <param pos="0" name="service.product" value="FTP"/>
     <param pos="0" name="os.vendor" value="Apple"/>
