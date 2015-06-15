@@ -884,6 +884,14 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="host.name"/>
   </fingerprint>
 
+  <fingerprint pattern="^(\S+) FTP server \(Version (\d.*)\) ready\.?$" flags="REG_ICASE">
+    <description>Generic FTP fingerprint with a hostname and a version for a generic FTP implementation</description>
+    <example host.name="example.com" service.version="6.00LS">example.com FTP server (Version 6.00LS) ready.</example>
+    <example host.name="example.com" service.version="1.2">example.com FTP server (Version 1.2) ready.</example>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+
   <fingerprint pattern="^FTP (?:server|service)?(?: is)? ready\.?$" flags="REG_ICASE">
     <description>Generic FTP fingerprint without a hostname</description>
     <example>FTP server is ready.</example>
