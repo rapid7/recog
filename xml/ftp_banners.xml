@@ -104,9 +104,10 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="^(\S+)(?: \S+)? FTP Server \(Version:\s+Mac OS X Server\s*([\d\.]*).*\) ready.?$" flags="REG_ICASE">
-    <description>FTPD on Mac OS X Server</description>
-    <example>example.com FTP server (Version:  Mac OS X Server 10.3 - +GSSAPI) ready.</example>
+  <fingerprint pattern="^(\S+)\s+FTP Server \(Version:\s+Mac OS X Server\s+([\d\.]+).*\) ready\.?" flags="REG_ICASE,MULTILINE">
+    <description>FTPD on Mac OS X Server with a version</description>
+    <example host.name="example.com" os.version="10.3">example.com FTP server (Version:  Mac OS X Server 10.3 - +GSSAPI) ready.</example>
+    <example host.name="example.com" os.version="10.3">this is a banner.  change it.&#13;&#10;example.com FTP server (Version:  Mac OS X Server 10.3 - +GSSAPI) ready.</example>
     <param pos="0" name="service.vendor" value="Apple"/>
     <param pos="0" name="service.product" value="FTP"/>
     <param pos="0" name="os.vendor" value="Apple"/>
@@ -115,6 +116,25 @@ against these patterns to fingerprint FTP servers.
     <param pos="0" name="os.product" value="Mac OS X Server"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(\S+)\s+FTP Server \(Version:\s+Mac OS X Server\) ready\.?" flags="REG_ICASE,MULTILINE">
+    <description>FTPD on Mac OS X Server without a version</description>
+    <example host.name="example.com">example.com FTP server (Version:  Mac OS X Server) ready.</example>
+    <example host.name="example.com">this is a banner.  change it.&#13;&#10;example.com FTP server (Version:  Mac OS X Server) ready.</example>
+    <param pos="0" name="service.vendor" value="Apple"/>
+    <param pos="0" name="service.product" value="FTP"/>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS X"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Mac OS X Server"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^(\S+)\s+FTP Server \(tnftpd (.*)\) ready\.?$" flags="REG_ICASE">
+    <description>Simple tnftpd banner with a version</description>
+    <example host.name="example.com" service.version="20061217">example.com FTP server (tnftpd 20061217) ready.</example>
+    <param pos="0" name="service.product" value="tnftpd"/>
+    <param pos="2" name="service.version"/>
+    <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^(\S+) FTP Server \(SunOS (\S+)\) ready\.?$" flags="REG_ICASE">
     <description>SunOS/Solaris</description>
@@ -184,18 +204,20 @@ against these patterns to fingerprint FTP servers.
     <param pos="0" name="service.family" value="ProFTPD"/>
     <param pos="0" name="service.product" value="ProFTPD"/>
   </fingerprint>
-  <fingerprint pattern="^=\(&lt;\*&gt;\)=-\.:\. \(\( Welcome to Pure-FTPd ([\d.]+) \)\) \.:\.-=\(&lt;\*&gt;\)=-$">
+  <fingerprint pattern="^=\(&lt;\*&gt;\)=-\.:\. \(\( Welcome to Pure-FTPd ([\d.]+) \)\) \.:\.-=\(&lt;\*&gt;\)=-" flags="MULTILINE">
     <!-- yes, the leading and trailing text is not balanced.
          the leading text is missing the - at the beginning -->
     <example service.version="1.0.11">=(&lt;*&gt;)=-.:. (( Welcome to Pure-FTPd 1.0.11 )) .:.-=(&lt;*&gt;)=-</example>
+    <example service.version="1.0.11">=(&lt;*&gt;)=-.:. (( Welcome to Pure-FTPd 1.0.11 )) .:.-=(&lt;*&gt;)=-&#13;&#10;more stuff</example>
     <description>Pure-FTPd versions &lt;= 1.0.13 (at least as far back as 1.0.11)</description>
     <param pos="0" name="service.family" value="Pure-FTPd"/>
     <param pos="0" name="service.product" value="Pure-FTPd"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="^-{9,10} Welcome to Pure-FTPd (.*)-{9,10}$">
+  <fingerprint pattern="^-{9,10} Welcome to Pure-FTPd (.*)-{9,10}" flags="MULTILINE">
     <example>---------- Welcome to Pure-FTPd ----------</example>
     <example>--------- Welcome to Pure-FTPd [privsep] [TLS] ----------</example>
+    <example>--------- Welcome to Pure-FTPd [privsep] [TLS] ----------&#13;&#10;more text</example>
     <description>Pure-FTPd versions >= 1.0.14
       Config data can be zero or more of: [privsep] [TLS]
     </description>
@@ -203,8 +225,9 @@ against these patterns to fingerprint FTP servers.
     <param pos="0" name="service.family" value="Pure-FTPd"/>
     <param pos="0" name="service.product" value="Pure-FTPd"/>
   </fingerprint>
-  <fingerprint pattern="^=\(.\*.\)=-\.:\. \(\( Welcome to PureFTPd (\d+\..+) \)\) \.:\.-=\(.\*.\)=-$">
-    <example>=(&lt;*&gt;)=-.:. (( Welcome to PureFTPd 1.1.0 )) .:.-=(&lt;*&gt;)=-</example>
+  <fingerprint pattern="^=\(.\*.\)=-\.:\. \(\( Welcome to PureFTPd (\d+\..+) \)\) \.:\.-=\(.\*.\)=-" flags="MULTILINE">
+    <example service.version="1.1.0">=(&lt;*&gt;)=-.:. (( Welcome to PureFTPd 1.1.0 )) .:.-=(&lt;*&gt;)=-</example>
+    <example service.version="1.1.0">=(&lt;*&gt;)=-.:. (( Welcome to PureFTPd 1.1.0 )) .:.-=(&lt;*&gt;)=-&#13;&#10;more text</example>
     <description>Older Pure-FTPd versions</description>
     <param pos="0" name="service.family" value="Pure-FTPd"/>
     <param pos="0" name="service.product" value="Pure-FTPd"/>
@@ -864,6 +887,14 @@ against these patterns to fingerprint FTP servers.
     <description>Generic FTP fingerprint with a hostname</description>
     <example host.name="example.com">example.com FTP server ready.</example>
     <param pos="1" name="host.name"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(\S+) FTP server \(Version (\d.*)\) ready\.?$" flags="REG_ICASE">
+    <description>Generic FTP fingerprint with a hostname and a version for a generic FTP implementation</description>
+    <example host.name="example.com" service.version="6.00LS">example.com FTP server (Version 6.00LS) ready.</example>
+    <example host.name="example.com" service.version="1.2">example.com FTP server (Version 1.2) ready.</example>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
   </fingerprint>
 
   <fingerprint pattern="^FTP (?:server|service)?(?: is)? ready\.?$" flags="REG_ICASE">
