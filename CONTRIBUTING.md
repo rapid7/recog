@@ -3,9 +3,8 @@
 The users and maintainers of Recog would greatly appreciate any contributions
 you can make to the project.  These contributions typically come in the form of
 filed bugs/issues or pull requests (PRs).  These contributions routinely result
-in new versions of the [recog gem](https://rubygems.org/gems/recog) and the
-[recog release](https://github.com/rapid7/recog/releases) to be released.  The
-process for everything is described below.
+in new versions of the [recog gem](https://rubygems.org/gems/recog) to be
+released.  The process for everything is described below.
 
 ## Contributing Issues / Bug Reports
 
@@ -117,24 +116,14 @@ In short:
 
 When Recog's critical parts are modified, for example its fingerprints or underlying supporting code, a new version _must_ eventually be released.  These new releases can then be optionally included in projects such as Metasploit or products such as Rapid7's Nexpose in a controlled manner.  Releases for non-functional updates such as updates to documentation are not necessary.
 
-When a new version of Recog is released, you _must_ do so in two different places:
+When a new version of Recog is to be released, you _must_ follow the instructions below.
 
-   * Gem -- for systems that use Gemspec or similar tools to control what version of Recog to include
-   * Github -- for systems that use Git tags to control what version of Recog to include
-
-### Gem Release
-
-1. Get an account on [Rubygems](https://rubygems.org)
-2. Contact one of the Recog project contributors (listed [here under OWNERS](https://rubygems.org/gems/recog) and have them add you to the Recog gem.  They'll need to run:
-  ```
-  gem owner recog -a EMAIL
-  ```
-3. Edit [lib/recog/version.rb](https://github.com/rapid7/recog/blob/master/lib/recog/version.rb) and increment ```VERSION```.  Commit and push to rapid7/recog master.
-4. Run `rake release`.  Among other things, this creates the new gem, uploads it to Rubygems and tags the release with a tag like `v<VERSION>`, where `<VERSION>` is replaced with the version from `version.rb`.  For example, if you release version 1.2.3 of the gem, the tag will be `v1.2.3`.
-5. If your default remote repository is not `rapid7/recog`, you must ensure that the tags created in the previous step are also pushed to the right location(s).  For example, if `origin` is your fork of recog and `upstream` is `rapid7/master`, you should run `git push --tags --dry-run upstream` to confirm what tags will be pushed and then `git push --tags upstream` to push the tags.
-
-### Github Release
-
-Some users may prefer to consume recog in a manner other than using git itself.  For that reason, Github offers [Releases](https://github.com/blog/1547-release-your-software).  Whenever a new version of the software is to be released, be kind and also create a new [Release](https://github.com/rapid7/recog/releases), using a versioning scheme identical to that used for the gem.  More specifically, you should use the tag created during the releasing of the gem in the previous section (do *not* create a new tag) and a version that is identical to the tag -- the description of the release should just describe what is going into it.
-
-
+1. If are not already a Recog project contributor for the Recog gem (you'd be listed [here under OWNERS](https://rubygems.org/gems/recog)), become one:
+  1. 1. Get an account on [Rubygems](https://rubygems.org)
+  2. Contact one of the Recog project contributors (listed [here under OWNERS](https://rubygems.org/gems/recog) and have them add you to the Recog gem.  They'll need to run:
+    ```
+      gem owner recog -a EMAIL
+    ```
+2. Edit [lib/recog/version.rb](https://github.com/rapid7/recog/blob/master/lib/recog/version.rb) and increment ```VERSION```.  Commit and push to rapid7/recog master.
+3. Run `rake release`.  Among other things, this creates the new gem, uploads it to Rubygems and tags the release with a tag like `v<VERSION>`, where `<VERSION>` is replaced with the version from `version.rb`.  For example, if you release version 1.2.3 of the gem, the tag will be `v1.2.3`.
+4. If your default remote repository is not `rapid7/recog`, you must ensure that the tags created in the previous step are also pushed to the right location(s).  For example, if `origin` is your fork of recog and `upstream` is `rapid7/master`, you should run `git push --tags --dry-run upstream` to confirm what tags will be pushed and then `git push --tags upstream` to push the tags.
