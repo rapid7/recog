@@ -45,7 +45,7 @@ git fetch --all
 If you have a contribution to make, first create a branch to contain your
 work.  The name is yours to choose, however generally it should roughly
 describe what you are doing.  In this example, and from here on out, the
-branch will be FOO, but you should obviously change this
+branch will be FOO, but you should obviously change this:
 
 ```
 git fetch --all
@@ -54,13 +54,7 @@ git rebase upstream/master
 git checkout -b FOO
 ```
 
-Now, make your changes, committing as necessary, using useful commit messages:
-
-```
-vim CONTRIBUTING.md
-git add CONTRIBUTING.md
-git commit -m "Add a document on how to contribute to recog" -a
-```
+Now, make your changes, commit as necessary with useful commit messages. 
 
 Please note that changes to [lib/recog/version.rb](https://github.com/rapid7/recog/blob/master/lib/recog/version.rb) in PRs are almost never necessary.
 
@@ -71,6 +65,10 @@ git push origin FOO
 ```
 
 Finally, submit the PR.  Navigate to ```https://github.com/<your-github-username>/recog/compare/FOO```, fill in the details and submit.
+
+### Testing
+
+When your PR is submitted, it will be automatically subjected to the full run of tests in [Travis](https://travis-ci.org/rapid7/recog/), however you are encourage to perform testing _before_ submitting the PR.  To do this, simply run `rake tests`.
 
 ## Landing PRs
 
@@ -100,7 +98,7 @@ In short:
     ```
     git checkout -b landing-PR upstream/pr/PR
     ```
-5. Test the PR, which typically involves running ```rspec```.
+5. Test the PR (see the Testing section above)
 6. Merge with master, re-test, validate and push:
 
     ```
