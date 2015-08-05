@@ -1222,11 +1222,12 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="5" name="system.time"/>
    </fingerprint>
 
-   <fingerprint pattern="^([^ ]+) ESMTP Sendmail AIX([^/]+)/([^/]+)/([^;]+); (.+) \(.+\)$">
+   <fingerprint pattern="^([^ ]+) ESMTP Sendmail AIX([^/]+)/([^/]+)/([^;]+); (.+)(?: \(.+\))?$">
      <description>
        sendmail on AIX
       </description>
-      <example>foo.bar.com ESMTP Sendmail AIX4.2/8.7/8.7; Sun, 29 Jul 2001 22:34:37 -0400 (EDT)</example>
+      <example host.name="example.com" os.version="4.2" service.version="8.7" sendmail.config.version="8.8">example.com ESMTP Sendmail AIX4.2/8.7/8.8; Sun, 29 Jul 2001 22:34:37 -0400 (EDT)</example>
+      <example host.name="example.com" os.version="5.1" service.version="8.11.6p2" sendmail.config.version="8.11.0">example.com ESMTP Sendmail AIX5.1/8.11.6p2/8.11.0; Fri, 28 Aug 1970 19:42:05 -0800</example>
       <param pos="0" name="service.family" value="Sendmail"/>
       <param pos="0" name="service.product" value="Sendmail"/>
       <param pos="0" name="os.vendor" value="IBM"/>
