@@ -24,11 +24,138 @@
      https://github.com/twitter/mysql/blob/master/sql/share/errmsg-utf8.txt
 -->
 <fingerprints matches="mysql.error">
-
-  <fingerprint pattern="^(?:#HY000)?Host '[^']+' is not allowed to connect to this MySQL server$">
+  <!-- ER_HOST_NOT_PRIVILEGED -->
+  <fingerprint pattern="^Stroj '[^']+' nemá povoleno se k tomuto MySQL serveru připojit$">
+    <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (cze)</description>
+    <example>Stroj '10.10.10.10' nemá povoleno se k tomuto MySQL serveru připojit</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="^Værten '[^']+' kan ikke tilkoble denne MySQL-server$">
+    <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (dan)</description>
+    <example>Værten '10.10.10.10' kan ikke tilkoble denne MySQL-server</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="^Het is host '[^']+' is niet toegestaan verbinding te maken met deze MySQL server$">
+    <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (nla)</description>
+    <example>Het is host '10.10.10.10' is niet toegestaan verbinding te maken met deze MySQL server</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="^^(?:#HY000)?Host '[^']+' is not allowed to connect to this MySQL server$$">
+    <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (eng)</description>
+    <example>Host '10.10.10.10' is not allowed to connect to this MySQL server</example>
     <example>Host '10.10.10.10' is not allowed to connect to this MySQL server</example>
     <example>#HY000Host '10.10.10.10' is not allowed to connect to this MySQL server</example>
-    <description>Oracle MySQL - Error: Host not allowed to connect (English)</description>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="^Masinal '[^']+' puudub ligipääs sellele MySQL serverile$">
+    <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (est)</description>
+    <example>Masinal '10.10.10.10' puudub ligipääs sellele MySQL serverile</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="^Le hôte '[^']+' n'est pas authorisé à se connecter à ce serveur MySQL$">
+    <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (fre)</description>
+    <example>Le hôte '10.10.10.10' n'est pas authorisé à se connecter à ce serveur MySQL</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="^Host '[^']+' hat keine Berechtigung, sich mit diesem MySQL-Server zu verbinden$">
+    <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (ger)</description>
+    <example>Host '10.10.10.10' hat keine Berechtigung, sich mit diesem MySQL-Server zu verbinden</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="^Ο υπολογιστής '[^']+' δεν έχει δικαίωμα σύνδεσης με τον MySQL server$">
+    <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (greek)</description>
+    <example>Ο υπολογιστής '10.10.10.10' δεν έχει δικαίωμα σύνδεσης με τον MySQL server</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="^A '[^']+' host szamara nem engedelyezett a kapcsolodas ehhez a MySQL szerverhez$">
+    <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (hun)</description>
+    <example>A '10.10.10.10' host szamara nem engedelyezett a kapcsolodas ehhez a MySQL szerverhez</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="^Al sistema '[^']+' non e` consentita la connessione a questo server MySQL$">
+    <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (ita)</description>
+    <example>Al sistema '10.10.10.10' non e` consentita la connessione a questo server MySQL</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="^ホスト '[^']+' からのこの MySQL server への接続は許可されていません。$">
+    <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (jpn)</description>
+    <example>ホスト '10.10.10.10' からのこの MySQL server への接続は許可されていません。</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="^'[^']+' 호스트는 이 MySQL서버에 접속할 허가를 받지 못했습니다.$">
+    <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (kor)</description>
+    <example>'10.10.10.10' 호스트는 이 MySQL서버에 접속할 허가를 받지 못했습니다.</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="^'Host' '[^']+' não tem permissão para se conectar com este servidor MySQL$">
+    <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (por)</description>
+    <example>'Host' '10.10.10.10' não tem permissão para se conectar com este servidor MySQL</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="^Host-ul '[^']+' nu este permis a se conecta la aceste server MySQL$">
+    <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (rum)</description>
+    <example>Host-ul '10.10.10.10' nu este permis a se conecta la aceste server MySQL</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="^Хосту '[^']+' не разрешается подключаться к этому серверу MySQL$">
+    <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (rus)</description>
+    <example>Хосту '10.10.10.10' не разрешается подключаться к этому серверу MySQL</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="^Host-u '[^']+' nije dozvoljeno da se konektuje na ovaj MySQL server$">
+    <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (serbian)</description>
+    <example>Host-u '10.10.10.10' nije dozvoljeno da se konektuje na ovaj MySQL server</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="^Servidor '[^']+' no está permitido para conectar con este servidor MySQL$">
+    <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (spa)</description>
+    <example>Servidor '10.10.10.10' no está permitido para conectar con este servidor MySQL</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="^Denna dator, '[^']+', har inte privileger att använda denna MySQL server$">
+    <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (swe)</description>
+    <example>Denna dator, '10.10.10.10', har inte privileger att använda denna MySQL server</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="^Хосту '[^']+' не доволено зв'язуватись з цим сервером MySQL$">
+    <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (ukr)</description>
+    <example>Хосту '10.10.10.10' не доволено зв'язуватись з цим сервером MySQL</example>
     <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MySQL"/>
@@ -49,31 +176,6 @@
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MariaDB"/>
-  </fingerprint>
-
-  <fingerprint pattern="^Le hôte '[^']+' n'est pas authorisé à se connecter à ce serveur MySQL$">
-    <example>Le hôte '10.10.10.10' n'est pas authorisé à se connecter à ce serveur MySQL</example>
-    <description>Oracle MySQL - Error: Host not allowed to connect (French)</description>
-    <param pos="0" name="service.vendor" value="Oracle"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MySQL"/>
-  </fingerprint>
-
-  <fingerprint pattern="^'Host' '[^']+' não tem permissão para se conectar com este servidor MySQL$">
-    <example>'Host' '10.10.10.10' não tem permissão para se conectar com este servidor MySQL</example>
-    <description>Oracle MySQL - Error: Host not allowed to connect (Portuguese)</description>
-    <param pos="0" name="service.vendor" value="Oracle"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MySQL"/>
-  </fingerprint>
-
-  <fingerprint pattern="^Host.+?hat keine Berechtigung,.+?diesem MySQL">
-    <example>Host '10.10.10.10' hat keine Berechtigung, sich mit diesem MySQL-Server zu verbinden</example>
-    <example>Host hat keine Berechtigung, eine Verbindung zu diesem MySQL Server herzustellen.</example>
-    <description>Oracle MySQL - Error: Host not allowed to connect (German)</description>
-    <param pos="0" name="service.vendor" value="Oracle"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
   <fingerprint pattern="^Host.+?blockiert wegen zu vieler Verbindungsfehler. Aufheben der Blockierung mit 'mysqladmin flush-hosts'">
