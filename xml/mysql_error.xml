@@ -161,10 +161,136 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:#HY000)?Host '[^']+' is blocked because of many connection errors.\s{1,2}[Uu]nblock with 'mysqladmin flush-hosts'$">
+  <!-- ER_HOST_IS_BLOCKED -->
+  <fingerprint pattern="Stroj '[^']+' je zablokován kvůli mnoha chybám při připojování. Odblokujete použitím 'mysqladmin flush-hosts'">
+    <description>Oracle MySQL error ER_HOST_IS_BLOCKED (cze)</description>
+    <example>Stroj '10.10.10.10' je zablokován kvůli mnoha chybám při připojování. Odblokujete použitím 'mysqladmin flush-hosts'</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Værten '[^']+' er blokeret på grund af mange fejlforespørgsler. Lås op med 'mysqladmin flush-hosts'">
+    <description>Oracle MySQL error ER_HOST_IS_BLOCKED (dan)</description>
+    <example>Værten '10.10.10.10' er blokeret på grund af mange fejlforespørgsler. Lås op med 'mysqladmin flush-hosts'</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Host '[^']+' is geblokkeeerd vanwege te veel verbindings fouten. Deblokkeer met 'mysqladmin flush-hosts'">
+    <description>Oracle MySQL error ER_HOST_IS_BLOCKED (nla)</description>
+    <example>Host '10.10.10.10' is geblokkeeerd vanwege te veel verbindings fouten. Deblokkeer met 'mysqladmin flush-hosts'</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Host '[^']+' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'">
+    <description>Oracle MySQL error ER_HOST_IS_BLOCKED (eng)</description>
     <example>Host '10.10.10.10' is blocked because of many connection errors; unblock with 'mysqladmin flush-hosts'</example>
-    <example>Host '10.10.10.10' is blocked because of many connection errors.  Unblock with 'mysqladmin flush-hosts'</example>
-    <description>Oracle MySQL - Error: Blocked, too many errors from this host</description>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Masin '[^']+' on blokeeritud hulgaliste ühendusvigade tõttu. Blokeeringu saab tühistada 'mysqladmin flush-hosts' käsuga">
+    <description>Oracle MySQL error ER_HOST_IS_BLOCKED (est)</description>
+    <example>Masin '10.10.10.10' on blokeeritud hulgaliste ühendusvigade tõttu. Blokeeringu saab tühistada 'mysqladmin flush-hosts' käsuga</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="L'hôte '[^']+' est bloqué à cause d'un trop grand nombre d'erreur de connexion. Débloquer le par 'mysqladmin flush-hosts'">
+    <description>Oracle MySQL error ER_HOST_IS_BLOCKED (fre)</description>
+    <example>L'hôte '10.10.10.10' est bloqué à cause d'un trop grand nombre d'erreur de connexion. Débloquer le par 'mysqladmin flush-hosts'</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Host '[^']+' blockiert wegen zu vieler Verbindungsfehler. Aufheben der Blockierung mit 'mysqladmin flush-hosts'">
+    <description>Oracle MySQL error ER_HOST_IS_BLOCKED (ger)</description>
+    <example>Host '10.10.10.10' blockiert wegen zu vieler Verbindungsfehler. Aufheben der Blockierung mit 'mysqladmin flush-hosts'</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Ο υπολογιστής '[^']+' έχει αποκλεισθεί λόγω πολλαπλών λαθών σύνδεσης. Προσπαθήστε να διορώσετε με 'mysqladmin flush-hosts'">
+    <description>Oracle MySQL error ER_HOST_IS_BLOCKED (greek)</description>
+    <example>Ο υπολογιστής '10.10.10.10' έχει αποκλεισθεί λόγω πολλαπλών λαθών σύνδεσης. Προσπαθήστε να διορώσετε με 'mysqladmin flush-hosts'</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="A '[^']+' host blokkolodott, tul sok kapcsolodasi hiba miatt. Hasznalja a 'mysqladmin flush-hosts' parancsot">
+    <description>Oracle MySQL error ER_HOST_IS_BLOCKED (hun)</description>
+    <example>A '10.10.10.10' host blokkolodott, tul sok kapcsolodasi hiba miatt. Hasznalja a 'mysqladmin flush-hosts' parancsot</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Sistema '[^']+' bloccato a causa di troppi errori di connessione. Per sbloccarlo: 'mysqladmin flush-hosts'">
+    <description>Oracle MySQL error ER_HOST_IS_BLOCKED (ita)</description>
+    <example>Sistema '10.10.10.10' bloccato a causa di troppi errori di connessione. Per sbloccarlo: 'mysqladmin flush-hosts'</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="接続エラーが多いため、ホスト '[^']+' は拒否されました。'mysqladmin flush-hosts' で解除できます。">
+    <description>Oracle MySQL error ER_HOST_IS_BLOCKED (jpn)</description>
+    <example>接続エラーが多いため、ホスト '10.10.10.10' は拒否されました。'mysqladmin flush-hosts' で解除できます。</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="너무 많은 연결오류로 인하여 호스트 '[^']+'는 블락되었습니다. 'mysqladmin flush-hosts'를 이용하여 블락을 해제하세요">
+    <description>Oracle MySQL error ER_HOST_IS_BLOCKED (kor)</description>
+    <example>너무 많은 연결오류로 인하여 호스트 '10.10.10.10'는 블락되었습니다. 'mysqladmin flush-hosts'를 이용하여 블락을 해제하세요</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="'Host' '[^']+' está bloqueado devido a muitos erros de conexão. Desbloqueie com 'mysqladmin flush-hosts'">
+    <description>Oracle MySQL error ER_HOST_IS_BLOCKED (por)</description>
+    <example>'Host' '10.10.10.10' está bloqueado devido a muitos erros de conexão. Desbloqueie com 'mysqladmin flush-hosts'</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Host-ul '[^']+' e blocat din cauza multelor erori de conectie. Poti deploca folosind 'mysqladmin flush-hosts'">
+    <description>Oracle MySQL error ER_HOST_IS_BLOCKED (rum)</description>
+    <example>Host-ul '10.10.10.10' e blocat din cauza multelor erori de conectie. Poti deploca folosind 'mysqladmin flush-hosts'</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Хост '[^']+' заблокирован из-за слишком большого количества ошибок соединения. Разблокировать его можно с помощью 'mysqladmin flush-hosts'">
+    <description>Oracle MySQL error ER_HOST_IS_BLOCKED (rus)</description>
+    <example>Хост '10.10.10.10' заблокирован из-за слишком большого количества ошибок соединения. Разблокировать его можно с помощью 'mysqladmin flush-hosts'</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Host '[^']+' je blokiran zbog previše grešaka u konekciji.  Možete ga odblokirati pomoću komande 'mysqladmin flush-hosts'">
+    <description>Oracle MySQL error ER_HOST_IS_BLOCKED (serbian)</description>
+    <example>Host '10.10.10.10' je blokiran zbog previše grešaka u konekciji.  Možete ga odblokirati pomoću komande 'mysqladmin flush-hosts'</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Servidor '[^']+' está bloqueado por muchos errores de conexión.  Desbloquear con 'mysqladmin flush-hosts'">
+    <description>Oracle MySQL error ER_HOST_IS_BLOCKED (spa)</description>
+    <example>Servidor '10.10.10.10' está bloqueado por muchos errores de conexión.  Desbloquear con 'mysqladmin flush-hosts'</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Denna dator, '[^']+', är blockerad pga många felaktig paket. Gör 'mysqladmin flush-hosts' för att ta bort alla blockeringarna">
+    <description>Oracle MySQL error ER_HOST_IS_BLOCKED (swe)</description>
+    <example>Denna dator, '10.10.10.10', är blockerad pga många felaktig paket. Gör 'mysqladmin flush-hosts' för att ta bort alla blockeringarna</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Хост '[^']+' заблоковано з причини великої кількості помилок з'єднання. Для розблокування використовуйте 'mysqladmin flush-hosts'">
+    <description>Oracle MySQL error ER_HOST_IS_BLOCKED (ukr)</description>
+    <example>Хост '10.10.10.10' заблоковано з причини великої кількості помилок з'єднання. Для розблокування використовуйте 'mysqladmin flush-hosts'</example>
     <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MySQL"/>
@@ -176,15 +302,6 @@
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MariaDB"/>
-  </fingerprint>
-
-  <fingerprint pattern="^Host.+?blockiert wegen zu vieler Verbindungsfehler. Aufheben der Blockierung mit 'mysqladmin flush-hosts'">
-    <example>Host blockiert wegen zu vieler Verbindungsfehler. Aufheben der Blockierung mit 'mysqladmin flush-hosts'.</example>
-    <example>Host '10.10.10.10' blockiert wegen zu vieler Verbindungsfehler. Aufheben der Blockierung mit 'mysqladmin flush-hosts'</example>
-    <description>Oracle MySQL - Error: Blocked, too many errors from this host (German)</description>
-    <param pos="0" name="service.vendor" value="Oracle"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
   <fingerprint pattern="^L'h.+?est bloqu.+?cause d'un trop grand nombre d'erreur de connexion\..+?bloquer le par 'mysqladmin flush-hosts'">
