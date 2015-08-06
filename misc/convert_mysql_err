@@ -1,0 +1,53 @@
+#!/usr/bin/env ruby
+
+# Takes the MySQL error messages from sql/share/errmsg-utf8.txt, locates the
+# provided error message type (for example, ER_HOST_NOT_PRIVILEGED), then
+# creates XML snippets for each language to be used in Recog
+
+require 'builder'
+require 'open-uri'
+require 'securerandom'
+
+
+def generate_recog(error_name, lang, error_message)
+  xml = Builder::XmlMarkup.new(target: STDOUT, indent: 2)
+  # if this error message has a format string in it, warn because
+  # this script won't attempt to handle the format string in the regex
+  # or the example
+  format_count = error_message.scan(/%/).size
+  unless format_count == 0
+    warn("#{format_count} possible format strings found -- you'll need to deal with this")
+  end
+  xml.fingerprint(pattern: error_message) do
+    xml.description "Oracle MySQL error #{error_name} (#{lang})"
+    xml.example(error_message)
+    xml.param(pos: 0, name: 'service.vendor', value: 'Oracle')
+    xml.param(pos: 0, name: 'service.family', value: 'MySQL')
+    xml.param(pos: 0, name: 'service.product', value: 'MySQL')
+  end
+end
+
+unless ARGV.size == 2
+  fail "Usage: #{$0} <path/URI for errmsg-utf8.txt> <error name>"
+end
+
+path = ARGV.first
+error_name = ARGV.last
+
+lines = IO.readlines(open(path))
+
+if lines.empty?
+  fail "Nothing read from #{path}"
+end
+
+unless error_start = lines.find_index { |line| line.strip == error_name }
+  fail "Unable to find #{error_name} in #{path}"
+end
+
+lines.slice(error_start + 1, lines.size).each do |line|
+  if /^\s+(?<lang>\S+)\s+"(?<error_message>.*)",?$/ =~ line
+    generate_recog(error_name, lang, error_message)
+  else
+    break
+  end
+end
