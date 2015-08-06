@@ -40,7 +40,7 @@ if lines.empty?
   fail "Nothing read from #{path}"
 end
 
-unless error_start = lines.find_index { |line| line.strip =~ /^#{error_name}(?:\s+\d+)?$/ }
+unless error_start = lines.find_index { |line| line.strip =~ /^#{error_name}(?:\s+\S+)?$/ }
   fail "Unable to find #{error_name} in #{path}"
 end
 
