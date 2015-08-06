@@ -312,12 +312,129 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^Can't create a new thread \(errno -?\d{1,2}\)">
-    <example>Can't create a new thread (errno -1); if you are not out of available memory, you can consult the manual for a possible OS-dependent bug</example>
-    <example>Can't create a new thread (errno 12); if you are not out of available memory, you can consult the manual for a possible OS-dependent bug</example>
-    <example>Can't create a new thread (errno 35); if you are not out of available memory, you can consult the manual for a possible OS-dependent bug</example>
-    <description>Oracle MySQL - Error: Out of memory</description>
-    <description>Oracle MySQL - Error: Out of memory</description>
+  <!-- ER_CANT_CREATE_THREAD -->
+  <fingerprint pattern="Nemohu vytvořit nový thread \(errno -?\d+\). Pokud je ještě nějaká volná paměť, podívejte se do manuálu na část o chybách specifických pro jednotlivé operační systémy">
+    <description>Oracle MySQL error ER_CANT_CREATE_THREAD (cze)</description>
+    <example>Nemohu vytvořit nový thread (errno 4). Pokud je ještě nějaká volná paměť, podívejte se do manuálu na část o chybách specifických pro jednotlivé operační systémy</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Kan ikke danne en ny tråd \(fejl nr. -?\d+\). Hvis computeren ikke er løbet tør for hukommelse, kan du se i brugervejledningen for en mulig operativ-system - afhængig fejl">
+    <description>Oracle MySQL error ER_CANT_CREATE_THREAD (dan)</description>
+    <example>Kan ikke danne en ny tråd (fejl nr. 4). Hvis computeren ikke er løbet tør for hukommelse, kan du se i brugervejledningen for en mulig operativ-system - afhængig fejl</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Kan geen nieuwe thread aanmaken \(Errcode: -?\d+\). Indien er geen tekort aan geheugen is kunt u de handleiding consulteren over een mogelijke OS afhankelijke fout">
+    <description>Oracle MySQL error ER_CANT_CREATE_THREAD (nla)</description>
+    <example>Kan geen nieuwe thread aanmaken (Errcode: 4). Indien er geen tekort aan geheugen is kunt u de handleiding consulteren over een mogelijke OS afhankelijke fout</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Can't create a new thread \(errno -?\d+\); if you are not out of available memory, you can consult the manual for a possible OS-dependent bug">
+    <description>Oracle MySQL error ER_CANT_CREATE_THREAD (eng, pol, nor, norwegian-ny)</description>
+    <example>Can't create a new thread (errno 4); if you are not out of available memory, you can consult the manual for a possible OS-dependent bug</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Ei suuda luua uut lõime \(veakood -?\d+\). Kui mälu ei ole otsas, on tõenäoliselt tegemist operatsioonisüsteemispetsiifilise veaga">
+    <description>Oracle MySQL error ER_CANT_CREATE_THREAD (est)</description>
+    <example>Ei suuda luua uut lõime (veakood 4). Kui mälu ei ole otsas, on tõenäoliselt tegemist operatsioonisüsteemispetsiifilise veaga</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Impossible de créer une nouvelle tâche \(errno -?\d+\). S'il reste de la mémoire libre, consultez le manual pour trouver un éventuel bug dépendant de l'OS">
+    <description>Oracle MySQL error ER_CANT_CREATE_THREAD (fre)</description>
+    <example>Impossible de créer une nouvelle tâche (errno 4). S'il reste de la mémoire libre, consultez le manual pour trouver un éventuel bug dépendant de l'OS</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Kann keinen neuen Thread erzeugen \(Fehler: -?\d+\). Sollte noch Speicher verfügbar sein, bitte im Handbuch wegen möglicher Fehler im Betriebssystem nachschlagen">
+    <description>Oracle MySQL error ER_CANT_CREATE_THREAD (ger)</description>
+    <example>Kann keinen neuen Thread erzeugen (Fehler: 4). Sollte noch Speicher verfügbar sein, bitte im Handbuch wegen möglicher Fehler im Betriebssystem nachschlagen</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Uj thread letrehozasa nem lehetseges \(Hibakod: -?\d+\). Amenyiben van meg szabad memoria, olvassa el a kezikonyv operacios rendszerfuggo hibalehetosegekrol szolo reszet">
+    <description>Oracle MySQL error ER_CANT_CREATE_THREAD (hun)</description>
+    <example>Uj thread letrehozasa nem lehetseges (Hibakod: 4). Amenyiben van meg szabad memoria, olvassa el a kezikonyv operacios rendszerfuggo hibalehetosegekrol szolo reszet</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Impossibile creare un nuovo thread \(errno -?\d+\). Se non ci sono problemi di memoria disponibile puoi consultare il manuale per controllare possibili problemi dipendenti dal SO">
+    <description>Oracle MySQL error ER_CANT_CREATE_THREAD (ita)</description>
+    <example>Impossibile creare un nuovo thread (errno 4). Se non ci sono problemi di memoria disponibile puoi consultare il manuale per controllare possibili problemi dipendenti dal SO</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="新規にスレッドを作成できません。\(エラー番号 -?\d+\) もしも使用可能メモリーの不足でなければ、OS依存のバグである可能性があります。">
+    <description>Oracle MySQL error ER_CANT_CREATE_THREAD (jpn)</description>
+    <example>新規にスレッドを作成できません。(エラー番号 4) もしも使用可能メモリーの不足でなければ、OS依存のバグである可能性があります。</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="새로운 쓰레드를 만들 수 없습니다.\(에러번호 -?\d+\). 만약 여유메모리가 있다면 OS-dependent버그 의 메뉴얼 부분을 찾아보시오.">
+    <description>Oracle MySQL error ER_CANT_CREATE_THREAD (kor)</description>
+    <example>새로운 쓰레드를 만들 수 없습니다.(에러번호 4). 만약 여유메모리가 있다면 OS-dependent버그 의 메뉴얼 부분을 찾아보시오.</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Não pode criar uma nova 'thread' \(erro no. -?\d+\). Se você não estiver sem memória disponível, você pode consultar o manual sobre um possível 'bug' dependente do sistema operacional">
+    <description>Oracle MySQL error ER_CANT_CREATE_THREAD (por)</description>
+    <example>Não pode criar uma nova 'thread' (erro no. 4). Se você não estiver sem memória disponível, você pode consultar o manual sobre um possível 'bug' dependente do sistema operacional</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Nu pot crea un thread nou \(Eroare -?\d+\). Daca mai aveti memorie disponibila in sistem, puteti consulta manualul - ar putea exista un potential bug in legatura cu sistemul de operare">
+    <description>Oracle MySQL error ER_CANT_CREATE_THREAD (rum)</description>
+    <example>Nu pot crea un thread nou (Eroare 4). Daca mai aveti memorie disponibila in sistem, puteti consulta manualul - ar putea exista un potential bug in legatura cu sistemul de operare</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Невозможно создать новый поток \(ошибка -?\d+\). Если это не ситуация, связанная с нехваткой памяти, то вам следует изучить документацию на предмет описания возможной ошибки работы в конкретной ОС">
+    <description>Oracle MySQL error ER_CANT_CREATE_THREAD (rus)</description>
+    <example>Невозможно создать новый поток (ошибка 4). Если это не ситуация, связанная с нехваткой памяти, то вам следует изучить документацию на предмет описания возможной ошибки работы в конкретной ОС</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Ne mogu da kreiram novi thread \(errno -?\d+\). Ako imate još slobodne memorije, trebali biste da pogledate u priručniku da li je ovo specifična greška vašeg operativnog sistema">
+    <description>Oracle MySQL error ER_CANT_CREATE_THREAD (serbian)</description>
+    <example>Ne mogu da kreiram novi thread (errno 4). Ako imate još slobodne memorije, trebali biste da pogledate u priručniku da li je ovo specifična greška vašeg operativnog sistema</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="No puedo crear un nuevo thread \(errno -?\d+\). Si tu está con falta de memoria disponible, tu puedes consultar el Manual para posibles problemas con SO">
+    <description>Oracle MySQL error ER_CANT_CREATE_THREAD (spa)</description>
+    <example>No puedo crear un nuevo thread (errno 4). Si tu está con falta de memoria disponible, tu puedes consultar el Manual para posibles problemas con SO</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Kan inte skapa en ny tråd \(errno -?\d+\)">
+    <description>Oracle MySQL error ER_CANT_CREATE_THREAD (swe)</description>
+    <example>Kan inte skapa en ny tråd (errno 4)</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+  <fingerprint pattern="Не можу створити нову гілку \(помилка -?\d+\). Якщо ви не використали усю пам'ять, то прочитайте документацію до вашої ОС - можливо це помилка ОС">
+    <description>Oracle MySQL error ER_CANT_CREATE_THREAD (ukr)</description>
+    <example>Не можу створити нову гілку (помилка 4). Якщо ви не використали усю пам'ять, то прочитайте документацію до вашої ОС - можливо це помилка ОС</example>
     <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MySQL"/>
