@@ -1222,11 +1222,12 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="5" name="system.time"/>
    </fingerprint>
 
-   <fingerprint pattern="^([^ ]+) ESMTP Sendmail AIX([^/]+)/([^/]+)/([^;]+); (.+) \(.+\)$">
+   <fingerprint pattern="^([^ ]+) ESMTP Sendmail AIX([^/]+)/([^/]+)/([^;]+); (.+)(?: \(.+\))?$">
      <description>
        sendmail on AIX
       </description>
-      <example>foo.bar.com ESMTP Sendmail AIX4.2/8.7/8.7; Sun, 29 Jul 2001 22:34:37 -0400 (EDT)</example>
+      <example host.name="example.com" os.version="4.2" service.version="8.7" sendmail.config.version="8.8">example.com ESMTP Sendmail AIX4.2/8.7/8.8; Sun, 29 Jul 2001 22:34:37 -0400 (EDT)</example>
+      <example host.name="example.com" os.version="5.1" service.version="8.11.6p2" sendmail.config.version="8.11.0">example.com ESMTP Sendmail AIX5.1/8.11.6p2/8.11.0; Fri, 28 Aug 1970 19:42:05 -0800</example>
       <param pos="0" name="service.family" value="Sendmail"/>
       <param pos="0" name="service.product" value="Sendmail"/>
       <param pos="0" name="os.vendor" value="IBM"/>
@@ -1421,12 +1422,14 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="4" name="system.time"/>
    </fingerprint>
 
-   <fingerprint pattern="^([^ ]+) +ESMTP .*Sendmail +([^ ]+) */ *([^ ]+); *(.+) \(.+\)$">
+   <fingerprint pattern="^([^ ]+) +ESMTP .*Sendmail +([^/ ]+) */ *([^/ ]+); *(.+)(?: \(.+\))?$">
       <description>
-        sendmail where neither daemon nor config file are patched (with timezone)
+        sendmail where neither daemon nor config file are patched, with and without timezone
       </description>
-      <example>mail.foo.bar ESMTP Sendmail 8.8.8/8.8.8; Wed, 21 Nov 2001 23:39:07 +0100 (CET)</example>
-      <example>mail.foo.bar ESMTP blah Sendmail 8.8.8/8.8.8; Wed, 21 Nov 2001 23:39:07 +0100 (CET)</example>
+      <example host.name="example.com" service.version="8.8.8" sendmail.config.version="8.8.9">example.com ESMTP Sendmail 8.8.8/8.8.9; Wed, 21 Nov 2001 23:39:07 +0100 (CET)</example>
+      <example host.name="example.com" service.version="8.8.8" sendmail.config.version="8.8.9">example.com ESMTP blah Sendmail 8.8.8/8.8.9; Wed, 21 Nov 2001 23:39:07 +0100 (CET)</example>
+      <example host.name="example.com" service.version="8.10.2" sendmail.config.version="8.10.3">example.com ESMTP Sendmail 8.10.2/8.10.3; Mon, 10 Sep 2001 08:37:14 -0400</example>
+      <example host.name="example.com" service.version="8.13.8" sendmail.config.version="8.13.9">example.com ESMTP foo-MTA Sendmail 8.13.8/8.13.9; Mon, 18 Apr 2011 08:52:38 -0700</example>
       <param pos="0" name="service.family" value="Sendmail"/>
       <param pos="0" name="service.product" value="Sendmail"/>
       <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
@@ -1435,22 +1438,6 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="3" name="sendmail.config.version"/>
       <param pos="4" name="system.time"/>
    </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP .*Sendmail +([^ ]+) */ *([^ ]+) *; *(.+) *$">
-      <description>
-         sendmail where neither daemon nor config file are patched (without timezone)
-      </description>
-      <example>mail.foo.bar ESMTP Sendmail 8.10.2/8.10.2; Mon, 10 Sep 2001 08:37:14 -0400</example>
-      <example>mail.foo.bar ESMTP Sendmail 8.8.7/8.8.7; Mon, 2 Jul 2001 14:19:18 -0700</example>
-      <example>foo.example.com ESMTP foo-MTA Sendmail 8.13.8/8.13.8; Mon, 18 Apr 2011 08:52:38 -0700</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="sendmail.config.version"/>
-      <param pos="4" name="system.time"/>
-    </fingerprint>
 
    <fingerprint pattern="^([^ ]+) +Sendmail ready\. *$">
       <description>
@@ -1588,11 +1575,12 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="1" name="host.name"/>
    </fingerprint>
 
-   <fingerprint pattern="^(\S+) ESMTP Sendmail (\S{3}, \d{2} \S{3} \d{4} \d{2}:\d{2}:\d{2} \S+)$">
+   <fingerprint pattern="^(\S+) ESMTP Sendmail (\S{3}, \d{1,2} \S{3} \d{4} \d{2}:\d{2}:\d{2} \S+)$">
       <description>
          catch all for other versions of sendmail, with a date/time
       </description>
       <example host.name="example.com">example.com ESMTP Sendmail Wed, 20 May 2015 17:17:56 -0600</example>
+      <example host.name="example.com">example.com ESMTP Sendmail Wed, 5 Aug 2015 17:40:38 -0400</example>
       <param pos="0" name="service.family" value="Sendmail"/>
       <param pos="0" name="service.product" value="Sendmail"/>
       <param pos="1" name="host.name"/>
