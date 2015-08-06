@@ -296,22 +296,6 @@
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
 
-  <fingerprint pattern="^Host '[^']+' is not allowed to connect to this MariaDB server$">
-    <example>Host '10.10.10.10' is not allowed to connect to this MariaDB server</example>
-    <description>MariaDB MariaDB - Error: Host not allowed to connect (English) </description>
-    <param pos="0" name="service.vendor" value="MariaDB"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MariaDB"/>
-  </fingerprint>
-
-  <fingerprint pattern="^L'h.+?est bloqu.+?cause d'un trop grand nombre d'erreur de connexion\..+?bloquer le par 'mysqladmin flush-hosts'">
-    <example>L'h�te '10.10.10.10' est bloqu� � cause d'un trop grand nombre d'erreur de connexion. D�bloquer le par 'mysqladmin flush-hosts'</example>
-    <description>Oracle MySQL - Error: Blocked, too many errors from this host (French)</description>
-    <param pos="0" name="service.vendor" value="Oracle"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MySQL"/>
-  </fingerprint>
-
   <!-- ER_CANT_CREATE_THREAD -->
   <fingerprint pattern="Nemohu vytvořit nový thread \(errno -?\d+\). Pokud je ještě nějaká volná paměť, podívejte se do manuálu na část o chybách specifických pro jednotlivé operační systémy">
     <description>Oracle MySQL error ER_CANT_CREATE_THREAD (cze)</description>
@@ -601,6 +585,15 @@
     <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MySQL"/>
+  </fingerprint>
+
+
+  <fingerprint pattern="^Host '[^']+' is not allowed to connect to this MariaDB server$">
+    <example>Host '10.10.10.10' is not allowed to connect to this MariaDB server</example>
+    <description>MariaDB MariaDB - Error: Host not allowed to connect (English) </description>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
   </fingerprint>
 
   <fingerprint pattern="^Can't get hostname for your address$">
