@@ -7,7 +7,7 @@ describe Recog::Fingerprint::RegexpFactory do
     subject { described_class::FLAG_MAP }
 
     it "should have the right number of flags" do
-      expect(subject.size).to be 5
+      expect(subject.size).to eq 5
     end
   end
 
