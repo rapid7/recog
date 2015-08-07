@@ -9,7 +9,7 @@ fingerprint SSH servers.
 
 
    <!-- Honeypot SSH server banners are useless for fingerprinting -->
-   <fingerprint pattern="(?i-mx:honeypot)">
+   <fingerprint pattern="honeypot" flags="REG_ICASE">
       <description>Honeypot SSH</description>
       <!-- assert nothing -->
    </fingerprint>

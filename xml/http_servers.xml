@@ -24,7 +24,7 @@
       <param pos="0" name="os.family" value="Linux"/>
    </fingerprint>
 
-   <fingerprint pattern="(?i-mx:^Apache\/\d$)">
+   <fingerprint pattern="^Apache/\d$" flags="REG_ICASE">
       <description>Apache returning only its major version number</description>
       <example>Apache/1</example>
       <example>Apache/2</example>
@@ -34,7 +34,7 @@
       <!-- no version info as only the major version number is known -->
     </fingerprint>
 
-   <fingerprint pattern="(?i-mx:^Apache$)">
+   <fingerprint pattern="^Apache$" flags="REG_ICASE">
       <description>Apache returning no version information</description>
       <example>Apache</example>
       <example>apache</example>
@@ -43,7 +43,7 @@
       <param pos="0" name="service.family" value="Apache"/>
    </fingerprint>
 
-   <fingerprint pattern="(?i-mx:^Apache(?:-AdvancedExtranetServer)?(?:\/([012][\d.]*)\s*(.*))?$)">
+   <fingerprint pattern="^Apache(?:-AdvancedExtranetServer)?(?:/([012][\d.]*)\s*(.*))?$" flags="REG_ICASE">
       <example>Apache-AdvancedExtranetServer/2.0.44 (Mandrake Linux/11mdk) mod_perl/1.99_08 Perl/v5.8.0 mod_ssl/2.0.44 OpenSSL/0.9.7a PHP/4.3.1 mod_jk2/2.0.0</example>
       <example>Apache-AdvancedExtranetServer/2.0.47 (Mandrake Linux/6.12.92mdk) mod_perl/1.99_09 Perl/v5.8.1 mod_ssl/2.0.47 OpenSSL/0.9.7b PHP/4.3.2</example>
       <example>Apache-AdvancedExtranetServer/2.0.47 (Mandrake Linux/6.3.92mdk) mod_ssl/2.0.47 OpenSSL/0.9.7b PHP/4.3.2</example>
@@ -1892,7 +1892,7 @@
       <param pos="0" name="service.product" value="SMH"/>
     </fingerprint>
 
-   <fingerprint pattern="(?i-mx:^eHTTP[\/ ]v?(\d+\.\d+))">
+   <fingerprint pattern="^eHTTP[/ ]v?(\d+\.\d+)" flags="REG_ICASE">
       <example service.version="1.1">EHTTP/1.1</example>
       <example service.version="2.0">eHTTP v2.0</example>
       <description>HTTP Server present on seemingly only HP ProCurve network devices</description>
@@ -2124,7 +2124,7 @@
       <param pos="1" name="apache.variant.version"/>
    </fingerprint>
 
-   <fingerprint pattern="(?i-mx:^(?:IBM_HTTP_SERVER|IBM-HTTP-SERVER)\/(\S+)(?: \(\S+\))?$)">
+   <fingerprint pattern="^(?:IBM_HTTP_SERVER|IBM-HTTP-SERVER)/(\S+)(?: \(\S+\))?$" flags="REG_ICASE">
       <example>IBM-HTTP-Server/1.0</example>
       <example>IBM_HTTP_Server/7.0.0.9 (Unix)</example>
       <description>IBM HTTP Server with hardly useful version info</description>
@@ -2135,7 +2135,7 @@
       <param pos="1" name="apache.variant.version"/>
     </fingerprint>
 
-   <fingerprint pattern="(?i-mx:^(?:IBM_HTTP_SERVER|IBM-HTTP-SERVER)$)">
+   <fingerprint pattern="^(?:IBM_HTTP_SERVER|IBM-HTTP-SERVER)$" flags="REG_ICASE">
       <example>IBM_HTTP_SERVER</example>
       <example>IBM_HTTP_Server</example>
       <description>IBM HTTP Server with no version info</description>
@@ -3080,7 +3080,7 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="(?i-mx:^TornadoServer\/((?:\d+\.)*\d+)$)">
+   <fingerprint pattern="^TornadoServer/((?:\d+\.)*\d+)$" flags="REG_ICASE">
       <example>TornadoServer/4.0.2</example>
       <description>Tornado Python web framework and asynchronous networking library.</description>
       <param pos="0" name="service.vendor" value="Tornado"/>
@@ -3089,7 +3089,7 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="(?i-mx:^SimpleHTTP\/((?:\d+\.)*\d+)\s*Python\/((?:\d+\.)*\d+)$)">
+   <fingerprint pattern="^SimpleHTTP/((?:\d+\.)*\d+)\s*Python/((?:\d+\.)*\d+)$" flags="REG_ICASE">
       <example>SimpleHTTP/0.6 Python/2.7.6</example>
       <example>SimpleHTTP/0.6 Python/3.4.0</example>
       <description>SimpleHTTPRequestHandler Python class is a simple HTTP request handler.</description>
