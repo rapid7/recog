@@ -9,13 +9,13 @@
      <param pos="2" name="os.device" value="General"/>
    </fingerprint>
 
-   <fingerprint pattern="(designjet \S+)" flags="REG_ICASE">
+   <fingerprint pattern="(?i:designjet \S+)">
      <description>HP Designjet printer</description>
      <description>I should be ignored</description>
      <param pos="0" name="service.vendor" value="HP"/>
    </fingerprint>
 
-   <fingerprint pattern="laserjet (.*)(?: series)?" flags="REG_ICASE">
+   <fingerprint pattern="(?i:laserjet (.*)(?: series)?)">
      <description>HP JetDirect Printer</description>
      <example>HP LaserJet 4100 Series</example>
      <example>HP LaserJet 2200</example>

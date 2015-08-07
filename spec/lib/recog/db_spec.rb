@@ -49,32 +49,6 @@ describe Recog::DB do
       end
     end
 
-    context "with pattern flags" do
-      subject(:entry) { described_class.new(xml_file).fingerprints[2] }
-
-      it "has a name and only uses the first value" do
-        expect(entry.name).to eq('HP Designjet printer')
-      end
-
-      it 'creates a Regexp with expected flags' do
-        expect(entry.regex).to be_a(Regexp)
-        expect(entry.regex.options).to eq(Recog::Fingerprint::RegexpFactory::DEFAULT_FLAGS | Regexp::IGNORECASE)
-      end
-
-      it "has a pattern" do
-        expect(entry.regex).to be_a(Regexp)
-        expect(entry.regex.source).to eq("(designjet \\S+)")
-      end
-
-      it "has params" do
-        expect(entry.params).to eq({"service.vendor"=>[0, "HP"]})
-      end
-
-      it "has no tests" do
-        expect(entry.tests).to be_empty
-      end
-    end
-
     context "with test" do
       subject(:entry) { described_class.new(xml_file).fingerprints[3] }
 
@@ -83,7 +57,7 @@ describe Recog::DB do
       end
 
       it "has a pattern" do
-        expect(entry.regex.source).to eq("laserjet (.*)(?: series)?")
+        expect(entry.regex.source).to eq("(?i:laserjet (.*)(?: series)?)")
       end
 
       it "has params" do
