@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+gem 'recog', '~> 2.0.10'
+require 'recog'
+
+fail "Usage: #{$PROGRAM_NAME} <xml file>" unless ARGV.size == 1
+
+file = ARGV.first
+
+IO.readlines(file).each do |line|
+  if /^(?<pre>.*)pattern=\"(?<pattern>.*)\"\s+flags="(?<flags_csv>.*)"(?<post>>.*$)/ =~ line
+    flags = Recog::Fingerprint::RegexpFactory.build_options(flags_csv.split(/\s*,\s*/))
+    puts "#{pre}pattern=\"#{Regexp.new(pattern, flags)}\"#{post}"
+  else
+    puts line
+  end
+end
