@@ -22,9 +22,8 @@ module Recog
         'REG_DOT_NEWLINE'   => Regexp::MULTILINE,
         'REG_LINE_ANY_CRLF' => Regexp::MULTILINE,
         'REG_MULTILINE'     => Regexp::MULTILINE,
-        # case variations
-        'REG_ICASE'         => Regexp::IGNORECASE,
-        'IGNORECASE'        => Regexp::IGNORECASE
+        # case
+        'REG_ICASE'         => Regexp::IGNORECASE
       }
 
       DEFAULT_FLAGS = 0
