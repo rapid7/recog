@@ -2,7 +2,7 @@
 <!-- UPnP Server headers are matched against these patterns to fingerprint UPnP servers. -->
 
 <fingerprints matches="ssdp_header.server">
-   <fingerprint pattern="^Linux/(\S+) UPnP/[\d\.]+ miniupnpd/([\d\.]+)$" flags="REG_ICASE">
+   <fingerprint pattern="(?i-mx:^Linux\/(\S+) UPnP\/[\d\.]+ miniupnpd\/([\d\.]+)$)">
       <example>Linux/Cross_compiled UPnP/1.0 miniupnpd/1.0</example>
       <example>Linux/2.6.29.6-217.2.3.fc11.i686.PAE UPnP/1.0 miniupnpd/1.0</example>
       <example>Linux/2.6.34.9-69.fc13.i686.PAE UPnP/1.0 miniupnpd/1.0</example>
@@ -41,7 +41,7 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^(RT-\w+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+   <fingerprint pattern="(?i-mx:^(RT-\w+) UPnP\/\S+ MiniUPnPd\/(\S+)$)">
       <example>RT-G32 UPnP/1.0 MiniUPnPd/1.2</example>
       <description>Asus WAP UPnP Server</description>
       <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -51,7 +51,7 @@
       <param pos="0" name="os.device" value="WAP"/>
    </fingerprint>
 
-   <fingerprint pattern="^DrayTek/Vigor(\S+) UPnP/\S+ miniupnpd/(\S+)$" flags="REG_ICASE">
+   <fingerprint pattern="(?i-mx:^DrayTek\/Vigor(\S+) UPnP\/\S+ miniupnpd\/(\S+)$)">
       <example>DrayTek/Vigor2130 UPnP/1.0 miniupnpd/1.0</example>
       <description>DrayTek Vigor router UPnP Server</description>
       <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -62,7 +62,7 @@
       <param pos="0" name="os.device" value="Router"/>
    </fingerprint>
 
-   <fingerprint pattern="^OpenWRT/kamikaze UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+   <fingerprint pattern="(?i-mx:^OpenWRT\/kamikaze UPnP\/\S+ MiniUPnPd\/(\S+)$)">
       <example>OpenWRT/kamikaze UPnP/1.0 MiniUPnPd/1.5</example>
       <example>OpenWRT/kamikaze UPnP/1.0 MiniUPnPd/1.2</example>
       <example>OpenWRT/kamikaze UPnP/1.0 MiniUPnPd/1.4</example>
@@ -75,7 +75,7 @@
       <param pos="0" name="os.device" value="WAP"/>
    </fingerprint>
 
-   <fingerprint pattern="^Netgear/\S+ UPnP/\S+ miniupnpd/(\S+)$" flags="REG_ICASE">
+   <fingerprint pattern="(?i-mx:^Netgear\/\S+ UPnP\/\S+ miniupnpd\/(\S+)$)">
       <example>Netgear/1.0 UPnP/1.0 miniupnpd/1.0</example>
       <example>Netgear/1.0 UPnP/1.0 miniupnpd/1.0</example>
       <description>Netgear DG834G or WNDR3300 WAP UPnP Server</description>
@@ -142,7 +142,7 @@
       <param pos="1" name="os.version"/>
     </fingerprint>
 
-    <fingerprint pattern="^Debian\/(\S+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+    <fingerprint pattern="(?i-mx:^Debian\/(\S+) UPnP\/\S+ MiniUPnPd\/(\S+)$)">
       <example os.version="wheezy/sid" service.version="1.8">Debian/wheezy/sid UPnP/1.1 MiniUPnPd/1.8</example>
       <example os.version="4.0" service.version="1.0">Debian/4.0 UPnP/1.0 miniupnpd/1.0</example>
       <description>miniupnpd on a Debian variant</description>
@@ -155,7 +155,7 @@
       <param pos="1" name="os.version"/>
     </fingerprint>
 
-    <fingerprint pattern="^Fedora(?:Core)?\/(\S+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+    <fingerprint pattern="(?i-mx:^Fedora(?:Core)?\/(\S+) UPnP\/\S+ MiniUPnPd\/(\S+)$)">
       <description>miniupnpd on a Fedora variant</description>
       <example os.version="10" service.version="1.4">Fedora/10 UPnP/1.0 MiniUPnPd/1.4</example>
       <example os.version="8" service.version="1.0">Fedora/8 UPnP/1.0 miniupnpd/1.0</example>
@@ -168,7 +168,7 @@
       <param pos="1" name="os.version"/>
     </fingerprint>
 
-    <fingerprint pattern="^Ubuntu\/(\S+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+    <fingerprint pattern="(?i-mx:^Ubuntu\/(\S+) UPnP\/\S+ MiniUPnPd\/(\S+)$)">
       <description>miniupnpd on an Ubuntu variant</description>
       <example os.version="10.04" service.version="1.0">Ubuntu/10.04 UPnP/1.0 miniupnpd/1.0</example>
       <example os.version="10.10" service.version="1.0">Ubuntu/10.10 UPnP/1.0 miniupnpd/1.0</example>
@@ -182,7 +182,7 @@
       <param pos="1" name="os.version"/>
     </fingerprint>
 
-   <fingerprint pattern="^Linux Mips (\S+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+   <fingerprint pattern="(?i-mx:^Linux Mips (\S+) UPnP\/\S+ MiniUPnPd\/(\S+)$)">
       <example>Linux Mips 2.4.20 UPnP/1.0 MiniUPnPd/1.2</example>
       <description>Linux MIPS UPnP Server</description>
       <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -192,7 +192,7 @@
       <param pos="1" name="os.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^SmoothWall Express/\S+ UPnP/\S+ miniupnpd/(\S+)$" flags="REG_ICASE">
+   <fingerprint pattern="(?i-mx:^SmoothWall Express\/\S+ UPnP\/\S+ miniupnpd\/(\S+)$)">
       <example>SmoothWall Express/3.0 UPnP/1.0 miniupnpd/1.0</example>
       <description>Smoothwall Express UPnP Server</description>
       <param pos="0" name="service.vendor" value="Smoothwall"/>

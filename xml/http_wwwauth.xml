@@ -304,7 +304,7 @@
       <param pos="1" name="os.product"/>
     </fingerprint>
 
-    <fingerprint pattern="^(?:Basic|Digest) .*realm=&quot;Broadcom Management Service&quot;.*$" flags="REG_ICASE">
+    <fingerprint pattern="(?i-mx:^(?:Basic|Digest) .*realm=&quot;Broadcom Management Service&quot;.*$)">
       <description>Supposedly part of Broadcom Advanced Control Suite 3 (BACS3) or something similar</description>
       <example>Digest qop="auth", realm="Broadcom Management Service", nonce="AAAAAAAAAAAAAP//DwHpMwYy1zc=", algorithm="MD5"</example>
       <param pos="0" name="service.vendor" value="Broadcom"/>
@@ -343,7 +343,7 @@
 
    <!-- HP ProCurve -->
 
-    <fingerprint pattern="^(?:Basic|Digest) realm=&quot;(?:HP|ProCurve) (J[3]\d{3}A)&quot;$" flags="REG_ICASE">
+    <fingerprint pattern="(?i-mx:^(?:Basic|Digest) realm=&quot;(?:HP|ProCurve) (J[3]\d{3}A)&quot;$)">
       <description>HP ProCurve Hubs</description>
       <example os.product="J3295A">Basic realm="HP J3295A"</example>
       <param pos="0" name="os.vendor" value="HP"/>
@@ -352,7 +352,7 @@
       <param pos="1" name="os.product"/>
    </fingerprint>
 
-   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;(?:HP|ProCurve) (J[489]\d{3}A)&quot;$" flags="REG_ICASE">
+   <fingerprint pattern="(?i-mx:^(?:Basic|Digest) realm=&quot;(?:HP|ProCurve) (J[489]\d{3}A)&quot;$)">
       <description>HP ProCurve Switches</description>
       <example os.product="J4110A">Basic realm="HP J4110A"</example>
       <example os.product="J8164A">Basic realm="ProCurve J8164A"</example>
@@ -374,7 +374,7 @@
 
     <!-- a variety of headers we currently just ignore -->
 
-    <fingerprint pattern="^NTLM$" flags="REG_ICASE">
+    <fingerprint pattern="(?i-mx:^NTLM$)">
       <example>NTLM</example>
       <example>Ntlm</example>
       <description>Ignore NTLM-only</description>
