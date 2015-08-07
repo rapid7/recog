@@ -72,7 +72,7 @@ matched against these patterns to fingerprint POP3 servers.
       <param pos="3" name="host.domain"/>
    </fingerprint>
 
-   <fingerprint pattern="^Qpop(?:per)? \(version ([\d\.]+)\) at (.+)(?: starting\.)?.*$" flags="REG_ICASE">
+   <fingerprint pattern="(?i-mx:^Qpop(?:per)? \(version ([\d\.]+)\) at (.+)(?: starting\.)?.*$)">
       <description>Qpopper missing version info</description>
       <example>Qpopper (version 4.0.16) at foo.example.com</example>
       <example>QPOP (version 2.53) at domain starting.  &lt;xxx@domain&gt;</example>
