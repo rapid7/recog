@@ -3,7 +3,7 @@ Recog: A Recognition Framework
 
 Recog is a framework for identifying products, services, operating systems, and hardware by matching fingerprints against data returned from various network probes. Recog makes it simple to extract useful information from web server banners, snmp system description fields, and a whole lot more. Recog is open source, please see the [LICENSE](https://raw.githubusercontent.com/rapid7/recog/master/LICENSE) file for more information.
 
-[![Gem Version](https://badge.fury.io/rb/recog.svg)](http://badge.fury.io/rb/recog) 
+[![Gem Version](https://badge.fury.io/rb/recog.svg)](http://badge.fury.io/rb/recog)
 [![Build Status](https://travis-ci.org/rapid7/recog.svg?branch=master)](https://travis-ci.org/rapid7/recog)
 
 ==
@@ -40,7 +40,7 @@ A fingerprint file consists of an XML document like the following:
 
 The first line should always consist of the XML version declaration. The first element should always be a `fingerpints` block with a `matches` attribute indicating what data this fingerprint file is supposed to match. The `matches` attribute is normally in the form of `protocol.field`.
 
-Inside of the `fingerprints` element there should be one or more `fingerprint` elements. Every `fingerprint` must contain a `pattern` attribute, which contains the regular expression to be used to match against the data.  An optional `flags` attribute can be specified to control how the regular expression is to be interpreted.  See [the Recog documentation for `FLAG_MAP`](http://www.rubydoc.info/gems/recog/Recog/Fingerprint/RegexpFactory#FLAG_MAP-constant) for more information.
+Inside of the `fingerprints` element there should be one or more `fingerprint` elements. Every `fingerprint` must contain a `pattern` attribute, which contains the regular expression to be used to match against the data
 
 Inside of the fingerprint, a `description` element should contain a human-readable string describing this fingerprint.
 
