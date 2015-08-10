@@ -20,3 +20,4 @@ end
 
 task :default => [ :tests, :yard ]
 task :tests => [ :spec, :features ]
+task :test => [ :tests ]
