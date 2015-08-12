@@ -2,7 +2,6 @@
 
   <xsd:element name="fingerprints" type="fingerprints_element"/>
 
-  <!-- this works -->
   <xsd:complexType name="fingerprints_element">
     <xsd:sequence>
       <xsd:element name="fingerprint" type="fingerprint_element" minOccurs="1" maxOccurs="unbounded"/>
@@ -11,27 +10,11 @@
   </xsd:complexType>
 
   <xsd:complexType name="fingerprint_element" mixed="true">
-    <!-- this works but requires that they be in this order, and too many files aren't that way right now ... -->
     <xsd:sequence>
       <xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
       <xsd:element name="example" type="example_element" minOccurs="0" maxOccurs="unbounded"/>
       <xsd:element name="param" type="param_element" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>
-    <!--    <xsd:sequence>
-      <xsd:choice minOccurs="0" maxOccurs="unbounded">
-        <xsd:sequence>
-          <xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-          <xsd:element name="example" type="example_element" minOccurs="0" maxOccurs="unbounded"/>
-          <xsd:element name="param" type="param_element" minOccurs="0" maxOccurs="unbounded"/>
-        </xsd:sequence>
-        <xsd:sequence>
-          <xsd:element name="example" type="example_element" minOccurs="0" maxOccurs="unbounded"/>
-          <xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-          <xsd:element name="param" type="param_element" minOccurs="0" maxOccurs="unbounded"/>
-        </xsd:sequence>
-      </xsd:choice>
-    </xsd:sequence> -->
-    <!-- these work -->
     <xsd:attribute name="certainty" type="xsd:string" use="optional"/>
     <xsd:attribute name="pattern" type="xsd:string" use="required"/>
     <xsd:attribute name="flags" type="xsd:string" use="optional"/>
