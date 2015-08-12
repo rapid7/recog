@@ -1,193 +1,153 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- IMAP banners are matched against these patterns to fingerprint IMAP servers. -->
-
 <fingerprints matches="imap4.banner">
-
-   <fingerprint pattern="^Microsoft Exchange IMAP4rev1 server version (5\.5\.\d{4}\.\d+) \((.*)\) ready$">
-      <!--  Microsoft Exchange IMAP4rev1 server version 5.5.2654.50 (xxx) ready
-        -->
-      <description>Microsoft Exchange Server 5.5</description>
-      <param pos="0" name="service.vendor" value="Microsoft"/>
-      <param pos="0" name="service.family" value="Exchange Server"/>
-      <param pos="0" name="service.product" value="Exchange Server 5.5"/>
-      <param pos="1" name="service.version"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.product" value="Windows"/>
-      <param pos="2" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Microsoft Exchange 2000 IMAP4rev1 server version (6\.0\.\d{4}\.\d+) \((.*)\) ready\.$">
-      <!--  Microsoft Exchange 2000 IMAP4rev1 server version 6.0.6249.0 (xxx) ready.
-        -->
-      <description>Microsoft Exchange Server 2000</description>
-      <param pos="0" name="service.vendor" value="Microsoft"/>
-      <param pos="0" name="service.family" value="Exchange Server"/>
-      <param pos="0" name="service.product" value="Exchange 2000 Server"/>
-      <param pos="1" name="service.version"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.product" value="Windows"/>
-      <param pos="2" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Microsoft Exchange Server 2003 IMAP4rev1 server version (6\.5\.\d{4}\.\d+) \((.*)\) ready\.$">
-      <!--  Microsoft Exchange Server 2003 IMAP4rev1 server version 6.5.7638.1 (xxx) ready.
-        -->
-      <description>Microsoft Exchange Server 2003</description>
-      <param pos="0" name="service.vendor" value="Microsoft"/>
-      <param pos="0" name="service.family" value="Exchange Server"/>
-      <param pos="0" name="service.product" value="Exchange 2003 Server"/>
-      <param pos="1" name="service.version"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.product" value="Windows"/>
-      <param pos="2" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Der Microsoft Exchange Server 2003 IMAP4rev1-Server, Version (6\.5\.\d{4}\.\d+) \((.*)\),.*$">
-      <!--  Der Microsoft Exchange Server 2003 IMAP4rev1-Server, Version 6.5.7638.1 (xxx), steht zur Verf\u00FCgung.
-        -->
-      <description>Microsoft Exchange Server 2003, German</description>
-      <param pos="0" name="service.vendor" value="Microsoft"/>
-      <param pos="0" name="service.family" value="Exchange Server"/>
-      <param pos="0" name="service.product" value="Exchange 2003 Server"/>
-      <param pos="1" name="service.version"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.product" value="Windows"/>
-      <param pos="2" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Microsoft Exchange Server 2007 IMAP4 service ready$">
-      <!--  Microsoft Exchange Server 2007 IMAP4 service ready
-        -->
-      <description>Microsoft Exchange Server 2007</description>
-      <param pos="0" name="service.vendor" value="Microsoft"/>
-      <param pos="0" name="service.family" value="Exchange Server"/>
-      <param pos="0" name="service.product" value="Exchange 2007 Server"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.product" value="Windows"/>
-    </fingerprint>
-
-    <fingerprint pattern="^The Microsoft Exchange IMAP4 service is ready\.?$">
-      <example>The Microsoft Exchange IMAP4 service is ready.</example>
-      <description>Microsoft Exchange Server</description>
-      <param pos="0" name="service.vendor" value="Microsoft"/>
-      <param pos="0" name="service.family" value="Exchange Server"/>
-      <param pos="0" name="service.product" value="Exchange Server"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.product" value="Windows"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Domino IMAP4 Server Release (\d+\.\d+.*) ready (.+)$">
-      <!--  Domino IMAP4 Server Release 7.0.2FP2 ready Sat, 21 Jul 2007 13:06:10 -0400
-            Domino IMAP4 Server Release 7.0.2 ready Fri, 23 Feb 2007 13:48:15 +0530
-            Domino IMAP4 Server Release 6.5.5 ready Fri, 20 Jul 2007 19:50:59 -0400
-            Domino IMAP4 Server Release 6.0.1 ready Wed, 26 Mar 2003 17:57:26 -0800
-            Domino IMAP4 Server Release 5.0.9 ready Sun, 30 Jun 2002 23:54:41 +0100
-        -->
-      <description>IBM Lotus Notes/Domino</description>
-      <param pos="0" name="service.vendor" value="IBM"/>
-      <param pos="0" name="service.family" value="Lotus Domino"/>
-      <param pos="0" name="service.product" value="Lotus Domino"/>
-      <param pos="1" name="service.version"/>
-      <param pos="2" name="host.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Domino IMAP4 Server V\.?(\d+\.\d+.*) ready (.+)$">
-      <!--  Domino IMAP4 Server V.5.0 ready Mon, 10 May 1999 17:57:13 -0500
-            Domino IMAP4 Server V4.6 ready Mon, 12 May 1997 17:57:13 -0500
-        -->
-      <description>IBM Lotus Notes/Domino</description>
-      <param pos="0" name="service.vendor" value="IBM"/>
-      <param pos="0" name="service.family" value="Lotus Domino"/>
-      <param pos="0" name="service.product" value="Lotus Domino"/>
-      <param pos="1" name="service.version"/>
-      <param pos="2" name="host.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^[dD]ovecot (?:DA )?ready\.$">
-      <!--  Dovecot DA ready.
-            dovecot ready.
-            Dovecot ready.
-        -->
-      <description>Dovecot Secure IMAP Server</description>
-      <param pos="0" name="service.family" value="Dovecot"/>
-      <param pos="0" name="service.product" value="Dovecot"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Courier-IMAP ready. Copyright \d+-\d+">
-      <example>Courier-IMAP ready. Copyright 1998-2002 Double Precision, Inc. See COPYING for distribution information.</example>
-      <description>Courier IMAP</description>
-      <param pos="0" name="service.vendor" value="Double Precision"/>
-      <param pos="0" name="service.family" value="Courier"/>
-      <param pos="0" name="service.product" value="Courier IMAP"/>
-    </fingerprint>
-
-    <fingerprint pattern="^(\S+) CallPilot IMAP4rev1 v(\S+) server ready\.?$">
-      <example>nottest.localdomain CallPilot IMAP4rev1 v42.02.05.22 server ready.</example>
-      <example>test.localdomain CallPilot IMAP4rev1 v43.03.19.22 server ready.</example>
-      <description>Nortel CallPilot</description>
-      <param pos="0" name="service.vendor" value="Nortel"/>
-      <param pos="0" name="service.product" value="CallPilot"/>
-      <param pos="2" name="service.version"/>
-      <param pos="1" name="host.name"/>
-    </fingerprint>
-
-    <fingerprint pattern="^(\S+) Zimbra IMAP4rev1 server ready\.?$">
-      <example>catfood.zimbra.com Zimbra IMAP4rev1 server ready</example>
-      <example>dogfood.zimbra.com Zimbra IMAP4rev1 server ready</example>
-      <description>VMware Zimbra IMAP</description>
-      <param pos="0" name="service.vendor" value="VMware"/>
-      <param pos="0" name="service.product" value="Zimbra"/>
-      <param pos="1" name="host.name"/>
-    </fingerprint>
-
-    <fingerprint pattern="^(\S+) Zimbra (\S+) IMAP4rev1 server ready\.?$">
-      <example>example.com Zimbra 7.0.0_GA_3079 IMAP4rev1 server ready</example>
-      <description>VMware Zimbra IMAP</description>
-      <param pos="0" name="service.vendor" value="VMware"/>
-      <param pos="0" name="service.product" value="Zimbra"/>
-      <param pos="2" name="service.version"/>
-      <param pos="1" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^(.+) Cyrus IMAP4 v(\d+\.\d+.*)-OS X(?: Server)? ([\d\.]+).* server ready$">
-      <description>CMU Cyrus IMAP on Mac OS X</description>
-      <example>host Cyrus IMAP4 v2.2.12-OS X 10.4.0 server ready</example>
-      <example>host Cyrus IMAP4 v2.3.8-OS X Server 10.5: 9A562 server ready</example>
-      <param pos="0" name="service.family" value="Cyrus"/>
-      <param pos="0" name="service.product" value="Cyrus"/>
-      <param pos="2" name="service.version"/>
-      <param pos="0" name="os.vendor" value="Apple"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.family" value="Mac OS X"/>
-      <param pos="0" name="os.product" value="Mac OS X"/>
-      <param pos="3" name="os.version"/>
-      <param pos="1" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^(.+) Cyrus IMAP4? (?:\S+ )?v(\d+\.\d+.*) server ready$">
-     <example>example.com Cyrus IMAP4 v2.3.7 server ready</example>
-     <example>binibik Cyrus IMAP v2.3.14 server ready</example>
-     <example>example.com Cyrus IMAP Murder v2.4.8-Invoca-RPM-2.4.8-1 server ready</example>
-      <description>CMU Cyrus IMAP</description>
-      <param pos="0" name="service.family" value="Cyrus"/>
-      <param pos="0" name="service.product" value="Cyrus"/>
-      <param pos="2" name="service.version"/>
-      <param pos="1" name="host.name"/>
-   </fingerprint>
-
-<!--
+  <fingerprint pattern="^Microsoft Exchange IMAP4rev1 server version (5\.5\.\d{4}\.\d+) \((.*)\) ready$">
+    <description>Microsoft Exchange Server 5.5</description>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="Exchange Server"/>
+    <param pos="0" name="service.product" value="Exchange Server 5.5"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="2" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^Microsoft Exchange 2000 IMAP4rev1 server version (6\.0\.\d{4}\.\d+) \((.*)\) ready\.$">
+    <description>Microsoft Exchange Server 2000</description>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="Exchange Server"/>
+    <param pos="0" name="service.product" value="Exchange 2000 Server"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="2" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^Microsoft Exchange Server 2003 IMAP4rev1 server version (6\.5\.\d{4}\.\d+) \((.*)\) ready\.$">
+    <description>Microsoft Exchange Server 2003</description>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="Exchange Server"/>
+    <param pos="0" name="service.product" value="Exchange 2003 Server"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="2" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^Der Microsoft Exchange Server 2003 IMAP4rev1-Server, Version (6\.5\.\d{4}\.\d+) \((.*)\),.*$">
+    <description>Microsoft Exchange Server 2003, German</description>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="Exchange Server"/>
+    <param pos="0" name="service.product" value="Exchange 2003 Server"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="2" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^Microsoft Exchange Server 2007 IMAP4 service ready$">
+    <description>Microsoft Exchange Server 2007</description>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="Exchange Server"/>
+    <param pos="0" name="service.product" value="Exchange 2007 Server"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+  </fingerprint>
+  <fingerprint pattern="^The Microsoft Exchange IMAP4 service is ready\.?$">
+    <description>Microsoft Exchange Server</description>
+    <example>The Microsoft Exchange IMAP4 service is ready.</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="Exchange Server"/>
+    <param pos="0" name="service.product" value="Exchange Server"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+  </fingerprint>
+  <fingerprint pattern="^Domino IMAP4 Server Release (\d+\.\d+.*) ready (.+)$">
+    <description>IBM Lotus Notes/Domino</description>
+    <param pos="0" name="service.vendor" value="IBM"/>
+    <param pos="0" name="service.family" value="Lotus Domino"/>
+    <param pos="0" name="service.product" value="Lotus Domino"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="host.time"/>
+  </fingerprint>
+  <fingerprint pattern="^Domino IMAP4 Server V\.?(\d+\.\d+.*) ready (.+)$">
+    <description>IBM Lotus Notes/Domino</description>
+    <param pos="0" name="service.vendor" value="IBM"/>
+    <param pos="0" name="service.family" value="Lotus Domino"/>
+    <param pos="0" name="service.product" value="Lotus Domino"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="host.time"/>
+  </fingerprint>
+  <fingerprint pattern="^[dD]ovecot (?:DA )?ready\.$">
+    <description>Dovecot Secure IMAP Server</description>
+    <param pos="0" name="service.family" value="Dovecot"/>
+    <param pos="0" name="service.product" value="Dovecot"/>
+  </fingerprint>
+  <fingerprint pattern="^Courier-IMAP ready. Copyright \d+-\d+">
+    <description>Courier IMAP</description>
+    <example>Courier-IMAP ready. Copyright 1998-2002 Double Precision, Inc. See COPYING for distribution information.</example>
+    <param pos="0" name="service.vendor" value="Double Precision"/>
+    <param pos="0" name="service.family" value="Courier"/>
+    <param pos="0" name="service.product" value="Courier IMAP"/>
+  </fingerprint>
+  <fingerprint pattern="^(\S+) CallPilot IMAP4rev1 v(\S+) server ready\.?$">
+    <description>Nortel CallPilot</description>
+    <example>nottest.localdomain CallPilot IMAP4rev1 v42.02.05.22 server ready.</example>
+    <example>test.localdomain CallPilot IMAP4rev1 v43.03.19.22 server ready.</example>
+    <param pos="0" name="service.vendor" value="Nortel"/>
+    <param pos="0" name="service.product" value="CallPilot"/>
+    <param pos="2" name="service.version"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^(\S+) Zimbra IMAP4rev1 server ready\.?$">
+    <description>VMware Zimbra IMAP</description>
+    <example>catfood.zimbra.com Zimbra IMAP4rev1 server ready</example>
+    <example>dogfood.zimbra.com Zimbra IMAP4rev1 server ready</example>
+    <param pos="0" name="service.vendor" value="VMware"/>
+    <param pos="0" name="service.product" value="Zimbra"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^(\S+) Zimbra (\S+) IMAP4rev1 server ready\.?$">
+    <description>VMware Zimbra IMAP</description>
+    <example>example.com Zimbra 7.0.0_GA_3079 IMAP4rev1 server ready</example>
+    <param pos="0" name="service.vendor" value="VMware"/>
+    <param pos="0" name="service.product" value="Zimbra"/>
+    <param pos="2" name="service.version"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^(.+) Cyrus IMAP4 v(\d+\.\d+.*)-OS X(?: Server)? ([\d\.]+).* server ready$">
+    <description>CMU Cyrus IMAP on Mac OS X</description>
+    <example>host Cyrus IMAP4 v2.2.12-OS X 10.4.0 server ready</example>
+    <example>host Cyrus IMAP4 v2.3.8-OS X Server 10.5: 9A562 server ready</example>
+    <param pos="0" name="service.family" value="Cyrus"/>
+    <param pos="0" name="service.product" value="Cyrus"/>
+    <param pos="2" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.family" value="Mac OS X"/>
+    <param pos="0" name="os.product" value="Mac OS X"/>
+    <param pos="3" name="os.version"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^(.+) Cyrus IMAP4? (?:\S+ )?v(\d+\.\d+.*) server ready$">
+    <description>CMU Cyrus IMAP</description>
+    <example>example.com Cyrus IMAP4 v2.3.7 server ready</example>
+    <example>binibik Cyrus IMAP v2.3.14 server ready</example>
+    <example>example.com Cyrus IMAP Murder v2.4.8-Invoca-RPM-2.4.8-1 server ready</example>
+    <param pos="0" name="service.family" value="Cyrus"/>
+    <param pos="0" name="service.product" value="Cyrus"/>
+    <param pos="2" name="service.version"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <!--
 
       // Washington University imapd
       IMAP_FP_PARSERS[0] = new PatternParser(
@@ -263,5 +223,4 @@
 * OK Welcome IMAP Server
 
 -->
-
 </fingerprints>
