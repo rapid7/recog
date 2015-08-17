@@ -17,7 +17,17 @@ IO.readlines(file).each do |line|
     fp = Nokogiri::XML.parse(line).children.first
     new_line = pre
     flags = Recog::Fingerprint::RegexpFactory.build_options(fp['flags'].split(/\s*,\s*/))
-    new_line += " pattern=#{Regexp.new(fp['pattern'], flags).to_s.encode(xml: :attr)}"
+    new_pattern = Regexp.new(fp['pattern'], flags).to_s.encode(xml: :attr)
+    # by default, this:
+    #   <fingerprint pattern="foo" flags="REG_ICASE">
+    # will be converted to:
+    #   <fingerprint pattern="(?i-mx:foo)">
+    #
+    # While technically equivalent, the explicit disabling of /m and /x (in
+    # this example) is not how most people would typically write this.  So,
+    # instead, remove the explicitly disabled regex options.
+    new_pattern = new_pattern.gsub(/(\(\?[a-z]+)-[a-z]+:/, '\1:')
+    new_line += " pattern=#{new_pattern}"
     new_line += " certainty=\"#{fp['certainty']}\"" if fp['certainty']
     new_line += ">"
     puts new_line
