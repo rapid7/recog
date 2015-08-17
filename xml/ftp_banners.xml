@@ -65,7 +65,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
   </fingerprint>
-  <fingerprint pattern="(?i-mx:^([^ ]+) +FTP +Server \(Version ([^\(]+)\(PHNE_\d+\) [^\)]+\) ready.?$)">
+  <fingerprint pattern="^([^ ]+) +FTP +Server \(Version ([^\(]+)\(PHNE_\d+\) [^\)]+\) ready.?$" flags="REG_ICASE">
     <description>
          FTP on HPUX with a PHNE (HP Networking patch) installed
       </description>
@@ -79,7 +79,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="(?i-mx:^([^ ]+) +FTP +Server \(Revision \S+ Version wuftpd-([^\(]+)\(PHNE_\d+\) [^\)]+\) ready.?$)">
+  <fingerprint pattern="^([^ ]+) +FTP +Server \(Revision \S+ Version wuftpd-([^\(]+)\(PHNE_\d+\) [^\)]+\) ready.?$" flags="REG_ICASE">
     <description>
          WU-FTPD on HPUX with a PHNE (HP Networking patch) installed
       </description>
@@ -93,7 +93,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="(?i-mx:^(\S+)(?: \S+)? FTP Server \((?:Revision [\d\.]+ )?Version wu(?:ftpd)?-([\d\.]+).*\) ready.?$)">
+  <fingerprint pattern="^(\S+)(?: \S+)? FTP Server \((?:Revision [\d\.]+ )?Version wu(?:ftpd)?-([\d\.]+).*\) ready.?$" flags="REG_ICASE">
     <description>WU-FTPD on various OS</description>
     <example host.name="example.com" service.version="2.6.2">example.com FTP server (Version wu-2.6.2(1) Sat Jul 19 16:21:30 UTC 2008) ready.</example>
     <example host.name="example.com" service.version="2.6.2">example.com 192.168.0.1 FTP server (Version wu-2.6.2(1) Wed Sep 21 11:16:21 MEST 2005) ready.</example>
@@ -104,7 +104,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="(?mi-x:^(\S+)\s+FTP Server \(Version:\s+Mac OS X Server\s+([\d\.]+).*\) ready\.?)">
+  <fingerprint pattern="^(\S+)\s+FTP Server \(Version:\s+Mac OS X Server\s+([\d\.]+).*\) ready\.?" flags="REG_ICASE,REG_MULTILINE">
     <description>FTPD on Mac OS X Server with a version</description>
     <example host.name="example.com" os.version="10.3">example.com FTP server (Version:  Mac OS X Server 10.3 - +GSSAPI) ready.</example>
     <example host.name="example.com" os.version="10.3">this is a banner.  change it.&#13;&#10;example.com FTP server (Version:  Mac OS X Server 10.3 - +GSSAPI) ready.</example>
@@ -117,7 +117,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="(?mi-x:^(\S+)\s+FTP Server \(Version:\s+Mac OS X Server\) ready\.?)">
+  <fingerprint pattern="^(\S+)\s+FTP Server \(Version:\s+Mac OS X Server\) ready\.?" flags="REG_ICASE,REG_MULTILINE">
     <description>FTPD on Mac OS X Server without a version</description>
     <example host.name="example.com">example.com FTP server (Version:  Mac OS X Server) ready.</example>
     <example host.name="example.com">this is a banner.  change it.&#13;&#10;example.com FTP server (Version:  Mac OS X Server) ready.</example>
@@ -129,14 +129,14 @@ against these patterns to fingerprint FTP servers.
     <param pos="0" name="os.product" value="Mac OS X Server"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="(?i-mx:^(\S+)\s+FTP Server \(tnftpd (.*)\) ready\.?$)">
+  <fingerprint pattern="^(\S+)\s+FTP Server \(tnftpd (.*)\) ready\.?$" flags="REG_ICASE">
     <description>Simple tnftpd banner with a version</description>
     <example host.name="example.com" service.version="20061217">example.com FTP server (tnftpd 20061217) ready.</example>
     <param pos="0" name="service.product" value="tnftpd"/>
     <param pos="2" name="service.version"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="(?i-mx:^(\S+) FTP Server \(SunOS (\S+)\) ready\.?$)">
+  <fingerprint pattern="^(\S+) FTP Server \(SunOS (\S+)\) ready\.?$" flags="REG_ICASE">
     <description>SunOS/Solaris</description>
     <example>example.com FTP server (SunOS 5.7) ready.</example>
     <param pos="0" name="os.vendor" value="Sun"/>
@@ -204,7 +204,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="0" name="service.family" value="ProFTPD"/>
     <param pos="0" name="service.product" value="ProFTPD"/>
   </fingerprint>
-  <fingerprint pattern="(?m-ix:^=\(&lt;\*&gt;\)=-\.:\. \(\( Welcome to Pure-FTPd ([\d.]+) \)\) \.:\.-=\(&lt;\*&gt;\)=-)">
+  <fingerprint pattern="^=\(&lt;\*&gt;\)=-\.:\. \(\( Welcome to Pure-FTPd ([\d.]+) \)\) \.:\.-=\(&lt;\*&gt;\)=-" flags="REG_MULTILINE">
     <!-- yes, the leading and trailing text is not balanced.
          the leading text is missing the - at the beginning -->
     <example service.version="1.0.11">=(&lt;*&gt;)=-.:. (( Welcome to Pure-FTPd 1.0.11 )) .:.-=(&lt;*&gt;)=-</example>
@@ -214,7 +214,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="0" name="service.product" value="Pure-FTPd"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="(?m-ix:^-{9,10} Welcome to Pure-FTPd (.*)-{9,10})">
+  <fingerprint pattern="^-{9,10} Welcome to Pure-FTPd (.*)-{9,10}" flags="REG_MULTILINE">
     <example>---------- Welcome to Pure-FTPd ----------</example>
     <example>--------- Welcome to Pure-FTPd [privsep] [TLS] ----------</example>
     <example>--------- Welcome to Pure-FTPd [privsep] [TLS] ----------&#13;&#10;more text</example>
@@ -225,7 +225,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="0" name="service.family" value="Pure-FTPd"/>
     <param pos="0" name="service.product" value="Pure-FTPd"/>
   </fingerprint>
-  <fingerprint pattern="(?m-ix:^=\(.\*.\)=-\.:\. \(\( Welcome to PureFTPd (\d+\..+) \)\) \.:\.-=\(.\*.\)=-)">
+  <fingerprint pattern="^=\(.\*.\)=-\.:\. \(\( Welcome to PureFTPd (\d+\..+) \)\) \.:\.-=\(.\*.\)=-" flags="REG_MULTILINE">
     <example service.version="1.1.0">=(&lt;*&gt;)=-.:. (( Welcome to PureFTPd 1.1.0 )) .:.-=(&lt;*&gt;)=-</example>
     <example service.version="1.1.0">=(&lt;*&gt;)=-.:. (( Welcome to PureFTPd 1.1.0 )) .:.-=(&lt;*&gt;)=-&#13;&#10;more text</example>
     <description>Older Pure-FTPd versions</description>
@@ -247,7 +247,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
   </fingerprint>
-  <fingerprint pattern="(?i-mx:^zFTPServer v?(\S+), .*ready\.$)">
+  <fingerprint pattern="^zFTPServer v?(\S+), .*ready\.$" flags="REG_ICASE">
     <example>zFTPServer v4.0, build 2008-12-24 01:41 ready.</example>
     <description>zftpserver (only runs on Windows)</description>
     <param pos="0" name="service.product" value="zFTPServer"/>
@@ -408,7 +408,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Storage"/>
   </fingerprint>
-  <fingerprint pattern="(?i-mx:^AXIS (\S+) (?:(?:Fixed Dome )?Network(?: Fixed Dome)? Camera) ([\d\.]+) .* ready\.?$)">
+  <fingerprint pattern="^AXIS (\S+) (?:(?:Fixed Dome )?Network(?: Fixed Dome)? Camera) ([\d\.]+) .* ready\.?$" flags="REG_ICASE">
     <example os.product="2100" os.version="2.43">Axis 2100 Network Camera 2.43 Nov 04 2008 ready.</example>
     <example os.product="207" os.version="4.40.1">AXIS 207 Network Camera 4.40.1 (Apr 16 2007) ready.</example>
     <example os.product="216FD" os.version="4.47">AXIS 216FD Network Fixed Dome Camera 4.47 (Mar 13 2008) ready.</example>
@@ -419,7 +419,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="(?i-mx:^AXIS (\S+) Video (?:Encoder Blade|Server|Decoder) ([\d\.]+) .* ready\.?$)">
+  <fingerprint pattern="^AXIS (\S+) Video (?:Encoder Blade|Server|Decoder) ([\d\.]+) .* ready\.?$" flags="REG_ICASE">
     <example>AXIS Q7406 Video Encoder Blade 5.01 (Aug 01 2008) ready.</example>
     <example>AXIS 241Q Video Server 4.47.2 (Dec 11 2008) ready.</example>
     <example>AXIS P7701 Video Decoder 5.07.2 (Apr 20 2010) ready.</example>
@@ -428,7 +428,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="(?i-mx:^AXIS (\S+) .*FTP Network Print Server V?([\d\.]+\S+) .* ready\.?$)">
+  <fingerprint pattern="^AXIS (\S+) .*FTP Network Print Server V?([\d\.]+\S+) .* ready\.?$" flags="REG_ICASE">
     <example>AXIS 5600+ (rev 3) FTP Network Print Server V7.00 Sep 10 2004 ready.</example>
     <example>AXIS 560 FTP Network Print Server V6.00 Jul 7 1999 ready.</example>
     <example>AXIS 5470e FTP Network Print Server V6.30.beta2 Sep 25 2002 ready.</example>
@@ -438,7 +438,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="(?i-mx:^RICOH Aficio ((?:[MS]P )?\S+) FTP server \(([0-9\.a-zA-Z]+)\) ready.?$)">
+  <fingerprint pattern="^RICOH Aficio ((?:[MS]P )?\S+) FTP server \(([0-9\.a-zA-Z]+)\) ready.?$" flags="REG_ICASE">
     <description>Ricoh Aficio multifunction device</description>
     <example>RICOH Aficio 2045e FTP server (4.12) ready.</example>
     <example>RICOH Aficio SP 4210N FTP server (8.63) ready.</example>
@@ -449,7 +449,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="(?i-mx:^NRG ((?:[MS]P )?\S+) FTP server \(([0-9\.a-zA-Z]+)\) ready.?$)">
+  <fingerprint pattern="^NRG ((?:[MS]P )?\S+) FTP server \(([0-9\.a-zA-Z]+)\) ready.?$" flags="REG_ICASE">
     <description>Ricoh NRG multifunction device</description>
     <example>NRG MP C2800 FTP server (8.25) ready.</example>
     <example>NRG MP 3350 FTP server (7.05) ready.</example>
@@ -494,7 +494,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="(?i-mx:^ET(\S{12}) Lexmark (\S+) FTP Server (\S+) ready\.?$)" certainty="1.0">
+  <fingerprint pattern="^ET(\S{12}) Lexmark (\S+) FTP Server (\S+) ready\.?$" certainty="1.0" flags="REG_ICASE">
     <description>Lexmark printers</description>
     <example>ET000400CEA560 Lexmark T640 FTP Server NS.NP.N219 ready.</example>
     <param pos="0" name="os.vendor" value="Lexmark"/>
@@ -503,7 +503,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="2" name="os.product"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="(?i-mx:^.*Lexmark (\S+) FTP Server (\S+) ready\.?$)" certainty="1.0">
+  <fingerprint pattern="^.*Lexmark (\S+) FTP Server (\S+) ready\.?$" certainty="1.0" flags="REG_ICASE">
     <description>Lexmark printers</description>
     <example>ET0021718 Lexmark T654 FTP Server NR.APS.F368 ready.</example>
     <param pos="0" name="os.vendor" value="Lexmark"/>
@@ -511,14 +511,14 @@ against these patterns to fingerprint FTP servers.
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="(?i-mx:^.*Lexmark (\S+) FTP Server ready\.?$)" certainty="1.0">
+  <fingerprint pattern="^.*Lexmark (\S+) FTP Server ready\.?$" certainty="1.0" flags="REG_ICASE">
     <description>Lexmark printers</description>
     <example>Lexmark X500 FTP server ready</example>
     <param pos="0" name="os.vendor" value="Lexmark"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="(?i-mx:^(?:Tornado-)?VxWorks \((?:VxWorks)?([^\)]+)\) FTP server(?: ready)?$)">
+  <fingerprint pattern="^(?:Tornado-)?VxWorks \((?:VxWorks)?([^\)]+)\) FTP server(?: ready)?$" flags="REG_ICASE">
     <example>VxWorks (5.3.1) FTP server ready</example>
     <example>VxWorks (VxWorks5.5.1) FTP server ready</example>
     <example>Tornado-vxWorks (VxWorks5.5.1) FTP server</example>
@@ -527,7 +527,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="0" name="os.product" value="VxWorks"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="(?i-mx:^Tornado-vxWorks FTP server ready$)">
+  <fingerprint pattern="^Tornado-vxWorks FTP server ready$" flags="REG_ICASE">
     <example>Tornado-vxWorks FTP server ready</example>
     <description>VxWorks without version information</description>
     <param pos="0" name="os.vendor" value="Wind River"/>
@@ -838,7 +838,7 @@ against these patterns to fingerprint FTP servers.
     <example host.name="host.example.com">host.example.com FTP server (Version 5.3 Sat Jan 10 14:01:03 CDT 2012) ready</example>
     <param pos="1" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="(?i-mx:^Welcome to the (?:Cisco )?(?:TelePresence) ([a-zA-Z\s]*?) ((?:MSE )?\d+), version (\d+.\d+\(\d+.\d+\)).*?)">
+  <fingerprint pattern="^Welcome to the (?:Cisco )?(?:TelePresence) ([a-zA-Z\s]*?) ((?:MSE )?\d+), version (\d+.\d+\(\d+.\d+\)).*?" flags="REG_ICASE">
     <description>Cisco TelePresence</description>
     <example os.device="AM GW" os.version="1.1(1.34)" hw.series="3610">Welcome to the Cisco TelePresence AM GW 3610, version 1.1(1.34) </example>
     <example os.device="IP GW" os.version="2.0(3.32)" hw.series="3510">Welcome to the Cisco TelePresence IP GW 3510, version 2.0(3.32) </example>
@@ -883,13 +883,13 @@ against these patterns to fingerprint FTP servers.
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i-mx:^(\S+) FTP server ready\.?$)">
+  <fingerprint pattern="^(\S+) FTP server ready\.?$" flags="REG_ICASE">
     <description>Generic FTP fingerprint with a hostname</description>
     <example host.name="example.com">example.com FTP server ready.</example>
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i-mx:^(\S+) FTP server \(Version (\d.*)\) ready\.?$)">
+  <fingerprint pattern="^(\S+) FTP server \(Version (\d.*)\) ready\.?$" flags="REG_ICASE">
     <description>Generic FTP fingerprint with a hostname and a version for a generic FTP implementation</description>
     <example host.name="example.com" service.version="6.00LS">example.com FTP server (Version 6.00LS) ready.</example>
     <example host.name="example.com" service.version="1.2">example.com FTP server (Version 1.2) ready.</example>
@@ -897,7 +897,7 @@ against these patterns to fingerprint FTP servers.
     <param pos="2" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i-mx:^FTP (?:server|service)?(?: is)? ready\.?$)">
+  <fingerprint pattern="^FTP (?:server|service)?(?: is)? ready\.?$" flags="REG_ICASE">
     <description>Generic FTP fingerprint without a hostname</description>
     <example>FTP server is ready.</example>
     <example>FTP Server ready.</example>

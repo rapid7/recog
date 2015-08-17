@@ -394,14 +394,14 @@ servers.
         these and this is enforced by rspec.
     -->
 
-    <fingerprint pattern="(?i-mx:^JSESSIONID(?:\.[^=]+)?=[^;]+;.*$)">
+    <fingerprint pattern="^JSESSIONID(?:\.[^=]+)?=[^;]+;.*$" flags="REG_ICASE">
       <description>Ignore simple JSESSIONID and related cookies</description>
       <example>JSESSIONID=6ooov35i4l3n36qtaf8csvg0;Path=/</example>
       <example>jsessionid=6nkp66iogcdc92720%2Dc6e4%2D4989%2Db7b2%2D5021624cfdff;Path=/;secure</example>
       <example>JSESSIONID.c00a9623=v216643eijh19p9duve5srgf;Path=/;HttpOnly</example>
     </fingerprint>
 
-    <fingerprint pattern="(?i-mx:^_?SESSION_?ID\s*=\s*[^;]+;.*$)">
+    <fingerprint pattern="^_?SESSION_?ID\s*=\s*[^;]+;.*$" flags="REG_ICASE">
       <description>Ignore simple SESSIONID and related cookies</description>
       <example>sessionId=7dba3249cfcd4b59854055311099a294; path=/;</example>
       <example>_session_id=7fe933db0fea13e9c872103ba2d142db; path=/; HttpOnly</example>
@@ -409,7 +409,7 @@ servers.
       <example>_session_id=18b3e173aa11db0533fd01752e81f583; path=/; HttpOnly</example>
     </fingerprint>
 
-    <fingerprint pattern="(?i-mx:^sid=[^;]+;.*$)">
+    <fingerprint pattern="^sid=[^;]+;.*$" flags="REG_ICASE">
       <description>Ignore simple SID and related cookies</description>
       <example>sid=sfd10bf73-654458f687aa3c68b3874915f651e0ca;path=/;"</example>
     </fingerprint>

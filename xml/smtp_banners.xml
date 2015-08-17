@@ -1808,14 +1808,14 @@ The system or service fingerprint with the highest certainty overwrites the othe
       <param pos="4" name="system.time"/>
     </fingerprint>
 
-    <fingerprint pattern="(?i-mx:^(\S+) E?SMTP Perl)">
+    <fingerprint pattern="^(\S+) E?SMTP Perl" flags="REG_ICASE">
       <description>Some simple PERL SMTP server</description>
       <example host.name="example.com">example.com ESMTP Perl</example>
       <param pos="0" name="service.product" value="Perl"/>
       <param pos="1" name="host.name"/>
     </fingerprint>
 
-    <fingerprint pattern="(?i-mx:^([^ ]+) E?SMTP(?: (?:Service )?Ready\.?)?$)">
+    <fingerprint pattern="^([^ ]+) E?SMTP(?: (?:Service )?Ready\.?)?$" flags="REG_ICASE">
       <description>
         catch all for daemons that have no distinguishing fingerprint whatsoever
       </description>
