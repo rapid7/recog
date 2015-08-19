@@ -9,9 +9,9 @@ matched against these patterns to fingerprint POP3 servers.
    <fingerprint pattern="^([^ ]+) +Cyrus POP3 v(\d+\.\d+.*)-OS X(?: Server)? ([\d\.]+).* server ready">
       <description>OSX Cyrus POP</description>
       <example host.domain="8.8.8.8" service.version="2.3.8" os.version="10.5">8.8.8.8 Cyrus POP3 v2.3.8-OS X Server 10.5: 9A562 server ready &lt;1999107648.1324502155@8.8.8.8&gt;</example>
-      <param pos="0" name="service.family" value="Cyrus"/>
+      <param pos="0" name="service.vendor" value="Carnegie Mellon University"/>
+      <param pos="0" name="service.family" value="Cyrus MTA"/>
       <param pos="0" name="service.product" value="Cyrus POP"/>
-      <param pos="0" name="service.vendor" value="CMU"/>
       <param pos="2" name="service.version"/>
       <param pos="0" name="os.vendor" value="Apple"/>
       <param pos="0" name="os.family" value="Mac OS X"/>
@@ -25,8 +25,8 @@ matched against these patterns to fingerprint POP3 servers.
       <description>CMU Cyrus POP</description>
       <example host.domain="foo" service.version="2.3">foo Cyrus POP3 v2.3</example>
       <example host.domain="foo" service.version="2.3.14">foo Cyrus POP3 v2.3.14 server ready &lt;13087751828270990591.1301068892@foo&gt;</example>
-      <param pos="0" name="service.vendor" value="CMU"/>
-      <param pos="0" name="service.family" value="Cyrus"/>
+      <param pos="0" name="service.vendor" value="Carnegie Mellon University"/>
+      <param pos="0" name="service.family" value="Cyrus MTA"/>
       <param pos="0" name="service.product" value="Cyrus POP"/>
       <param pos="2" name="service.version"/>
       <param pos="1" name="host.domain"/>
