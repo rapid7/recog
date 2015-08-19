@@ -238,7 +238,15 @@ matched against these patterns to fingerprint POP3 servers.
       <param pos="0" name="os.device" value="General"/>
       <param pos="1" name="os.version"/>
       <param pos="2" name="host.name"/>
-   </fingerprint>
+    </fingerprint>
+
+    <fingerprint pattern="^Hello there\.$">
+      <example>Hello there.</example>
+      <description>Courier MTA POP</description>
+      <param pos="0" name="service.vendor" value="Double Precision"/>
+      <param pos="0" name="service.family" value="Courier MTA"/>
+      <param pos="0" name="service.product" value="Courier POP"/>
+    </fingerprint>
 
 <!--
 
@@ -334,7 +342,6 @@ matched against these patterns to fingerprint POP3 servers.
 +OK Gordano Messaging Suite POP3 server ready <13501095613509@hollandcanadaline.com>
 +OK Gordano Messaging Suite POP3 server ready <17142725297473@nefonline.de>
 +OK GroupWise POP3 server ready
-+OK Hello there.
 +OK Hello there. <4405.1185250906@localhost.localdomain>
 +OK iac3 Solstice (tm) Internet Mail Server (tm) POP3 2.0 at Mon, 23 Jul 2007 20:08:02 -0500 (CDT)
 +OK IdeaPop3Server v0.50 ready.
