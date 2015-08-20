@@ -464,7 +464,7 @@ fingerprint SSH servers.
    </fingerprint>
 
    <fingerprint pattern="^OpenSSH_(.*)_Mikrotik_v(.*)$">
-      <description>OpenSSH on MicroTik</description>
+      <description>OpenSSH on MikroTik</description>
       <param pos="1" name="service.version"/>
       <param pos="2" name="os.version"/>
       <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -873,10 +873,14 @@ fingerprint SSH servers.
       <param pos="0" name="os.device" value="General"/>
     </fingerprint>
 
-   <fingerprint pattern="^ROSSSH$">
+   <fingerprint pattern="^(?:SSH-(\d\.\d)-)?ROSSSH$">
       <description>MikroTik RouterOS sshd</description>
       <example>ROSSSH</example>
+      <example service.version="2.0">SSH-2.0-ROSSSH</example>
+      <param pos="1" name="service.version"/>
       <param pos="0" name="os.vendor" value="MikroTik"/>
+      <param pos="0" name="os.device" value="Router"/>
+      <param pos="0" name="os.family" value="RouterOS"/>
       <param pos="0" name="os.product" value="RouterOS"/>
    </fingerprint>
 <!--
