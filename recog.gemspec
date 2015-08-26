@@ -36,11 +36,11 @@ Gem::Specification.new do |s|
     s.add_development_dependency 'kramdown', '~> 0'
   else
     # markdown formatting for yard
-    s.add_development_dependency 'redcarpet', '~> 0'
+    s.add_development_dependency 'redcarpet', '~> 3.3'
   end
   s.add_development_dependency 'aruba', '~> 0.9.0'
   s.add_development_dependency 'simplecov', '~> 0'
   s.add_development_dependency 'regexp_parser', '~> 0.3.0'
 
-  s.add_runtime_dependency 'nokogiri', '~> 0'
+  s.add_runtime_dependency 'nokogiri', '~> 1.6'
 end
