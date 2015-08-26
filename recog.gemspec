@@ -27,7 +27,8 @@ Gem::Specification.new do |s|
 
   # ---- Dependencies ----
 
-  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'rspec', '~> 2.99'
   s.add_development_dependency 'yard'
   if RUBY_PLATFORM =~ /java/
     # markdown formatting for yard
@@ -36,9 +37,8 @@ Gem::Specification.new do |s|
     # markdown formatting for yard
     s.add_development_dependency 'redcarpet'
   end
-  s.add_development_dependency 'cucumber'
-  s.add_development_dependency 'aruba'
+  s.add_development_dependency 'cucumber', '~> 1.3.8'
+  s.add_development_dependency 'aruba', '~> 0.5.3'
   s.add_development_dependency 'simplecov'
-
-  s.add_runtime_dependency 'nokogiri'
+  s.add_development_dependency 'regexp_parser', '~> 0.2.0'
 end
