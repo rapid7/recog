@@ -22,25 +22,25 @@ Gem::Specification.new do |s|
   }.gsub(/\s+/, ' ').strip
 
   s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ['lib']
 
   # ---- Dependencies ----
 
-  s.add_development_dependency 'rake'
+  s.add_development_dependency 'rake', '~> 0'
   s.add_development_dependency 'rspec', '~> 3.3', '>= 3.3.0'
-  s.add_development_dependency 'yard'
+  s.add_development_dependency 'yard', '~> 0'
   if RUBY_PLATFORM =~ /java/
     # markdown formatting for yard
-    s.add_development_dependency 'kramdown'
+    s.add_development_dependency 'kramdown', '~> 0'
   else
     # markdown formatting for yard
-    s.add_development_dependency 'redcarpet'
+    s.add_development_dependency 'redcarpet', '~> 0'
   end
   s.add_development_dependency 'aruba', '~> 0.9.0'
-  s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'simplecov', '~> 0'
   s.add_development_dependency 'regexp_parser', '~> 0.3.0'
 
-  s.add_runtime_dependency 'nokogiri'
+  s.add_runtime_dependency 'nokogiri', '~> 0'
 end
