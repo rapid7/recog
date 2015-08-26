@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
   # ---- Dependencies ----
 
   s.add_development_dependency 'rake'
-  s.add_development_dependency 'rspec', '~> 2.99'
+  s.add_development_dependency 'rspec', '~> 3.3', '>= 3.3.0'
   s.add_development_dependency 'yard'
   if RUBY_PLATFORM =~ /java/
     # markdown formatting for yard
