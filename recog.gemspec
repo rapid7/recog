@@ -40,5 +40,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'cucumber', '~> 1.3', '>= 1.3.8'
   s.add_development_dependency 'aruba', '~> 0.5.3'
   s.add_development_dependency 'simplecov'
-  s.add_development_dependency 'regexp_parser', '~> 0.2.0'
+  s.add_development_dependency 'regexp_parser', '~> 0.3.0'
 end
