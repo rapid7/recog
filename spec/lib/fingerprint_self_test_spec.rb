@@ -10,7 +10,8 @@ describe Recog::DB do
 
       it "is valid XML" do
         doc = Nokogiri::XML(open(xml_file_name))
-        expect(schema.validate(doc)).to be_empty
+        errors = schema.validate(doc)
+        expect(errors).to be_empty, "#{xml_file_name} is invalid recog XML -- #{errors.inspect}"
       end
 
       db = Recog::DB.new(xml_file_name)
