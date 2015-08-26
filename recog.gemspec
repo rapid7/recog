@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   ]
   s.homepage    = "https://www.github.com/rapid7/recog"
   s.summary     = %q{Network service fingerprint database, classes, and utilities}
+  s.license     = 'BSD-2-Clause'
   s.description = %q{
     Recog is a framework for identifying products, services, operating systems, and hardware by matching
     fingerprints against data returned from various network probes. Recog makes it simply to extract useful
