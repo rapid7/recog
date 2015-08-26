@@ -76,7 +76,7 @@ class Fingerprint
     tests.each do |test|
       result = match(test.content)
       if result.nil?
-        yield :fail, "'#{@name}' failed to match #{test.content.inspect} with #{@regex}'"
+        yield :fail, "'#{@name}' failed to match #{test.content.inspect} with '#{@regex}'"
         next
       end
 
