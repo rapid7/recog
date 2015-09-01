@@ -5158,6 +5158,121 @@ Copyright (c) 1995-2005 by Cisco Systems
    </fingerprint>
 
    <!--======================================================================
+                              Mac OS X
+   =======================================================================-->
+   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 7.(\d+).\d+: .*RELEASE_\S* ?\s* (\S* ?\S*)$">
+      <description>Mac OS X 10.3 (Panther)</description>
+      <example host.name="mac-10-3-s-u" os.arch="Power Macintosh" os.version.version="0">Darwin mac-10-3-s-u 7.0.0 Darwin Kernel Version 7.0.0: Wed Sep 24 15:48:39 PDT 2003; root:xnu/xnu-517.obj~1/RELEASE_PPC Power Macintosh</example>
+      <param pos="1" name="host.name"/>
+      <param pos="0" name="os.vendor" value="Apple"/>
+      <param pos="0" name="os.family" value="Mac OS X"/>
+      <param pos="0" name="os.product" value="Mac OS X"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="3" name="os.arch"/>
+      <param pos="0" name="os.version" value="10.3"/>
+      <param pos="2" name="os.version.version"/>
+      <param pos="0" name="os.certainty" value="0.9"/>
+   </fingerprint>
+
+   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 8.(\d+).\d+: .*RELEASE_\w* (\S* ?\S*)$">
+      <description>Mac OS X 10.4 (Tiger)</description>
+      <example host.name="mac-10-4-c-u" os.arch="Power Macintosh" os.version.version="6">Darwin mac-10-4-c-u 8.6.0 Darwin Kernel Version 8.6.0: Tue Mar 7 16:58:48 PST 2006; root:xnu-792.6.70.obj~1/RELEASE_PPC Power Macintosh</example>
+      <param pos="1" name="host.name"/>
+      <param pos="0" name="os.vendor" value="Apple"/>
+      <param pos="0" name="os.family" value="Mac OS X"/>
+      <param pos="0" name="os.product" value="Mac OS X"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="3" name="os.arch"/>
+      <param pos="0" name="os.version" value="10.4"/>
+      <param pos="2" name="os.version.version"/>
+      <param pos="0" name="os.certainty" value="0.9"/>
+   </fingerprint>
+
+   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 9.(\d+).\d+: .*RELEASE_\w* (\S* ?\S*)$">
+      <description>Mac OS X 10.5 (Leopard)</description>
+      <example host.name="mac-10-5-c-u" os.arch="Power Macintosh" os.version.version="0">Darwin mac-10-5-c-u 9.0.0 Darwin Kernel Version 9.0.0: Tue Oct 9 21:37:58 PDT 2007; root:xnu-1228~1/RELEASE_PPC Power Macintosh</example>
+      <param pos="1" name="host.name"/>
+      <param pos="0" name="os.vendor" value="Apple"/>
+      <param pos="0" name="os.family" value="Mac OS X"/>
+      <param pos="0" name="os.product" value="Mac OS X"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="3" name="os.arch"/>
+      <param pos="0" name="os.version" value="10.5"/>
+      <param pos="2" name="os.version.version"/>
+      <param pos="0" name="os.certainty" value="0.9"/>
+   </fingerprint>
+
+   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 10.(\d+).\d+: .*RELEASE_\w* (\S* ?\S*)$">
+      <description>Mac OS X 10.6 (Snow Leopard)</description>
+      <example host.name="mac-10-6-c-u.local" os.arch="x86_64" os.version.version="0">Darwin mac-10-6-c-u.local 10.0.0 Darwin Kernel Version 10.0.0: Fri Jul 31 22:46:25 PDT 2009; root:xnu-1456.1.25~1/RELEASE_X86_64 x86_64</example>
+      <param pos="1" name="host.name"/>
+      <param pos="0" name="os.vendor" value="Apple"/>
+      <param pos="0" name="os.family" value="Mac OS X"/>
+      <param pos="0" name="os.product" value="Mac OS X"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="3" name="os.arch"/>
+      <param pos="0" name="os.version" value="10.6"/>
+      <param pos="2" name="os.version.version"/>
+      <param pos="0" name="os.certainty" value="0.9"/>
+   </fingerprint>
+
+   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 11.(\d+).\d+: .*RELEASE_\w* (\S* ?\S*)$">
+      <description>Mac OS X 10.7 (Lion)</description>
+      <example host.name="mac-10-7-c-u" os.arch="x86_64" os.version.version="2">Darwin mac-10-7-c-u 11.2.0 Darwin Kernel Version 11.2.0: Tue Aug 9 20:54:00 PDT 2011; root:xnu-1699.24.8~1/RELEASE_X86_64 x86_64</example>
+      <param pos="1" name="host.name"/>
+      <param pos="0" name="os.vendor" value="Apple"/>
+      <param pos="0" name="os.family" value="Mac OS X"/>
+      <param pos="0" name="os.product" value="Mac OS X"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="3" name="os.arch"/>
+      <param pos="0" name="os.version" value="10.7"/>
+      <param pos="2" name="os.version.version"/>
+      <param pos="0" name="os.certainty" value="0.9"/>
+   </fingerprint>
+
+   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 12.(\d+).\d+: .*RELEASE_\w* (\S* ?\S*)$">
+      <description>Mac OS X 10.8 (Mountain Lion)</description>
+      <example host.name="mac-10-8-c-u.local" os.arch="x86_64" os.version.version="2">Darwin mac-10-8-c-u.local 12.2.1 Darwin Kernel Version 12.2.1: Thu Oct 18 12:13:47 PDT 2012; root:xnu-2050.20.9~1/RELEASE_X86_64 x86_64</example>
+      <param pos="1" name="host.name"/>
+      <param pos="0" name="os.vendor" value="Apple"/>
+      <param pos="0" name="os.family" value="Mac OS X"/>
+      <param pos="0" name="os.product" value="Mac OS X"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="3" name="os.arch"/>
+      <param pos="0" name="os.version" value="10.8"/>
+      <param pos="2" name="os.version.version"/>
+      <param pos="0" name="os.certainty" value="0.9"/>
+   </fingerprint>
+
+   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 13.(\d+).\d+: .*RELEASE_\w* (\S* ?\S*)$">
+      <description>Mac OS X 10.9 (Mavericks)</description>
+      <example host.name="mac-10-9-c-u.local" os.arch="x86_64" os.version.version="4">Darwin mac-10-9-c-u.local 13.4.0 Darwin Kernel Version 13.4.0: Sun Aug 17 19:50:11 PDT 2014; root:xnu-2422.115.4~1/RELEASE_X86_64 x86_64</example>
+      <param pos="1" name="host.name"/>
+      <param pos="0" name="os.vendor" value="Apple"/>
+      <param pos="0" name="os.family" value="Mac OS X"/>
+      <param pos="0" name="os.product" value="Mac OS X"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="3" name="os.arch"/>
+      <param pos="0" name="os.version" value="10.9"/>
+      <param pos="2" name="os.version.version"/>
+      <param pos="0" name="os.certainty" value="0.9"/>
+   </fingerprint>
+
+   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 14.(\d+).\d+: .*RELEASE_\w* (\S* ?\S*)$">
+      <description>Mac OS X 10.10 (Yosemite)</description>
+      <example host.name="mac-10-10-c-p.local" os.arch="x86_64" os.version.version="4">Darwin mac-10-10-c-p.local 14.4.0 Darwin Kernel Version 14.4.0: Thu May 28 11:35:04 PDT 2015; root:xnu-2782.30.5~1/RELEASE_X86_64 x86_64</example>
+      <param pos="1" name="host.name"/>
+      <param pos="0" name="os.vendor" value="Apple"/>
+      <param pos="0" name="os.family" value="Mac OS X"/>
+      <param pos="0" name="os.product" value="Mac OS X"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="3" name="os.arch"/>
+      <param pos="0" name="os.version" value="10.10"/>
+      <param pos="2" name="os.version.version"/>
+      <param pos="0" name="os.certainty" value="0.9"/>
+   </fingerprint>
+
+   <!--======================================================================
                               MICROSOFT
    =======================================================================-->
 
