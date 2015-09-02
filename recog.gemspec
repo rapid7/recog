@@ -42,5 +42,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'simplecov'
   s.add_development_dependency 'regexp_parser', '~> 0.3'
 
-  s.add_runtime_dependency 'nokogiri', '~> 1.6'
+  s.add_runtime_dependency 'nokogiri'
 end
