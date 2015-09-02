@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   ]
   s.homepage    = "https://www.github.com/rapid7/recog"
   s.summary     = %q{Network service fingerprint database, classes, and utilities}
+  s.license     = 'BSD-2-Clause'
   s.description = %q{
     Recog is a framework for identifying products, services, operating systems, and hardware by matching
     fingerprints against data returned from various network probes. Recog makes it simply to extract useful
@@ -21,13 +22,14 @@ Gem::Specification.new do |s|
   }.gsub(/\s+/, ' ').strip
 
   s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ['lib']
 
   # ---- Dependencies ----
 
-  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'rspec', '~> 2.99'
   s.add_development_dependency 'yard'
   if RUBY_PLATFORM =~ /java/
     # markdown formatting for yard
@@ -36,9 +38,9 @@ Gem::Specification.new do |s|
     # markdown formatting for yard
     s.add_development_dependency 'redcarpet'
   end
-  s.add_development_dependency 'cucumber'
-  s.add_development_dependency 'aruba'
+  s.add_development_dependency 'aruba', '~> 0.5.3'
   s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'regexp_parser', '~> 0.3'
 
   s.add_runtime_dependency 'nokogiri'
 end
