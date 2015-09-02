@@ -33,10 +33,10 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'yard', '~> 0.8'
   if RUBY_PLATFORM =~ /java/
     # markdown formatting for yard
-    s.add_development_dependency 'kramdown', '~> 1.8'
+    s.add_development_dependency 'kramdown'
   else
     # markdown formatting for yard
-    s.add_development_dependency 'redcarpet', '~> 3.3'
+    s.add_development_dependency 'redcarpet'
   end
   s.add_development_dependency 'aruba', '~> 0.5.3'
   s.add_development_dependency 'simplecov'
