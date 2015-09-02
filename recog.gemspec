@@ -39,7 +39,7 @@ Gem::Specification.new do |s|
     s.add_development_dependency 'redcarpet', '~> 3.3'
   end
   s.add_development_dependency 'aruba', '~> 0.5.3'
-  s.add_development_dependency 'simplecov', '~> 0.10'
+  s.add_development_dependency 'simplecov'
   s.add_development_dependency 'regexp_parser', '~> 0.3'
 
   s.add_runtime_dependency 'nokogiri', '~> 1.6'
