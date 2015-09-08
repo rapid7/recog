@@ -3512,14 +3512,27 @@
     </fingerprint>
 
            <!-- Apple QuickTime streaming server -->
-    <fingerprint pattern="Platform\/MacOSX; Release\/Panther;">
-      <description>OS X 10.3</description>
-      <example>QTSS/5.0 (Build/452; Platform/MacOSX; Release/Panther; )</example>
-      <example>QTSS/5.0.3.3 (Build/452.22.4; Platform/MacOSX; Release/Panther; Update/Security; )</example>
+    <fingerprint pattern="^QTSS\/([\d*.]*) \(Build\/[\d*.]*; Platform\/MacOSX; Release\/Panther">
+      <description>QTSS on OS X 10.3</description>
+      <example service.version="5.0">QTSS/5.0 (Build/452; Platform/MacOSX; Release/Panther; )</example>
+      <example service.version="5.0.3.3">QTSS/5.0.3.3 (Build/452.22.4; Platform/MacOSX; Release/Panther; Update/Security; )</example>
       <param pos="0" name="os.vendor" value="Apple"/>
       <param pos="0" name="os.family" value="Mac OS X"/>
       <param pos="0" name="os.product" value="Mac OS X"/>
       <param pos="0" name="os.device" value="General"/>
       <param pos="0" name="os.version" value="10.3"/>
+      <param pos="0" name="service.product" value="QTSS"/>
+      <param pos="1" name="service.version"/>
+    </fingerprint>
+
+    <fingerprint pattern="^QTSS\/([\d*.]*) \(Build\/[\d*.]*; Platform\/MacOSX; Release\/Mac OS X">
+      <description>QTSS OS X</description>
+      <example service.version="6.1.0">QTSS/6.1.0 (Build/532; Platform/MacOSX; Release/Mac OS X Server; )</example>
+      <param pos="0" name="os.vendor" value="Apple"/>
+      <param pos="0" name="os.family" value="Mac OS X"/>
+      <param pos="0" name="os.product" value="Mac OS X"/>
+      <param pos="0" name="os.device" value="General"/>
+      <param pos="0" name="service.product" value="QTSS"/>
+      <param pos="1" name="service.version"/>
     </fingerprint>
 </fingerprints>
