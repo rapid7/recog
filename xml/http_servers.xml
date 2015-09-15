@@ -1766,11 +1766,18 @@
       <param pos="1" name="service.version"/>
    </fingerprint>
 
-   <fingerprint pattern="^PHP/(\S+)(?:\s.+)?$">
+   <fingerprint pattern="^PHP/(\S+)$">
       <example service.component.version="4.4.2-1build1">PHP/4.4.2-1build1</example>
       <example service.component.version="5.1.2">PHP/5.1.2</example>
-      <example service.component.version="5.3.14">PHP/5.3.14 ZendServer/5.0</example>
       <description>PHP</description>
+      <param pos="0" name="service.component.product" value="PHP"/>
+      <param pos="1" name="service.component.version"/>
+   </fingerprint>
+
+   <!-- TODO: Capture ZendServer version in fingerprint -->
+   <fingerprint pattern="^PHP/(\S+)\s+ZendServer/\S+$">
+      <example service.component.version="5.3.14">PHP/5.3.14 ZendServer/5.0</example>
+      <description>PHP with ZendServer</description>
       <param pos="0" name="service.component.product" value="PHP"/>
       <param pos="1" name="service.component.version"/>
    </fingerprint>
