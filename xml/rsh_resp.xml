@@ -3,19 +3,6 @@
 Rservices responses to requests are matched against these patterns to fingerprint the OSes of servers.
 -->
 <fingerprints>
-<<<<<<< HEAD
-   <fingerprint pattern="^.Permission denied: Error 0$">
-      <example>xPermission denied: Error 0</example>
-      <description>Digital Unix rlogind</description>
-      <param pos="0" name="os.vendor" value="HP"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.family" value="Digital Unix"/>
-      <param pos="0" name="os.product" value="Unknown"/>
-   </fingerprint>
-
-   <fingerprint pattern="(?m:^.Winsock RSHD\/NT: Protocol negotiation error\..+$|^.in\.rlogind: Permission denied\..+$)">
-      <example>xWinsock RSHD/NT: Protocol negotiation error.
-=======
   <fingerprint pattern="^.Permission denied: Error 0$">
     <description>Digital Unix rlogind</description>
     <example>xPermission denied: Error 0</example>
@@ -27,71 +14,9 @@ Rservices responses to requests are matched against these patterns to fingerprin
   <fingerprint pattern="(?m:^.Winsock RSHD\/NT: Protocol negotiation error\..+$|^.in\.rlogind: Permission denied\..+$)">
     <description>Windows rlogind</description>
     <example>xWinsock RSHD/NT: Protocol negotiation error.
->>>>>>> master
       0</example>
     <example>xin.rlogind: Permission denied.
       </example>
-<<<<<<< HEAD
-      <description>Windows rlogind</description>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.product" value="Unknown"/>
-   </fingerprint>
-
-   <fingerprint pattern="(?m:^.permission denied\..+$)">
-      <example>xpermission denied.
-      </example>
-      <description>Solaris rlogind</description>
-      <param pos="0" name="os.vendor" value="Sun"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.family" value="Solaris"/>
-      <param pos="0" name="os.product" value="Solaris"/>
-   </fingerprint>
-
-   <fingerprint pattern="(?m:^.rlogind: Acc.s refus.\..+$)">
-      <example>xrlogind: Accxs refusx.
-      </example>
-      <description>AIX rlogind</description>
-      <param pos="0" name="os.vendor" value="IBM"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.family" value="AIX"/>
-      <param pos="0" name="os.product" value="AIX"/>
-   </fingerprint>
-
-   <fingerprint pattern="(?m:^.rlogind: Host name for your address \([\d.]+\) unknown\..*$)">
-      <example>xrlogind: Host name for your address (127.0.0.1) unknown.
-      </example>
-      <description>A/UX rlogind</description>
-      <param pos="0" name="os.vendor" value="Apple"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.family" value="A/UX"/>
-      <param pos="0" name="os.product" value="Unknown"/>
-   </fingerprint>
-
-   <fingerprint pattern="(?m:^.rexecd: Login incorrect\..*$)">
-      <example>xrexecd: Login incorrect.
-      </example>
-      <description>HP-UX rexecd</description>
-      <param pos="0" name="os.vendor" value="HP"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.family" value="HP-UX"/>
-      <param pos="0" name="os.product" value="HP-UX"/>
-   </fingerprint>
-
-   <fingerprint pattern="(?m:^.rexecd: [-\d]+.*$)">
-      <example>xrexecd: 0-1 The login is not correct.
-      </example>
-      <description>AIX rexecd</description>
-      <param pos="0" name="os.vendor" value="IBM"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.family" value="AIX"/>
-      <param pos="0" name="os.product" value="AIX"/>
-   </fingerprint>
-
-   <fingerprint pattern="(?m:^.remshd: (?:getservbyname.+|Kerberos Authentication not enabled\..+|Error! Kerberos authentication failed)$)">
-      <example>xremshd: getservbyname
-=======
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
@@ -145,7 +70,6 @@ Rservices responses to requests are matched against these patterns to fingerprin
   <fingerprint pattern="(?m:^.remshd: (?:getservbyname.+|Kerberos Authentication not enabled\..+|Error! Kerberos authentication failed)$)">
     <description>HP-UX rshd</description>
     <example>xremshd: getservbyname
->>>>>>> master
       </example>
     <example>xremshd: Kerberos Authentication not enabled.
       </example>
