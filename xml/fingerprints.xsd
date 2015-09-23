@@ -1,0 +1,37 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:element name="fingerprints" type="fingerprints_element"/>
+
+  <xsd:complexType name="fingerprints_element">
+    <xsd:sequence>
+      <xsd:element name="fingerprint" type="fingerprint_element" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="matches" type="xsd:string" use="optional"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="fingerprint_element" mixed="true">
+    <xsd:sequence>
+      <xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="example" type="example_element" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="param" type="param_element" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="certainty" type="xsd:string" use="optional"/>
+    <xsd:attribute name="pattern" type="xsd:string" use="required"/>
+    <xsd:attribute name="flags" type="xsd:string" use="optional"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="example_element">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:anyAttribute processContents="skip"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="param_element">
+    <xsd:attribute name="name" type="xsd:string" use="required"/>
+    <xsd:attribute name="pos" type="xsd:integer" use="required"/>
+    <xsd:attribute name="value" type="xsd:string" use="optional"/>
+  </xsd:complexType>
+
+</xsd:schema>

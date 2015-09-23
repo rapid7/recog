@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 NTP "banners", taken from a readvar response
 -->
@@ -79,8 +79,12 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.product" value="Windows 7"/>
     <param pos="3" name="os.arch"/>
   </fingerprint>
+<<<<<<< HEAD
 
   <fingerprint pattern="(?mi:^.*version=&quot;ntpd (\S+)[^&quot;]+&quot;,.*system=&quot;Equallogic \(R\) storage array&quot;)">
+=======
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd (\S+)[^&quot;]+&quot;,.*system=&quot;Equallogic \(R\) storage array&quot;)">
+>>>>>>> master
     <description>ntpd running on an EqualLogic Storage Array that includes the NTP version</description>
     <example>
       version="ntpd 4.2.0-r Fri Feb  5 15:18:30 EST 2010 (1)",
@@ -231,8 +235,13 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.product" value="BSD/OS"/>
     <param pos="1" name="os.arch"/>
     <param pos="2" name="os.version"/>
+<<<<<<< HEAD
   </fingerprint>-->
   <fingerprint pattern="(?mi:^.*system=&quot;BSD\/OS&quot;)">
+=======
+  </fingerprint>
+  <fingerprint pattern="(?mi:^.*system=&quot;BSD\/OS&quot;)">
+>>>>>>> master
     <description>BSD/OS without a version or arch</description>
     <example>
       system="BSD/OS", leap=3, stratum=16, rootdelay=0.00

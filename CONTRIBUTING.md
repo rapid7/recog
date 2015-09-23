@@ -35,10 +35,23 @@ Generally, this should only need to be done once, or if you need to start over.
 2.  Clone ```git@github.com:<your-github-username>/recog.git```, replacing
 ```<your-github-username>``` with, you guessed it, your Github username.
 3.  Add the master Recog repository as your upstream:
-```
-git remote add upstream git://github.com/rapid7/recog.git
-git fetch --all
-```
+
+ ```
+   git remote add upstream git://github.com/rapid7/recog.git
+ ```
+4. Update your `.git/config` to ensure that the `remote ["upstream"]` section is configured to pull both branches and PRs from upstream.  It should look something like the following, in particular the second `fetch` option:
+
+    ```
+     [remote "upstream"]
+      url = git@github.com:rapid7/recog.git
+      fetch = +refs/heads/*:refs/remotes/upstream/*
+      fetch = +refs/pull/*/head:refs/remotes/upstream/pr/*
+     ```
+5. Fetch the latest revisions, including PRs:
+
+    ```
+    git fetch --all
+    ```
 
 ### Branch and Improve
 
@@ -80,7 +93,7 @@ PRs](https://github.com/rapid7/metasploit-framework/wiki/Landing-Pull-Requests).
 In short:
 
 1. Follow the "Fork and Clone" steps from above
-2. Update your `.git/config` to ensure that the `remote ["upstream"]` section is configure to pull both branches and PRs from upstream.  It should look something like the following, in particular the second `fetch` option:
+2. Update your `.git/config` to ensure that the `remote ["upstream"]` section is configured to pull both branches and PRs from upstream.  It should look something like the following, in particular the second `fetch` option:
 
     ```
      [remote "upstream"]
@@ -117,7 +130,7 @@ When Recog's critical parts are modified, for example its fingerprints or underl
 When a new version of Recog is to be released, you _must_ follow the instructions below.
 
 1. If are not already a Recog project contributor for the Recog gem (you'd be listed [here under OWNERS](https://rubygems.org/gems/recog)), become one:
-  1. 1. Get an account on [Rubygems](https://rubygems.org)
+  1. Get an account on [Rubygems](https://rubygems.org)
   2. Contact one of the Recog project contributors (listed [here under OWNERS](https://rubygems.org/gems/recog) and have them add you to the Recog gem.  They'll need to run:
     ```
       gem owner recog -a EMAIL

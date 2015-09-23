@@ -1,438 +1,392 @@
-<?xml version="1.0"?>
-
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   SMB Native OS Fingerprints
 -->
-
 <fingerprints matches="smb.native_os">
-
-   <fingerprint pattern="^(Windows NT \d\.\d+)$">
-      <description>Windows NT</description>
-      <example os.product="Windows NT 4.0">Windows NT 4.0</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="1" name="os.product"/>
-   </fingerprint>
-
-   <fingerprint pattern="^(Windows (?:95|98|ME))$">
-      <description>Windows 95/98/ME</description>
-      <example os.product="Windows 95">Windows 95</example>
-      <example os.product="Windows 98">Windows 98</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="1" name="os.product"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows 5\.0$">
-      <description>Windows 2000</description>
-      <example>Windows 5.0</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows 2000"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows 5\.1$">
-      <description>Windows XP</description>
-      <example>Windows 5.1</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows XP"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows XP (\d+) (Service Pack \d+)$">
-      <description>Windows XP</description>
-      <example os.build="2600" os.version="Service Pack 1">Windows XP 2600 Service Pack 1</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows XP"/>
-      <param pos="1" name="os.build"/>
-      <param pos="2" name="os.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows XP (\d+)$">
-      <description>Windows XP</description>
-      <example os.build="2600">Windows XP 2600</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows XP"/>
-      <param pos="1" name="os.build"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows \.NET">
-      <description>Windows Server 2003 Beta</description>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2003"/>
-      <param pos="0" name="os.version" value="Beta"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows Server 2003 R2 (\d+)$">
-      <description>Windows Server 2003 R2</description>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2003 R2"/>
-      <param pos="1" name="os.build"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows Server 2003 R2 (\d+) (Service Pack \d+)$">
-      <description>Windows Server 2003 R2 (SP)</description>
-      <example os.build="3790" os.version="Service Pack 2">Windows Server 2003 R2 3790 Service Pack 2</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2003 R2"/>
-      <param pos="1" name="os.build"/>
-      <param pos="2" name="os.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows Server 2003 (\d+)$">
-      <description>Windows Server 2003</description>
-      <example os.build="3790">Windows Server 2003 3790</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2003"/>
-      <param pos="1" name="os.build"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows Server 2003 (\d+) (Service Pack \d+)$">
-      <description>Windows Server 2003 (SP)</description>
-      <example os.build="3790" os.version="Service Pack 1">Windows Server 2003 3790 Service Pack 1</example>
-      <example os.build="3790" os.version="Service Pack 2">Windows Server 2003 3790 Service Pack 2</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2003"/>
-      <param pos="1" name="os.build"/>
-      <param pos="2" name="os.version"/>
-   </fingerprint>
-
-   <!-- Note that 2008 SP1 is technically "2008 Gold" according to Microsoft -->
-   <fingerprint pattern="^Windows Server \(R\) 2008 (\w+|\w+ \w+|\w+ \w+ \w+)(?: (?:with|without) Hyper-V|) (\d+) (Service Pack \d+)$">
-      <description>Windows Server 2008</description>
-      <example os.edition="Enterprise" os.version="Service Pack 1">Windows Server (R) 2008 Enterprise without Hyper-V 6001 Service Pack 1</example>
-      <example os.edition="Enterprise" os.version="Service Pack 2">Windows Server (R) 2008 Enterprise 6002 Service Pack 2</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2008"/>
-      <param pos="1" name="os.edition"/>
-      <param pos="2" name="os.build"/>
-      <param pos="3" name="os.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows \(R\) Web Server 2008 (\d+) (Service Pack \d+)$">
-      <description>Windows Web Server 2008 (SP)</description>
-      <example os.edition="Web" os.version="Service Pack 2">Windows (R) Web Server 2008 6002 Service Pack 2</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2008"/>
-      <param pos="0" name="os.edition" value="Web"/>
-      <param pos="1" name="os.build"/>
-      <param pos="2" name="os.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows \(R\) Web Server 2008 (\d+)$">
-      <description>Windows Web Server 2008</description>
-      <example>Windows (R) Web Server 2008 6002</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2008"/>
-      <param pos="0" name="os.edition" value="Web"/>
-      <param pos="1" name="os.build"/>
-   </fingerprint>
-
-   <!-- TODO: Need an example string -->
-   <fingerprint pattern="^Windows \(R\) Storage Server 2008 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
-      <description>Windows Server 2008 Storage (SP)</description>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2008"/>
-      <param pos="0" name="os.edition" value="Storage"/>
-      <param pos="1" name="os.build"/>
-      <param pos="2" name="os.version"/>
-   </fingerprint>
-
-   <!-- TODO: Need an example string -->
-   <fingerprint pattern="^Windows \(R\) Storage Server 2008 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
-      <description>Windows Web Server 2008 Storage</description>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2008"/>
-      <param pos="0" name="os.edition" value="Storage"/>
-      <param pos="1" name="os.build"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows Server 2008 HPC Edition (\d+) (Service Pack \d+)$">
-      <description>Windows Server 2008 HPC</description>
-      <example>Windows Server 2008 HPC Edition 7601 Service Pack 1</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2008"/>
-      <param pos="0" name="os.edition" value="HPC"/>
-      <param pos="1" name="os.build"/>
-      <param pos="2" name="os.version"/>
-   </fingerprint>
-
-   <!-- TODO: Need an example string -->
-   <fingerprint pattern="^Windows Server 2008 HPC Edition (\d+)$">
-      <description>Windows Web Server 2008 HPC</description>
-      <example>Windows Server 2008 HPC Edition 7600</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2008"/>
-      <param pos="0" name="os.edition" value="HPC"/>
-      <param pos="1" name="os.build"/>
-   </fingerprint>
-
-   <!-- 2008 R2 -->
-
-   <fingerprint pattern="^Windows Server 2008 R2 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
-      <description>Windows Server 2008</description>
-      <example>Windows Server 2008 R2 Enterprise 7601 Service Pack 1</example>
-      <example>Windows Server 2008 R2 Standard 7601 Service Pack 1</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
-      <param pos="1" name="os.edition"/>
-      <param pos="2" name="os.build"/>
-      <param pos="3" name="os.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows Server 2008 R2 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
-      <description>Windows Server 2008 R2</description>
-      <example os.edition="Enterprise">Windows Server 2008 R2 Enterprise 7600</example>
-      <example os.edition="Standard">Windows Server 2008 R2 Standard 7600</example>
-      <example os.edition="Datacenter">Windows Server 2008 R2 Datacenter 7600</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
-      <param pos="1" name="os.edition"/>
-      <param pos="2" name="os.build"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows Web Server 2008 R2 (\d+) (Service Pack \d+)$">
-      <description>Windows Server 2008 R2 Web</description>
-      <example os.version="Service Pack 1">Windows Web Server 2008 R2 7601 Service Pack 1</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
-      <param pos="0" name="os.edition" value="Web"/>
-      <param pos="1" name="os.build"/>
-      <param pos="2" name="os.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows Web Server 2008 R2 (\d+)$">
-      <description>Windows Web Server 2008 R2 Web</description>
-      <example>Windows Web Server 2008 R2 7600</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
-      <param pos="0" name="os.edition" value="Web"/>
-      <param pos="1" name="os.build"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows Vista \(TM\) (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
-      <description>Windows Vista (SP)</description>
-      <example os.edition="Home Premium" os.version="Service Pack 2">Windows Vista (TM) Home Premium 6002 Service Pack 2</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Vista"/>
-      <param pos="1" name="os.edition"/>
-      <param pos="2" name="os.build"/>
-      <param pos="3" name="os.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows Vista \(TM\) (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
-      <description>Windows Vista</description>
-      <example os.edition="Home Premium">Windows Vista (TM) Home Premium 6000</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Vista"/>
-      <param pos="1" name="os.edition"/>
-      <param pos="2" name="os.build"/>
-   </fingerprint>
-
-
-   <fingerprint pattern="^(Windows (?:7|8|8\.1)(?:| RT)) (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
-      <description>Windows 7/8 (SP + Edition)</description>
-      <example os.edition="Enterprise" os.version="Service Pack 1">Windows 7 Enterprise 7601 Service Pack 1</example>
-      <example os.edition="Starter" os.version="Service Pack 1">Windows 7 Starter 7601 Service Pack 1</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="1" name="os.product"/>
-      <param pos="2" name="os.edition"/>
-      <param pos="3" name="os.build"/>
-      <param pos="4" name="os.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^(Windows (?:7|8|8\.1)(?:| RT)) (\d+) (Service Pack \d+)$">
-      <description>Windows 7/8 (SP)</description>
-      <example os.version="Service Pack 1">Windows 7 7601 Service Pack 1</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="1" name="os.product"/>
-      <param pos="2" name="os.build"/>
-      <param pos="3" name="os.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^(Windows (?:7|8|8\.1)(?:| RT)) (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
-      <description>Windows 7/8 (Edition)</description>
-      <example os.edition="Enterprise">Windows 7 Enterprise 7600</example>
-      <example os.edition="Enterprise">Windows 8.1 Enterprise 9600</example>
-      <example os.edition="Enterprise">Windows 8 Enterprise 9200</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="1" name="os.product"/>
-      <param pos="2" name="os.edition"/>
-      <param pos="3" name="os.build"/>
-   </fingerprint>
-
-   <fingerprint pattern="^(Windows (?:7|8|8\.1)(?:| RT)) (\d+)$">
-      <description>Windows 7/8</description>
-      <example>Windows 8 9200</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="1" name="os.product"/>
-      <param pos="2" name="os.build"/>
-   </fingerprint>
-
-   <!-- Windows 2012 R2 matches go first to simplify the regular expressions -->
-
-   <!-- TODO: Need an example string -->
-   <fingerprint pattern="^Windows Server 2012 R2 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
-      <description>Windows Server 2012 R2 (SP)</description>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
-      <param pos="1" name="os.edition"/>
-      <param pos="2" name="os.build"/>
-      <param pos="3" name="os.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows Server 2012 R2 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
-      <description>Windows Server 2012 R2</description>
-      <example os.edition="Standard">Windows Server 2012 R2 Standard 9600</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
-      <param pos="1" name="os.edition"/>
-      <param pos="2" name="os.build"/>
-   </fingerprint>
-
-   <!-- TODO: Need an example string -->
-   <fingerprint pattern="^Windows Server 2012 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
-      <description>Windows Server 2012 (SP)</description>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2012"/>
-      <param pos="1" name="os.edition"/>
-      <param pos="2" name="os.build"/>
-      <param pos="3" name="os.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows Server 2012 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
-      <description>Windows Server 2012</description>
-      <example>Windows Server 2012 Standard 9200</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2012"/>
-      <param pos="1" name="os.edition"/>
-      <param pos="2" name="os.build"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows MultiPoint Server 2012 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
-      <description>Windows MultiPoint Server 2012 (SP)</description>
-      <example os.build="9201" os.version="Service Pack 1">Windows MultiPoint Server 2012 Premium 9201 Service Pack 1</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2012"/>
-      <param pos="0" name="os.edition" value="MultiPoint"/>
-      <param pos="1" name="os.build"/>
-      <param pos="2" name="os.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows MultiPoint Server 2012 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
-      <description>Windows MultiPoint Server 2012</description>
-      <example os.build="9200">Windows MultiPoint Server 2012 Premium 9200</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows Server 2012"/>
-      <param pos="0" name="os.edition" value="MultiPoint"/>
-      <param pos="1" name="os.build"/>
-   </fingerprint>
-
-   <!-- Windows 10 Preview -->
-   <fingerprint pattern="^Windows 10 (\w+|\w+ \w+|\w+ \w+ \w+) Insider Preview (\d+)$">
-      <description>Windows 10 Enterprise Insider Preview</description>
-      <example os.build="10130" os.edition="Enterprise">Windows 10 Enterprise Insider Preview 10130</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows 10"/>
-      <param pos="1" name="os.edition"/>
-      <param pos="2" name="os.build"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Windows 10 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
-      <description>Windows 10</description>
-      <example os.build="10130" os.edition="Enterprise">Windows 10 Enterprise 10130</example>
-      <example os.build="10130" os.edition="Mobile Enterprise">Windows 10 Mobile Enterprise 10130</example>
-      <example os.build="10130" os.edition="Mobile">Windows 10 Mobile 10130</example>
-      <example os.build="10130" os.edition="Home">Windows 10 Home 10130</example>
-      <example os.build="10130" os.edition="Education">Windows 10 Education 10130</example>
-      <example os.build="10130" os.edition="Professional">Windows 10 Professional 10130</example>
-      <param pos="0" name="os.certainty" value="1.0"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.product" value="Windows 10"/>
-      <param pos="1" name="os.edition"/>
-      <param pos="2" name="os.build"/>
-   </fingerprint>
-
-      <!-- Mac OS X -->
-   <fingerprint pattern="^Samba (3\.0\.28a-apple)$">
-      <description>Samba on OS X 10.6</description>
-      <example service.version="3.0.28a-apple">Samba 3.0.28a-apple</example>
-      <param pos="0" name="os.vendor" value="Apple"/>
-      <param pos="0" name="os.family" value="Mac OS X"/>
-      <param pos="0" name="os.product" value="Mac OS X"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.version" value="10.6"/>
-      <param pos="0" name="service.vendor" value="Samba"/>
-      <param pos="0" name="service.product" value="Samba"/>
-      <param pos="1" name="service.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Samba (3\.0\.25b-apple)$">
-      <description>Samba on OS X 10.5</description>
-      <example service.version="3.0.25b-apple">Samba 3.0.25b-apple</example>
-      <param pos="0" name="os.vendor" value="Apple"/>
-      <param pos="0" name="os.family" value="Mac OS X"/>
-      <param pos="0" name="os.product" value="Mac OS X"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.version" value="10.5"/>
-      <param pos="0" name="service.vendor" value="Samba"/>
-      <param pos="0" name="service.product" value="Samba"/>
-      <param pos="1" name="service.version"/>
-   </fingerprint>
-
-   <!-- TODO: Detect vendor, distribution, and package versions -->
-   <fingerprint pattern="^Samba (\d\.\d+.\d+\w*)">
-      <description>Samba</description>
-      <example>Samba 3.0.24</example>
-      <example>Samba 3.0.28a</example>
-      <example>Samba 3.0.32-0.2-2210-SUSE-SL10.3</example>
-      <example>Samba 3.6.3</example>
-      <example>Samba 3.6.6</example>
-      <example>Samba 3.6.9-151.el6_4.1</example>
-      <param pos="0" name="service.vendor" value="Samba"/>
-      <param pos="0" name="service.product" value="Samba"/>
-      <param pos="1" name="service.version" />
-   </fingerprint>
-
-   <fingerprint pattern="^VxWorks">
-      <description>VxWorks</description>
-      <example>VxWorks</example>
-      <param pos="0" name="os.certainty" value="0.5"/>
-      <param pos="0" name="os.vendor" value="Wind River"/>
-      <param pos="0" name="os.product" value="VxWorks"/>
-      <param pos="0" name="service.vendor" value="Wind River"/>
-      <param pos="0" name="service.product" value="VxWorks CIFS"/>
-   </fingerprint>
-
+  <fingerprint pattern="^(Windows NT \d\.\d+)$">
+    <description>Windows NT</description>
+    <example os.product="Windows NT 4.0">Windows NT 4.0</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="1" name="os.product"/>
+  </fingerprint>
+  <fingerprint pattern="^(Windows (?:95|98|ME))$">
+    <description>Windows 95/98/ME</description>
+    <example os.product="Windows 95">Windows 95</example>
+    <example os.product="Windows 98">Windows 98</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="1" name="os.product"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows 5\.0$">
+    <description>Windows 2000</description>
+    <example>Windows 5.0</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows 2000"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows 5\.1$">
+    <description>Windows XP</description>
+    <example>Windows 5.1</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows XP"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows XP (\d+) (Service Pack \d+)$">
+    <description>Windows XP</description>
+    <example os.build="2600" os.version="Service Pack 1">Windows XP 2600 Service Pack 1</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows XP"/>
+    <param pos="1" name="os.build"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows XP (\d+)$">
+    <description>Windows XP</description>
+    <example os.build="2600">Windows XP 2600</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows XP"/>
+    <param pos="1" name="os.build"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows \.NET">
+    <description>Windows Server 2003 Beta</description>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2003"/>
+    <param pos="0" name="os.version" value="Beta"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows Server 2003 R2 (\d+)$">
+    <description>Windows Server 2003 R2</description>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2003 R2"/>
+    <param pos="1" name="os.build"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows Server 2003 R2 (\d+) (Service Pack \d+)$">
+    <description>Windows Server 2003 R2 (SP)</description>
+    <example os.build="3790" os.version="Service Pack 2">Windows Server 2003 R2 3790 Service Pack 2</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2003 R2"/>
+    <param pos="1" name="os.build"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows Server 2003 (\d+)$">
+    <description>Windows Server 2003</description>
+    <example os.build="3790">Windows Server 2003 3790</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2003"/>
+    <param pos="1" name="os.build"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows Server 2003 (\d+) (Service Pack \d+)$">
+    <description>Windows Server 2003 (SP)</description>
+    <example os.build="3790" os.version="Service Pack 1">Windows Server 2003 3790 Service Pack 1</example>
+    <example os.build="3790" os.version="Service Pack 2">Windows Server 2003 3790 Service Pack 2</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2003"/>
+    <param pos="1" name="os.build"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+  <!-- Note that 2008 SP1 is technically "2008 Gold" according to Microsoft -->
+  <fingerprint pattern="^Windows Server \(R\) 2008 (\w+|\w+ \w+|\w+ \w+ \w+)(?: (?:with|without) Hyper-V|) (\d+) (Service Pack \d+)$">
+    <description>Windows Server 2008</description>
+    <example os.edition="Enterprise" os.version="Service Pack 1">Windows Server (R) 2008 Enterprise without Hyper-V 6001 Service Pack 1</example>
+    <example os.edition="Enterprise" os.version="Service Pack 2">Windows Server (R) 2008 Enterprise 6002 Service Pack 2</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2008"/>
+    <param pos="1" name="os.edition"/>
+    <param pos="2" name="os.build"/>
+    <param pos="3" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows \(R\) Web Server 2008 (\d+) (Service Pack \d+)$">
+    <description>Windows Web Server 2008 (SP)</description>
+    <example os.edition="Web" os.version="Service Pack 2">Windows (R) Web Server 2008 6002 Service Pack 2</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2008"/>
+    <param pos="0" name="os.edition" value="Web"/>
+    <param pos="1" name="os.build"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows \(R\) Web Server 2008 (\d+)$">
+    <description>Windows Web Server 2008</description>
+    <example>Windows (R) Web Server 2008 6002</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2008"/>
+    <param pos="0" name="os.edition" value="Web"/>
+    <param pos="1" name="os.build"/>
+  </fingerprint>
+  <!-- TODO: Need an example string -->
+  <fingerprint pattern="^Windows \(R\) Storage Server 2008 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
+    <description>Windows Server 2008 Storage (SP)</description>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2008"/>
+    <param pos="0" name="os.edition" value="Storage"/>
+    <param pos="1" name="os.build"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+  <!-- TODO: Need an example string -->
+  <fingerprint pattern="^Windows \(R\) Storage Server 2008 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
+    <description>Windows Web Server 2008 Storage</description>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2008"/>
+    <param pos="0" name="os.edition" value="Storage"/>
+    <param pos="1" name="os.build"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows Server 2008 HPC Edition (\d+) (Service Pack \d+)$">
+    <description>Windows Server 2008 HPC</description>
+    <example>Windows Server 2008 HPC Edition 7601 Service Pack 1</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2008"/>
+    <param pos="0" name="os.edition" value="HPC"/>
+    <param pos="1" name="os.build"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+  <!-- TODO: Need an example string -->
+  <fingerprint pattern="^Windows Server 2008 HPC Edition (\d+)$">
+    <description>Windows Web Server 2008 HPC</description>
+    <example>Windows Server 2008 HPC Edition 7600</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2008"/>
+    <param pos="0" name="os.edition" value="HPC"/>
+    <param pos="1" name="os.build"/>
+  </fingerprint>
+  <!-- 2008 R2 -->
+  <fingerprint pattern="^Windows Server 2008 R2 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
+    <description>Windows Server 2008</description>
+    <example>Windows Server 2008 R2 Enterprise 7601 Service Pack 1</example>
+    <example>Windows Server 2008 R2 Standard 7601 Service Pack 1</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
+    <param pos="1" name="os.edition"/>
+    <param pos="2" name="os.build"/>
+    <param pos="3" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows Server 2008 R2 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
+    <description>Windows Server 2008 R2</description>
+    <example os.edition="Enterprise">Windows Server 2008 R2 Enterprise 7600</example>
+    <example os.edition="Standard">Windows Server 2008 R2 Standard 7600</example>
+    <example os.edition="Datacenter">Windows Server 2008 R2 Datacenter 7600</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
+    <param pos="1" name="os.edition"/>
+    <param pos="2" name="os.build"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows Web Server 2008 R2 (\d+) (Service Pack \d+)$">
+    <description>Windows Server 2008 R2 Web</description>
+    <example os.version="Service Pack 1">Windows Web Server 2008 R2 7601 Service Pack 1</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
+    <param pos="0" name="os.edition" value="Web"/>
+    <param pos="1" name="os.build"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows Web Server 2008 R2 (\d+)$">
+    <description>Windows Web Server 2008 R2 Web</description>
+    <example>Windows Web Server 2008 R2 7600</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
+    <param pos="0" name="os.edition" value="Web"/>
+    <param pos="1" name="os.build"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows Vista \(TM\) (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
+    <description>Windows Vista (SP)</description>
+    <example os.edition="Home Premium" os.version="Service Pack 2">Windows Vista (TM) Home Premium 6002 Service Pack 2</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Vista"/>
+    <param pos="1" name="os.edition"/>
+    <param pos="2" name="os.build"/>
+    <param pos="3" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows Vista \(TM\) (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
+    <description>Windows Vista</description>
+    <example os.edition="Home Premium">Windows Vista (TM) Home Premium 6000</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Vista"/>
+    <param pos="1" name="os.edition"/>
+    <param pos="2" name="os.build"/>
+  </fingerprint>
+  <fingerprint pattern="^(Windows (?:7|8|8\.1)(?:| RT)) (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
+    <description>Windows 7/8 (SP + Edition)</description>
+    <example os.edition="Enterprise" os.version="Service Pack 1">Windows 7 Enterprise 7601 Service Pack 1</example>
+    <example os.edition="Starter" os.version="Service Pack 1">Windows 7 Starter 7601 Service Pack 1</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="1" name="os.product"/>
+    <param pos="2" name="os.edition"/>
+    <param pos="3" name="os.build"/>
+    <param pos="4" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(Windows (?:7|8|8\.1)(?:| RT)) (\d+) (Service Pack \d+)$">
+    <description>Windows 7/8 (SP)</description>
+    <example os.version="Service Pack 1">Windows 7 7601 Service Pack 1</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="1" name="os.product"/>
+    <param pos="2" name="os.build"/>
+    <param pos="3" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(Windows (?:7|8|8\.1)(?:| RT)) (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
+    <description>Windows 7/8 (Edition)</description>
+    <example os.edition="Enterprise">Windows 7 Enterprise 7600</example>
+    <example os.edition="Enterprise">Windows 8.1 Enterprise 9600</example>
+    <example os.edition="Enterprise">Windows 8 Enterprise 9200</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="1" name="os.product"/>
+    <param pos="2" name="os.edition"/>
+    <param pos="3" name="os.build"/>
+  </fingerprint>
+  <fingerprint pattern="^(Windows (?:7|8|8\.1)(?:| RT)) (\d+)$">
+    <description>Windows 7/8</description>
+    <example>Windows 8 9200</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="1" name="os.product"/>
+    <param pos="2" name="os.build"/>
+  </fingerprint>
+  <!-- Windows 2012 R2 matches go first to simplify the regular expressions -->
+  <!-- TODO: Need an example string -->
+  <fingerprint pattern="^Windows Server 2012 R2 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
+    <description>Windows Server 2012 R2 (SP)</description>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
+    <param pos="1" name="os.edition"/>
+    <param pos="2" name="os.build"/>
+    <param pos="3" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows Server 2012 R2 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
+    <description>Windows Server 2012 R2</description>
+    <example os.edition="Standard">Windows Server 2012 R2 Standard 9600</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
+    <param pos="1" name="os.edition"/>
+    <param pos="2" name="os.build"/>
+  </fingerprint>
+  <!-- TODO: Need an example string -->
+  <fingerprint pattern="^Windows Server 2012 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
+    <description>Windows Server 2012 (SP)</description>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2012"/>
+    <param pos="1" name="os.edition"/>
+    <param pos="2" name="os.build"/>
+    <param pos="3" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows Server 2012 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
+    <description>Windows Server 2012</description>
+    <example>Windows Server 2012 Standard 9200</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2012"/>
+    <param pos="1" name="os.edition"/>
+    <param pos="2" name="os.build"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows MultiPoint Server 2012 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
+    <description>Windows MultiPoint Server 2012 (SP)</description>
+    <example os.build="9201" os.version="Service Pack 1">Windows MultiPoint Server 2012 Premium 9201 Service Pack 1</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2012"/>
+    <param pos="0" name="os.edition" value="MultiPoint"/>
+    <param pos="1" name="os.build"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows MultiPoint Server 2012 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
+    <description>Windows MultiPoint Server 2012</description>
+    <example os.build="9200">Windows MultiPoint Server 2012 Premium 9200</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2012"/>
+    <param pos="0" name="os.edition" value="MultiPoint"/>
+    <param pos="1" name="os.build"/>
+  </fingerprint>
+  <!-- Windows 10 Preview -->
+  <fingerprint pattern="^Windows 10 (\w+|\w+ \w+|\w+ \w+ \w+) Insider Preview (\d+)$">
+    <description>Windows 10 Enterprise Insider Preview</description>
+    <example os.build="10130" os.edition="Enterprise">Windows 10 Enterprise Insider Preview 10130</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows 10"/>
+    <param pos="1" name="os.edition"/>
+    <param pos="2" name="os.build"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows 10 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
+    <description>Windows 10</description>
+    <example os.build="10130" os.edition="Enterprise">Windows 10 Enterprise 10130</example>
+    <example os.build="10130" os.edition="Mobile Enterprise">Windows 10 Mobile Enterprise 10130</example>
+    <example os.build="10130" os.edition="Mobile">Windows 10 Mobile 10130</example>
+    <example os.build="10130" os.edition="Home">Windows 10 Home 10130</example>
+    <example os.build="10130" os.edition="Education">Windows 10 Education 10130</example>
+    <example os.build="10130" os.edition="Professional">Windows 10 Professional 10130</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows 10"/>
+    <param pos="1" name="os.edition"/>
+    <param pos="2" name="os.build"/>
+  </fingerprint>
+  <!-- Mac OS X -->
+  <fingerprint pattern="^Samba (3\.0\.28a-apple)$">
+    <description>Samba on OS X 10.6</description>
+    <example service.version="3.0.28a-apple">Samba 3.0.28a-apple</example>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS X"/>
+    <param pos="0" name="os.product" value="Mac OS X"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.version" value="10.6"/>
+    <param pos="0" name="service.vendor" value="Samba"/>
+    <param pos="0" name="service.product" value="Samba"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Samba (3\.0\.25b-apple)$">
+    <description>Samba on OS X 10.5</description>
+    <example service.version="3.0.25b-apple">Samba 3.0.25b-apple</example>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS X"/>
+    <param pos="0" name="os.product" value="Mac OS X"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.version" value="10.5"/>
+    <param pos="0" name="service.vendor" value="Samba"/>
+    <param pos="0" name="service.product" value="Samba"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <!-- TODO: Detect vendor, distribution, and package versions -->
+  <fingerprint pattern="^Samba (\d\.\d+.\d+\w*)">
+    <description>Samba</description>
+    <example>Samba 3.0.24</example>
+    <example>Samba 3.0.28a</example>
+    <example>Samba 3.0.32-0.2-2210-SUSE-SL10.3</example>
+    <example>Samba 3.6.3</example>
+    <example>Samba 3.6.6</example>
+    <example>Samba 3.6.9-151.el6_4.1</example>
+    <param pos="0" name="service.vendor" value="Samba"/>
+    <param pos="0" name="service.product" value="Samba"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^VxWorks">
+    <description>VxWorks</description>
+    <example>VxWorks</example>
+    <param pos="0" name="os.certainty" value="0.5"/>
+    <param pos="0" name="os.vendor" value="Wind River"/>
+    <param pos="0" name="os.product" value="VxWorks"/>
+    <param pos="0" name="service.vendor" value="Wind River"/>
+    <param pos="0" name="service.product" value="VxWorks CIFS"/>
+  </fingerprint>
 </fingerprints>

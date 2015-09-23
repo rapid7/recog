@@ -1,10 +1,9 @@
-<?xml version="1.0"?>
-
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   Generic rules for matching a machine architecture, platform, or chipset
 -->
-
 <fingerprints matches="architecture">
+<<<<<<< HEAD
 
    <fingerprint pattern="(?i:x64|amd64|x86_64)">
       <description>x64 (x86_x64)</description>
@@ -42,4 +41,32 @@
       <param pos="0" name="os.arch" value="arm"/>
    </fingerprint>
 
+=======
+  <fingerprint pattern="(?i:x64|amd64|x86_64)">
+    <description>x64 (x86_x64)</description>
+    <example>Linux claw 3.11.0-15-generic #23-Ubuntu SMP Mon Dec 9 18:17:04 UTC 2013 x86_64 x86_64 x86_64 GNU/Linux</example>
+    <param pos="0" name="os.arch" value="x64"/>
+  </fingerprint>
+  <fingerprint pattern="(?i:x86|i[3456]86)">
+    <description>x86</description>
+    <example>Linux bob 3.2.0-1-generic #3-Ubuntu SMP Wed Dec 11 19:12:55 UTC 2013 i686 i686 i686 GNU/Linux</example>
+    <param pos="0" name="os.arch" value="x86"/>
+  </fingerprint>
+  <fingerprint pattern="PowerPC|PPC|POWER|ppc">
+    <description>PowerPC</description>
+    <param pos="0" name="os.arch" value="ppc"/>
+  </fingerprint>
+  <fingerprint pattern="(?i:SPARC)">
+    <description>SPARC</description>
+    <param pos="0" name="os.arch" value="sparc"/>
+  </fingerprint>
+  <fingerprint pattern="(?i:mips)">
+    <description>MIPS</description>
+    <param pos="0" name="os.arch" value="mips"/>
+  </fingerprint>
+  <fingerprint pattern="(?i:arm)">
+    <description>ARM</description>
+    <param pos="0" name="os.arch" value="arm"/>
+  </fingerprint>
+>>>>>>> master
 </fingerprints>
