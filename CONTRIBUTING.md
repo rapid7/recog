@@ -117,7 +117,7 @@ When Recog's critical parts are modified, for example its fingerprints or underl
 When a new version of Recog is to be released, you _must_ follow the instructions below.
 
 1. If are not already a Recog project contributor for the Recog gem (you'd be listed [here under OWNERS](https://rubygems.org/gems/recog)), become one:
-  1. 1. Get an account on [Rubygems](https://rubygems.org)
+  1. Get an account on [Rubygems](https://rubygems.org)
   2. Contact one of the Recog project contributors (listed [here under OWNERS](https://rubygems.org/gems/recog) and have them add you to the Recog gem.  They'll need to run:
     ```
       gem owner recog -a EMAIL
