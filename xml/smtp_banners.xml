@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 SMTP greeting lines (part of the banner after the response code) are matched
 against these patterns (1 line at a time) to fingerprint SMTP servers.
@@ -18,135 +18,120 @@ These XML files are used in this order:
 
 The system or service fingerprint with the highest certainty overwrites the others.
 -->
-
 <fingerprints matches="smtp.banner">
-   <fingerprint pattern="^X1 NT-ESMTP Server ([^ ]+) \(IMail (\d+\.[^ ]+) EVAL \d+-\d+\)$">
-      <description>IMail EVAL version</description>
-      <param pos="0" name="service.vendor" value="Ipswitch"/>
-      <param pos="0" name="service.family" value="IMail Server"/>
-      <param pos="0" name="service.product" value="IMail Server"/>
-      <param pos="2" name="service.version"/>
-      <param pos="1" name="host.name"/>
-      <param pos="0" name="imail.eval" value="yes"/>
-   </fingerprint>
-
-   <fingerprint pattern="^X1 NT-ESMTP Server ([^ ]+) \(IMail (\d+\.[^ ]+) \d+-\d+\)$">
-      <!-- 220 X1 NT-ESMTP Server foo.bar (IMail 6.06 4342-1) -->
-      <description>IMail non-EVAL version</description>
-      <param pos="0" name="service.vendor" value="Ipswitch"/>
-      <param pos="0" name="service.family" value="IMail Server"/>
-      <param pos="0" name="service.product" value="IMail Server"/>
-      <param pos="2" name="service.version"/>
-      <param pos="1" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) \(IMail (\d+\.[^ ]+) \d+-\d+\) NT-ESMTP Server X1$">
-      <!-- 220 foo.bar (IMail 8.05 113547-7) NT-ESMTP Server X1 -->
-      <description>IMail non-EVAL version</description>
-      <param pos="0" name="service.vendor" value="Ipswitch"/>
-      <param pos="0" name="service.family" value="IMail Server"/>
-      <param pos="0" name="service.product" value="IMail Server"/>
-      <param pos="2" name="service.version"/>
-      <param pos="1" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) SMTP AnalogX Proxy ([^ ]+\.[^ ]+) \(Release\) ready *$">
-      <description>
+  <fingerprint pattern="^X1 NT-ESMTP Server ([^ ]+) \(IMail (\d+\.[^ ]+) EVAL \d+-\d+\)$">
+    <description>IMail EVAL version</description>
+    <param pos="0" name="service.vendor" value="Ipswitch"/>
+    <param pos="0" name="service.family" value="IMail Server"/>
+    <param pos="0" name="service.product" value="IMail Server"/>
+    <param pos="2" name="service.version"/>
+    <param pos="1" name="host.name"/>
+    <param pos="0" name="imail.eval" value="yes"/>
+  </fingerprint>
+  <fingerprint pattern="^X1 NT-ESMTP Server ([^ ]+) \(IMail (\d+\.[^ ]+) \d+-\d+\)$">
+    <description>IMail non-EVAL version</description>
+    <param pos="0" name="service.vendor" value="Ipswitch"/>
+    <param pos="0" name="service.family" value="IMail Server"/>
+    <param pos="0" name="service.product" value="IMail Server"/>
+    <param pos="2" name="service.version"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) \(IMail (\d+\.[^ ]+) \d+-\d+\) NT-ESMTP Server X1$">
+    <description>IMail non-EVAL version</description>
+    <param pos="0" name="service.vendor" value="Ipswitch"/>
+    <param pos="0" name="service.family" value="IMail Server"/>
+    <param pos="0" name="service.product" value="IMail Server"/>
+    <param pos="2" name="service.version"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) SMTP AnalogX Proxy ([^ ]+\.[^ ]+) \(Release\) ready *$">
+    <description>
          AnalogX proxy
          http://www.analogx.com/contents/download/network/proxy.htm
       </description>
-      <example host.name="192.168.1.1" service.version="4.15">192.168.1.1 SMTP AnalogX Proxy 4.15 (Release) ready</example>
-      <param pos="0" name="service.vendor" value="AnalogX"/>
-      <param pos="0" name="service.family" value="Proxy"/>
-      <param pos="0" name="service.product" value="Proxy"/>
-      <param pos="2" name="service.version"/>
-      <param pos="1" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^ArGoSoft Mail Server, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
-      <description>
+    <example host.name="192.168.1.1" service.version="4.15">192.168.1.1 SMTP AnalogX Proxy 4.15 (Release) ready</example>
+    <param pos="0" name="service.vendor" value="AnalogX"/>
+    <param pos="0" name="service.family" value="Proxy"/>
+    <param pos="0" name="service.product" value="Proxy"/>
+    <param pos="2" name="service.version"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^ArGoSoft Mail Server, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
+    <description>
          ArGoSoft Mail Server is fully functional STMP/POP3/Finger server for Windows 95/98/NT/2000.
          http://www.argosoft.com/applications/mailserver/
          Example: 220 ArGoSoft Mail Server, Version 1.4 (1.4.0.3)
       </description>
-      <param pos="0" name="service.vendor" value="ArGoSoft"/>
-      <param pos="0" name="service.family" value="Mail Server"/>
-      <param pos="0" name="service.product" value="Mail Server"/>
-      <param pos="1" name="service.version"/>
-    </fingerprint>
-
-   <fingerprint pattern="^(\S+) ArGoSoft Mail Server Freeware, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
-     <description>ArGoSoft Mail, freeware version</description>
-      <example host.name="example.com" service.version="1.8.8.8">example.com ArGoSoft Mail Server Freeware, Version 1.8 (1.8.8.8)</example>
-      <param pos="0" name="service.vendor" value="ArGoSoft"/>
-      <param pos="0" name="service.family" value="Mail Server"/>
-      <param pos="0" name="service.product" value="Mail Server"/>
-      <param pos="2" name="service.version"/>
-      <param pos="1" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^ArGoSoft Mail Server Pro for WinNT/2000, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="ArGoSoft"/>
+    <param pos="0" name="service.family" value="Mail Server"/>
+    <param pos="0" name="service.product" value="Mail Server"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(\S+) ArGoSoft Mail Server Freeware, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
+    <description>ArGoSoft Mail, freeware version</description>
+    <example host.name="example.com" service.version="1.8.8.8">example.com ArGoSoft Mail Server Freeware, Version 1.8 (1.8.8.8)</example>
+    <param pos="0" name="service.vendor" value="ArGoSoft"/>
+    <param pos="0" name="service.family" value="Mail Server"/>
+    <param pos="0" name="service.product" value="Mail Server"/>
+    <param pos="2" name="service.version"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^ArGoSoft Mail Server Pro for WinNT/2000, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
+    <description>
          Example:    220 ArGoSoft Mail Server Pro for WinNT/2000, Version 1.61 (1.6.1.8)
       </description>
-      <param pos="0" name="service.vendor" value="ArGoSoft"/>
-      <param pos="0" name="service.family" value="Mail Server"/>
-      <param pos="0" name="service.product" value="Mail Server"/>
-      <param pos="1" name="service.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +AppleShare IP Mail Server ([^ ]+\.[^ ]+\.[^ ]+) SMTP Server Ready *$">
-      <description>
+    <param pos="0" name="service.vendor" value="ArGoSoft"/>
+    <param pos="0" name="service.family" value="Mail Server"/>
+    <param pos="0" name="service.product" value="Mail Server"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +AppleShare IP Mail Server ([^ ]+\.[^ ]+\.[^ ]+) SMTP Server Ready *$">
+    <description>
          AppleShare IP Mail Server (3 version numbers)
       </description>
-      <param pos="0" name="service.vendor" value="Apple"/>
-      <param pos="0" name="service.family" value="AppleShare IP Mail Server"/>
-      <param pos="0" name="service.product" value="AppleShare IP Mail Server"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +AppleShare IP Mail Server ([^ ]+\.[^ ]+) SMTP Server Ready *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Apple"/>
+    <param pos="0" name="service.family" value="AppleShare IP Mail Server"/>
+    <param pos="0" name="service.product" value="AppleShare IP Mail Server"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +AppleShare IP Mail Server ([^ ]+\.[^ ]+) SMTP Server Ready *$">
+    <description>
          AppleShare IP Mail Server (2 version numbers)
       </description>
-      <param pos="0" name="service.vendor" value="Apple"/>
-      <param pos="0" name="service.family" value="AppleShare IP Mail Server"/>
-      <param pos="0" name="service.product" value="AppleShare IP Mail Server"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^CheckPoint FireWall-1 secure SMTP server *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Apple"/>
+    <param pos="0" name="service.family" value="AppleShare IP Mail Server"/>
+    <param pos="0" name="service.product" value="AppleShare IP Mail Server"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^CheckPoint FireWall-1 secure SMTP server *$">
+    <description>
          CheckPoint FireWall-1
       </description>
-      <param pos="0" name="service.vendor" value="Check Point"/>
-      <param pos="0" name="service.family" value="Check Point"/>
-      <param pos="0" name="service.product" value="Firewall-1"/>
-   </fingerprint>
-
-   <fingerprint pattern="^SMTP/cmap ready_+$">
-      <description>
+    <param pos="0" name="service.vendor" value="Check Point"/>
+    <param pos="0" name="service.family" value="Check Point"/>
+    <param pos="0" name="service.product" value="Firewall-1"/>
+  </fingerprint>
+  <fingerprint pattern="^SMTP/cmap ready_+$">
+    <description>
          Cisco Pix v4.x
       </description>
-      <param pos="0" name="service.vendor" value="Cisco"/>
-      <param pos="0" name="service.family" value="PIX"/>
-      <param pos="0" name="service.product" value="PIX"/>
-      <param pos="0" name="service.version" value="4"/>
-    </fingerprint>
-
-    <fingerprint pattern="CCProxy (\S+) SMTP Service Ready(?:\(Unregistered\))?$">
-      <description>Youngzsoft CCProxy SMTP</description>
-      <example service.version="7.3">CCProxy 7.3 SMTP Service Ready(Unregistered)</example>
-      <param pos="0" name="service.vendor" value="Youngzsoft"/>
-      <param pos="0" name="service.family" value="CCProxy"/>
-      <param pos="0" name="service.product" value="CCProxy"/>
-      <param pos="1" name="service.version"/>
-    </fingerprint>
-
-   <fingerprint pattern="^[\*20 ]+$">
-      <description>
+    <param pos="0" name="service.vendor" value="Cisco"/>
+    <param pos="0" name="service.family" value="PIX"/>
+    <param pos="0" name="service.product" value="PIX"/>
+    <param pos="0" name="service.version" value="4"/>
+  </fingerprint>
+  <fingerprint pattern="CCProxy (\S+) SMTP Service Ready(?:\(Unregistered\))?$">
+    <description>Youngzsoft CCProxy SMTP</description>
+    <example service.version="7.3">CCProxy 7.3 SMTP Service Ready(Unregistered)</example>
+    <param pos="0" name="service.vendor" value="Youngzsoft"/>
+    <param pos="0" name="service.family" value="CCProxy"/>
+    <param pos="0" name="service.product" value="CCProxy"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^[\*20 ]+$">
+    <description>
          Cisco PIX firewall: PIX sits between an internal SMTP server and the rest of the world.
 
          Its MailGuard feature strips all information out of the 220 header except for the ' ' (space), '2' (digit two),
@@ -156,251 +141,229 @@ The system or service fingerprint with the highest certainty overwrites the othe
 
          Search Cisco's documentation for "fixup protocol SMTP" for more information.
       </description>
-      <param pos="0" name="service.vendor" value="Cisco"/>
-      <param pos="0" name="service.family" value="PIX"/>
-      <param pos="0" name="service.product" value="PIX"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP CPMTA-([^ ]+)_([^ ]+)_([^ ]+)_([^ ]+) - NO UCE *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Cisco"/>
+    <param pos="0" name="service.family" value="PIX"/>
+    <param pos="0" name="service.product" value="PIX"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP CPMTA-([^ ]+)_([^ ]+)_([^ ]+)_([^ ]+) - NO UCE *$">
+    <description>
          Critical Path (aka InScribe) Messaging Server
          http://www.cp.net/products/inscr_messagingserv_overview.html
          Runs on Windows NT4/2k, Solaris 2.6, 2.7, and 2.8 Sparc/Intel, SGI IRIX 6.5.3 or later, and AIX
       </description>
-      <param pos="0" name="service.vendor" value="Critical Path"/>
-      <param pos="0" name="service.family" value="Messaging Server"/>
-      <param pos="0" name="service.product" value="Messaging Server"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="service.version.version"/>
-      <param pos="4" name="service.version.version.version"/>
-      <param pos="5" name="service.version.version.version.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^CSM Internet Mail Scanner SMTP-Gateway ready?\. *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Critical Path"/>
+    <param pos="0" name="service.family" value="Messaging Server"/>
+    <param pos="0" name="service.product" value="Messaging Server"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="service.version.version"/>
+    <param pos="4" name="service.version.version.version"/>
+    <param pos="5" name="service.version.version.version.version"/>
+  </fingerprint>
+  <fingerprint pattern="^CSM Internet Mail Scanner SMTP-Gateway ready?\. *$">
+    <description>
          CSM Internet Mail Scanner SMTP proxy
          see http://www.csm-usa.com/product/ims/release.htm
          TODO: Some versions return a typo "read." instead of "ready." - use this to fingerprint
          example: 220 CSM Internet Mail Scanner SMTP-Gateway ready.
          example: 220 CSM Internet Mail Scanner SMTP-Gateway read.
       </description>
-      <param pos="0" name="service.vendor" value="CSM"/>
-      <param pos="0" name="service.family" value="Internet Mail Scanner"/>
-      <param pos="0" name="service.product" value="Internet Mail Scanner"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +IMS SMTP Receiver Version ([^ ]+\.[^ ]+) Ready *$">
-      <description>
+    <param pos="0" name="service.vendor" value="CSM"/>
+    <param pos="0" name="service.family" value="Internet Mail Scanner"/>
+    <param pos="0" name="service.product" value="Internet Mail Scanner"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +IMS SMTP Receiver Version ([^ ]+\.[^ ]+) Ready *$">
+    <description>
          EMWAC Internet Mail Services http://emwac.ed.ac.uk/html/internet_toolchest/ims/ims.htm
          example: 220 gabriela.networld.com.ar IMS SMTP Receiver Version 0.83 Ready
       </description>
-      <param pos="0" name="service.vendor" value="EMWAC"/>
-      <param pos="0" name="service.family" value="Internet Mail Services"/>
-      <param pos="0" name="service.product" value="Internet Mail Services"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) running Eudora Internet Mail Server ([^ ]+\.[^ ]+\.[^ ]+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="EMWAC"/>
+    <param pos="0" name="service.family" value="Internet Mail Services"/>
+    <param pos="0" name="service.product" value="Internet Mail Services"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) running Eudora Internet Mail Server ([^ ]+\.[^ ]+\.[^ ]+) *$">
+    <description>
          Eudora Internet Mail Server (3 version numbers)
          example: 220 interlink.com.ar running Eudora Internet Mail Server 3.0.2
          example: 220 mail.gis.at running Eudora Internet Mail Server 2.2
       </description>
-      <param pos="0" name="service.vendor" value="Eudora"/>
-      <param pos="0" name="service.family" value="Internet Mail Server"/>
-      <param pos="0" name="service.product" value="Internet Mail Server"/>
-      <param pos="0" name="os.vendor" value="Apple"/>
-      <param pos="0" name="os.family" value="Mac OS"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Mac OS"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) running Eudora Internet Mail Server ([^ ]+\.[^ ]+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Eudora"/>
+    <param pos="0" name="service.family" value="Internet Mail Server"/>
+    <param pos="0" name="service.product" value="Internet Mail Server"/>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Mac OS"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) running Eudora Internet Mail Server ([^ ]+\.[^ ]+) *$">
+    <description>
          Eudora Internet Mail Server (2 version numbers)
          220 mail.gis.at running Eudora Internet Mail Server 2.2
       </description>
-      <param pos="0" name="service.vendor" value="Eudora"/>
-      <param pos="0" name="service.family" value="Internet Mail Server"/>
-      <param pos="0" name="service.product" value="Internet Mail Server"/>
-      <param pos="0" name="os.vendor" value="Apple"/>
-      <param pos="0" name="os.family" value="Mac OS"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Mac OS"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP Server \(Microsoft Exchange Internet Mail Service (\d+\.\d+\.\d+\.\d+)\) ready *$">
-      <!-- your.smtp.server ESMTP Server (Microsoft Exchange Internet Mail Service 5.5.2448.0) ready -->
-      <description>
+    <param pos="0" name="service.vendor" value="Eudora"/>
+    <param pos="0" name="service.family" value="Internet Mail Server"/>
+    <param pos="0" name="service.product" value="Internet Mail Server"/>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Mac OS"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP Server \(Microsoft Exchange Internet Mail Service (\d+\.\d+\.\d+\.\d+)\) ready *$">
+    <description>
          Microsoft Exchange Server 5.5 and above
          (for sure, can't be confused with the IIS builtin SMTP service)
       </description>
-      <param pos="0" name="service.vendor" value="Microsoft"/>
-      <param pos="0" name="service.family" value="Exchange Server"/>
-      <param pos="0" name="service.product" value="Exchange Server"/>
-      <param pos="2" name="service.version"/>
-      <param pos="1" name="host.name"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Windows"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) Microsoft Exchange Internet Mail Service (\d+\.\d+\.\d+\.\d+) ready *$">
-      <!-- your.smtp.server Microsoft Exchange Internet Mail Service 5.0.1460.8 ready -->
-      <description>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="Exchange Server"/>
+    <param pos="0" name="service.product" value="Exchange Server"/>
+    <param pos="2" name="service.version"/>
+    <param pos="1" name="host.name"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Windows"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) Microsoft Exchange Internet Mail Service (\d+\.\d+\.\d+\.\d+) ready *$">
+    <description>
          Microsoft Exchange Server 5.0
          (for sure, can't be confused with the IIS builtin SMTP service)
       </description>
-      <param pos="0" name="service.vendor" value="Microsoft"/>
-      <param pos="0" name="service.family" value="Exchange Server"/>
-      <param pos="0" name="service.product" value="Exchange Server"/>
-      <param pos="2" name="service.version"/>
-      <param pos="1" name="host.name"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Windows"/>
-    </fingerprint>
-
-    <fingerprint pattern="^([^ ]+) Microsoft ESMTP MAIL Service ready at .*$">
-      <description>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="Exchange Server"/>
+    <param pos="0" name="service.product" value="Exchange Server"/>
+    <param pos="2" name="service.version"/>
+    <param pos="1" name="host.name"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Windows"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) Microsoft ESMTP MAIL Service ready at .*$">
+    <description>
         Microsoft Exchange 2007/2010
         (for sure, can't be confused with the IIS builtin SMTP service)
       </description>
-      <example>foo Microsoft ESMTP MAIL Service ready at Wed, 21 Jul 2010 19:04:24 -0700</example>
-      <param pos="0" name="service.vendor" value="Microsoft"/>
-      <param pos="0" name="service.family" value="Exchange Server"/>
-      <param pos="0" name="service.product" value="Exchange Server"/>
-      <param pos="1" name="host.name"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Windows"/>
-    </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) Microsoft SMTP MAIL ready at (.+) Version: +(\d+\.\d+\.\d+\.\d+\.\d+) *$">
-      <!-- smtp.foo.bar Microsoft SMTP MAIL ready at Tue, 6 Feb 2001 18:28:07 +0100 Version: 5.5.1877.197.19 -->
-      <description>
+    <example>foo Microsoft ESMTP MAIL Service ready at Wed, 21 Jul 2010 19:04:24 -0700</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="Exchange Server"/>
+    <param pos="0" name="service.product" value="Exchange Server"/>
+    <param pos="1" name="host.name"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Windows"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) Microsoft SMTP MAIL ready at (.+) Version: +(\d+\.\d+\.\d+\.\d+\.\d+) *$">
+    <description>
          Microsoft IIS builtin SMTP service, or Microsoft Exchange Server
          (they are differentiated from each other in smtp-iis.clp)
       </description>
-      <param pos="0" name="service.vendor" value="Microsoft"/>
-      <param pos="0" name="service.family" value="IIS"/>
-      <param pos="0" name="service.product" value="IIS"/>
-      <param pos="3" name="service.version"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="system.time"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Windows"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +Microsoft ESMTP MAIL Service, Version: +(\d+\.\d+\.\d+\.\d+) +ready at +(.+)$">
-      <!-- foo.bar.com Microsoft ESMTP MAIL Service, Version: 5.0.2195.1600 ready at  Wed, 31 Jan 2001 00:10:50 -0400 -->
-      <description>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="IIS"/>
+    <param pos="0" name="service.product" value="IIS"/>
+    <param pos="3" name="service.version"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="system.time"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Windows"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +Microsoft ESMTP MAIL Service, Version: +(\d+\.\d+\.\d+\.\d+) +ready at +(.+)$">
+    <description>
          Microsoft IIS builtin SMTP service, or Microsoft Exchange Server
          (they are differentiated from each other in smtp-iis.clp)
       </description>
-      <param pos="0" name="service.vendor" value="Microsoft"/>
-      <param pos="0" name="service.family" value="IIS"/>
-      <param pos="0" name="service.product" value="IIS"/>
-      <param pos="2" name="service.version"/>
-      <param pos="1" name="host.name"/>
-      <param pos="3" name="system.time"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Windows"/>
-   </fingerprint>
-
-
-   <fingerprint pattern="^([^ ]+) ESMTP Exim ([^ ]+\.[^ ]+) (.+)$">
-      <description>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="IIS"/>
+    <param pos="0" name="service.product" value="IIS"/>
+    <param pos="2" name="service.version"/>
+    <param pos="1" name="host.name"/>
+    <param pos="3" name="system.time"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Windows"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP Exim ([^ ]+\.[^ ]+) (.+)$">
+    <description>
          Exim (3 version numbers)
          example: 220 foo.bar.com ESMTP Exim 3.12 #1 Wed, 31 Jan 2001 15:47:23 +1100
          example: 220 foo.bar.com ESMTP Exim 3.22 1 Mon, 30 Jul 2001 23:16:12 +0100 [NO UCE, NO SPAM]
       </description>
-      <param pos="0" name="service.vendor" value="exim"/>
-      <param pos="0" name="service.family" value="exim"/>
-      <param pos="0" name="service.product" value="exim"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) FTGate server ready .*$">
-      <description>
+    <param pos="0" name="service.vendor" value="exim"/>
+    <param pos="0" name="service.family" value="exim"/>
+    <param pos="0" name="service.product" value="exim"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) FTGate server ready .*$">
+    <description>
          FTGate mail server, runs on Windows 9x/NT/2k
          http://www.ftgate.com
          Example: 220 stoddardhoney.com FTGate server ready -attitude [C.o.r.E]
       </description>
-      <param pos="0" name="service.vendor" value="Floosietek"/>
-      <param pos="0" name="service.family" value="FTGate"/>
-      <param pos="0" name="service.product" value="FTGate"/>
-      <param pos="1" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^(?:[^ ]+) +SMTP/smap Ready\.$">
-      <description>
+    <param pos="0" name="service.vendor" value="Floosietek"/>
+    <param pos="0" name="service.family" value="FTGate"/>
+    <param pos="0" name="service.product" value="FTGate"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:[^ ]+) +SMTP/smap Ready\.$">
+    <description>
          TIS FWTK and derivatives
          http://www.tis.com/research/software/
          This fingerprint may be ambiguous because other firewalls (like
          Gauntlet) are derived from TIS
       </description>
-      <param pos="0" name="service.vendor" value="TIS"/>
-      <param pos="0" name="service.family" value="FWTK"/>
-      <param pos="0" name="service.product" value="FWTK"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) GroupWise Internet Agent ([^ ]+\.[^ ]+\.[^ ]+) Ready \(C\).* Novell, Inc\. *$">
-      <description>
+    <param pos="0" name="service.vendor" value="TIS"/>
+    <param pos="0" name="service.family" value="FWTK"/>
+    <param pos="0" name="service.product" value="FWTK"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) GroupWise Internet Agent ([^ ]+\.[^ ]+\.[^ ]+) Ready \(C\).* Novell, Inc\. *$">
+    <description>
          Novell GroupWise Internet Agent versions 5 and higher, 3 version numbers
          example: 220 coleharbourplace.com GroupWise Internet Agent 5.5.1 Ready (C)1993, 1998 Novell, Inc.
       </description>
-      <param pos="0" name="service.vendor" value="Novell"/>
-      <param pos="0" name="service.family" value="GroupWise"/>
-      <param pos="0" name="service.product" value="GroupWise"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) GroupWise Internet Agent ([^ ]+\.[^ ]+) Ready \(C\).* Novell, Inc\. *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Novell"/>
+    <param pos="0" name="service.family" value="GroupWise"/>
+    <param pos="0" name="service.product" value="GroupWise"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) GroupWise Internet Agent ([^ ]+\.[^ ]+) Ready \(C\).* Novell, Inc\. *$">
+    <description>
          Novell GroupWise Internet Agent versions 5 and higher, 2 version numbers
       </description>
-      <param pos="0" name="service.vendor" value="Novell"/>
-      <param pos="0" name="service.family" value="GroupWise"/>
-      <param pos="0" name="service.product" value="GroupWise"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) GroupWise SMTP/MIME Daemon ([^ ]+\.[^ ]+) v([^ ]+) Ready \(C\).* Novell, Inc\. *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Novell"/>
+    <param pos="0" name="service.family" value="GroupWise"/>
+    <param pos="0" name="service.product" value="GroupWise"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) GroupWise SMTP/MIME Daemon ([^ ]+\.[^ ]+) v([^ ]+) Ready \(C\).* Novell, Inc\. *$">
+    <description>
          Novell GroupWise versions below 5
          example: 220 bates.at GroupWise SMTP/MIME Daemon 4.1 v3 Ready (C)1993, 1996 Novell, Inc.
       </description>
-      <param pos="0" name="service.vendor" value="Novell"/>
-      <param pos="0" name="service.family" value="GroupWise"/>
-      <param pos="0" name="service.product" value="GroupWise"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="service.version.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) running IBM VM SMTP (.+) on (.+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Novell"/>
+    <param pos="0" name="service.family" value="GroupWise"/>
+    <param pos="0" name="service.product" value="GroupWise"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="service.version.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) running IBM VM SMTP (.+) on (.+) *$">
+    <description>
          IBM SMTP server for VM/ESA on IBM S/390 and IBM eserver z/Series 900.
          http://www.vm.ibm.com
          http://www-1.ibm.com/servers/eserver/zseries/
@@ -408,320 +371,300 @@ The system or service fingerprint with the highest certainty overwrites the othe
          example: 220 mail.foo.bar running IBM VM SMTP Level 3A0 on Mon, 10 Sep 2001 07:21:54 EDT
          example: 220 mail.foo.bar running IBM VM SMTP V2R4 on Mon, 10 Sep 2001 12:23:47 +0100
       </description>
-      <param pos="0" name="service.vendor" value="IBM"/>
-      <param pos="0" name="service.family" value="VM"/>
-      <param pos="0" name="service.product" value="VM"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) running IBM VM SMTP (.+); (.+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="IBM"/>
+    <param pos="0" name="service.family" value="VM"/>
+    <param pos="0" name="service.product" value="VM"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) running IBM VM SMTP (.+); (.+) *$">
+    <description>
          IBM SMTP server for VM/ESA on IBM S/390 and IBM eserver z/Series 900.
          http://www.vm.ibm.com
          http://www-1.ibm.com/servers/eserver/zseries/
          http://mitvma.mit.edu/system/vm.html
          example: 220 mail.foo.bar ESMTP running IBM VM SMTP V2R4; Mon, 10 Sep 2001 07:24:35 -0400 (EDT)
       </description>
-      <param pos="0" name="service.vendor" value="IBM"/>
-      <param pos="0" name="service.family" value="VM"/>
-      <param pos="0" name="service.product" value="VM"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) \(IntraStore TurboSendmail\) ESMTP Service ready *$">
-      <description>
+    <param pos="0" name="service.vendor" value="IBM"/>
+    <param pos="0" name="service.family" value="VM"/>
+    <param pos="0" name="service.product" value="VM"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) \(IntraStore TurboSendmail\) ESMTP Service ready *$">
+    <description>
          Syntegra/CDC IntraStore TurboSendmail, part of the IntraStore server which runs on
          the following platforms ONLY: Linux, HP-UX, Solaris, AIX, and Windows NT/2000
          see http://www.cdc.com for more information
       </description>
-      <example host.name="192.168.1.1">192.168.1.1 (IntraStore TurboSendmail) ESMTP Service ready</example>
-      <param pos="0" name="service.vendor" value="BT"/>
-      <param pos="0" name="service.family" value="IntraStore"/>
-      <param pos="0" name="service.product" value="IntraStore"/>
-      <param pos="1" name="host.name"/>
-    </fingerprint>
-
-    <fingerprint pattern="^(\S+) E?SMTP Server \(JAMES E?SMTP Server ([\d\.]+)\) ready (\S{3}, \d{2} \S{3} \d{4} \d{2}:\d{2}:\d{2} \S+) \(\S+\)$">
-      <description>JAMES SMTP Server</description>
-      <example host.name="example.com" service.version="2.3.2">example.com SMTP Server (JAMES SMTP Server 2.3.2) ready Tue, 19 May 2015 00:36:13 +0200 (CEST)</example>
-      <param pos="0" name="service.vendor" value="Apache"/>
-      <param pos="0" name="service.product" value="James"/>
-      <param pos="2" name="service.version"/>
-      <param pos="1" name="host.name"/>
-      <param pos="3" name="system.time"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) \(Mail-Max Version (\d+\.\d+\.\d+\.\d+), (.+, .+)\) ESMTP Mail Server Ready. *$">
-      <description>
+    <example host.name="192.168.1.1">192.168.1.1 (IntraStore TurboSendmail) ESMTP Service ready</example>
+    <param pos="0" name="service.vendor" value="BT"/>
+    <param pos="0" name="service.family" value="IntraStore"/>
+    <param pos="0" name="service.product" value="IntraStore"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^(\S+) E?SMTP Server \(JAMES E?SMTP Server ([\d\.]+)\) ready (\S{3}, \d{2} \S{3} \d{4} \d{2}:\d{2}:\d{2} \S+) \(\S+\)$">
+    <description>JAMES SMTP Server</description>
+    <example host.name="example.com" service.version="2.3.2">example.com SMTP Server (JAMES SMTP Server 2.3.2) ready Tue, 19 May 2015 00:36:13 +0200 (CEST)</example>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="James"/>
+    <param pos="2" name="service.version"/>
+    <param pos="1" name="host.name"/>
+    <param pos="3" name="system.time"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) \(Mail-Max Version (\d+\.\d+\.\d+\.\d+), (.+, .+)\) ESMTP Mail Server Ready. *$">
+    <description>
          Mail Max (4 version numbers)
          example: 220 MAIL3 (Mail-Max Version 4.2.4.7, Wed, 31 Jan 2001 03:44:35 +0100 WST) ESMTP Mail Server Ready.
       </description>
-      <param pos="0" name="service.vendor" value="Mail-Max"/>
-      <param pos="0" name="service.family" value="Mail-Max"/>
-      <param pos="0" name="service.product" value="Mail-Max"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-    </fingerprint>
-
-    <fingerprint pattern="^(\S+) E?SMTP MailEnable Service, Version: ([\d\.]+)-- ready at (\d{2}/\d{2}/\d{2} \d{2}:\d{2}:\d{2})$">
-      <description>Simple MailEnable</description>
-      <example host.name="example.com">example.com ESMTP MailEnable Service, Version: 1.8-- ready at 05/20/15 08:50:22</example>
-      <param pos="0" name="service.vendor" value="MailEnable"/>
-      <param pos="0" name="service.family" value="MailEnable"/>
-      <param pos="0" name="service.product" value="MailEnable"/>
-      <param pos="0" name="system.time.format" value="MM/dd/yy HH:mm:ss"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) \(Mail-Max Version (\d+\.\d+), (.+, .+)\) ESMTP Mail Server Ready. *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Mail-Max"/>
+    <param pos="0" name="service.family" value="Mail-Max"/>
+    <param pos="0" name="service.product" value="Mail-Max"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^(\S+) E?SMTP MailEnable Service, Version: ([\d\.]+)-- ready at (\d{2}/\d{2}/\d{2} \d{2}:\d{2}:\d{2})$">
+    <description>Simple MailEnable</description>
+    <example host.name="example.com">example.com ESMTP MailEnable Service, Version: 1.8-- ready at 05/20/15 08:50:22</example>
+    <param pos="0" name="service.vendor" value="MailEnable"/>
+    <param pos="0" name="service.family" value="MailEnable"/>
+    <param pos="0" name="service.product" value="MailEnable"/>
+    <param pos="0" name="system.time.format" value="MM/dd/yy HH:mm:ss"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) \(Mail-Max Version (\d+\.\d+), (.+, .+)\) ESMTP Mail Server Ready. *$">
+    <description>
          Mail Max (2 version numbers)
          example: 220 WEBB (Mail-Max Version 3.065, Wed, 31 Jan 2001 03:46:11 +0100 WST) ESMTP Mail Server Ready.
       </description>
-      <param pos="0" name="service.vendor" value="Mail-Max"/>
-      <param pos="0" name="service.family" value="Mail-Max"/>
-      <param pos="0" name="service.product" value="Mail-Max"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +MailSite ESMTP Receiver Version ([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+) Ready *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Mail-Max"/>
+    <param pos="0" name="service.family" value="Mail-Max"/>
+    <param pos="0" name="service.product" value="Mail-Max"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +MailSite ESMTP Receiver Version ([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+) Ready *$">
+    <description>
          Rockliffe MailSite http://www.rockliffe.com
          example: 220 bas.com.ar  MailSite ESMTP Receiver Version 3.4.6.0 Ready
       </description>
-      <param pos="0" name="service.vendor" value="Rockliffe"/>
-      <param pos="0" name="service.family" value="MailSite"/>
-      <param pos="0" name="service.product" value="MailSite"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +MailSite ESMTP Receiver Version ([^ ]+\.[^ ]+\.[^ ]+) Ready *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Rockliffe"/>
+    <param pos="0" name="service.family" value="MailSite"/>
+    <param pos="0" name="service.product" value="MailSite"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +MailSite ESMTP Receiver Version ([^ ]+\.[^ ]+\.[^ ]+) Ready *$">
+    <description>
          Rockliffe MailSite http://www.rockliffe.com
          example: 220 rhino.accessweb.com MailSite SMTP Receiver Version 2.1.7 Ready
       </description>
-      <param pos="0" name="service.vendor" value="Rockliffe"/>
-      <param pos="0" name="service.family" value="MailSite"/>
-      <param pos="0" name="service.product" value="MailSite"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +MAILsweeper ESMTP Receiver Version ([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+) Ready *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Rockliffe"/>
+    <param pos="0" name="service.family" value="MailSite"/>
+    <param pos="0" name="service.product" value="MailSite"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +MAILsweeper ESMTP Receiver Version ([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+) Ready *$">
+    <description>
          Content Security MAILsweeper for SMTP http://www.contenttechnologies.com/products/msw4smtp/default.asp
          example: 220 infotech.at  MAILsweeper ESMTP Receiver Version 4.2.1.0 Ready
       </description>
-      <param pos="0" name="service.vendor" value="Clearswift"/>
-      <param pos="0" name="service.family" value="MAILsweeper"/>
-      <param pos="0" name="service.product" value="MAILsweeper"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+) UNREGISTERED; *(.+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Clearswift"/>
+    <param pos="0" name="service.family" value="MAILsweeper"/>
+    <param pos="0" name="service.product" value="MAILsweeper"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+) UNREGISTERED; *(.+) *$">
+    <description>
          MDaemon mail server
          220 foo.bar ESMTP MDaemon 4.0.5 UNREGISTERED; Sat, 06 Oct 2001 09:10:56 +0400
       </description>
-      <param pos="0" name="service.vendor" value="Alt-N"/>
-      <param pos="0" name="service.family" value="MDaemon"/>
-      <param pos="0" name="service.product" value="MDaemon"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="0" name="mdaemon.unregistered" value="yes"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Windows"/>
-      <param pos="0" name="os.arch" value="x86"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+); *(.+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Alt-N"/>
+    <param pos="0" name="service.family" value="MDaemon"/>
+    <param pos="0" name="service.product" value="MDaemon"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="0" name="mdaemon.unregistered" value="yes"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.arch" value="x86"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+); *(.+) *$">
+    <description>
          MDaemon mail server
          220 foo.bar ESMTP MDaemon 4.0.2; Sat, 06 Oct 2001 01:46:44 -0500
       </description>
-      <param pos="0" name="service.vendor" value="Alt-N"/>
-      <param pos="0" name="service.family" value="MDaemon"/>
-      <param pos="0" name="service.product" value="MDaemon"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Windows"/>
-      <param pos="0" name="os.arch" value="x86"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+) ready *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Alt-N"/>
+    <param pos="0" name="service.family" value="MDaemon"/>
+    <param pos="0" name="service.product" value="MDaemon"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.arch" value="x86"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+) ready *$">
+    <description>
          MDaemon mail server
          220 foo.bar ESMTP MDaemon 3.5.7 ready
       </description>
-      <param pos="0" name="service.vendor" value="Alt-N"/>
-      <param pos="0" name="service.family" value="MDaemon"/>
-      <param pos="0" name="service.product" value="MDaemon"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Windows"/>
-      <param pos="0" name="os.arch" value="x86"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] MDaemon v([^ ]+\.[^ ]+) ([^ ]+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Alt-N"/>
+    <param pos="0" name="service.family" value="MDaemon"/>
+    <param pos="0" name="service.product" value="MDaemon"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.arch" value="x86"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] MDaemon v([^ ]+\.[^ ]+) ([^ ]+) *$">
+    <description>
          MDaemon mail server
          220 foo.bar.com ESMTP service ready [1] MDaemon v2.84 R
       </description>
-      <param pos="0" name="service.vendor" value="Alt-N"/>
-      <param pos="0" name="service.family" value="MDaemon"/>
-      <param pos="0" name="service.product" value="MDaemon"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Windows"/>
-      <param pos="0" name="os.arch" value="x86"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="service.version.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] using MDaemon v([^ ]+\.[^ ]+\.[^ ]+) ([^ ]+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Alt-N"/>
+    <param pos="0" name="service.family" value="MDaemon"/>
+    <param pos="0" name="service.product" value="MDaemon"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.arch" value="x86"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="service.version.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] using MDaemon v([^ ]+\.[^ ]+\.[^ ]+) ([^ ]+) *$">
+    <description>
          MDaemon mail server
          220 foo.bar.com ESMTP service ready [1] using MDaemon v3.0.3 R
       </description>
-      <param pos="0" name="service.vendor" value="Alt-N"/>
-      <param pos="0" name="service.family" value="MDaemon"/>
-      <param pos="0" name="service.product" value="MDaemon"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Windows"/>
-      <param pos="0" name="os.arch" value="x86"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="service.version.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] MDaemon v([^ ]+\.[^ ]+) ([^ ]+) ([^ ]+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Alt-N"/>
+    <param pos="0" name="service.family" value="MDaemon"/>
+    <param pos="0" name="service.product" value="MDaemon"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.arch" value="x86"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="service.version.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] MDaemon v([^ ]+\.[^ ]+) ([^ ]+) ([^ ]+) *$">
+    <description>
          MDaemon mail server
          220 foo.bar.com ESMTP service ready [1] MDaemon v2.7 SP5 R
       </description>
-      <param pos="0" name="service.vendor" value="Alt-N"/>
-      <param pos="0" name="service.family" value="MDaemon"/>
-      <param pos="0" name="service.product" value="MDaemon"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Windows"/>
-      <param pos="0" name="os.arch" value="x86"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="service.version.version"/>
-      <param pos="4" name="service.version.version.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] MDaemon v([^ ]+)\.([^ ]+)\.([^ ]+)\.([^ ]+) ([^ ]+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Alt-N"/>
+    <param pos="0" name="service.family" value="MDaemon"/>
+    <param pos="0" name="service.product" value="MDaemon"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.arch" value="x86"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="service.version.version"/>
+    <param pos="4" name="service.version.version.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] MDaemon v([^ ]+)\.([^ ]+)\.([^ ]+)\.([^ ]+) ([^ ]+) *$">
+    <description>
          MDaemon mail server
          220 foo.bar.com ESMTP service ready [1] MDaemon v2.8.7.0 R
       </description>
-      <param pos="0" name="service.vendor" value="Alt-N"/>
-      <param pos="0" name="service.family" value="MDaemon"/>
-      <param pos="0" name="service.product" value="MDaemon"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Windows"/>
-      <param pos="0" name="os.arch" value="x86"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="service.version.version"/>
-      <param pos="4" name="service.version.version.version"/>
-      <param pos="5" name="service.version.version.version.version"/>
-      <param pos="6" name="service.version.version.version.version.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] \(MDaemon v([^ ]+\.[^ ]+) ([^ ]+) ([^ ]+)\) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Alt-N"/>
+    <param pos="0" name="service.family" value="MDaemon"/>
+    <param pos="0" name="service.product" value="MDaemon"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.arch" value="x86"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="service.version.version"/>
+    <param pos="4" name="service.version.version.version"/>
+    <param pos="5" name="service.version.version.version.version"/>
+    <param pos="6" name="service.version.version.version.version.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] \(MDaemon v([^ ]+\.[^ ]+) ([^ ]+) ([^ ]+)\) *$">
+    <description>
          MDaemon mail server
          220 foo.bar.com ESMTP service ready [2] (MDaemon v2.7 SP4 R)
       </description>
-      <param pos="0" name="service.vendor" value="Alt-N"/>
-      <param pos="0" name="service.family" value="MDaemon"/>
-      <param pos="0" name="service.product" value="MDaemon"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Windows"/>
-      <param pos="0" name="os.arch" value="x86"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="service.version.version"/>
-      <param pos="4" name="service.version.version.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] \(MDaemon v([^ ]+\.[^ ]+) ([^ ]+) ([^ ]+) ([^ ]+)\) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Alt-N"/>
+    <param pos="0" name="service.family" value="MDaemon"/>
+    <param pos="0" name="service.product" value="MDaemon"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.arch" value="x86"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="service.version.version"/>
+    <param pos="4" name="service.version.version.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] \(MDaemon v([^ ]+\.[^ ]+) ([^ ]+) ([^ ]+) ([^ ]+)\) *$">
+    <description>
          MDaemon mail server
          220 foo.bar.com ESMTP service ready [1] (MDaemon v2.5 rB b1 32-T)
       </description>
-      <param pos="0" name="service.vendor" value="Alt-N"/>
-      <param pos="0" name="service.family" value="MDaemon"/>
-      <param pos="0" name="service.product" value="MDaemon"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Windows"/>
-      <param pos="0" name="os.arch" value="x86"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="service.version.version"/>
-      <param pos="4" name="service.version.version.version"/>
-      <param pos="5" name="service.version.version.version.version"/>
-   </fingerprint>
-
-   <!-- example: 220 mail.db-list.com ESMTP MERAK 3.00.140; Tue, 24 Jul 2001 21:30:47 -0700 -->
-   <fingerprint pattern="^([^ ]+) +ESMTP MERAK ([^ ]+\.[^ ]+\.[^ ]+); *(.+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Alt-N"/>
+    <param pos="0" name="service.family" value="MDaemon"/>
+    <param pos="0" name="service.product" value="MDaemon"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.arch" value="x86"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="service.version.version"/>
+    <param pos="4" name="service.version.version.version"/>
+    <param pos="5" name="service.version.version.version.version"/>
+  </fingerprint>
+  <!-- example: 220 mail.db-list.com ESMTP MERAK 3.00.140; Tue, 24 Jul 2001 21:30:47 -0700 -->
+  <fingerprint pattern="^([^ ]+) +ESMTP MERAK ([^ ]+\.[^ ]+\.[^ ]+); *(.+) *$">
+    <description>
          Merak mail server http://www.icewarp.com/merakmail/ (runs on 2000/NT/9x)
          220 mail.db-list.com ESMTP MERAK 3.00.140; Tue, 24 Jul 2001 21:30:47 -0700
       </description>
-      <param pos="0" name="service.vendor" value="Merak"/>
-      <param pos="0" name="service.family" value="Mail Server"/>
-      <param pos="0" name="service.product" value="Mail Server"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-     <fingerprint pattern="^MERCUR SMTP-Server \(v([^ ]+\.[^ ])0\.([^ ]+) ([^ ]+)\) for (.+) ready at (.+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Merak"/>
+    <param pos="0" name="service.family" value="Mail Server"/>
+    <param pos="0" name="service.product" value="Mail Server"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^MERCUR SMTP-Server \(v([^ ]+\.[^ ])0\.([^ ]+) ([^ ]+)\) for (.+) ready at (.+) *$">
+    <description>
          Atrium's MERCUR SMTP server
          http://www.atrium-software.com/pub/support_e.cfm
          example: 220 MERCUR SMTP-Server (v3.20.01 KA-0098304) for Windows NT ready at Tue, 6 Feb 2001  21:38:26 +0100
@@ -739,203 +682,189 @@ The system or service fingerprint with the highest certainty overwrites the othe
          example: 220 MERCUR SMTP-Server (v3.30.03 DG-0098304) for Windows NT ready at Tue, 6 Feb 2001  22:52:50 +0100
          example: 220 MERCUR SMTP-Server (v3.20.01 SY-0098318) for Windows NT ready at Tue, 6 Feb 2001  23:26:22 +0100
       </description>
-      <param pos="0" name="service.vendor" value="Atrium Software"/>
-      <param pos="0" name="service.family" value="MERCUR"/>
-      <param pos="0" name="service.product" value="MERCUR"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy  HH:mm:ss zzz"/>
-      <param pos="1" name="service.version"/>
-      <param pos="2" name="service.version.version"/>
-      <param pos="3" name="service.version.version.version"/>
-      <param pos="4" name="mercur.os.info"/>
-      <param pos="5" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) Mercury ([^ ]+\.[^ ]+) ESMTP server ready.$">
-      <description>
+    <param pos="0" name="service.vendor" value="Atrium Software"/>
+    <param pos="0" name="service.family" value="MERCUR"/>
+    <param pos="0" name="service.product" value="MERCUR"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy  HH:mm:ss zzz"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.version.version"/>
+    <param pos="3" name="service.version.version.version"/>
+    <param pos="4" name="mercur.os.info"/>
+    <param pos="5" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) Mercury ([^ ]+\.[^ ]+) ESMTP server ready.$">
+    <description>
          Mercury NLM for Netware
          http://www.pmail.com/index.cfm
          example: 220 mail.law.utexas.edu Mercury 1.43 ESMTP server ready.
       </description>
-      <param pos="0" name="service.family" value="Mercury Mail Transport System"/>
-      <param pos="0" name="service.product" value="Mercury Mail Transport System"/>
-      <param pos="0" name="os.vendor" value="Novell"/>
-      <param pos="0" name="os.family" value="NetWare"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="NetWare"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) Mercury/32 v([^ ]+\.[^ ]+) SMTP/ESMTP server ready.$">
-      <description>
+    <param pos="0" name="service.family" value="Mercury Mail Transport System"/>
+    <param pos="0" name="service.product" value="Mercury Mail Transport System"/>
+    <param pos="0" name="os.vendor" value="Novell"/>
+    <param pos="0" name="os.family" value="NetWare"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="NetWare"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) Mercury/32 v([^ ]+\.[^ ]+) SMTP/ESMTP server ready.$">
+    <description>
          Mercury/32 for Win9x/NT/2000
          http://www.pmail.com/index.cfm
          example: 220 jimmy.qmuc.ac.uk Mercury/32 v3.01a SMTP/ESMTP server ready.
       </description>
-      <param pos="0" name="service.family" value="Mercury Mail Transport System"/>
-      <param pos="0" name="service.product" value="Mercury Mail Transport System"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Windows"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) Mercury/32 v([^ ]+\.[^ ]+) ESMTP server ready.$">
-      <description>
+    <param pos="0" name="service.family" value="Mercury Mail Transport System"/>
+    <param pos="0" name="service.product" value="Mercury Mail Transport System"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) Mercury/32 v([^ ]+\.[^ ]+) ESMTP server ready.$">
+    <description>
          Mercury/32 for Win9x/NT/2000
          http://www.pmail.com/index.cfm
          example: 220 mail-gateway1.acfw.net Mercury/32 v3.30 ESMTP server ready.
       </description>
-      <param pos="0" name="service.family" value="Mercury Mail Transport System"/>
-      <param pos="0" name="service.product" value="Mercury Mail Transport System"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Windows"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) SMTP NAVIEG ([^ ]+\.[^ ]+\.[^ ]+); (.+)* http.*$">
-      <description>
+    <param pos="0" name="service.family" value="Mercury Mail Transport System"/>
+    <param pos="0" name="service.product" value="Mercury Mail Transport System"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) SMTP NAVIEG ([^ ]+\.[^ ]+\.[^ ]+); (.+)* http.*$">
+    <description>
          Norton Antivirus for Internet Email Gateways
          (note the product changed its name from "Norton Antivirus for Internet Email Gateways" (NAVIEG) to
          "Norton Antivirus for Gateways" (NAVGW) as of version 2.1
          example: mailman.laughlin.af.mil SMTP NAVIEG 2.0.1; Sun, 29 Jul 2001 22:02:16 -0500 http://www.symantec.com
       </description>
-      <param pos="0" name="service.vendor" value="Norton"/>
-      <param pos="0" name="service.family" value="Antivirus for Gateways"/>
-      <param pos="0" name="service.product" value="Antivirus for Gateways"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP service \(Netscape Messaging Server ([^ ]+\.[^ ]+) Patch ([^ ]+).*$">
-      <description>
+    <param pos="0" name="service.vendor" value="Norton"/>
+    <param pos="0" name="service.family" value="Antivirus for Gateways"/>
+    <param pos="0" name="service.product" value="Antivirus for Gateways"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP service \(Netscape Messaging Server ([^ ]+\.[^ ]+) Patch ([^ ]+).*$">
+    <description>
          Netscape Messaging Server
          example: 220 mail.iasmail.net ESMTP service (Netscape Messaging Server 4.15 Patch 2 (built May 30 2000))
       </description>
-      <param pos="0" name="service.vendor" value="Netscape"/>
-      <param pos="0" name="service.family" value="Messaging Server"/>
-      <param pos="0" name="service.product" value="Messaging Server"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="service.version.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP service \(Netscape Messaging Server ([^ ]+\.[^ ]+)\) ready (.+)$">
-      <description>
+    <param pos="0" name="service.vendor" value="Netscape"/>
+    <param pos="0" name="service.family" value="Messaging Server"/>
+    <param pos="0" name="service.product" value="Messaging Server"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="service.version.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP service \(Netscape Messaging Server ([^ ]+\.[^ ]+)\) ready (.+)$">
+    <description>
          Netscape Messaging Server
       </description>
-      <param pos="0" name="service.vendor" value="Netscape"/>
-      <param pos="0" name="service.family" value="Messaging Server"/>
-      <param pos="0" name="service.product" value="Messaging Server"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) Lotus SMTP MTA Service Ready *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Netscape"/>
+    <param pos="0" name="service.family" value="Messaging Server"/>
+    <param pos="0" name="service.product" value="Messaging Server"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) Lotus SMTP MTA Service Ready *$">
+    <description>
          Lotus Notes 4 SMTP MTA
       </description>
-      <param pos="0" name="service.vendor" value="Lotus"/>
-      <param pos="0" name="service.family" value="Lotus Domino"/>
-      <param pos="0" name="service.product" value="Lotus Domino"/>
-      <param pos="0" name="service.version" value="4"/>
-      <param pos="1" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP Service \(Lotus Domino Release (\d+\.\d+\.\w+)\) ready at (.+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Lotus"/>
+    <param pos="0" name="service.family" value="Lotus Domino"/>
+    <param pos="0" name="service.product" value="Lotus Domino"/>
+    <param pos="0" name="service.version" value="4"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP Service \(Lotus Domino Release (\d+\.\d+\.\w+)\) ready at (.+) *$">
+    <description>
          Lotus Domino 5 SMTP MTA
          220 foo.bar.com ESMTP Service (Lotus Domino Release 5.0.5) ready at Wed, 19 Dec 2001 19:54:55 -0500
       </description>
-      <param pos="0" name="service.vendor" value="Lotus"/>
-      <param pos="0" name="service.family" value="Lotus Domino"/>
-      <param pos="0" name="service.product" value="Lotus Domino"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP Service \(Lotus Domino Release (\d+\.\w+)\) ready at (.+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Lotus"/>
+    <param pos="0" name="service.family" value="Lotus Domino"/>
+    <param pos="0" name="service.product" value="Lotus Domino"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP Service \(Lotus Domino Release (\d+\.\w+)\) ready at (.+) *$">
+    <description>
          Lotus Domino 5 SMTP MTA
          example: 220 foo.bar.com ESMTP Service (Lotus Domino Release 5.0a) ready at Wed, 20 Jun 2001 08:59:17 +0200
       </description>
-      <param pos="0" name="service.vendor" value="Lotus"/>
-      <param pos="0" name="service.family" value="Lotus Domino"/>
-      <param pos="0" name="service.product" value="Lotus Domino"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP Service \(Lotus Domino Release (\d+\.\d+\.\w+) \(Intl\)\) ready at (.+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Lotus"/>
+    <param pos="0" name="service.family" value="Lotus Domino"/>
+    <param pos="0" name="service.product" value="Lotus Domino"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP Service \(Lotus Domino Release (\d+\.\d+\.\w+) \(Intl\)\) ready at (.+) *$">
+    <description>
          Lotus Domino 5 SMTP MTA, International product version
          example: 220 foo.bar.com ESMTP Service (Lotus Domino Release 5.0.5 (Intl)) ready at Tue, 6 Feb 2001 18:54:23 -0500
       </description>
-      <param pos="0" name="service.vendor" value="Lotus"/>
-      <param pos="0" name="service.family" value="Lotus Domino"/>
-      <param pos="0" name="service.product" value="Lotus Domino"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="0" name="notes.intl" value="yes"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP Service \(Lotus Domino Build (\d+\.\d+)\) ready at (.+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Lotus"/>
+    <param pos="0" name="service.family" value="Lotus Domino"/>
+    <param pos="0" name="service.product" value="Lotus Domino"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="0" name="notes.intl" value="yes"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP Service \(Lotus Domino Build (\d+\.\d+)\) ready at (.+) *$">
+    <description>
          Lotus Domino (some early build)
          220 foo.bar.com ESMTP Service (Lotus Domino Build 166.1) ready at Tue, 6 Feb 2001 2
       </description>
-      <param pos="0" name="service.vendor" value="Lotus"/>
-      <param pos="0" name="service.family" value="Lotus Domino"/>
-      <param pos="0" name="service.product" value="Lotus Domino"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="notes.build.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Lotus Notes ESMTP Server X[^ ]+\.[^ ]+ on (.+) ready at (.+)\. *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Lotus"/>
+    <param pos="0" name="service.family" value="Lotus Domino"/>
+    <param pos="0" name="service.product" value="Lotus Domino"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="notes.build.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^Lotus Notes ESMTP Server X[^ ]+\.[^ ]+ on (.+) ready at (.+)\. *$">
+    <description>
          Lotus Notes 4.x with SMTP MTA add-on
          220 Lotus Notes ESMTP Server X1.0 on RedSox R45 Server/Red Sox/US ready at Fri, 15 Feb 2002 09:46:19 -0800.
       </description>
-      <param pos="0" name="service.vendor" value="Lotus"/>
-      <param pos="0" name="service.family" value="Lotus Domino"/>
-      <param pos="0" name="service.product" value="Lotus Domino"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) NTMail \(v(\d+\.\d+\.\d+)/([^ ]+)\) ready for ESMTP transfer *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Lotus"/>
+    <param pos="0" name="service.family" value="Lotus Domino"/>
+    <param pos="0" name="service.product" value="Lotus Domino"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) NTMail \(v(\d+\.\d+\.\d+)/([^ ]+)\) ready for ESMTP transfer *$">
+    <description>
          NTMail http://www.gordano.com
          example: 220 lilzmail.liwest.at NTMail (v4.30.0012/NU2182.02.1cf87970) ready for ESMTP transfer
          example: 220 pluto.wvwc.edu NTMail (v5.06.0016/NT9445.00.28cc9615) ready for ESMTP transfer
       </description>
-      <param pos="0" name="service.vendor" value="Gordano"/>
-      <param pos="0" name="service.family" value="NTMail"/>
-      <param pos="0" name="service.product" value="NTMail"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="ntmail.id"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) WindowsNT SMTP Server v([^ ]+\.[^ ]+\.[^ ]+)/([^ ]+)/SP ESMTP ready at (.+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Gordano"/>
+    <param pos="0" name="service.family" value="NTMail"/>
+    <param pos="0" name="service.product" value="NTMail"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="ntmail.id"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) WindowsNT SMTP Server v([^ ]+\.[^ ]+\.[^ ]+)/([^ ]+)/SP ESMTP ready at (.+) *$">
+    <description>
          versions 3.x and earlier of NTMail http://www.gordano.com (it was called Internet Shopper's something or other)
          example: 220 mail.Networkengineering WindowsNT SMTP Server v3.03.0018/1.aio1/SP ESMTP ready at Wed, 25 Jul 2001 23:03:11 -0400
          example: 220 mars.wvwc.edu WindowsNT SMTP Server v3.03.0018/1.ajhf/SP ESMTP ready at Thu, 29 Oct 1998 18:01:30 -0500
@@ -945,885 +874,814 @@ The system or service fingerprint with the highest certainty overwrites the othe
          example: 220 wwmerchant.osopinion.com WindowsNT SMTP Server v3.03.0017/4c.adur/SP ESMTP ready at Fri, 26 Mar 1999 13:20:30 -0700
          example: 220 digital-hoon.tecdm.dmi.co.kr WindowsNT SMTP Server v3.02.07/2c.aaaj ready at Thu, 5 Dec 1996 22:46:12 +0000
       </description>
-      <param pos="0" name="service.vendor" value="Gordano"/>
-      <param pos="0" name="service.family" value="NTMail"/>
-      <param pos="0" name="service.product" value="NTMail"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="ntmail.id"/>
-      <param pos="4" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^(\S+)(?: UCX)? V\S+, OpenVMS V(\S+) (\S+) ready at .*$">
-      <description>Some unknown mail server on OpenVMS</description>
-      <example host.name="example.com" os.arch="IA64" os.version="8.4">example.com V5.7-ECO4, OpenVMS V8.4 IA64 ready at Wed, 20 May 2015 01:22:32 +0100 (BST)</example>
-      <example host.name="example.com" os.arch="Alpha" os.version="7.3-2">example.com V5.4-15E, OpenVMS V7.3-2 Alpha ready at Wed, 20 May 2015 01:22:18 +0100 (BST)</example>
-      <example host.name="example.com" os.arch="VAX" os.version="6.2">example.com UCX V4.2-21I, OpenVMS V6.2 VAX ready at Wed, 20 May 2015 01:15:16 GMT</example>
-      <example host.name="example.com" os.arch="Alpha" os.version="6.2-1H3">example.com UCX V4.2-21I, OpenVMS V6.2-1H3 Alpha ready at Wed, 20 May 2015 00:55:37 GMT</example>
-      <param pos="1" name="host.name"/>
-      <param pos="0" name="os.vendor" value="HP"/>
-      <param pos="0" name="os.family" value="OpenVMS"/>
-      <param pos="0" name="os.product" value="OpenVMS"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="2" name="os.version"/>
-      <param pos="3" name="os.arch"/>
-    </fingerprint>
-
-    <fingerprint pattern="^(\S+) E?SMTP PMailServer(?: \[Free Edition\]) ([\d\.]+); (\S{3}, \d{2} \S{3} \d{4} \d{2}:\d{2}:\d{2})$">
-      <description>A.K.I PMail</description>
-      <example host.name="example.com" service.version="1.91">example.com ESMTP PMailServer [Free Edition] 1.91; Fri, 22 May 2015 02:04:56</example>
-      <param pos="0" name="service.vendor" value="A.K.I Software"/>
-      <param pos="0" name="service.product" value="PMail Server"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-    </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) Postfix \(Postfix-([^ ]+)-([^ ]+)\) \(([^ ]+)\) *$">
-      <!--
-      220 foo.bar.com ESMTP Postfix (Postfix-19991231-pl08) (Linux-Mandrake)
-      -->
-      <description>
+    <param pos="0" name="service.vendor" value="Gordano"/>
+    <param pos="0" name="service.family" value="NTMail"/>
+    <param pos="0" name="service.product" value="NTMail"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="ntmail.id"/>
+    <param pos="4" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^(\S+)(?: UCX)? V\S+, OpenVMS V(\S+) (\S+) ready at .*$">
+    <description>Some unknown mail server on OpenVMS</description>
+    <example host.name="example.com" os.arch="IA64" os.version="8.4">example.com V5.7-ECO4, OpenVMS V8.4 IA64 ready at Wed, 20 May 2015 01:22:32 +0100 (BST)</example>
+    <example host.name="example.com" os.arch="Alpha" os.version="7.3-2">example.com V5.4-15E, OpenVMS V7.3-2 Alpha ready at Wed, 20 May 2015 01:22:18 +0100 (BST)</example>
+    <example host.name="example.com" os.arch="VAX" os.version="6.2">example.com UCX V4.2-21I, OpenVMS V6.2 VAX ready at Wed, 20 May 2015 01:15:16 GMT</example>
+    <example host.name="example.com" os.arch="Alpha" os.version="6.2-1H3">example.com UCX V4.2-21I, OpenVMS V6.2-1H3 Alpha ready at Wed, 20 May 2015 00:55:37 GMT</example>
+    <param pos="1" name="host.name"/>
+    <param pos="0" name="os.vendor" value="HP"/>
+    <param pos="0" name="os.family" value="OpenVMS"/>
+    <param pos="0" name="os.product" value="OpenVMS"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="2" name="os.version"/>
+    <param pos="3" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^(\S+) E?SMTP PMailServer(?: \[Free Edition\]) ([\d\.]+); (\S{3}, \d{2} \S{3} \d{4} \d{2}:\d{2}:\d{2})$">
+    <description>A.K.I PMail</description>
+    <example host.name="example.com" service.version="1.91">example.com ESMTP PMailServer [Free Edition] 1.91; Fri, 22 May 2015 02:04:56</example>
+    <param pos="0" name="service.vendor" value="A.K.I Software"/>
+    <param pos="0" name="service.product" value="PMail Server"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) Postfix \(Postfix-([^ ]+)-([^ ]+)\) \(([^ ]+)\) *$">
+    <description>
          Postfix (2 version ids, followed by os)
       </description>
-      <param pos="0" name="service.family" value="Postfix"/>
-      <param pos="0" name="service.product" value="Postfix"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="service.version.version"/>
-      <param pos="4" name="postfix.os.info"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP Postfix \(Postfix-([^ ]+)-([^ ]+)\) *$">
-      <!--
-      220 foo.bar.com ESMTP Postfix (Postfix-20000531-Snapshot)
-      -->
-      <description>
+    <param pos="0" name="service.family" value="Postfix"/>
+    <param pos="0" name="service.product" value="Postfix"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="service.version.version"/>
+    <param pos="4" name="postfix.os.info"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP Postfix \(Postfix-([^ ]+)-([^ ]+)\) *$">
+    <description>
           Postfix (2 version numbers)
       </description>
-      <param pos="0" name="service.family" value="Postfix"/>
-      <param pos="0" name="service.product" value="Postfix"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="service.version.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP Postfix \(([^ ]+)-([^ ]+)\)$">
-      <!--
-      220 foo.bar.com ESMTP Postfix (Snapshot-20001121)
-      -->
-      <description>
+    <param pos="0" name="service.family" value="Postfix"/>
+    <param pos="0" name="service.product" value="Postfix"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="service.version.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP Postfix \(([^ ]+)-([^ ]+)\)$">
+    <description>
          Postfix (2 version numbers )
       </description>
-      <param pos="0" name="service.family" value="Postfix"/>
-      <param pos="0" name="service.product" value="Postfix"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="service.version.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) Postfix \(Postfix-([^ ]+)\) \(([^ ]+)\) *$">
-      <description>
+    <param pos="0" name="service.family" value="Postfix"/>
+    <param pos="0" name="service.product" value="Postfix"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="service.version.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) Postfix \(Postfix-([^ ]+)\) \(([^ ]+)\) *$">
+    <description>
          Postfix (1 version number)
       </description>
-      <param pos="0" name="service.family" value="Postfix"/>
-      <param pos="0" name="service.product" value="Postfix"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="postfix.os.info"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) E?SMTP Postfix \(Ubuntu\)$">
-      <description>
+    <param pos="0" name="service.family" value="Postfix"/>
+    <param pos="0" name="service.product" value="Postfix"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="postfix.os.info"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) E?SMTP Postfix \(Ubuntu\)$">
+    <description>
          Postfix Ubuntu package.
        </description>
-      <example>foo.bar.com ESMTP Postfix (Ubuntu)</example>
-      <param pos="0" name="service.family" value="Postfix"/>
-      <param pos="0" name="service.product" value="Postfix"/>
-      <param pos="1" name="host.name"/>
-      <param pos="0" name="os.vendor" value="Ubuntu"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.family" value="Linux"/>
-      <param pos="0" name="os.product" value="Linux"/>
-    </fingerprint>
-
-    <fingerprint pattern="^([^ ]+) E?SMTP Postfix \(Debian/GNU\)$">
-      <description>
+    <example>foo.bar.com ESMTP Postfix (Ubuntu)</example>
+    <param pos="0" name="service.family" value="Postfix"/>
+    <param pos="0" name="service.product" value="Postfix"/>
+    <param pos="1" name="host.name"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) E?SMTP Postfix \(Debian/GNU\)$">
+    <description>
          Postfix Debian package.
        </description>
-       <example>foo.bar.com ESMTP Postfix (Debian/GNU)</example>
-      <param pos="0" name="service.family" value="Postfix"/>
-      <param pos="0" name="service.product" value="Postfix"/>
-      <param pos="1" name="host.name"/>
-      <param pos="0" name="os.vendor" value="Debian"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.family" value="Linux"/>
-      <param pos="0" name="os.product" value="Linux"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP.* Postfix *\(.+\) *$">
-      <description>
+    <example>foo.bar.com ESMTP Postfix (Debian/GNU)</example>
+    <param pos="0" name="service.family" value="Postfix"/>
+    <param pos="0" name="service.product" value="Postfix"/>
+    <param pos="1" name="host.name"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP.* Postfix *\(.+\) *$">
+    <description>
          Generic Postfix banner with amusing comments in parentheses
       </description>
-      <example>foo.bar.com ESMTP Postfix (lol)</example>
-      <param pos="0" name="service.family" value="Postfix"/>
-      <param pos="0" name="service.product" value="Postfix"/>
-      <param pos="1" name="host.name"/>
-    </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP.* Postfix *$">
-      <description>
+    <example>foo.bar.com ESMTP Postfix (lol)</example>
+    <param pos="0" name="service.family" value="Postfix"/>
+    <param pos="0" name="service.product" value="Postfix"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP.* Postfix *$">
+    <description>
          Generic Postfix banner.
       </description>
-      <example>foo.bar.com ESMTP Postfix</example>
-      <param pos="0" name="service.family" value="Postfix"/>
-      <param pos="0" name="service.product" value="Postfix"/>
-      <param pos="1" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP server \(Post\.Office v([^ ]+) release (.+) ID# ([^ ]+)\) ready (.+) *$">
-      <description>
+    <example>foo.bar.com ESMTP Postfix</example>
+    <param pos="0" name="service.family" value="Postfix"/>
+    <param pos="0" name="service.product" value="Postfix"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP server \(Post\.Office v([^ ]+) release (.+) ID# ([^ ]+)\) ready (.+) *$">
+    <description>
          Post.Office (3 version numbers)
       </description>
-      <example host.name="192.168.1.1" service.version="3.1" postoffice.build="PO205e" postoffice.id="0-42000U100L2S100" system.time="Tue, 6 Feb 2001 19:38:32 +0100">192.168.1.1 ESMTP server (Post.Office v3.1 release PO205e ID# 0-42000U100L2S100) ready Tue, 6 Feb 2001 19:38:32 +0100</example>
-      <param pos="0" name="service.family" value="Post.Office"/>
-      <param pos="0" name="service.product" value="Post.Office"/>
-      <param pos="2" name="service.version"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="3" name="postoffice.build"/>
-      <param pos="4" name="postoffice.id"/>
-      <param pos="5" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP server \(P|post\.O|office v([^ ]+\.[^ ]+) (.+) ID# ([^ ]+)\) ready (.+) *$">
-      <description>
+    <example host.name="192.168.1.1" service.version="3.1" postoffice.build="PO205e" postoffice.id="0-42000U100L2S100" system.time="Tue, 6 Feb 2001 19:38:32 +0100">192.168.1.1 ESMTP server (Post.Office v3.1 release PO205e ID# 0-42000U100L2S100) ready Tue, 6 Feb 2001 19:38:32 +0100</example>
+    <param pos="0" name="service.family" value="Post.Office"/>
+    <param pos="0" name="service.product" value="Post.Office"/>
+    <param pos="2" name="service.version"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="3" name="postoffice.build"/>
+    <param pos="4" name="postoffice.id"/>
+    <param pos="5" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP server \(P|post\.O|office v([^ ]+\.[^ ]+) (.+) ID# ([^ ]+)\) ready (.+) *$">
+    <description>
          Post.Office lacking word "release" before release tag
       </description>
-      <param pos="0" name="service.family" value="Post.Office"/>
-      <param pos="0" name="service.product" value="Post.Office"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="postoffice.build"/>
-      <param pos="4" name="postoffice.id"/>
-      <param pos="5" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) Generic SMTP handler *$">
-      <description>
+    <param pos="0" name="service.family" value="Post.Office"/>
+    <param pos="0" name="service.product" value="Post.Office"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="postoffice.build"/>
+    <param pos="4" name="postoffice.id"/>
+    <param pos="5" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) Generic SMTP handler *$">
+    <description>
          Raptor Firewall
          example: 220 foo.bar.com Generic SMTP handler
       </description>
-      <param pos="0" name="service.product" value="raptor"/>
-      <param pos="1" name="host.name"/>
-    </fingerprint>
-
-   <fingerprint pattern="^(\S+) SAP (\S+) E?SMTP service ready$">
-      <description>SAP SMTP Server</description>
-      <example host.name="example.com" service.version="8.04(53)">example.com SAP 8.04(53) ESMTP service ready</example>
-      <param pos="0" name="service.vendor" value="SAP"/>
-      <param pos="0" name="service.product" value="SMTP"/>
-      <param pos="2" name="service.version"/>
-      <param pos="1" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail +([^ ]+) \(PHNE_([^ ]+)\) */ *(.+); *(.+) \(.+\)$">
-      <description>
+    <param pos="0" name="service.product" value="raptor"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^(\S+) SAP (\S+) E?SMTP service ready$">
+    <description>SAP SMTP Server</description>
+    <example host.name="example.com" service.version="8.04(53)">example.com SAP 8.04(53) ESMTP service ready</example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="SMTP"/>
+    <param pos="2" name="service.version"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail +([^ ]+) \(PHNE_([^ ]+)\) */ *(.+); *(.+) \(.+\)$">
+    <description>
          sendmail on HPUX with a PHNE (HP Networking patch) installed
       </description>
-      <example>foo.bar.com ESMTP Sendmail 8.8.6 (PHNE_14041)/8.7.1; Tue, 6 Feb 2001 10:04:32 -0300 (SAT)</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="os.vendor" value="HP"/>
-      <param pos="0" name="os.family" value="HP-UX"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="HP-UX"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="sendmail.hpux.phne.version"/>
-      <param pos="4" name="sendmail.config.version"/>
-      <param pos="5" name="system.time"/>
-    </fingerprint>
-
-   <fingerprint pattern="^(\S+) ESMTP Sendmail \S+ version ([\d\.]+) - Revision \S+ HP-UX([\d\.]+).*(\S{3}, \d{2} \S{3} \d{4} \d{2}:\d{2}:\d{2} \S{3})$">
-      <description>
+    <example>foo.bar.com ESMTP Sendmail 8.8.6 (PHNE_14041)/8.7.1; Tue, 6 Feb 2001 10:04:32 -0300 (SAT)</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="os.vendor" value="HP"/>
+    <param pos="0" name="os.family" value="HP-UX"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="HP-UX"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="sendmail.hpux.phne.version"/>
+    <param pos="4" name="sendmail.config.version"/>
+    <param pos="5" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^(\S+) ESMTP Sendmail \S+ version ([\d\.]+) - Revision \S+ HP-UX([\d\.]+).*(\S{3}, \d{2} \S{3} \d{4} \d{2}:\d{2}:\d{2} \S{3})$">
+    <description>
          sendmail on HPUX
        </description>
-      <example host.name="example.com" os.version="11.31" service.version="8.13.3">example.com ESMTP Sendmail @(#)Sendmail version 8.13.3 - Revision 1.004:: HP-UX11.31 - 03rd February,2010/8.11.1; Wed, 20 May 2015 23:35:38 GMT</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="os.vendor" value="HP"/>
-      <param pos="0" name="os.family" value="HP-UX"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="HP-UX"/>
-      <param pos="3" name="os.version"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="4" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail +([^ ]+)/UW([^ ]+) ready at *(.+) \(.+\) *$">
-     <description>
+    <example host.name="example.com" os.version="11.31" service.version="8.13.3">example.com ESMTP Sendmail @(#)Sendmail version 8.13.3 - Revision 1.004:: HP-UX11.31 - 03rd February,2010/8.11.1; Wed, 20 May 2015 23:35:38 GMT</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="os.vendor" value="HP"/>
+    <param pos="0" name="os.family" value="HP-UX"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="HP-UX"/>
+    <param pos="3" name="os.version"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="4" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail +([^ ]+)/UW([^ ]+) ready at *(.+) \(.+\) *$">
+    <description>
        sendmail on unixware
       </description>
-      <example>foo.bar.com ESMTP Sendmail 8.8.7/UW7.1.0 ready at Tue, 6 Feb 2001 16:39:30 -0300 (GMT-0300)</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="os.vendor" value="SCO"/>
-      <param pos="0" name="os.family" value="UnixWare"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="UnixWare"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="os.version"/>
-      <param pos="4" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP Sendmail AIX([^/]+)/UCB ([^;]+); (.+) \(.+\)$">
-     <description>
+    <example>foo.bar.com ESMTP Sendmail 8.8.7/UW7.1.0 ready at Tue, 6 Feb 2001 16:39:30 -0300 (GMT-0300)</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="os.vendor" value="SCO"/>
+    <param pos="0" name="os.family" value="UnixWare"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="UnixWare"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="os.version"/>
+    <param pos="4" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail AIX([^/]+)/UCB ([^;]+); (.+) \(.+\)$">
+    <description>
        sendmail on AIX
       </description>
-      <example>foo.bar.com ESMTP Sendmail AIX4.2/UCB 8.7; Sun, 29 Jul 2001 22:34:37 -0400 (EDT)</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="os.vendor" value="IBM"/>
-      <param pos="0" name="os.family" value="AIX"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="AIX"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="os.version"/>
-      <param pos="3" name="service.version"/>
-      <param pos="4" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) Sendmail AIX([^/]+)/UCB ([^/]+)/([^ ]+) ready at (.+)$">
-     <description>
+    <example>foo.bar.com ESMTP Sendmail AIX4.2/UCB 8.7; Sun, 29 Jul 2001 22:34:37 -0400 (EDT)</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="os.vendor" value="IBM"/>
+    <param pos="0" name="os.family" value="AIX"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="AIX"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="os.version"/>
+    <param pos="3" name="service.version"/>
+    <param pos="4" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) Sendmail AIX([^/]+)/UCB ([^/]+)/([^ ]+) ready at (.+)$">
+    <description>
        sendmail on AIX
       </description>
-      <example>foo.bar.com Sendmail AIX 4.1/UCB 5.64/4.03 ready at Mon, 30 Jul 2001 00:42:21 -0500</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="os.vendor" value="IBM"/>
-      <param pos="0" name="os.family" value="AIX"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="AIX"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="os.version"/>
-      <param pos="3" name="service.version"/>
-      <param pos="4" name="sendmail.config.version"/>
-      <param pos="5" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP Sendmail AIX([^/]+)/([^/]+)/([^;]+); (.+)(?: \(.+\))?$">
-     <description>
+    <example>foo.bar.com Sendmail AIX 4.1/UCB 5.64/4.03 ready at Mon, 30 Jul 2001 00:42:21 -0500</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="os.vendor" value="IBM"/>
+    <param pos="0" name="os.family" value="AIX"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="AIX"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="os.version"/>
+    <param pos="3" name="service.version"/>
+    <param pos="4" name="sendmail.config.version"/>
+    <param pos="5" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail AIX([^/]+)/([^/]+)/([^;]+); (.+)(?: \(.+\))?$">
+    <description>
        sendmail on AIX
       </description>
-      <example host.name="example.com" os.version="4.2" service.version="8.7" sendmail.config.version="8.8">example.com ESMTP Sendmail AIX4.2/8.7/8.8; Sun, 29 Jul 2001 22:34:37 -0400 (EDT)</example>
-      <example host.name="example.com" os.version="5.1" service.version="8.11.6p2" sendmail.config.version="8.11.0">example.com ESMTP Sendmail AIX5.1/8.11.6p2/8.11.0; Fri, 28 Aug 1970 19:42:05 -0800</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="os.vendor" value="IBM"/>
-      <param pos="0" name="os.family" value="AIX"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="AIX"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="os.version"/>
-      <param pos="3" name="service.version"/>
-      <param pos="4" name="sendmail.config.version"/>
-      <param pos="5" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/SuSE Linux ([^;]+); (.+)$">
-      <description>
+    <example host.name="example.com" os.version="4.2" service.version="8.7" sendmail.config.version="8.8">example.com ESMTP Sendmail AIX4.2/8.7/8.8; Sun, 29 Jul 2001 22:34:37 -0400 (EDT)</example>
+    <example host.name="example.com" os.version="5.1" service.version="8.11.6p2" sendmail.config.version="8.11.0">example.com ESMTP Sendmail AIX5.1/8.11.6p2/8.11.0; Fri, 28 Aug 1970 19:42:05 -0800</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="os.vendor" value="IBM"/>
+    <param pos="0" name="os.family" value="AIX"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="AIX"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="os.version"/>
+    <param pos="3" name="service.version"/>
+    <param pos="4" name="sendmail.config.version"/>
+    <param pos="5" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/SuSE Linux ([^;]+); (.+)$">
+    <description>
         sendmail on suse
       </description>
-      <example>foo.bar.com ESMTP Sendmail 8.9.3/8.9.3/SuSE Linux 8.9.3-0.1; Mon, 30 Jul 2001 04:48:54 +0200</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="os.vendor" value="SuSE"/>
-      <param pos="0" name="os.family" value="Linux"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Linux"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="sendmail.config.version"/>
-      <param pos="4" name="sendmail.vendor.version"/>
-      <param pos="5" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^ ]+)\+Sun/([^ ]+); (.+)$">
-      <description>
+    <example>foo.bar.com ESMTP Sendmail 8.9.3/8.9.3/SuSE Linux 8.9.3-0.1; Mon, 30 Jul 2001 04:48:54 +0200</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="os.vendor" value="SuSE"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="sendmail.config.version"/>
+    <param pos="4" name="sendmail.vendor.version"/>
+    <param pos="5" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^ ]+)\+Sun/([^ ]+); (.+)$">
+    <description>
        sendmail on Solaris
       </description>
-      <example>foo.bar.com ESMTP Sendmail 8.9.3+Sun/8.9.1; Mon, 30 Jul 2001 02:50:22 GMT</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="os.vendor" value="Sun"/>
-      <param pos="0" name="os.family" value="Solaris"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Solaris"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="sendmail.config.version"/>
-      <param pos="4" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^ ]+)\+Sun/([^ ]+) ready at (.+) \(.+\)$">
-      <description>
+    <example>foo.bar.com ESMTP Sendmail 8.9.3+Sun/8.9.1; Mon, 30 Jul 2001 02:50:22 GMT</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="sendmail.config.version"/>
+    <param pos="4" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^ ]+)\+Sun/([^ ]+) ready at (.+) \(.+\)$">
+    <description>
        sendmail on Solaris
       </description>
-      <example>foo.bar.com ESMTP Sendmail 8.8.8+Sun/8.6.4 ready at Thu, 15 Nov 2000 11:40:32 -0800 (PST)</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="os.vendor" value="Sun"/>
-      <param pos="0" name="os.family" value="Solaris"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Solaris"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="sendmail.config.version"/>
-      <param pos="4" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP Debian Sendmail ([^/]+)/([^/]+)/Debian ([^/]+); (.+) *$">
-     <description>
+    <example>foo.bar.com ESMTP Sendmail 8.8.8+Sun/8.6.4 ready at Thu, 15 Nov 2000 11:40:32 -0800 (PST)</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="sendmail.config.version"/>
+    <param pos="4" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP Debian Sendmail ([^/]+)/([^/]+)/Debian ([^/]+); (.+) *$">
+    <description>
         sendmail on debian
       </description>
-      <example>foo.bar.com ESMTP Debian Sendmail 8.12.0.Beta7/8.12.0.Beta7/Debian 8.12.0.Beta7-1; Sun, 29 Jul 2001 18:52:20 -0800</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="os.vendor" value="Debian"/>
-      <param pos="0" name="os.family" value="Linux"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Linux"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="sendmail.config.version"/>
-      <param pos="4" name="sendmail.vendor.version"/>
-      <param pos="5" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian ([^/]+); (.+) *$">
-      <description>
+    <example>foo.bar.com ESMTP Debian Sendmail 8.12.0.Beta7/8.12.0.Beta7/Debian 8.12.0.Beta7-1; Sun, 29 Jul 2001 18:52:20 -0800</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="sendmail.config.version"/>
+    <param pos="4" name="sendmail.vendor.version"/>
+    <param pos="5" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian ([^/]+); (.+) *$">
+    <description>
         sendmail on debian
       </description>
-      <example>foo.bar.com ESMTP Sendmail 8.11.0/8.9.3/Debian 8.9.3-21; Sun, 29 Jul 2001 19:51:00 -0700</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="os.vendor" value="Debian"/>
-      <param pos="0" name="os.family" value="Linux"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Linux"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="sendmail.config.version"/>
-      <param pos="4" name="sendmail.vendor.version"/>
-      <param pos="5" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/[^/]+/Debian-\dubuntu[^ ]*; (.+); .*$">
-      <description>
+    <example>foo.bar.com ESMTP Sendmail 8.11.0/8.9.3/Debian 8.9.3-21; Sun, 29 Jul 2001 19:51:00 -0700</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="sendmail.config.version"/>
+    <param pos="4" name="sendmail.vendor.version"/>
+    <param pos="5" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/[^/]+/Debian-\dubuntu[^ ]*; (.+); .*$">
+    <description>
          Sendmail for Ubuntu
       </description>
-      <example>foo.bar.com ESMTP Sendmail 8.13.5.20060308/8.13.5/Debian-3ubuntu1.1; Fri, 24 Jul 2009 01:41:21 -0700; (No UCE/UBE) logging access from: xyz.example.com(OK)-xyz.example.com [10.0.0.1]</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="os.vendor" value="Ubuntu"/>
-      <param pos="0" name="os.family" value="Linux"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Linux"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) (?:E?SMTP )?Sendmail SMI-([^/]+)/(SMI-SVR4) ready at (.+)$">
-      <description>
+    <example>foo.bar.com ESMTP Sendmail 8.13.5.20060308/8.13.5/Debian-3ubuntu1.1; Fri, 24 Jul 2009 01:41:21 -0700; (No UCE/UBE) logging access from: xyz.example.com(OK)-xyz.example.com [10.0.0.1]</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) (?:E?SMTP )?Sendmail SMI-([^/]+)/(SMI-SVR4) ready at (.+)$">
+    <description>
         unknown
       </description>
-      <example>foo.bar.com Sendmail SMI-8.6/SMI-SVR4 ready at Sun, 29 Jul 2001 22:58:46 -0400</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="os.vendor" value="Sun"/>
-      <param pos="0" name="os.family" value="SunOS"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Solaris"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="sendmail.config.version"/>
-      <param pos="4" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^ ]+)/(linuxconf); (.+)$">
-      <description>
+    <example>foo.bar.com Sendmail SMI-8.6/SMI-SVR4 ready at Sun, 29 Jul 2001 22:58:46 -0400</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.family" value="SunOS"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="sendmail.config.version"/>
+    <param pos="4" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^ ]+)/(linuxconf); (.+)$">
+    <description>
          unknown
       </description>
-      <example>foo.bar.com ESMTP Sendmail 8.9.3/linuxconf; Sun, 29 Jul 2001 22:48:28 -0400</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="os.family" value="Linux"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Linux"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="sendmail.config.version"/>
-      <param pos="4" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP MetaInfo Sendmail ([^ ]+) Build ([^ ]+) \(Berkeley ([^ ]+)\)/([^;]+); (.+)$">
-     <description>
+    <example>foo.bar.com ESMTP Sendmail 8.9.3/linuxconf; Sun, 29 Jul 2001 22:48:28 -0400</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="sendmail.config.version"/>
+    <param pos="4" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP MetaInfo Sendmail ([^ ]+) Build ([^ ]+) \(Berkeley ([^ ]+)\)/([^;]+); (.+)$">
+    <description>
        unknown
       </description>
-      <example>foo.bar.com ESMTP MetaInfo Sendmail 2.5 Build 2630 (Berkeley 8.8.6)/8.8.4; Mon, 30 Jul</example>
-      <param pos="0" name="service.vendor" value="MetaInfo"/>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="os.vendor" value="Microsoft"/>
-      <param pos="0" name="os.family" value="Windows"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Windows NT"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="metainfo.version"/>
-      <param pos="3" name="metainfo.version.version"/>
-      <param pos="4" name="service.version"/>
-      <param pos="5" name="sendmail.config.version"/>
-      <param pos="6" name="system.time"/>
+    <example>foo.bar.com ESMTP MetaInfo Sendmail 2.5 Build 2630 (Berkeley 8.8.6)/8.8.4; Mon, 30 Jul</example>
+    <param pos="0" name="service.vendor" value="MetaInfo"/>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Windows NT"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="metainfo.version"/>
+    <param pos="3" name="metainfo.version.version"/>
+    <param pos="4" name="service.version"/>
+    <param pos="5" name="sendmail.config.version"/>
+    <param pos="6" name="system.time"/>
   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail +([^ ]+\+[^ ]+) */ *([^ ]+\+[^ ]+); *(.+) \(.+\)$">
-      <description>
+  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail +([^ ]+\+[^ ]+) */ *([^ ]+\+[^ ]+); *(.+) \(.+\)$">
+    <description>
          sendmail where both daemon and config file are patched
       </description>
-      <example>foo.bar.com ESMTP Sendmail 8.9.3+3.4W/8.9.3+3.4W; Tue, 30 Jan 2001 20:40:09 -0500 (EST)</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="sendmail.config.version"/>
-      <param pos="4" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP .*Sendmail +([^/ ]+) */ *([^/ ]+); *(.+)(?: \(.+\))?$">
-      <description>
+    <example>foo.bar.com ESMTP Sendmail 8.9.3+3.4W/8.9.3+3.4W; Tue, 30 Jan 2001 20:40:09 -0500 (EST)</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="sendmail.config.version"/>
+    <param pos="4" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP .*Sendmail +([^/ ]+) */ *([^/ ]+); *(.+)(?: \(.+\))?$">
+    <description>
         sendmail where neither daemon nor config file are patched, with and without timezone
       </description>
-      <example host.name="example.com" service.version="8.8.8" sendmail.config.version="8.8.9">example.com ESMTP Sendmail 8.8.8/8.8.9; Wed, 21 Nov 2001 23:39:07 +0100 (CET)</example>
-      <example host.name="example.com" service.version="8.8.8" sendmail.config.version="8.8.9">example.com ESMTP blah Sendmail 8.8.8/8.8.9; Wed, 21 Nov 2001 23:39:07 +0100 (CET)</example>
-      <example host.name="example.com" service.version="8.10.2" sendmail.config.version="8.10.3">example.com ESMTP Sendmail 8.10.2/8.10.3; Mon, 10 Sep 2001 08:37:14 -0400</example>
-      <example host.name="example.com" service.version="8.13.8" sendmail.config.version="8.13.9">example.com ESMTP foo-MTA Sendmail 8.13.8/8.13.9; Mon, 18 Apr 2011 08:52:38 -0700</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="sendmail.config.version"/>
-      <param pos="4" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +Sendmail ready\. *$">
-      <description>
+    <example host.name="example.com" service.version="8.8.8" sendmail.config.version="8.8.9">example.com ESMTP Sendmail 8.8.8/8.8.9; Wed, 21 Nov 2001 23:39:07 +0100 (CET)</example>
+    <example host.name="example.com" service.version="8.8.8" sendmail.config.version="8.8.9">example.com ESMTP blah Sendmail 8.8.8/8.8.9; Wed, 21 Nov 2001 23:39:07 +0100 (CET)</example>
+    <example host.name="example.com" service.version="8.10.2" sendmail.config.version="8.10.3">example.com ESMTP Sendmail 8.10.2/8.10.3; Mon, 10 Sep 2001 08:37:14 -0400</example>
+    <example host.name="example.com" service.version="8.13.8" sendmail.config.version="8.13.9">example.com ESMTP foo-MTA Sendmail 8.13.8/8.13.9; Mon, 18 Apr 2011 08:52:38 -0700</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="sendmail.config.version"/>
+    <param pos="4" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +Sendmail ready\. *$">
+    <description>
          some old version of sendmail - TODO: figure out which versions this could be
       </description>
-      <example>mail.foo.bar Sendmail ready.</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="1" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ([^ ]+) ready at *(.+) \(.+\)$">
-      <description>
+    <example>mail.foo.bar Sendmail ready.</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ([^ ]+) ready at *(.+) \(.+\)$">
+    <description>
          sendmail with daemon version only
       </description>
-      <example>mail.foo.bar ESMTP Sendmail 8.8.8 ready at Tue, 6 Feb 2001 14:37:14 +0100 (CET)</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ([^ /]+) \([^\)]+\) *(.+) \(.+\)$">
-     <description>
+    <example>mail.foo.bar ESMTP Sendmail 8.8.8 ready at Tue, 6 Feb 2001 14:37:14 +0100 (CET)</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ([^ /]+) \([^\)]+\) *(.+) \(.+\)$">
+    <description>
        unknown
       </description>
-      <example>mail.foo.bar ESMTP Sendmail 8.11.1 (1.1.2.11/12Jul01-1016AM) Wed, 8 Jan 2003 11:21:22 +0100 (MET)</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-    </fingerprint>
-
-    <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ([^ /]+) - \([^\)]+\)/[^ ]+;? *(.+) \(.+\)$">
-     <description>
+    <example>mail.foo.bar ESMTP Sendmail 8.11.1 (1.1.2.11/12Jul01-1016AM) Wed, 8 Jan 2003 11:21:22 +0100 (MET)</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ([^ /]+) - \([^\)]+\)/[^ ]+;? *(.+) \(.+\)$">
+    <description>
        unknown
       </description>
-      <example>foo.example.com ESMTP Sendmail 8.11.1 - (Revision 1.010)/8.9.3; Sat, 22 Jan 2011 10:08:35 -0500 (EST)</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-    </fingerprint>
-
-    <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail +(?:[^ ]+) +version +([^ ]+) +- +(?:[^;]+); +(.+) +\(.+\)$">
-     <description>
+    <example>foo.example.com ESMTP Sendmail 8.11.1 - (Revision 1.010)/8.9.3; Sat, 22 Jan 2011 10:08:35 -0500 (EST)</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail +(?:[^ ]+) +version +([^ ]+) +- +(?:[^;]+); +(.+) +\(.+\)$">
+    <description>
        unknown
      </description>
-     <example>foo.example.com ESMTP Sendmail @(#)Sendmail version 8.13.3 - Revision 2.007 - 8 December 2008/8.8.6; Wed, 21 Jul 2010 11:17:01 -0400 (EDT)</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^Sendmail ([^/]+)/([^/]+) ready on ([^ ]+)$">
-      <description>
+    <example>foo.example.com ESMTP Sendmail @(#)Sendmail version 8.13.3 - Revision 2.007 - 8 December 2008/8.8.6; Wed, 21 Jul 2010 11:17:01 -0400 (EDT)</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^Sendmail ([^/]+)/([^/]+) ready on ([^ ]+)$">
+    <description>
          catch all for other versions of sendmail
       </description>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="1" name="service.version"/>
-      <param pos="2" name="sendmail.config.version"/>
-      <param pos="3" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ready at (.+) \(.+\)$">
-      <description>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="sendmail.config.version"/>
+    <param pos="3" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ready at (.+) \(.+\)$">
+    <description>
          catch all for other versions of sendmail
       </description>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ;.*$">
-      <description>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ;.*$">
+    <description>
          catch all for other versions of sendmail
       </description>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="1" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP Sendmail ready$">
-      <description>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ready$">
+    <description>
          catch all for other versions of sendmail
       </description>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="1" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) Sendmail ([^/]+)/([^ ]+) ready at ([^;\.]+)$">
-      <description>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) Sendmail ([^/]+)/([^ ]+) ready at ([^;\.]+)$">
+    <description>
          catch all for other versions of sendmail
       </description>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="sendmail.config.version"/>
-      <param pos="4" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) Sendmail ([^;]+); ([^;\.]+)$">
-      <description>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="sendmail.config.version"/>
+    <param pos="4" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) Sendmail ([^;]+); ([^;\.]+)$">
+    <description>
          catch all for other versions of sendmail
       </description>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP Sendmail$">
-      <description>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail$">
+    <description>
          catch all for other versions of sendmail
       </description>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="1" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^(\S+) ESMTP Sendmail (\S{3}, \d{1,2} \S{3} \d{4} \d{2}:\d{2}:\d{2} \S+)$">
-      <description>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^(\S+) ESMTP Sendmail (\S{3}, \d{1,2} \S{3} \d{4} \d{2}:\d{2}:\d{2} \S+)$">
+    <description>
          catch all for other versions of sendmail, with a date/time
       </description>
-      <example host.name="example.com">example.com ESMTP Sendmail Wed, 20 May 2015 17:17:56 -0600</example>
-      <example host.name="example.com">example.com ESMTP Sendmail Wed, 5 Aug 2015 17:40:38 -0400</example>
-      <param pos="0" name="service.family" value="Sendmail"/>
-      <param pos="0" name="service.product" value="Sendmail"/>
-      <param pos="1" name="host.name"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="2" name="system.time"/>
-   </fingerprint>
-
-   <!-- Sun Internet Mail Server -->
-   <!-- Sun Internet Mail Server sims\.([^\.]+)([^\.]+)([^\.]+)([^\.]+)([^\.]+)([^\.]+)([^\.]+)([^\.]+) -->
-
-   <!-- these suckers can have LOTS of version numbers -->
-   <fingerprint pattern="^([^ ]+) -- Server ESMTP \(Sun Internet Mail Server sims\.([^\.]+\.[^\.]+\.[^\.]+\.[^\.]+\.[^\.]+\.[^\.]+\.[^\.]+\.[^\.]+)\)$">
-      <description>
+    <example host.name="example.com">example.com ESMTP Sendmail Wed, 20 May 2015 17:17:56 -0600</example>
+    <example host.name="example.com">example.com ESMTP Sendmail Wed, 5 Aug 2015 17:40:38 -0400</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="1" name="host.name"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="2" name="system.time"/>
+  </fingerprint>
+  <!-- Sun Internet Mail Server -->
+  <!-- Sun Internet Mail Server sims\.([^\.]+)([^\.]+)([^\.]+)([^\.]+)([^\.]+)([^\.]+)([^\.]+)([^\.]+) -->
+  <!-- these suckers can have LOTS of version numbers -->
+  <fingerprint pattern="^([^ ]+) -- Server ESMTP \(Sun Internet Mail Server sims\.([^\.]+\.[^\.]+\.[^\.]+\.[^\.]+\.[^\.]+\.[^\.]+\.[^\.]+\.[^\.]+)\)$">
+    <description>
       220 smtp.foo.bar -- Server ESMTP (Sun Internet Mail Server sims.4.0.2000.10.12.16.25.p8)
       </description>
-      <param pos="0" name="service.vendor" value="Sun"/>
-      <param pos="0" name="service.family" value="Internet Mail Server"/>
-      <param pos="0" name="service.product" value="Internet Mail Server"/>
-      <param pos="0" name="os.vendor" value="Sun"/>
-      <param pos="0" name="os.family" value="Solaris"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Solaris"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <!-- these suckers can have LOTS of version numbers -->
-   <fingerprint pattern="^([^ ]+) -- Server ESMTP \(Sun Internet Mail Server sims\.([^\.]+\.[^\.]+\.[^\.]+\.[^\.]+\.[^\.]+\.[^\.]+\.[^\.]+)\)$">
-      <description>
+    <param pos="0" name="service.vendor" value="Sun"/>
+    <param pos="0" name="service.family" value="Internet Mail Server"/>
+    <param pos="0" name="service.product" value="Internet Mail Server"/>
+    <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <!-- these suckers can have LOTS of version numbers -->
+  <fingerprint pattern="^([^ ]+) -- Server ESMTP \(Sun Internet Mail Server sims\.([^\.]+\.[^\.]+\.[^\.]+\.[^\.]+\.[^\.]+\.[^\.]+\.[^\.]+)\)$">
+    <description>
       220 mercury.doc.ntu.ac.uk -- Server ESMTP (Sun Internet Mail Server sims.4.0.1999.06.13.00.20)
       </description>
-      <param pos="0" name="service.vendor" value="Sun"/>
-      <param pos="0" name="service.family" value="Internet Mail Server"/>
-      <param pos="0" name="service.product" value="Internet Mail Server"/>
-      <param pos="0" name="os.vendor" value="Sun"/>
-      <param pos="0" name="os.family" value="Solaris"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Solaris"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <!-- SLMail with two version numbers -->
-   <fingerprint pattern="^([^ ]+) S[mM][tT][pP] Server SL[mM]ail v?([^ ]+\.[^ ]+) Ready ESMTP spoken here *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Sun"/>
+    <param pos="0" name="service.family" value="Internet Mail Server"/>
+    <param pos="0" name="service.product" value="Internet Mail Server"/>
+    <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <!-- SLMail with two version numbers -->
+  <fingerprint pattern="^([^ ]+) S[mM][tT][pP] Server SL[mM]ail v?([^ ]+\.[^ ]+) Ready ESMTP spoken here *$">
+    <description>
          Seattle Labs SLMail server for Windows NT/2k (v2.7 runs on Win9x)
          http://serverwatch.internet.com/reviews/mail-slmail.html
          http://www.seattlelab.com/
          example: 220 mail2.webgeneral.com Smtp Server SLMail v2.7 Ready ESMTP spoken here
       </description>
-      <param pos="0" name="service.vendor" value="Seattle Labs"/>
-      <param pos="0" name="service.family" value="SLMail"/>
-      <param pos="0" name="service.product" value="SLMail"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <!-- SLMail with three version numbers -->
-   <fingerprint pattern="^([^ ]+) S[mM][tT][pP] Server SL[mM]ail v?([^ ]+\.[^ ]+\.[^ ]+) Ready ESMTP spoken here *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Seattle Labs"/>
+    <param pos="0" name="service.family" value="SLMail"/>
+    <param pos="0" name="service.product" value="SLMail"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <!-- SLMail with three version numbers -->
+  <fingerprint pattern="^([^ ]+) S[mM][tT][pP] Server SL[mM]ail v?([^ ]+\.[^ ]+\.[^ ]+) Ready ESMTP spoken here *$">
+    <description>
          Seattle Labs SLMail server for Windows NT/2k (v2.7 runs on Win9x)
          http://serverwatch.internet.com/reviews/mail-slmail.html
          http://www.seattlelab.com/
          example: 220 wl004.pbx.web-light.net SMTP Server SLmail 3.2.3113 Ready ESMTP spoken here
       </description>
-      <param pos="0" name="service.vendor" value="Seattle Labs"/>
-      <param pos="0" name="service.family" value="SLMail"/>
-      <param pos="0" name="service.product" value="SLMail"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <!-- SLMail with four version numbers -->
-   <fingerprint pattern="^([^ ]+) S[mM][tT][pP] Server SL[mM]ail v?([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+) Ready ESMTP spoken here *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Seattle Labs"/>
+    <param pos="0" name="service.family" value="SLMail"/>
+    <param pos="0" name="service.product" value="SLMail"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <!-- SLMail with four version numbers -->
+  <fingerprint pattern="^([^ ]+) S[mM][tT][pP] Server SL[mM]ail v?([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+) Ready ESMTP spoken here *$">
+    <description>
          Seattle Labs SLMail server for Windows NT/2k (v2.7 runs on Win9x)
          http://serverwatch.internet.com/reviews/mail-slmail.html
          http://www.seattlelab.com/
          example: 220 mail2.webgeneral.com Smtp Server SLMail v2.7 Ready ESMTP spoken here
       </description>
-      <param pos="0" name="service.vendor" value="Seattle Labs"/>
-      <param pos="0" name="service.family" value="SLMail"/>
-      <param pos="0" name="service.product" value="SLMail"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +ESMTP Symantec Mail Security$">
-      <description>
+    <param pos="0" name="service.vendor" value="Seattle Labs"/>
+    <param pos="0" name="service.family" value="SLMail"/>
+    <param pos="0" name="service.product" value="SLMail"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP Symantec Mail Security$">
+    <description>
          Symantec Mail Security for SMTP
       </description>
-      <param pos="0" name="service.vendor" value="Symantec"/>
-      <param pos="0" name="service.product" value="Symantec Mail Security for SMTP"/>
-      <param pos="1" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) +VOPmail ESMTP Receiver Version ([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+) Ready *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Symantec"/>
+    <param pos="0" name="service.product" value="Symantec Mail Security for SMTP"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +VOPmail ESMTP Receiver Version ([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+) Ready *$">
+    <description>
          VOPMail http://www.vircom.com/en/products/vopmail/vopmail.shtml
          example: 220 compudata.com.ar  VOPmail ESMTP Receiver Version 4.0.179.0 Ready
       </description>
-      <param pos="0" name="service.vendor" value="Vircom"/>
-      <param pos="0" name="service.family" value="VOPMail"/>
-      <param pos="0" name="service.product" value="VOPMail"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) VPOP3 SMTP Server Ready *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Vircom"/>
+    <param pos="0" name="service.family" value="VOPMail"/>
+    <param pos="0" name="service.product" value="VOPMail"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) VPOP3 SMTP Server Ready *$">
+    <description>
          VPOP3 Email server: http://www.pscs.co.uk/products/vpop3/index.html
          example: 220 mail.sbm.com.ar VPOP3 SMTP Server Ready
       </description>
-      <param pos="0" name="service.vendor" value="Paul Smith Computer Services"/>
-      <param pos="0" name="service.family" value="VPOP3"/>
-      <param pos="0" name="service.product" value="VPOP3"/>
-      <param pos="1" name="host.name"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) WebShield SMTP V([^ ]+\.[^ ]+) Network Associates.*Ready at (.+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="Paul Smith Computer Services"/>
+    <param pos="0" name="service.family" value="VPOP3"/>
+    <param pos="0" name="service.product" value="VPOP3"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) WebShield SMTP V([^ ]+\.[^ ]+) Network Associates.*Ready at (.+) *$">
+    <description>
          http://www.mcafeeb2b.com/products/webshield-smtp/default.asp
          example:220 smtp.foo.bar WebShield SMTP V4.5 Network Associates, Inc. Ready at Fri Jun 22 02:36:23 2001
       </description>
-      <param pos="0" name="service.vendor" value="McAfee"/>
-      <param pos="0" name="service.family" value="WebShield"/>
-      <param pos="0" name="service.product" value="WebShield"/>
-      <param pos="0" name="system.time.format" value="EEE dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) WebShield SMTP V([^ ]+\.[^ ]+) ([^ ]+) Network Associates.*Ready at (.+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="McAfee"/>
+    <param pos="0" name="service.family" value="WebShield"/>
+    <param pos="0" name="service.product" value="WebShield"/>
+    <param pos="0" name="system.time.format" value="EEE dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) WebShield SMTP V([^ ]+\.[^ ]+) ([^ ]+) Network Associates.*Ready at (.+) *$">
+    <description>
          http://www.mcafeeb2b.com/products/webshield-smtp/default.asp
          example:220 wsigate WebShield SMTP V4.5 MR1 Network Associates, Inc. Ready at Sun Jul 29 22:47:44 2001
       </description>
-      <param pos="0" name="service.vendor" value="McAfee"/>
-      <param pos="0" name="service.family" value="WebShield"/>
-      <param pos="0" name="service.product" value="WebShield"/>
-      <param pos="0" name="system.time.format" value="EEE dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="service.version.version"/>
-      <param pos="4" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) McAfee WebShield ASaP v([^ ]+\.[^ ]+\.[^ ]+): (.+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="McAfee"/>
+    <param pos="0" name="service.family" value="WebShield"/>
+    <param pos="0" name="service.product" value="WebShield"/>
+    <param pos="0" name="system.time.format" value="EEE dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="service.version.version"/>
+    <param pos="4" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) McAfee WebShield ASaP v([^ ]+\.[^ ]+\.[^ ]+): (.+) *$">
+    <description>
          McAfee Webshield ASaP is a combination hardware/software platform,
          basically consisting of a 1U Linux rackmount box with McAfee's filtering software
          http://www.mcafeeb2b.com/services/webshield-asap/faq.asp
          example: 220 smtp.foo.bar McAfee WebShield ASaP v1.0.1: Sun, 29 Jul 2001 22:46:18 -0700
       </description>
-      <param pos="0" name="service.vendor" value="McAfee"/>
-      <param pos="0" name="service.family" value="WebShield"/>
-      <param pos="0" name="service.product" value="WebShield"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="0" name="os.vendor" value="McAfee"/>
-      <param pos="0" name="os.family" value="Linux"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Linux"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) McAfee VirusScreen ASaP v([^ ]+\.[^ ]+): (.+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="McAfee"/>
+    <param pos="0" name="service.family" value="WebShield"/>
+    <param pos="0" name="service.product" value="WebShield"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="0" name="os.vendor" value="McAfee"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) McAfee VirusScreen ASaP v([^ ]+\.[^ ]+): (.+) *$">
+    <description>
          example: 220 smtp.foo.bar McAfee VirusScreen ASaP v1.1: Sun, 20 Jul 2003 09:20:52 -0700
       </description>
-      <param pos="0" name="service.vendor" value="McAfee"/>
-      <param pos="0" name="service.family" value="WebShield"/>
-      <param pos="0" name="service.product" value="WebShield"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="0" name="os.vendor" value="McAfee"/>
-      <param pos="0" name="os.family" value="Linux"/>
-      <param pos="0" name="os.device" value="General"/>
-      <param pos="0" name="os.product" value="Linux"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ESMTP - WinRoute Pro ([^ ]+\.[^ ]+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="McAfee"/>
+    <param pos="0" name="service.family" value="WebShield"/>
+    <param pos="0" name="service.product" value="WebShield"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="0" name="os.vendor" value="McAfee"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP - WinRoute Pro ([^ ]+\.[^ ]+) *$">
+    <description>
          WinRoute Pro, runs on 9x/NT/2k
          http://www.tinysoftware.com/winpro.php
          example: 220 unspecified.host ESMTP - WinRoute Pro 4.0
       </description>
-      <param pos="0" name="service.family" value="WinRoute"/>
-      <param pos="0" name="service.product" value="WinRoute"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ZMailer Server ([^ ]+\.[^ ]+\.[^ ]+) #([^ ]) ESMTP ready at (.+) *$">
-      <description>
+    <param pos="0" name="service.family" value="WinRoute"/>
+    <param pos="0" name="service.product" value="WinRoute"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ZMailer Server ([^ ]+\.[^ ]+\.[^ ]+) #([^ ]) ESMTP ready at (.+) *$">
+    <description>
          ZMailer http://www.zmailer.org/technical.html
          example: 220 dedos.pert.com.ar ZMailer Server 2.99.54 #2 ESMTP ready at Tue, 6 Feb 2001 10:42:08 -0300
       </description>
-      <param pos="0" name="service.vendor" value="ZMailer"/>
-      <param pos="0" name="service.family" value="ZMailer"/>
-      <param pos="0" name="service.product" value="ZMailer"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="service.version.version"/>
-      <param pos="4" name="system.time"/>
-   </fingerprint>
-
-   <fingerprint pattern="^([^ ]+) ZMailer Server ([^ ]+\.[^ ]+\.[^ ]+) #([^ ]) ESMTP\+IDENT ready at (.+) *$">
-      <description>
+    <param pos="0" name="service.vendor" value="ZMailer"/>
+    <param pos="0" name="service.family" value="ZMailer"/>
+    <param pos="0" name="service.product" value="ZMailer"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="service.version.version"/>
+    <param pos="4" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) ZMailer Server ([^ ]+\.[^ ]+\.[^ ]+) #([^ ]) ESMTP\+IDENT ready at (.+) *$">
+    <description>
          ZMailer server that supports IDENT
       </description>
-      <param pos="0" name="service.vendor" value="ZMailer"/>
-      <param pos="0" name="service.family" value="ZMailer"/>
-      <param pos="0" name="service.product" value="ZMailer"/>
-      <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-      <param pos="0" name="zmailer.ident" value="yes"/>
-      <param pos="1" name="host.name"/>
-      <param pos="2" name="service.version"/>
-      <param pos="3" name="service.version.version"/>
-      <param pos="4" name="system.time"/>
-    </fingerprint>
-
-    <fingerprint pattern="^(\S+) E?SMTP Perl" flags="REG_ICASE">
-      <description>Some simple PERL SMTP server</description>
-      <example host.name="example.com">example.com ESMTP Perl</example>
-      <param pos="0" name="service.product" value="Perl"/>
-      <param pos="1" name="host.name"/>
-    </fingerprint>
-
-    <fingerprint pattern="^([^ ]+) E?SMTP(?: (?:Service )?Ready\.?)?$" flags="REG_ICASE">
-      <description>
+    <param pos="0" name="service.vendor" value="ZMailer"/>
+    <param pos="0" name="service.family" value="ZMailer"/>
+    <param pos="0" name="service.product" value="ZMailer"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="0" name="zmailer.ident" value="yes"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="service.version.version"/>
+    <param pos="4" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^(\S+) E?SMTP Perl" flags="REG_ICASE">
+    <description>Some simple PERL SMTP server</description>
+    <example host.name="example.com">example.com ESMTP Perl</example>
+    <param pos="0" name="service.product" value="Perl"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) E?SMTP(?: (?:Service )?Ready\.?)?$" flags="REG_ICASE">
+    <description>
         catch all for daemons that have no distinguishing fingerprint whatsoever
       </description>
-      <example host.name="example.com">example.com ESMTP</example>
-      <example host.name="example.com">example.com ESMTP Ready</example>
-      <example host.name="example.com">example.com SMTP</example>
-      <example host.name="example.com">example.com ESMTP Service ready</example>
-      <param pos="0" name="service.product" value="Unknown"/>
-      <param pos="1" name="host.name"/>
-   </fingerprint>
+    <example host.name="example.com">example.com ESMTP</example>
+    <example host.name="example.com">example.com ESMTP Ready</example>
+    <example host.name="example.com">example.com SMTP</example>
+    <example host.name="example.com">example.com ESMTP Service ready</example>
+    <param pos="0" name="service.product" value="Unknown"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
 </fingerprints>

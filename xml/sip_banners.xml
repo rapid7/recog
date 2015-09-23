@@ -1,24 +1,24 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 SIP Server header values are matched against these patterns to fingerprint SIP devices.
 -->
 <fingerprints matches="sip_header.server">
-   <fingerprint pattern="^Cisco-SIPGateway/IOS-([\d\.x]+)$">
-      <description>Cisco SIPGateway</description>
-      <example>Cisco-SIPGateway/IOS-12.x</example>
-      <param pos="0" name="os.vendor" value="Cisco"/>
-      <param pos="0" name="os.product" value="IOS"/>
-      <param pos="1" name="os.version"/>
-   </fingerprint>
-   <fingerprint pattern="^TANDBERG/\d+ \(([a-zA-Z]+\d+(?:\.\d+)+).*\)">
-      <description>Cisco TelePresence</description>
-      <example os.version="X8.2.1">TANDBERG/4130 (X8.2.1)</example>
-      <example os.version="XC2.2.1">TANDBERG/4353 (XC2.2.1-b2bua-1.0)</example>
-      <example os.version="TC5.1.4.295090">TANDBERG/516 (TC5.1.4.295090)</example>
-      <example os.version="TCNC5.1.4.295090">TANDBERG/517 (TCNC5.1.4.295090)</example>
-      <example os.version="S5.30">TANDBERG/80 (S5.30)</example>
-      <param pos="0" name="os.vendor" value="Cisco"/>
-      <param pos="0" name="os.product" value="TelePresence"/>
-      <param pos="1" name="os.version"/>
-   </fingerprint>
+  <fingerprint pattern="^Cisco-SIPGateway/IOS-([\d\.x]+)$">
+    <description>Cisco SIPGateway</description>
+    <example>Cisco-SIPGateway/IOS-12.x</example>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.product" value="IOS"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^TANDBERG/\d+ \(([a-zA-Z]+\d+(?:\.\d+)+).*\)">
+    <description>Cisco TelePresence</description>
+    <example os.version="X8.2.1">TANDBERG/4130 (X8.2.1)</example>
+    <example os.version="XC2.2.1">TANDBERG/4353 (XC2.2.1-b2bua-1.0)</example>
+    <example os.version="TC5.1.4.295090">TANDBERG/516 (TC5.1.4.295090)</example>
+    <example os.version="TCNC5.1.4.295090">TANDBERG/517 (TCNC5.1.4.295090)</example>
+    <example os.version="S5.30">TANDBERG/80 (S5.30)</example>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.product" value="TelePresence"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
 </fingerprints>

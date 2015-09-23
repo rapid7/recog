@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
      Upon successful connection to a MySQL/derivative TCP endpoint, if the
      connecting client is not allowed to speak to the MySQL service (for
@@ -160,7 +160,6 @@
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
-
   <!-- ER_HOST_IS_BLOCKED -->
   <fingerprint pattern="Stroj '[^']+' je zablokován kvůli mnoha chybám při připojování. Odblokujete použitím 'mysqladmin flush-hosts'">
     <description>Oracle MySQL error ER_HOST_IS_BLOCKED (cze)</description>
@@ -295,7 +294,6 @@
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
-
   <!-- ER_CANT_CREATE_THREAD -->
   <fingerprint pattern="Nemohu vytvořit nový thread \(errno -?\d+\). Pokud je ještě nějaká volná paměť, podívejte se do manuálu na část o chybách specifických pro jednotlivé operační systémy">
     <description>Oracle MySQL error ER_CANT_CREATE_THREAD (cze)</description>
@@ -423,7 +421,6 @@
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
-
   <!-- ER_CON_COUNT_ERROR -->
   <fingerprint pattern="Příliš mnoho spojení">
     <description>Oracle MySQL error ER_CON_COUNT_ERROR (cze)</description>
@@ -586,7 +583,6 @@
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
-
   <!-- ER_BAD_HOST_ERROR -->
   <fingerprint pattern="Nemohu zjistit jméno stroje pro Vaši adresu">
     <description>Oracle MySQL error ER_BAD_HOST_ERROR (cze)</description>
@@ -749,26 +745,23 @@
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
-
   <fingerprint pattern="^Host '[^']+' is not allowed to connect to this MariaDB server$">
-    <example>Host '10.10.10.10' is not allowed to connect to this MariaDB server</example>
     <description>MariaDB MariaDB - Error: Host not allowed to connect (English) </description>
+    <example>Host '10.10.10.10' is not allowed to connect to this MariaDB server</example>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MariaDB"/>
   </fingerprint>
-
   <fingerprint pattern="^#07000Proxy Warning - IP Forbidden$">
-    <example>#07000Proxy Warning - IP Forbidden</example>
     <description>Oracle MySQL Proxy - Error: Host not allowed to connect</description>
+    <example>#07000Proxy Warning - IP Forbidden</example>
     <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MySQL Proxy"/>
   </fingerprint>
-
   <fingerprint pattern="^\(proxy\) all backends are down$">
-    <example>(proxy) all backends are down</example>
     <description>Oracle MySQL Proxy - Error: Backends down</description>
+    <example>(proxy) all backends are down</example>
     <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MySQL Proxy"/>

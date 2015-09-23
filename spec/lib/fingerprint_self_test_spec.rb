@@ -1,10 +1,18 @@
 require 'recog/db'
 require 'regexp_parser'
+require 'nokogiri'
 
 describe Recog::DB do
+  let(:schema) { Nokogiri::XML::Schema(open(File.expand_path(File.join(%w(xml fingerprints.xsd))))) }
   Dir[File.expand_path File.join('xml', '*.xml')].each do |xml_file_name|
 
     describe "##{File.basename(xml_file_name)}" do
+
+      it "is valid XML" do
+        doc = Nokogiri::XML(open(xml_file_name))
+        errors = schema.validate(doc)
+        expect(errors).to be_empty, "#{xml_file_name} is invalid recog XML -- #{errors.inspect}"
+      end
 
       db = Recog::DB.new(xml_file_name)
 

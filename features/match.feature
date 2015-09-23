@@ -1,6 +1,6 @@
 Feature: Match
   Scenario: Finds matches
-    When I run `recog_match matching_banners_fingerprints.xml banners.xml`
+    When I run `recog_match matching_banners_fingerprints.xml sample_banner.txt`
     Then it should pass with:
       """
       MATCH: {"matched"=>"Pure-FTPd Config data can be zero or more of: [privsep] [TLS]", "pureftpd.config"=>"[privsep] [TLS] ", "service.family"=>"Pure-FTPd", "service.product"=>"Pure-FTPd", "data"=>"---------- Welcome to Pure-FTPd [privsep] [TLS] ----------"}
@@ -8,7 +8,7 @@ Feature: Match
       """
 
   Scenario: Fails at finding matches
-    When I run `recog_match failing_banners_fingerprints.xml banners.xml`
+    When I run `recog_match failing_banners_fingerprints.xml sample_banner.txt`
     Then it should pass with:
       """
       FAIL: ---------- Welcome to Pure-FTPd [privsep] [TLS] ----------
