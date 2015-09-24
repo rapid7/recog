@@ -68,9 +68,7 @@ class Fingerprint
   # @yieldparam message [String] A human-readable string explaining the
   #   `status`
   def verify_params(&block)
-    if params.empty?
-      yield :warn, "'#{@name}' has no params"
-    end
+    return if params.empty?
     params.each do |param_name, pos_value|
       pos, value = pos_value
       next unless pos != 0 && !value.to_s.empty?
