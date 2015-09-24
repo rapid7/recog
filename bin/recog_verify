@@ -44,5 +44,5 @@ ARGV.each do |file|
   ndb = Recog::DB.new(file)
   options.fingerprints = ndb.fingerprints
   verifier = Recog::VerifierFactory.build(options)
-  verifier.verify_tests
+  verifier.verify
 end
