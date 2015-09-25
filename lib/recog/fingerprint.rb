@@ -64,7 +64,7 @@ class Fingerprint
   # Ensure all the {#params} are valid
   #
   # @yieldparam status [Symbol] One of `:warn`, `:fail`, or `:success` to
-  #   indicate whether a test worked
+  #   indicate whether a param is valid
   # @yieldparam message [String] A human-readable string explaining the
   #   `status`
   def verify_params(&block)
