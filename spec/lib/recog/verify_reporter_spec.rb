@@ -8,7 +8,7 @@ describe Recog::VerifyReporter do
     "SUMMARY: Test completed with 1 successful, 1 warnings, and 1 failures"
   end
 
-  subject { Recog::VerifyReporter.new(double(detail: false), formatter) }
+  subject { Recog::VerifyReporter.new(double(detail: false, quiet: false, warnings: true), formatter) }
 
   def run_report
     subject.report(1) do
@@ -36,7 +36,7 @@ describe Recog::VerifyReporter do
     end
 
     context "with detail" do
-      subject { Recog::VerifyReporter.new(double(detail: true), formatter) }
+      subject { Recog::VerifyReporter.new(double(detail: true, quiet: false, warnings: true), formatter) }
 
       it "prints the fingerprint name" do
         expect(formatter).to receive(:status_message).with("\na name")
