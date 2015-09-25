@@ -20,6 +20,8 @@ Feature: Verify
       WARN: 'Pure-FTPd' has no test cases
       SUMMARY: Test completed with 1 successful, 1 warnings, and 0 failures
       """
+    And the exit status should be 1
+
   Scenario: Tests with warnings, warnings disabled
     When I run `recog_verify --no-warnings tests_with_warnings.xml`
     Then it should pass with:
