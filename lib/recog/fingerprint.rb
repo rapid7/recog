@@ -61,6 +61,21 @@ class Fingerprint
     return result
   end
 
+  # Ensure all the {#params} are valid
+  #
+  # @yieldparam status [Symbol] One of `:warn`, `:fail`, or `:success` to
+  #   indicate whether a param is valid
+  # @yieldparam message [String] A human-readable string explaining the
+  #   `status`
+  def verify_params(&block)
+    return if params.empty?
+    params.each do |param_name, pos_value|
+      pos, value = pos_value
+      next unless pos != 0 && !value.to_s.empty?
+      yield :fail, "'#{@name}'s #{param_name} is a non-zero pos but specifies a value of '#{value}'"
+    end
+  end
+
   # Ensure all the {#tests} actually match the fingerprint and return the
   # expected capture groups.
   #

@@ -12,7 +12,7 @@ class VerifyReporter
   def report(fingerprint_count)
     reset_counts
     yield self
-    summarize(fingerprint_count)
+    summarize(fingerprint_count) unless @options.quiet
   end
 
   def success(text)
@@ -21,6 +21,7 @@ class VerifyReporter
   end
 
   def warning(text)
+    return unless @options.warnings
     @warning_count += 1
     formatter.warning_message("#{padding}#{text}")
   end
