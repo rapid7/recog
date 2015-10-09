@@ -22,10 +22,6 @@ describe Recog::Nizer do
           if data =~ /^Windows/
             expect(match_result['os.product']).to match(/^Windows/)
           end
-
-          if data =~ /^Samba/
-            expect(match_result['service.product']).to match(/^Samba/)
-          end
         end
 
       end
