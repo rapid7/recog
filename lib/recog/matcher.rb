@@ -45,7 +45,7 @@ class Matcher
         if reporter.stop?
           break
         end
-        
+
       end
 
       fd.close if file_source
