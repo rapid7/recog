@@ -24,3 +24,11 @@ Feature: Match
       MATCH: {"matched"=>"Generic FTP, Checks for the existence of the word FTP in the line", "data"=>"polaris FTP server (SunOS 5.8) ready."}
       MATCH: {"matched"=>"SunOS/Solaris", "os.vendor"=>"Sun", "os.family"=>"Solaris", "os.product"=>"Solaris", "os.device"=>"General", "host.name"=>"polaris", "os.version"=>"5.8", "data"=>"polaris FTP server (SunOS 5.8) ready."}
       """
+
+  Scenario: Finds first matches using no-multi-match flag
+    When I run `recog_match multiple_banners_fingerprints.xml sample_banner.txt --no-multi-match`
+    Then it should pass with:
+    """
+    MATCH: {"matched"=>"Generic FTP, Checks for the existence of the word FTP in the line", "data"=>"---------- Welcome to Pure-FTPd [privsep] [TLS] ----------"}
+    MATCH: {"matched"=>"Generic FTP, Checks for the existence of the word FTP in the line", "data"=>"polaris FTP server (SunOS 5.8) ready."}
+    """
