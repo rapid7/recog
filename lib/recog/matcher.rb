@@ -45,21 +45,7 @@ class Matcher
         if reporter.stop?
           break
         end
-
-        # fingerprints.each do |fp|
-        #   break if (extractions = fp.match(line))
-        # end
-        #
-        # if extractions
-        #   extractions['data'] = line
-        #   reporter.match "MATCH: #{extractions.inspect}"
-        # else
-        #   reporter.failure "FAIL: #{line}"
-        # end
-        #
-        # if reporter.stop?
-        #   break
-        # end
+        
       end
 
       fd.close if file_source
