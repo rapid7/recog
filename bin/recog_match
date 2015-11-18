@@ -6,7 +6,7 @@ require 'ostruct'
 require 'recog'
 require 'recog/matcher_factory'
 
-options = OpenStruct.new(color: false, detail: false, fail_fast: false)
+options = OpenStruct.new(color: false, detail: false, fail_fast: false, multi_match: false)
 
 option_parser = OptionParser.new do |opts|
   opts.banner = "Usage: #{$0} [options] XML_FINGERPRINT_FILE [BANNERS_FILE]"
@@ -31,6 +31,10 @@ option_parser = OptionParser.new do |opts|
 
   opts.on("-c", "--color", "Enable color in the output.") do
     options.color = true
+  end
+
+  opts.on("--multi-match", "Enable multiple matches") do
+    options.multi_match = true
   end
 
   opts.on("-h", "--help", "Show this message.") do

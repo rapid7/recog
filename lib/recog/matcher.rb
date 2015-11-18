@@ -1,10 +1,14 @@
 module Recog
 class Matcher
-  attr_reader :fingerprints, :reporter
+  attr_reader :fingerprints, :reporter, :multi_match
 
-  def initialize(fingerprints, reporter)
+  # @param fingerprints Array of [Recog::Fingerprint]
+  # @param reporter [Recog::MatchReporter]
+  # @param multi_match [Boolean]
+  def initialize(fingerprints, reporter, multi_match)
     @fingerprints = fingerprints
     @reporter = reporter
+    @multi_match = multi_match
   end
 
   def match_banners(banners_file)
@@ -23,20 +27,39 @@ class Matcher
 
         line = line.to_s.unpack("C*").pack("C*").strip.gsub(/\\[rn]/, '')
         extractions = nil
+        foundExtractions = false
         fingerprints.each do |fp|
-          break if (extractions = fp.match(line))
+          extractions = fp.match(line)
+          if extractions
+            foundExtractions = true
+            extractions['data'] = line
+            reporter.match "MATCH: #{extractions.inspect}"
+            break if(!multi_match)
+          end
         end
 
-        if extractions
-          extractions['data'] = line
-          reporter.match "MATCH: #{extractions.inspect}"
-        else
+        if (!foundExtractions)
           reporter.failure "FAIL: #{line}"
         end
 
         if reporter.stop?
           break
         end
+
+        # fingerprints.each do |fp|
+        #   break if (extractions = fp.match(line))
+        # end
+        #
+        # if extractions
+        #   extractions['data'] = line
+        #   reporter.match "MATCH: #{extractions.inspect}"
+        # else
+        #   reporter.failure "FAIL: #{line}"
+        # end
+        #
+        # if reporter.stop?
+        #   break
+        # end
       end
 
       fd.close if file_source
