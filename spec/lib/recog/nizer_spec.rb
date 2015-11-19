@@ -26,6 +26,14 @@ describe Recog::Nizer do
 
       end
     end
+
+    line = 'non-existent'
+    context "with non-existent match" do
+      let(:match_result) {subject.match('smb.native_os', line) }
+      it "returns a nil" do
+        expect(match_result).to be_nil
+      end
+    end
   end
 
   describe ".multi_match" do
@@ -52,6 +60,19 @@ describe Recog::Nizer do
         end
       end
 
+    end
+
+    line = 'non-existent'
+    context "with non-existent match" do
+      let(:match_results) {subject.multi_match('smb.native_os', line) }
+
+      it "returns an array" do
+        expect(match_results.class).to eq(::Array)
+      end
+
+      it "returns an empty array" do
+        expect(match_results).to be_empty
+      end
     end
   end
 
