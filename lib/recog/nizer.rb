@@ -56,8 +56,7 @@ class Nizer
       end
     end
 
-    return matches unless matches.size == 0
-    return nil
+    return matches
   end
 
   #
