@@ -41,6 +41,25 @@ class Nizer
     nil
   end
 
+  def self.multi_match(match_key, match_string)
+    match_string = match_string.to_s.unpack("C*").pack("C*")
+    @@db_manager ||= Recog::DBManager.new
+
+    matches = Array.new #array to hold all fingerprint matches
+
+    @@db_manager.databases.each do |db|
+      next unless db.match_key == match_key
+
+      db.fingerprints.each do |fp|
+        m = fp.match(match_string)
+        matches.push(m) if m
+      end
+    end
+
+    return matches unless matches.size == 0
+    return nil
+  end
+
   #
   # Consider an array of match outputs, choose the best result, taking into
   # account the granularity of OS vs Version vs SP vs Language. Only consider
