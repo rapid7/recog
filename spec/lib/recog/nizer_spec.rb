@@ -26,6 +26,54 @@ describe Recog::Nizer do
 
       end
     end
+
+    line = 'non-existent'
+    context "with non-existent match" do
+      let(:match_result) {subject.match('smb.native_os', line) }
+      it "returns a nil" do
+        expect(match_result).to be_nil
+      end
+    end
+  end
+
+  describe ".multi_match" do
+    File.readlines(File.expand_path(File.join('spec', 'data', 'smb_native_os.txt'))).each do |line|
+      data = line.strip
+
+      context "with smb_native_os:#{data}" do
+        let(:match_results) {subject.multi_match('smb.native_os', data) }
+
+        it "returns an array" do
+          expect(match_results.class).to eq(::Array)
+        end
+
+        it "returns at least one successful match" do
+          expect(match_results.size).to be > 0
+        end
+
+        it "correctly matches service or os" do
+          match_results do |mr|
+            if data =~ /^Windows/
+              expect(mr['os.product']).to match(/^Windows/)
+            end
+          end
+        end
+      end
+
+    end
+
+    line = 'non-existent'
+    context "with non-existent match" do
+      let(:match_results) {subject.multi_match('smb.native_os', line) }
+
+      it "returns an array" do
+        expect(match_results.class).to eq(::Array)
+      end
+
+      it "returns an empty array" do
+        expect(match_results).to be_empty
+      end
+    end
   end
 
   describe ".best_os_match" do
