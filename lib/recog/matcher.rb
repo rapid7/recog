@@ -29,17 +29,25 @@ class Matcher
         line = line.to_s.unpack("C*").pack("C*").strip.gsub(/\\[rn]/, '')
         found_extractions = false
 
+        all_extractions = []
         fingerprints.each do |fp|
           extractions = fp.match(line)
           if extractions
             found_extractions = true
             extractions['data'] = line
-            reporter.match "MATCH: #{extractions.inspect}"
-            break unless multi_match
+            if multi_match
+              all_extractions << extractions
+            else
+              reporter.match "MATCH: #{extractions.inspect}"
+              break
+            end
           end
         end
 
-        unless found_extractions
+        if found_extractions
+          match_prefix = all_extractions.size > 1 ? 'MATCHES' : 'MATCH'
+          reporter.match "#{match_prefix}: #{all_extractions.map(&:inspect).join(',')}" if multi_match
+        else
           reporter.failure "FAIL: #{line}"
         end
 
