@@ -3397,7 +3397,21 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               Juniper
    =======================================================================-->
-  <fingerprint pattern="^Juniper (\S+) : (\d+\S+)$">
+  <fingerprint pattern="^NetScreen-[\w]+ version ([\w.]+) \(SN: [\d]+, Firewall\+VPN\)$">
+    <description>Juniper NetScreen ScreenOS Firewall</description>
+    <example os.version="6.2.0r4.0">NetScreen-5GT version 6.2.0r4.0 (SN: 0064082005002928, Firewall+VPN)</example>
+    <example os.version="5.4.0r3a.0">NetScreen-5GT version 5.4.0r3a.0 (SN: 0064092007003281, Firewall+VPN)</example>
+    <example os.version="5.4.0r2.0">NetScreen-5GT version 5.4.0r2.0 (SN: 0064092005010968, Firewall+VPN)</example>
+    <example os.version="6.2.0r2.0">NetScreen-5GT version 6.2.0r2.0 (SN: 0064122004003146, Firewall+VPN)</example>
+    <example os.version="5.4.0r20.0">NetScreen-208 version 5.4.0r20.0 (SN: 0099052005000121, Firewall+VPN)</example>
+    <param pos="0" name="os.vendor" value="Juniper"/>
+    <param pos="0" name="os.device" value="Firewall"/>
+    <param pos="0" name="os.product" value="ScreenOS"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.family" value="ScreenOS"/>
+    <param pos="0" name="os.family" value="ScreenOS"/>
+  </fingerprint>
+<fingerprint pattern="^Juniper (\S+) : (\d+\S+)$">
     <description>Juniper Router</description>
     <example>Juniper WXC-1800 : 5.6.4.0</example>
     <example>Juniper WXC-1800 : 5.7.7.0</example>
