@@ -1658,9 +1658,9 @@
   </fingerprint>
   <fingerprint pattern="^Servlet [\d\.]+; JBoss-(\S+) \(build: .*\)/Tomcat-(\S+)$">
     <description>JBoss with embedded tomcat</description>
-    <example>Servlet 2.4; JBoss-4.0.4.GA (build: CVSTag=JBoss_4_0_4_GA date=200605151000)/Tomcat-5.5</example>
+    <example service.version="4.0.4.GA" service.component.version="5.5">Servlet 2.4; JBoss-4.0.4.GA (build: CVSTag=JBoss_4_0_4_GA date=200605151000)/Tomcat-5.5</example>
     <param pos="0" name="service.vendor" value="Red Hat"/>
-    <param pos="0" name="service.product" value="JBoss"/>
+    <param pos="0" name="service.product" value="JBoss EAP"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.component.vendor" value="Apache"/>
     <param pos="0" name="service.component.product" value="Tomcat"/>
@@ -1669,31 +1669,39 @@
   </fingerprint>
   <fingerprint pattern="^Servlet [\d\.]+; Tomcat-(\S+)/JBoss-(\S+) \(build: .*\)$">
     <description>JBoss with embedded tomcat</description>
-    <example>Servlet 2.4; Tomcat-5.0.28/JBoss-4.0.1sp1 (build: CVSTag=JBoss_4_0_1_SP1 date=200502160314)</example>
+    <example service.version="4.0.1sp1" service.component.version="5.0.28">Servlet 2.4; Tomcat-5.0.28/JBoss-4.0.1sp1 (build: CVSTag=JBoss_4_0_1_SP1 date=200502160314)</example>
     <param pos="0" name="service.vendor" value="Red Hat"/>
-    <param pos="0" name="service.product" value="JBoss"/>
+    <param pos="0" name="service.product" value="JBoss EAP"/>
     <param pos="2" name="service.version"/>
     <param pos="0" name="service.component.vendor" value="Apache"/>
     <param pos="0" name="service.component.product" value="Tomcat"/>
     <param pos="0" name="service.component.family" value="Tomcat"/>
     <param pos="1" name="service.component.version"/>
   </fingerprint>
-  <fingerprint pattern="^Servlet [\d\.]+; JBoss-([^/]+)(?: \(build.*)?/JBossWeb-(\S+)$">
+  <fingerprint pattern="^Servlet [\d\.]+; JBoss-([\S]+)(?: \(build.*)?/JBossWeb-(\S+)$">
     <description>JBoss with JBossweb</description>
-    <example>Servlet 2.4; JBoss-4.2.3.GA (build: SVNTag=JBoss_4_2_3_GA date=200807181439)/JBossWeb-2.0</example>
-    <example>Servlet 2.5; JBoss-5.0/JBossWeb-2.1</example>
+    <example service.version="4.2.3.GA" service.component.version="2.0">Servlet 2.4; JBoss-4.2.3.GA (build: SVNTag=JBoss_4_2_3_GA date=200807181439)/JBossWeb-2.0</example>
+    <example service.version="5.0" service.component.version="2.1">Servlet 2.5; JBoss-5.0/JBossWeb-2.1</example>
     <param pos="0" name="service.vendor" value="Red Hat"/>
-    <param pos="0" name="service.product" value="JBoss"/>
+    <param pos="0" name="service.product" value="JBoss EAP"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.component.vendor" value="RedHat"/>
     <param pos="0" name="service.component.product" value="JBossWeb"/>
     <param pos="2" name="service.component.version"/>
   </fingerprint>
-  <fingerprint pattern="^Servlet/[\d\.]+; JBossAS-(.*)$">
+  <fingerprint pattern="^Servlet\/[\d\.]+; JBossAS-(.*)$">
     <description>JBoss AS</description>
-    <example>Servlet/3.0; JBossAS-6</example>
+    <example service.version="6">Servlet/3.0; JBossAS-6</example>
     <param pos="0" name="service.vendor" value="Red Hat"/>
-    <param pos="0" name="service.product" value="JBoss"/>
+    <param pos="0" name="service.product" value="JBoss AS"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+    <fingerprint pattern="^JBoss-EAP\/(\d+)$">
+    <description>JBoss EAP</description>
+    <example service.version="7">JBoss-EAP/7</example>
+    <param pos="0" name="service.vendor" value="Red Hat"/>
+    <param pos="0" name="service.family" value="JBoss"/>
+    <param pos="0" name="service.product" value="JBoss EAP"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^Apache Tomcat/(\d\.[\d.]+)(?:-LE-jdk14)? \(HTTP/1.1 Connector\)$">
