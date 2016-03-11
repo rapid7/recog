@@ -3,7 +3,6 @@ module Recog
 # A fingerprint that can be {#match matched} against a particular kind of
 # fingerprintable data, e.g. an HTTP `Server` header
 class Fingerprint
-  require 'recog/fingerprint/regexp_factory'
   require 'recog/fingerprint/test'
 
   # A human readable name describing this fingerprint
@@ -116,8 +115,7 @@ class Fingerprint
   # @return [Regexp]
   def create_regexp(xml)
     pattern = xml['pattern']
-    flags   = xml['flags'].to_s.split(',')
-    RegexpFactory.build(pattern, flags)
+    Regexp.new(pattern)
   end
 
   # @param xml [Nokogiri::XML::Element]

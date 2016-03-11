@@ -6,7 +6,7 @@ fingerprint SSH servers.
 -->
 <fingerprints matches="ssh.banner">
   <!-- Honeypot SSH server banners are useless for fingerprinting -->
-  <fingerprint pattern="honeypot" flags="REG_ICASE">
+  <fingerprint pattern="(?i:honeypot)">
     <description>Honeypot SSH</description>
   </fingerprint>
   <fingerprint pattern="^RomSShell_([\d\.]+)$">

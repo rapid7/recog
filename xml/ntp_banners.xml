@@ -3,7 +3,7 @@
 NTP "banners", taken from a readvar response
 -->
 <fingerprints matches="ntp.readvar">
-  <fingerprint pattern="^.*version=Domain Time II (\S+),hostname=([^,]+),.*system=Win2003.*,processor=(\S+)" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=Domain Time II (\S+),hostname=([^,]+),.*system=Win2003.*,processor=(\S+))">
     <description>Greyware Automation Products, Inc. Domain Time II on Windows Server 2003</description>
     <example service.version="5.1.b.20100331R" os.arch="x64" host.name="blah">
       version=Domain Time II 5.1.b.20100331R,hostname=blah,domain=,flat=WORKGROUP,system=Win2003 x64,processor=x64
@@ -20,7 +20,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.product" value="Windows Server 2003"/>
     <param pos="3" name="os.arch"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=Domain Time II (\S+),hostname=([^,]+),.*system=Win2008R2.*,processor=(\S+)" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=Domain Time II (\S+),hostname=([^,]+),.*system=Win2008R2.*,processor=(\S+))">
     <description>Greyware Automation Products, Inc. Domain Time II on Windows Server 2008 R2</description>
     <example service.version="5.2.b.20120215R" os.arch="x64" host.name="blah">
       version=Domain Time II 5.2.b.20120215R,hostname=blah,domain=blah,flat=blah,system=Win2008R2 x64,processor=x64
@@ -34,7 +34,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.product" value="Windows 2008 R2"/>
     <param pos="3" name="os.arch"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=Domain Time II (\S+),hostname=([^,]+),.*system=Win2008.*,processor=(\S+)" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=Domain Time II (\S+),hostname=([^,]+),.*system=Win2008.*,processor=(\S+))">
     <description>Greyware Automation Products, Inc. Domain Time II on Windows 2008</description>
     <example service.version="5.2.b.20140303R" os.arch="x86" host.name="blah">
       version=Domain Time II 5.2.b.20140303R,hostname=blah,domain=blah,flat=blah,system=Win2008,processor=x86
@@ -51,7 +51,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="3" name="os.arch"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=Domain Time II (\S+),hostname=([^,]+),.*system=Win2012.*,processor=(\S+)" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=Domain Time II (\S+),hostname=([^,]+),.*system=Win2012.*,processor=(\S+))">
     <description>Greyware Automation Products, Inc. Domain Time II on Windows Server 2012</description>
     <example service.version="5.2.b.20140101R" os.arch="x64" host.name="blah">
       version=Domain Time II 5.2.b.20140101R,hostname=blah,domain=blah,flat=blah,system=Win2012 x64,processor=x64
@@ -65,7 +65,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.product" value="Windows Server 2012"/>
     <param pos="3" name="os.arch"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=Domain Time II (\S+),hostname=([^,]+),.*system=Win7.*,processor=(\S+)" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=Domain Time II (\S+),hostname=([^,]+),.*system=Win7.*,processor=(\S+))">
     <description>Greyware Automation Products, Inc. Domain Time II on Windows 7</description>
     <example service.version="5.2.b.20130405R" os.arch="x64" host.name="blah">
       version=Domain Time II 5.2.b.20130405R,hostname=blah,domain=,flat=WORKGROUP,system=Win7 x64,processor=x64
@@ -79,7 +79,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.product" value="Windows 7"/>
     <param pos="3" name="os.arch"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd (\S+)[^&quot;]+&quot;,.*system=&quot;Equallogic \(R\) storage array&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd (\S+)[^&quot;]+&quot;,.*system=&quot;Equallogic \(R\) storage array&quot;)">
     <description>ntpd running on an EqualLogic Storage Array that includes the NTP version</description>
     <example>
       version="ntpd 4.2.0-r Fri Feb  5 15:18:30 EST 2010 (1)",
@@ -95,7 +95,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.vendor" value="EqualLogic"/>
     <param pos="0" name="os.product" value="Storage Array"/>
   </fingerprint>
-  <fingerprint pattern="^.*system=&quot;Equallogic \(R\) storage array&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*system=&quot;Equallogic \(R\) storage array&quot;)">
     <description>ntpd running on an EqualLogic Storage Array that does not include the NTP version</description>
     <example>
       processor="Working", system="Equallogic (R) storage array", leap=3,
@@ -107,7 +107,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.vendor" value="EqualLogic"/>
     <param pos="0" name="os.product" value="Storage Array"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;Linux/(?:[^ ]+\.ESX)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;Linux\/(?:[^ ]+\.ESX)&quot;)">
     <description>ntpd running on VMware ESX</description>
     <example service.version="4.2.2p1@1.1570-o" os.arch="x86_64">
       version="ntpd 4.2.2p1@1.1570-o Thu Nov 26 11:34:34 UTC 2009 (1)",
@@ -121,7 +121,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.product" value="VMware ESX Server"/>
     <param pos="2" name="os.arch"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;Linux/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;Linux\/?([^ ]+)&quot;)">
     <description>ntpd running on Linux</description>
     <example>
       version="ntpd 4.2.4p3@1.1502-o Wed Jul 18 11:45:01 UTC 2007 (1)",
@@ -136,7 +136,7 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?6\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin\/?6\.([^&quot;]+)&quot;)">
     <description>ntpd running on Mac OSX 10.2/Jaguar</description>
     <example service.version="4.1.1@1.786" os.version.version="8">
       version="ntpd 4.1.1@1.786 Tue Nov 12 09:30:41 PST 2002 (1)", processor="Power Macintosh", system="Darwin6.8",
@@ -153,7 +153,7 @@ NTP "banners", taken from a readvar response
     <param pos="3" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?7\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin\/?7\.([^&quot;]+)&quot;)">
     <description>ntpd running on Mac OSX 10.3/Panther</description>
     <param pos="0" name="service.family" value="NTP"/>
     <param pos="0" name="service.product" value="NTP"/>
@@ -167,7 +167,7 @@ NTP "banners", taken from a readvar response
     <param pos="3" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?8\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin\/?8\.([^&quot;]+)&quot;)">
     <description>ntpd running on Mac OSX 10.4/Tiger</description>
     <example>
       version="ntpd 4.2.0@1.1161-r Fri Jan 13 11:36:23 PST 2006 (1)",
@@ -185,7 +185,7 @@ NTP "banners", taken from a readvar response
     <param pos="3" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?9\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin\/?9\.([^&quot;]+)&quot;)">
     <description>ntpd running on Mac OSX 10.5/Leopard</description>
     <example>
       version="ntpd 4.2.2@1.1532-o Mon Sep 24 01:42:27 UTC 2007 (1)",
@@ -203,7 +203,7 @@ NTP "banners", taken from a readvar response
     <param pos="3" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?10\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin\/?10\.([^&quot;]+)&quot;)">
     <description>ntpd running on Mac OSX 10.6/Snow Leopard</description>
     <example>
       version="ntpd 4.2.4p4@1.1520-o Mon May 18 19:38:25 UTC 2009 (1)",
@@ -221,7 +221,7 @@ NTP "banners", taken from a readvar response
     <param pos="3" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
   </fingerprint>
-  <fingerprint pattern="^.*processor=&quot;([^&quot;]+)&quot;.*system=&quot;BSD/OS([\d.]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*processor=&quot;([^&quot;]+)&quot;.*system=&quot;BSD\/OS([\d.]+)&quot;)">
     <description>BSD/OS with a version and arch</description>
     <example os.arch="i386" os.version="4.3.1">
       processor="i386", system="BSD/OS4.3.1", leap=0, stratum=2
@@ -231,7 +231,7 @@ NTP "banners", taken from a readvar response
     <param pos="1" name="os.arch"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^.*system=&quot;BSD/OS&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*system=&quot;BSD\/OS&quot;)">
     <description>BSD/OS without a version or arch</description>
     <example>
       system="BSD/OS", leap=3, stratum=16, rootdelay=0.00
@@ -239,7 +239,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.vendor" value="Berkeley Software Design Inc."/>
     <param pos="0" name="os.product" value="BSD/OS"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?11\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin\/?11\.([^&quot;]+)&quot;)">
     <description>ntpd running on Mac OSX 10.7/Lion</description>
     <example>
       version="ntpd 4.2.6@1.2089-o Fri May 28 01:20:53 UTC 2010 (1)",
@@ -257,7 +257,7 @@ NTP "banners", taken from a readvar response
     <param pos="3" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?12\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin\/?12\.([^&quot;]+)&quot;)">
     <description>ntpd running on Mac OSX 10.8/Mountain Lion</description>
     <example service.version="4.2.6@1.2089-o" os.arch="x86_64" os.version.version="1.0">
       version="ntpd 4.2.6@1.2089-o Fri May 28 01:20:53 UTC 2010 (1)",
@@ -275,7 +275,7 @@ NTP "banners", taken from a readvar response
     <param pos="3" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?13\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin\/?13\.([^&quot;]+)&quot;)">
     <description>ntpd running on Mac OSX 10.9/Mavericks</description>
     <example service.version="4.2.6@1.2089-o" os.arch="x86_64" os.version.version="4.0">
       version="ntpd 4.2.6@1.2089-o Fri May 28 01:20:53 UTC 2010 (1)",
@@ -293,7 +293,7 @@ NTP "banners", taken from a readvar response
     <param pos="3" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?14\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin\/?14\.([^&quot;]+)&quot;)">
     <description>ntpd running on Mac OSX 10.10/Yosemite</description>
     <example service.version="4.2.6@1.2089-o" os.arch="x86_64" os.version.version="3.0">
       version="ntpd 4.2.6@1.2089-o Fri May 28 01:20:53 UTC 2010 (1)",
@@ -311,7 +311,7 @@ NTP "banners", taken from a readvar response
     <param pos="3" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;FreeBSD/?(?:[^ ]+-NETSCALER-([^ ]+))&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;FreeBSD\/?(?:[^ ]+-NETSCALER-([^ ]+))&quot;)">
     <description>ntpd running on Citrix Netscaler, which is based on FreeBSD</description>
     <example>
       version="ntpd 4.2.6p2@1.2194 Wed Nov 24 15:54:11 UTC 2010 (1)",
@@ -325,7 +325,7 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;FreeBSD/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;FreeBSD\/?([^ ]+)&quot;)">
     <description>ntpd running on FreeBSD</description>
     <example>
       version="ntpd 4.2.6p2@1.2194 Wed Nov 24 15:54:11 UTC 2010 (1)",
@@ -340,7 +340,7 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;FreeBSD/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;FreeBSD\/?([^ ]+)&quot;)">
     <description>ntp without a version on FreeBSD</description>
     <example os.arch="i386" os.version="4.1-RELEASE">
       processor="i386", system="FreeBSD4.1-RELEASE"
@@ -354,7 +354,7 @@ NTP "banners", taken from a readvar response
     <param pos="1" name="os.arch"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;NetBSD/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;NetBSD\/?([^ ]+)&quot;)">
     <description>ntpd running on NetBSD</description>
     <example>
       version="ntpd 4.2.4p6-o Thu Jan  8 21:02:40 MET 2009 (import)",
@@ -369,7 +369,7 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;NetBSD/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;NetBSD\/?([^ ]+)&quot;)">
     <description>ntpd running on NetBSD</description>
     <example os.arch="i386" os.version="1.5.3">
       processor="i386", system="NetBSD1.5.3"
@@ -410,7 +410,7 @@ NTP "banners", taken from a readvar response
     <param pos="1" name="os.arch"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^.*system=&quot;NetWare&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*system=&quot;NetWare&quot;)">
     <description>NetWare</description>
     <example>
       system="NetWare", leap=0, stratum=2, rootdelay=0.12
@@ -419,7 +419,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.family" value="NetWare"/>
     <param pos="0" name="os.product" value="NetWare"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS\/?([^ ]+)&quot;)">
     <description>ntpd running on Solaris</description>
     <example>
       version="ntpd 4.2.0@1.1161-r Wed Apr 20 11:28:05 EDT 2005 (1)",
@@ -434,7 +434,7 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS\/?([^ ]+)&quot;)">
     <description>Solaris with no ntp version</description>
     <example>
       processor="sun4m", system="SunOS5.6"
@@ -463,7 +463,7 @@ NTP "banners", taken from a readvar response
     <param pos="1" name="os.arch"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^.*system=&quot;UNIX/SunOS ([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*system=&quot;UNIX\/SunOS ([^ ]+)&quot;)">
     <description>SunOS with no ntp version</description>
     <example>
       system="UNIX/SunOS 4.x",
@@ -473,7 +473,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;JUNOS/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;JUNOS\/?([^ ]+)&quot;)">
     <description>ntpd running on Juniper/Netscreen JunOS</description>
     <example>
       version="ntpd 4.2.0-a Wed Aug 12 04:22:47 UTC 2009 (1)",
@@ -488,7 +488,7 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="processor=&quot;([^ ]+)&quot;,.*system=&quot;JUNOS/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:processor=&quot;([^ ]+)&quot;,.*system=&quot;JUNOS\/?([^ ]+)&quot;)">
     <description>Juniper/Netscreen JunOS NTP without a version</description>
     <example os.arch="i386" os.version="7.0R2.7">processor="i386", system="JUNOS7.0R2.7", leap=0, stratum=3</example>
     <example os.arch="i386" os.version="6.4R1.6">processor="i386", system="JUNOS6.4R1.6", leap=3, stratum=16</example>
@@ -499,7 +499,7 @@ NTP "banners", taken from a readvar response
     <param pos="1" name="os.arch"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;Windows/?([^ ]+)?&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;Windows\/?([^ ]+)?&quot;)">
     <description>ntpd running on Windows</description>
     <example>
       version="ntpd 4.2.4p7@copenhagen-o May 22 11:25:36 (UTC+02:00) 2009  (3)",
@@ -518,7 +518,7 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;HP-UX/?([^ ]+)?&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;HP-UX\/?([^ ]+)?&quot;)">
     <description>ntpd running on HP-UX</description>
     <example>
       version="ntpd 4.2.2@1.1532-o Wed Sep  6 16:49:43 EDT 2006 (2)",
@@ -533,7 +533,7 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=,.*system=&quot;HP-UX/&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=,.*system=&quot;HP-UX\/&quot;)">
     <description>ntpd running on HP-UX with an empty processor</description>
     <example service.version="4.2.6">
       version="ntpd 4.2.6 Revision 0.0 Tue Nov 5 14:21:22 UTC 2012",
@@ -546,7 +546,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.family" value="HP-UX"/>
     <param pos="0" name="os.product" value="HP-UX"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;[^ ]+&quot;,.*system=&quot;([^ ]+)-hp-hpux([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;[^ ]+&quot;,.*system=&quot;([^ ]+)-hp-hpux([^ ]+)&quot;)">
     <description>ntpd running on HP-UX, where the processor is in the 'system' variable</description>
     <example>
       version="ntpd 4.2.5p154@1.1802 Tue Mar 22 22:09:00 UTC 2011 (39)",
@@ -561,7 +561,7 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;VMkernel/?([^ ]+)?&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;VMkernel\/?([^ ]+)?&quot;)">
     <description>ntpd running on VMware ESXi</description>
     <example>
       version="ntpd 4.2.4p6@1.1495 Wed Sep 22 02:33:15 UTC 2010 (1)",
@@ -576,7 +576,7 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern=".*processor=&quot;([^ ]+)&quot;,.*system=&quot;OSF1[/V]?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:.*processor=&quot;([^ ]+)&quot;,.*system=&quot;OSF1[\/V]?([^ ]+)&quot;)">
     <description>ntpd running on OSF/1</description>
     <example os.arch="alpha" os.version="4.0">
       processor="alpha", system="OSF1V4.0", leap=00, stratum=1, precision=-18,
@@ -588,7 +588,7 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.version"/>
     <param pos="1" name="os.arch"/>
   </fingerprint>
-  <fingerprint pattern=".*system=&quot;UNIX/DECOSF1&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:.*system=&quot;UNIX\/DECOSF1&quot;)">
     <description>DEC OSF/1</description>
     <example>
       system="UNIX/DECOSF1", leap=0, stratum=3, rootdelay=18.14,
@@ -596,7 +596,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.vendor" value="DEC"/>
     <param pos="0" name="os.product" value="OSF/1"/>
   </fingerprint>
-  <fingerprint pattern="^.*system=&quot;Linux&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*system=&quot;Linux&quot;)">
     <description>Linux with NTP enabled, no processor/version</description>
     <example>
       system="Linux", leap=00, stratum=2, rootdelay=6.480,
@@ -607,7 +607,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="service.family" value="NTP"/>
     <param pos="0" name="service.product" value="NTP"/>
   </fingerprint>
-  <fingerprint pattern="^.*system=&quot;UNIX/AIX&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*system=&quot;UNIX\/AIX&quot;)">
     <description>AIX with NTP enabled, no processor/version</description>
     <example>
       system="UNIX/AIX", leap=00, stratum=3, rootdelay=2.000,
@@ -619,7 +619,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="service.product" value="NTP"/>
     <param pos="0" name="service.vendor" value="IBM"/>
   </fingerprint>
-  <fingerprint pattern="^.*system=&quot;SunOS&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*system=&quot;SunOS&quot;)">
     <description>Solaris with NTP enabled, no processor/version</description>
     <example>
       system="SunOS", leap=00, stratum=1, rootdelay=0.000,
@@ -631,7 +631,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="service.product" value="NTP"/>
     <param pos="0" name="service.vendor" value="Solaris"/>
   </fingerprint>
-  <fingerprint pattern="^.*system=&quot;cisco&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*system=&quot;cisco&quot;)">
     <description>Cisco IOS with NTP enabled</description>
     <example>
       system="cisco", leap=00, stratum=2, rootdelay=39.900,
@@ -643,7 +643,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="service.product" value="NTP"/>
     <param pos="0" name="service.vendor" value="Cisco"/>
   </fingerprint>
-  <fingerprint pattern="^.*system=&quot;Data ONTAP/+(\S+)&quot;.*$" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*system=&quot;Data ONTAP\/+(\S+)&quot;.*$)">
     <description>NetApp file servers</description>
     <example>
       system="Data ONTAP/8.1RC2"
@@ -654,7 +654,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.device" value="File server"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="system=&quot;UNIX/HPUX&quot;" flags="REG_ICASE">
+  <fingerprint pattern="(?i:system=&quot;UNIX\/HPUX&quot;)">
     <description>Generic HPUX</description>
     <example>
       system="UNIX/HPUX", leap=0, stratum=3, rootdelay=1.16,
@@ -666,7 +666,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.family" value="HP-UX"/>
     <param pos="0" name="os.product" value="HP-UX"/>
   </fingerprint>
-  <fingerprint pattern="system=&quot;UNIX&quot;" flags="REG_ICASE">
+  <fingerprint pattern="(?i:system=&quot;UNIX&quot;)">
     <description>Generic UNIX</description>
     <example>
       version="4", processor="unknown", system="UNIX", leap=0, stratum=2,
@@ -675,7 +675,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.product" value="UNIX"/>
     <param pos="0" name="os.certainty" value="0.5"/>
   </fingerprint>
-  <fingerprint pattern="system=&quot;VxWorks(?:/TORNADO)?&quot;" flags="REG_ICASE">
+  <fingerprint pattern="(?i:system=&quot;VxWorks(?:\/TORNADO)?&quot;)">
     <description>Generic VxWorks</description>
     <example>
       system="VxWorks", leap=0, stratum=8, rootdelay=63.74,
@@ -689,7 +689,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.vendor" value="Wind River"/>
     <param pos="0" name="os.product" value="VxWorks"/>
   </fingerprint>
-  <fingerprint pattern="system=&quot;arm-wrs-vxworks&quot;" flags="REG_ICASE">
+  <fingerprint pattern="(?i:system=&quot;arm-wrs-vxworks&quot;)">
     <description>VxWorks ARM, cross-compiled on Linux</description>
     <example>
       processor="unknown", system="arm-wrs-vxworks", leap=0, stratum=2, rootdelay=999.86, rootdispersion=17.90, peer=32444
@@ -698,7 +698,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.product" value="VxWorks"/>
     <param pos="0" name="os.arch" value="arm"/>
   </fingerprint>
-  <fingerprint pattern="system=&quot;i386-wrs-vxworks&quot;" flags="REG_ICASE">
+  <fingerprint pattern="(?i:system=&quot;i386-wrs-vxworks&quot;)">
     <description>VxWorks x86, cross-compiled on Linux</description>
     <example>
       system="i386-wrs-vxworks", leap=0, stratum=2, rootdelay=999.86, rootdispersion=17.90, peer=32444
@@ -707,7 +707,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.product" value="VxWorks"/>
     <param pos="0" name="os.arch" value="i386"/>
   </fingerprint>
-  <fingerprint pattern="system=&quot;UNIX/Unixware([^ ]+)&quot;" flags="REG_ICASE">
+  <fingerprint pattern="(?i:system=&quot;UNIX\/Unixware([^ ]+)&quot;)">
     <description>SCO Unixware NTP</description>
     <example>
       system="UNIX/Unixware2", leap=3, stratum=16, rootdelay=0.00,
@@ -719,7 +719,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.vendor" value="SCO"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="^.*processor=&quot;([^&quot;]+)&quot;, system=&quot;SCO_SV([\d\.]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*processor=&quot;([^&quot;]+)&quot;, system=&quot;SCO_SV([\d\.]+)&quot;)">
     <description>SCO Unixware NTP</description>
     <example os.version="3.2" os.arch="i386">
       processor="i386", system="SCO_SV3.2", leap=0, stratum=2, precision=-18
@@ -729,7 +729,7 @@ NTP "banners", taken from a readvar response
     <param pos="1" name="os.arch"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*\s*processor=&quot;([^ ]+)&quot;,.*system=&quot;SecureOS/([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*\s*processor=&quot;([^ ]+)&quot;,.*system=&quot;SecureOS\/([^ ]+)&quot;)">
     <description>McAfee Network Firewall Enterprise NTP (SecureOS)</description>
     <example>
       version="ntpd 4.2.0-r Thu Aug 11 12:41:19 CDT 2005 (1)",
@@ -755,7 +755,7 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^.*processor=&quot;([^ ]+)&quot;.*system=&quot;Linux([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:^.*processor=&quot;([^ ]+)&quot;.*system=&quot;Linux([^ ]+)&quot;)">
     <description>ntpd running on linux</description>
     <example>
       processor="i686", system="Linux2.6.10", leap=0, stratum=2,
@@ -780,7 +780,7 @@ NTP "banners", taken from a readvar response
     <param pos="1" name="os.arch"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern=".*version=&quot;ntpd (\S+)[^&quot;]+&quot;,.*\s*processor=&quot;([^ ]+)&quot;.*system=&quot;Isilon OneFS/v([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:.*version=&quot;ntpd (\S+)[^&quot;]+&quot;,.*\s*processor=&quot;([^ ]+)&quot;.*system=&quot;Isilon OneFS\/v([^ ]+)&quot;)">
     <description>Isilon OneFS NTP Server</description>
     <example>
       version="ntpd 4.2.4p4-o Thu Feb  4 20:43:00 UTC 2010 (1)",
@@ -798,7 +798,7 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="system=&quot;IPSO&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:system=&quot;IPSO&quot;)">
     <description>Nokia IPSO NTP</description>
     <example>
       system="IPSO", leap=3, stratum=16, rootdelay=0.00, rootdispersion=0.00,
@@ -817,7 +817,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.product" value="IPSO"/>
     <param pos="0" name="os.device" value="Firewall"/>
   </fingerprint>
-  <fingerprint pattern="system=&quot;UNIX/Solaris\s[^ ]+&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:system=&quot;UNIX\/Solaris\s[^ ]+&quot;)">
     <description>Sun Solaris NTP</description>
     <example>
       system="UNIX/Solaris 2.x", leap=3, stratum=16, rootdelay=0.00,
@@ -838,7 +838,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="service.product" value="NTP"/>
     <param pos="0" name="service.vendor" value="Sun"/>
   </fingerprint>
-  <fingerprint pattern="version=&quot;ntpd version = ([^ ]+)&quot;,\s*processor=&quot;([A-Z0-9]+)&quot;,\s*system=&quot;OpenVMS/V([A-Z0-9.-]+)" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:version=&quot;ntpd version = ([^ ]+)&quot;,\s*processor=&quot;([A-Z0-9]+)&quot;,\s*system=&quot;OpenVMS\/V([A-Z0-9.-]+))">
     <description>OpenVMS NTP Server</description>
     <example service.version="4.2.0" os.arch="PHMNFP" os.version="8.3">
       version="ntpd version = 4.2.0", processor="PHMNFP",
@@ -863,7 +863,7 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="version=&quot;ntpd version = ([^ ]+)&quot;,\s*processor=&quot;unknown&quot;,\s*system=&quot;OpenVMS AXP&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:version=&quot;ntpd version = ([^ ]+)&quot;,\s*processor=&quot;unknown&quot;,\s*system=&quot;OpenVMS AXP&quot;)">
     <description>OpenVMS AXP (Alpha) NTP Server</description>
     <example service.version="4.1.0" os.arch="Alpha">
       version="ntpd version = 4.1.0", processor="unknown", system="OpenVMS AXP"
@@ -875,7 +875,7 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.product" value="OpenVMS"/>
     <param pos="0" name="os.arch" value="Alpha"/>
   </fingerprint>
-  <fingerprint pattern=".*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,\s*processor=&quot;([^ ]+)&quot;,\s*system=&quot;BIG-IPBIG-IP\s+([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,\s*processor=&quot;([^ ]+)&quot;,\s*system=&quot;BIG-IPBIG-IP\s+([^&quot;]+)&quot;)">
     <description>F5 Big-IP Load Balancers NTP</description>
     <example service.version="4.1.1a@1.791" os.arch="i386" os.version="4.5PTF-0">
       version="ntpd 4.1.1a@1.791 Fri Aug  8 04:08:19 PDT 2003 (1)",
@@ -893,7 +893,7 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern=".*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,\s*processor,\s*system=&quot;/&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="(?mi:.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,\s*processor,\s*system=&quot;\/&quot;)">
     <description>NTP on an unknown system</description>
     <example service.version="4.2.6p2-RC4@1.2180-o">
       version="ntpd 4.2.6p2-RC4@1.2180-o Sun Jun 13 02:56:12 UTC 2010 (2)", processor, system="/"

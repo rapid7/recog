@@ -9,7 +9,7 @@ matched against these patterns to fingerprint the printer.
    LaserJet and Designjet are registered trademarks of HP. Therefore matching for the keywords
    is sufficient for asserting all relevant information
    -->
-  <fingerprint pattern="laserjet (.*)(?: series)?" flags="REG_ICASE">
+  <fingerprint pattern="(?i:laserjet (.*)(?: series)?)">
     <description>HP JetDirect Printer</description>
     <example>HP LaserJet 4100 Series</example>
     <example>HP LaserJet 2200</example>
@@ -43,7 +43,7 @@ matched against these patterns to fingerprint the printer.
     <param pos="0" name="os.family" value="LaserJet"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="(designjet \S+)" flags="REG_ICASE">
+  <fingerprint pattern="(?i:(designjet \S+))">
     <description>HP Designjet printer</description>
     <example>hp designjet 110plus</example>
     <example>DESIGNJET 1050C</example>
@@ -172,7 +172,7 @@ matched against these patterns to fingerprint the printer.
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="^Oce (fx[^\s:]+):.*$" flags="REG_ICASE">
+  <fingerprint pattern="(?i:^Oce (fx[^\s:]+):.*$)">
     <description>Oce FX series multifunction device</description>
     <example os.product="fx3000">Oce fx3000:8C5-B29:Ver.D:U0707161719:B0601271355</example>
     <param pos="0" name="os.vendor" value="Oce"/>
@@ -180,7 +180,7 @@ matched against these patterns to fingerprint the printer.
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="^Oce (VL\S+):.*$" flags="REG_ICASE">
+  <fingerprint pattern="(?i:^Oce (VL\S+):.*$)">
     <description>Oce VarioLink multifunction device</description>
     <example>Oce VL3200:8C5-D92:Ver.B</example>
     <param pos="0" name="os.vendor" value="Oce"/>
@@ -190,7 +190,7 @@ matched against these patterns to fingerprint the printer.
   </fingerprint>
   <!-- IGI is Imagistics International, which was acquired by Oce.
         I can't find MX-MBX3 or any variant online. -->
-  <fingerprint pattern="^OceIGI MX-\S+" flags="REG_ICASE">
+  <fingerprint pattern="(?i:^OceIGI MX-\S+)">
     <description>Oce-acquired IGI printer</description>
     <example>OceIGI MX-NBX3 02-Jul-07 14:47</example>
     <param pos="0" name="os.vendor" value="Oce"/>
@@ -198,7 +198,7 @@ matched against these patterns to fingerprint the printer.
   </fingerprint>
   <!-- im3510/4510 is actually a range of model numbers, but asserting a range
         of models as a product is preferableto asserting nothing. -->
-  <fingerprint pattern="^Imagistics (im\S+) (.+)" flags="REG_ICASE">
+  <fingerprint pattern="(?i:^Imagistics (im\S+) (.+))">
     <description>Oce IM series multifunction device</description>
     <example>Imagistics im3510/4510 02-Aug-04 10:56</example>
     <param pos="0" name="os.vendor" value="Oce"/>
@@ -225,7 +225,7 @@ matched against these patterns to fingerprint the printer.
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="^RICOH ((?:Aficio|MP|SP) .*)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i:^RICOH ((?:Aficio|MP|SP) .*)$)">
     <description>Ricoh Aficio Printer</description>
     <example>RICOH Aficio 2075</example>
     <example>RICOH Aficio AP610N</example>
@@ -238,7 +238,7 @@ matched against these patterns to fingerprint the printer.
   </fingerprint>
   <!-- NRG was acquired by Ricoh; classify NRG printers as such.
          Be consistent with snmp_sysdescr.xml. -->
-  <fingerprint pattern="^NRG ([MS]P \S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i:^NRG ([MS]P \S+)$)">
     <description>Ricoh NRG printer</description>
     <example>NRG MP 171</example>
     <example>NRG MP 3350</example>
@@ -254,28 +254,28 @@ matched against these patterns to fingerprint the printer.
   </fingerprint>
   <!-- Gestetner == NRG, and was acquired by Ricoh.
          Assert the range of products as os.product. -->
-  <fingerprint pattern="^Gestetner (MP\S+/DSc\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i:^Gestetner (MP\S+\/DSc\S+)$)">
     <description>Ricoh Gestetner multifunction device</description>
     <example>Gestetner MPC2500/DSc525</example>
     <param pos="0" name="os.vendor" value="Ricoh"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="^HYDRA$" flags="REG_ICASE">
+  <fingerprint pattern="(?i:^HYDRA$)">
     <description>RSI Hydra printer</description>
     <example>HYDRA</example>
     <param pos="0" name="os.vendor" value="RSI"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="0" name="os.product" value="Hydra"/>
   </fingerprint>
-  <fingerprint pattern="^Savin (\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i:^Savin (\S+)$)">
     <description>Savin Printer</description>
     <example>SAVIN 4075</example>
     <param pos="0" name="os.vendor" value="Savin"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="^Samsung ((?:SCX|CLX)-\S+) Series$" flags="REG_ICASE">
+  <fingerprint pattern="(?i:^Samsung ((?:SCX|CLX)-\S+) Series$)">
     <description>Samsung multifunction device</description>
     <example>Samsung SCX-5835_5935 Series</example>
     <example>Samsung CLX-4195 Series</example>
@@ -283,7 +283,7 @@ matched against these patterns to fingerprint the printer.
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="^Samsung ((?:ML|CLP)-\S+) Series$" flags="REG_ICASE">
+  <fingerprint pattern="(?i:^Samsung ((?:ML|CLP)-\S+) Series$)">
     <description>Samsung printer</description>
     <example>Samsung CLP-680 Series</example>
     <example>Samsung ML-5012_5512 Series</example>
@@ -291,7 +291,7 @@ matched against these patterns to fingerprint the printer.
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="^SHARP (\S+-\S+) .*$" flags="REG_ICASE">
+  <fingerprint pattern="(?i:^SHARP (\S+-\S+) .*$)">
     <description>Sharp Printer</description>
     <example>Sharp MX-NBX3 18-Mar-08 10:22</example>
     <example>Sharp AR-P17 24-Mar-04 19:55</example>
@@ -299,7 +299,7 @@ matched against these patterns to fingerprint the printer.
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="^Source Technologies (\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i:^Source Technologies (\S+)$)">
     <description>Source Technologies Printer</description>
     <example>Source Technologies ST-9620</example>
     <param pos="0" name="os.vendor" value="Source Technologies"/>

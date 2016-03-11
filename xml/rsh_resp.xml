@@ -11,7 +11,7 @@ Rservices responses to requests are matched against these patterns to fingerprin
     <param pos="0" name="os.family" value="Digital Unix"/>
     <param pos="0" name="os.product" value="Unknown"/>
   </fingerprint>
-  <fingerprint pattern="^.Winsock RSHD/NT: Protocol negotiation error\..+$|^.in\.rlogind: Permission denied\..+$" flags="REG_DOT_NEWLINE">
+  <fingerprint pattern="(?m:^.Winsock RSHD\/NT: Protocol negotiation error\..+$|^.in\.rlogind: Permission denied\..+$)">
     <description>Windows rlogind</description>
     <example>xWinsock RSHD/NT: Protocol negotiation error.
       0</example>
@@ -22,7 +22,7 @@ Rservices responses to requests are matched against these patterns to fingerprin
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Unknown"/>
   </fingerprint>
-  <fingerprint pattern="^.permission denied\..+$" flags="REG_DOT_NEWLINE">
+  <fingerprint pattern="(?m:^.permission denied\..+$)">
     <description>Solaris rlogind</description>
     <example>xpermission denied.
       </example>
@@ -31,7 +31,7 @@ Rservices responses to requests are matched against these patterns to fingerprin
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.product" value="Solaris"/>
   </fingerprint>
-  <fingerprint pattern="^.rlogind: Acc.s refus.\..+$" flags="REG_DOT_NEWLINE">
+  <fingerprint pattern="(?m:^.rlogind: Acc.s refus.\..+$)">
     <description>AIX rlogind</description>
     <example>xrlogind: Accxs refusx.
       </example>
@@ -40,7 +40,7 @@ Rservices responses to requests are matched against these patterns to fingerprin
     <param pos="0" name="os.family" value="AIX"/>
     <param pos="0" name="os.product" value="AIX"/>
   </fingerprint>
-  <fingerprint pattern="^.rlogind: Host name for your address \([\d.]+\) unknown\..*$" flags="REG_DOT_NEWLINE">
+  <fingerprint pattern="(?m:^.rlogind: Host name for your address \([\d.]+\) unknown\..*$)">
     <description>A/UX rlogind</description>
     <example>xrlogind: Host name for your address (127.0.0.1) unknown.
       </example>
@@ -49,7 +49,7 @@ Rservices responses to requests are matched against these patterns to fingerprin
     <param pos="0" name="os.family" value="A/UX"/>
     <param pos="0" name="os.product" value="Unknown"/>
   </fingerprint>
-  <fingerprint pattern="^.rexecd: Login incorrect\..*$" flags="REG_DOT_NEWLINE">
+  <fingerprint pattern="(?m:^.rexecd: Login incorrect\..*$)">
     <description>HP-UX rexecd</description>
     <example>xrexecd: Login incorrect.
       </example>
@@ -58,7 +58,7 @@ Rservices responses to requests are matched against these patterns to fingerprin
     <param pos="0" name="os.family" value="HP-UX"/>
     <param pos="0" name="os.product" value="HP-UX"/>
   </fingerprint>
-  <fingerprint pattern="^.rexecd: [-\d]+.*$" flags="REG_DOT_NEWLINE">
+  <fingerprint pattern="(?m:^.rexecd: [-\d]+.*$)">
     <description>AIX rexecd</description>
     <example>xrexecd: 0-1 The login is not correct.
       </example>
@@ -67,7 +67,7 @@ Rservices responses to requests are matched against these patterns to fingerprin
     <param pos="0" name="os.family" value="AIX"/>
     <param pos="0" name="os.product" value="AIX"/>
   </fingerprint>
-  <fingerprint pattern="^.remshd: (?:getservbyname.+|Kerberos Authentication not enabled\..+|Error! Kerberos authentication failed)$" flags="REG_DOT_NEWLINE">
+  <fingerprint pattern="(?m:^.remshd: (?:getservbyname.+|Kerberos Authentication not enabled\..+|Error! Kerberos authentication failed)$)">
     <description>HP-UX rshd</description>
     <example>xremshd: getservbyname
       </example>
