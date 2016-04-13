@@ -707,10 +707,10 @@
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MySQL"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-MariaDB-cll-lve$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-MariaDB-cll-lve$">
     <description>MariaDB MariaDB on CloudLinux in a Lightweight Virtual Environment (LVE)</description>
     <example service.version="5.5.34">5.5.34-MariaDB-cll-lve</example>
-    <example service.version="5.5.5">5.5.5-10.0.15-MariaDB-cll-lve</example>
+    <example service.version="10.0.15">5.5.5-10.0.15-MariaDB-cll-lve</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -720,11 +720,11 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.device" value="General"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-MariaDB.+~wheezy(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-MariaDB.+~wheezy(?:-log)?$">
     <description>MariaDB MariaDB on Debian 7.0 (wheezy)</description>
     <example service.version="5.5.37">5.5.37-MariaDB-1~wheezy-log</example>
     <example service.version="10.0.11">10.0.11-MariaDB-1~wheezy-log</example>
-    <example service.version="5.5.5">5.5.5-10.0.14-MariaDB-1~wheezy-log</example>
+    <example service.version="10.0.14">5.5.5-10.0.14-MariaDB-1~wheezy-log</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -736,10 +736,10 @@
     <param pos="0" name="os.certainty" value="0.80"/>
     <param pos="0" name="os.device" value="General"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-MariaDB.+~squeeze(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-MariaDB.+~squeeze(?:-log)?$">
     <description>MariaDB MariaDB on Debian 6.0 (squeeze)</description>
     <example service.version="5.5.31">5.5.31-MariaDB-1~squeeze-log</example>
-    <example service.version="5.5.5">5.5.5-10.0.15-MariaDB-1~squeeze-log</example>
+    <example service.version="10.0.15">5.5.5-10.0.15-MariaDB-1~squeeze-log</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -765,9 +765,9 @@
     <param pos="0" name="os.certainty" value="0.80"/>
     <param pos="0" name="os.device" value="General"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-MariaDB.+~sid(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-MariaDB.+~sid(?:-log)?$">
     <description>MariaDB MariaDB on Debian Unstable/No version  (sid)</description>
-    <example service.version="5.5.5">5.5.5-10.0.16-MariaDB-1~sid</example>
+    <example service.version="10.0.16">5.5.5-10.0.16-MariaDB-1~sid</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -791,9 +791,9 @@
     <param pos="0" name="os.certainty" value="0.80"/>
     <param pos="0" name="os.device" value="General"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-MariaDB.+~utopic(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-MariaDB.+~utopic(?:-log)?$">
     <description>MariaDB MariaDB on Ubuntu 14.10 (Utopic Unicorn)</description>
-    <example service.version="5.5.5">5.5.5-10.0.16-MariaDB-1~utopic-log</example>
+    <example service.version="10.0.16">5.5.5-10.0.16-MariaDB-1~utopic-log</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -805,9 +805,9 @@
     <param pos="0" name="os.certainty" value="0.80"/>
     <param pos="0" name="os.device" value="General"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-MariaDB.+~trusty(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-MariaDB.+~trusty(?:-log)?$">
     <description>MariaDB MariaDB on Ubuntu 14.04 (Trusty Tahr)</description>
-    <example service.version="5.5.5">5.5.5-10.0.15-MariaDB-1~trusty</example>
+    <example service.version="10.0.15">5.5.5-10.0.15-MariaDB-1~trusty</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -819,7 +819,7 @@
     <param pos="0" name="os.certainty" value="0.80"/>
     <param pos="0" name="os.device" value="General"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-MariaDB.+~saucy(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-MariaDB.+~saucy(?:-log)?$">
     <description>MariaDB MariaDB on Ubuntu 13.10 (Saucy Salamander)</description>
     <example service.version="5.5.39">5.5.39-MariaDB-1~saucy-log</example>
     <param pos="1" name="service.version"/>
@@ -833,7 +833,7 @@
     <param pos="0" name="os.certainty" value="0.80"/>
     <param pos="0" name="os.device" value="General"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-MariaDB.+~raring(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-MariaDB.+~raring(?:-log)?$">
     <description>MariaDB MariaDB on Ubuntu 13.04 (Raring Ringtail)</description>
     <example service.version="5.5.32">5.5.32-MariaDB-1~raring-log</example>
     <param pos="1" name="service.version"/>
@@ -847,9 +847,9 @@
     <param pos="0" name="os.certainty" value="0.80"/>
     <param pos="0" name="os.device" value="General"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-MariaDB.+~quantal(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-MariaDB.+~quantal(?:-log)?$">
     <description>MariaDB MariaDB on Ubuntu 12.10 (Quantal Quetzal)</description>
-    <example service.version="5.5.5">5.5.5-10.0.12-MariaDB-1~quantal-log</example>
+    <example service.version="10.0.12">5.5.5-10.0.12-MariaDB-1~quantal-log</example>
     <example service.version="5.5.38">5.5.38-MariaDB-1~quantal-log</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
@@ -862,10 +862,10 @@
     <param pos="0" name="os.certainty" value="0.80"/>
     <param pos="0" name="os.device" value="General"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-MariaDB.+~precise(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-MariaDB.+~precise(?:-log)?$">
     <description>MariaDB MariaDB on Ubuntu 12.04 LTS (Precise Pangolin)</description>
     <example service.version="5.5.41">5.5.41-MariaDB-1~precise-log</example>
-    <example service.version="5.5.5">5.5.5-10.0.16-MariaDB-1~precise-log</example>
+    <example service.version="10.0.16">5.5.5-10.0.16-MariaDB-1~precise-log</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -877,7 +877,7 @@
     <param pos="0" name="os.certainty" value="0.80"/>
     <param pos="0" name="os.device" value="General"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-MariaDB.+~lucid(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-MariaDB.+~lucid(?:-log)?$">
     <description>MariaDB MariaDB on Ubuntu 10.04 (Lucid Lynx)</description>
     <example service.version="5.5.34">5.5.34-MariaDB-1~lucid-log</example>
     <param pos="1" name="service.version"/>
@@ -891,7 +891,7 @@
     <param pos="0" name="os.certainty" value="0.80"/>
     <param pos="0" name="os.device" value="General"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-MariaDB.+~hardy(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-MariaDB.+~hardy(?:-log)?$">
     <description>MariaDB MariaDB on Ubuntu 8.04 LTS (Hardy Heron)</description>
     <example service.version="5.5.34">5.5.34-MariaDB-mariadb122~hardy-log</example>
     <param pos="1" name="service.version"/>
@@ -905,9 +905,9 @@
     <param pos="0" name="os.certainty" value="0.80"/>
     <param pos="0" name="os.device" value="General"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-[Mm]ariaDB.+~trusty-wsrep(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-[Mm]ariaDB.+~trusty-wsrep(?:-log)?$">
     <description>MariaDB MariaDB with Galera Cluster on Ubuntu 14.04 (Trusty Tahr)</description>
-    <example service.version="5.5.5">5.5.5-10.1.1-MariaDB-1~trusty-wsrep-log</example>
+    <example service.version="10.1.1">5.5.5-10.1.1-MariaDB-1~trusty-wsrep-log</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -920,9 +920,9 @@
     <param pos="0" name="os.certainty" value="0.80"/>
     <param pos="0" name="os.device" value="General"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-MariaDB.+~saucy-wsrep(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-MariaDB.+~saucy-wsrep(?:-log)?$">
     <description>MariaDB MariaDB with Galera Cluster on Ubuntu 13.10 (Saucy Salamander)</description>
-    <example service.version="5.5.5">5.5.5-10.0.10-MariaDB-1~saucy-wsrep-log</example>
+    <example service.version="10.0.10">5.5.5-10.0.10-MariaDB-1~saucy-wsrep-log</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -935,9 +935,9 @@
     <param pos="0" name="os.certainty" value="0.80"/>
     <param pos="0" name="os.device" value="General"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-MariaDB.+~precise-wsrep(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-MariaDB.+~precise-wsrep(?:-log)?$">
     <description>MariaDB MariaDB with Galera Cluster on Ubuntu 12.04 (Precise Pangolin)</description>
-    <example service.version="5.5.5">5.5.5-10.1.1-MariaDB-1~precise-wsrep</example>
+    <example service.version="10.1.1">5.5.5-10.1.1-MariaDB-1~precise-wsrep</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -950,7 +950,7 @@
     <param pos="0" name="os.certainty" value="0.80"/>
     <param pos="0" name="os.device" value="General"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-MariaDB.+~lucid-wsrep(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-MariaDB.+~lucid-wsrep(?:-log)?$">
     <description>MariaDB MariaDB with Galera Cluster on Ubuntu 10.04 TLS (Lucid Lynx)</description>
     <example service.version="5.5.34">5.5.34-MariaDB-1~lucid-wsrep-log</example>
     <param pos="1" name="service.version"/>
@@ -965,9 +965,9 @@
     <param pos="0" name="os.certainty" value="0.80"/>
     <param pos="0" name="os.device" value="General"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-MariaDB.+~wheezy-wsrep(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-MariaDB.+~wheezy-wsrep(?:-log)?$">
     <description>MariaDB MariaDB with Galera Cluster on Debian 7.0 (wheezy)</description>
-    <example service.version="5.5.5">5.5.5-10.1.1-MariaDB-1~wheezy-wsrep-log</example>
+    <example service.version="10.1.1">5.5.5-10.1.1-MariaDB-1~wheezy-wsrep-log</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -980,9 +980,9 @@
     <param pos="0" name="os.certainty" value="0.80"/>
     <param pos="0" name="os.device" value="General"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-MariaDB.+~squeeze-wsrep(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-MariaDB.+~squeeze-wsrep(?:-log)?$">
     <description>MariaDB MariaDB with Galera Cluster on Debian 6.0 (squeeze)</description>
-    <example service.version="5.5.5">5.5.5-10.1.1-MariaDB-1~squeeze-wsrep</example>
+    <example service.version="10.1.1">5.5.5-10.1.1-MariaDB-1~squeeze-wsrep</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -995,9 +995,9 @@
     <param pos="0" name="os.certainty" value="0.80"/>
     <param pos="0" name="os.device" value="General"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-MariaDB.+~sid-wsrep(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-MariaDB.+~sid-wsrep(?:-log)?$">
     <description>MariaDB MariaDB with Galera Cluster on Debian Unstable/No version (sid)</description>
-    <example service.version="5.5.5">5.5.5-10.0.16-MariaDB-1~sid-wsrep</example>
+    <example service.version="10.0.16">5.5.5-10.0.16-MariaDB-1~sid-wsrep</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -1008,22 +1008,22 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.device" value="General"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-[Mm]ariaDB-wsrep(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-[Mm]ariaDB-wsrep(?:-log)?$">
     <description>MariaDB MariaDB with Galera Cluster</description>
-    <example service.version="5.5.5">5.5.5-10.0.15-MariaDB-wsrep</example>
+    <example service.version="10.0.15">5.5.5-10.0.15-MariaDB-wsrep</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MariaDB"/>
     <param pos="0" name="service.edition" value="Galera Cluster"/>
   </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3})(?:-\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})?-[Mm]aria(?:DB)?[-\d]*(?:-debug)?(?:-ga)?(?:-beta)?(?:-mariadb)?[~\.\d]*(?:-log)?$">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-fA-F\d]{1,4})-[Mm]aria(?:DB)?[-\d]*(?:-debug)?(?:-ga)?(?:-beta)?(?:-mariadb)?[~\.\d]*(?:-log)?$">
     <description>MariaDB MariaDB</description>
     <example service.version="5.1.39">5.1.39-maria-beta</example>
     <example service.version="5.3.5">5.3.5-MariaDB-ga-mariadb113-log</example>
     <example service.version="5.5.24">5.5.24-MariaDB-mariadb1~0.1</example>
     <example service.version="10.0.1">10.0.1-MariaDB-log</example>
-    <example service.version="5.5.5">5.5.5-10.0.16-MariaDB-log</example>
+    <example service.version="10.0.16">5.5.5-10.0.16-MariaDB-log</example>
     <example service.version="5.5.30">5.5.30-MariaDB-debug</example>
     <example service.version="5.2.10">5.2.10-MariaDB-mariadb107</example>
     <param pos="1" name="service.version"/>
