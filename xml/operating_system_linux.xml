@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Patterns for common names of Linux operating systems.
+-->
+<fingerprints matches="operating_system.name">
+  <!-- Arch uses rolling releases where the version name just the date of an ISO release. -->
+  <fingerprint pattern="^Arch Linux\s?(\d+?(?:\.\d+?)+?|\d+?)?$" flags="REG_ICASE">
+    <description>Arch Linux</description>
+    <example os.version="2016.04.01">Arch Linux 2016.04.01</example>
+    <param pos="0" name="os.vendor" value="Arch"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <!-- Red Hat Enterprise Linux derivative -->
+  <fingerprint pattern="^Amazon Linux(?: AMI)?\s?(\d+?(?:\.\d+?)+?|\d+?)?$" flags="REG_ICASE">
+    <description>Amazon Linux AMI</description>
+    <example os.version="5.11">Amazon Linux AMI 5.11</example>
+    <example os.version="6.7">Amazon Linux 6.7</example>
+    <example os.version="7">Amazon Linux AMI 7</example>
+    <param pos="0" name="os.vendor" value="Amazon"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <!-- Red Hat Enterprise Linux derivative -->
+  <fingerprint pattern="^CentOS(?: Linux)?\s?(\d+?(?:\.\d+?)+?|\d+?)?$" flags="REG_ICASE">
+    <description>Centos Linux</description>
+    <example os.version="5.11">Centos Linux 5.11</example>
+    <example os.version="6.7">CentOS 6.7</example>
+    <example os.version="7">CentOS 7</example>
+    <param pos="0" name="os.vendor" value="CentOS"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Debian(?: Linux)?\s?(\d+?(?:\.\d+?)+?|\d+?)?(?:\s[a-z\(\)]+)?$" flags="REG_ICASE">
+    <description>Debian Linux</description>
+    <example os.version="6.0">Debian 6.0</example>
+    <example os.version="7">Debian 7 (Wheezy)</example>
+    <example os.version="8">Debian Linux 8</example>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Fedora(?: Core)?(?: Linux)?\s?(\d+?)?$" flags="REG_ICASE">
+    <description>Fedora Linux</description>
+    <example os.version="6">Fedora Core 6</example>
+    <example os.version="25">Fedora 25</example>
+    <param pos="0" name="os.vendor" value="Fedora"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <!-- Gentoo currently uses rolling releases with no version, but older versions were typically based on the year of release. -->
+  <fingerprint pattern="^Gentoo(?: Linux)\s?(\d+?(?:\.\d+?)+?|\d+?)?$" flags="REG_ICASE">
+    <description>Gentoo Linux</description>
+    <example>Gentoo Linux</example>
+    <param pos="0" name="os.vendor" value="Gentoo"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <!-- Kali switched to rolling release in January 2016. -->
+  <fingerprint pattern="^Kali(?: Linux)?\s?(\d+?(?:\.\d+?)+?(?:[a-z])?|\d+?)?$" flags="REG_ICASE">
+    <description>Kali Linux</description>
+    <example os.version="1.0.0">Kali Linux 1.0.0</example>
+    <example os.version="1.1.0a">Kali 1.1.0a</example>
+    <example os.version="2.0">Kali 2.0</example>
+    <example os.version="2016.1">Kali 2016.1</example>
+    <param pos="0" name="os.vendor" value="Kali"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <!-- Ubuntu derivative -->
+  <fingerprint pattern="^Kubuntu(?: Linux)?\s(\d+?(?:\.\d+?)+?|\d+?)?\s?(LTS)?$" flags="REG_ICASE">
+    <description>Kubuntu Linux</description>
+    <example os.version="12.04.4">Kubuntu 12.04.4 LTS</example>
+    <example os.version="14.04">Kubuntu Linux 14.04</example>
+    <example os.version="16.04" os.edition="LTS">Kubuntu 16.04 LTS</example>
+    <param pos="0" name="os.vendor" value="Kubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+    <param pos="2" name="os.edition"/>
+  </fingerprint>
+  <!-- Red Hat Enterprise Linux derivative -->
+  <fingerprint pattern="^Oracle(?: Enterprise)? Linux\s?(\d+?(?:\.\d+?)+?|\d+?)?$" flags="REG_ICASE">
+    <description>Oracle Enterprise Linux</description>
+    <example os.version="5.11">Oracle Enterprise Linux 5.11</example>
+    <example os.version="6.7">Oracle Linux 6.7</example>
+    <param pos="0" name="os.vendor" value="Oracle"/>
+    <param pos="0" name="os.family" value="Enterprise Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^OpenSUSE(?: Linux)?(?: Leap)??\s?(\d+?(?:\.\d+?)+?|\d+?)?$" flags="REG_ICASE">
+    <description>OpenSUSE Linux</description>
+    <example os.version="10.1">OpenSUSE Linux 10.1</example>
+    <example os.version="13.2">OpenSUSE 13.2</example>
+    <example os.version="42.1">OpenSUSE Leap 42.1</example>
+    <param pos="0" name="os.vendor" value="OpenSUSE"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:Red Hat|RedHat|Red-Hat|RHEL)(?: Enterprise)?(?: Linux)?(?: [a-z]+)?\s?(\d+?(?:\.\d+?)+?|\d+?)?$" flags="REG_ICASE">
+    <description>Red Hat Enterprise Linux</description>
+    <example>Red Hat Enterprise Linux AS</example>
+    <example os.version="5.11">Red Hat Enterprise Linux 5.11</example>
+    <example os.version="6.7">RedHat 6.7</example>
+    <example os.version="7">Red Hat Linux 7</example>
+    <example os.version="7.1">RHEL 7.1</example>
+    <param pos="0" name="os.vendor" value="Red Hat"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Enterprise Linux"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <!-- Red Hat Enterprise Linux derivative -->
+  <fingerprint pattern="^Scientific(?: Linux)?\s?(\d+?(?:\.\d+?)+?|\d+?)?$" flags="REG_ICASE">
+    <description>Scientific Linux</description>
+    <example os.version="5.11">Scientific Linux 5.11</example>
+    <example os.version="6.7">Scientific 6.7</example>
+    <example os.version="7">Scientific Linux 7</example>
+    <param pos="0" name="os.vendor" value="Scientific"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Slackware(?: Linux)\s?(\d+?(?:\.\d+?)+?|\d+?)?$" flags="REG_ICASE">
+    <description>Slackware Linux</description>
+    <example os.version="14.1">Slackware Linux 14.1</example>
+    <param pos="0" name="os.vendor" value="Slackware"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^SUSE(?: SLED)?(?: Linux Enterprise Desktop)?\s?(\d+?(?:\.\d+?)+?|\d+?)?$" flags="REG_ICASE">
+    <description>SUSE Linux Enterprise Desktop</description>
+    <example os.version="11">SUSE SLED 11</example>
+    <example os.version="12">SUSE Linux Enterprise Desktop 12</example>
+    <param pos="0" name="os.vendor" value="SUSE"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux Enterprise Desktop"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^SUSE(?: SLES)?(?: Linux Enterprise Server)?\s?(\d+?(?:\.\d+?)+?|\d+?)?$" flags="REG_ICASE">
+    <description>SUSE Linux Enterprise Server</description>
+    <example os.version="11">SUSE SLES 11</example>
+    <example os.version="12">SUSE Linux Enterprise Server 12</example>
+    <param pos="0" name="os.vendor" value="SUSE"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux Enterprise Server"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Ubuntu(?: Linux)?\s(\d+?(?:\.\d+?)+?|\d+?)?\s?(LTS)?$" flags="REG_ICASE">
+    <description>Ubuntu Linux</description>
+    <example os.version="12.04.4">Ubuntu 12.04.4 LTS</example>
+    <example os.version="14.04">Ubuntu Linux 14.04</example>
+    <example os.version="16.04" os.edition="LTS">Ubuntu 16.04 LTS</example>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+    <param pos="2" name="os.edition"/>
+  </fingerprint>
+  <!-- Ubuntu derivative -->
+  <fingerprint pattern="^Xubuntu(?: Linux)?\s(\d+?(?:\.\d+?)+?|\d+?)?\s?(LTS)?$" flags="REG_ICASE">
+    <description>Xubuntu Linux</description>
+    <example os.version="12.04.4">Xubuntu 12.04.4 LTS</example>
+    <example os.version="14.04">Xubuntu Linux 14.04</example>
+    <example os.version="16.04" os.edition="LTS">Xubuntu 16.04 LTS</example>
+    <param pos="0" name="os.vendor" value="Xubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+    <param pos="2" name="os.edition"/>
+  </fingerprint>
+</fingerprints>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Patterns for common names of Microsoft Windows operating systems.
+-->
+<fingerprints matches="operating_system.name">
+  <fingerprint pattern="^(Windows (?:[a-z]+\s[a-z]+\s|[a-z]+\s)?Server (?:\d{4} R2|\d{4}))(?:,\s|\s)?([a-z]+)?(?: Edition)?(?:\s)?(SP\d|SP \d|Service Pack \d)?$" flags="REG_ICASE">
+    <description>Windows Server 2003 and later</description>
+    <example os.product="Windows Compute Cluster Server 2003">Windows Compute Cluster Server 2003</example>
+    <example os.product="Windows Server 2003" os.edition="Standard">Windows Server 2003, Standard Edition</example>
+    <example os.product="Windows Server 2003 R2" os.edition="Datacenter">Windows Server 2003 R2, Datacenter Edition</example>
+    <example os.product="Windows Small Business Server 2003 R2">Windows Small Business Server 2003 R2</example>
+    <example os.product="Windows Server 2008" os.edition="Enterprise">Windows Server 2008 Enterprise Edition</example>
+    <example os.product="Windows Small Business Server 2008">Windows Small Business Server 2008</example>
+    <example os.product="Windows Server 2012" os.version="Service Pack 1">Windows Server 2012 Service Pack 1</example>
+    <example os.product="Windows Server 2012 R2" os.edition="Foundation">Windows Server 2012 R2 Foundation Edition</example>
+    <example os.product="Windows Storage Server 2012 R2">Windows Storage Server 2012 R2</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="1" name="os.product"/>
+    <param pos="2" name="os.edition"/>
+    <param pos="3" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(Windows (?:XP|Vista|7|8|8.1|10))(?:\s)?((?!Mobile)(?:[a-z]+|[a-z]+, )?(?:[a-z]+|[a-z]+\s[a-z]+)?)?(?: Edition)?(?:\s)?(SP\d|SP \d|Service Pack \d)?$" flags="REG_ICASE">
+    <description>Windows Desktop XP and later</description>
+    <example os.product="Windows XP" os.edition="Professional">Windows XP Professional</example>
+    <example os.product="Windows XP" os.edition="Tablet PC">Windows XP Tablet PC Edition</example>
+    <example os.product="Windows Vista" os.version="SP1">Windows Vista SP1</example>
+    <example os.product="Windows Vista" os.edition="Business N">Windows Vista Business N Edition</example>
+    <example os.product="Windows 7" os.edition="Home, Premium N">Windows 7 Home, Premium N Edition</example>
+    <example os.product="Windows 8" os.edition="Enterprise">Windows 8 Enterprise Edition</example>
+    <example os.product="Windows 8.1">Windows 8.1</example>
+    <example os.product="Windows 10" os.edition="Professional">Windows 10 Professional Edition</example>
+    <example os.product="Windows 10" os.edition="Enterprise LTSB">Windows 10 Enterprise LTSB</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="1" name="os.product"/>
+    <param pos="2" name="os.edition"/>
+    <param pos="3" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows 2000(?:\s)?([a-z]+|[a-z]+\s[a-z]+)?(?:\s)?(SP\d|SP \d|Service Pack \d)?$" flags="REG_ICASE">
+    <description>Windows 2000</description>
+    <example os.edition="Professional">Windows 2000 Professional</example>
+    <example os.edition="Advanced Server">Windows 2000 Advanced Server</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows 2000"/>
+    <param pos="1" name="os.edition"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows NT (\d.\d{1,2})?(?:\s)?([a-z]+|[a-z]+\s[a-z]+)?$" flags="REG_ICASE">
+    <description>Windows NT</description>
+    <example os.version="3.51" os.edition="Server">Windows NT 3.51 Server</example>
+    <example os.edition="Workstation">Windows NT Workstation</example>
+    <example os.version="4.0" os.edition="Workstation">Windows NT 4.0 Workstation</example>
+    <example os.edition="Advanced Server">Windows NT Advanced Server</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="NT"/>
+    <param pos="1" name="os.version"/>
+    <param pos="2" name="os.edition"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows 10 Mobile(?:\s(?!Edition)([a-z]+))?(?: Edition)?$" flags="REG_ICASE">
+    <description>Windows 10 Mobile</description>
+    <example os.product="Windows 10 Mobile">Windows 10 Mobile Edition</example>
+    <example os.product="Windows 10 Mobile" os.edition="Enterprise">Windows 10 Mobile Enterprise Edition</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows 10 Mobile"/>
+    <param pos="1" name="os.edition"/>
+    <param pos="0" name="os.device" value="Mobile"/>
+  </fingerprint>
+  <fingerprint pattern="^Windows Phone (\d|\d\.\d)?$" flags="REG_ICASE">
+    <description>Windows Phone 7 and later</description>
+    <example os.version="7.5">Windows Phone 7.5</example>
+    <example os.version="8">Windows Phone 8</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows Phone"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.device" value="Mobile"/>
+  </fingerprint>
+</fingerprints>
