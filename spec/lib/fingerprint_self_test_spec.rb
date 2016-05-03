@@ -56,7 +56,7 @@ describe Recog::DB do
               actual_capture_positions = actual_capture_positions.sort.uniq
               expected_capture_positions = expected_capture_positions.sort.uniq
               expect(actual_capture_positions).to eq(expected_capture_positions),
-                "Regex has #{actual_capture_positions.size} capture groups, but expected #{expected_capture_positions.size} extractions."
+                "Regex has #{actual_capture_positions.size} capture groups, but the fingerprint expected #{expected_capture_positions.size} extractions."
             end
           end
 
