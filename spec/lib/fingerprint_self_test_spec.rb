@@ -46,7 +46,7 @@ describe Recog::DB do
               actual_capture_positions = []
               capture_number = 1
               Regexp::Scanner.scan(fp.regex).each do |token_parts|
-                if token_parts.first == :group  && ![:close, :passive].include?(token_parts[1])
+                if token_parts.first == :group  && ![:close, :passive, :options].include?(token_parts[1])
                   actual_capture_positions << capture_number
                   capture_number += 1
                 end
@@ -56,7 +56,7 @@ describe Recog::DB do
               actual_capture_positions = actual_capture_positions.sort.uniq
               expected_capture_positions = expected_capture_positions.sort.uniq
               expect(actual_capture_positions).to eq(expected_capture_positions),
-                "Regex didn't capture (#{actual_capture_positions}) exactly what fingerprint extracted (#{expected_capture_positions})"
+                "Regex has #{actual_capture_positions.size} capture groups, but expected #{expected_capture_positions.size} extractions."
             end
           end
 
