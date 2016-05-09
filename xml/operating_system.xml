@@ -193,14 +193,6 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^(?i:(?:Oracle|Sun)?\s?OpenSolaris\s?(\d+?(?:\.\d+?)*?)?)$">
-    <description>OpenSolaris</description>
-    <example os.version="2009.06">OpenSolaris 2009.06</example>
-    <param pos="0" name="os.vendor" value="Sun"/>
-    <param pos="0" name="os.family" value="Solaris"/>
-    <param pos="0" name="os.product" value="Solaris"/>
-    <param pos="1" name="os.version"/>
-  </fingerprint>
   <fingerprint pattern="^(?i:OpenSUSE(?: Linux)?(?: Leap)??\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>OpenSUSE Linux</description>
     <example os.version="10.1">OpenSUSE Linux 10.1</example>
@@ -240,15 +232,6 @@
     <param pos="0" name="os.vendor" value="Slackware"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-    <param pos="1" name="os.version"/>
-  </fingerprint>
-  <fingerprint pattern="^(?i:(?:Oracle|Sun)?\s?(?:Solaris|SunOS)\s?(\d+?(?:\.\d+?)*?)?)$">
-    <description>Solaris</description>
-    <example os.version="11.3">Solaris 11.3</example>
-    <example os.version="5.11">SunOS 5.11</example>
-    <param pos="0" name="os.vendor" value="Sun"/>
-    <param pos="0" name="os.family" value="Solaris"/>
-    <param pos="0" name="os.product" value="Solaris"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="^(?i:SUSE(?: SLED)?(?: Linux Enterprise Desktop)?\s?(\d+?(?:\.\d+?)*?)?)$">
@@ -451,6 +434,23 @@
   <!-- BSD end -->
 
   <!-- Other Unix-likes begin -->
+  <fingerprint pattern="^(?i:(?:Oracle|Sun)?\s?OpenSolaris\s?(\d+?(?:\.\d+?)*?)?)$">
+    <description>OpenSolaris</description>
+    <example os.version="2009.06">OpenSolaris 2009.06</example>
+    <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(?i:(?:Oracle|Sun)?\s?(?:Solaris|SunOS)\s?(\d+?(?:\.\d+?)*?)?)$">
+    <description>Solaris</description>
+    <example os.version="11.3">Solaris 11.3</example>
+    <example os.version="5.11">SunOS 5.11</example>
+    <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
   <fingerprint pattern="^(?i:(?:IBM\s?)?(AIX|MVS|OS/(?:\d{1,3})|VM/CMS|VM/ESA|z/OS)\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>IBM OSes</description>
     <example os.product="AIX">AIX</example>
