@@ -100,6 +100,7 @@ class Fingerprint
       # Ensure that all the attributes as provided by the example were parsed
       # out correctly and match the capture group values we expect.
       test.attributes.each do |k, v|
+        next if k == '_encoding'
         if !result.has_key?(k) || result[k] != v
           message = "'#{@name}' failed to find expected capture group #{k} '#{v}'"
           status = :fail

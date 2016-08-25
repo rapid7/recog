@@ -71,6 +71,7 @@ describe Recog::DB do
               expect(match).to_not be_nil, 'Regex did not match'
               # test any extractions specified in the example
               example.attributes.each_pair do |k,v|
+                next if k == '_encoding'
                 expect(match[k]).to eq(v), "Regex didn't extract expected value for fingerprint attribute #{k} -- got #{match[k]} instead of #{v}"
               end
             end
