@@ -11,7 +11,7 @@
     Windows that Samba is eumlating or else the Windows fallback fingerprint for
     the given OS version may match.
   -->
-  <fingerprint pattern="vendorName1.\x04.Samba.*domainControllerFunctionality1.{1,5}\x04\x014" flags="REG_MULTILINE">
+  <fingerprint pattern="(?m:vendorName1.\x04.Samba.*domainControllerFunctionality1.{1,5}\x04\x014)">
     <description>Samba Active Directory Controller</description>
     <example _encoding="base64">
       dmVuZG9yTmFtZTEfBB1TYW1iYSBUZWFtIChodHRwOi8vc2FtYmEub3JnKS5kYXRhLnJlbW92Z
@@ -21,7 +21,7 @@
     <param pos="0" name="service.product" value="Active Directory Controller"/>
   </fingerprint>
 
-  <fingerprint pattern="vendorName1.\x04.Samba.*domainFunctionality1.\x04\x0100.\x04\x13forestFunctionality1\x03\x04\x0100" flags="REG_MULTILINE">
+  <fingerprint pattern="(?m:vendorName1.\x04.Samba.*domainFunctionality1.\x04\x0100.\x04\x13forestFunctionality1\x03\x04\x0100)">
     <description>Samba Active Directory Controller emulating Windows 2000</description>
     <example _encoding="base64">
       dmVuZG9yTmFtZTEfBB1TYW1iYSBUZWFtIChodHRwOi8vc2FtYmEub3JnKS5kYXRhLnJlbW92Z
@@ -320,7 +320,7 @@
     <param pos="0" name="service.product" value="OpenLDAP"/>
   </fingerprint>
 
-  <fingerprint pattern="naming[Cc]ontexts1.\x04.fn=ContactRoot0.[\x02\x04]">
+  <fingerprint pattern="(?i:namingcontexts1.\x04.fn=ContactRoot0.[\x02\x04])">
     <description>Kerio Connect</description>
     <example service.product="Connect" _encoding="base64">
       bmFtaW5nQ29udGV4dHMxEAQOZm49Q29udGFjdFJvb3QwKAQUZGVmYXVsdE5hbWluZ0NvbnRle
@@ -342,7 +342,7 @@
 
   <!-- Fedora / 389 Project family -->
   <!--  http://directory.fedoraproject.org/docs/389ds/FAQ/history.html  -->
-  <fingerprint pattern="vendor[Nn]ame1.\x04.Fedora Project0.\x04\rvendor[Vv]ersion1.\x04.Fedora-Directory/(\d\.\d[\w.]* B\d+\.\d+\.\d+)">
+  <fingerprint pattern="(?i:vendorname1.\x04.Fedora Project0.\x04\rvendorversion1.\x04.Fedora-Directory/(\d\.\d[\w.]* B\d+\.\d+\.\d+))">
     <description>Fedora Project Fedora Directory Server</description>
     <example service.version="1.0.4 B2006.312.5450" _encoding="base64">
       dmVuZG9yTmFtZTEQBA5GZWRvcmEgUHJvamVjdDA3BA12ZW5kb3JWZXJzaW9uMSYEJEZlZG9yY
@@ -357,7 +357,7 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="vendor[Nn]ame1.\x04.389 Project0.\x04\rvendor[Vv]ersion1.\x04.389-Directory/(\d\.\d[\w.]* B\d+\.\d+\.\d+)">
+  <fingerprint pattern="(?i:vendorname1.\x04.389 Project0.\x04\rvendorversion1.\x04.389-Directory/(\d\.\d[\w.]* B\d+\.\d+\.\d+))">
     <description>389 Project 389 Directory Server</description>
     <example service.version="1.2.11.25 B2013.325.19510" _encoding="base64">
       dmVuZG9yTmFtZTENBAszODkgUHJvamVjdDA5BA12ZW5kb3JWZXJzaW9uMSgEJjM4OS1EaXJlY
@@ -390,7 +390,7 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="vendor[Nn]ame1.\x04.Netscape Communications Corp.0.\x04\rvendor[Vv]ersion1.\x04.Netscape-Directory/(\d\.\d[\d.]* B\d+\.\d+\.\d+).\x04\v">
+  <fingerprint pattern="(?i:vendorname1.\x04.Netscape Communications Corp.0.\x04\rvendorversion1.\x04.Netscape-Directory/(\d\.\d[\d.]* B\d+\.\d+\.\d+).\x04\v)">
     <description>Netscape Directory Server</description>
     <example service.version="6.11 B2002.281.08530" _encoding="base64">
       dmVuZG9yTmFtZTEfBB1OZXRzY2FwZSBDb21tdW5pY2F0aW9ucyBDb3JwLjA5BA12ZW5kb3JWZ
@@ -482,7 +482,7 @@
   </fingerprint>
 
   <!-- Various iterations of Sun, now Oracle, Directory Server -->
-  <fingerprint pattern="vendor[Nn]ame1\x18\x04\x16Sun Microsystems, Inc.0.+\x04\rvendor[Vv]ersion1.{1,2}\x04.{1,2}Sun[- ]Java\([Tt][Mm]\)[- ]System[- ]Directory(?: Server)?/(\d\.\d+[\w.]*)0.{1,3}\x04">
+  <fingerprint pattern="(?i:vendorname1\x18\x04\x16Sun Microsystems, Inc.0.+\x04\rvendorversion1.{1,2}\x04.{1,2}Sun[- ]Java\(tm\)[- ]System[- ]Directory(?: Server)?/(\d\.\d+[\w.]*)0.{1,3}\x04)">
     <description>Sun Java(TM) System Directory Server</description>
     <example service.version="5.2_Patch_6" _encoding="base64">
       dmVuZG9yTmFtZTEYBBZTdW4gTWljcm9zeXN0ZW1zLCBJbmMuMEMEDXZlbmRvclZlcnNpb24xM
@@ -506,7 +506,7 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="vendor[Nn]ame1\x18\x04\x16Sun Microsystems, Inc.0.\x04\rvendor[Vv]ersion1.\x04.Sun-Directory-Server/([\w.]+)0.{1,3}\x04">
+  <fingerprint pattern="(?i:vendorname1\x18\x04\x16Sun Microsystems, Inc.0.\x04\rvendorversion1.\x04.Sun-Directory-Server/([\w.]+)0.{1,3}\x04)">
     <description>Sun Directory Server</description>
     <example service.version="7.0" _encoding="base64">
       dmVuZG9ybmFtZTEYBBZTdW4gTWljcm9zeXN0ZW1zLCBJbmMuMCsEDXZlbmRvcnZlcnNpb24xG
@@ -525,7 +525,7 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="vendor[Nn]ame1\x14\x04\x12Oracle Corporation0.\x04\rvendor[Vv]ersion1.\x04.Sun-Directory-Server/([\w.]+)[0 ].{1,3}\x04">
+  <fingerprint pattern="(?i:vendorname1\x14\x04\x12Oracle Corporation0.\x04\rvendorversion1.\x04.Sun-Directory-Server/([\w.]+)[0 ].{1,3}\x04)">
     <description>Oracle Sun Directory Server</description>
     <example service.version="11.1.1.7.2" _encoding="base64">
       dmVuZG9yTmFtZTEUBBJPcmFjbGUgQ29ycG9yYXRpb24wMgQNdmVuZG9yVmVyc2lvbjEhBB9Td
@@ -552,7 +552,7 @@
   </fingerprint>
 
   <!-- Very old, rare, same family as above. Roll into those? -->
-  <fingerprint pattern="vendor[Nn]ame1.\x04.Sun Microsystems, Inc.0.\x04\rvendor[Vv]ersion1.\x04.Sun-ONE-Directory/([\w.]+)0.\x04">
+  <fingerprint pattern="(?i:vendorname1.\x04.Sun Microsystems, Inc.0.\x04\rvendorversion1.\x04.Sun-ONE-Directory/([\w.]+)0.\x04)">
     <description>Sun ONE Directory Server</description>
     <example service.version="5.2" _encoding="base64">
       dmVuZG9yTmFtZTEYBBZTdW4gTWljcm9zeXN0ZW1zLCBJbmMuMCgEDXZlbmRvclZlcnNpb24xF
@@ -677,7 +677,7 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="namingContexts1.\x04.cn=.?[Pp][Bb][Xx].*\x04.ldapServiceName1.\x04.IPVA-\w+-" flags="REG_MULTILINE">
+  <fingerprint pattern="(?im:namingContexts1.\x04.cn=.?pbx.*\x04.ldapServiceName1.\x04.IPVA-\w+-)">
     <description>innovaphone VoIP Gateway Virtual Appliance</description>
     <example _encoding="base64">
       Dm5hbWluZ0NvbnRleHRzMQoECGNuPUtQQlgwMCIED2xkYXBTZXJ2aWNlTmFtZTEPBA1JUFZBL
@@ -688,7 +688,7 @@
     <param pos="0" name="service.product" value="IPVA"/>
   </fingerprint>
 
-  <fingerprint pattern="namingContexts1.\x04.cn=.?[Pp][Bb][Xx].*\x04.ldapServiceName1.\x04.(IP\d+)-\w+-" flags="REG_MULTILINE">
+  <fingerprint pattern="(?im:namingContexts1.\x04.cn=.?pbx.*\x04.ldapServiceName1.\x04.(IP\d+)-\w+-)">
     <description>innovaphone VoIP Gateway</description>
     <example service.product="IP800" _encoding="base64">
       bmFtaW5nQ29udGV4dHMxCgQIY249S1BCWDAwIwQPbGRhcFNlcnZpY2VOYW1lMRAEDklQODAwL
@@ -699,7 +699,7 @@
     <param pos="1" name="service.product"/>
   </fingerprint>
 
-  <fingerprint pattern="namingContexts1.\x04.cn=.?[Pp][Bb][Xx].*\x04.ldapServiceName1.\x04.(IPBS\d*)-\w+-" flags="REG_MULTILINE">
+  <fingerprint pattern="(?im:namingContexts1.\x04.cn=.?pbx.*\x04.ldapServiceName1.\x04.(IPBS\d*)-\w+-)">
     <description>Ascom IP-DECT Base Station</description>
     <example service.product="IPBS2" _encoding="base64">
       bmFtaW5nQ29udGV4dHMxCQQHY249UEJYMDAjBA9sZGFwU2VydmljZU5hbWUxEAQOSVBCUzItM
@@ -710,7 +710,7 @@
     <param pos="1" name="service.product"/>
   </fingerprint>
 
-  <fingerprint pattern="namingContexts1.\x04.cn=.?[Pp][Bb][Xx].*\x04.ldapServiceName1.\x04.(IPBL\d*)-\w+-" flags="REG_MULTILINE">
+  <fingerprint pattern="(?im:namingContexts1.\x04.cn=.?pbx.*\x04.ldapServiceName1.\x04.(IPBL\d*)-\w+-)">
     <description>Ascom IP-DECT Gateway</description>
     <example service.product="IPBL" _encoding="base64">
       bmFtaW5nQ29udGV4dHMxCQQHY249UEJYMDAiBA9sZGFwU2VydmljZU5hbWUxDwQNSVBCTC0zM
