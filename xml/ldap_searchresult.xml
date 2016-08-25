@@ -5,9 +5,9 @@
 -->
 <fingerprints matches="ldap.search_result">
 
-  <!-- 
-    Samba - position prior to Windows entries due to regex. When testing new 
-    Samba fingerprints make sure you disable the matches for the version of 
+  <!--
+    Samba - position prior to Windows entries due to regex. When testing new
+    Samba fingerprints make sure you disable the matches for the version of
     Windows that Samba is eumlating or else the Windows fallback fingerprint for
     the given OS version may match.
   -->
@@ -33,9 +33,9 @@
   </fingerprint>
 
 
-  <!-- 
-    Windows Active Directory and Lightweight Directory Server (ADAM) 
-    
+  <!--
+    Windows Active Directory and Lightweight Directory Server (ADAM)
+
     domainControllerFunctionality reference:
       https://msdn.microsoft.com/en-us/library/cc223272.aspx
 
@@ -188,7 +188,7 @@
     <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
   </fingerprint>
 
-  <!-- 
+  <!--
     This generic match for domainControllerFunctionality =  4 will capture
     current Samba implementations.  Disable the fingerprint below when testing Samba
   -->
@@ -339,7 +339,7 @@
     <param pos="0" name="service.product" value="Platform Services Controller"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  
+
   <!-- Fedora / 389 Project family -->
   <!--  http://directory.fedoraproject.org/docs/389ds/FAQ/history.html  -->
   <fingerprint pattern="vendor[Nn]ame1.\x04.Fedora Project0.\x04\rvendor[Vv]ersion1.\x04.Fedora-Directory/(\d\.\d[\w.]* B\d+\.\d+\.\d+)">
