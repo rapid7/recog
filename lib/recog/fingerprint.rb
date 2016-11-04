@@ -43,7 +43,17 @@ class Fingerprint
   # @return [Hash,nil] Keys will be host, service, and os attributes
   def match(match_string)
     # match_string.force_encoding('BINARY') if match_string
-    match_data = @regex.match(match_string)
+    begin
+      match_data = @regex.match(match_string)
+    rescue Encoding::CompatibilityError
+      ## FIXFIX - Determine if this can be addressed
+      return nil
+    rescue Exception => e
+      STDERR.puts e.inspect
+      STDERR.puts e
+      STDERR.puts "Problematic banner:\n#{match_string}"
+      STDERR.puts match_string.length
+    end
     return if match_data.nil?
 
     result = { 'matched' => @name }

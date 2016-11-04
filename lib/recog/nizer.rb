@@ -60,6 +60,25 @@ class Nizer
   end
 
   #
+  # Search all fingerprint dbs and attempt to find a matching
+  # {Fingerprint fingerprint}, stopping at the first hit. Returns `nil`
+  # when no matching database or fingerprint is found.
+  #
+  # @param match_string [String] Service banner to match
+  # @return (see Fingerprint#match)
+  def self.match_all_db(match_string)
+    match_string = match_string.to_s.unpack("C*").pack("C*")
+    @@db_manager ||= Recog::DBManager.new
+    @@db_manager.databases.each do |db|
+      db.fingerprints.each do |fprint|
+        m = fprint.match(match_string)
+        return m if m
+      end
+    end
+    nil
+  end
+
+  #
   # Consider an array of match outputs, choose the best result, taking into
   # account the granularity of OS vs Version vs SP vs Language. Only consider
   # fields relevant to the host (OS, name, mac address, etc).
