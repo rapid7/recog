@@ -304,9 +304,10 @@ fingerprint SSH servers.
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="13.04"/>
   </fingerprint>
-  <fingerprint pattern="^OpenSSH_(6\.1)_(hpn13v11)$">
+  <fingerprint pattern="^OpenSSH_(\d+\.\d+(?:\.\d+)?(?:p\d+)?)[_|-](hpn13v11)$">
     <description>OpenSSH</description>
     <example service.version="6.1" openssh.comment="hpn13v11">OpenSSH_6.1_hpn13v11</example>
+    <example service.version="5.8p1" openssh.comment="hpn13v11">OpenSSH_5.8p1-hpn13v11</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
