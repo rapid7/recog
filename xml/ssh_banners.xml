@@ -304,6 +304,17 @@ fingerprint SSH servers.
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="13.04"/>
   </fingerprint>
+  <fingerprint pattern="^OpenSSH_(\d+\.\d+(?:\.\d+)?(?:p\d+)?)[_|-](hpn\d+v\d+)$">
+    <description>OpenSSH with HPN patches</description>
+    <example service.version="6.1" openssh.comment="hpn13v11">OpenSSH_6.1_hpn13v11</example>
+    <example service.version="5.8p1" openssh.comment="hpn13v11">OpenSSH_5.8p1-hpn13v11</example>
+    <example service.version="5.8p1" openssh.comment="hpn14v9">OpenSSH_5.8p1-hpn14v9</example>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="openssh.comment"/>
+    <param pos="0" name="service.vendor" value="OpenBSD"/>
+    <param pos="0" name="service.family" value="OpenSSH"/>
+    <param pos="0" name="service.product" value="OpenSSH"/>
+  </fingerprint>
   <fingerprint pattern="^OpenSSH_(6\.6(?:\.\d)?p1) (Ubuntu-2ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 14.04</description>
     <example service.version="6.6p1" openssh.comment="Ubuntu-2ubuntu1">OpenSSH_6.6p1 Ubuntu-2ubuntu1</example>
@@ -381,9 +392,10 @@ fingerprint SSH servers.
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="8.0"/>
   </fingerprint>
-  <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Debian.+squeeze.*)$">
+  <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Debian-6(?:squeeze)?.*)$">
     <description>OpenSSH running on Debian 6.0 (squeeze)</description>
     <example service.version="5.5p1" openssh.comment="Debian-6+squeeze4">OpenSSH_5.5p1 Debian-6+squeeze4</example>
+    <example service.version="5.5p1" openssh.comment="Debian-6">OpenSSH_5.5p1 Debian-6</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -492,6 +504,17 @@ fingerprint SSH servers.
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
+  </fingerprint>
+  <fingerprint pattern="^OpenSSH_(\d+\.\d+(?:\.\d+)?(?:p\d+)?) ((?:PKIX\s+)?FIPS)$">
+    <description>OpenSSH with a version and FIPS mode enabled</description>
+    <example service.version="5.9" openssh.comment="FIPS">OpenSSH_5.9 FIPS</example>
+    <example service.version="6.2" openssh.comment="PKIX FIPS">OpenSSH_6.2 PKIX FIPS</example>
+    <example service.version="3.8.1p1" openssh.comment="FIPS">OpenSSH_3.8.1p1 FIPS</example>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="openssh.comment"/>
+    <param pos="0" name="service.vendor" value="OpenBSD"/>
+    <param pos="0" name="service.family" value="OpenSSH"/>
+    <param pos="0" name="service.product" value="OpenSSH"/>
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(\d+\.\d+(?:\.\d+)?(?:p\d+)?)$">
     <description>OpenSSH with just a version, no comment by vendor</description>
