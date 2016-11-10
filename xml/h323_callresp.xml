@@ -3,7 +3,7 @@
 Responses to H.323 call SETUP messages are matched against these patterns
 to fingerprint H.323 servers.
 -->
-<fingerprints>
+<fingerprints protocol="h.323">
   <fingerprint pattern="^0x000b2d00\:(.*)\:.*?(\d*\.*\d*\.*\d*).*$" flags="REG_ICASE">
     <description>Sony H.323 Server</description>
     <param pos="0" name="service.vendor" value="Sony"/>

@@ -18,7 +18,7 @@ These XML files are used in this order:
 
 The system or service fingerprint with the highest certainty overwrites the others.
 -->
-<fingerprints matches="smtp.banner">
+<fingerprints matches="smtp.banner" protocol="smtp">
   <fingerprint pattern="^X1 NT-ESMTP Server ([^ ]+) \(IMail (\d+\.[^ ]+) EVAL \d+-\d+\)$">
     <description>IMail EVAL version</description>
     <param pos="0" name="service.vendor" value="Ipswitch"/>

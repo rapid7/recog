@@ -27,7 +27,10 @@ class Fingerprint
   attr_reader :tests
 
   # @param xml [Nokogiri::XML::Element]
-  def initialize(xml)
+  # @param match_protocol [String] Protocol such as ftp, mssql, http, etc.
+  def initialize(xml, match_key, match_protocol)
+    @match_key = match_key
+    @match_protocol = match_protocol
     @name   = parse_description(xml)
     @regex  = create_regexp(xml)
     @params = {}
@@ -68,6 +71,17 @@ class Fingerprint
         result[k] = match_data[ pos ]
       end
     end
+
+    # Use the protocol specified in the XML database if there isn't one
+    # provided as part of this fingerprint.
+    if @match_protocol
+      unless result['service.protocol']
+        result['service.protocol'] = @match_protocol
+      end
+    end
+
+    result['fingerprint_db'] = @match_key if @match_key
+
     return result
   end
 

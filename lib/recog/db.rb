@@ -17,9 +17,14 @@ class DB
   #   defaults to the basename of {#path} without the `.xml` extension.
   attr_reader :match_key
 
+  # @return [String] Taken from the `fingerprints/protocol` element, or
+  #   defaults to an empty string
+  attr_reader :match_protocol
+
   # @param path [String]
   def initialize(path)
     @match_key = nil
+    @match_protocol = ''
     @path = path
     @fingerprints = []
 
@@ -40,6 +45,10 @@ class DB
       if fbase['matches']
         @match_key = fbase['matches'].to_s
       end
+
+      if fbase['protocol']
+        @match_protocol = fbase['protocol'].to_s
+      end
     end
 
     unless @match_key
@@ -47,7 +56,7 @@ class DB
     end
 
     xml.xpath("/fingerprints/fingerprint").each do |fprint|
-      @fingerprints << Fingerprint.new(fprint)
+      @fingerprints << Fingerprint.new(fprint, @match_key, @match_protocol)
     end
 
     xml = nil

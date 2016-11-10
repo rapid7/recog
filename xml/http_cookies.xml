@@ -3,7 +3,7 @@
 Set-Cookie HTTP header values are matched against these patterns to fingerprint HTTP
 servers.
 -->
-<fingerprints matches="http_header.cookie">
+<fingerprints matches="http_header.cookie" protocol="http">
   <fingerprint pattern="^(CFCLIENT_[^=]+|CFGLOBALS|CFID|CFTOKEN)=.*">
     <description>
          Adobe (Macromedia) ColdFusion uses various cookies.
