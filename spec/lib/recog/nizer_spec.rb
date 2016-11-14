@@ -1,6 +1,12 @@
 require 'recog'
 require 'yaml'
 
+
+VALID_FILTER = {match_key: 'smb.native_os', protocol: 'smb', type: 'service'}
+NOMATCH_MATCH_KEY = {match_key: 'no_such_987', protocol: 'smb', type: 'service'}
+NOMATCH_PROTO = {match_key: 'smb.native_os', protocol: 'no_such_987', type: 'service'}
+NOMATCH_TYPE = {match_key: 'smb.native_os', protocol: 'smb', type: 'no_such_987'}
+
 describe Recog::Nizer do
   subject { described_class }
 
@@ -24,12 +30,81 @@ describe Recog::Nizer do
           end
         end
 
+        let(:invalid_db_result) { subject.match('no_such_987', data) }
+        it "returns a nil when match_key search doesn't match" do
+          expect(invalid_db_result).to be_nil
+        end
       end
     end
 
     line = 'non-existent'
     context "with non-existent match" do
       let(:match_result) {subject.match('smb.native_os', line) }
+      it "returns a nil" do
+        expect(match_result).to be_nil
+      end
+    end
+  end
+
+  describe ".match_all_db" do
+    File.readlines(File.expand_path(File.join('spec', 'data', 'smb_native_os.txt'))).each do |line|
+      data = line.strip
+      context "with smb_native_os:#{data}" do
+        let(:match_result) { subject.match_all_db(data, VALID_FILTER) }
+
+        it "returns a hash" do
+          expect(match_result.class).to eq(::Hash)
+        end
+
+        it "returns a successful match" do
+          expect(match_result['matched'].to_s).to match(/^[A-Z]/)
+        end
+
+        it "correctly matches service or os" do
+          if data =~ /^Windows/
+            expect(match_result['os.product']).to match(/^Windows/)
+          end
+        end
+
+        it "correctly matches protocol" do
+          expect(match_result['service.protocol']).to eq('smb')
+        end
+
+        let(:no_filter_result) { subject.match_all_db(data) }
+        it "returns a hash when searching without a filter" do
+          expect(no_filter_result.class).to eq(::Hash)
+        end
+
+        it "returns a successful match when searching without a filter" do
+          expect(no_filter_result['matched'].to_s).to match(/^[A-Z]/)
+        end
+
+        it "correctly matches service or os when searching without a filter" do
+          if data =~ /^Windows/
+            expect(no_filter_result['os.product']).to match(/^Windows/)
+          end
+        end
+
+        let(:nomatch_db_result) { subject.match_all_db(data, NOMATCH_MATCH_KEY) }
+        it "returns a nil when match_key search doesn't match" do
+          expect(nomatch_db_result).to be_nil
+        end
+
+        let(:nomatch_proto_result) { subject.match_all_db(data, NOMATCH_PROTO) }
+        it "returns a nil when protocol search doesn't match" do
+          expect(nomatch_proto_result).to be_nil
+        end
+
+        let(:nomatch_type_result) { subject.match_all_db(data, NOMATCH_TYPE) }
+        it "returns a nil when type search doesn't match" do
+          expect(nomatch_type_result).to be_nil
+        end
+      end
+    end
+
+    line = 'non-existent'
+    context "with non-existent match" do
+      let(:match_result) {subject.match_all_db(line) }
       it "returns a nil" do
         expect(match_result).to be_nil
       end
@@ -57,6 +132,115 @@ describe Recog::Nizer do
               expect(mr['os.product']).to match(/^Windows/)
             end
           end
+        end
+
+        let(:invalid_db_result) { subject.multi_match('no_such_987', data) }
+        it "returns an array when passed an invalid match_key" do
+          expect(invalid_db_result.class).to eq(::Array)
+        end
+
+        it "returns an empty array when passed an invalid match_key" do
+          expect(invalid_db_result).to be_empty
+        end
+      end
+
+    end
+
+    line = 'non-existent'
+    context "with non-existent match" do
+      let(:match_results) {subject.multi_match('smb.native_os', line) }
+
+      it "returns an array" do
+        expect(match_results.class).to eq(::Array)
+      end
+
+      it "returns an empty array" do
+        expect(match_results).to be_empty
+      end
+    end
+  end
+
+  describe ".multi_match_all_db" do
+    File.readlines(File.expand_path(File.join('spec', 'data', 'smb_native_os.txt'))).each do |line|
+      data = line.strip
+
+      context "with smb_native_os:#{data}" do
+        let(:match_results) {subject.multi_match_all_db(data, VALID_FILTER) }
+
+        it "returns an array" do
+          expect(match_results.class).to eq(::Array)
+        end
+
+        it "returns at least one successful match" do
+          expect(match_results.size).to be > 0
+        end
+
+        it "correctly matches service or os" do
+          match_results do |mr|
+            if data =~ /^Windows/
+              expect(mr['os.product']).to match(/^Windows/)
+            end
+          end
+        end
+
+        it "correctly matches protocol" do
+          match_results do |mr|
+            if data =~ /^Windows/
+              expect(mr['service.protocol']).to eq('smb')
+            end
+          end
+        end
+
+        let(:no_filter_results) {subject.multi_match_all_db(data) }
+        it "returns an array" do
+          expect(no_filter_results.class).to eq(::Array)
+        end
+
+        it "returns at least one successful match" do
+          expect(no_filter_results.size).to be > 0
+        end
+
+        it "correctly matches service or os" do
+          no_filter_results do |mr|
+            if data =~ /^Windows/
+              expect(mr['os.product']).to match(/^Windows/)
+            end
+          end
+        end
+
+        it "correctly matches protocol" do
+          no_filter_results do |mr|
+            if data =~ /^Windows/
+              expect(mr['service.protocol']).to eq('smb')
+            end
+          end
+        end
+
+        let(:nomatch_db_result) { subject.multi_match_all_db(data, NOMATCH_MATCH_KEY) }
+        it "returns an array when match_key search doesn't match" do
+          expect(nomatch_db_result.class).to eq(::Array)
+        end
+
+        it "returns an empty array when match_key search doesn't match" do
+          expect(nomatch_db_result).to be_empty
+        end
+
+        let(:nomatch_proto_result) { subject.multi_match_all_db(data, NOMATCH_PROTO) }
+        it "returns an array when match_key search doesn't match" do
+          expect(nomatch_proto_result.class).to eq(::Array)
+        end
+
+        it "returns an empty array when match_key search doesn't match" do
+          expect(nomatch_proto_result).to be_empty
+        end
+
+        let(:nomatch_type_result) { subject.multi_match_all_db(data, NOMATCH_TYPE) }
+        it "returns an array when match_key search doesn't match" do
+          expect(nomatch_type_result.class).to eq(::Array)
+        end
+
+        it "returns an empty array when match_key search doesn't match" do
+          expect(nomatch_type_result).to be_empty
         end
       end
 

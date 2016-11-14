@@ -19,12 +19,23 @@ class DB
 
   # @return [String] Taken from the `fingerprints/protocol` element, or
   #   defaults to an empty string
-  attr_reader :match_protocol
+  attr_reader :protocol
+
+  # @return [String] Taken from the `fingerprints/type` element
+  #   defaults to an empty string
+  attr_reader :db_type
+
+  # @return [Integer] Taken from the `fingerprints/priority` element,
+  #   defaults to 100.  Used when ordering databases, lowest numbers
+  #   first.
+  attr_reader :priority
 
   # @param path [String]
   def initialize(path)
     @match_key = nil
-    @match_protocol = ''
+    @protocol = ''
+    @db_type = ''
+    @priority = 100
     @path = path
     @fingerprints = []
 
@@ -47,7 +58,15 @@ class DB
       end
 
       if fbase['protocol']
-        @match_protocol = fbase['protocol'].to_s
+        @protocol = fbase['protocol'].to_s
+      end
+
+      if fbase['type']
+        @db_type = fbase['type'].to_s
+      end
+
+      if fbase['priority']
+        @priority = fbase['priority'].to_i
       end
     end
 
@@ -56,7 +75,7 @@ class DB
     end
 
     xml.xpath("/fingerprints/fingerprint").each do |fprint|
-      @fingerprints << Fingerprint.new(fprint, @match_key, @match_protocol)
+      @fingerprints << Fingerprint.new(fprint, @match_key, @protocol)
     end
 
     xml = nil

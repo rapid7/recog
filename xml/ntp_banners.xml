@@ -2,7 +2,7 @@
 <!--
 NTP "banners", taken from a readvar response
 -->
-<fingerprints matches="ntp.readvar" protocol="ntp">
+<fingerprints matches="ntp.readvar" protocol="ntp" type="service" priority="20">
   <fingerprint pattern="^.*version=Domain Time II (\S+),hostname=([^,]+),.*system=Win2003.*,processor=(\S+)" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>Greyware Automation Products, Inc. Domain Time II on Windows Server 2003</description>
     <example service.version="5.1.b.20100331R" os.arch="x64" host.name="blah">

@@ -5,7 +5,7 @@ SMTP response lines to the NOOP command are matched against these patterns
 
 See comment at the top of smtp_banners.xml for additional info.
 -->
-<fingerprints protocol="smtp">
+<fingerprints protocol="smtp" type="service">
   <fingerprint pattern="^220 OK.*$">
     <description>
          CheckPoint FireWall-1 returns code 220 for NOOP command (instead of 250)

@@ -5,7 +5,7 @@ SMTP response lines to the EHLO command are matched against these patterns
 
 See comment at the top of smtp_banners.xml for additional info.
 -->
-<fingerprints protocol="smtp">
+<fingerprints protocol="smtp" type="service">
   <fingerprint pattern="^500[ -]Syntax error, command &quot;XXXX&quot; unrecognized$">
     <description>
          Cisco PIX changes the command letters to 'X' before passing

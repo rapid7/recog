@@ -3,7 +3,7 @@
 POP3 greeting messages (part of the banner after the status indicator +OK or -ERR) are
 matched against these patterns to fingerprint POP3 servers.
 -->
-<fingerprints matches="pop3.banner" protocol="pop3">
+<fingerprints matches="pop3.banner" protocol="pop3" type="service" priority="10">
   <fingerprint pattern="^([^ ]+) +Cyrus POP3 v(\d+\.\d+.*)-OS X(?: Server)? ([\d\.]+).* server ready">
     <description>OSX Cyrus POP</description>
     <example host.domain="8.8.8.8" service.version="2.3.8" os.version="10.5">8.8.8.8 Cyrus POP3 v2.3.8-OS X Server 10.5: 9A562 server ready &lt;1999107648.1324502155@8.8.8.8&gt;</example>

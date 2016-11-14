@@ -4,7 +4,7 @@ SSH "software revision and comment" strings (official RFC nomenclature for the p
 the identification string after "SSH-x.x-") are matched against these patterns to
 fingerprint SSH servers.
 -->
-<fingerprints matches="ssh.banner" protocol="ssh">
+<fingerprints matches="ssh.banner" protocol="ssh" type="service" priority="10">
   <!-- Honeypot SSH server banners are useless for fingerprinting -->
   <fingerprint pattern="honeypot" flags="REG_ICASE">
     <description>Honeypot SSH</description>

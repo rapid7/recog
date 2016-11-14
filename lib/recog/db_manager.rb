@@ -13,8 +13,12 @@ class DBManager
   end
 
   def load_databases
-    Dir[self.path + "/*.xml"].each do |dbxml|
-      self.databases << DB.new(dbxml)
+    if File.directory?(self.path)
+      Dir[self.path + "/*.xml"].each do |dbxml|
+        self.databases << DB.new(dbxml)
+      end
+    elsif File.file?(self.path) && File.readable?(self.path)
+       self.databases << DB.new(self.path)
     end
   end
 
