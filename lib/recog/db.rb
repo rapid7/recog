@@ -30,12 +30,15 @@ class DB
   #   first.
   attr_reader :priority
 
+  # Default Fingerprint database priority when it isn't specified in file
+  DEFAULT_FP_DB_PRIORITY = 100
+
   # @param path [String]
   def initialize(path)
     @match_key = nil
     @protocol = ''
     @db_type = ''
-    @priority = 100
+    @priority = DEFAULT_FP_DB_PRIORITY
     @path = path
     @fingerprints = []
 

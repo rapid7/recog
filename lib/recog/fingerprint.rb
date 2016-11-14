@@ -49,9 +49,9 @@ class Fingerprint
     # match_string.force_encoding('BINARY') if match_string
     begin
       match_data = @regex.match(match_string)
-    rescue Encoding::CompatibilityError
-      ## FIXFIX - Determine if this can be addressed
-      return nil
+    rescue Encoding::CompatibilityError => e
+      # 'ASCII-8BIT' encoded responses will be caught and fixed here.
+      match_data = @regex.match(match_string.force_encoding('UTF-8'))
     rescue Exception => e
       STDERR.puts e.inspect
       STDERR.puts e
