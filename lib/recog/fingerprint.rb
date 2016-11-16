@@ -55,7 +55,7 @@ class Fingerprint
         encoded_str = match_string.encode("UTF-8", :invalid => :replace, :undef => :replace, :replace => '')
         match_data = @regex.match(encoded_str)
       rescue Exception => e
-        STDERR.puts "Broke when re-encoding"
+        STDERR.puts 'Exception while re-encoding match_string to UTF-8'
         STDERR.puts e.inspect
         STDERR.puts e
         STDERR.puts match_string.length
@@ -65,6 +65,7 @@ class Fingerprint
         STDERR.puts match_string.pretty_inspect
       end
     rescue Exception => e
+      STDERR.puts 'Exception while running regex against match_string'
       STDERR.puts e.inspect
       STDERR.puts e
       STDERR.puts match_string.length

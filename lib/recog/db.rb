@@ -58,9 +58,9 @@ class DB
     xml.xpath('/fingerprints').each do |fbase|
 
       @match_key = fbase['matches'].to_s if fbase['matches']
-      @protocol  = fbase['protocol'].to_s if fbase['protocol']
+      @protocol = fbase['protocol'].to_s if fbase['protocol']
       @database_type = fbase['database_type'].to_s if fbase['database_type']
-      @priority  = fbase['priority'].to_i if fbase['priority']
+      @priority = fbase['priority'].to_i if fbase['priority']
 
     end
 

@@ -17,8 +17,8 @@ class DBManager
       Dir[self.path + "/*.xml"].each do |dbxml|
         self.databases << DB.new(dbxml)
       end
-    elsif File.file?(self.path) && File.readable?(self.path)
-       self.databases << DB.new(self.path)
+    else
+      self.databases << DB.new(self.path)
     end
   end
 
