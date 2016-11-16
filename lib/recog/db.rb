@@ -21,9 +21,9 @@ class DB
   #   defaults to an empty string
   attr_reader :protocol
 
-  # @return [String] Taken from the `fingerprints/type` element
+  # @return [String] Taken from the `fingerprints/database_type` element
   #   defaults to an empty string
-  attr_reader :db_type
+  attr_reader :database_type
 
   # @return [Integer] Taken from the `fingerprints/priority` element,
   #   defaults to 100.  Used when ordering databases, lowest numbers
@@ -37,7 +37,7 @@ class DB
   def initialize(path)
     @match_key = nil
     @protocol = ''
-    @db_type = ''
+    @database_type = ''
     @priority = DEFAULT_FP_DB_PRIORITY
     @path = path
     @fingerprints = []
@@ -49,35 +49,24 @@ class DB
   def parse_fingerprints
     xml = nil
 
-    File.open(self.path, "rb") do |fd|
+    File.open(self.path, 'rb') do |fd|
       xml = Nokogiri::XML(fd.read(fd.stat.size))
     end
 
     raise "#{self.path} is invalid XML: #{xml.errors.join(',')}" unless xml.errors.empty?
 
-    xml.xpath("/fingerprints").each do |fbase|
-      if fbase['matches']
-        @match_key = fbase['matches'].to_s
-      end
+    xml.xpath('/fingerprints').each do |fbase|
 
-      if fbase['protocol']
-        @protocol = fbase['protocol'].to_s
-      end
+      @match_key = fbase['matches'].to_s if fbase['matches']
+      @protocol  = fbase['protocol'].to_s if fbase['protocol']
+      @database_type = fbase['database_type'].to_s if fbase['database_type']
+      @priority  = fbase['priority'].to_i if fbase['priority']
 
-      if fbase['type']
-        @db_type = fbase['type'].to_s
-      end
-
-      if fbase['priority']
-        @priority = fbase['priority'].to_i
-      end
     end
 
-    unless @match_key
-      @match_key = File.basename(self.path).sub(/\.xml$/, '')
-    end
+    @match_key = File.basename(self.path).sub(/\.xml$/, '') unless @match_key
 
-    xml.xpath("/fingerprints/fingerprint").each do |fprint|
+    xml.xpath('/fingerprints/fingerprint').each do |fprint|
       @fingerprints << Fingerprint.new(fprint, @match_key, @protocol)
     end
 

@@ -27,7 +27,7 @@ class Nizer
   # Load fingerprints from a specific file or directory
   # This will not preserve any fingerprints that have already been loaded
   # @param path [String] Path to file or directory of XML fingerprints
-  def self.load_db(path=nil)
+  def self.load_db(path = nil)
     if path
       @@db_manager = Recog::DBManager.new(path)
     else
@@ -36,7 +36,7 @@ class Nizer
 
     # Sort the databases, no behavior or result change for those calling
     # Nizer.match or Nizer.multi_match as they have a single DB
-    @@db_manager.databases.sort! { |a,b| a.priority <=> b.priority }
+    @@db_manager.databases.sort! { |a, b| a.priority <=> b.priority }
     @@db_sorted = true
   end
 
@@ -56,8 +56,8 @@ class Nizer
 
   #
   # Locate a database that corresponds with the `match_key` and attempt to
-  # find a matching {Fingerprint fingerprint}, stopping at the first hit. Returns `nil`
-  # when no matching database or fingerprint is found.
+  # find a matching {Fingerprint fingerprint}, stopping at the first hit.
+  # Returns `nil` when no matching database or fingerprint is found.
   #
   # @param match_key [String] Fingerprint DB name, e.g. 'smb.native_os'
   # @return (see Fingerprint#match)
@@ -82,24 +82,28 @@ class Nizer
   # @param match_string [String] Service banner to match
   # @param [Hash] filters This hash contains filters used to limit the
   #   results to just those from specific types of fingerprints.
-  #   The matched values are derived from the 'fingerprints' top level
-  #   element in the fingerprint DB XML or, in the case of 'protocol',
-  #   this value can be overridden at the individual fingerprint level.
+  #   The values that these filters match come from the 'fingerprints' top
+  #   level element in the fingerprint DB XML or, in the case of 'protocol',
+  #   this value can be overridden at the individual fingerprint level by
+  #   setting a value for 'service.protocol'
+  #
+  #   With the exception of 'match_key', the filters below match the
+  #   'fingerprints' attributes with the same name.
   # @option filters [String] :match_key Value from XML 'matches' or file name
-  # @option filters [String] :fp_type  Fingerprint type (service, os, etc.)
+  # @option filters [String] :database_type  Fingerprint type (service, util.os, etc.)
   # @option filters [String] :protocol Protocol (ftp, smtp, etc.)
-  # @return (see Fingerprint#match)
+  # @return (see Fingerprint#match) or nil
   def self.match_all_db(match_string, filters = {})
     match_string = match_string.to_s.unpack("C*").pack("C*")
     @@db_manager ||= Recog::DBManager.new
     unless @@db_sorted
-      @@db_manager.databases.sort! { |a,b| a.priority <=> b.priority }
+      @@db_manager.databases.sort! { |a, b| a.priority <=> b.priority }
       @@db_sorted = true
     end
 
     @@db_manager.databases.each do |db|
       next if filters[:match_key] && !filters[:match_key].include?(db.match_key)
-      next if filters[:type] && !filters[:type].include?(db.db_type)
+      next if filters[:database_type] && !filters[:database_type].include?(db.database_type)
       db.fingerprints.each do |fprint|
         m = fprint.match(match_string)
         if m
@@ -117,7 +121,7 @@ class Nizer
     match_string = match_string.to_s.unpack("C*").pack("C*")
     @@db_manager ||= Recog::DBManager.new
 
-    matches = Array.new #array to hold all fingerprint matches
+    matches = Array.new # array to hold all fingerprint matches
 
     @@db_manager.databases.each do |db|
       next unless db.match_key == match_key
@@ -139,26 +143,30 @@ class Nizer
   # @param match_string [String] Service banner to match
   # @param [Hash] filters This hash contains filters used to limit the
   #   results to just those from specific types of fingerprints.
-  #   The matched values are derived from the 'fingerprints' top level
-  #   element in the fingerprint DB XML or, in the case of 'protocol',
-  #   this value can be overridden at the individual fingerprint level.
+  #   The values that these filters match come from the 'fingerprints' top
+  #   level element in the fingerprint DB XML or, in the case of 'protocol',
+  #   this value can be overridden at the individual fingerprint level by
+  #   setting a value for 'service.protocol'
+  #
+  #   With the exception of 'match_key', the filters below match the
+  #   'fingerprints' attributes with the same name.
   # @option filters [String] :match_key Value from XML 'matches' or file name
-  # @option filters [String] :fp_type  Fingerprint type (service, os, etc.)
+  # @option filters [String] :database_type  Fingerprint type (service, util.os, etc.)
   # @option filters [String] :protocol Protocol (ftp, smtp, etc.)
-  # @return [Array] Array of Fingerprint#match
+  # @return [Array] Array of Fingerprint#match or empty array
   def self.multi_match_all_db(match_string, filters = {})
     match_string = match_string.to_s.unpack("C*").pack("C*")
     @@db_manager ||= Recog::DBManager.new
     unless @@db_sorted
-      @@db_manager.databases.sort! { |a,b| a.priority <=> b.priority }
+      @@db_manager.databases.sort! { |a, b| a.priority <=> b.priority }
       @@db_sorted = true
     end
 
-    matches = Array.new #array to hold all fingerprint matches
+    matches = Array.new # array to hold all fingerprint matches
 
     @@db_manager.databases.each do |db|
       next if filters[:match_key] && !filters[:match_key].include?(db.match_key)
-      next if filters[:type] && !filters[:type].include?(db.db_type)
+      next if filters[:database_type] && !filters[:database_type].include?(db.database_type)
       db.fingerprints.each do |fp|
         m = fp.match(match_string)
         if m

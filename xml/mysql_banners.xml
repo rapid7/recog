@@ -10,7 +10,7 @@
      the TCP payload and the fingerprints below are used to match and extract
      from this version.
 -->
-<fingerprints matches="mysql.banners" protocol="mysql" type="service" priority="20">
+<fingerprints matches="mysql.banners" protocol="mysql" database_type="service" priority="20">
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}(?:[.-]\d{1,2})?(?:[.-]\d{1})?)(?:-m\d{1,2})?(?:-rc)?(?:-alpha)?(?:-beta)?(?:-gamma)?(?:-?max)?(?:-rs)?(?:-modified)?(?:-debug)?(?:-log)?$" flags="REG_ICASE">
     <description>Oracle MySQL (common)</description>
     <example service.version="4.1.20">4.1.20</example>

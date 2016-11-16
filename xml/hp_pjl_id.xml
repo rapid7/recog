@@ -3,8 +3,11 @@
 For printers running the PJL protocol (usually on 9100/tcp), their type can be requested
 by the INFO ID command. The printer types (strings surrounded by double quotes) are
 matched against these patterns to fingerprint the printer.
+
+'priority' notes: The value has been explicitly set to 100 due to the very loose
+regex that is used here.
 -->
-<fingerprints protocol="pjl" type="service">
+<fingerprints protocol="pjl" database_type="service" priority="100">
   <!--
    LaserJet and Designjet are registered trademarks of HP. Therefore matching for the keywords
    is sufficient for asserting all relevant information

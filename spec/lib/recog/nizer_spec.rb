@@ -2,10 +2,10 @@ require 'recog'
 require 'yaml'
 
 
-VALID_FILTER = {match_key: 'smb.native_os', protocol: 'smb', type: 'service'}
-NOMATCH_MATCH_KEY = {match_key: 'no_such_987', protocol: 'smb', type: 'service'}
-NOMATCH_PROTO = {match_key: 'smb.native_os', protocol: 'no_such_987', type: 'service'}
-NOMATCH_TYPE = {match_key: 'smb.native_os', protocol: 'smb', type: 'no_such_987'}
+VALID_FILTER = {match_key: 'smb.native_os', protocol: 'smb', database_type: 'util.os'}
+NOMATCH_MATCH_KEY = {match_key: 'no_such_987', protocol: 'smb', database_type: 'util.os'}
+NOMATCH_PROTO = {match_key: 'smb.native_os', protocol: 'no_such_987', database_type: 'util.os'}
+NOMATCH_TYPE = {match_key: 'smb.native_os', protocol: 'smb', database_type: 'no_such_987'}
 
 describe Recog::Nizer do
   subject { described_class }

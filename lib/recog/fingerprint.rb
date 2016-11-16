@@ -50,13 +50,28 @@ class Fingerprint
     begin
       match_data = @regex.match(match_string)
     rescue Encoding::CompatibilityError => e
-      # 'ASCII-8BIT' encoded responses will be caught and fixed here.
-      match_data = @regex.match(match_string.force_encoding('UTF-8'))
+      begin
+        # Replace invalid UTF-8 characters with spaces, just as DAP does.
+        encoded_str = match_string.encode("UTF-8", :invalid => :replace, :undef => :replace, :replace => '')
+        match_data = @regex.match(encoded_str)
+      rescue Exception => e
+        STDERR.puts "Broke when re-encoding"
+        STDERR.puts e.inspect
+        STDERR.puts e
+        STDERR.puts match_string.length
+        STDERR.puts match_string.encoding
+        STDERR.puts "Problematic banner:\n#{match_string}"
+        STDERR.puts
+        STDERR.puts match_string.pretty_inspect
+      end
     rescue Exception => e
       STDERR.puts e.inspect
       STDERR.puts e
-      STDERR.puts "Problematic banner:\n#{match_string}"
       STDERR.puts match_string.length
+      STDERR.puts match_string.encoding
+      STDERR.puts "Problematic banner:\n#{match_string}"
+      STDERR.puts
+      STDERR.puts match_string.pretty_inspect
     end
     return if match_data.nil?
 
