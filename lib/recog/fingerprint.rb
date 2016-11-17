@@ -41,6 +41,15 @@ class Fingerprint
     parse_params(xml)
   end
 
+  def output_diag_data(message, data, exception)
+    STDERR.puts message
+    STDERR.puts exception.inspect
+    STDERR.puts "Length:   #{data.length}"
+    STDERR.puts "Encoding: #{data.encoding}"
+    STDERR.puts "Problematic data:\n#{data}"
+    STDERR.puts "Raw bytes:\n#{data.pretty_inspect}\n"
+  end
+
   # Attempt to match the given string.
   #
   # @param match_string [String]
@@ -55,24 +64,10 @@ class Fingerprint
         encoded_str = match_string.encode("UTF-8", :invalid => :replace, :undef => :replace, :replace => '')
         match_data = @regex.match(encoded_str)
       rescue Exception => e
-        STDERR.puts 'Exception while re-encoding match_string to UTF-8'
-        STDERR.puts e.inspect
-        STDERR.puts e
-        STDERR.puts match_string.length
-        STDERR.puts match_string.encoding
-        STDERR.puts "Problematic banner:\n#{match_string}"
-        STDERR.puts
-        STDERR.puts match_string.pretty_inspect
+        output_diag_data('Exception while re-encoding match_string to UTF-8', match_string, e)
       end
     rescue Exception => e
-      STDERR.puts 'Exception while running regex against match_string'
-      STDERR.puts e.inspect
-      STDERR.puts e
-      STDERR.puts match_string.length
-      STDERR.puts match_string.encoding
-      STDERR.puts "Problematic banner:\n#{match_string}"
-      STDERR.puts
-      STDERR.puts match_string.pretty_inspect
+      output_diag_data('Exception while running regex against match_string', match_string, e)
     end
     return if match_data.nil?
 
