@@ -36,7 +36,7 @@ class Nizer
 
     # Sort the databases, no behavior or result change for those calling
     # Nizer.match or Nizer.multi_match as they have a single DB
-    @@db_manager.databases.sort! { |a, b| a.priority <=> b.priority }
+    @@db_manager.databases.sort! { |a, b| b.preference <=> a.preference }
     @@db_sorted = true
   end
 
@@ -44,19 +44,19 @@ class Nizer
   # Destroy the current DBManager object
   def self.unload_db
     @@db_manager = nil
+    @@db_sorted = false
   end
 
   #
   # Display the fingerprint databases in the order in which they will be used
   # to match banners.  This is useful for fingerprint tuning and debugging.
   def self.display_db_order
-    unless @@db_manager
-      @@db_manager = Recog::DBManager.new
-      @@db_manager.databases.sort! { |a, b| a.priority <=> b.priority }
-    end
+    self.load_db unless @@db_manager
 
+    puts format('%s  %-22s  %s ', 'Preference', 'Database', 'Type')
     @@db_manager.databases.each do |db|
-      puts format('Priority: %4d   Name: %s ', db.priority, db.match_key)
+      puts format('%10.3f  %-22s  %s ', db.preference, db.match_key,
+                  db.database_type)
     end
   end
 

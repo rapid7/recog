@@ -45,29 +45,32 @@
               capacity and may provide for data enrichment via an independent
               call after a service banner match has already be made.
 
-        - priority: indicates the relative priority/ordering that will be used
+        - preference: indicates the relative priority/ordering that will be used
             when Recog::Nizer performs matches against multiple databases.
-            'priority' is an Integer value that current ranges from 1 to 100
-            but there are no limits within that number space. Lower numbers
-            are given greater priority and will be processed first. If this
-            attribute is not present in the fingerprint database it will 
-            be assigned the value of 'DEFAULT_FP_DB_PRIORITY' within Recog::DB
-            which is currently 100.
+            'preference' is a float value that currently ranges from 0.0 to 1.0
+            Higher numbers are given greater priority and will be processed
+            first. If this attribute is not present in the fingerprint database
+            it will be assigned the value of 'DEFAULT_FP_PREFERENCE' within
+            Recog::DB which is currently 0.10
 
             This value is *NOT* returned as part of successful matches.
 
             When determining the priority of a fingerprint database the
             following criterial and rules should be used:
 
-            - Values below 10 should be reserved for end user use with the goal
-              of enabling them to create fingerprint databases that will always
-              take priority over those included in the Recog project.
+            - Values above 0.90 should be reserved for end user use with the
+              goal of enabling them to create fingerprint databases that will
+              always take priority over those included in the Recog project.
+
+            - Values below 0.10 should be reserved for end user use with the
+              goal of enabling them to create fingerprint databases that will
+              always be processed after those included with the Recog project.
 
             - The highest level of preference should be given to those 
               fingerprint databases that have very high quality matches
               (very strict regex, accurate).
 
-            - Preference should be given to those fingerprint databases that
+            - Priority should be given to those fingerprint databases that
               are for very common services.
 
             - Consideration should be given to preferring databases that will
@@ -76,7 +79,7 @@
               HTTP server response, but 'http_header.server' is more likely
               to provide the best data.
 
-            - Values of 10 - 30 should be used for those very high quality,
+            - Values of 0.90 - 0.80 should be used for those very high quality,
               highly common services.
       </xsd:documentation>
     </xsd:annotation>
@@ -87,7 +90,14 @@
     <xsd:attribute name="matches" type="xsd:string" use="optional"/>
     <xsd:attribute name="protocol" type="xsd:string" use="optional"/>
     <xsd:attribute name="database_type" type="xsd:string" use="optional"/>
-    <xsd:attribute name="priority" type="xsd:string" use="optional"/>
+    <xsd:attribute name="preference" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:float">
+           <xsd:minInclusive value="0" />
+           <xsd:maxInclusive value="1.0" />
+        </xsd:restriction>
+     </xsd:simpleType>
+    </xsd:attribute>
   </xsd:complexType>
 
   <xsd:complexType name="fingerprint_element" mixed="true">

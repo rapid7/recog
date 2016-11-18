@@ -25,20 +25,22 @@ class DB
   #   defaults to an empty string
   attr_reader :database_type
 
-  # @return [Integer] Taken from the `fingerprints/priority` element,
-  #   defaults to 100.  Used when ordering databases, lowest numbers
-  #   first.
-  attr_reader :priority
+  # @return [Float] Taken from the `fingerprints/preference` element,
+  #   defaults to 0.10.  Used when ordering databases, highest numbers
+  #   are given priority and are processed first.
+  attr_reader :preference
 
-  # Default Fingerprint database priority when it isn't specified in file
-  DEFAULT_FP_DB_PRIORITY = 100
+  # Default Fingerprint database preference when it isn't specified in file
+  # Do not use a value below 0.10 so as to allow users to specify lower
+  # values in their own custom XML that will always run last.
+  DEFAULT_FP_PREFERENCE = 0.10
 
   # @param path [String]
   def initialize(path)
     @match_key = nil
     @protocol = ''
     @database_type = ''
-    @priority = DEFAULT_FP_DB_PRIORITY
+    @preference = DEFAULT_FP_PREFERENCE.to_f
     @path = path
     @fingerprints = []
 
@@ -60,7 +62,7 @@ class DB
       @match_key = fbase['matches'].to_s if fbase['matches']
       @protocol = fbase['protocol'].to_s if fbase['protocol']
       @database_type = fbase['database_type'].to_s if fbase['database_type']
-      @priority = fbase['priority'].to_i if fbase['priority']
+      @preference = fbase['preference'].to_f if fbase['preference']
 
     end
 

@@ -5,10 +5,10 @@ SMTP response lines to the NOOP command are matched against these patterns
 
 See comment at the top of smtp_banners.xml for additional info.
 
-'priority' note: This value has been set so as to implement the ordering
+'preference' note: This value has been set so as to implement the ordering
   of SMTP related fingerprint databases as described in 'smtp_banners.xml'.
 -->
-<fingerprints protocol="smtp" database_type="service" priority="93">
+<fingerprints protocol="smtp" database_type="service" preference="0.17">
   <fingerprint pattern="^220 OK.*$">
     <description>
          CheckPoint FireWall-1 returns code 220 for NOOP command (instead of 250)

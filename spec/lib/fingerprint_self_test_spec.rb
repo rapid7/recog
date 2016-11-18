@@ -21,6 +21,13 @@ describe Recog::DB do
         expect(db.match_key).not_to be_empty
       end
 
+      it "has valid 'preference' value" do
+          # Reserve values below 0.10 and above 0.90 for users
+          # See xml/fingerprints.xsd
+          expect(db.preference.class).to be ::Float
+          expect(db.preference).to be_between(0.10, 0.90)
+      end
+
       db.fingerprints.each_index do |i|
         fp = db.fingerprints[i]
 
