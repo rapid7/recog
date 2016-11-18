@@ -75,7 +75,7 @@ Matches can be tested on the command-line in a similar fashion:
 
 ```
     $ echo 'OpenSSH_6.6p1 Ubuntu-2ubuntu1' | bin/recog_match xml/ssh_banners.xml -
-    MATCH: {"service.version"=>"6.6p1", "openssh.comment"=>"Ubuntu-2ubuntu1", "service.vendor"=>"OpenBSD", "service.family"=>"OpenSSH", "service.product"=>"OpenSSH", "data"=>"OpenSSH_6.6p1 Ubuntu-2ubuntu1"}
+    MATCH: {"matched"=>"OpenSSH running on Ubuntu 14.04", "service.version"=>"6.6p1", "openssh.comment"=>"Ubuntu-2ubuntu1", "service.vendor"=>"OpenBSD", "service.family"=>"OpenSSH", "service.product"=>"OpenSSH", "os.vendor"=>"Ubuntu", "os.device"=>"General", "os.family"=>"Linux", "os.product"=>"Linux", "os.version"=>"14.04", "service.protocol"=>"ssh", "fingerprint_db"=>"ssh.banner", "data"=>"OpenSSH_6.6p1 Ubuntu-2ubuntu1"}
 ```
 
 ### Best Practices
