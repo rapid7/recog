@@ -13,19 +13,19 @@ class DB
   #   against strings that make sense for the {#match_key}
   attr_reader :fingerprints
 
-  # @return [String] Taken from the `fingerprints/matches` element, or
+  # @return [String] Taken from the `fingerprints/matches` attribute, or
   #   defaults to the basename of {#path} without the `.xml` extension.
   attr_reader :match_key
 
-  # @return [String] Taken from the `fingerprints/protocol` element, or
+  # @return [String] Taken from the `fingerprints/protocol` attribute, or
   #   defaults to an empty string
   attr_reader :protocol
 
-  # @return [String] Taken from the `fingerprints/database_type` element
+  # @return [String] Taken from the `fingerprints/database_type` attribute
   #   defaults to an empty string
   attr_reader :database_type
 
-  # @return [Float] Taken from the `fingerprints/preference` element,
+  # @return [Float] Taken from the `fingerprints/preference` attribute,
   #   defaults to 0.10.  Used when ordering databases, highest numbers
   #   are given priority and are processed first.
   attr_reader :preference
