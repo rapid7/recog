@@ -53,10 +53,10 @@ class Nizer
   def self.display_db_order
     self.load_db unless @@db_manager
 
-    puts format('%s  %-22s  %s ', 'Preference', 'Database', 'Type')
+    puts format('%s  %-22s  %-8s %s', 'Preference', 'Database', 'Type', 'Protocol')
     @@db_manager.databases.each do |db|
-      puts format('%10.3f  %-22s  %s ', db.preference, db.match_key,
-                  db.database_type)
+      puts format('%10.3f  %-22s  %-8s %s', db.preference, db.match_key,
+                  db.database_type, db.protocol)
     end
   end
 
@@ -75,9 +75,7 @@ class Nizer
     filter = { match_key: match_key, multi_match: false }
     matches = self.match_all_db(match_string, filter)
 
-    return matches[0] if matches && matches[0]
-
-    nil
+    matches[0] 
   end
 
   #
@@ -86,9 +84,7 @@ class Nizer
   # @return [Array] Array of Fingerprint#match or empty array
   def self.multi_match(match_key, match_string)
     filter = { match_key: match_key, multi_match: true }
-    matches = self.match_all_db(match_string, filter)
-
-    matches
+    self.match_all_db(match_string, filter)
   end
 
   #
@@ -110,7 +106,7 @@ class Nizer
   # @option filters [String] :match_key Value from XML 'matches' or file name
   # @option filters [String] :database_type fprint db type: service, util.os, etc.
   # @option filters [String] :protocol Protocol (ftp, smtp, etc.)
-  # @option filters [String] :multi_match Return all matches instead of first
+  # @option filters [Boolean] :multi_match Return all matches instead of first
   # @return [Array] Array of Fingerprint#match or empty array
   def self.match_all_db(match_string, filters = {})
     match_string = match_string.to_s.unpack('C*').pack('C*')
@@ -118,18 +114,16 @@ class Nizer
 
     self.load_db unless @@db_manager
 
-    return matches unless !@@db_manager.databases || !@@db_manager.databases.empty?
-
     @@db_manager.databases.each do |db|
-      next if filters[:match_key] && !filters[:match_key].include?(db.match_key)
-      next if filters[:database_type] && !filters[:database_type].include?(db.database_type)
+      next if filters[:match_key] && !filters[:match_key].eql?(db.match_key)
+      next if filters[:database_type] && !filters[:database_type].eql?(db.database_type)
       db.fingerprints.each do |fp|
         m = fp.match(match_string)
         if m
           # Filter on protocol after match since each individual fp
           # can contain its own 'protocol' value that overrides the
           # one set at the DB level.
-          matches.push(m) unless filters[:protocol] && !filters[:protocol].include?(m['service.protocol'])
+          matches.push(m) unless filters[:protocol] && !filters[:protocol].eql?(m['service.protocol'])
           return matches unless filters[:multi_match]
         end
       end

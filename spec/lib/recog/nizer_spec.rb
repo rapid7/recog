@@ -30,6 +30,11 @@ describe Recog::Nizer do
           end
         end
 
+        let(:nomatch_result) { subject.match('smb.native_os', 'no_such_987_76tgklh') }
+        it "returns a nil when data cannot be matched" do
+          expect(nomatch_result).to be_nil
+        end
+
         let(:invalid_db_result) { subject.match('no_such_987', data) }
         it "returns a nil when match_key search doesn't match" do
           expect(invalid_db_result).to be_nil
@@ -57,7 +62,7 @@ describe Recog::Nizer do
         end
 
         it "returns a successful match" do
-          expect(match_all_result[0]['matched'].to_s).to match(/^[A-Z]/)
+          expect(match_all_result[0]['matched']).to match(/^[A-Z]/)
         end
 
         it "correctly matches service or os" do
@@ -76,7 +81,7 @@ describe Recog::Nizer do
         end
 
         it "returns a successful match when searching without a filter" do
-          expect(no_filter_result[0]['matched'].to_s).to match(/^[A-Z]/)
+          expect(no_filter_result[0]['matched']).to match(/^[A-Z]/)
         end
 
         it "correctly matches service or os when searching without a filter" do
@@ -100,7 +105,6 @@ describe Recog::Nizer do
         it "returns an empty array when protocol search doesn't match" do
           expect(nomatch_proto_result).to be_empty
         end
-
 
         let(:nomatch_type_result) { subject.match_all_db(data, NOMATCH_TYPE) }
         it "returns an array when database_type search doesn't match" do
@@ -296,6 +300,21 @@ describe Recog::Nizer do
       let(:fp_db) { subject.load_db(file_path) }
       it "loads without error" do
         expect(fp_db).to  be true
+        subject.unload_db()
+      end
+    end
+
+    context "with no path specified" do
+      let(:fp_db) { subject.load_db }
+      it "loads without error" do
+        expect(fp_db).to  be true
+        subject.unload_db()
+      end
+    end
+
+    context "with empty file path" do
+      it "raises an error" do
+        expect { subject.load_db('') }.to raise_error(Errno::ENOENT)
         subject.unload_db()
       end
     end

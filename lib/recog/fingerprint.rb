@@ -37,6 +37,7 @@ class Fingerprint
     @params = {}
     @tests = []
 
+    @protocol.downcase! if @protocol
     parse_examples(xml)
     parse_params(xml)
   end
