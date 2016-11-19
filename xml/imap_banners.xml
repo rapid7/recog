@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- IMAP banners are matched against these patterns to fingerprint IMAP servers. -->
-<fingerprints matches="imap4.banner">
+<fingerprints matches="imap4.banner" protocol="imap" database_type="service" preference="0.90">
   <fingerprint pattern="^Microsoft Exchange IMAP4rev1 server version (5\.5\.\d{4}\.\d+) \((.*)\) ready$">
     <description>Microsoft Exchange Server 5.5</description>
     <param pos="0" name="service.vendor" value="Microsoft"/>

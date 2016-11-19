@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<fingerprints>
+<fingerprints protocol="ftp" database_type="service">
   <fingerprint pattern="^-{10} Welcome to Pure-FTPd (.*)-{10}$">
     <example>---------- Welcome to Pure-FTPd ----------</example>
     <description>Pure-FTPd
@@ -8,6 +8,7 @@
     <param pos="1" name="pureftpd.config"/>
     <param pos="0" name="service.family" value="Pure-FTPd"/>
     <param pos="0" name="service.product" value="Pure-FTPd"/>
+    <param pos="0" name="service.protocol" value="ftp"/>
   </fingerprint>
   <fingerprint pattern="^(\S+) FTP Server \(SunOS (\S+)\) ready\.?$" flags="REG_ICASE">
     <description>SunOS/Solaris</description>

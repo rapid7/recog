@@ -4,8 +4,11 @@ SMTP response lines to the EXPN command are matched against these patterns
 (1 line at a time) to fingerprint SMTP servers.
 
 See comment at the top of smtp_banners.xml for additional info.
+
+'preference' note: This value has been set so as to implement the ordering
+  of SMTP related fingerprint databases as described in 'smtp_banners.xml'.
 -->
-<fingerprints>
+<fingerprints protocol="smtp" database_type="service" preference="0.16">
   <fingerprint pattern="^500[ -]Syntax error, command &quot;XXXX.*&quot; unrecognized$">
     <description>
          Cisco PIX changes the command letters to 'X' before passing

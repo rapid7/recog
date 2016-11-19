@@ -17,8 +17,12 @@ These XML files are used in this order:
    smtp_quit.xml
 
 The system or service fingerprint with the highest certainty overwrites the others.
+
+'preference' notes: This value has been impacted by the poor quality of the 'Cisco PIX' match.
+  Additionally, the 'preference' value for the other databases mentioned above has been set so
+  as to implement their preference as described.
 -->
-<fingerprints matches="smtp.banner">
+<fingerprints matches="smtp.banner" protocol="smtp" database_type="service" preference="0.20">
   <fingerprint pattern="^X1 NT-ESMTP Server ([^ ]+) \(IMail (\d+\.[^ ]+) EVAL \d+-\d+\)$">
     <description>IMail EVAL version</description>
     <param pos="0" name="service.vendor" value="Ipswitch"/>

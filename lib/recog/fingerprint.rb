@@ -27,14 +27,28 @@ class Fingerprint
   attr_reader :tests
 
   # @param xml [Nokogiri::XML::Element]
-  def initialize(xml)
+  # @param match_key [String] See Recog::DB
+  # @param protocol [String] Protocol such as ftp, mssql, http, etc.
+  def initialize(xml, match_key=nil, protocol=nil)
+    @match_key = match_key
+    @protocol = protocol
     @name   = parse_description(xml)
     @regex  = create_regexp(xml)
     @params = {}
     @tests = []
 
+    @protocol.downcase! if @protocol
     parse_examples(xml)
     parse_params(xml)
+  end
+
+  def output_diag_data(message, data, exception)
+    STDERR.puts message
+    STDERR.puts exception.inspect
+    STDERR.puts "Length:   #{data.length}"
+    STDERR.puts "Encoding: #{data.encoding}"
+    STDERR.puts "Problematic data:\n#{data}"
+    STDERR.puts "Raw bytes:\n#{data.pretty_inspect}\n"
   end
 
   # Attempt to match the given string.
@@ -43,7 +57,19 @@ class Fingerprint
   # @return [Hash,nil] Keys will be host, service, and os attributes
   def match(match_string)
     # match_string.force_encoding('BINARY') if match_string
-    match_data = @regex.match(match_string)
+    begin
+      match_data = @regex.match(match_string)
+    rescue Encoding::CompatibilityError => e
+      begin
+        # Replace invalid UTF-8 characters with spaces, just as DAP does.
+        encoded_str = match_string.encode("UTF-8", :invalid => :replace, :undef => :replace, :replace => '')
+        match_data = @regex.match(encoded_str)
+      rescue Exception => e
+        output_diag_data('Exception while re-encoding match_string to UTF-8', match_string, e)
+      end
+    rescue Exception => e
+      output_diag_data('Exception while running regex against match_string', match_string, e)
+    end
     return if match_data.nil?
 
     result = { 'matched' => @name }
@@ -58,6 +84,17 @@ class Fingerprint
         result[k] = match_data[ pos ]
       end
     end
+
+    # Use the protocol specified in the XML database if there isn't one
+    # provided as part of this fingerprint.
+    if @protocol
+      unless result['service.protocol']
+        result['service.protocol'] = @protocol
+      end
+    end
+
+    result['fingerprint_db'] = @match_key if @match_key
+
     return result
   end
 
