@@ -1228,9 +1228,10 @@ more text</example>
     <example>Welcome to TP-LINK FTP server</example>
     <param pos="0" name="hw.vendor" value="TP-LINK"/>
   </fingerprint>
-   <fingerprint pattern="^ucftpd\((\w{3}  \d{,2} \d{4}-\d\d:\d\d:\d\d)\) FTP server ready\.$">
+   <fingerprint pattern="^ucftpd\((\w{3}\s+\d{,2} \d{4}-\d\d:\d\d:\d\d)\) FTP server ready\.$">
     <description>ucftpd with version</description>
     <example service.version="Jul  2 2012-22:13:49">ucftpd(Jul  2 2012-22:13:49) FTP server ready.</example>
+    <example service.version="Sep 10 2010-17:23:34">ucftpd(Sep 10 2010-17:23:34) FTP server ready.</example>
     <param pos="0" name="service.family" value="ucftpd"/>
     <param pos="0" name="service.product" value="ucftpd"/>
     <param pos="1" name="service.version"/>
