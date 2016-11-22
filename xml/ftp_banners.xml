@@ -906,12 +906,17 @@ more text</example>
     <param pos="0" name="service.vendor" value="Pro Group"/>
     <param pos="0" name="service.product" value="ProRat"/>
   </fingerprint>
-  <fingerprint pattern="FTP Server \(vftpd ([\d\.]+)\) ready\.?$">
+  <fingerprint pattern="^(?:(\S+) )?FTP Server \(vftpd ([\d.]+)\) ready\.?$">
     <description>Vermillion FTP Daemon</description>
-    <example service.vendor="Vermillion" service.product="FTP Daemon" service.version="1.23">itsme FTP Server (vftpd 1.23) ready.</example>
-    <example service.vendor="Vermillion" service.product="FTP Daemon" service.version="1.31">FTP Server (vftpd 1.31) ready.</example>
+    <example host.name="srv.name" service.version="1.23">srv.name FTP Server (vftpd 1.23) ready.</example>
+    <example service.version="1.31">FTP Server (vftpd 1.31) ready.</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="service.vendor" value="Vermillion"/>
     <param pos="0" name="service.product" value="FTP Daemon"/>
-    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.version"/>
+    <param pos="1" name="host.name"/>
   </fingerprint>
 </fingerprints>
