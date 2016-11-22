@@ -1156,7 +1156,7 @@ more text</example>
     <param pos="0" name="service.vendor" value="Twisted Matrix Labs"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="^Gene6 FTP Server v(\d{1,2}\.\d{1,2}\.\d{1,2}\s{,2}\(Build \d{1,2}\)) ready\.\.\.$">
+  <fingerprint pattern="^Gene6 FTP Server v(\d{1,2}\.\d{1,2}\.\d{1,2}\s{1,2}\(Build \d{1,2}\)) ready\.\.\.$">
     <description>Gene6 FTP Server on Windows</description>
     <example service.version="3.10.0 (Build 2)">Gene6 FTP Server v3.10.0 (Build 2) ready...</example>
     <example service.version="3.7.0  (Build 24)">Gene6 FTP Server v3.7.0  (Build 24) ready...</example>
@@ -1210,7 +1210,7 @@ more text</example>
     <example>Welcome to TP-LINK FTP server</example>
     <param pos="0" name="hw.vendor" value="TP-LINK"/>
   </fingerprint>
-   <fingerprint pattern="^ucftpd\((\w{3}\s+\d{,2} \d{4}-\d\d:\d\d:\d\d)\) FTP server ready\.$">
+   <fingerprint pattern="^ucftpd\((\w{3}\s+\d{1,2} \d{4}-\d\d:\d\d:\d\d)\) FTP server ready\.$">
     <description>ucftpd with version</description>
     <example service.version="Jul  2 2012-22:13:49">ucftpd(Jul  2 2012-22:13:49) FTP server ready.</example>
     <example service.version="Sep 10 2010-17:23:34">ucftpd(Sep 10 2010-17:23:34) FTP server ready.</example>
@@ -1240,7 +1240,7 @@ more text</example>
     <param pos="0" name="system.time.format" value="HH:mm::ss dd/MM/yy"/>
     <param pos="3" name="system.time"/>
   </fingerprint>
-  <fingerprint pattern="^TiMOS-[CB]-([\S]+) cpm\/[\w]+ ALCATEL (SR [\S]+) Copyright .{,4}$">
+  <fingerprint pattern="^TiMOS-[CB]-([\S]+) cpm\/[\w]+ ALCATEL (SR [\S]+) Copyright .{1,4}$">
     <description>ALCATEL Service Router running TiMOS</description>
     <example os.version="13.0.R9">TiMOS-C-13.0.R9 cpm/hops64 ALCATEL SR 7750 Copyright (</example>
     <example hw.device="SR 7750">TiMOS-C-9.0.R8 cpm/hops ALCATEL SR 7750 Copyright (c) </example>
