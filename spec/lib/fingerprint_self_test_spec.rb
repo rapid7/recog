@@ -31,6 +31,23 @@ describe Recog::DB do
       db.fingerprints.each_index do |i|
         fp = db.fingerprints[i]
 
+        context "#{fp.name}" do
+          fp.params.each do |param_name, pos_value|
+            pos, value = pos_value
+            it "doesn't have param values for capture params" do
+              if pos > 0 && !value.to_s.empty?
+                fail "'#{fp.name}'s #{param_name} is a non-zero pos but specifies a value of '#{value}'"
+              end
+            end
+
+            it "doesn't omit values for non-capture params" do
+              if pos == 0 && value.to_s.empty?
+                fail "'#{fp.name}'s #{param_name} is at zero pos but doesn't specify a value"
+              end
+            end
+          end
+        end
+
         context "#{fp.regex}" do
 
           it "has a name" do
