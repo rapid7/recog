@@ -108,8 +108,11 @@ class Fingerprint
     return if params.empty?
     params.each do |param_name, pos_value|
       pos, value = pos_value
-      next unless pos != 0 && !value.to_s.empty?
-      yield :fail, "'#{@name}'s #{param_name} is a non-zero pos but specifies a value of '#{value}'"
+      if pos > 0 && !value.to_s.empty?
+        yield :fail, "'#{@name}'s #{param_name} is a non-zero pos but specifies a value of '#{value}'"
+      elsif pos == 0 && value.to_s.empty?
+        yield :fail, "'#{@name}'s #{param_name} is not a capture (pos=0) but doesn't specify a value"
+      end
     end
   end
 
