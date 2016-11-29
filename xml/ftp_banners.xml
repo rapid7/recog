@@ -1288,4 +1288,17 @@ more text</example>
     <param pos="2" name="service.version"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
+  <fingerprint pattern="^(?:(\S+) )?FTP server \(QVT\/Net ([\d.]+)\) ready\.?$">
+    <description>QVT/Net FTP Server</description>
+    <example host.name="siren" service.version="5.1">siren FTP server (QVT/Net 5.1) ready.</example>
+    <example host.name="qpc-qvtnet" service.version="4.1">qpc-qvtnet FTP server (QVT/Net 4.1) ready.</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="service.vendor" value="QPC Software"/>
+    <param pos="0" name="service.product" value="QVT/Term"/>
+    <param pos="2" name="service.version"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
 </fingerprints>
