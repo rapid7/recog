@@ -42,7 +42,7 @@ describe Recog::DB do
 
             it "doesn't omit values for non-capture params" do
               if pos == 0 && value.to_s.empty?
-                fail "'#{fp.name}'s #{param_name} is at zero pos but doesn't specify a value"
+                fail "'#{fp.name}'s #{param_name} is not a capture (pos=0) but doesn't specify a value"
               end
             end
           end

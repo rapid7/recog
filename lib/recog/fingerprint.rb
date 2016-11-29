@@ -111,7 +111,7 @@ class Fingerprint
       if pos > 0 && !value.to_s.empty?
         yield :fail, "'#{@name}'s #{param_name} is a non-zero pos but specifies a value of '#{value}'"
       elsif pos == 0 && value.to_s.empty?
-        yield :fail, "'#{@name}'s #{param_name} is at zero pos but doesn't specify a value"
+        yield :fail, "'#{@name}'s #{param_name} is not a capture (pos=0) but doesn't specify a value"
       end
     end
   end
