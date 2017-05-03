@@ -3284,12 +3284,19 @@
     <param pos="0" name="service.family" value="Symantec Endpoint Protection Manager"/>
   </fingerprint>
   <fingerprint pattern="^Intel\(R\) Active Management Technology\s(\d+\.\d+\.\d+\.\d+|\d+\.\d+\.\d+|\d+\.\d+)">
-    <description>Intel(R) Active Management Technology (AMT)</description>
+    <description>Intel(R) Active Management Technology (AMT) with a version</description>
     <example service.version="7.1.86">Intel(R) Active Management Technology 7.1.86</example>
     <param pos="0" name="service.vendor" value="Intel"/>
     <param pos="0" name="service.product" value="Intel(R) Active Management Technology"/>
     <param pos="0" name="service.family" value="Intel(R) Active Management Technology"/>
     <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^AMT$">
+    <description>Intel(R) Active Management Technology (AMT) without a version</description>
+    <example>AMT</example>
+    <param pos="0" name="service.vendor" value="Intel"/>
+    <param pos="0" name="service.product" value="Intel(R) Active Management Technology"/>
+    <param pos="0" name="service.family" value="Intel(R) Active Management Technology"/>
   </fingerprint>
   <fingerprint pattern="^Intel\(R\) Standard Manageability\s(\d+\.\d+\.\d+\.\d+|\d+\.\d+\.\d+|\d+\.\d+)">
     <description>Intel(R) Standard Manageability</description>
