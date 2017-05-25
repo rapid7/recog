@@ -49,6 +49,15 @@
     <param pos="0" name="os.product" value="Windows XP"/>
     <param pos="1" name="os.build"/>
   </fingerprint>
+  <fingerprint pattern="^Windows XP (Home|Professional)(?: Edition)?$">
+    <description>Windows XP without a version</description>
+    <example os.edition="Home">Windows XP Home Edition</example>
+    <example os.edition="Professional">Windows XP Professional</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows XP"/>
+    <param pos="1" name="os.edition"/>
+  </fingerprint>
   <fingerprint pattern="^Windows \.NET">
     <description>Windows Server 2003 Beta</description>
     <param pos="0" name="os.certainty" value="1.0"/>
