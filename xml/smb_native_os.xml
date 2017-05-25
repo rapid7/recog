@@ -207,6 +207,17 @@
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
   </fingerprint>
+  <fingerprint pattern="^Windows Server 2016(?: Technical Preview \d+)? (\w+|\w+ \w+|\w+ \w+ \w+)(?: Evaluation)? (\d+)$">
+    <description>Windows Server 2016 with a build, without service pack</description>
+    <example os.edition="Datacenter" os.build="14393">Windows Server 2016 Datacenter 14393</example>
+    <example os.edition="Standard" os.build="14393">Windows Server 2016 Standard Evaluation 14393</example>
+    <example os.edition="Essentials" os.build="10586">Windows Server 2016 Technical Preview 4 Essentials 10586</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2016"/>
+    <param pos="1" name="os.edition"/>
+    <param pos="2" name="os.build"/>
+  </fingerprint>
   <fingerprint pattern="^Windows Web Server 2008 R2 (\d+) (Service Pack \d+)$">
     <description>Windows Server 2008 R2 Web</description>
     <example os.version="Service Pack 1">Windows Web Server 2008 R2 7601 Service Pack 1</example>
