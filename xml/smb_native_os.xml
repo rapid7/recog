@@ -552,4 +552,19 @@
     <param pos="0" name="service.vendor" value="Samba"/>
   </fingerprint>
 
+  <!-- this isn't perfect.  it will match anything that is exactly
+       8 characters including at least one upper case and one lowercase digit.
+       dionaea generates a random upper/lowercase string of exactly
+       8 characters.  so this will miss all upper case or all lowercase, and
+       will false-positive on things like "Sambaaaa", which could be a legit
+       dionaea string or someone's messing with us
+      -->
+  <fingerprint pattern="^^(?=.*[a-z])(?=.*[A-Z]).{8}$">
+    <description>dionaea and derivative honeypots</description>
+    <example>ZElOmCSA</example>
+    <param pos="0" name="service.vendor" value="DinoTools"/>
+    <param pos="0" name="service.product" value="dionaea"/>
+    <param pos="0" name="service.certainty" value="0.50"/>
+  </fingerprint>
+
 </fingerprints>
