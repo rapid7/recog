@@ -219,6 +219,16 @@
     <param pos="0" name="os.edition" value="Web"/>
     <param pos="1" name="os.build"/>
   </fingerprint>
+  <fingerprint pattern="^Windows Storage Server 2008 R2 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
+    <description>Windows Server 2008 Storage R2 (SP)</description>
+    <example os.version="Service Pack 1" os.build="7601">Windows Storage Server 2008 R2 Essentials 7601 Service Pack 1</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
+    <param pos="0" name="os.edition" value="Storage"/>
+    <param pos="1" name="os.build"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
   <fingerprint pattern="^Windows Vista \(TM\) (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
     <description>Windows Vista (SP)</description>
     <example os.edition="Home Premium" os.version="Service Pack 2">Windows Vista (TM) Home Premium 6002 Service Pack 2</example>
