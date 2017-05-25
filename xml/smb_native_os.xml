@@ -328,7 +328,7 @@
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
   </fingerprint>
-  <fingerprint pattern="^Windows 10 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
+  <fingerprint pattern="^Windows 10 ((?:\w+|\w+ \w+|\w+ \w+ \w+)(?: LTSB(?: Evaluation)?)?) (\d+)$">
     <description>Windows 10</description>
     <example os.build="10130" os.edition="Enterprise">Windows 10 Enterprise 10130</example>
     <example os.build="10130" os.edition="Mobile Enterprise">Windows 10 Mobile Enterprise 10130</example>
@@ -336,6 +336,8 @@
     <example os.build="10130" os.edition="Home">Windows 10 Home 10130</example>
     <example os.build="10130" os.edition="Education">Windows 10 Education 10130</example>
     <example os.build="10130" os.edition="Professional">Windows 10 Professional 10130</example>
+    <example os.build="10240" os.edition="Enterprise N 2015 LTSB">Windows 10 Enterprise N 2015 LTSB 10240</example>
+    <example os.build="14393" os.edition="Enterprise 2016 LTSB Evaluation">Windows 10 Enterprise 2016 LTSB Evaluation 14393</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows 10"/>
