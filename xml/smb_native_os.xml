@@ -108,6 +108,13 @@
     <param pos="2" name="os.version"/>
   </fingerprint>
   <!-- Note that 2008 SP1 is technically "2008 Gold" according to Microsoft -->
+  <fingerprint pattern="^Windows Server 2008$">
+    <description>Windows Server 2008 without a build</description>
+    <example>Windows Server 2008</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2008"/>
+  </fingerprint>
   <fingerprint pattern="^Windows Server \(R\) 2008 (\w+|\w+ \w+|\w+ \w+ \w+)(?: (?:with|without) Hyper-V|) (\d+) (Service Pack \d+)(?:, v\.\d+)?$">
     <description>Windows Server 2008</description>
     <example os.edition="Enterprise" os.version="Service Pack 1">Windows Server (R) 2008 Enterprise without Hyper-V 6001 Service Pack 1</example>
