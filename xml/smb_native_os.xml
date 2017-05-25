@@ -275,10 +275,11 @@
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
   </fingerprint>
-  <fingerprint pattern="^(Windows (?:7|8|8\.1)(?:| RT)) (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
+  <fingerprint pattern="^(Windows (?:7|8|8\.1)(?:| RT)) (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)(?:, v\.\d+)?$">
     <description>Windows 7/8 (SP + Edition)</description>
     <example os.edition="Enterprise" os.version="Service Pack 1">Windows 7 Enterprise 7601 Service Pack 1</example>
     <example os.edition="Starter" os.version="Service Pack 1">Windows 7 Starter 7601 Service Pack 1</example>
+    <example os.edition="Ultimate" os.build="7601" os.version="Service Pack 1">Windows 7 Ultimate 7601 Service Pack 1, v.178</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="1" name="os.product"/>
