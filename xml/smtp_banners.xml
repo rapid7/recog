@@ -295,6 +295,17 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Windows"/>
   </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP Exim ([^ ]+\.[^ ]+) .?$">
+    <description>Exim without timestamp</description>
+    <example service.version="4.89">foo.bar ESMTP Exim 4.89 "</example>
+    <example service.version="4.84_2">foo.bar ESMTP Exim 4.84_2 "</example>
+    <param pos="0" name="service.vendor" value="exim"/>
+    <param pos="0" name="service.family" value="exim"/>
+    <param pos="0" name="service.product" value="exim"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP Exim ([^ ]+\.[^ ]+) (.+)$">
     <description>Exim with timestamp</description>
     <example service.version="3.12">foo.bar ESMTP Exim 3.12 #1 Wed, 31 Jan 2001 15:47:23 +1100</example>
@@ -305,17 +316,6 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
     <param pos="3" name="system.time"/>
-  </fingerprint>
-  <fingerprint pattern="^([^ ]+) ESMTP Exim ([^ ]+\.[^ ]+).*$">
-    <description>Exim without timestamp</description>
-    <example service.version="4.89">foo.bar ESMTP Exim 4.89 "</example>
-    <example service.version="4.84_2">foo.bar ESMTP Exim 4.84_2 "</example>
-    <param pos="0" name="service.vendor" value="exim"/>
-    <param pos="0" name="service.family" value="exim"/>
-    <param pos="0" name="service.product" value="exim"/>
-    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-    <param pos="1" name="host.name"/>
-    <param pos="2" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) FTGate server ready .*$">
     <description>
@@ -490,12 +490,13 @@ The system or service fingerprint with the highest certainty overwrites the othe
   </fingerprint>
   <fingerprint pattern="^ ?MailSite E?SMTP Receiver Version (\d+\.[\d.]+) Ready *$">
     <description>
-         Rockliffe MailSite without version or hostname(http://www.rockliffe.com)
+         Rockliffe MailSite without hostname(http://www.rockliffe.com)
       </description>
-    <example> MailSite ESMTP Receiver Version 10.2.0.0 Ready</example>
+    <example service.version="10.2.0.0"> MailSite ESMTP Receiver Version 10.2.0.0 Ready</example>
     <param pos="0" name="service.vendor" value="Rockliffe"/>
     <param pos="0" name="service.family" value="MailSite"/>
     <param pos="0" name="service.product" value="MailSite"/>
+    <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +MAILsweeper ESMTP Receiver Version ([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+) Ready *$">
     <description>
