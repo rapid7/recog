@@ -1,4 +1,4 @@
-asdf
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 SMTP greeting lines (part of the banner after the response code) are matched
@@ -1648,4 +1648,93 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="0" name="service.product" value="Unknown"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
+<fingerprint pattern= “^localhost IdeaPop3Server (\d\.\d\d) ready\.$”>
+    <description>matches to IdeaPop3Server</description>
+    <example>localhost IdeaPop3Server 0.82 ready.</example>
+	<param pos= “1” name=”service.version”/>
+  </fingerprint>
+ <fingerprint pattern= “^POP3 Bigfoot v(\d\.\d) server ready$”>
+    <description>matches to POP3 Bigfoot server</description>
+    <example>POP3 Bigfoot v1.0 server ready</example>
+    <param pos="0" name="service.vendor" value="Bigfoot"/>
+    <param pos="0" name="service.family" value="Bigfoot Email Tools"/>
+    <param pos="0" name="service.product" value="Bigfoot Email Tools"/>
+	<param pos= “1” name= “service.version”/>
+  </fingerprint>
+ <fingerprint pattern= “^CCProxy (\d\.\d) POP3 Service Ready$”>
+    <description>matches the CCProxy POP3 server</description>
+    <example>POP3 Bigfoot v(1.0) server ready</example>
+    <param pos="0" name="service.vendor" value="Youngzsoft"/>
+    <param pos="0" name="service.family" value="CCProxy"/>
+    <param pos="0" name="service.product" value="CCProxy"/>
+	<param pos= “1” name= “service.version”/>
+  </fingerprint>
+ <fingerprint pattern= “^POP3 on (WinWebMail) (\[\d\.\d\.\d\.\d\]) ready\.$”>
+    <description>matches to WinWebmail POP3 </description>
+    <example>POP3 on WinWebMail [1.1.1.1] ready.</example>
+	<param pos = “1” name = “service.vendor”/>
+	<param pos= “2” name= “service.version”/>
+ </fingerprint>
+ <fingerprint pattern= “^(Qpopper) \(version (\d\.\d\.\d)\) at ([^ ]+) starting\.$”>
+    <description>matches to Qpopper servers</description>
+    <example>Qpopper (version 4.0.9) at orange.isprime.com starting.</example>
+	<param pos= “0” name= “service.vendor” value= “Qualcomm”/>
+	<param pos= “1” name=”service.family”/>
+	<param pos= “1” name=”service.vendor”/>
+	<param pos= “2” name= “service.version”/>
+  </fingerprint>
+ <fingerprint pattern= “^Welcome to the [^ ]+\.arvixe\.com POP3 server\.$”>
+    <description>matches to Arvixe web hosting</description>
+    <example>Welcome to foo.arvixe.com POP3 server.</example>
+	<param pos= “0” name=”service.vendor” value= “Arvixe Web Hosting”/>
+  </fingerprint>
+        <fingerprint pattern=”^(\w+.\w+.\w)+ Service not available$>
+        <description>match to Service not available error
+        <example service.version=”4.3.2”> 4.3.2 Service not available <example>
+        <param pos="1" name="service.version"/>
+        <param pos=”0” name=”service.vendor” value=”new”/>
+        <param pos=”0” name=”service.family” value=”version”/>
+        <param pos=”0” name=”service.product” value=”version”/>
+        <fingerprint>
+         <fingerprint pattern="^(.+.{4})-\w.+echosting+[^ ]+(cafe+.+.+.[a-z]+[a-z]+[a-z])+ ESMTP$">
+        <description>match to echosting or ESMTP
+        <example service.version="e0000" website.version="cafe24.com"> e0000-e.echosting.cafe24.com ESMTP <example>
+        <param pos="1" name="service.version"/>
+        <param pos="0" name="service.vendor" value="new"/>
+        <fingerprint>
+         <fingerprint pattern="^([a-z]+[a-z]+[a-z]+.)+.cloud.netart +ESMTP +ready$">
+        <description>match to cloud.netart and ESMTP and ready state
+        <example service.version="lbc4"/> lbc4.cloud.netart ESMTP ready <example>
+        <param pos="1" name="service.version"/>
+        <param pos="0" name="service.vendor" value="new"/>
+        <param pos="0" name="service.family" value="version"/>
+        <fingerprint>
+         <fingerprint pattern="^([A-Z]+[A-Z]+[A-Z]+[A-Z])+[^ ]+(\d+[^ ]+\d) (\d\d\d) +Unauthorized$">
+        <description> match to HTTP error
+        <example service.version="HTTP" service.number="1.0" error.number="403"> HTTP/1.0 403 Unauthorized <example>
+        <param pos="1" name="service.version"/>
+        <param pos="2" name="service.number"/>
+        <param pos="3" name="error.number"/>
+        <fingerprint>
+         <fingerprint pattern="^([a-z]+[a-z].[a-z]+[a-z]).([a-z]+[a-z]+[a-z]+\d+\d+\d+\d) ESMTP service ready$">
+        <description> match to ESMTP service numbers
+        <example service.version="hm.sm" service.number="srv1118"/> hm.sm.srv1120 ESMTP service ready <example>
+        <param pos="1" name="service.version" />
+        <param pos="2" name="service.number" />
+        <param pos="0" name="service.family" value="server"/>
+        <fingerprint>
+         <fingerprint pattern="^(\D{2}+\d{3}).secure.ne.jp+ ESMTP">
+        <description> match to secure.ne.jp in Japan
+        <example service.version="aa227"/> aa227.secure.ne.jp ESMTP <example>
+        <param pos="1" name="service.version" />
+        <param pos="0" name="service.vendor" value="japan" />
+        <param pos="0" name="service.family" value="secure"/>
+        <fingerprint>
+         <fingerprint pattern="^(\D+\D+\d+\d).([a-z]+[a-z]+[a-z]+[a-z]+[a-z])+.jp+ ESMTP$">
+        <description> match to domain controller
+        <example service.version="dc51"/> dc51.etius.jp ESMTP <example>
+        <param pos="1" name="service.version" />
+        <param pos="0" name="service.vendor" value="japan" />
+        <param pos="0" name="service.family" value="etius" />
+        <fingerprint>
 </fingerprints>
