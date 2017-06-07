@@ -131,7 +131,7 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^(?i:Debian(?: Linux)?\s?(\d+?(?:\.\d+?)*?)?(?:\s[a-z\(\)]+)?)$">
+  <fingerprint pattern="^(?i:Debian(?: (?:GNU\/)?Linux)?\s?(\d+?(?:\.\d+?)*?)?(?:\s[a-z\(\)]+)?)$">
     <description>Debian Linux</description>
     <example os.version="6.0">Debian 6.0</example>
     <example os.version="7">Debian 7 (Wheezy)</example>
@@ -275,6 +275,17 @@
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.edition"/>
   </fingerprint>
+  <!-- Vendor-based distribution catch-call -->
+  <fingerprint pattern="^(?i:(.*)\sLinux?\s(.*))$">
+    <description>Vendor-based Linux catch-all</description>
+    <example os.vendor="Alpine">Alpine Linux v3.4.0</example>
+    <example os.version="v3.4.0">Alpine Linux v3.4.0</example>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.certainty" value="0.6"/>
+    <param pos="1" name="os.vendor"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint> 
   <!-- Linux catch-all goes at the bottom-->
   <fingerprint pattern="^(?i:.*Linux?\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>Linux catch-all</description>
