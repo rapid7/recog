@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fingerprints matches="dns_versionbind" protocol="dns" database_type="service" preference="0.20">
+  <!-- RedHat package naming: 
+      https://fedoraproject.org/wiki/Packaging:DistTag
+      https://fedoraproject.org/wiki/Packaging:Versioning
+  -->
+  <fingerprint pattern="^(9.[^-]+)-(?:P\d-)?RedHat-[\d.]+-([\w.]+el([\d_]+)(?:.[\w.]+)?)$">
+    <description>ISC BIND, RedHat Enterprise Linux</description>
+    <example service.version="9.8.2rc1">9.8.2rc1-RedHat-9.8.2-0.62.rc1.el6_9.2</example>
+    <example service.version.version="38.el7_3.3">9.9.4-RedHat-9.9.4-38.el7_3.3</example>
+    <example os.version="5_11">9.3.6-P1-RedHat-9.3.6-25.P1.el5_11.12</example>
+    <example os.version="6_1">9.7.3-P3-RedHat-9.7.3-2.el6_1.P3.3</example>
+    <example os.version="6">9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6</example>
+    <param pos="0" name="service.vendor" value="ISC"/>
+    <param pos="0" name="service.family" value="BIND"/>
+    <param pos="0" name="service.product" value="BIND"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.version.version"/>
+    <param pos="0" name="os.vendor" value="RedHat"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Enterprise Linux"/>
+    <param pos="3" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(9.[^-]+)-(?:P\d-)?RedHat-[\d.]+-([\w.]+fc([\d]+))$">
+    <description>ISC BIND, Fedora</description>
+    <example service.version="9.10.4">9.10.4-P8-RedHat-9.10.4-4.P8.fc25</example>
+    <example service.version.version="10.P3.fc23">9.10.3-P3-RedHat-9.10.3-10.P3.fc23</example>
+    <example os.version="10">9.5.2-RedHat-9.5.2-1.fc10</example>
+    <param pos="0" name="service.vendor" value="ISC"/>
+    <param pos="0" name="service.family" value="BIND"/>
+    <param pos="0" name="service.product" value="BIND"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.version.version"/>
+    <param pos="0" name="os.vendor" value="Fedora Project"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Fedora"/>
+    <param pos="3" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^dnsmasq-(\d.[\w]+)$">
+    <description>dnsmasq, simple</description>
+    <example service.version="2.40">dnsmasq-2.40</example>
+    <example service.version="2.63rc6">dnsmasq-2.63rc6</example>
+    <example service.version="2.76test8">dnsmasq-2.76test8</example>
+    <param pos="0" name="service.vendor" value="Simon Kelley"/>
+    <param pos="0" name="service.family" value="Dnsmasq"/>
+    <param pos="0" name="service.product" value="Dnsmasq"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^dnsmasq-(\d.[\w]+-\d)-ubnt\d$">
+    <description>dnsmasq, ubiquit</description>
+    <example service.version="2.76-1">dnsmasq-2.76-1-ubnt2</example>
+    <example service.version="2.76-1">dnsmasq-2.76-1-ubnt1</example>
+    <param pos="0" name="service.vendor" value="Simon Kelley"/>
+    <param pos="0" name="service.family" value="Dnsmasq"/>
+    <param pos="0" name="service.product" value="Dnsmasq"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="hw.vendor" value="Ubiquiti"/>
+    <!-- Not including more info at this time as I'm not sure this doesn't
+         run on products other than EdgeRouter.
+    -->
+  </fingerprint>
+  <fingerprint pattern="^PowerDNS Recursor (\d\.[\d.]+) \(\w+@[\w.]+ built (\d+) \w+@[\w.-]*\)$">
+    <description>PowerDNS Recursor</description>
+    <example service.version="3.6.2">PowerDNS Recursor 3.6.2 (jenkins@autotest.powerdns.com built 20141031140810 mockbuild@)</example>
+    <example service.version.version="20170120211656">PowerDNS Recursor 3.7.4 (jenkins@autotest.powerdns.com built 20170120211656 root@foo-bar.foo.baz)</example>
+    <param pos="0" name="service.vendor" value="PowerDNS"/>
+    <param pos="0" name="service.family" value="PowerDNS"/>
+    <param pos="0" name="service.product" value="Recursor"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.version.version"/>
+  </fingerprint>
+  <fingerprint pattern="^PowerDNS Recursor (\d\.[\d.]+) \$Id[^$]*\$$">
+    <description>PowerDNS Recursor, broken ID</description>
+    <example service.version="3.5.3">PowerDNS Recursor 3.5.3 $Id$</example>
+    <example service.version="3.2">PowerDNS Recursor 3.2 $Id: pdns_recursor.cc 1538 2010-03-06 11:39:03Z ahu $</example>
+    <param pos="0" name="service.vendor" value="PowerDNS"/>
+    <param pos="0" name="service.family" value="PowerDNS"/>
+    <param pos="0" name="service.product" value="Recursor"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^PowerDNS Authoritative Server (\d\.\d+\.\d+) \(\w+@[\w.]+ built (\d+) \w+@[\w.-]*\)$">
+    <description>PowerDNS Authoritative Server</description>
+    <example service.version="3.4.19">PowerDNS Authoritative Server 3.4.19 (jenkins@autotest.powerdns.com built 20160102220341 root@)</example>
+    <example service.version.version="20170306160718">PowerDNS Authoritative Server 3.4.10 (jenkins@autotest.powerdns.com built 20170306160718 root@foo-bar.foo.baz)</example>
+    <param pos="0" name="service.vendor" value="PowerDNS"/>
+    <param pos="0" name="service.family" value="PowerDNS"/>
+    <param pos="0" name="service.product" value="Authoritative Server"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.version.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Nominum Vantio(?: CacheServe)? ([\d.]+)$">
+    <description>Nominum Vantio CacheServe</description>
+    <example service.version="4.3.0.2">Nominum Vantio 4.3.0.2</example>
+    <example service.version="7.2.1.3">Nominum Vantio CacheServe 7.2.1.3</example>
+    <param pos="0" name="service.vendor" value="Nominum"/>
+    <param pos="0" name="service.family" value="Vantio"/>
+    <param pos="0" name="service.product" value="CacheServe"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Nominum Vantio ([\d.]+) \(build (\d+)\)$">
+    <description>Nominum Vantio CacheServe, with build</description>
+    <example service.version.version="114872">Nominum Vantio 5.4.5.1 (build 114872)</example>
+    <param pos="0" name="service.vendor" value="Nominum"/>
+    <param pos="0" name="service.family" value="Vantio"/>
+    <param pos="0" name="service.product" value="CacheServe"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.version.version"/>
+  </fingerprint>
+  <fingerprint pattern="^NSD ([\d.]*)$">
+    <description>NLnet Labs Name Server Daemon</description>
+    <example service.version="3.2.18">NSD 3.2.18</example>
+    <example service.version="4">NSD 4</example>
+    <example>NSD </example>
+    <param pos="0" name="service.vendor" value="NLnet Labs"/>
+    <param pos="0" name="service.family" value="NSD"/>
+    <param pos="0" name="service.product" value="dnsd"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^unbound ([\d.]+)$">
+    <description>NLnet Labs Unbound</description>
+    <example service.version="1.4.22">unbound 1.4.22</example>
+    <param pos="0" name="service.vendor" value="NLnet Labs"/>
+    <param pos="0" name="service.family" value="Unbound"/>
+    <param pos="0" name="service.product" value="dnsd"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^UltraDNS Resolver$">
+    <description>Neustar UltraDNS Resolver</description>
+    <example>UltraDNS Resolver</example>
+    <param pos="0" name="service.vendor" value="Neustar"/>
+    <param pos="0" name="service.family" value="UltraDNS"/>
+    <param pos="0" name="service.product" value="Resolver"/>
+  </fingerprint>
+</fingerprints>
