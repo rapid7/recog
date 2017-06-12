@@ -1652,9 +1652,9 @@ The system or service fingerprint with the highest certainty overwrites the othe
       </description>
     <example service.version="4.3.2">4.3.2 Service not available</example>
     <param pos="1" name="service.version"/>
-    <param pos="0" name="service.vendor" value="new"/>
-    <param pos="0" name="service.family" value="version"/>
-    <param pos="0" name="service.product" value="version"/>
+    <param pos="0" name="service.vendor" value="Unknown"/>
+    <param pos="0" name="service.family" value="Unknown"/>
+    <param pos="0" name="service.product" value="Unknown"/>
   </fingerprint>
   <fingerprint pattern="^(\S{0,5}\d{0,10})-e.echosting.(.*) +E?SMTP">
     <description>
@@ -1663,7 +1663,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <example service.version="e2222" website.version="foo.com">e2222-e.echosting.foo.com ESMTP</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="website.version"/>
-    <param pos="0" name="service.vendor" value="new"/>
+    <param pos="0" name="service.vendor" value="Unknown"/>
   </fingerprint>
   <fingerprint pattern="^([a-zA-z]{0,10}\d{0,10}).(.*) +E?SMTP+ ?ready$">
     <description>
@@ -1672,8 +1672,8 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <example service.version="lbc4" service.location="cloud.netart">lbc4.cloud.netart ESMTP ready</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="service.location"/>
-    <param pos="0" name="service.vendor" value="new"/>
-    <param pos="0" name="service.family" value="version"/>
+    <param pos="0" name="service.vendor" value="Unknown"/>
+    <param pos="0" name="service.family" value="Unknown"/>
   </fingerprint>
   <fingerprint pattern="^(\w{0,5}+.\w{0,5}+).(\w{0,10}+) E?SMTP +?service+ ?ready$">
     <description> 
@@ -1691,8 +1691,8 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <example service.version="aa227" service.host="secure.ne.jp">aa227.secure.ne.jp ESMTP</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="service.host"/>
-    <param pos="0" name="service.vendor" value="japan" />
-    <param pos="0" name="service.family" value="secure"/>
+    <param pos="0" name="service.country" value="japan" />
+    <param pos="0" name="service.type" value="secure"/>
   </fingerprint>
   <fingerprint pattern="^(\D+\D+\d+\d).([a-z]+[a-z]+[a-z]+[a-z]+[a-z])+.jp+ ESMTP$">
    <description>
@@ -1701,8 +1701,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
    <example service.version="dc51" service.name="etius">dc51.etius.jp ESMTP</example>
    <param pos="1" name="service.version"/>
    <param pos="2" name="service.name"/>
-   <param pos="0" name="service.vendor" value="japan"/>
-   <param pos="0" name="service.family" value="etius"/>
+   <param pos="0" name="service.country" value="japan"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) Kerio Connect+ (\d.\d.\d)+ ESMTP+ ready$">
    <description>
@@ -1710,7 +1709,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
    </description>
    <example service.name="iZbp17r0ete90sZ" service.version="8.0.2">iZbp17r0ete90sZ Kerio Connect 8.0.2 ESMTP ready</example>
    <param pos="0" name="service.vendor" value="Kerio Technologies"/>
-   <param pos="0" name="service.parentorg" value="GFI Software"/>
+   <param pos="0" name="service.family" value="GFI Software"/>
    <param pos="1" name="service.name"/>
    <param pos="2" name="service.version"/>
    </fingerprint>
@@ -1729,7 +1728,49 @@ The system or service fingerprint with the highest certainty overwrites the othe
    </description>
    <example service.website="zz102.secure.ne.jp">zz102.secure.ne.jp ESMTP</example>
    <param pos="0" name="service.location" value="Japan"/>
-   <param pos="0" name="service.connectiontype" value="secure"/>
+   <param pos="0" name="service.type" value="secure"/>
    <param pos="1" name="service.website"/>
+  </fingerprint>
+  <fingerprint pattern="^\w{0,50}.\w{0,50}.(\w{0,50}).\w{0,50}.\w{0,50}.(.*)$">
+   <description>
+	korean online mail interface and message parse
+   </description>
+   <example service.version="vm84" service.message="ESMTP welcome to HanMail.Net(tm) ready">mail-rmail-vm84.hanmail.net ESMTP welcome to HanMail.Net(tm) ready</example>
+   <param pos="0" name="service.provider" value="Daum Communications"/>
+   <param pos="0" name="service.blocked" value="Hotmail addresses"/>
+   <param pos="1" name="service.version"/>
+   <param pos="2" name="service.message"/>
+  </fingerprint>
+  <fingerprint pattern="^(\S{0,50}).E?SMTP.([a-zA-Z]{0,50}) (\S{0,50})$">
+   <description>
+	internet security directed at content control 
+   </description>
+   <example service.website="sjl0vm-hesra17.colo.sonicwall.com" service.product="SonicWALL" service.version="(9.0.1.1225)">sjl0vm-hesra17.colo.sonicwall.com ESMTP SonicWALL (9.0.1.1225)</example>
+   <param pos="0" name="service.host" value="Dell Corporation"/>
+   <param pos="1" name="service.website"/>
+   <param pos="2" name="service.product"/>
+   <param pos="3" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(.*)\w{0,50}.\w{0,50}.E?SMTP.?Postfix.(.*)$">
+   <description>
+	Postfix for IBM and Linux distributions
+   </description>
+   <example service.version="sysrg001.hurricane.network" service.note="(Lotus Notes)">sysrg001.hurricane.network ESMTP Postfix (Lotus Notes)</example>
+   <param pos="0" name="service.family" value="IBM"/>
+   <param pos="0" name="service.host" value="Linux"/>
+   <param pos="1" name="service.version"/>
+   <param pos="2" name="service.note"/>
+  </fingerprint>
+  <fingerprint pattern="^\S{0,50}.[a-zA-Z]{0,8}.[a-zA-Z]{0,8}.(.*)$">
+   <description>
+	Open source mail service to run on Linux and FreeBSD systems
+   </description>
+   <example service.version="1.5">srv1.grupok10.com.br() MTA Selor 1.5</example>
+   <param pos="0" name="service.website" value="srv1.grupok10.com.br()"/>
+   <param pos="0" name="service.vendor" value="MTA Selor"/>
+   <param pos="0" name="service.author" value="Lucas Priori"/>
+   <param pos="0" name="service.backbone" value="C - Assembly"/>
+   <param pos="0" name="service.published" value="[2015-09-07]"/>
+   <param pos="1" name="service.version"/>
   </fingerprint>
 </fingerprints>
