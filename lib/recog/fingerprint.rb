@@ -142,7 +142,7 @@ class Fingerprint
       test.attributes.each do |k, v|
         next if k == '_encoding'
         if !result.has_key?(k) || result[k] != v
-          message = "'#{@name}' failed to find expected capture group #{k} '#{v}'"
+          message = "'#{@name}' failed to find expected capture group #{k} '#{v}'. Result was #{result[k]}"
           status = :fail
           break
         end
