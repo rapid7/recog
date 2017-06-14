@@ -36,7 +36,7 @@ Feature: Verify
       FAIL: 'foo test' failed to match "bar" with (?-mix:^foo$)'
       FAIL: '' failed to match "This almost matches" with (?-mix:^This matches$)'
       FAIL: 'bar test's os.name is a non-zero pos but specifies a value of 'Bar'
-      FAIL: 'bar test' failed to find expected capture group os.version '5.0'
+      FAIL: 'bar test' failed to find expected capture group os.version '5.0'. Result was 1.0
       SUMMARY: Test completed with 0 successful, 0 warnings, and 4 failures
       """
     And the exit status should be 4
