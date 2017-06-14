@@ -10,3 +10,7 @@ before_install:
 before_script:
   - bundle exec rake --version
 script: bundle exec rake tests
+env:
+  global:
+    - CI="travis"
+    - JRUBY_OPTS="--server -J-Xms512m -J-Xmx2G"
