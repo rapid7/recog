@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Patterns for common names of various operating systems.
--->
+  -->
 <fingerprints matches="operating_system.name" database_type="util.os" preference="0.80">
   <!-- Windows begin -->
-  <fingerprint pattern="^(?i:(?:Microsoft )?(Windows (?:[a-z]+\s[a-z]+\s|[a-z]+\s)?Server (?:\d{4} R2|\d{4}))(?:,\s|\s)?([a-z]+)?(?: Edition)?(?:\s)?(SP\d|SP \d|Service Pack \d)?)$">
+  <fingerprint pattern="^(?i:(?:Microsoft )?(Windows (?:[a-z]+\s[a-z]+\s|[a-z]+\s)?Server (?:\d{4} R2|\d{4}))(?:,\s|\s)?([a-z]+)?(?: Edition)?(?:\s|\swith(?:out)? Hyper-V\s)?(SP\d|SP \d|Service Pack \d)?)$">
     <description>Windows Server 2003 and later</description>
     <example os.product="Windows Compute Cluster Server 2003">Windows Compute Cluster Server 2003</example>
     <example os.product="Windows Server 2003" os.edition="Standard">Windows Server 2003, Standard Edition</example>
@@ -12,7 +12,9 @@
     <example os.product="Windows Small Business Server 2003 R2">Windows Small Business Server 2003 R2</example>
     <example os.product="Windows Server 2008" os.edition="Enterprise">Windows Server 2008 Enterprise Edition</example>
     <example os.product="Windows Small Business Server 2008">Windows Small Business Server 2008</example>
-    <example os.product="Windows Server 2012" os.version="Service Pack 1">Windows Server 2012 Service Pack 1</example>
+    <example os.product="Windows Storage Server 2012 R2">Windows Storage Server 2012 R2</example>
+    <example os.product="Windows Server 2008" os.edition="Enterprise" os.version="Service Pack 2">Windows Server 2008 Enterprise without Hyper-V Service Pack 2</example>
+    <example os.product="Windows Server 2008" os.edition="Enterprise" os.version="SP1">Windows Server 2008 Enterprise with Hyper-V SP1</example>
     <example os.product="Windows Server 2012 R2" os.edition="Foundation">Windows Server 2012 R2 Foundation Edition</example>
     <example os.product="Windows Storage Server 2012 R2">Windows Storage Server 2012 R2</example>
     <param pos="0" name="os.vendor" value="Microsoft"/>
@@ -252,11 +254,21 @@
     <param pos="0" name="os.product" value="Linux Enterprise Server"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^(?i:Ubuntu(?: Linux)?\s(\d+?(?:\.\d+?)*?)?\s?(LTS)?)$">
+  <fingerprint pattern="^(?i:SLES(?: Linux Enterprise Server)?\s?(\d+?(?:\.\d+?)*?)?)$">
+    <description>SLES Linux Enterprise Server</description>
+    <example os.version="11">SLES 11</example>
+    <example os.version="12">SLES Linux Enterprise Server 12</example>
+    <param pos="0" name="os.vendor" value="SUSE"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux Enterprise Server"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(?i:Ubuntu(?: Linux)?(?:\s|-)(\d+?(?:\.\d+?)*?)?\s?(LTS)?)$">
     <description>Ubuntu Linux</description>
     <example os.version="12.04.4">Ubuntu 12.04.4 LTS</example>
     <example os.version="14.04">Ubuntu Linux 14.04</example>
     <example os.version="16.04" os.edition="LTS">Ubuntu 16.04 LTS</example>
+    <example os.version="16.04" os.edition="LTS">Ubuntu-16.04 LTS</example>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
