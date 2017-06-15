@@ -6,8 +6,6 @@ Recog is a framework for identifying products, services, operating systems, and 
 [![Gem Version](https://badge.fury.io/rb/recog.svg)](http://badge.fury.io/rb/recog)
 [![Build Status](https://travis-ci.org/rapid7/recog.svg?branch=master)](https://travis-ci.org/rapid7/recog)
 
-==
-
 ## Installation
 
 Recog consists of both XML fingerprint files and an assortment of code, mostly in Ruby, that makes it easy to develop, test, and use the contained fingerprints. In order to use the included ruby code, a recent version of Ruby (2.1+) is required, along with Rubygems and the `bundler` gem. Once these dependencies are in place, use the following commands to grab the latest source code and install any additional dependencies.
