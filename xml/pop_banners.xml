@@ -217,7 +217,58 @@ matched against these patterns to fingerprint POP3 servers.
     <param pos="0" name="service.product" value="Courier POP"/>
   </fingerprint>
   <!--
-
+<fingerprint pattern= "^CMailServer ([\d\.]+) POP3 Service Ready$">
+    <description>matches to CMailServer</description>
+    <example>CMailServer 5.0.0 POP3 Service Ready</example>
+	<param pos="0" name="service.product" value="CMailServer"/>
+	<param pos="0" name="service.vendor" value="Youngzsoft"/>
+	<param pos="0" name="os.family" value="Windows" />
+	<param pos="0" name="os.vendor" value="Microsoft"/>
+	<param pos= "1" name="service.version"/>
+  </fingerprint>
+<fingerprint pattern= "^POP3 Bigfoot v(\d\.\d) server ready$">
+    <description>matches to POP3 Bigfoot server</description>
+    <example>POP3 Bigfoot v1.0 server ready</example>
+    <param pos="0" name="service.vendor" value="Bigfoot"/>
+    <param pos="0" name="service.family" value="Bigfoot Email Tools"/>
+    <param pos="0" name="service.product" value="Bigfoot Email Tools"/>
+	<param pos="1" name="service.version"/>
+  </fingerprint>
+<fingerprint pattern="^(CCProxy) (\d\.\d) POP3 Service Ready$">
+    <description>matches the CCProxy POP3 server</description>
+    <example>POP3 Bigfoot v(1.0) server ready</example>
+    <param pos="0" name="service.vendor" value="Youngzsoft"/>
+    <param pos="1" name="service.family" value="CCProxy"/>
+    <param pos="1" name="service.product" value="CCProxy"/>
+	<param pos="2" name="service.version"/>
+  </fingerprint>
+<fingerprint pattern= "^POP3 on WinWebMail (\[\d\.\d\.\d\.\d\]) ready\.$">
+    <description>matches to WinWebmail POP3 </description>
+    <example>POP3 on WinWebMail [1.1.1.1] ready.</example>
+	<param pos="0" name = "service.product" value="WinWebMail"/>
+	<param pos="0" name= "service.vendor" value="Ma Jian"/>
+	<param pos="0" name="os.vendor" value="Microsoft"/>
+	<param pos="0" name ="os.family" value="Windows"/>
+	<param pos="0" name="os.device" value="General"/>
+	<param pos="0" name="os.product" value="Windows"/>
+	<param pos="1" name= "service.version"/>
+  </fingerprint>
+<fingerprint pattern= "^Welcome to the [^ ]+\.arvixe\.com POP3 server\.$">
+    <description>matches to Arvixe web hosting</description>
+    <example>Welcome to foo.arvixe.com POP3 server.</example>
+	<param pos= "0" name="service.vendor" value= "Arvixe Web Hosting"/>	
+  </fingerprint>
+<fingerprint pattern= "^BlackJumboDog \(Version ([\d\.]+)\) ready$">
+    <description>matches to BlackJumboDog </description>
+    <example>BlackJumboDog (Version 5.7.5.0) ready</example>
+	<param pos="0" name="service.vendor" value= "SapporoWorks"/>
+	<param pos="0" name="service.product" value="BlackJumboDog"/>
+	<param pos="0" name="os.family" value="Windows"/>
+	<param pos="0" name="os.vendor" value="Microsoft"/>
+	<param pos="0" name="os.device" value="General"/>
+	<param pos="0" name="os.product" value="Windows"/>
+	<param pos="1" name="service.version"/>	
+  </fingerprint> 
 ; Mandrake 8.1 - uses UW IMAP
 ; +OK POP3 mandrake81-f540k v2000.70mdk server ready
 // wu-imap?
