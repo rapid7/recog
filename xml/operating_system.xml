@@ -4,10 +4,11 @@
   -->
 <fingerprints matches="operating_system.name" database_type="util.os" preference="0.80">
   <!-- Windows begin -->
-  <fingerprint pattern="^(?i:(?:Microsoft )?(Windows (?:[a-z]+\s[a-z]+\s|[a-z]+\s)?Server (?:\d{4} R2|\d{4}))(?:,\s|\s)?([a-z]+)?(?: Edition)?(?:\s|\swith(?:out)? Hyper-V\s)?(SP\d|SP \d|Service Pack \d)?)$">
+  <fingerprint pattern="^(?i:(?:Microsoft )?(Windows (?:[a-z]+\s[a-z]+\s|[a-z]+\s)?Server (?:\d{4} R2|\d{4}))(?:,\s|\s)?([a-z]+)?(?: Evaluation)?(?: Edition)?(?:\s|\swith(?:out)? Hyper-V\s)?(SP\d|SP \d|Service Pack \d)?)$">
     <description>Windows Server 2003 and later</description>
     <example os.product="Windows Compute Cluster Server 2003">Windows Compute Cluster Server 2003</example>
     <example os.product="Windows Server 2003" os.edition="Standard">Windows Server 2003, Standard Edition</example>
+    <example os.product="Windows Server 2012 R2" os.edition="Standard">Windows Server 2012 R2 Standard Evaluation</example>
     <example os.product="Windows Server 2003 R2" os.edition="Datacenter">Windows Server 2003 R2, Datacenter Edition</example>
     <example os.product="Windows Small Business Server 2003 R2">Windows Small Business Server 2003 R2</example>
     <example os.product="Windows Server 2008" os.edition="Enterprise">Windows Server 2008 Enterprise Edition</example>
@@ -88,6 +89,41 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="1" name="os.product"/>
+  </fingerprint>
+  <fingerprint pattern="^(?i:(?:Microsoft )?Windows 6.1)$">
+    <description>Windows version 6.1 (Windows 7 or Windows Server 2008</description>
+    <example>Windows 6.1</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows 7 or Windows Server 2008"/>
+  </fingerprint>
+  <fingerprint pattern="^(?i:(?:Microsoft )?Windows 6.1)$">
+    <description>Windows version 6.1 (Windows 7 or Windows Server 2008)</description>
+    <example>Windows 6.1</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows 7 or Windows Server 2008"/>
+  </fingerprint>
+  <fingerprint pattern="^(?i:(?:Microsoft )?Windows 6.2)$">
+    <description>Windows version 6.2 (Windows 8 or Windows Server 2012)</description>
+    <example>Windows 6.2</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows 8 or Windows Server 2012"/>
+  </fingerprint>
+    <fingerprint pattern="^(?i:(?:Microsoft )?Windows 6.3)$">
+    <description>Windows version 6.3 (Windows 8.1 or Windows Server 2012 R2)</description>
+    <example>Windows 6.3</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows 8.1 or Windows Server 2012 R2"/>
+  </fingerprint>
+  <fingerprint pattern="^(?i:(?:Microsoft )?Windows 10.0)$">
+    <description>Windows version 10.0 (Windows 10 or Windows Server 2016)</description>
+    <example>Windows 10.0</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows 10 or Windows Server 2016"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Microsoft )?Windows.*)$">
     <description>Windows catch-all</description>
