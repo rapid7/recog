@@ -419,11 +419,120 @@ NTP "banners", taken from a readvar response
     <param pos="0" name="os.family" value="NetWare"/>
     <param pos="0" name="os.product" value="NetWare"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
-    <description>ntpd running on Solaris</description>
+  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/5.0&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description> ntpd running on Solaris 2.0 (SunOS/5.0) </description>
     <example>
       version="ntpd 4.2.0@1.1161-r Wed Apr 20 11:28:05 EDT 2005 (1)",
-      processor="sun4u", system="SunOS/5.9", leap=00, stratum=2,
+      processor="sun4u", system="SunOS/5.0", leap=00, stratum=2,
+    </example>
+    <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="0" name="service.family" value="NTP"/>
+    <param pos="0" name="service.product" value="NTP"/>
+    <param pos="0" name="os.version" value="2.0"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/5.1&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description> ntpd running on Solaris 2.1 (SunOS/5.1) </description>
+    <example>
+      version="ntpd 4.2.0@1.1161-r Wed Apr 20 11:28:05 EDT 2005 (1)",
+      processor="sun4u", system="SunOS/5.1", leap=00, stratum=2,
+    </example>
+    <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="0" name="service.family" value="NTP"/>
+    <param pos="0" name="service.product" value="NTP"/>
+    <param pos="0" name="os.version" value="2.1"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/5.2&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description> ntpd running on Solaris 2.2 (SunOS/5.2) </description>
+    <example>
+      version="ntpd 4.2.0@1.1161-r Wed Apr 20 11:28:05 EDT 2005 (1)",
+      processor="sun4u", system="SunOS/5.2", leap=00, stratum=2,
+    </example>
+    <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="0" name="service.family" value="NTP"/>
+    <param pos="0" name="service.product" value="NTP"/>
+    <param pos="0" name="os.version" value="2.2"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/5.3&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description> ntpd running on Solaris 2.3 (SunOS/5.3) </description>
+    <example>
+      version="ntpd 4.2.0@1.1161-r Wed Apr 20 11:28:05 EDT 2005 (1)",
+      processor="sun4u", system="SunOS/5.3", leap=00, stratum=2,
+    </example>
+    <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="0" name="service.family" value="NTP"/>
+    <param pos="0" name="service.product" value="NTP"/>
+    <param pos="0" name="os.version" value="2.3"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/5.4&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description> ntpd running on Solaris 2.4 (SunOS/5.4) </description>
+    <example>
+      version="ntpd 4.2.0@1.1161-r Wed Apr 20 11:28:05 EDT 2005 (1)",
+      processor="sun4u", system="SunOS/5.4", leap=00, stratum=2,
+    </example>
+    <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="0" name="service.family" value="NTP"/>
+    <param pos="0" name="service.product" value="NTP"/>
+    <param pos="0" name="os.version" value="2.4"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/5.5&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description> ntpd running on Solaris 2.5 (SunOS/5.5) </description>
+    <example>
+      version="ntpd 4.2.0@1.1161-r Wed Apr 20 11:28:05 EDT 2005 (1)",
+      processor="sun4u", system="SunOS/5.5", leap=00, stratum=2,
+    </example>
+    <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="0" name="service.family" value="NTP"/>
+    <param pos="0" name="service.product" value="NTP"/>
+    <param pos="0" name="os.version" value="2.5"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/5.6&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description> ntpd running on Solaris 2.6 (SunOS/5.6) </description>
+    <example>
+      version="ntpd 4.2.0@1.1161-r Wed Apr 20 11:28:05 EDT 2005 (1)",
+      processor="sun4u", system="SunOS/5.6", leap=00, stratum=2,
+    </example>
+    <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="0" name="service.family" value="NTP"/>
+    <param pos="0" name="service.product" value="NTP"/>
+    <param pos="0" name="os.version" value="2.6"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/5.([789]|\d{2,})&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+    <description> ntpd running on Solaris 7 or above (SunOS/5.7 and above) </description>
+    <example>
+      version="ntpd 4.2.0@1.1161-r Wed Apr 20 11:28:05 EDT 2005 (1)",
+      processor="sun4u", system="SunOS/5.7", leap=00, stratum=2,
+    </example>
+    <example>
+      version="ntpd 4.2.0@1.1161-r Wed Apr 20 11:28:05 EDT 2005 (1)",
+      processor="sun4u", system="SunOS/5.11", leap=00, stratum=2,
     </example>
     <param pos="0" name="os.vendor" value="Sun"/>
     <param pos="0" name="os.family" value="Solaris"/>
@@ -434,34 +543,123 @@ NTP "banners", taken from a readvar response
     <param pos="2" name="os.arch"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
-    <description>Solaris with no ntp version</description>
-    <example>
-      processor="sun4m", system="SunOS5.6"
-    </example>
-    <example>
-      processor="sun4m", system="SunOS5.8"
-    </example>
-    <example>
-      processor="sun4u", system="SunOS5.10"
-    </example>
-    <example>
-      processor="sun4u", system="SunOS5.6"
-    </example>
-    <example>
-      processor="sun4u", system="SunOS5.7"
-    </example>
-    <example>
-      processor="sun4u", system="SunOS5.8"
-    </example>
-    <example>
-      processor="sun4u", system="SunOS5.9"
-    </example>
-    <param pos="0" name="os.vendor" value="Sun"/>
-    <param pos="0" name="os.family" value="Solaris"/>
-    <param pos="0" name="os.product" value="Solaris"/>
-    <param pos="1" name="os.arch"/>
-    <param pos="2" name="os.version"/>
+  <fingerprint pattern="^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/5.0&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+   <description> Solaris 2.0 (SunOS/5.0) with no ntp version</description>
+   <example>
+     processor="sun4m",system="SunOS/5.0"
+   </example>
+   <example>
+    processor="sun4u",system="SunOS/5.0"
+   </example>
+   <param pos="0" name="os.vendor" value="Sun"/>
+   <param pos="0" name="os.vendor" value="Solaris"/>
+   <param pos="0" name="os.product" value="Solaris"/>
+   <param pos="0" name="os.version" value="2.0" />
+   <param pos="1" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/5.1&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+   <description> Solaris 2.1 (SunOS/5.1) with no ntp version</description>
+   <example>
+     processor="sun4m",system="SunOS/5.1"
+   </example>
+   <example>
+    processor="sun4u",system="SunOS/5.1"
+   </example>
+   <param pos="0" name="os.vendor" value="Sun"/>
+   <param pos="0" name="os.vendor" value="Solaris"/>
+   <param pos="0" name="os.product" value="Solaris"/>
+   <param pos="0" name="os.version" value="2.1" />
+   <param pos="1" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/5.2&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+   <description> Solaris 2.2 (SunOS/5.2) with no ntp version</description>
+   <example>
+     processor="sun4m",system="SunOS/5.2"
+   </example>
+   <example>
+    processor="sun4u",system="SunOS/5.2"
+   </example>
+   <param pos="0" name="os.vendor" value="Sun"/>
+   <param pos="0" name="os.vendor" value="Solaris"/>
+   <param pos="0" name="os.product" value="Solaris"/>
+   <param pos="0" name="os.version" value="2.2" />
+   <param pos="1" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/5.3&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+   <description> Solaris 2.3 (SunOS/5.3) with no ntp version</description>
+   <example>
+     processor="sun4m",system="SunOS/5.3"
+   </example>
+   <example>
+    processor="sun4u",system="SunOS/5.3"
+   </example>
+   <param pos="0" name="os.vendor" value="Sun"/>
+   <param pos="0" name="os.vendor" value="Solaris"/>
+   <param pos="0" name="os.product" value="Solaris"/>
+   <param pos="0" name="os.version" value="2.3" />
+   <param pos="1" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/5.4&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+   <description> Solaris 2.4 (SunOS/5.4) with no ntp version</description>
+   <example>
+     processor="sun4m",system="SunOS/5.4"
+   </example>
+   <example>
+    processor="sun4u",system="SunOS/5.4"
+   </example>
+   <param pos="0" name="os.vendor" value="Sun"/>
+   <param pos="0" name="os.vendor" value="Solaris"/>
+   <param pos="0" name="os.product" value="Solaris"/>
+   <param pos="0" name="os.version" value="2.4" />
+   <param pos="1" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/5.5&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+   <description> Solaris 2.5 (SunOS/5.5) with no ntp version</description>
+   <example>
+     processor="sun4m",system="SunOS/5.5"
+   </example>
+   <example>
+    processor="sun4u",system="SunOS/5.5"
+   </example>
+   <param pos="0" name="os.vendor" value="Sun"/>
+   <param pos="0" name="os.vendor" value="Solaris"/>
+   <param pos="0" name="os.product" value="Solaris"/>
+   <param pos="0" name="os.version" value="2.5" />
+   <param pos="1" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/5.6&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+   <description> Solaris 2.6 (SunOS/5.6) with no ntp version</description>
+   <example>
+     processor="sun4m",system="SunOS/5.6"
+   </example>
+   <example>
+    processor="sun4u",system="SunOS/5.6"
+   </example>
+   <param pos="0" name="os.vendor" value="Sun"/>
+   <param pos="0" name="os.vendor" value="Solaris"/>
+   <param pos="0" name="os.product" value="Solaris"/>
+   <param pos="0" name="os.version" value="2.6" />
+   <param pos="1" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/5.([789]|\d{2,})&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+   <description> Solaris 7 (SunOS/5.7) and above with no ntp version</description>
+   <example>
+     processor="sun4m",system="SunOS/5.7"
+   </example>
+   <example>
+     processor="sun4u",system="SunOS/5.7"
+   </example>
+   <example>
+     processor="sun4m",system="SunOS/5.10"
+   </example>
+   <example>
+     processor="sun4u",system="SunOS/5.10"
+   </example>
+   <param pos="0" name="os.vendor" value="Sun"/>
+   <param pos="0" name="os.family" value="Solaris"/>
+   <param pos="0" name="os.product" value="Solaris"/>
+   <param pos="1" name="os.arch"/>
+   <param pos="2" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="^.*system=&quot;UNIX/SunOS ([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>SunOS with no ntp version</description>
