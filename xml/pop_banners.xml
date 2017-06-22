@@ -235,7 +235,7 @@ matched against these patterns to fingerprint POP3 servers.
   </fingerprint>
   <fingerprint pattern="^CCProxy ([\d.]+) POP3 Service Ready$">
     <description>CCProxy POP3 server</description>
-    <example service.version="8.0" >CCProxy 8.0 POP3 Service Ready</example>
+    <example service.version="8.0">CCProxy 8.0 POP3 Service Ready</example>
     <example service.version="2010">CCProxy 2010 POP3 Service Ready</example>
     <example service.version="6.4.2">CCProxy 6.4.2 POP3 Service Ready</example>
     <param pos="0" name="service.vendor" value="Youngzsoft"/>
@@ -244,28 +244,26 @@ matched against these patterns to fingerprint POP3 servers.
     <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern= "^POP3 on WinWebMail \[([\d.]+)\] ready\.$">
-    <description>WinWebmail POP3 </description>
-    <example service.version="1.1.1.1" >POP3 on WinWebMail [1.1.1.1] ready.</example>
-	<param pos="0" name="service.product" value="WinWebMail"/>
-	<param pos="0" name="service.vendor" value="Ma Jian"/>
-	<param pos="0" name="os.vendor" value="Microsoft"/>
-	<param pos="0" name="os.family" value="Windows"/>
-	<param pos="0" name="os.device" value="General"/>
-	<param pos="0" name="os.product" value="Windows"/>
-	<param pos="1" name="service.version"/>
+    <description>WinWebmail POP3</description>
+    <example service.version="1.1.1.1">POP3 on WinWebMail [1.1.1.1] ready.</example>
+    <param pos="0" name="service.product" value="WinWebMail"/>
+    <param pos="0" name="service.vendor" value="Ma Jian"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern= "^BlackJumboDog \(Version ([\d\.]+)\) ready$">
-    <description>BlackJumboDog </description>
-    <example service.version="5.7.5.0" >BlackJumboDog (Version 5.7.5.0) ready</example>
-	<param pos="0" name="service.vendor" value= "SapporoWorks"/>
-	<param pos="0" name="service.product" value="BlackJumboDog"/>
-	<param pos="0" name="os.family" value="Windows"/>
-	<param pos="0" name="os.vendor" value="Microsoft"/>
-	<param pos="0" name="os.device" value="General"/>
-	<param pos="0" name="os.product" value="Windows"/>
-	<param pos="1" name="service.version"/>	
+    <description>BlackJumboDog</description>
+    <example service.version="5.7.5.0">BlackJumboDog (Version 5.7.5.0) ready</example>
+    <param pos="0" name="service.vendor" value= "SapporoWorks"/>
+    <param pos="0" name="service.product" value="BlackJumboDog"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="1" name="service.version"/>
   </fingerprint>
-<!-- 
+<!--
 ; Mandrake 8.1 - uses UW IMAP
 ; +OK POP3 mandrake81-f540k v2000.70mdk server ready
 // wu-imap?
