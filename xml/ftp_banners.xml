@@ -129,15 +129,24 @@ example.com FTP server (Version:  Mac OS X Server) ready.</example>
     <param pos="2" name="service.version"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="^(\S+) FTP Server \(SunOS (\S+)\) ready\.?$" flags="REG_ICASE">
+  <fingerprint pattern="^(\S+) FTP Server \(SunOS 5.([789]|\d{2,})\) ready\.?$" flags="REG_ICASE">
     <description>SunOS/Solaris</description>
-    <example>example.com FTP server (SunOS 5.7) ready.</example>
+    <example host.name="example.com" os.version="7">example.com FTP server (SunOS 5.7) ready.</example>
     <param pos="0" name="os.vendor" value="Sun"/>
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
+  <fingerprint pattern="^(\S+) FTP Server \(SunOS 5.6\) ready\." flags="REG_ICASE">
+    <description>SunOS 5.6 (Solaris 2.6)</description>
+    <example host.name="example.com">example.com FTP Server (SunOS 5.6) ready.</example>
+    <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="0" name="os.version" value="2.6"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>  
   <fingerprint pattern="^ProFTPD (\d+\.[^\s]+) Server \(Debian\) \[(.+)\]$">
     <description>ProFTPD on Debian Linux</description>
     <example>ProFTPD 1.3.0rc2 Server (Debian) [host]</example>
