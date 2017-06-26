@@ -482,11 +482,30 @@
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^(?i:(?:Oracle|Sun)?\s?(?:Solaris|SunOS)\s?(\d+?(?:\.\d+?)*?)?)$">
+  <fingerprint pattern="^(?i:(?:Oracle|Sun)?\s?Solaris\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>Solaris</description>
     <example os.version="11.3">Solaris 11.3</example>
-    <example os.version="5.11">SunOS 5.11</example>
+    <example os.version="11">Solaris 11</example>
     <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(?i:(?:Oracle|Sun)?\s?SunOS\s?5.([789]|10)?)$">
+    <description>SunOS/Solaris 5.7-5.10</description>
+    <example os.version="7">SunOS 5.7</example>
+    <example os.version="10">SunOS 5.10</example>
+    <param pos="0" name="os.vendor" value="SunOS"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(?i:(?:Oracle|Sun)?\s?SunOS\s?5.(1[1-9]|[2-9]\d{1,}|\d{3,})?)$">
+    <description>Oracle/Solaris 5.11 and upwards</description>
+    <example os.version="11">SunOS 5.11</example>
+    <example os.version="20">SunOS 5.20</example>
+    <example os.version="123">SunOS 5.123</example>
+    <param pos="0" name="os.vendor" value="Oracle"/>
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="1" name="os.version"/>
