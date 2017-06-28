@@ -552,31 +552,23 @@ NTP "banners", taken from a readvar response
     <param pos="1" name="service.version"/>
     <param pos="2" name="os.arch"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/?5.(1[1-9]|[2-9]\d{1,}|\d{3,})&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/?5.(1[1-9])&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Solaris 11 or above (SunOS/5.11 and above) </description>
     <example service.version="4.2.0@1.1161-r" os.arch="sun4u" os.version="11">
       version="ntpd 4.2.0@1.1161-r Wed Apr 20 11:28:05 EDT 2005 (1)",
       processor="sun4u", system="SunOS/5.11", leap=00, stratum=2,
     </example>
-    <example service.version="4.2.0@1.1161-r" os.arch="sun4u" os.version="20">
-      version="ntpd 4.2.0@1.1161-r Wed Apr 20 11:28:05 EDT 2005 (1)",
-      processor="sun4u", system="SunOS/5.20", leap=00, stratum=2,
-    </example>
-    <example service.version="4.2.0@1.1161-r" os.arch="sun4u" os.version="123">
-      version="ntpd 4.2.0@1.1161-r Wed Apr 20 11:28:05 EDT 2005 (1)",
-      processor="sun4u", system="SunOS/5.123", leap=00, stratum=2,
-    </example>
     <example service.version="4.2.0@1.1161-r" os.arch="sun4u" os.version="11">
       version="ntpd 4.2.0@1.1161-r Wed Apr 20 11:28:05 EDT 2005 (1)",
       processor="sun4u", system="SunOS5.11", leap=00,stratum=2,
     </example>
-    <example service.version="4.2.0@1.1161-r" os.arch="sun4u" os.version="20">
+    <example service.version="4.2.0@1.1161-r" os.arch="sun4u" os.version="12">
       version="ntpd 4.2.0@1.1161-r Wed Apr 20 11:28:05 EDT 2005 (1)",
-      processor="sun4u", system="SunOS5.20", leap=00, stratum=2,
+      processor="sun4u", system="SunOS/5.12", leap=00, stratum=2,
     </example>
-    <example service.version="4.2.0@1.1161-r" os.arch="sun4u" os.version="123">
+    <example service.version="4.2.0@1.1161-r" os.arch="sun4u" os.version="12">
       version="ntpd 4.2.0@1.1161-r Wed Apr 20 11:28:05 EDT 2005 (1)",
-      processor="sun4u", system="SunOS5.123", leap=00, stratum=2,
+      processor="sun4u", system="SunOS5.12", leap=00, stratum=2,
     </example>
     <param pos="0" name="os.vendor" value="Oracle"/>
     <param pos="0" name="os.family" value="Solaris"/>
@@ -780,7 +772,7 @@ NTP "banners", taken from a readvar response
    <param pos="1" name="os.arch"/>
    <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/?5.(1[1-9]|[2-9]\d{1,}|\d{3,})&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="^.*processor=&quot;([^ ]+)&quot;,.*system=&quot;SunOS/?5.(1[1-9])&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
    <description>Solaris 11 and up with no ntp version</description>
    <example os.arch="sun4m" os.version="11">
     processor="sun4m", system="SunOS/5.11"
@@ -788,20 +780,14 @@ NTP "banners", taken from a readvar response
    <example os.arch="sun4u" os.version="11">
      processor="sun4u", system="SunOS/5.11"
    </example>
-   <example os.arch="sun4u" os.version="20">
-     processor="sun4u", system="SunOS/5.20"
+   <example os.arch="sun4u" os.version="12">
+     processor="sun4u", system="SunOS/5.12"
    </example>
-   <example os.arch="sun4m" os.version="20">
-     processor="sun4m", system="SunOS/5.20"
+   <example os.arch="sun4m" os.version="12">
+     processor="sun4m", system="SunOS/5.12"
    </example>
-   <example os.arch="sun4u" os.version="20">
-     processor="sun4u", system="SunOS5.20"
-   </example>
-   <example os.arch="sun4u" os.version="123">
-     processor="sun4u", system="SunOS/5.123"
-   </example>
-   <example os.arch="sun4u" os.version="123">
-     processor="sun4u", system="SunOS5.123"
+   <example os.arch="sun4u" os.version="12">
+     processor="sun4u", system="SunOS5.12"
    </example>
    <param pos="0" name="os.vendor" value="Oracle"/>
    <param pos="0" name="os.family" value="Solaris"/>
