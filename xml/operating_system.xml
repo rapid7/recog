@@ -482,10 +482,21 @@
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^(?i:(?:Oracle|Sun)?\s?Solaris\s?(\d+?(?:\.\d+?)*?)?)$">
-    <description>Solaris</description>
+  <fingerprint pattern="^(?i:(?:Oracle|Sun)?\s?Solaris\s?(1[1-9]?(?:\.\d+?)*?)?)$">
+    <description>Solaris 11 and up</description>
     <example os.version="11.3">Solaris 11.3</example>
     <example os.version="11">Solaris 11</example>
+    <param pos="0" name="os.vendor" value="Oracle"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(?i:(?:Oracle|Sun)?\s?Solaris\s?((?:[789]|10)+?(?:\.\d+?)*?)?)$">
+    <description>Solaris 7-10</description>
+    <example os.version="7">Solaris 7</example>
+    <example os.version="7.3">Solaris 7.3</example>
+    <example os.version="10">Solaris 10</example>
+    <example os.version="10.3">Solaris 10.3</example>
     <param pos="0" name="os.vendor" value="Sun"/>
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.product" value="Solaris"/>
@@ -495,7 +506,7 @@
     <description>SunOS/Solaris 5.7-5.10</description>
     <example os.version="7">SunOS 5.7</example>
     <example os.version="10">SunOS 5.10</example>
-    <param pos="0" name="os.vendor" value="SunOS"/>
+    <param pos="0" name="os.vendor" value="Sun"/>
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="1" name="os.version"/>
