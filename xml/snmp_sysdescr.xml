@@ -5965,6 +5965,26 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
+  <!--======================================================================
+                            pfSense
+   =======================================================================-->
+  <fingerprint pattern="^pfSense\s(\S+)\s(\d+\.\d+(?:\.\d+)?)-RELEASE.*(FreeBSD)\s([\d\.]+-(?:STABLE|RELEASE)(?:-p\d+)?).*\s(\w+)$">
+    <description>pfSense</description>
+    <example service.vendor="FreeBSD" service.product="bsnmpd" service.component.vendor="pfSense" service.component.product="pfSense" service.component.version="2.3.4" os.vendor="FreeBSD" os.family="FreeBSD" os.product="FreeBSD" os.version="10.3-RELEASE-p19" os.arch="amd64" host.name="pfSense.localdomain">pfSense pfSense.localdomain 2.3.4-RELEASE pfSense FreeBSD 10.3-RELEASE-p19 amd64</example>
+    <example service.vendor="FreeBSD" service.product="bsnmpd" service.component.vendor="pfSense" service.component.product="pfSense" service.component.version="2.1" os.vendor="FreeBSD" os.family="FreeBSD" os.product="FreeBSD" os.version="8.3-RELEASE-p11" os.arch="i386" host.name="example.com">pfSense example.com 2.1-RELEASE nanobsd FreeBSD 8.3-RELEASE-p11 i386</example>
+    <param pos="0" name="service.product" value="bsnmpd"/>
+    <param pos="0" name="service.component.vendor" value="pfSense"/>
+    <param pos="0" name="service.component.product" value="pfSense"/>
+    <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.component.version"/>
+    <param pos="3" name="os.vendor"/>
+    <param pos="3" name="service.vendor"/>
+    <param pos="3" name="os.family"/>
+    <param pos="3" name="os.product"/>
+    <param pos="4" name="os.version"/>
+    <param pos="5" name="os.arch"/>
+  </fingerprint>
   <!--
       Currently unmatched fingerprints:
          Vendor:Paradyne Corporation,ProductId:4929
