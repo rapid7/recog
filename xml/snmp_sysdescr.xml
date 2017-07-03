@@ -7078,9 +7078,22 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               SUN
    =======================================================================-->
-  <fingerprint pattern="^SunOS (\S+) 5\.(\S+) \S+ (\S+)$">
-    <description>SunOS/Solaris</description>
-    <example>SunOS sysname 5.10 Generic_118833-33 sun4u</example>
+  <fingerprint pattern="^SunOS (\S+) 5\.(1[1-9]) \S+ (\S+)$">
+   <description>Oracle/Solaris 5.11 and upwards</description>
+   <example host.name="sysname" os.version="11" os.arch="sun4u">SunOS sysname 5.11 Generic_118833-33 sun4u</example>
+   <param pos="0" name="os.vendor" value="Oracle"/>
+   <param pos="0" name="os.certainty" value="0.9"/>
+   <param pos="0" name="os.family" value="Solaris"/>
+   <param pos="0" name="os.product" value="Solaris"/>
+   <param pos="0" name="os.device" value="General"/>
+   <param pos="1" name="host.name"/>
+   <param pos="2" name="os.version"/>
+   <param pos="3" name="os.arch"/>
+  </fingerprint>
+  <fingerprint pattern="^SunOS (\S+) 5\.([789]|10) \S+ (\S+)$">
+    <description>SunOS/Solaris 5.7-5.10</description>
+    <example host.name="sysname" os.arch="sun4u" os.version="10">SunOS sysname 5.10 Generic_118833-33 sun4u</example>
+    <example host.name="sysname" os.arch="sun4u" os.version="7">SunOS sysname 5.7 Generic_118833-33 sun4u</example>
     <param pos="0" name="os.vendor" value="Sun"/>
     <param pos="0" name="os.certainty" value="0.9"/>
     <param pos="0" name="os.family" value="Solaris"/>
@@ -7241,15 +7254,15 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Storage"/>
   </fingerprint>
-  <fingerprint pattern="^SunOS 5\.(\S+) (\S+) sparc SUNW,([^,]+),.*$">
-    <description>SunOS/Solaris</description>
-    <example>SunOS 5.10 sun4u sparc SUNW,Sun-Fire-V210, Class 4 Call Manager</example>
+  <fingerprint pattern="^SunOS 5\.([789]|10) (\S+) sparc SUNW,([^,]+),.*$">
+    <description>SunOS/Solaris 5.7-5.10</description>
+    <example os.version="10" os.arch="sun4u" hw.product="Sun-Fire-V210">SunOS 5.10 sun4u sparc SUNW,Sun-Fire-V210, Class 4 Call Manager</example>
     <example>SunOS 5.10 sun4u sparc SUNW,Sun-Fire-V210, Class 5 Call Manager</example>
     <example>SunOS 5.10 sun4u sparc SUNW,Sun-Fire-V215, CommandCenter</example>
     <example>SunOS 5.10 sun4u sparc SUNW,Sun-Fire-V240, Class 5 Call Manager</example>
     <example>SunOS 5.10 sun4u sparc SUNW,Ultra-250, Class 5 Call Manager</example>
     <example>SunOS 5.10 sun4u sparc SUNW,UltraAX-i2, Class 5 Call Manager</example>
-    <example>SunOS 5.8 sun4u sparc SUNW,Sun-Fire-V210, Class 5 Call Manager</example>
+    <example os.version="8" os.arch="sun4u" hw.product="Sun-Fire-V210">SunOS 5.8 sun4u sparc SUNW,Sun-Fire-V210, Class 5 Call Manager</example>
     <example>SunOS 5.8 sun4u sparc SUNW,Ultra-60, Class 5 Call Manager</example>
     <example>SunOS 5.8 sun4u sparc SUNW,UltraAX-i2, Class 4 Call Manager</example>
     <example>SunOS 5.8 sun4u sparc SUNW,UltraAX-i2, Class 5 Call Manager</example>
@@ -7262,14 +7275,28 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.arch"/>
     <param pos="3" name="hw.product"/>
   </fingerprint>
-  <fingerprint pattern="^SunOS (\S+) 5\.(\S+) \S+ (\S+) \S+ SUNW,([^,]+).*$">
-    <description>SunOS/Solaris</description>
-    <example>SunOS integra01 5.10 Generic_127127-11 sun4v sparc SUNW,T5240</example>
+  <fingerprint pattern="^SunOS 5\.(1[1-9]) (\S+) sparc SUNW,([^,]+),.*$">
+   <description>Oracle/Solaris 5.11 and upwards</description>
+   <example os.version="11" os.arch="sun4u" hw.product="Sun-Fire-V210">SunOS 5.11 sun4u sparc SUNW,Sun-Fire-V210, Class 4 Call Manager</example>
+   <example os.version="12" os.arch="sun4u" hw.product="Sun-Fire-V210">SunOS 5.12 sun4u sparc SUNW,Sun-Fire-V210, Class 4 Call Manager</example>
+   <param pos="0" name="os.vendor" value="Oracle"/>
+   <param pos="0" name="os.certainty" value="0.9"/>
+   <param pos="0" name="os.family" value="Solaris"/>
+   <param pos="0" name="os.product" value="Solaris"/>
+   <param pos="0" name="os.device" value="General"/>
+   <param pos="1" name="os.version"/>
+   <param pos="2" name="os.arch"/>
+   <param pos="3" name="hw.product"/>
+  </fingerprint>
+  <fingerprint pattern="^SunOS (\S+) 5\.([789]|10) \S+ (\S+) \S+ SUNW,([^,]+).*$">
+    <description>SunOS/Solaris 5.7-5.10</description>
+    <example host.name="integra01" os.version="10" os.arch="sun4v" hw.product="T5240">SunOS integra01 5.10 Generic_127127-11 sun4v sparc SUNW,T5240</example>
     <example>SunOS integra02 5.10 Generic_127127-11 sun4v sparc SUNW,T5240</example>
     <example>SunOS magppg01 5.10 Generic_127127-11 sun4v sparc SUNW,T5240</example>
     <example>SunOS magppg02 5.10 Generic_127127-11 sun4v sparc SUNW,T5240</example>
     <example>SunOS rs1-s3 5.10 Generic_142900-09 sun4v sparc SUNW,Netra-CP3260</example>
     <example hw.product="Sun-Fire-T200">SunOS sn 5.10 Generic_118833-36 sun4v sparc SUNW,Sun-Fire-T200</example>
+    <example hw.product="Sun-Fire-T200" host.name="sn" os.arch="sun4v" os.version="8">SunOS sn 5.8 Generic_118833-36 sun4v sparc SUNW,Sun-Fire-T200</example>
     <param pos="0" name="os.vendor" value="Sun"/>
     <param pos="0" name="os.certainty" value="0.9"/>
     <param pos="0" name="os.family" value="Solaris"/>
@@ -7280,17 +7307,31 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="3" name="os.arch"/>
     <param pos="4" name="hw.product"/>
   </fingerprint>
-  <fingerprint pattern="^SunOS 5\.(\S+) \S+ (\S+)$">
-    <description>SunOS/Solaris</description>
-    <example>SunOS 5.10 Generic sun4u</example>
+  <fingerprint pattern="^SunOS (\S+) 5\.(1[1-9]) \S+ (\S+) \S+ SUNW,([^,]+).*$">
+    <description>Oracle/Solaris 5.11 and upwards</description>
+    <example host.name="integra01" os.version="11" os.arch="sun4v" hw.product="T5240">SunOS integra01 5.11 Generic_127127-11 sun4v sparc SUNW,T5240</example>
+    <example host.name="integra01" os.version="12" os.arch="sun4v" hw.product="T5240">SunOS integra01 5.12 Generic_127127-11 sun4v sparc SUNW,T5240</example>
+    <param pos="0" name="os.vendor" value="Oracle"/>
+    <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="os.version"/>
+    <param pos="3" name="os.arch"/>
+    <param pos="4" name="hw.product"/>
+  </fingerprint>
+  <fingerprint pattern="^SunOS 5\.([789]|10) \S+ (\S+)$">
+    <description>SunOS/Solaris 5.7-5.10</description>
+    <example os.version="10" os.arch="sun4u">SunOS 5.10 Generic sun4u</example>
     <example>SunOS 5.10 Generic_137111-07 sun4v</example>
     <example>SunOS 5.10 Generic_142900-11 sun4v</example>
-    <example>SunOS 5.8 Generic_108528-16 sun4u</example>
+    <example os.version="8" os.arch="sun4u">SunOS 5.8 Generic_108528-16 sun4u</example>
     <example>SunOS 5.8 Generic_108528-27 sun4u</example>
     <example>SunOS 5.8 Generic_108528-29 sun4u</example>
     <example>SunOS 5.8 Generic_117350-25 sun4u</example>
     <example>SunOS 5.8 Generic_117350-62 sun4u</example>
-    <example>SunOS 5.9 Generic_118558-24 sun4u</example>
+    <example os.version="9" os.arch="sun4u">SunOS 5.9 Generic_118558-24 sun4u</example>
     <example>SunOS 5.9 Generic_118558-36 sun4u</example>
     <param pos="0" name="os.vendor" value="Sun"/>
     <param pos="0" name="os.certainty" value="0.9"/>
@@ -7300,12 +7341,24 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.arch"/>
   </fingerprint>
-  <fingerprint pattern="^SunOS release:5\.(\S+) version:\S+ machine:(\S+)$">
-    <description>SunOS/Solaris</description>
-    <example>SunOS release:5.10 version:Generic_125100-07 machine:sun4u</example>
-    <example>SunOS release:5.10 version:Generic_139555-08 machine:sun4v</example>
-    <example>SunOS release:5.8 version:Generic_117350-62 machine:sun4u</example>
-    <example>SunOS release:5.9 version:Generic_122300-22 machine:sun4u</example>
+  <fingerprint pattern="^SunOS 5\.(1[1-9]) \S+ (\S+)$">
+    <description>Oracle/Solaris 5.11 and upwards</description>
+    <example os.version="11" os.arch="sun4u">SunOS 5.11 Generic sun4u</example>
+    <example os.version="12" os.arch="sun4u">SunOS 5.12 Generic sun4u</example>
+    <param pos="0" name="os.vendor" value="Oracle"/>
+    <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="1" name="os.version"/>
+    <param pos="2" name="os.arch"/>
+  </fingerprint>  
+  <fingerprint pattern="^SunOS release:5\.([789]|10) version:\S+ machine:(\S+)$">
+    <description>SunOS/Solaris 5.7-5.10</description>
+    <example os.version="10" os.arch="sun4u">SunOS release:5.10 version:Generic_125100-07 machine:sun4u</example>
+    <example os.version="10" os.arch="sun4v">SunOS release:5.10 version:Generic_139555-08 machine:sun4v</example>
+    <example os.version="8" os.arch="sun4u">SunOS release:5.8 version:Generic_117350-62 machine:sun4u</example>
+    <example os.version="9" os.arch="sun4u">SunOS release:5.9 version:Generic_122300-22 machine:sun4u</example>
     <param pos="0" name="os.vendor" value="Sun"/>
     <param pos="0" name="os.certainty" value="0.9"/>
     <param pos="0" name="os.family" value="Solaris"/>
@@ -7314,6 +7367,18 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.arch"/>
   </fingerprint>
+  <fingerprint pattern="^SunOS release:5\.(1[1-9]) version:\S+ machine:(\S+)$">
+    <description>SunOS/Solaris 5.11 and upwards</description>
+    <example os.version="11" os.arch="sun4u">SunOS release:5.11 version:Generic_125100-07 machine:sun4u</example>
+    <example os.version="12" os.arch="sun4u">SunOS release:5.12 version:Generic_125100-07 machine:sun4u</example>
+    <param pos="0" name="os.vendor" value="Oracle"/>
+    <param pos="0" name="os.vertainty" value="0.9"/>
+    <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="1" name="os.version"/>
+    <param pos="2" name="os.arch"/>
+   </fingerprint> 
   <!--======================================================================
                               SYMANTEC
    =======================================================================-->
