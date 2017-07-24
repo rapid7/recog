@@ -1636,7 +1636,16 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="0" name="service.product" value="Perl"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="^([^ ]+) E?SMTP(?: (?:Service )?Ready\.?)?$" flags="REG_ICASE">
+<fingerprint pattern="Cellopoint E-mail Firewall (v\d+.\d+.\d+) Build (\d+) ready">
+	<description>Matches a Cellopoint Firewall catching the request</description>
+	<example> Cellopoint E-mail Firewall v3.9.11 Build 0730 ready </example>
+	<param pos="0" name="service.vendor" value="Cellopoint"/>
+	<param pos="0" name="service.family" value="Email Firewall"/>
+	<param pos="0" name="service.product" value="Email Firewall"/>
+	<param pos="1" name="service.version"/>
+	<param pos="2" name="service.version.version"/>
+</fingerprint>
+<fingerprint pattern="^([^ ]+) E?SMTP(?: (?:Service )?Ready\.?)?$" flags="REG_ICASE">
     <description>
         catch all for daemons that have no distinguishing fingerprint whatsoever
       </description>
