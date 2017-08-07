@@ -160,7 +160,7 @@
     <param pos="1" name="os.version"/>
   </fingerprint>
   <!-- Red Hat Enterprise Linux derivative -->
-  <fingerprint pattern="^(?i:CentOS(?: Linux)?\s?(\d+?(?:\.\d+?)*?)?)$">
+  <fingerprint pattern="^(?i:CentOS(?: Linux)?\s?(\d+?(?:\.\d+?)*?)?)(?:\s.*?)?$">
     <description>Centos Linux</description>
     <example os.version="5.11">Centos Linux 5.11</example>
     <example os.version="6.7">CentOS 6.7</example>
@@ -170,7 +170,7 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^(?i:Debian(?: (?:GNU\/)?Linux)?\s?(\d+?(?:\.\d+?)*?)?(?:\s[a-z\(\)]+)?)$">
+  <fingerprint pattern="^(?i:Debian(?: (?:GNU\/)?Linux)?\s?(?:\w+?\/sid\s?)?(\d+?(?:\.\d+?)*?)?(?:\s[a-z\(\)]+)?)$">
     <description>Debian Linux</description>
     <example os.version="6.0">Debian 6.0</example>
     <example os.version="7">Debian 7 (Wheezy)</example>
@@ -223,7 +223,7 @@
     <param pos="2" name="os.edition"/>
   </fingerprint>
   <!-- Red Hat Enterprise Linux derivative -->
-  <fingerprint pattern="^(?i:Oracle(?: Enterprise)? Linux\s?(\d+?(?:\.\d+?)*?)?)$">
+  <fingerprint pattern="^(?i:Oracle(?: Enterprise)? Linux\s?(?:Server\s?)?(\d+?(?:\.\d+?)*?)?)$">
     <description>Oracle Enterprise Linux</description>
     <example os.version="5.11">Oracle Enterprise Linux 5.11</example>
     <example os.version="6.7">Oracle Linux 6.7</example>
@@ -232,7 +232,7 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^(?i:OpenSUSE(?: Linux)?(?: Leap)??\s?(\d+?(?:\.\d+?)*?)?)$">
+  <fingerprint pattern="^(?i:OpenSUSE(?: Linux)?(?: [a-z]+?)??\s?(\d+?(?:\.\d+?)*?)?(?:\s\(.*)?)$">
     <description>OpenSUSE Linux</description>
     <example os.version="10.1">OpenSUSE Linux 10.1</example>
     <example os.version="13.2">OpenSUSE 13.2</example>
@@ -342,7 +342,7 @@
     <param pos="0" name="os.certainty" value="0.6"/>
     <param pos="1" name="os.vendor"/>
     <param pos="2" name="os.version"/>
-  </fingerprint> 
+  </fingerprint>
   <!-- Linux catch-all goes at the bottom-->
   <fingerprint pattern="^(?i:.*Linux?\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>Linux catch-all</description>
