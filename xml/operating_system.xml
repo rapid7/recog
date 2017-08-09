@@ -160,11 +160,12 @@
     <param pos="1" name="os.version"/>
   </fingerprint>
   <!-- Red Hat Enterprise Linux derivative -->
-  <fingerprint pattern="^(?i:CentOS(?: Linux)?\s?(\d+?(?:\.\d+?)*?)?)(?:\s.*?)?$">
+  <fingerprint pattern="^(?i:CentOS(?: Linux)?(?: [a-z]+)?\s?(\d+?(?:\.\d+?)*?)?)(?:\s.*?)?$">
     <description>Centos Linux</description>
     <example os.version="5.11">Centos Linux 5.11</example>
     <example os.version="6.7">CentOS 6.7</example>
     <example os.version="7">CentOS 7</example>
+    <example os.version="6.7">CentOS release 6.7 (Final)</example>
     <param pos="0" name="os.vendor" value="CentOS"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
