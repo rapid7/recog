@@ -171,11 +171,12 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^(?i:Debian(?: (?:GNU\/)?Linux)?\s?(?:\w+?\/sid\s?)?(\d+?(?:\.\d+?)*?)?(?:\s[a-z\(\)]+)?)$">
+  <fingerprint pattern="^(?i:Debian(?: (?:GNU\/)?Linux)?\s?((?:\d+?(?:\.\d+?)*?)|(?:\w+?\/sid\s?))?(?:\s[a-z\(\)]+)?)$">
     <description>Debian Linux</description>
     <example os.version="6.0">Debian 6.0</example>
     <example os.version="7">Debian 7 (Wheezy)</example>
     <example os.version="8">Debian Linux 8</example>
+    <example os.version="stretch/sid">Debian GNU/Linux stretch/sid</example>
     <param pos="0" name="os.vendor" value="Debian"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
