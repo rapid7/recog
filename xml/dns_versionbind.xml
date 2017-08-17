@@ -144,6 +144,14 @@
     <param pos="0" name="service.product" value="BIND"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+  <fingerprint pattern="^DNS Server BIND (9\.\d{,2}.\d{,2}-ESV(?:-R\d+)?(?:-[SPW]\d+)?)$">
+    <description>ISC BIND: ESV</description>
+    <example service.version="9.6-ESV-R7-P2">DNS Server BIND 9.6-ESV-R7-P2</example>
+    <param pos="0" name="service.vendor" value="ISC"/>
+    <param pos="0" name="service.family" value="BIND"/>
+    <param pos="0" name="service.product" value="BIND"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
   <fingerprint pattern="^(9\.\d{,2}.\d{,2}-ESV(?:-R\d+)?(?:-[SPW]\d+)?)$">
     <description>ISC BIND: ESV bare release number</description>
     <example service.version="9.6-ESV-R11-P2">9.6-ESV-R11-P2</example>
@@ -167,7 +175,7 @@
     FP below might be overly specific, trying to avoid false positive when
     matching cross-service/protocol.
   -->
-  <fingerprint pattern="^([89]\.\d{,2}.\d{,2}(?:[ab]\d+)?(?:-[SPW][\d\.]+)?(?:-[W]\d+)?(?:rc\d)?)$">
+  <fingerprint pattern="^(?:BIND )?([89]\.\d{,2}.\d{,2}(?:[ab]\d+)?(?:-[SPW][\d\.]+)?(?:-[W]\d+)?(?:rc\d)?)$">
     <description>ISC BIND: bare release number</description>
     <example service.version="9.7.0-P1">9.7.0-P1</example>
     <example service.version="9.4.2-P2.1">9.4.2-P2.1</example>
@@ -176,6 +184,7 @@
     <example service.version="9.4.2-P2-W2">9.4.2-P2-W2</example>
     <example service.version="9.5.0b1">9.5.0b1</example>
     <example service.version="8.2.2-P5">8.2.2-P5</example>
+    <example service.version="8.2.2-P5">BIND 8.2.2-P5</example>
     <param pos="0" name="service.vendor" value="ISC"/>
     <param pos="0" name="service.family" value="BIND"/>
     <param pos="0" name="service.product" value="BIND"/>
@@ -276,9 +285,13 @@
     <param pos="0" name="service.product" value="Authoritative Server"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-    <fingerprint pattern="^PowerDNS Authoritative Server (\d\.[\d.]+) \(built [\w\s:]+ by [\w]+\@[\w.-]*\)$">
+    <fingerprint pattern="^PowerDNS Authoritative Server (\d\.[\d.]+(?:-rc\d)?(?:-alpha\d)?(?:-beta\d)?) \(built [\w\s:]+ by [\w]+\@[\w.-:-]*\)$">
     <description>PowerDNS Authoritative Server: format 2</description>
     <example service.version="4.0.4">PowerDNS Authoritative Server 4.0.4 (built Apr 13 2017 09:59:06 by root@oof-e.baz.foo.bar)</example>
+    <example service.version="4.0.4">PowerDNS Authoritative Server 4.0.4 (built Jul 26 2017 15:04:27 by root@FreeBSD:11:amd64-default-job-03)</example>
+    <example service.version="4.0.0-rc2">PowerDNS Authoritative Server 4.0.0-rc2 (built Jul  4 2016 15:44:39 by root@foo-bar.baz)</example>
+    <example service.version="4.0.0-alpha2">PowerDNS Authoritative Server 4.0.0-alpha2 (built Feb 01 2016 00:12:05 by buildbot@baz)</example>
+    <example service.version="4.0.0-beta1">PowerDNS Authoritative Server 4.0.0-beta1 (built Feb 01 2016 00:00:00 by buildbot@baz)</example>
     <param pos="0" name="service.vendor" value="PowerDNS"/>
     <param pos="0" name="service.family" value="PowerDNS"/>
     <param pos="0" name="service.product" value="Authoritative Server"/>
@@ -324,9 +337,19 @@
     <param pos="1" name="service.version"/>
     <param pos="2" name="service.version.version"/>
   </fingerprint>
-  <fingerprint pattern="^NSD ([\d.]*)$">
+  <fingerprint pattern="^Nominum ANS(?:Premier)? ([\d\.]+)$">
+    <description>Nominum Vantio AuthServ</description>
+    <example service.version="5.4.0.0">Nominum ANS 5.4.0.0</example>
+    <example service.version="5.4.0.0">Nominum ANSPremier 5.4.0.0</example>
+    <param pos="0" name="service.vendor" value="Nominum"/>
+    <param pos="0" name="service.family" value="Vantio"/>
+    <param pos="0" name="service.product" value="AuthServ"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^NSD ([\d.]*(?:b\d+)?)$">
     <description>NLnet Labs Name Server Daemon</description>
     <example service.version="3.2.18">NSD 3.2.18</example>
+    <example service.version="4.0.0b5">NSD 4.0.0b5</example>
     <example service.version="4">NSD 4</example>
     <example>NSD </example>
     <param pos="0" name="service.vendor" value="NLnet Labs"/>
@@ -342,16 +365,17 @@
     <param pos="0" name="service.product" value="unbound"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="^unbound$">
+  <fingerprint flags="REG_ICASE" pattern="^unbound$">
     <description>NLnet Labs Unbound no version string</description>
     <example>unbound</example>
     <param pos="0" name="service.vendor" value="NLnet Labs"/>
     <param pos="0" name="service.family" value="Unbound"/>
     <param pos="0" name="service.product" value="unbound"/>
   </fingerprint>
-  <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)-9\+deb8+u\d+-Raspbian$">
+  <fingerprint pattern="^(?:BIND )?(9.[^-]+(?:-[SP]\d)?)-9\+deb8u\d+-Raspbian$">
     <description>ISC BIND: Raspbian based on Debian Jessie</description>
     <example service.version="9.9.5">9.9.5-9+deb8u7-Raspbian</example>
+    <example service.version="9.9.5">BIND 9.9.5-9+deb8u11-Raspbian</example>
     <param pos="0" name="service.vendor" value="ISC"/>
     <param pos="0" name="service.family" value="BIND"/>
     <param pos="0" name="service.product" value="BIND"/>
@@ -448,17 +472,19 @@
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
   </fingerprint>
-  <fingerprint pattern="^djbdns[\s-](\d.\d+)$">
+  <fingerprint flags="REG_ICASE" pattern="^djbdns[\s-](\d.\d+)$">
     <description>djbdns</description>
     <example service.version="1.05">djbdns 1.05</example>
     <example service.version="1.05">djbdns-1.05</example>
+    <example service.version="1.05">DjbDNS 1.05</example>
     <param pos="0" name="service.vendor" value="D J Bernstein"/>
     <param pos="0" name="service.family" value="djbdns"/>
     <param pos="0" name="service.product" value="djbdns"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="^djbdns$">
+  <fingerprint flags="REG_ICASE" pattern="^djbdns$">
     <description>djbdns: no version</description>
+    <example>DJBDNS</example>
     <example>djbdns</example>
     <param pos="0" name="service.vendor" value="D J Bernstein"/>
     <param pos="0" name="service.family" value="djbdns"/>
