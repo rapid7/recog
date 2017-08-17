@@ -14,11 +14,12 @@
       https://fedoraproject.org/wiki/Packaging:DistTag
       https://fedoraproject.org/wiki/Packaging:Versioning
   -->
-  <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)-RedHat-[\d.]+-[\w.]+el([\d_]+)(?:.[\w.]+)?$">
+  <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)-RedHat-[\d.]+[-.][\w.]+el([\d_]+)(?:.[\w.]+)?$">
     <description>ISC BIND: RedHat Enterprise Linux</description>
     <example service.version="9.8.2rc1">9.8.2rc1-RedHat-9.8.2-0.62.rc1.el6_9.2</example>
     <example service.version="9.9.4">9.9.4-RedHat-9.9.4-38.el7_3.3</example>
     <example service.version="9.3.6-P1" os.version="5_11">9.3.6-P1-RedHat-9.3.6-25.P1.el5_11.12</example>
+    <example service.version="9.9.1-P3" os.version="6">9.9.1-P3-RedHat-9.9.1.P3.el6</example>
     <example os.version="6_1">9.7.3-P3-RedHat-9.7.3-2.el6_1.P3.3</example>
     <example os.version="6">9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6</example>
     <param pos="0" name="service.vendor" value="ISC"/>
@@ -57,7 +58,21 @@
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Linux"/>
   </fingerprint>
-  <fingerprint pattern="^(9.[^-]++(?:-[SP]\d)?)-[\d.]+ubuntu[\d.]+-Ubuntu$">
+  <fingerprint pattern="^(9.[^-]+(?:rc\d)?(?:-[SP]\d)?)-RedHat-[\d.-]+(?:[-\.][SP]\d)?(?:rc[\d\.]+)?$">
+    <description>ISC BIND: RedHat nonspecific platform</description>
+    <example service.version="9.9.10-P2">9.9.10-P2-RedHat-9.9.10-P2</example>
+    <example service.version="9.9.5">9.9.5-RedHat-9.9.5-1</example>
+    <example service.version="9.5.1-P3">9.5.1-P3-RedHat-9.5.1-3.P3</example>
+    <example service.version="9.8.2rc1">9.8.2rc1-RedHat-9.8.2-0.10.rc1.1</example>
+    <param pos="0" name="service.vendor" value="ISC"/>
+    <param pos="0" name="service.family" value="BIND"/>
+    <param pos="0" name="service.product" value="BIND"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="RedHat"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+  </fingerprint>
+  <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)-[\d.]+ubuntu[\d.]+-Ubuntu$">
     <description>ISC BIND: Ubuntu</description>
     <example service.version="9.9.5">9.9.5-3ubuntu0.14-Ubuntu</example>
     <example service.version="9.9.5">9.9.5-11ubuntu1.1-Ubuntu</example>
@@ -70,10 +85,22 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
-  <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)(?:-\d+)?-Ubuntu$">
+  <fingerprint pattern="^(9.[^-]+-rpz\d?[+.]rl[\d.]+(?:-[SP]\d)?)-Ubuntu-[\d\.:]+[\w\.]+(?:-[SP]\d)?-\d?ubuntu[\d\.]+$">
+    <description>ISC BIND: Ubuntu with Response Policy Zone and Request Limiting patches</description>
+    <example service.version="9.9.3-rpz2+rl.13214.22-P2">9.9.3-rpz2+rl.13214.22-P2-Ubuntu-1:9.9.3.dfsg.P2-4ubuntu1.1</example>
+    <param pos="0" name="service.vendor" value="ISC"/>
+    <param pos="0" name="service.family" value="BIND"/>
+    <param pos="0" name="service.product" value="BIND"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+  </fingerprint>
+  <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)(?:-[\d\.]+)?-Ubuntu$">
     <description>ISC BIND: Ubuntu short</description>
     <example service.version="9.10.3-P4">9.10.3-P4-Ubuntu</example>
     <example service.version="9.9.5">9.9.5-3-Ubuntu</example>
+    <example service.version="9.9.5">9.9.5-4.3-Ubuntu</example>
     <param pos="0" name="service.vendor" value="ISC"/>
     <param pos="0" name="service.family" value="BIND"/>
     <param pos="0" name="service.product" value="BIND"/>
@@ -154,9 +181,10 @@
     <param pos="0" name="service.product" value="BIND"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="^dnsmasq-(\d.[\w]+)$">
+  <fingerprint pattern="^dnsmasq-(\d.[\w\.]+)$">
     <description>dnsmasq: simple</description>
     <example service.version="2.40">dnsmasq-2.40</example>
+    <example service.version="2.51.2">dnsmasq-2.51.2</example>
     <example service.version="2.63rc6">dnsmasq-2.63rc6</example>
     <example service.version="2.76test8">dnsmasq-2.76test8</example>
     <param pos="0" name="service.vendor" value="Thekelleys"/>
@@ -366,10 +394,25 @@
        fingerprinting since installation of the DNS service on the workstation
        class OS would be unlikely and difficult if possible at all.
 
-       Version response is disabled by default on modern Windows versions and
-       the detail in the response is controlled via the EnableVersionQuery
+       DNS version response is disabled by default on modern Windows versions
+       and the detail in the response is controlled via the EnableVersionQuery
        setting.
+
+       The to enable version response on modern versions is:
+       dnscmd /config /EnableVersionQuery 1
   -->
+  <fingerprint pattern="^Microsoft DNS (10.0.\d+(?: \(\w+\))?)$">
+    <description>Microsoft DNS on Windows 2016: GA</description>
+    <example os.build="10.0.14393 (383900CE)">Microsoft DNS 10.0.14393 (383900CE)</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="DNS"/>
+    <param pos="0" name="service.product" value="DNS"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows Server 2016"/>
+    <param pos="1" name="os.build"/>
+  </fingerprint>
   <fingerprint pattern="^Microsoft DNS 6.3.9600(?: \(\w+\))?$">
     <description>Microsoft DNS on Windows 2012 R2</description>
     <example>Microsoft DNS 6.3.9600 (25804825)</example>
