@@ -30,9 +30,11 @@
     <param pos="0" name="os.product" value="Enterprise Linux"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)-RedHat-[\d.]+-[\w.]+fc([\d]+)$">
+  <fingerprint pattern="^(9.[^-]+(?:-rl[.\d]+)?(?:-[SP]\d)?)-RedHat-[\d.]+-[\w.]+fc([\d]+)$">
     <description>ISC BIND: Fedora</description>
     <example service.version="9.10.4-P8">9.10.4-P8-RedHat-9.10.4-4.P8.fc25</example>
+    <!-- The '-rl' in the example below indicates a rate limiting patch -->
+    <example service.version="9.9.3-rl.13207.22-P2">9.9.3-rl.13207.22-P2-RedHat-9.9.3-5.P2.fc19</example>
     <example os.version="10">9.5.2-RedHat-9.5.2-1.fc10</example>
     <param pos="0" name="service.vendor" value="ISC"/>
     <param pos="0" name="service.family" value="BIND"/>
@@ -92,9 +94,10 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="8.0"/>
   </fingerprint>
-  <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)-(?:\d-)?Debian$">
+  <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)-(?:[\d\.]+-)?Debian$">
     <description>ISC BIND: Debian no version simple</description>
     <example service.version="9.10.3-P4">9.10.3-P4-Debian</example>
+    <example service.version="9.9.5">9.9.5-12.1-Debian</example>
     <example service.version="9.9.5">9.9.5-4-Debian</example>
     <param pos="0" name="service.vendor" value="ISC"/>
     <param pos="0" name="service.family" value="BIND"/>
@@ -137,9 +140,10 @@
     FP below might be overly specific, trying to avoid false positive when
     matching cross-service/protocol.
   -->
-  <fingerprint pattern="^([89]\.\d{,2}.\d{,2}(?:[ab]\d+)?(?:-[SPW]\d+)?(?:-[W]\d+)?(?:rc\d)?)$">
+  <fingerprint pattern="^([89]\.\d{,2}.\d{,2}(?:[ab]\d+)?(?:-[SPW][\d\.]+)?(?:-[W]\d+)?(?:rc\d)?)$">
     <description>ISC BIND: bare release number</description>
     <example service.version="9.7.0-P1">9.7.0-P1</example>
+    <example service.version="9.4.2-P2.1">9.4.2-P2.1</example>
     <example service.version="9.9.5-W1">9.9.5-W1</example>
     <example service.version="9.2.2rc1">9.2.2rc1</example>
     <example service.version="9.4.2-P2-W2">9.4.2-P2-W2</example>
@@ -171,6 +175,17 @@
     <param pos="0" name="hw.vendor" value="Ubiquiti"/>
     <!-- Not including more info at this time as I'm not sure this doesn't
          run on products other than EdgeRouter.
+    -->
+  </fingerprint>
+  <fingerprint pattern="^dnsmasq-(\d.[\w]+)-OpenDNS-\d$">
+    <description>dnsmasq: OpenDNS variant</description>
+    <example service.version="2.15">dnsmasq-2.15-OpenDNS-1</example>
+    <param pos="0" name="service.vendor" value="Thekelleys"/>
+    <param pos="0" name="service.family" value="Dnsmasq"/>
+    <param pos="0" name="service.product" value="Dnsmasq"/>
+    <param pos="1" name="service.version"/>
+    <!-- This seems to correlate with OpenWRT but I haven't been able to verify
+         that it isn't used elsewhere.
     -->
   </fingerprint>
   <fingerprint pattern="^dnsmasq-?(?:UNKNOWN)?$">
