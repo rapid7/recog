@@ -162,6 +162,18 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="8.0"/>
   </fingerprint>
+  <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)-9wheezy\w+-Debian$">
+    <description>ISC BIND: Debian Wheezy</description>
+    <example service.version="9.9.5">9.9.5-9wheezy1-Debian</example>
+    <param pos="0" name="service.vendor" value="ISC"/>
+    <param pos="0" name="service.family" value="BIND"/>
+    <param pos="0" name="service.product" value="BIND"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="7.0"/>
+  </fingerprint>
   <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)-(?:[\d\.]+-)?Debian$">
     <description>ISC BIND: Debian no version simple</description>
     <example service.version="9.10.3-P4">9.10.3-P4-Debian</example>
@@ -304,24 +316,26 @@
     <param pos="0" name="service.family" value="PowerDNS"/>
     <param pos="0" name="service.product" value="Recursor"/>
   </fingerprint>
-  <fingerprint pattern="^PowerDNS Authoritative Server (\d\.[\d.]++(?:-rc\d)?) \(\w+@[\w.]+ built \d+ \w+@[\w.-]*\)$">
+  <fingerprint pattern="^PowerDNS Authoritative Server (\d\.[\d.]++(?:-rc\d)?) \(\w+@[\w.]+ built [\d\s]+\w*@[\w.-]*\)$">
     <description>PowerDNS Authoritative Server</description>
     <example service.version="3.4.19">PowerDNS Authoritative Server 3.4.19 (jenkins@autotest.powerdns.com built 20160102220341 root@)</example>
     <example service.version="3.4.10">PowerDNS Authoritative Server 3.4.10 (jenkins@autotest.powerdns.com built 20170306160718 root@foo-bar.foo.baz)</example>
     <example service.version="3.3">PowerDNS Authoritative Server 3.3 (jenkins@autotest.powerdns.com built 20150306160718 root@foo-bar.foo.baz)</example>
     <example service.version="3.3-rc2">PowerDNS Authoritative Server 3.3-rc2 (jenkins@autotest.powerdns.com built 20130627120406 root@foo-bar.foo.baz)</example>
+    <example service.version="3.4.10">PowerDNS Authoritative Server 3.4.10 (jenkins@autotest.powerdns.com built  @)</example>
     <param pos="0" name="service.vendor" value="PowerDNS"/>
     <param pos="0" name="service.family" value="PowerDNS"/>
     <param pos="0" name="service.product" value="Authoritative Server"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="^PowerDNS Authoritative Server (\d\.[\d.]+(?:-rc\d)?(?:-alpha\d)?(?:-beta\d)?) \(built [\w\s:]+ by [\w]+\@[\w.-:-]*\)$">
+  <fingerprint pattern="^PowerDNS Authoritative Server (\d\.[\w.]+(?:-rc\d)?(?:-alpha\d)?(?:-beta\d)?) \(built [\w\s:]+ by [\w]+\@[\w.-:-]*\)$">
     <description>PowerDNS Authoritative Server: format 2</description>
     <example service.version="4.0.4">PowerDNS Authoritative Server 4.0.4 (built Apr 13 2017 09:59:06 by root@oof-e.baz.foo.bar)</example>
     <example service.version="4.0.4">PowerDNS Authoritative Server 4.0.4 (built Jul 26 2017 15:04:27 by root@FreeBSD:11:amd64-default-job-03)</example>
     <example service.version="4.0.0-rc2">PowerDNS Authoritative Server 4.0.0-rc2 (built Jul  4 2016 15:44:39 by root@foo-bar.baz)</example>
     <example service.version="4.0.0-alpha2">PowerDNS Authoritative Server 4.0.0-alpha2 (built Feb 01 2016 00:12:05 by buildbot@baz)</example>
     <example service.version="4.0.0-beta1">PowerDNS Authoritative Server 4.0.0-beta1 (built Feb 01 2016 00:00:00 by buildbot@baz)</example>
+    <example service.version="0.0.g56d692a">PowerDNS Authoritative Server 0.0.g56d692a (built Feb 25 2017 13:10:19 by root@foo-bar.baz)</example>
     <param pos="0" name="service.vendor" value="PowerDNS"/>
     <param pos="0" name="service.family" value="PowerDNS"/>
     <param pos="0" name="service.product" value="Authoritative Server"/>
@@ -443,6 +457,13 @@
     <param pos="0" name="service.family" value="UltraDNS"/>
     <param pos="0" name="service.product" value="Resolver"/>
   </fingerprint>
+  <fingerprint pattern="^UltraDNS TLD Platform - www\.ultradns\.com$">
+    <description>Neustar UltraDNS TLS Platform</description>
+    <example>UltraDNS TLD Platform - www.ultradns.com</example>
+    <param pos="0" name="service.vendor" value="Neustar"/>
+    <param pos="0" name="service.family" value="UltraDNS"/>
+    <param pos="0" name="service.product" value="Resolver"/>
+  </fingerprint>
   <!-- For Microsoft OSes the build number applies to the family. For example,
        6.3.9600 is used by Windows 8.1 Update 1 as well as Windows 2012 R2. We
        are assuming that the server version of the OS is what we are
@@ -491,6 +512,17 @@
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
     <param pos="0" name="os.version" value="Service Pack 1"/>
+  </fingerprint>
+  <fingerprint pattern="^Microsoft DNS 6.1.7600(?: \(\w+\))?$">
+    <description>Microsoft DNS on Windows 2008 R2</description>
+    <example>Microsoft DNS 6.1.7600 (1DB04228)</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="DNS"/>
+    <param pos="0" name="service.product" value="DNS"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
   </fingerprint>
   <fingerprint pattern="^Microsoft DNS 6.0.6002(?: \(\w+\))?$">
     <description>Microsoft DNS on Windows 2008 Service Pack 2</description>
@@ -563,5 +595,44 @@
     <param pos="0" name="service.product" value="DNS"/>
     <param pos="1" name="service.version"/>
     <param pos="2" name="service.version.version"/>
+  </fingerprint>
+  <fingerprint pattern="^DraytekDNS-v([\d\.]+)$">
+    <description>Draytek DNS</description>
+    <example service.version="1.2.3006">DraytekDNS-v1.2.3006</example>
+    <param pos="0" name="service.vendor" value="Draytek"/>
+    <param pos="0" name="service.family" value="DNS"/>
+    <param pos="0" name="service.product" value="DNS"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Atlas Anchor ([\d\.]+)$">
+    <description>Ripe ATLAS Anchor</description>
+    <!-- https://atlas.ripe.net/docs/anchors/ -->
+    <example service.version="0.1">Atlas Anchor 0.1</example>
+    <param pos="0" name="service.vendor" value="RIPE"/>
+    <param pos="0" name="service.family" value="Atlas Anchor"/>
+    <param pos="0" name="service.product" value="DNS"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^ZyWALL DNS$">
+    <description>AZyWALL DNS</description>
+    <example>ZyWALL DNS</example>
+    <param pos="0" name="service.vendor" value="Zyxel"/>
+    <param pos="0" name="service.family" value="ZyWALL"/>
+    <param pos="0" name="service.product" value="DNS"/>
+    <param pos="0" name="hw.vendor" value="Zyxel"/>
+  </fingerprint>
+  <fingerprint pattern="^Array SmartDNS$">
+    <description>Array Networks SmartDNS</description>
+    <example>Array SmartDNS</example>
+    <param pos="0" name="service.vendor" value="Array Networks"/>
+    <param pos="0" name="service.family" value="AVP"/>
+    <param pos="0" name="service.product" value="SmartDNS"/>
+  </fingerprint>
+  <fingerprint pattern="^gdnsd$">
+    <description>gdnsd</description>
+    <example>gdnsd</example>
+    <param pos="0" name="service.vendor" value="Brandon Black"/>
+    <param pos="0" name="service.family" value="gdnsd"/>
+    <param pos="0" name="service.product" value="gdnsd"/>
   </fingerprint>
 </fingerprints>
