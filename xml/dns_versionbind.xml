@@ -261,8 +261,8 @@
     <param pos="0" name="service.family" value="Dnsmasq"/>
     <param pos="0" name="service.product" value="Dnsmasq"/>
     <param pos="1" name="service.version"/>
-    <!-- This seems to correlate with OpenWRT but I haven't been able to verify
-         that it isn't used elsewhere.
+    <!-- Seems to correlate with OpenWRT and Netgear but I haven't been able
+         to verify that it isn't used elsewhere.
     -->
   </fingerprint>
   <fingerprint pattern="^dnsmasq-?(?:UNKNOWN)?$">
@@ -458,7 +458,7 @@
     <param pos="0" name="service.product" value="Resolver"/>
   </fingerprint>
   <fingerprint pattern="^UltraDNS TLD Platform - www\.ultradns\.com$">
-    <description>Neustar UltraDNS TLS Platform</description>
+    <description>Neustar UltraDNS TLD Platform</description>
     <example>UltraDNS TLD Platform - www.ultradns.com</example>
     <param pos="0" name="service.vendor" value="Neustar"/>
     <param pos="0" name="service.family" value="UltraDNS"/>
@@ -499,6 +499,17 @@
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
+  </fingerprint>
+  <fingerprint pattern="^Microsoft DNS 6.2.9200(?: \(\w+\))?$">
+    <description>Microsoft DNS on Windows 2012</description>
+    <example>Microsoft DNS 6.2.9200 (23F04000)</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="DNS"/>
+    <param pos="0" name="service.product" value="DNS"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows Server 2012"/>
   </fingerprint>
   <fingerprint pattern="^Microsoft DNS 6.1.7601(?: \(\w+\))?$">
     <description>Microsoft DNS on Windows 2008 R2 Service Pack 1</description>
@@ -576,7 +587,7 @@
     <param pos="0" name="service.family" value="djbdns"/>
     <param pos="0" name="service.product" value="djbdns"/>
   </fingerprint>
-  <fingerprint pattern="^rbldnsd ([\d\.\w\/-]+) \(\d\d \w\w\w \d\d\d\d\)$">
+  <fingerprint pattern="^rbldnsd (\d[\.\w\/-]+) \(\d\d \w\w\w \d\d\d\d\)$">
     <description>rbldnsd</description>
     <example service.version="0.997a">rbldnsd 0.997a (23 Jul 2013)</example>
     <example service.version="0.996a-0.1">rbldnsd 0.996a-0.1 (01 Apr 2008)</example>
@@ -614,12 +625,23 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^ZyWALL DNS$">
-    <description>AZyWALL DNS</description>
+    <description>ZyWALL DNS</description>
     <example>ZyWALL DNS</example>
     <param pos="0" name="service.vendor" value="Zyxel"/>
     <param pos="0" name="service.family" value="ZyWALL"/>
     <param pos="0" name="service.product" value="DNS"/>
     <param pos="0" name="hw.vendor" value="Zyxel"/>
+  </fingerprint>
+  <fingerprint pattern="^DNSServer$">
+    <description>Synology DNS service</description>
+    <example>DNSServer</example>
+    <param pos="0" name="service.vendor" value="Synology"/>
+    <param pos="0" name="service.family" value="DSM"/>
+    <param pos="0" name="service.product" value="DNS"/>
+    <param pos="0" name="os.device" value="NAS"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="hw.vendor" value="Synology"/>
+    <param pos="0" name="hw.device" value="NAS"/>
   </fingerprint>
   <fingerprint pattern="^Array SmartDNS$">
     <description>Array Networks SmartDNS</description>
@@ -634,5 +656,23 @@
     <param pos="0" name="service.vendor" value="Brandon Black"/>
     <param pos="0" name="service.family" value="gdnsd"/>
     <param pos="0" name="service.product" value="gdnsd"/>
+  </fingerprint>
+  <fingerprint pattern="^Hi: [\w\.: =]+\d{4}$">
+    <description>OzymanDNS DNS tunnel</description>
+    <example>Hi:  Thu Aug 17 23:29:10 2017</example>
+    <example>Hi: Lookup=VERSION.BIND Date=Thu Aug 17 23:53:10 UTC 2017</example>
+    <param pos="0" name="service.vendor" value="Dan Kaminsky"/>
+    <param pos="0" name="service.family" value="OzymanDNS"/>
+    <param pos="0" name="service.product" value="OzymanDNS"/>
+  </fingerprint>
+  <fingerprint pattern="^Meta IP[\s\/]DNS (?:V[\d\.]+ )?- BIND V([\d\.]+(?:-REL)?) \(Build (\d+)\s?\)$">
+    <description>Check Point Meta IP</description>
+    <example service.version="8.2.7-REL">Meta IP DNS - BIND V8.2.7-REL (Build 31)</example>
+    <example service.version.version="4704">Meta IP/DNS V4.1 - BIND V8.1.2 (Build 4704 )</example>
+    <param pos="0" name="service.vendor" value="Check Point"/>
+    <param pos="0" name="service.family" value="META IP"/>
+    <param pos="0" name="service.product" value="DNS"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.version.version"/>
   </fingerprint>
 </fingerprints>
