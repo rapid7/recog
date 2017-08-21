@@ -122,20 +122,10 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
-  <fingerprint pattern="^(9[\d\.]+)(?:-[\d\.]+)?[-+]zentyal\d?-Ubuntu$">
+  <fingerprint pattern="^(9.[\d\.]+(?:[+-]rpz\d?[+.]rl[\d.]+)?(?:-[SP]\d)?).*[+-]zentyal\d*">
     <description>ISC BIND: Ubuntu Zentyal custom distribution</description>
     <example service.version="9.9.5">9.9.5-3+zentyal-Ubuntu</example>
     <example service.version="9.9.5">9.9.5-3-zentyal1-Ubuntu</example>
-    <param pos="0" name="service.vendor" value="ISC"/>
-    <param pos="0" name="service.family" value="BIND"/>
-    <param pos="0" name="service.product" value="BIND"/>
-    <param pos="1" name="service.version"/>
-    <param pos="0" name="os.vendor" value="Ubuntu"/>
-    <param pos="0" name="os.family" value="Linux"/>
-    <param pos="0" name="os.product" value="Zentyal"/>
-  </fingerprint>
-  <fingerprint pattern="^(9.[^-]+-rpz\d?[+.]rl[\d.]+(?:-[SP]\d)?)-Ubuntu-[\d\.:]+[\w\.]+(?:-[SP]\d)?-\d?ubuntu[\d\.]+\+zentyal\d+$">
-    <description>ISC BIND: Ubuntu Zentyal with Response Policy Zone and Request Limiting patches</description>
     <example service.version="9.9.3-rpz2+rl.13214.22-P2">9.9.3-rpz2+rl.13214.22-P2-Ubuntu-2:9.9.3.dfsg.P2-4ubuntu1.1+zentyal12</example>
     <param pos="0" name="service.vendor" value="ISC"/>
     <param pos="0" name="service.family" value="BIND"/>
@@ -343,19 +333,25 @@
     <param pos="0" name="service.product" value="Authoritative Server"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+  <!-- PowerDNS returns 'Served by ...' when the 'version-string' configuration
+       value / arguement is set to 'powerdns'. If this value is set to
+       'anonymous' then PowerDNS will return a ServFail DNS response
+  -->
   <fingerprint pattern="^Served by POWERDNS (\d\.[\d.]+) \$Id[^$]*\$$">
     <description>PowerDNS: Served by format with version</description>
     <example service.version="2.9.22">Served by POWERDNS 2.9.22 $Id: packethandler.cc 1321 2008-12-06 19:44:36Z ahu $</example>
     <param pos="0" name="service.vendor" value="PowerDNS"/>
     <param pos="0" name="service.family" value="PowerDNS"/>
+    <param pos="0" name="service.product" value="Authoritative Server"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^Served by PowerDNS - https?:\/\/www.powerdns.com\/?$">
-    <description>PowerDNS: Served by format without versionl</description>
+    <description>PowerDNS: Served by format without version</description>
     <example>Served by PowerDNS - https://www.powerdns.com/</example>
     <example>Served by PowerDNS - http://www.powerdns.com</example>
     <param pos="0" name="service.vendor" value="PowerDNS"/>
     <param pos="0" name="service.family" value="PowerDNS"/>
+    <param pos="0" name="service.product" value="Authoritative Server"/>
   </fingerprint>
   <fingerprint pattern="^Nominum Vantio(?: CacheServe)? ([\d.]+)$">
     <description>Nominum Vantio CacheServe</description>
@@ -403,7 +399,7 @@
     <param pos="0" name="service.product" value="unbound"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <fingerprint flags="REG_ICASE" pattern="^unbound$">
+  <fingerprint pattern="^(?i:unbound)$">
     <description>NLnet Labs Unbound no version string</description>
     <example>unbound</example>
     <param pos="0" name="service.vendor" value="NLnet Labs"/>
@@ -587,7 +583,7 @@
     <param pos="0" name="service.product" value="DNS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <fingerprint flags="REG_ICASE" pattern="^djbdns[\s-](\d.\d+)$">
+  <fingerprint pattern="^(?i:djbdns)[\s-](\d.\d+)$">
     <description>djbdns</description>
     <example service.version="1.05">djbdns 1.05</example>
     <example service.version="1.05">djbdns-1.05</example>
@@ -597,7 +593,7 @@
     <param pos="0" name="service.product" value="djbdns"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <fingerprint flags="REG_ICASE" pattern="^djbdns$">
+  <fingerprint pattern="^(?i:djbdns)$">
     <description>djbdns: no version</description>
     <example>DJBDNS</example>
     <example>djbdns</example>
