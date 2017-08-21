@@ -477,12 +477,16 @@
        The to enable version response on modern versions is:
        dnscmd /config /EnableVersionQuery 1
   -->
-  <fingerprint pattern="^Microsoft DNS (10.0.\d+(?: \(\w+\))?)$">
+  <fingerprint pattern="^Microsoft DNS (10.0.\d+)(?: \(\w+\))?$">
     <description>Microsoft DNS on Windows 2016: GA</description>
-    <example os.build="10.0.14393 (383900CE)">Microsoft DNS 10.0.14393 (383900CE)</example>
+    <!-- Windows 10 / 2016 moved towards a rolling release so capturing build
+         is required unlike other Windows versions where we use a fixed string.
+    -->
+    <example service.version="10.0.14393" os.build="10.0.14393">Microsoft DNS 10.0.14393 (383900CE)</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="DNS"/>
     <param pos="0" name="service.product" value="DNS"/>
+    <param pos="1" name="service.version"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
@@ -495,10 +499,12 @@
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="DNS"/>
     <param pos="0" name="service.product" value="DNS"/>
+    <param pos="0" name="service.version" value="6.3.9600"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
+    <param pos="0" name="os.build" value="6.3.9600"/>
   </fingerprint>
   <fingerprint pattern="^Microsoft DNS 6.2.9200(?: \(\w+\))?$">
     <description>Microsoft DNS on Windows 2012</description>
@@ -506,10 +512,12 @@
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="DNS"/>
     <param pos="0" name="service.product" value="DNS"/>
+    <param pos="0" name="service.version" value="6.2.9200"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2012"/>
+    <param pos="0" name="os.build" value="6.2.9200"/>
   </fingerprint>
   <fingerprint pattern="^Microsoft DNS 6.1.7601(?: \(\w+\))?$">
     <description>Microsoft DNS on Windows 2008 R2 Service Pack 1</description>
@@ -518,11 +526,13 @@
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="DNS"/>
     <param pos="0" name="service.product" value="DNS"/>
+    <param pos="0" name="service.version" value="6.1.7601"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
     <param pos="0" name="os.version" value="Service Pack 1"/>
+    <param pos="0" name="os.build" value="6.1.7601"/>
   </fingerprint>
   <fingerprint pattern="^Microsoft DNS 6.1.7600(?: \(\w+\))?$">
     <description>Microsoft DNS on Windows 2008 R2</description>
@@ -530,10 +540,12 @@
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="DNS"/>
     <param pos="0" name="service.product" value="DNS"/>
+    <param pos="0" name="service.version" value="6.1.7600"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
+    <param pos="0" name="os.build" value="6.1.7600"/>
   </fingerprint>
   <fingerprint pattern="^Microsoft DNS 6.0.6002(?: \(\w+\))?$">
     <description>Microsoft DNS on Windows 2008 Service Pack 2</description>
@@ -542,11 +554,13 @@
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="DNS"/>
     <param pos="0" name="service.product" value="DNS"/>
+    <param pos="0" name="service.version" value="6.0.6002"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="0" name="os.version" value="Service Pack 2"/>
+    <param pos="0" name="os.build" value="6.0.6002"/>
   </fingerprint>
   <fingerprint pattern="^Microsoft DNS 6.0.6001(?: \(\w+\))?$">
     <description>Microsoft DNS on Windows 2008 Service Pack 1</description>
@@ -555,11 +569,24 @@
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="DNS"/>
     <param pos="0" name="service.product" value="DNS"/>
+    <param pos="0" name="service.version" value="6.0.6001"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="0" name="os.version" value="Service Pack 1"/>
+    <param pos="0" name="os.build" value="6.0.6001"/>
+  </fingerprint>
+  <fingerprint pattern="^DNSServer$">
+    <description>Synology DNS service</description>
+    <example>DNSServer</example>
+    <param pos="0" name="service.vendor" value="Synology"/>
+    <param pos="0" name="service.family" value="DSM"/>
+    <param pos="0" name="service.product" value="DNS"/>
+    <param pos="0" name="os.device" value="NAS"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="hw.vendor" value="Synology"/>
+    <param pos="0" name="hw.device" value="NAS"/>
   </fingerprint>
   <fingerprint pattern="^Incognito DNS Service ([\d\.]+) \(built">
     <description>Incognito DNS Service</description>
@@ -631,17 +658,6 @@
     <param pos="0" name="service.family" value="ZyWALL"/>
     <param pos="0" name="service.product" value="DNS"/>
     <param pos="0" name="hw.vendor" value="Zyxel"/>
-  </fingerprint>
-  <fingerprint pattern="^DNSServer$">
-    <description>Synology DNS service</description>
-    <example>DNSServer</example>
-    <param pos="0" name="service.vendor" value="Synology"/>
-    <param pos="0" name="service.family" value="DSM"/>
-    <param pos="0" name="service.product" value="DNS"/>
-    <param pos="0" name="os.device" value="NAS"/>
-    <param pos="0" name="os.family" value="Linux"/>
-    <param pos="0" name="hw.vendor" value="Synology"/>
-    <param pos="0" name="hw.device" value="NAS"/>
   </fingerprint>
   <fingerprint pattern="^Array SmartDNS$">
     <description>Array Networks SmartDNS</description>
