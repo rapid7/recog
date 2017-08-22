@@ -11,18 +11,21 @@
 -->
 <fingerprints matches="dns.versionbind" protocol="dns" database_type="service" preference="0.750">
   <!-- Red Hat package naming: 
-      https://fedoraproject.org/wiki/Packaging:DistTag
-      https://fedoraproject.org/wiki/Packaging:Versioning
+       https://fedoraproject.org/wiki/Packaging:DistTag
+       https://fedoraproject.org/wiki/Packaging:Versioning
+
+       Enterprise linux release dates:
+       https://access.redhat.com/articles/3078
   -->
-  <fingerprint pattern="^(9.[^-]+(?:-rpz\d?[+.]rl[\d.]+)?(?:-[SP]\d)?)-RedHat-[\d.]+[-.][\w.]+el([\d_]+)(?:.[\w.]+)?$">
+  <fingerprint pattern="^(9.[^-]+(?:-rpz\d?[+.]rl[\d.]+)?(?:-[SP]\d)?)-RedHat-[\d.]+[-.][\w.]+el([\d]+)_?(\d*)(?:.[\w.]+)?$">
     <description>ISC BIND: Red Hat Enterprise Linux</description>
-    <example service.version="9.8.2rc1">9.8.2rc1-RedHat-9.8.2-0.62.rc1.el6_9.2</example>
-    <example service.version="9.9.4">9.9.4-RedHat-9.9.4-38.el7_3.3</example>
-    <example service.version="9.3.6-P1" os.version="5_11">9.3.6-P1-RedHat-9.3.6-25.P1.el5_11.12</example>
+    <example service.version="9.8.2rc1" os.version="6" os.version.version="9">9.8.2rc1-RedHat-9.8.2-0.62.rc1.el6_9.2</example>
+    <example service.version="9.9.4" os.version="7" os.version.version="3">9.9.4-RedHat-9.9.4-38.el7_3.3</example>
+    <example service.version="9.3.6-P1" os.version="5" os.version.version="11">9.3.6-P1-RedHat-9.3.6-25.P1.el5_11.12</example>
     <example service.version="9.9.1-P3" os.version="6">9.9.1-P3-RedHat-9.9.1.P3.el6</example>
     <example service.version="9.9.3-rpz2+rl.13208.13-P2" os.version="6">9.9.3-rpz2+rl.13208.13-P2-RedHat-9.9.3-4.P2.el6</example>
-    <example os.version="6_1">9.7.3-P3-RedHat-9.7.3-2.el6_1.P3.3</example>
-    <example os.version="6">9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6</example>
+    <example os.version="6" os.version.version="1">9.7.3-P3-RedHat-9.7.3-2.el6_1.P3.3</example>
+    <example os.version="6" os.version.version="">9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6</example>
     <param pos="0" name="service.vendor" value="ISC"/>
     <param pos="0" name="service.family" value="BIND"/>
     <param pos="0" name="service.product" value="BIND"/>
@@ -31,6 +34,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Enterprise Linux"/>
     <param pos="2" name="os.version"/>
+    <param pos="3" name="os.version.version"/>
   </fingerprint>
   <fingerprint pattern="^(9.[^-]+(?:-rl[.\d]+)?(?:-[SP]\d)?)-RedHat-[\d.]+-[\w.]+fc([\d]+)$">
     <description>ISC BIND: Fedora</description>
