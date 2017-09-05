@@ -10,7 +10,7 @@
 
 -->
 <fingerprints matches="dns.versionbind" protocol="dns" database_type="service" preference="0.750">
-  <!-- Red Hat package naming: 
+  <!-- Red Hat package naming:
        https://fedoraproject.org/wiki/Packaging:DistTag
        https://fedoraproject.org/wiki/Packaging:Versioning
 
@@ -177,7 +177,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
-  <fingerprint pattern="^(9\.\d{,2}.\d{,2}-rpz\d?[+.]rl[\d.]+(?:-[SPW]\d+)?)$">
+  <fingerprint pattern="^(9\.\d{1,2}\.\d{1,2}-rpz\d?[+.]rl[\d.]+(?:-[SPW]\d+)?)$">
     <description>ISC BIND: Response Policy Zone and Request Limiting patches</description>
     <example service.version="9.8.4-rpz2+rl005.12-P1">9.8.4-rpz2+rl005.12-P1</example>
     <example service.version="9.9.3-rpz2+rl.156.01-P2">9.9.3-rpz2+rl.156.01-P2</example>
@@ -186,7 +186,7 @@
     <param pos="0" name="service.product" value="BIND"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="^DNS Server BIND (9\.\d{,2}.\d{,2}-ESV(?:-R\d+)?(?:-[SPW]\d+)?)$">
+  <fingerprint pattern="^DNS Server BIND (9\.\d{1,2}-ESV(?:-R\d+)?(?:-[SPW]\d+)?)$">
     <description>ISC BIND: ESV</description>
     <example service.version="9.6-ESV-R7-P2">DNS Server BIND 9.6-ESV-R7-P2</example>
     <param pos="0" name="service.vendor" value="ISC"/>
@@ -194,7 +194,7 @@
     <param pos="0" name="service.product" value="BIND"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <!-- 
+  <!--
     FP below might be overly specific, trying to avoid false positive when
     matching cross-service/protocol.
   -->
