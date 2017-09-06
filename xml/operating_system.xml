@@ -130,6 +130,15 @@
   <!-- Windows end -->
 
   <!-- Liunx begin -->
+  <fingerprint pattern="^(?i:Alpine Linux\s?(?:v)?(\d+?(?:\.\d+?)*?(?:\src\d+?)?)?)$">
+    <description>Alpine Linux</description>
+    <example os.version="3.4.0">Alpine Linux v3.4.0</example>
+    <example os.version="2.7.0 rc6">Alpine Linux 2.7.0 rc6</example>
+    <param pos="0" name="os.vendor" value="Alpine"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
   <!-- Arch uses rolling releases where the version name just the date of an ISO release. -->
   <fingerprint pattern="^(?i:Arch Linux\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>Arch Linux</description>
@@ -147,34 +156,37 @@
     <example os.version="7">Amazon Linux AMI 7</example>
     <param pos="0" name="os.vendor" value="Amazon"/>
     <param pos="0" name="os.family" value="Linux"/>
-    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux AMI"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
   <!-- Red Hat Enterprise Linux derivative -->
-  <fingerprint pattern="^(?i:CentOS(?: Linux)?\s?(\d+?(?:\.\d+?)*?)?)$">
+  <fingerprint pattern="^(?i:CentOS(?: Linux)?(?: [a-z]+)?\s?(\d+?(?:\.\d+?)*?)?)(?:\s.*?)?$">
     <description>Centos Linux</description>
     <example os.version="5.11">Centos Linux 5.11</example>
     <example os.version="6.7">CentOS 6.7</example>
     <example os.version="7">CentOS 7</example>
+    <example os.version="6.7">CentOS release 6.7 (Final)</example>
     <param pos="0" name="os.vendor" value="CentOS"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^(?i:Debian(?: Linux)?\s?(\d+?(?:\.\d+?)*?)?(?:\s[a-z\(\)]+)?)$">
+  <fingerprint pattern="^(?i:Debian(?: (?:GNU\/)?Linux)?\s?((?:\d+?(?:\.\d+?)*?)|(?:\w+?\/sid\s?))?(?:\s[a-z\(\)]+)?)$">
     <description>Debian Linux</description>
     <example os.version="6.0">Debian 6.0</example>
     <example os.version="7">Debian 7 (Wheezy)</example>
     <example os.version="8">Debian Linux 8</example>
+    <example os.version="stretch/sid">Debian GNU/Linux stretch/sid</example>
     <param pos="0" name="os.vendor" value="Debian"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^(?i:Fedora(?: Core)?(?: Linux)?\s?(\d+?)?)$">
+  <fingerprint pattern="^(?i:Fedora(?: Core)?(?: Linux)?(?: release)?\s?(\d+?)?(?:\s.*)?)$">
     <description>Fedora Linux</description>
     <example os.version="6">Fedora Core 6</example>
     <example os.version="25">Fedora 25</example>
+    <example os.version="26">Fedora release 26 (Twenty Six)</example>
     <param pos="0" name="os.vendor" value="Fedora"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
@@ -214,7 +226,7 @@
     <param pos="2" name="os.edition"/>
   </fingerprint>
   <!-- Red Hat Enterprise Linux derivative -->
-  <fingerprint pattern="^(?i:Oracle(?: Enterprise)? Linux\s?(\d+?(?:\.\d+?)*?)?)$">
+  <fingerprint pattern="^(?i:Oracle(?: Enterprise)? Linux\s?(?:Server\s?)?(\d+?(?:\.\d+?)*?)?)$">
     <description>Oracle Enterprise Linux</description>
     <example os.version="5.11">Oracle Enterprise Linux 5.11</example>
     <example os.version="6.7">Oracle Linux 6.7</example>
@@ -223,7 +235,7 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^(?i:OpenSUSE(?: Linux)?(?: Leap)??\s?(\d+?(?:\.\d+?)*?)?)$">
+  <fingerprint pattern="^(?i:OpenSUSE(?: Linux)?(?: [a-z]+?)??\s?(\d+?(?:\.\d+?)*?)?(?:\s\(.*)?)$">
     <description>OpenSUSE Linux</description>
     <example os.version="10.1">OpenSUSE Linux 10.1</example>
     <example os.version="13.2">OpenSUSE 13.2</example>
@@ -314,6 +326,25 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.edition"/>
+  </fingerprint>
+  <fingerprint pattern="^(?i:VMWare Photon(?:\/)?(?:\s?Linux)?\s?(?:v)?(\d+?(?:\.\d+?)*?)?)$">
+    <description>Photon Linux</description>
+    <example>VMWare Photon Linux</example>
+    <example os.version="1.0">VMWare Photon 1.0</example>
+    <param pos="0" name="os.vendor" value="VMWare"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Photon Linux"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <!-- Vendor-based distribution catch-call -->
+  <fingerprint pattern="^(?i:(.*)\sLinux?\s(.*))$">
+    <description>Vendor-based Linux catch-all</description>
+    <example os.vendor="Aurox" os.version="10.2">Aurox Linux 10.2</example>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.certainty" value="0.6"/>
+    <param pos="1" name="os.vendor"/>
+    <param pos="2" name="os.version"/>
   </fingerprint>
   <!-- Linux catch-all goes at the bottom-->
   <fingerprint pattern="^(?i:.*Linux?\s?(\d+?(?:\.\d+?)*?)?)$">
