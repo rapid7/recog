@@ -5,11 +5,6 @@ the identification string after "SSH-x.x-") are matched against these patterns t
 fingerprint SSH servers.
 -->
 <fingerprints matches="ssh.banner" protocol="ssh" database_type="service" preference="0.90">
-  <!-- Honeypot SSH server banners are useless for fingerprinting -->
-  <fingerprint pattern="(?i:honeypot)">
-    <description>Honeypot SSH</description>
-    <example>honeypot</example>
-  </fingerprint>
   <fingerprint pattern="^RomSShell_([\d\.]+)$">
     <description>Allegro RomSShell SSH</description>
     <example service.version="4.62">RomSShell_4.62</example>
