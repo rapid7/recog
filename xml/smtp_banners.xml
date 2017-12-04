@@ -1685,7 +1685,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="^([^ ]+) (?i:SMTP) Server (?i:SLMail) v?(\d\.[\d.]+) Ready ESMTP spoken here *$">
+  <fingerprint pattern="^(?i)([^ ]+) SMTP Server SLMail v?(\d\.[\d.]+) Ready ESMTP spoken here *$">
     <description>
          Seattle Labs SLMail server for Windows NT/2k (v2.7 runs on Win9x)
          http://serverwatch.internet.com/reviews/mail-slmail.html
@@ -1878,7 +1878,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^(?i)(?:([^ ]+) )?E?SMTP(?: (?:Service )?Ready\.?)?$">
-    <description>catch all for daemons that have no distinguishing fingerprint whatsoever</description>
+    <description>Non-specific banner with optional hostname</description>
     <example host.name="example.com">example.com ESMTP</example>
     <example host.name="example.com">example.com ESMTP Ready</example>
     <example host.name="example.com">example.com SMTP</example>
