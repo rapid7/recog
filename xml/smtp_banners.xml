@@ -1058,9 +1058,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP.* Postfix *$">
-    <description>
-         Generic Postfix banner.
-      </description>
+    <description>Generic Postfix banner.</description>
     <example>foo.bar.com ESMTP Postfix</example>
     <param pos="0" name="service.family" value="Postfix"/>
     <param pos="0" name="service.product" value="Postfix"/>
@@ -1115,10 +1113,14 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="2" name="service.version"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
+  <fingerprint pattern="^Sendmail ESMTP ready$">
+    <description>Sendmail - short banner w/o hostname, version, platform, or date.</description>
+    <example>Sendmail ESMTP ready</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+  </fingerprint>
   <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail +([^ ]+) \(PHNE_([^ ]+)\) */ *(.+); *(.+) \(.+\)$">
-    <description>
-         sendmail on HPUX with a PHNE (HP Networking patch) installed
-      </description>
+    <description>Sendmail - HP-UX with a PHNE (HP Networking patch) installed</description>
     <example>foo.bar.com ESMTP Sendmail 8.8.6 (PHNE_14041)/8.7.1; Tue, 6 Feb 2001 10:04:32 -0300 (SAT)</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
@@ -1134,9 +1136,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="5" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^(\S+) ESMTP Sendmail \S+ version ([\d\.]+) - Revision \S+ HP-UX([\d\.]+).*(\S{3}, \d{2} \S{3} \d{4} \d{2}:\d{2}:\d{2} \S{3})$">
-    <description>
-         sendmail on HPUX
-       </description>
+    <description>Sendmail - HP-UX</description>
     <example host.name="example.com" os.version="11.31" service.version="8.13.3">example.com ESMTP Sendmail @(#)Sendmail version 8.13.3 - Revision 1.004:: HP-UX11.31 - 03rd February,2010/8.11.1; Wed, 20 May 2015 23:35:38 GMT</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
@@ -1151,9 +1151,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="4" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail +([^ ]+)/UW([^ ]+) ready at *(.+) \(.+\) *$">
-    <description>
-       sendmail on unixware
-      </description>
+    <description>Sendmail - Unixware</description>
     <example>foo.bar.com ESMTP Sendmail 8.8.7/UW7.1.0 ready at Tue, 6 Feb 2001 16:39:30 -0300 (GMT-0300)</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
@@ -1168,9 +1166,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="4" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP Sendmail AIX([^/]+)/UCB ([^;]+); (.+) \(.+\)$">
-    <description>
-       sendmail on AIX
-      </description>
+    <description>Sendmail - AIX (UCB variant)</description>
     <example>foo.bar.com ESMTP Sendmail AIX4.2/UCB 8.7; Sun, 29 Jul 2001 22:34:37 -0400 (EDT)</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
@@ -1185,10 +1181,8 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="4" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) Sendmail AIX([^/]+)/UCB ([^/]+)/([^ ]+) ready at (.+)$">
-    <description>
-       sendmail on AIX
-      </description>
-    <example>foo.bar.com Sendmail AIX 4.1/UCB 5.64/4.03 ready at Mon, 30 Jul 2001 00:42:21 -0500</example>
+    <description>Sendmail - AIX (UCB/ready at variant)</description>
+    <example>foo.bar Sendmail AIX 4.1/UCB 5.64/4.03 ready at Mon, 30 Jul 2001 00:42:21 -0500</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
     <param pos="0" name="os.vendor" value="IBM"/>
@@ -1203,9 +1197,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="5" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP Sendmail AIX([^/]+)/([^/]+)/([^;]+); (.+)(?: \(.+\))?$">
-    <description>
-       sendmail on AIX
-      </description>
+    <description>Sendmail - AIX</description>
     <example host.name="example.com" os.version="4.2" service.version="8.7" sendmail.config.version="8.8">example.com ESMTP Sendmail AIX4.2/8.7/8.8; Sun, 29 Jul 2001 22:34:37 -0400 (EDT)</example>
     <example host.name="example.com" os.version="5.1" service.version="8.11.6p2" sendmail.config.version="8.11.0">example.com ESMTP Sendmail AIX5.1/8.11.6p2/8.11.0; Fri, 28 Aug 1970 19:42:05 -0800</example>
     <param pos="0" name="service.family" value="Sendmail"/>
@@ -1222,10 +1214,8 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="5" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/SuSE Linux ([^;]+); (.+)$">
-    <description>
-        sendmail on suse
-      </description>
-    <example>foo.bar.com ESMTP Sendmail 8.9.3/8.9.3/SuSE Linux 8.9.3-0.1; Mon, 30 Jul 2001 04:48:54 +0200</example>
+    <description>Sendmail - SuSE Linux</description>
+    <example>foo.bar ESMTP Sendmail 8.9.3/8.9.3/SuSE Linux 8.9.3-0.1; Mon, 30 Jul 2001 04:48:54 +0200</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
     <param pos="0" name="os.vendor" value="SuSE"/>
@@ -1240,9 +1230,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="5" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^ ]+)\+Sun/([^ ]+); (.+)$">
-    <description>
-       sendmail on Solaris
-      </description>
+    <description>Sendmail - Solaris with date (no time offeset variant)</description>
     <example>foo.bar.com ESMTP Sendmail 8.9.3+Sun/8.9.1; Mon, 30 Jul 2001 02:50:22 GMT</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
@@ -1257,9 +1245,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="4" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^ ]+)\+Sun/([^ ]+) ready at (.+) \(.+\)$">
-    <description>
-       sendmail on Solaris
-      </description>
+    <description>Sendmail - Solaris with date (ready variant)</description>
     <example>foo.bar.com ESMTP Sendmail 8.8.8+Sun/8.6.4 ready at Thu, 15 Nov 2000 11:40:32 -0800 (PST)</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
@@ -1273,11 +1259,10 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="3" name="sendmail.config.version"/>
     <param pos="4" name="system.time"/>
   </fingerprint>
-  <fingerprint pattern="^([^ ]+) ESMTP Debian Sendmail ([^/]+)/([^/]+)/Debian ([^/]+); (.+) *$">
-    <description>
-        sendmail on debian
-      </description>
-    <example>foo.bar.com ESMTP Debian Sendmail 8.12.0.Beta7/8.12.0.Beta7/Debian 8.12.0.Beta7-1; Sun, 29 Jul 2001 18:52:20 -0800</example>
+  <fingerprint pattern="^([^ ]+) ESMTP (?:Debian )?Sendmail ([^/]+)/([^/]+)/Debian ([^/]+); (.+) *$">
+    <description>Sendmail - Debian</description>
+    <example service.version="8.12.0.Beta7" sendmail.config.version="8.12.0.Beta7" sendmail.vendor.version="8.12.0.Beta7-1">foo.bar ESMTP Debian Sendmail 8.12.0.Beta7/8.12.0.Beta7/Debian 8.12.0.Beta7-1; Sun, 29 Jul 2001 18:52:20 -0800</example>
+    <example service.version="8.11.0" sendmail.config.version="8.9.3" sendmail.vendor.version="8.9.3-21">foo.bar ESMTP Sendmail 8.11.0/8.9.3/Debian 8.9.3-21; Sun, 29 Jul 2001 19:51:00 -0700</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
     <param pos="0" name="os.vendor" value="Debian"/>
@@ -1291,23 +1276,8 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="4" name="sendmail.vendor.version"/>
     <param pos="5" name="system.time"/>
   </fingerprint>
-  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian ([^/]+); (.+) *$">
-    <description>Sendmail on Debian</description>
-    <example>foo.bar.com ESMTP Sendmail 8.11.0/8.9.3/Debian 8.9.3-21; Sun, 29 Jul 2001 19:51:00 -0700</example>
-    <param pos="0" name="service.family" value="Sendmail"/>
-    <param pos="0" name="service.product" value="Sendmail"/>
-    <param pos="0" name="os.vendor" value="Debian"/>
-    <param pos="0" name="os.family" value="Linux"/>
-    <param pos="0" name="os.product" value="Linux"/>
-    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-    <param pos="1" name="host.name"/>
-    <param pos="2" name="service.version"/>
-    <param pos="3" name="sendmail.config.version"/>
-    <param pos="4" name="sendmail.vendor.version"/>
-    <param pos="5" name="system.time"/>
-  </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d\+(?:wheezy|deb7u)\d; (.+); .*$">
-    <description>Sendmail on Debian 7.x (wheezy)</description>
+    <description>Sendmail - Debian 7.x (wheezy)</description>
     <example service.version="8.14.4">foo.bar.com ESMTP Sendmail 8.14.4/8.14.4/Debian-4+wheezy1; Thu, 30 Nov 2017 10:33:05 +0100; (No UCE/UBE) logging access from: xyz.example.com(OK)-xyz.example.com [10.0.0.1]</example>
     <example service.version="8.14.4">foo.bar.com ESMTP Sendmail 8.14.4/8.14.4/Debian-4+deb7u1; Thu, 30 Nov 2017 11:00:33 +0100; (No UCE/UBE) logging access from: xyz.example.com(OK)-xyz.example.com [10.0.0.1]</example>
     <param pos="0" name="service.family" value="Sendmail"/>
@@ -1323,7 +1293,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="4" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d\+deb8u\d; (.+); .*$">
-    <description>Sendmail on Debian 8.x (jessie)</description>
+    <description>Sendmail - Debian 8.x (jessie)</description>
     <example service.version="8.14.4">foo.bar.com ESMTP Sendmail 8.14.4/8.14.4/Debian-8+deb8u2; Thu, 30 Nov 2017 10:25:48 +0100; (No UCE/UBE) logging access from: xyz.example.com(OK)-xyz.example.com [10.0.0.1]</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
@@ -1338,7 +1308,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="4" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d\+lenny\d; (.+); .*$">
-    <description>Sendmail on Debian 5.x (lenny)</description>
+    <description>Sendmail - Debian 5.x (lenny)</description>
     <example service.version="8.14.3">foo.bar.com ESMTP Sendmail 8.14.3/8.14.3/Debian-5+lenny1; Thu, 30 Nov 2017 12:29:40 +0300; (No UCE/UBE) logging access from: xyz.example.com(OK)-xyz.example.com [10.0.0.1]</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
@@ -1353,7 +1323,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="4" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d\+etch\d; (.+); .*$">
-    <description>Sendmail on Debian 4.x (etch)</description>
+    <description>Sendmail - Debian 4.x (etch)</description>
     <example service.version="8.13.8" sendmail.config.version="8.13.8">foo.bar.com ESMTP Sendmail 8.13.8/8.13.8/Debian-3+etch1; Thu, 30 Nov 2017 10:28:23 +0100; (No UCE/UBE) logging access from: xyz.example.com(OK)-xyz.example.com [10.0.0.1]</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
@@ -1368,7 +1338,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="4" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\dsarge\d; (.+); .*$">
-    <description>Sendmail on Debian 3.1 (sarge)</description>
+    <description>Sendmail - Debian 3.1 (sarge)</description>
     <example service.version="8.13.4">foo.bar.com ESMTP Sendmail 8.13.4/8.13.4/Debian-3sarge1; Thu, 30 Nov 2017 10:55:47 +0100; (No UCE/UBE) logging access from: xyz.example.com(OK)-xyz.example.com [10.0.0.1]</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
@@ -1383,7 +1353,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="4" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d(?:\.\d)?(?:build\d)?+; (.+); .*$">
-    <description>Sendmail on Debian patch only</description>
+    <description>Sendmail - Debian patch only</description>
     <example service.version="8.15.2">foo.bar.com ESMTP Sendmail 8.15.2/8.15.2/Debian-3; Thu, 30 Nov 2017 10:55:50 +0200; (No UCE/UBE) logging access from: xyz.example.com(OK)-xyz.example.com [10.0.0.1]</example>
     <example service.version="8.14.3">foo.bar.com ESMTP Sendmail 8.14.3/8.14.3/Debian-9.4; Thu, 30 Nov 2017 10:11:54 +0100; (No UCE/UBE) logging access from: xyz.example.com(OK)-xyz.example.com [10.0.0.1]</example>
     <example service.version="8.14.2">foo.bar.com ESMTP Sendmail 8.14.2/8.14.2/Debian-2build1; Thu, 30 Nov 2017 04:09:50 -0600; (No UCE/UBE) logging access from: xyz.example.com(OK)-xyz.example.com [10.0.0.1]</example>
@@ -1399,7 +1369,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="4" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/[^/]+/Debian-[\d.]+ubuntu[^ ]*; (.+); .*$">
-    <description>Sendmail on Ubuntu</description>
+    <description>Sendmail - Ubuntu</description>
     <example service.version="8.13.5.20060308">foo.bar.com ESMTP Sendmail 8.13.5.20060308/8.13.5/Debian-3ubuntu1.1; Fri, 24 Jul 2009 01:41:21 -0700; (No UCE/UBE) logging access from: xyz.example.com(OK)-xyz.example.com [10.0.0.1]</example>
     <example service.version="8.14.4">foo.bar.com ESMTP Sendmail 8.14.4/8.14.4/Debian-4.1ubuntu1; Thu, 30 Nov 2017 11:00:30 +0100; (No UCE/UBE) logging access from: xyz.example.com(OK)-xyz.example.com [10.0.0.1]</example>
     <param pos="0" name="service.family" value="Sendmail"/>
@@ -1413,9 +1383,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) (?:E?SMTP )?Sendmail SMI-([^/]+)/(SMI-SVR4) ready at (.+)$">
-    <description>
-        unknown
-      </description>
+    <description>Sendmail - Solaris (SMI variant)</description>
     <example>foo.bar.com Sendmail SMI-8.6/SMI-SVR4 ready at Sun, 29 Jul 2001 22:58:46 -0400</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
@@ -1444,7 +1412,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="4" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP MetaInfo Sendmail ([^ ]+) Build ([^ ]+) \(Berkeley ([^ ]+)\)/([^;]+); (.+)$">
-    <description>Sendmail - unknown platform(Berkley variant)</description>
+    <description>Sendmail - MetaInfo</description>
     <example>foo.bar.com ESMTP MetaInfo Sendmail 2.5 Build 2630 (Berkeley 8.8.6)/8.8.4; Mon, 30 Jul</example>
     <param pos="0" name="service.vendor" value="MetaInfo"/>
     <param pos="0" name="service.family" value="Sendmail"/>
@@ -1462,7 +1430,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="6" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +ESMTP .*Sendmail +([^/ ]+) */ *([^/ ]+); *((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?)(?: \(.+\))?$">
-    <description>Sendmail, no OS, optional timestamp, optional timezone</description>
+    <description>Sendmail - optional timezone and timestamp, w/o OS</description>
     <example host.name="foo.bar" service.version="8.9.3+3.4W" sendmail.config.version="8.9.3+3.4W" system.time="Tue, 30 Jan 2001 20:40:09 -0500">foo.bar ESMTP Sendmail 8.9.3+3.4W/8.9.3+3.4W; Tue, 30 Jan 2001 20:40:09 -0500 (EST)</example>
     <example host.name="foo.bar" service.version="8.12.10" sendmail.config.version="8.12.10">foo.bar ESMTP Sendmail 8.12.10/8.12.10;</example>
     <example host.name="foo.bar" service.version="8.8.8" sendmail.config.version="8.8.9">foo.bar ESMTP Sendmail 8.8.8/8.8.9; Wed, 21 Nov 2001 23:39:07 +0100 (CET)</example>
@@ -1477,30 +1445,9 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="3" name="sendmail.config.version"/>
     <param pos="4" name="system.time"/>
   </fingerprint>
-  <fingerprint pattern="^([^ ]+) +Sendmail ready\. *$">
-    <description>
-         some old version of sendmail - TODO: figure out which versions this could be
-      </description>
-    <example>mail.foo.bar Sendmail ready.</example>
-    <param pos="0" name="service.family" value="Sendmail"/>
-    <param pos="0" name="service.product" value="Sendmail"/>
-    <param pos="1" name="host.name"/>
-  </fingerprint>
-  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ([^ ]+) ready at *(.+) \(.+\)$">
-    <description>
-         sendmail with daemon version only
-      </description>
-    <example>mail.foo.bar ESMTP Sendmail 8.8.8 ready at Tue, 6 Feb 2001 14:37:14 +0100 (CET)</example>
-    <param pos="0" name="service.family" value="Sendmail"/>
-    <param pos="0" name="service.product" value="Sendmail"/>
-    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-    <param pos="1" name="host.name"/>
-    <param pos="2" name="service.version"/>
-    <param pos="3" name="system.time"/>
-  </fingerprint>
-  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ([^ /]+) \([^\)]+\) *(.+) \(.+\)$">
-    <description>Sendmail - unknown (date in version string variant)</description>
-    <example>mail.foo.bar ESMTP Sendmail 8.11.1 (1.1.2.11/12Jul01-1016AM) Wed, 8 Jan 2003 11:21:22 +0100 (MET)</example>
+  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ([^ ]+) ready at *(\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)(?: \(.+\))$">
+    <description>Sendmail - with version and date (optional timezone), w/o config version</description>
+    <example host.name="foo.bar" service.version="8.8.8" system.time="Tue, 6 Feb 2001 14:37:14 +0100">foo.bar ESMTP Sendmail 8.8.8 ready at Tue, 6 Feb 2001 14:37:14 +0100 (CET)</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
     <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
@@ -1509,9 +1456,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ([^ /]+) - \([^\)]+\)/[^ ]+;? *(.+) \(.+\)$">
-    <description>
-       unknown
-      </description>
+    <description>Sendmail - revision variant 1</description>
     <example>foo.example.com ESMTP Sendmail 8.11.1 - (Revision 1.010)/8.9.3; Sat, 22 Jan 2011 10:08:35 -0500 (EST)</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
@@ -1521,9 +1466,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail +(?:[^ ]+) +version +([^ ]+) +- +(?:[^;]+); +(.+) +\(.+\)$">
-    <description>
-       unknown
-     </description>
+    <description>Sendmail - revision variant 2</description>
     <example>foo.example.com ESMTP Sendmail @(#)Sendmail version 8.13.3 - Revision 2.007 - 8 December 2008/8.8.6; Wed, 21 Jul 2010 11:17:01 -0400 (EDT)</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
@@ -1531,12 +1474,6 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
     <param pos="3" name="system.time"/>
-  </fingerprint>
-  <fingerprint pattern="^Sendmail ESMTP ready$">
-    <description>Sendmail - short banner w/o version, platform, or date.</description>
-    <example>Sendmail ESMTP ready</example>
-    <param pos="0" name="service.family" value="Sendmail"/>
-    <param pos="0" name="service.product" value="Sendmail"/>
   </fingerprint>
   <fingerprint pattern="^Sendmail ([^/]+)/([^/]+) ready on ([^ ]+)$">
     <description>Sendmail - basic with version and date</description>
@@ -1547,44 +1484,43 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="3" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ready at (.+) \(.+\)$">
-    <description>
-         catch all for other versions of sendmail
-      </description>
+    <description>Sendmail - with date, w/o version or platform</description>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
     <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="system.time"/>
   </fingerprint>
-  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ;.*$">
-    <description>Sendmail - w/o version or platform, optional date.</description>
+  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail *;.*$">
+    <description>Sendmail - w/o version or platform, optional date and status string.</description>
+    <example host.name="foo.bar">foo.bar ESMTP Sendmail ; Thu, 30 Nov 2017 17:50:14 +0900</example>
+    <example host.name="foo.bar">foo.bar ESMTP Sendmail; Thu, 30 Nov 2017 17:50:14 +0900</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ready$">
-    <description>Sendmail - short banner with hostname
-      </description>
+  <fingerprint pattern="^([^ ]+) (?:ESMTP )?Sendmail(?: ready.?)? *$">
+    <description>Sendmail - short banner with hostname</description>
+    <example host.name="foo.bar">foo.bar ESMTP Sendmail ready</example>
+    <example host.name="foo.bar">foo.bar ESMTP Sendmail ready. </example>
+    <example host.name="foo.bar">foo.bar ESMTP Sendmail</example>
+    <example host.name="foo.bar">foo.bar Sendmail ready. </example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="^([^ ]+) Sendmail ([^/]+)/([^ ]+) ready at ([^;\.]+)$">
-    <description>
-         catch all for other versions of sendmail
-      </description>
+  <fingerprint pattern="^ESMTP Sendmail +([^/ ]+) */ *([^/ ]+); (\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)$">
+    <description>Sendmail - with version and date, w/o hostname or platform (semicolon variant)</description>
+    <example service.version="8.13.1" sendmail.config.version="8.13.1" system.time="Thu, 30 Nov 2017 01:58:22 -0700">ESMTP Sendmail  8.13.1/8.13.1; Thu, 30 Nov 2017 01:58:22 -0700</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
     <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
-    <param pos="1" name="host.name"/>
-    <param pos="2" name="service.version"/>
-    <param pos="3" name="sendmail.config.version"/>
-    <param pos="4" name="system.time"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="sendmail.config.version"/>
+    <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) Sendmail ([^;]+); ([^;\.]+)$">
-    <description>
-         catch all for other versions of sendmail
-      </description>
+    <description>Sendmail - unknown platform, variant 1</description>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
     <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
@@ -1592,25 +1528,25 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="2" name="service.version"/>
     <param pos="3" name="system.time"/>
   </fingerprint>
-  <fingerprint pattern="^([^ ]+) ESMTP Sendmail$">
-    <description>
-         catch all for other versions of sendmail
-      </description>
-    <param pos="0" name="service.family" value="Sendmail"/>
-    <param pos="0" name="service.product" value="Sendmail"/>
-    <param pos="1" name="host.name"/>
-  </fingerprint>
-  <fingerprint pattern="^(\S+) ESMTP Sendmail (\S{3}, \d{1,2} \S{3} \d{4} \d{2}:\d{2}:\d{2} \S+)$">
-    <description>
-         catch all for other versions of sendmail, with a date/time
-      </description>
+  <fingerprint pattern="^(\S+) ESMTP Sendmail (\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)$">
+    <description>Sendmail - with hostname and date, w/o version or platform</description>
     <example host.name="example.com">example.com ESMTP Sendmail Wed, 20 May 2015 17:17:56 -0600</example>
     <example host.name="example.com">example.com ESMTP Sendmail Wed, 5 Aug 2015 17:40:38 -0400</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
     <param pos="1" name="host.name"/>
-    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss -ZZZZ"/>
     <param pos="2" name="system.time"/>
+  </fingerprint>
+  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ([^ /]+) \([^\)]+\) *(.+) \(.+\)$">
+    <description>Sendmail - unknown (date in version string variant)</description>
+    <example>mail.foo.bar ESMTP Sendmail 8.11.1 (1.1.2.11/12Jul01-1016AM) Wed, 8 Jan 2003 11:21:22 +0100 (MET)</example>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="system.time.format" value="EEE, dd MMM yyyy HH:mm:ss zzz"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="system.time"/>
   </fingerprint>
   <!-- Sun Internet Mail Server -->
   <!-- Sun Internet Mail Server sims\.([^\.]+)([^\.]+)([^\.]+)([^\.]+)([^\.]+)([^\.]+)([^\.]+)([^\.]+) -->
