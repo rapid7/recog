@@ -1527,6 +1527,17 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="3" name="service.version.version"/>
     <param pos="4" name="system.time"/>
   </fingerprint>
+  <fingerprint pattern="^([^ ]+) Kerio Connect (\d\.[\d.]+) (?:patch (\d) )?ESMTP ready$">
+    <description>Kerio Connect ESMTP</description>
+    <example host.name="foo.bar" service.version="8.0.2">foo.bar Kerio Connect 8.0.2 ESMTP ready</example>
+    <example service.version="9.2.5" service.version.version="3">foo.bar Kerio Connect 9.2.5 patch 3 ESMTP ready</example>
+    <param pos="0" name="service.vendor" value="Kerio"/>
+    <param pos="0" name="service.family" value="Connect"/>
+    <param pos="0" name="service.product" value="ESMTP"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="service.version.version"/>
+  </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP CommuniGate Pro (\d\.[\w.]+)(?:. It is you again :-\()?$">
     <description>Communigate Pro</description>
     <example host.name="foo.bar" service.version="5.3.1">foo.bar ESMTP CommuniGate Pro 5.3.1</example>
@@ -1538,6 +1549,14 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
+  <fingerprint pattern="^(\S+) NO UCE NO UBE NO RELAY PROBES ESMTP">
+    <description>Twisted SMTP server</description>
+    <example host.name="foo.bar">foo.bar NO UCE NO UBE NO RELAY PROBES ESMTP</example>
+    <param pos="0" name="service.vendor" value="Twisted Matrix Labs"/>
+    <param pos="0" name="service.family" value="Twisted"/>
+    <param pos="0" name="service.product" value="ESMTP"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
   <fingerprint pattern="^Cellopoint E-mail Firewall v(\d\.[\d.]+) Build (\d+) ready$">
     <description>Cellopoint E-mail Firewall</description>
     <example service.version="3.9.12" service.version.version="0324">Cellopoint E-mail Firewall v3.9.12 Build 0324 ready</example>
@@ -1546,17 +1565,6 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="0" name="service.product" value="E-mail Firewall"/>
     <param pos="1" name="service.version"/>
     <param pos="2" name="service.version.version"/>
-  </fingerprint>
-  <fingerprint pattern="^([^ ]+) Kerio Connect (\d\.[\d.]+) (?:patch (\d) )?ESMTP ready$">
-    <description>Kerio Connect ESMTP</description>
-    <example host.name="foo.bar" service.version="8.0.2">foo.bar Kerio Connect 8.0.2 ESMTP ready</example>
-    <example service.version="9.2.5" service.version.version="3">foo.bar Kerio Connect 9.2.5 patch 3 ESMTP ready</example>
-    <param pos="0" name="service.vendor" value="Kerio"/>
-    <param pos="0" name="service.family" value="Connect"/>
-    <param pos="0" name="service.product" value="ESMTP"/>
-    <param pos="1" name="host.name"/>
-    <param pos="2" name="service.version"/>
-    <param pos="3" name="service.version.version"/>
   </fingerprint>
   <fingerprint pattern="^ESMTP on WinWebMail \[(\d\.[\d.]+)\] ready\.  http://www.winwebmail.com$">
     <description>Ma Jian WinWebMail</description>
@@ -1574,14 +1582,6 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="0" name="service.product" value="ESMTP"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>>
-  </fingerprint>
-  <fingerprint pattern="^(\S+) NO UCE NO UBE NO RELAY PROBES ESMTP">
-    <description>Twisted SMTP server</description>
-    <example host.name="foo.bar">foo.bar NO UCE NO UBE NO RELAY PROBES ESMTP</example>
-    <param pos="0" name="service.vendor" value="Twisted Matrix Labs"/>
-    <param pos="0" name="service.family" value="Twisted"/>
-    <param pos="0" name="service.product" value="ESMTP"/>
-    <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^(?i)(\S+) E?SMTP Perl">
     <description>Some simple PERL SMTP server</description>
