@@ -24,7 +24,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
 -->
 <fingerprints matches="smtp.banner" protocol="smtp" database_type="service" preference="0.20">
   <fingerprint pattern="^X1 NT-ESMTP Server ([^ ]+) \(IMail (\d+\.[^ ]+) EVAL \d+-\d+\)$">
-    <description>IMail EVAL version</description>
+    <description>IMail - EVAL version</description>
     <example service.version="6.06">X1 NT-ESMTP Server foo.bar (IMail 6.06 EVAL 11347-1)</example>
     <param pos="0" name="service.vendor" value="Ipswitch"/>
     <param pos="0" name="service.family" value="IMail Server"/>
@@ -34,7 +34,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="0" name="imail.eval" value="yes"/>
   </fingerprint>
   <fingerprint pattern="^X1 NT-ESMTP Server ([^ ]+) \(IMail (\d+\.[^ ]+) \d+-\d+\)$">
-    <description>IMail non-EVAL version</description>
+    <description>IMail - non-EVAL version</description>
     <example service.version="6.06">X1 NT-ESMTP Server foo.bar (IMail 6.06 899085-1)</example>
     <param pos="0" name="service.vendor" value="Ipswitch"/>
     <param pos="0" name="service.family" value="IMail Server"/>
@@ -43,7 +43,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) \(IMail (\d+\.[^ ]+) \d+-\d+\) NT-ESMTP Server X1$">
-    <description>IMail non-EVAL version, NT-ESMTP at end</description>
+    <description>IMail - non-EVAL version, NT-ESMTP at end</description>
     <example service.version="12.4.2.27">foo.bar (IMail 12.4.2.27 21349-1) NT-ESMTP Server X1</example>
     <param pos="0" name="service.vendor" value="Ipswitch"/>
     <param pos="0" name="service.family" value="IMail Server"/>
@@ -52,7 +52,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) SMTP AnalogX Proxy ([^ ]+\.[^ ]+) \(Release\) ready *$">
-    <description>AnalogX proxy  http://www.analogx.com/contents/download/network/proxy.htm</description>
+    <description>AnalogX proxy  (http://www.analogx.com/contents/download/network/proxy.htm)</description>
     <example host.name="192.168.1.1" service.version="4.15">192.168.1.1 SMTP AnalogX Proxy 4.15 (Release) ready</example>
     <param pos="0" name="service.vendor" value="AnalogX"/>
     <param pos="0" name="service.family" value="Proxy"/>
@@ -72,7 +72,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^^(?:(\S+) +)?ArGoSoft Mail Server Freeware, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
-    <description>ArGoSoft Mail, freeware version</description>
+    <description>ArGoSoft Mail Server - freeware version</description>
     <example host.name="foo.bar" service.version="1.8.8.8">foo.bar ArGoSoft Mail Server Freeware, Version 1.8 (1.8.8.8)</example>
     <example service.version="1.8.8.8">ArGoSoft Mail Server Freeware, Version 1.8 (1.8.8.8)</example>
     <param pos="0" name="os.vendor" value="Microsoft"/>
@@ -85,7 +85,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^(?:(\S+) +)?ArGoSoft Mail Server Pro for WinNT\/2000(?:\/XP)?, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
-    <description>ArGoSoft Mail, Pro version </description>
+    <description>ArGoSoft Mail Server - Pro version</description>
     <example service.version="1.6.1.8">ArGoSoft Mail Server Pro for WinNT/2000, Version 1.61 (1.6.1.8)</example>
     <example service.version="1.8.9.5">ArGoSoft Mail Server Pro for WinNT/2000/XP, Version 1.8 (1.8.9.5)</example>
     <example host.name="foo.bar" service.version="1.8.9.5">foo.bar ArGoSoft Mail Server Pro for WinNT/2000/XP, Version 1.8 (1.8.9.5)</example>
@@ -171,7 +171,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="0" name="service.product" value="Internet Mail Scanner"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +IMS SMTP Receiver Version ([^ ]+\.[^ ]+) Ready *$">
-    <description>EMWAC Internet Mail Services http://emwac.ed.ac.uk/html/internet_toolchest/ims/ims.htm</description>
+    <description>EMWAC Internet Mail Services (http://emwac.ed.ac.uk/html/internet_toolchest/ims/ims.htm)</description>
     <example service.version="0.83" host.name="foo.bar">foo.bar IMS SMTP Receiver Version 0.83 Ready</example>
     <param pos="0" name="service.vendor" value="EMWAC"/>
     <param pos="0" name="service.family" value="Internet Mail Services"/>
@@ -180,7 +180,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="2" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) running Eudora Internet Mail Server (\d\.[\d.]+) *$">
-    <description> Eudora Internet Mail Server</description>
+    <description>Eudora Internet Mail Server</description>
     <example service.version="3.0.2" host.name="foo.bar">foo.bar running Eudora Internet Mail Server 3.0.2</example>
     <example service.version="2.2" host.name="foo.bar">foo.bar running Eudora Internet Mail Server 2.2</example>
     <param pos="0" name="service.vendor" value="Eudora"/>
@@ -232,7 +232,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="0" name="os.product" value="Windows"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) Microsoft SMTP MAIL ready at (.+) Version: +(\d+\.\d+\.\d+\.\d+\.\d+) *$">
-    <description>Microsoft IIS builtin SMTP service, or Microsoft Exchange Server (they are differentiated from each other in smtp-iis.clp)</description>
+    <description>Microsoft IIS builtin SMTP service, or Microsoft Exchange Server (they are differentiated from each other in smtp-iis.clp)  - variant 1</description>
     <example host.name="foo.bar" service.version="5.5.1877.197.19">foo.bar Microsoft SMTP MAIL ready at Wed, 29 Nov 2017 23:48:59 +0000 Version: 5.5.1877.197.19</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="IIS"/>
@@ -247,9 +247,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="0" name="os.product" value="Windows"/>
   </fingerprint>
   <fingerprint pattern="^(:?[^ ]+)? ?Microsoft ESMTP MAIL Service, Version: +(\d+\.\d+\.\d+\.\d+) +ready +(?:at +)?(.+)$">
-    <description>Microsoft IIS builtin SMTP service, or Microsoft Exchange Server
-         (they are differentiated from each other in smtp-iis.clp)
-    </description>
+    <description>Microsoft IIS builtin SMTP service, or Microsoft Exchange Server (they are differentiated from each other in smtp-iis.clp) - variant 2 </description>
     <example service.version="5.0.2195.5329"> Microsoft ESMTP MAIL Service, Version: 5.0.2195.5329 ready Thu, 30 Nov 2017 11:40:25 +0200</example>
     <example service.version="6.0.3790.4675">foo Microsoft ESMTP MAIL Service, Version: 6.0.3790.4675 ready at Wed, 21 Jul 2010 19:04:24 -0700</example>
     <example service.version="6.0.2600.5512" system.time="Thu, 30 Nov 2017 18:22:40 +0900">Microsoft ESMTP MAIL Service, Version: 6.0.2600.5512 ready at  Thu, 30 Nov 2017 18:22:40 +0900</example>
@@ -266,18 +264,19 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="0" name="os.product" value="Windows"/>
   </fingerprint>
   <fingerprint pattern="^ESMTP Exim$">
-    <description>Exim without version string or hostname</description>
+    <description>Exim - without version string or hostname</description>
     <example>ESMTP Exim</example>
     <param pos="0" name="service.vendor" value="exim"/>
     <param pos="0" name="service.family" value="exim"/>
     <param pos="0" name="service.product" value="exim"/>
   </fingerprint>
-  <fingerprint pattern="^ ?([^, ]+)(?:,)? ESMTP \(?(?i:Exim) +(\d+\.[\d_.RC-]+)\)?(?: +#\d)? ?.?((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *(?:We do not authorize the use of this system to transport unsolicited, and\/or bulk e-mail.)?$">
-    <description>Exim with version string and optional timestamp</description>
+  <fingerprint pattern="^ ?([^, ]+)(?:,)? ESMTP \(?(?i:Exim) +(\d+\.[\d_.bRC-]+)\)?(?: +#\d)? ?.?((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *(?:We do not authorize the use of this system to transport unsolicited, and\/or bulk e-mail.)?$">
+    <description>Exim - with version string and optional timestamp</description>
     <example service.version="4.89" host.name="foo.bar">foo.bar ESMTP Exim 4.89 "</example>
     <example service.version="4.83" host.name="foo.bar">foo.bar, ESMTP EXIM 4.83</example>
     <example service.version="4.84_2" host.name="foo.bar">foo.bar ESMTP Exim 4.84_2 </example>
     <example service.version="4.90_RC3" host.name="foo.bar">foo.bar ESMTP Exim 4.90_RC3 Thu, 30 Nov 2017 03:52:16 -0700 </example>
+    <example service.version="4.89_1b" host.name="foo.bar">foo.bar ESMTP Exim 4.89_1b Thu, 05 Apr 2018 21:30:37 +0200</example>
     <example service.version="4.89-122312">foo.bar ESMTP Exim 4.89-122312 Thu, 16 Nov 2017 10:33:38 +0200 </example>
     <example service.version="4.87">foo.bar ESMTP (Exim 4.87) Thu, 30 Nov 2017 03:25:58 -0800 </example>
     <example service.version="4.80" system.time="Thu, 16 Nov 2017 01:04:30 -0800">foo.bar ESMTP Exim 4.80 Thu, 16 Nov 2017 01:04:30 -0800 </example>
@@ -292,7 +291,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^, ]+)(?:,)? ESMTP (?i:Exim) +(\d+) ((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
-    <description>Exim with digit only version string and optional timestamp</description>
+    <description>Exim - with digit only version string and optional timestamp</description>
     <example service.version="125302" host.name="foo.bar">foo.bar ESMTP Exim 125302 Thu, 16 Nov 2017 04:55:11 -0500 </example>
     <param pos="0" name="service.vendor" value="exim"/>
     <param pos="0" name="service.family" value="exim"/>
@@ -303,7 +302,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^, ]+)(?:,)? ESMTP (?i:Exim) +(\d+\.[\d_.]+)(?: +#\d)? Ubuntu ((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
-    <description>Exim with version string and optional timestamp (Ubuntu)</description>
+    <description>Exim - with version string and optional timestamp (Ubuntu)</description>
     <example service.version="4.82" system.time="Thu, 16 Nov 2017 11:30:44 +0300">foo.bar ESMTP Exim 4.82 Ubuntu Thu, 16 Nov 2017 11:30:44 +0300 </example>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.family" value="Linux"/>
@@ -317,7 +316,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^, ]+)(?:,)? ESMTP (?i:Exim)(?: +#\d)? *((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
-    <description>Exim without version string and with optional timestamp</description>
+    <description>Exim - without version string and with optional timestamp</description>
     <example host.name="foo.bar">foo.bar ESMTP Exim</example>
     <example host.name="foo.bar" system.time="Thu, 16 Nov 2017 01:11:30 -0800">foo.bar ESMTP Exim Thu, 16 Nov 2017 01:11:30 -0800 </example>
     <example host.name="foo.bar" system.time="Thu, 30 Nov 2017 05:31:32 -0500">foo.bar ESMTP Exim  #1 Thu, 30 Nov 2017 05:31:32 -0500 </example>
@@ -329,7 +328,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="2" name="system.time"/>
   </fingerprint>
     <fingerprint pattern="^ ?ESMTP (?i:Exim) (\d+\.[\d_.]+)(?: +#\d)? ?.?((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
-    <description>Exim without hostname</description>
+    <description>Exim - without hostname</description>
     <example service.version="4.82" system.time="Thu, 16 Nov 2017 12:19:22 +0300">ESMTP Exim 4.82 Thu, 16 Nov 2017 12:19:22 +0300 </example>
     <example service.version="4.82"> ESMTP Exim 4.82 Thu, 16 Nov 2017 11:41:41 +0300 </example>
     <example service.version="4.89"> ESMTP Exim 4.89  #1 Thu, 16 Nov 2017 07:32:28 -0200 </example>
@@ -341,7 +340,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="2" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) FTGate server ready .*$">
-    <description>FTGate mail server, runs on Windows 9x/NT/2k http://www.ftgate.com</description>
+    <description>FTGate mail server, runs on Windows 9x/NT/2k (http://www.ftgate.com)</description>
     <example host.name="foo.bar">foo.bar FTGate server ready -attitude [C.o.r.E]</example>
     <param pos="0" name="service.vendor" value="Floosietek"/>
     <param pos="0" name="service.family" value="FTGate"/>
@@ -361,7 +360,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) GroupWise Internet Agent ([^ ]+\.[^ ]+\.[^ ]+) Ready \(C\).* Novell, Inc\. *$">
-    <description>Novell GroupWise Internet Agent versions 5 and higher</description>
+    <description>Novell GroupWise Internet Agent - versions 5 and higher</description>
     <example service.version="5.5.1">foo.bar GroupWise Internet Agent 5.5.1 Ready (C)1993, 1998 Novell, Inc.</example>
     <param pos="0" name="service.vendor" value="Novell"/>
     <param pos="0" name="service.family" value="GroupWise"/>
@@ -370,7 +369,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="2" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) GroupWise Internet Agent (\d+\.[\d.]+)  Copyright .*\d{4}-\d{4} Novell, Inc..* All rights reserved. Ready *$">
-    <description>Novell GroupWise Internet Agent versions 5 and higher, second variant</description>
+    <description>Novell GroupWise Internet Agent - versions 5 and higher, second variant</description>
     <example service.version="8.0.3">foo.bar GroupWise Internet Agent 8.0.3  Copyright (c) 1993-2012 Novell, Inc.  All rights reserved. Ready</example>
     <example service.version="14.2.1">foo.bar GroupWise Internet Agent 14.2.1  Copyright 1993-2016 Novell, Inc., a Micro Focus Company. All rights reserved. Ready</example>
     <param pos="0" name="service.vendor" value="Novell"/>
@@ -380,7 +379,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="2" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) GroupWise SMTP/MIME Daemon ([^ ]+\.[^ ]+) v([^ ]+) Ready \(C\).* Novell, Inc\. *$">
-    <description>Novell GroupWise versions below 5</description>
+    <description>Novell GroupWise - versions below 5</description>
     <example host.name="foo.bar" service.version="4.1" service.version.version="3">foo.bar GroupWise SMTP/MIME Daemon 4.1 v3 Ready (C)1993, 1996 Novell, Inc.</example>
     <param pos="0" name="service.vendor" value="Novell"/>
     <param pos="0" name="service.family" value="GroupWise"/>
@@ -414,7 +413,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="0" name="service.product" value="IntraStore"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="^(\S+) E?SMTP Server \(JAMES E?SMTP Server ([\d\.]+)\) ready (\S{3}, \d{2} \S{3} \d{4} \d{2}:\d{2}:\d{2} \S+) \(\S+\)$">
+  <fingerprint pattern="^(\S+) E?SMTP Server \(JAMES E?SMTP Server ([\d\.]+)\) ready (\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d) \(.+\)$">
     <description>JAMES SMTP Server</description>
     <example host.name="foo.bar" service.version="2.3.2">foo.bar SMTP Server (JAMES SMTP Server 2.3.2) ready Tue, 19 May 2015 00:36:13 +0200 (CEST)</example>
     <param pos="0" name="service.vendor" value="Apache"/>
@@ -437,11 +436,12 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="2" name="service.version"/>
   </fingerprint>
   <!-- MailEnable has an odd, three version string. Not sure about the meaning the second and third version #s. -->
-  <fingerprint pattern="^(?:(\S+) +)?ESMTP MailEnable Service, Version: (?:([\d.]+))?-[\d.]*-[\d.]* ready at (\d{2}/\d{2}/\d{2} \d{2}:\d{2}:\d{2})$">
+  <fingerprint pattern="^(?:(\S+) +)?ESMTP MailEnable Service, Version: (?:([\d.]+))?-[\d.]*-[\d.]* (?:ready|denied access) at (\d{2}/\d{2}/\d{2} \d{2}:\d{2}:\d{2})$">
     <description>MailEnable - Complex</description>
     <example host.name="foo.bar" service.version="1.8">foo.bar ESMTP MailEnable Service, Version: 1.8-- ready at 05/20/15 08:50:22</example>
     <example host.name="foo.bar" service.version="9.53">foo.bar ESMTP MailEnable Service, Version: 9.53-9.53- ready at 11/30/17 00:57:37</example>
     <example host.name="foo.bar" service.version="9.00" system.time="11/30/17 09:30:34">foo.bar ESMTP MailEnable Service, Version: 9.00--9.00 ready at 11/30/17 09:30:34</example>
+    <example host.name="foo.bar" service.version="1.986" system.time="04/05/18 16:15:25">foo.bar ESMTP MailEnable Service, Version: 1.986-- denied access at 04/05/18 16:15:25</example>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
@@ -466,7 +466,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +MailSite E?SMTP Receiver Version (\d+\.[\d.]+) Ready *$">
-    <description>Rockliffe MailSite with version (http://www.rockliffe.com)</description>
+    <description>Rockliffe MailSite - with version (http://www.rockliffe.com)</description>
     <example host.name="foo.bar" service.version="3.4.6.0">foo.bar  MailSite ESMTP Receiver Version 3.4.6.0 Ready</example>
     <example host.name="foo.bar" service.version="2.1.7">foo.bar MailSite SMTP Receiver Version 2.1.7 Ready</example>
     <param pos="0" name="service.vendor" value="Rockliffe"/>
@@ -476,7 +476,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="2" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +MailSite E?SMTP Receiver Ready *$">
-    <description>Rockliffe MailSite without version (http://www.rockliffe.com)</description>
+    <description>Rockliffe MailSite - without version (http://www.rockliffe.com)</description>
     <example host.name="foo.bar">foo.bar MailSite SMTP Receiver Ready</example>
     <param pos="0" name="service.vendor" value="Rockliffe"/>
     <param pos="0" name="service.family" value="MailSite"/>
@@ -484,7 +484,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^ ?MailSite E?SMTP Receiver Version (\d+\.[\d.]+) Ready *$">
-    <description>Rockliffe MailSite without hostname(http://www.rockliffe.com)</description>
+    <description>Rockliffe MailSite - without hostname (http://www.rockliffe.com)</description>
     <example service.version="10.2.0.0"> MailSite ESMTP Receiver Version 10.2.0.0 Ready</example>
     <param pos="0" name="service.vendor" value="Rockliffe"/>
     <param pos="0" name="service.family" value="MailSite"/>
@@ -492,7 +492,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +MAILsweeper ESMTP Receiver Version (\d\.[\d.]+) Ready *$">
-    <description>Content Security MAILsweeper for SMTP http://www.contenttechnologies.com/products/msw4smtp/default.asp</description>
+    <description>Content Security MAILsweeper for SMTP (http://www.contenttechnologies.com/products/msw4smtp/default.asp)</description>
     <example service.version="4.2.1.0">foo.bar MAILsweeper ESMTP Receiver Version 4.2.1.0 Ready</example>
     <param pos="0" name="service.vendor" value="Clearswift"/>
     <param pos="0" name="service.family" value="MAILsweeper"/>
@@ -501,7 +501,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="2" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+) UNREGISTERED; *(.+) *$">
-    <description>MDaemon mail server, with timestamp, unregistered</description>
+    <description>MDaemon mail server - with timestamp, unregistered</description>
     <example service.version="4.0.5">foo.bar ESMTP MDaemon 4.0.5 UNREGISTERED; Sat, 06 Oct 2001 09:10:56 +0400</example>
     <param pos="0" name="service.vendor" value="Alt-N"/>
     <param pos="0" name="service.family" value="MDaemon"/>
@@ -518,7 +518,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+); *(.+) *$">
-    <description>MDaemon mail server, with timestamp</description>
+    <description>MDaemon mail server - with timestamp</description>
     <example service.version="4.0.2">foo.bar ESMTP MDaemon 4.0.2; Sat, 06 Oct 2001 01:46:44 -0500</example>
     <param pos="0" name="service.vendor" value="Alt-N"/>
     <param pos="0" name="service.family" value="MDaemon"/>
@@ -534,7 +534,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+) ready *$">
-    <description>MDaemon mail server, without timestamp</description>
+    <description>MDaemon mail server - without timestamp</description>
     <example service.version="3.5.7">foo.bar ESMTP MDaemon 3.5.7 ready</example>
     <param pos="0" name="service.vendor" value="Alt-N"/>
     <param pos="0" name="service.family" value="MDaemon"/>
@@ -548,7 +548,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="2" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] (?:using )?MDaemon v(\d+\.[\d.]+) ([^ ]+) *$">
-    <description>MDaemon mail server, with version revision</description>
+    <description>MDaemon mail server - with version revision</description>
     <example service.version="2.84" service.version.version="R">foo.bar ESMTP service ready [1] MDaemon v2.84 R</example>
     <example service.version="3.0.3" service.version.version="R">foo.bar ESMTP service ready [1] using MDaemon v3.0.3 R</example>
     <example service.version="2.8.7.0" service.version.version="R">foo.bar ESMTP service ready [1] MDaemon v2.8.7.0 R</example>
@@ -600,7 +600,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
   </fingerprint>
   <!-- example: 220 mail.db-list.com ESMTP MERAK 3.00.140; Tue, 24 Jul 2001 21:30:47 -0700 -->
   <fingerprint pattern="^([^ ]+) +E?SMTP (?i:MERAK) ([^ ]+\.[^ ]+\.[^ ]+); *(.+) *$">
-    <description>Merak mail server http://www.icewarp.com/merakmail/ (runs on 2000/NT/9x)</description>
+    <description>Merak mail server - http://www.icewarp.com/merakmail/ (runs on 2000/NT/9x)</description>
     <example host.name="foo.bar" service.version="8.0.3">foo.bar SMTP Merak 8.0.3; Thu, 30 Nov 2017 20:01:41 +1000</example>
     <example host.name="foo.bar" service.version="8.0.3">foo.bar ESMTP Merak 8.0.3; Thu, 30 Nov 2017 12:08:09 +0200</example>
     <example host.name="foo.bar" service.version="2.10.284">foo.bar ESMTP MERAK 2.10.284; Thu, 30 Nov 2017 17:55:10 +0800</example>
@@ -613,7 +613,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^MERCUR SMTP-Server \(v([^ ]+\.[^ ])0\.([^ ]+) ([^ ]+)\) for (.+) ready at (.+) *$">
-    <description>Atrium's MERCUR SMTP server http://www.atrium-software.com/pub/support_e.cfm</description>
+    <description>Atrium's MERCUR SMTP server (http://www.atrium-software.com/pub/support_e.cfm)</description>
     <example service.version="3.3" service.version.version="09" service.version.version.version="SA-0000005" mercur.os.info="Windows NT">MERCUR SMTP-Server (v3.30.09 SA-0000005) for Windows NT ready at Thu, 30 Nov 2017  10:01:06 +0100</example>
     <param pos="0" name="service.vendor" value="Atrium Software"/>
     <param pos="0" name="service.family" value="MERCUR"/>
@@ -695,10 +695,11 @@ The system or service fingerprint with the highest certainty overwrites the othe
        named Domino until Dec 1996 w/ v 4.5. Seems to have started being
        called IBM Domino as of v9.0 on product and in banners.
   -->
-  <fingerprint pattern="^ ?(?:([^ ]+))? *ESMTP Service \(Lotus Domino Release (\d+\.[\w.]+(?: HF\d+)?)(?: \(Intl\))?\) ready at (.+) *$">
+  <fingerprint pattern="^ ?(?:([^ ]+))? *ESMTP Service \(Lotus Domino Release (\d+\.[\w.]+(?: FP\d+)?(?: HF\d+)?)(?: \(Intl\))?\) ready at (.+) *$">
     <description>Lotus Domino SMTP MTA</description>
     <example service.version="8.5">foo.bar  ESMTP Service (Lotus Domino Release 8.5) ready at Thu, 30 Nov 2017 17:01:45 +0800</example>
     <example service.version="8.5.3FP6 HF1944">foo.bar ESMTP Service (Lotus Domino Release 8.5.3FP6 HF1944) ready at Thu, 30 Nov 2017 17:17:43 +0800</example>
+    <example service.version="8.0.2 FP1 HF82">foo.bar ESMTP Service (Lotus Domino Release 8.0.2 FP1 HF82) ready at Thu, 5 Apr 2018 22:03:28 +0200</example>
     <example service.version="5.0.13a"> foo.bar ESMTP Service (Lotus Domino Release 5.0.13a) ready at Thu, 16 Nov 2017 17:47:42 +0800</example>
     <example service.version="7.0.4">foo.bar ESMTP Service (Lotus Domino Release 7.0.4) ready at Thu, 16 Nov 2017 18:28:36 +0900</example>
     <example service.version="8.0.2FP2">foo.bar ESMTP Service (Lotus Domino Release 8.0.2FP2) ready at Thu, 16 Nov 2017 02:17:33 -0700</example>
@@ -748,7 +749,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="2" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) NTMail \(v(\d+\.\d+\.\d+)/([^ ]+)\) ready for ESMTP transfer *$">
-    <description>NTMail http://www.gordano.com</description>
+    <description>NTMail (http://www.gordano.com)</description>
     <example host.name="foo.bar" service.version="7.02.3037" ntmail.id="NU1319.01.5b000000">foo.bar NTMail (v7.02.3037/NU1319.01.5b000000) ready for ESMTP transfer   </example>
     <param pos="0" name="service.vendor" value="Gordano"/>
     <param pos="0" name="service.family" value="NTMail"/>
@@ -783,9 +784,10 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.arch"/>
   </fingerprint>
-  <fingerprint pattern="^(\S+) E?SMTP PMailServer(?: \[Free Edition\]) ([\d\.]+); (\S{3}, \d{2} \S{3} \d{4} \d{2}:\d{2}:\d{2})$">
+  <fingerprint pattern="^(\S+) E?SMTP PMailServer(?: \[Free Edition\])? ([\d\.]+); (\w\w\w, +\d+ \w\w\w \d\d\d\d [\d:]+)$">
     <description>A.K.I PMail</description>
     <example host.name="foo.bar" service.version="1.91">foo.bar ESMTP PMailServer [Free Edition] 1.91; Fri, 22 May 2015 02:04:56</example>
+    <example host.name="foo.bar" service.version="1.78">foo.bar ESMTP PMailServer 1.78; Fri,  6 Apr 2018 04:34:11</example>
     <param pos="0" name="service.vendor" value="A.K.I Software"/>
     <param pos="0" name="service.product" value="PMail Server"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss"/>
@@ -794,7 +796,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) Postfix \(Postfix-([^ ]+)-([^ ]+)\) \(([^ ]+)\) *$">
-    <description>Postfix (2 version ids, followed by os)</description>
+    <description>Postfix - version + build, followed by os</description>
     <param pos="0" name="service.family" value="Postfix"/>
     <param pos="0" name="service.product" value="Postfix"/>
     <param pos="1" name="host.name"/>
@@ -802,16 +804,17 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="3" name="service.version.version"/>
     <param pos="4" name="postfix.os.info"/>
   </fingerprint>
-  <fingerprint pattern="^([^ ]+) ESMTP Postfix \(([\d.]+)\)$">
-    <description>Postfix - Std semantic versioning</description>
+  <fingerprint pattern="^([^ ]+) ESMTP Postfix \(?([\d.]+)\)?$">
+    <description>Postfix - Std semantic versioning, w/ optional parens</description>
     <example service.version="3.1.4">foo.bar ESMTP Postfix (3.1.4)</example>
+    <example service.version="2.7.1">foo.bar ESMTP Postfix 2.7.1</example>
     <param pos="0" name="service.family" value="Postfix"/>
     <param pos="0" name="service.product" value="Postfix"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP Postfix \((?:Postfix-)?([\d.]+)-([^ ]+)\)$">
-    <description>Postfix (2 version numbers )</description>
+    <description>Postfix - version + build</description>
     <example service.version="2.8" service.version.version="20100306">foo.bar ESMTP Postfix (2.8-20100306)</example>
     <param pos="0" name="service.family" value="Postfix"/>
     <param pos="0" name="service.product" value="Postfix"/>
@@ -819,16 +822,8 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="2" name="service.version"/>
     <param pos="3" name="service.version.version"/>
   </fingerprint>
-  <fingerprint pattern="^([^ ]+) Postfix \(Postfix-([^ ]+)\) \(([^ ]+)\) *$">
-    <description>Postfix (1 version number)</description>
-    <param pos="0" name="service.family" value="Postfix"/>
-    <param pos="0" name="service.product" value="Postfix"/>
-    <param pos="1" name="host.name"/>
-    <param pos="2" name="service.version"/>
-    <param pos="3" name="postfix.os.info"/>
-  </fingerprint>
-  <fingerprint pattern="^([^ ]+) E?SMTP Postfix \(Ubuntu\)$">
-    <description>Postfix Ubuntu package.</description>
+  <fingerprint pattern="^([^ ]+) +E?SMTP Postfix \(Ubuntu\)$">
+    <description>Postfix - Ubuntu</description>
     <example>foo.bar ESMTP Postfix (Ubuntu)</example>
     <param pos="0" name="service.family" value="Postfix"/>
     <param pos="0" name="service.product" value="Postfix"/>
@@ -838,8 +833,9 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
-  <fingerprint pattern="^([^ ]+) Hi, I'm a Mail-in-a-Box \(Ubuntu\/Postfix; see https:\/\/mailinabox.email\/\)$">
-    <description>Postfix Ubuntu - Mail-in-a-Box package</description>
+  <fingerprint pattern="^([^ ]+)(?: ESMTP)? Hi, I'm a Mail-in-a-Box \(Ubuntu/Postfix; see https://mailinabox.email/\)$">
+    <description>Postfix - Ubuntu, Mail-in-a-Box package</description>
+    <example>foo.bar ESMTP Hi, I'm a Mail-in-a-Box (Ubuntu/Postfix; see https://mailinabox.email/)</example>
     <example>foo.bar Hi, I'm a Mail-in-a-Box (Ubuntu/Postfix; see https://mailinabox.email/)</example>
     <param pos="0" name="service.family" value="Postfix"/>
     <param pos="0" name="service.product" value="Postfix"/>
@@ -849,8 +845,8 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
-  <fingerprint pattern="^([^ ]+) E?SMTP Postfix \(Debian/GNU\)$">
-    <description>Postfix Debian package.</description>
+  <fingerprint pattern="^([^ ]+) +E?SMTP Postfix \(Debian/GNU\)$">
+    <description>Postfix - Debian</description>
     <example>foo.bar ESMTP Postfix (Debian/GNU)</example>
     <param pos="0" name="service.family" value="Postfix"/>
     <param pos="0" name="service.product" value="Postfix"/>
@@ -861,21 +857,22 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP.* Postfix *\(.+\) *$">
-    <description>Generic Postfix banner with amusing comments in parentheses</description>
+    <description>Postfix - generic banner with amusing comments in parentheses</description>
     <example>foo.bar ESMTP Postfix (lol)</example>
     <param pos="0" name="service.family" value="Postfix"/>
     <param pos="0" name="service.product" value="Postfix"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="^(?i)([^ ]+) ESMTP.* Postfix *$">
-    <description>Generic Postfix banner.</description>
+  <fingerprint pattern="^(?i)([^ ]+) +E?SMTP.* Postfix *$">
+    <description>Postfix - generic banner</description>
     <example>foo.bar ESMTP Postfix</example>
+    <example>foo.bar SMTP Postfix</example>
     <param pos="0" name="service.family" value="Postfix"/>
     <param pos="0" name="service.product" value="Postfix"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^ *ESMTP Postfix$">
-    <description>Postfix banner without hostname or version</description>
+    <description>Postfix - banner without hostname or version</description>
     <example>ESMTP Postfix</example>
     <param pos="0" name="service.family" value="Postfix"/>
     <param pos="0" name="service.product" value="Postfix"/>
@@ -922,7 +919,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail +([^ ]+) \(PHNE_([^ ]+)\) */ *(.+); *(.+) \(.+\)$">
     <description>Sendmail - HP-UX with a PHNE (HP Networking patch) installed</description>
-    <example host.name="foo.bar" service.version="8.8.6">foo.bar ESMTP Sendmail 8.8.6 (PHNE_14041)/8.7.1; Tue, 6 Feb 2001 10:04:32 -0300 (SAT)</example>
+    <example host.name="foo.bar" service.version="8.8.6" sendmail.config.version="8.7.1">foo.bar ESMTP Sendmail 8.8.6 (PHNE_14041)/8.7.1; Tue, 6 Feb 2001 10:04:32 -0300 (SAT)</example>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>
     <param pos="0" name="os.vendor" value="HP"/>
@@ -936,7 +933,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="4" name="sendmail.config.version"/>
     <param pos="5" name="system.time"/>
   </fingerprint>
-  <fingerprint pattern="^(\S+) ESMTP Sendmail \S+ version ([\d\.]+) - Revision \S+ HP-UX([\d\.]+).*(\S{3}, \d{2} \S{3} \d{4} \d{2}:\d{2}:\d{2} \S{3})$">
+  <fingerprint pattern="^(\S+) ESMTP Sendmail \S+ version ([\d\.]+) - Revision \S+ HP-UX([\d\.]+).*(\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ \w\w\w)$">
     <description>Sendmail - HP-UX</description>
     <example host.name="foo.bar" os.version="11.31" service.version="8.13.3">foo.bar ESMTP Sendmail @(#)Sendmail version 8.13.3 - Revision 1.004:: HP-UX11.31 - 03rd February,2010/8.11.1; Wed, 20 May 2015 23:35:38 GMT</example>
     <param pos="0" name="service.family" value="Sendmail"/>
