@@ -1150,7 +1150,7 @@ The system or service fingerprint with the highest certainty overwrites the othe
     <param pos="3" name="sendmail.config.version"/>
     <param pos="4" name="system.time"/>
   </fingerprint>
-  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d(?:\.\d)?(?:build\d)?+; (.+); .*$">
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d(?:\.\d)?(?:build\d)?;+ (.+); .*$">
     <description>Sendmail - Debian patch only</description>
     <example service.version="8.15.2">foo.bar ESMTP Sendmail 8.15.2/8.15.2/Debian-3; Thu, 30 Nov 2017 10:55:50 +0200; (No UCE/UBE) logging access from: xyz.foo.bar(OK)-xyz.foo.bar [10.0.0.1]</example>
     <example service.version="8.14.3">foo.bar ESMTP Sendmail 8.14.3/8.14.3/Debian-9.4; Thu, 30 Nov 2017 10:11:54 +0100; (No UCE/UBE) logging access from: xyz.foo.bar(OK)-xyz.foo.bar [10.0.0.1]</example>
