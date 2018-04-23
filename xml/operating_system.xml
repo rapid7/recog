@@ -24,7 +24,17 @@
     <param pos="2" name="os.edition"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^(?i:(?:Microsoft )?(Windows (?:XP|Vista|7|8|8.1|10))(?:\s)?((?!Mobile)(?:[a-z]+|[a-z]+, )?(?:[a-z]+|[a-z]+\s[a-z]+)?)?(?: Edition)?(?:\s)?(SP\d|SP \d|Service Pack \d)?)$">
+  <fingerprint pattern="^(?i:(?:Microsoft )?Windows 10 Mobile(?:\s([a-z]+))?(?: Edition)?)$">
+    <description>Windows 10 Mobile</description>
+    <example os.product="Windows 10 Mobile">Windows 10 Mobile Edition</example>
+    <example os.product="Windows 10 Mobile" os.edition="Enterprise">Windows 10 Mobile Enterprise Edition</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows 10 Mobile"/>
+    <param pos="1" name="os.edition"/>
+    <param pos="0" name="os.device" value="Mobile"/>
+  </fingerprint>
+  <fingerprint pattern="^(?i:(?:Microsoft )?(Windows (?:XP|Vista|7|8|8.1|10))(?:\s)?((?:[a-z]+|[a-z]+, )?(?:[a-z]+|[a-z]+\s[a-z]+)?)?(?: Edition)?(?:\s)?(SP\d|SP \d|Service Pack \d)?)$">
     <description>Windows Desktop XP and later</description>
     <example os.product="Windows XP" os.edition="Professional">Windows XP Professional</example>
     <example os.product="Windows XP" os.edition="Tablet PC">Windows XP Tablet PC Edition</example>
@@ -62,16 +72,6 @@
     <param pos="0" name="os.product" value="NT"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.edition"/>
-  </fingerprint>
-  <fingerprint pattern="^(?i:(?:Microsoft )?Windows 10 Mobile(?:\s(?!Edition)([a-z]+))?(?: Edition)?)$">
-    <description>Windows 10 Mobile</description>
-    <example os.product="Windows 10 Mobile">Windows 10 Mobile Edition</example>
-    <example os.product="Windows 10 Mobile" os.edition="Enterprise">Windows 10 Mobile Enterprise Edition</example>
-    <param pos="0" name="os.vendor" value="Microsoft"/>
-    <param pos="0" name="os.family" value="Windows"/>
-    <param pos="0" name="os.product" value="Windows 10 Mobile"/>
-    <param pos="1" name="os.edition"/>
-    <param pos="0" name="os.device" value="Mobile"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Microsoft )?Windows Phone (\d|\d\.\d)?)$">
     <description>Windows Phone 7 and later</description>
