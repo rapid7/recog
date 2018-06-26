@@ -998,12 +998,10 @@
     <param pos="0" name="service.product" value="MariaDB"/>
     <param pos="0" name="service.edition" value="Enterprise Edition"/>
   </fingerprint>
-  <fingerprint pattern="(\d{1,2}\.\d{1,2}\.\d{1,2})-maxscale">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,2}\.[\d]{1,2})(?:-\d{1,2}\.\d{1,2}\.[\d]{1,2})?\s(\d{1,2}\.\d{1,2}\.\d{1,2})-maxscale$">
     <description>MariaDB MaxScale</description>
-    <example service.version="2.0.3">5.5.5-10.0.0 2.0.3-maxscale</example>
     <example service.version="2.1.14">5.5.5-10.0.0 2.1.14-maxscale</example> 
     <param pos="1" name="service.version"/>
-    <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MariaDB Maxscale"/>
   </fingerprint>
