@@ -48,7 +48,7 @@ describe Recog::DB do
             end
 
             it "doesn't have duplicate params" do
-              if param_names.include? param_name
+              if param_names.include?(param_name)
                 fail "'#{fp.name}'s has duplicate #{param_name}"
               else
                 param_names << param_name
