@@ -32,6 +32,7 @@ describe Recog::DB do
         fp = db.fingerprints[i]
 
         context "#{fp.name}" do
+          param_names = []
           fp.params.each do |param_name, pos_value|
             pos, value = pos_value
             it "doesn't have param values for capture params" do
@@ -43,6 +44,14 @@ describe Recog::DB do
             it "doesn't omit values for non-capture params" do
               if pos == 0 && value.to_s.empty?
                 fail "'#{fp.name}'s #{param_name} is not a capture (pos=0) but doesn't specify a value"
+              end
+            end
+
+            it "doesn't have duplicate params" do
+              if param_names.include?(param_name)
+                fail "'#{fp.name}'s has duplicate #{param_name}"
+              else
+                param_names << param_name
               end
             end
           end
