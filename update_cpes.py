@@ -21,6 +21,7 @@ def parse_remapping(file):
                     raise ValueError("Unnecessary mapping of '{}' from  {}".format(v_to, file))
                 else:
                     remap[v_from] = v_to
+                    remap[v_to] = v_to
             else:
                 remap[line] = line
 
