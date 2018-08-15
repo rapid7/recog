@@ -79,12 +79,14 @@ for fingerprint in doc.xpath('//fingerprint'):
         if vendor and product:
             vendor = vendor.lower().replace(' ', '_')
             product = product.lower().replace(' ', '_')
-            if not vendor in vendors:
-                print("Didn't find vendor {}".format(vendor))
-                continue
-            if not product in products:
-                print("Didn't find product {}".format(product))
-                continue
+            if not (vendor.startswith('{') and vendor.endswith('}')):
+                if not vendor in vendors:
+                    print("Didn't find vendor {}".format(vendor))
+                    continue
+            if not (product.startswith('{') and product.endswith('}')):
+                if not product in products:
+                    print("Didn't find product {}".format(product))
+                    continue
 
             cpe_value += "{}:{}".format(vendor, product)
             if version:
