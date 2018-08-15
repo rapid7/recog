@@ -1,14 +1,21 @@
 #!/usr/bin/env python
 
+
 import re
 import sys
 
 from lxml import etree, objectify
 
-if len(sys.argv) != 2:
-    raise ValueError("Expecting exactly 1 argument for XML file to add CPEs to, got {}".format(len(sys.argv) - 1))
+if len(sys.argv) != 4:
+    raise ValueError("Expecting exactly 3 arguments; recog XML file, file of valid vendors, file of valid products, got {}".format(len(sys.argv) - 1))
 
 xml_file = sys.argv[1]
+
+with open(sys.argv[2], 'r') as v:
+    vendors = v.read().splitlines()
+
+with open(sys.argv[3], 'r') as p:
+    products = p.read().splitlines()
 
 parser = etree.XMLParser(remove_comments=False)
 doc = etree.parse(xml_file, parser)
@@ -70,7 +77,16 @@ for fingerprint in doc.xpath('//fingerprint'):
         # build a reasonable looking CPE value from the vendor/product/version,
         # lowercasing, replacing whitespace with _, and more
         if vendor and product:
-            cpe_value += "{}:{}".format(vendor.lower(), product.lower()).replace(' ', '_')
+            vendor = vendor.lower().replace(' ', '_')
+            product = product.lower().replace(' ', '_')
+            if not vendor in vendors:
+                print("Didn't find vendor {}".format(vendor))
+                continue
+            if not product in products:
+                print("Didn't find product {}".format(product))
+                continue
+
+            cpe_value += "{}:{}".format(vendor, product)
             if version:
                 cpe_value += ":{}".format(version)
 
