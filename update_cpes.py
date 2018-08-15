@@ -19,6 +19,10 @@ for fingerprint in doc.xpath('//fingerprint'):
     params = {}
     for param in fingerprint.xpath('./param'):
         name = param.attrib['name']
+        # remove any existing CPE params
+        if name.endswith('.cpe'):
+            param.getparent().remove(param)
+
         match = re.search('^(?P<fp_type>os|service)\.', name)
         if match:
             fp_type = match.group('fp_type')
@@ -82,4 +86,4 @@ for fingerprint in doc.xpath('//fingerprint'):
 root = doc.getroot()
 
 with open(xml_file, 'w') as fh:
-    fh.write(etree.tostring(root, pretty_print=True))
+    fh.write(etree.tostring(root, pretty_print=True, xml_declaration=True, encoding=doc.docinfo.encoding))
