@@ -17,8 +17,6 @@ def parse_remapping(file):
                 v_to = map_match.group('v_to')
                 if v_from in remap:
                     raise ValueError("Duplicated '{}' from {}".format(v_from, file))
-                elif v_to in remap:
-                    raise ValueError("Unnecessary mapping of '{}' from  {}".format(v_to, file))
                 else:
                     remap[v_from] = v_to
                     remap[v_to] = v_to
@@ -93,8 +91,8 @@ for fingerprint in doc.xpath('//fingerprint'):
         # build a reasonable looking CPE value from the vendor/product/version,
         # lowercasing, replacing whitespace with _, and more
         if vendor and product:
-            vendor = vendor.encode('utf-8').lower().replace(' ', '_')
-            product = product.encode('utf-8').lower().replace(' ', '_')
+            vendor = vendor.encode('utf-8').lower().replace(' ', '_').replace(',', '')
+            product = product.encode('utf-8').lower().replace(' ', '_').replace(',', '')
             if not (vendor == 'unknown' or (vendor.startswith('{') and vendor.endswith('}'))):
                 if vendor in vendor_map:
                     vendor = vendor_map[vendor]
