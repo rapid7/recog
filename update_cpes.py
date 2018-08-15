@@ -77,8 +77,8 @@ for fingerprint in doc.xpath('//fingerprint'):
         # build a reasonable looking CPE value from the vendor/product/version,
         # lowercasing, replacing whitespace with _, and more
         if vendor and product:
-            vendor = vendor.lower().replace(' ', '_')
-            product = product.lower().replace(' ', '_')
+            vendor = vendor.encode('utf-8').lower().replace(' ', '_')
+            product = product.encode('utf-8').lower().replace(' ', '_')
             if not (vendor == 'unknown' or (vendor.startswith('{') and vendor.endswith('}'))):
                 if not vendor in vendors:
                     print("Didn't find vendor {}".format(vendor))
