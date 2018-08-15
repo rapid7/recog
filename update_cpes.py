@@ -14,8 +14,9 @@ parser = etree.XMLParser(remove_comments=False)
 doc = etree.parse(xml_file, parser)
 
 for fingerprint in doc.xpath('//fingerprint'):
+
+    # collect all the params, grouping by os and service params that could be used to compute a CPE
     params = {}
-    # organize all the params, looking for os and service fingerprints to modify
     for param in fingerprint.xpath('./param'):
         name = param.attrib['name']
         match = re.search('^(?P<fp_type>os|service)\.', name)
@@ -28,9 +29,10 @@ for fingerprint in doc.xpath('//fingerprint'):
             params[fp_type][name] = param
 
 
+    # for each of the applicable os/service param groups, build a CPE
     for fp_type in params:
+        # start building the base CPE string
         cpe_value = "cpe:"
-
         if fp_type == 'os':
             cpe_value += "/o:"
         elif fp_type == 'service':
@@ -38,33 +40,31 @@ for fingerprint in doc.xpath('//fingerprint'):
         else:
             raise ValueError('Unhandled param type {}'.format(fp_type))
 
-        vendor = None
-        vendor_param_name = "{}.vendor".format(fp_type)
-        if vendor_param_name in params[fp_type]:
-            vendor_e = params[fp_type][vendor_param_name]
-            if vendor_e.attrib['pos'] == '0':
-                vendor = vendor_e.attrib['value']
-            else:
-                vendor = "{{{}}}".format(vendor_e.attrib['name'])
+        # extract the vendor/product/version values from each os/service group,
+        # using the static value ('Apache', for example) when pos is 0, and
+        # otherwise use a value that contains interpolation markers such that
+        # products/projects that use recog content can insert the value
+        # extracted from the banner/other data via regex capturing groups
+        fp_data = {
+            'vendor': None,
+            'product': None,
+            'version': None,
+        }
+        for fp_datum in fp_data:
+            fp_datum_param_name = "{}.{}".format(fp_type, fp_datum)
+            if fp_datum_param_name in params[fp_type]:
+                fp_datum_e = params[fp_type][fp_datum_param_name]
+                if fp_datum_e.attrib['pos'] == '0':
+                    fp_data[fp_datum] = fp_datum_e.attrib['value']
+                else:
+                    fp_data[fp_datum] = "{{{}}}".format(fp_datum_e.attrib['name'])
 
-        product = None
-        product_param_name = "{}.product".format(fp_type)
-        if product_param_name in params[fp_type]:
-            product_e = params[fp_type][product_param_name]
-            if product_e.attrib['pos'] == '0':
-                product = product_e.attrib['value']
-            else:
-                product = "{{{}}}".format(product_e.attrib['name'])
+        vendor = fp_data['vendor']
+        product = fp_data['product']
+        version = fp_data['version']
 
-        version = None
-        version_param_name = "{}.version".format(fp_type)
-        if version_param_name in params[fp_type]:
-            version_e = params[fp_type][version_param_name]
-            if version_e.attrib['pos'] == '0':
-                version = version_e.attrib['value']
-            else:
-                version = "{{{}}}".format(version_e.attrib['name'])
-
+        # build a reasonable looking CPE value from the vendor/product/version,
+        # lowercasing, replacing whitespace with _, and more
         if vendor and product:
             cpe_value += "{}:{}".format(vendor.lower(), product.lower()).replace(' ', '_')
             if version:
