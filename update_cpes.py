@@ -61,7 +61,7 @@ for fingerprint in doc.xpath('//fingerprint'):
                 version = "{{{}}}".format(version_e.attrib['name'])
 
         if vendor and product:
-            cpe_value += "{}:{}".format(vendor.lower(), product.lower())
+            cpe_value += "{}:{}".format(vendor.lower(), product.lower()).replace(' ', '_')
             if version:
                 cpe_value += ":{}".format(version)
 
