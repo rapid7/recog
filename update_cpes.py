@@ -6,19 +6,34 @@ import sys
 
 from lxml import etree, objectify
 
+def parse_remapping(file):
+    remap = {}
+    with open(file, 'r') as p:
+        for line in p:
+            line = line.strip()
+            map_match = re.match("^(?P<v_from>[^=]+)=(?P<v_to>[^=]+)$", line)
+            if map_match:
+                v_from = map_match.group('v_from')
+                v_to = map_match.group('v_to')
+                if v_from in remap:
+                    raise ValueError("Duplicated '{}' from {}".format(v_from, file))
+                elif v_to in remap:
+                    raise ValueError("Unnecessary mapping of '{}' from  {}".format(v_to, file))
+                else:
+                    remap[v_from] = v_to
+            else:
+                remap[line] = line
+
+    return remap
+
 if len(sys.argv) != 4:
     raise ValueError("Expecting exactly 3 arguments; recog XML file, file of valid vendors, file of valid products, got {}".format(len(sys.argv) - 1))
 
 xml_file = sys.argv[1]
-
-with open(sys.argv[2], 'r') as v:
-    vendors = v.read().splitlines()
-
-with open(sys.argv[3], 'r') as p:
-    products = p.read().splitlines()
-
 parser = etree.XMLParser(remove_comments=False)
 doc = etree.parse(xml_file, parser)
+vendor_map = parse_remapping(sys.argv[2])
+product_map = parse_remapping(sys.argv[3])
 
 for fingerprint in doc.xpath('//fingerprint'):
 
@@ -80,11 +95,15 @@ for fingerprint in doc.xpath('//fingerprint'):
             vendor = vendor.encode('utf-8').lower().replace(' ', '_')
             product = product.encode('utf-8').lower().replace(' ', '_')
             if not (vendor == 'unknown' or (vendor.startswith('{') and vendor.endswith('}'))):
-                if not vendor in vendors:
+                if vendor in vendor_map:
+                    vendor = vendor_map[vendor]
+                else:
                     print("Didn't find vendor {}".format(vendor))
                     continue
             if not (product == 'unknown' or (product.startswith('{') and product.endswith('}'))):
-                if not product in products:
+                if product in product_map:
+                    product = product_map[product]
+                else:
                     print("Didn't find product {}".format(product))
                     continue
 
