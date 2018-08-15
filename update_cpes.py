@@ -5,8 +5,13 @@ import sys
 
 from lxml import etree, objectify
 
+if len(sys.argv) != 2:
+    raise ValueError("Expecting exactly 1 argument for XML file to add CPEs to, got {}".format(len(sys.argv) - 1))
+
+xml_file = sys.argv[1]
+
 parser = etree.XMLParser(remove_comments=False)
-doc = etree.parse(sys.argv[1], parser)
+doc = etree.parse(xml_file, parser)
 
 for fingerprint in doc.xpath('//fingerprint'):
     params = {}
@@ -70,11 +75,11 @@ for fingerprint in doc.xpath('//fingerprint'):
             cpe_param.attrib['name'] = '{}.cpe'.format(fp_type)
             cpe_param.attrib['value'] = cpe_value
 
+            parent = param.getparent()
             for param_name in params[fp_type]:
-                param.append(cpe_param)
+                parent.insert(parent.index(param)+1, cpe_param)
 
 root = doc.getroot()
 
-f = open(sys.argv[1], 'w')
-f.write(etree.tostring(root, pretty_print=True))
-f.close()
+with open(xml_file, 'w') as fh:
+    fh.write(etree.tostring(root, pretty_print=True))
