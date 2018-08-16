@@ -1,13 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-SMTP response lines to the EXPN command are matched against these patterns
-(1 line at a time) to fingerprint SMTP servers.
-
-See comment at the top of smtp_banners.xml for additional info.
-
-'preference' note: This value has been set so as to implement the ordering
-  of SMTP related fingerprint databases as described in 'smtp_banners.xml'.
--->
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints protocol="smtp" database_type="service" preference="0.16">
   <fingerprint pattern="^500[ -]Syntax error, command &quot;XXXX.*&quot; unrecognized$">
     <description>
@@ -26,7 +17,7 @@ See comment at the top of smtp_banners.xml for additional info.
     <param pos="0" name="service.vendor" value="exim"/>
     <param pos="0" name="service.family" value="exim"/>
     <param pos="0" name="service.product" value="exim"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:exim:exim"/></fingerprint>
   <fingerprint pattern="^550[ -]EXPN not available to [^ ]+ \(.+\) \[.+\] *$">
     <description>
          Exim
@@ -35,7 +26,7 @@ See comment at the top of smtp_banners.xml for additional info.
     <param pos="0" name="service.vendor" value="exim"/>
     <param pos="0" name="service.family" value="exim"/>
     <param pos="0" name="service.product" value="exim"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:exim:exim"/></fingerprint>
   <fingerprint pattern="^500[ -]Don't you wish! *$">
     <description>GNAT box SMTP</description>
     <param pos="0" name="service.vendor" value="Global Technology Associates"/>
@@ -48,7 +39,7 @@ See comment at the top of smtp_banners.xml for additional info.
     <param pos="0" name="service.vendor" value="IBM"/>
     <param pos="0" name="service.family" value="VM"/>
     <param pos="0" name="service.product" value="VM"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:ibm:vm"/></fingerprint>
   <fingerprint pattern="^550[ -]lists are confidential *$">
     <description>
          example: 550 lists are confidential
@@ -56,7 +47,7 @@ See comment at the top of smtp_banners.xml for additional info.
     <param pos="0" name="service.vendor" value="Ipswitch"/>
     <param pos="0" name="service.family" value="IMail Server"/>
     <param pos="0" name="service.product" value="IMail Server"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:ipswitch:imail_server"/></fingerprint>
   <fingerprint pattern="^502[ -]command is not active$">
     <description>
          502 command is not active
@@ -69,7 +60,7 @@ See comment at the top of smtp_banners.xml for additional info.
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.arch" value="x86"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows"/></fingerprint>
   <fingerprint pattern="^252 Unable to EXPN &quot;.*&quot;, but will accept message and attempt delivery *$">
     <description>
          Lotus Domino

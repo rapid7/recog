@@ -1,9 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-When an HTTP server is fingerprinted as Apache, a 2nd analysis pass is done
-on the server headers HTTPProtocolHelper.SERVER_HEADERS: they are matched
-against the following patterns to extract OS information.
--->
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="apache_os" database_type="util.os" preference="0.10">
   <fingerprint pattern=".*\(iSeries\).*">
     <description>IBM i5/OS iSeries (OS/400)</description>
@@ -20,7 +15,7 @@ against the following patterns to extract OS information.
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="9.2"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:mandriva:linux:9.2"/></fingerprint>
   <fingerprint pattern=".*\(Mandrake Linux/\d+\.\d+\.100mdk\).*">
     <description>Mandriva (formerly Mandrake) Linux 10.0</description>
     <param pos="0" name="os.certainty" value="0.9"/>
@@ -29,21 +24,21 @@ against the following patterns to extract OS information.
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="10.0"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:mandriva:linux:10.0"/></fingerprint>
   <fingerprint pattern=".*\((?:Mandrake|Mandriva) Linux/.*">
     <description>Mandriva (formerly Mandrake) Linux unknown version</description>
     <param pos="0" name="os.vendor" value="Mandriva"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:mandriva:linux"/></fingerprint>
   <fingerprint pattern=".*\(Mandrakelinux/.*">
     <description>Mandriva (formerly Mandrake) Linux unknown version</description>
     <param pos="0" name="os.vendor" value="Mandriva"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:mandriva:linux"/></fingerprint>
   <fingerprint pattern=".*\(PalmOS\).*">
     <description>PalmOS</description>
     <param pos="0" name="os.vendor" value="Palm"/>
@@ -58,21 +53,21 @@ against the following patterns to extract OS information.
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows"/></fingerprint>
   <fingerprint pattern=".*\(Darwin\).*">
     <description>Apple Mac OS X</description>
     <param pos="0" name="os.vendor" value="Apple"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Mac OS X"/>
     <param pos="0" name="os.product" value="Mac OS X"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:apple:mac_os_x"/></fingerprint>
   <fingerprint pattern=".*\(Ubuntu\).*">
     <description>Ubuntu</description>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ubuntu:linux"/></fingerprint>
   <fingerprint pattern=".*(?:Sun )?Cobalt \(Unix\)?.*">
     <description>Sun Cobalt RaQ (Red Hat based Linux)</description>
     <param pos="0" name="os.vendor" value="Sun"/>
@@ -94,7 +89,7 @@ against the following patterns to extract OS information.
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Fedora Core Linux"/>
     <param pos="0" name="os.version" value="11"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:red_hat:fedora:11"/></fingerprint>
   <fingerprint pattern="^Apache\/2\.2\.15.*\(Fedora\).*">
     <description>Red Hat Fedora 13</description>
     <param pos="0" name="os.vendor" value="Red Hat"/>
@@ -102,7 +97,7 @@ against the following patterns to extract OS information.
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Fedora Core Linux"/>
     <param pos="0" name="os.version" value="13"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:red_hat:fedora:13"/></fingerprint>
   <fingerprint pattern="^Apache\/2\.2\.16.*\(Fedora\).*">
     <description>Red Hat Fedora 14</description>
     <param pos="0" name="os.vendor" value="Red Hat"/>
@@ -110,7 +105,7 @@ against the following patterns to extract OS information.
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Fedora Core Linux"/>
     <param pos="0" name="os.version" value="14"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:red_hat:fedora:14"/></fingerprint>
   <fingerprint pattern="^Apache\/2\.2\.23.*\(Fedora\).*">
     <description>Red Hat Fedora 17</description>
     <param pos="0" name="os.vendor" value="Red Hat"/>
@@ -118,7 +113,7 @@ against the following patterns to extract OS information.
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Fedora Core Linux"/>
     <param pos="0" name="os.version" value="17"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:red_hat:fedora:17"/></fingerprint>
   <fingerprint pattern="^Apache\/2\.4\.3.*\(Fedora\).*">
     <description>Red Hat Fedora 18</description>
     <param pos="0" name="os.vendor" value="Red Hat"/>
@@ -126,63 +121,63 @@ against the following patterns to extract OS information.
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Fedora Core Linux"/>
     <param pos="0" name="os.version" value="18"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:red_hat:fedora:18"/></fingerprint>
   <fingerprint pattern=".*\(Fedora\).*">
     <description>Red Hat Fedora</description>
     <param pos="0" name="os.vendor" value="Red Hat"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Fedora Core Linux"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:red_hat:fedora"/></fingerprint>
   <fingerprint pattern=".*\(RHEL\).*">
     <description>Red Hat Fedora</description>
     <param pos="0" name="os.vendor" value="Red Hat"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Enterprise Linux"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:red_hat:enterprise_linux"/></fingerprint>
   <fingerprint pattern=".*\(Red[ -]Hat(?:[/ ]Linux)?\).*">
     <description>Red Hat Linux</description>
     <param pos="0" name="os.vendor" value="Red Hat"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:red_hat:linux"/></fingerprint>
   <fingerprint pattern=".*Debian(?:[/ ]GNU)?(?:/Linux)?.*">
     <description>Debian Linux</description>
     <param pos="0" name="os.vendor" value="Debian"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:debian:linux"/></fingerprint>
   <fingerprint pattern=".*\((?:Linux/)?S[uU]SE(?:/Linux)?\).*">
     <description>Novell SuSE Linux</description>
     <param pos="0" name="os.vendor" value="SuSE"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:suse:linux"/></fingerprint>
   <fingerprint pattern=".*\(NETWARE\).*">
     <description>Novell NetWare</description>
     <param pos="0" name="os.vendor" value="Novell"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="NetWare"/>
     <param pos="0" name="os.product" value="NetWare"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:novell:netware"/></fingerprint>
   <fingerprint pattern=".*HP-UX_Apache-based_Web_Server.*">
     <description>HP HP-UX</description>
     <param pos="0" name="os.vendor" value="HP"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="HP-UX"/>
     <param pos="0" name="os.product" value="HP-UX"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:hp-ux"/></fingerprint>
   <fingerprint pattern=".*\(CentOS\).*">
     <description>CentOS Linux</description>
     <param pos="0" name="os.vendor" value="CentOS"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:centos:linux"/></fingerprint>
   <fingerprint pattern=".*\(Turbolinux\).*">
     <description>Turbolinux</description>
     <param pos="0" name="os.vendor" value="Turbolinux"/>
@@ -196,7 +191,7 @@ against the following patterns to extract OS information.
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="FreeBSD"/>
     <param pos="0" name="os.product" value="FreeBSD"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:freebsd:freebsd"/></fingerprint>
   <fingerprint pattern=".*\(Asianux\).*">
     <description>Asianux Linux</description>
     <param pos="0" name="os.vendor" value="Asianux"/>
@@ -210,7 +205,7 @@ against the following patterns to extract OS information.
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:gentoo:linux"/></fingerprint>
   <fingerprint pattern=".*\(Conectiva(?:/Linux)?\).*">
     <description>CentOS Linux</description>
     <param pos="0" name="os.vendor" value="Conectiva"/>

@@ -1,7 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-Rservices responses to requests are matched against these patterns to fingerprint the OSes of servers.
--->
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints protocol="rsh" database_type="service">
   <fingerprint pattern="^.Permission denied: Error 0$">
     <description>Digital Unix rlogind</description>
@@ -10,7 +7,7 @@ Rservices responses to requests are matched against these patterns to fingerprin
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Digital Unix"/>
     <param pos="0" name="os.product" value="Unknown"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:unknown"/></fingerprint>
   <fingerprint pattern="^.Winsock RSHD/NT: Protocol negotiation error\..+$|^.in\.rlogind: Permission denied\..+$" flags="REG_DOT_NEWLINE">
     <description>Windows rlogind</description>
     <example>xWinsock RSHD/NT: Protocol negotiation error.
@@ -21,7 +18,7 @@ Rservices responses to requests are matched against these patterns to fingerprin
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Unknown"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:unknown"/></fingerprint>
   <fingerprint pattern="^.permission denied\..+$" flags="REG_DOT_NEWLINE">
     <description>Solaris rlogind</description>
     <example>xpermission denied.
@@ -30,7 +27,7 @@ Rservices responses to requests are matched against these patterns to fingerprin
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.product" value="Solaris"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris"/></fingerprint>
   <fingerprint pattern="^.rlogind: Acc.s refus.\..+$" flags="REG_DOT_NEWLINE">
     <description>AIX rlogind</description>
     <example>xrlogind: Accxs refusx.
@@ -39,7 +36,7 @@ Rservices responses to requests are matched against these patterns to fingerprin
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="AIX"/>
     <param pos="0" name="os.product" value="AIX"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:aix"/></fingerprint>
   <fingerprint pattern="^.rlogind: Host name for your address \([\d.]+\) unknown\..*$" flags="REG_DOT_NEWLINE">
     <description>A/UX rlogind</description>
     <example>xrlogind: Host name for your address (127.0.0.1) unknown.
@@ -48,7 +45,7 @@ Rservices responses to requests are matched against these patterns to fingerprin
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="A/UX"/>
     <param pos="0" name="os.product" value="Unknown"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:apple:unknown"/></fingerprint>
   <fingerprint pattern="^.rexecd: Login incorrect\..*$" flags="REG_DOT_NEWLINE">
     <description>HP-UX rexecd</description>
     <example>xrexecd: Login incorrect.
@@ -57,7 +54,7 @@ Rservices responses to requests are matched against these patterns to fingerprin
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="HP-UX"/>
     <param pos="0" name="os.product" value="HP-UX"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:hp-ux"/></fingerprint>
   <fingerprint pattern="^.rexecd: [-\d]+.*$" flags="REG_DOT_NEWLINE">
     <description>AIX rexecd</description>
     <example>xrexecd: 0-1 The login is not correct.
@@ -66,7 +63,7 @@ Rservices responses to requests are matched against these patterns to fingerprin
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="AIX"/>
     <param pos="0" name="os.product" value="AIX"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:aix"/></fingerprint>
   <fingerprint pattern="^.remshd: (?:getservbyname.+|Kerberos Authentication not enabled\..+|Error! Kerberos authentication failed)$" flags="REG_DOT_NEWLINE">
     <description>HP-UX rshd</description>
     <example>xremshd: getservbyname
@@ -78,5 +75,5 @@ Rservices responses to requests are matched against these patterns to fingerprin
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="HP-UX"/>
     <param pos="0" name="os.product" value="HP-UX"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:hp-ux"/></fingerprint>
 </fingerprints>

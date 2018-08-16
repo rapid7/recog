@@ -1,9 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-  $Id: snmp_sysdescr.xml,v 1.21 2008/08/21 00:31:58 mbevand Exp $
-  SNMP fingerprint definitions. These are matched against the value of the
-  'sysDescr' (OID 1.3.6.1.2.1.1.1) variable.
--->
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="snmp.sys_description" protocol="snmp" database_type="service" preference="0.20">
   <!--======================================================================
                               3COM
@@ -430,7 +425,7 @@
     <param pos="0" name="os.vendor" value="ADTRAN"/>
     <param pos="0" name="os.family" value="MX"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:adtran:{os.product}"/></fingerprint>
   <fingerprint pattern="^ADTRAN (NetVanta\S+)$" flags="REG_ICASE">
     <description>ADTRAN Netvanta Router</description>
     <example>ADTRAN NetVanta8044</example>
@@ -448,7 +443,7 @@
     <param pos="0" name="os.vendor" value="ADTRAN"/>
     <param pos="0" name="os.family" value="NetVanta"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:adtran:{os.product}"/></fingerprint>
   <fingerprint pattern="^ADTRAN (TA\S+(?: \S+)?(?: \S+)?)$" flags="REG_ICASE">
     <description>ADTRAN TotalAccess</description>
     <example os.product="TA1448S-CE">ADTRAN TA1448S-CE</example>
@@ -458,7 +453,7 @@
     <param pos="0" name="os.vendor" value="ADTRAN"/>
     <param pos="0" name="os.family" value="Total Access"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:adtran:{os.product}"/></fingerprint>
   <fingerprint pattern="^Total Access ([^,\s]+).*Version: ([^,]+), Date: .*$">
     <description>ADTRAN TotalAccess</description>
     <example>Total Access 924 (2nd Gen), Version: A1.08.00.E, Date: Tue Apr 28 10:54:58 2009</example>
@@ -474,7 +469,7 @@
     <param pos="0" name="os.family" value="Total Access"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:adtran:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Total Access (\S+ SCU)$">
     <description>ADTRAN TotalAccess</description>
     <example>Total Access 1500 SCU</example>
@@ -482,7 +477,7 @@
     <param pos="0" name="os.vendor" value="ADTRAN"/>
     <param pos="0" name="os.family" value="Total Access"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:adtran:{os.product}"/></fingerprint>
   <fingerprint pattern="^(TA\d\S+) (\d\S+ )?Total Access .*$">
     <description>ADTRAN TotalAccess</description>
     <example>TA1100F 1179.760 Total Access SFP-Based System</example>
@@ -496,7 +491,7 @@
     <param pos="0" name="os.family" value="Total Access"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:adtran:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^\S+ Total Access series shelf$">
     <description>ADTRAN TotalAccess</description>
     <example>UNKNOWN Total Access series shelf</example>
@@ -512,7 +507,7 @@
     <param pos="0" name="os.vendor" value="ADTRAN"/>
     <param pos="0" name="os.family" value="T3 Termination"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:adtran:{os.product}"/></fingerprint>
   <fingerprint pattern="^OPTI-MX (19 inch domestic shelf)$">
     <description>ADTRAN OPTI-MX Shelf</description>
     <example>OPTI-MX 19 inch domestic shelf</example>
@@ -520,7 +515,7 @@
     <param pos="0" name="os.vendor" value="ADTRAN"/>
     <param pos="0" name="os.family" value="OPTI-MX"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:adtran:{os.product}"/></fingerprint>
   <!--======================================================================
                      Allen-Bradley / Rockwell Automation
    =======================================================================-->
@@ -537,7 +532,7 @@
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.version.version"/>
     <param pos="4" name="os.version.version.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:rockwell_automation:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Allen-Bradley (\S+) ([^/]+)/(\S+) MicroLogix1400 Series \S+ Revision \S+$">
     <description>Allen-Bradley MicroLogix PLC/SLC</description>
     <example>Allen-Bradley 1766-L32AWA A/5.00 MicroLogix1400 Series A Revision 5.0</example>
@@ -553,7 +548,7 @@
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.version.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:rockwell_automation:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Allen-Bradley (\S+-ENET) Revision: (\S+) \S+ (\S+) \S+$">
     <description>Allen-Bradley PLC/SLC Ethernet Interface</description>
     <example>Allen-Bradley 1756-ENET Revision: 2.7 icp_enet 1.135 12-Apr-02</example>
@@ -563,7 +558,7 @@
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.version.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:rockwell_automation:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Allen-Bradley (\S+-ENET) Ethernet Interface Series (\S+) Revision (\S+) \S+ (\S+) \S+$">
     <description>Allen-Bradley PLC/SLC Ethernet Interface</description>
     <example>Allen-Bradley 1785-ENET Ethernet Interface Series E Revision B.0 1785enet 1.35 06-Mar-98</example>
@@ -574,7 +569,7 @@
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.version.version"/>
     <param pos="4" name="os.version.version.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:rockwell_automation:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Rockwell Automation (\S+)$">
     <description>Rockwell Automation PLC</description>
     <example>Rockwell Automation 1756-EN2T/A</example>
@@ -588,7 +583,7 @@
     <param pos="0" name="os.vendor" value="Rockwell Automation"/>
     <param pos="0" name="os.family" value="PLC"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:rockwell_automation:{os.product}"/></fingerprint>
   <!--======================================================================
                               APC
    =======================================================================-->
@@ -600,7 +595,7 @@
     <param pos="0" name="os.device" value="WAP"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:apc:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^APC Embedded PowerNet SNMP Agent \(.*SW v([^,]+),.*M[oO][dD]:\s*([^,]+),.*$">
     <description>APC UPS</description>
     <example>APC Embedded PowerNet SNMP Agent (FW v3.0.2 SW v2.2.4.a, HW ged~, MOD: AP9605, Mfg: 06/24/1998, SN: X)</example>
@@ -609,7 +604,7 @@
     <param pos="0" name="os.device" value="UPS"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:apc:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^APC (?:Environmental (?:Management System|Manager|Monitoring Unit)|InfraStruXure Manager|.* Rack PDU|NetBotz Rack Access|Web/SNMP Management Card).*AF1:\s*v?(\S+).*MN:\s*(\S+).*$">
     <description>APC UPS</description>
     <example>APC Environmental Management System (MB:v3.6.9 PF:v2.6.4 PN:apc_hw02_aos_264.bin AF1:v2.6.7 AN1:apc_hw02_ems_267.bin MN:AP9320 HR:4 SN: ZA0747015277 MD:11/25/2007)</example>
@@ -628,7 +623,7 @@
     <param pos="0" name="os.device" value="UPS"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:apc:{os.product}:{os.version}"/></fingerprint>
   <!--
       Currently unmatched devices:
          <example>APC IP Gateway for Analog KVM</example>
@@ -657,7 +652,7 @@
     <param pos="0" name="os.family" value="Airport"/>
     <param pos="0" name="os.product" value="AirPort Extreme"/>
     <param pos="0" name="os.device" value="WAP"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:apple:airport_extreme"/></fingerprint>
   <!--======================================================================
                               Asentria
    =======================================================================-->
@@ -723,7 +718,7 @@
     <param pos="0" name="os.device" value="WAP"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:avaya:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Avaya (?:Inc\.\s*\-\s*)?([^,]+?)[\s,]*SW version (\S+).*$">
     <description>Avaya Switch</description>
     <example os.product="C360" os.version="4.3.12">Avaya Inc. - C360 , SW version 4.3.12 , CS 1.1</example>
@@ -733,7 +728,7 @@
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:avaya:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Avaya Inc\., (.* Media Gateway), SW Version (\S+).*$">
     <description>Avaya Media Gateway</description>
     <example>Avaya Inc., G250 Media Gateway, SW Version 25.28.0</example>
@@ -744,14 +739,14 @@
     <param pos="0" name="os.device" value="Media Gateway"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:avaya:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="Avaya (\S+) Telephony Media Gateway$">
     <description>Avaya Media Gateway</description>
     <example>Avaya G700 Telephony Media Gateway</example>
     <param pos="0" name="os.vendor" value="Avaya"/>
     <param pos="0" name="os.device" value="Media Gateway"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:avaya:{os.product}"/></fingerprint>
   <fingerprint pattern="^Avaya (Cajun Switch) Agent v(\S+)$">
     <description>Avaya Switch</description>
     <example>Avaya Cajun Switch Agent v5.2.10</example>
@@ -760,7 +755,7 @@
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:avaya:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^(Ethernet Routing Switch.*)\s+HW:.*SW:\s*v?(\S+).*Avaya Networks$">
     <description>Avaya Switch</description>
     <example>Ethernet Routing Switch 2526T HW:04 FW:1.0.0.15 SW:v4.4.0.010 BN:10 (c) Avaya Networks</example>
@@ -782,7 +777,7 @@
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:avaya:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^PR:CS 1000.*BN:(\S+).*Avaya Inc\.$">
     <description>Avaya Call Server</description>
     <example>PR:CS 1000 SW:MGC BN:MGCCCD01 HW:MGC (c) Avaya Inc.</example>
@@ -815,7 +810,7 @@
     <param pos="0" name="os.family" value="ERS"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:avaya:{os.product}:{os.version}"/></fingerprint>
   <!--
       Currently unmatched devices:
          <example>AVAYA Secure Router 2330 SNMP Agent, Software Version = 10.3.0.0, Boot Version = 0.0.0.46</example>
@@ -890,7 +885,7 @@
     <param pos="0" name="os.device" value="Print Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:axis:{os.product}:{os.version}"/></fingerprint>
   <!--======================================================================
                               BLUE COAT
    =======================================================================-->
@@ -905,7 +900,7 @@
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.version.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:blue_coat:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Blue Coat (AV\S+)(?: Series)?, ProxyAV Version: ([^,]+). Release id:\s*(\S+).*$">
     <description>Blue Coat ProxyAV</description>
     <example os.product="AV1200" os.version="3.2.6.1" os.version.version="51482">Blue Coat AV1200 Series, ProxyAV Version: 3.2.6.1, Release id: 51482</example>
@@ -914,7 +909,7 @@
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.version.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:blue_coat:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Blue Coat PacketShaper (\S+)$">
     <description>Blue Coat PacketShaper</description>
     <example>Blue Coat PacketShaper 8.4.1</example>
@@ -935,7 +930,7 @@
     <param pos="0" name="os.vendor" value="Brocade"/>
     <param pos="0" name="os.product" value="Fabric OS"/>
     <param pos="0" name="os.device" value="Switch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:brocade:fabric_os"/></fingerprint>
   <fingerprint pattern="^Brocade ((?:\S+ )?SAN Switch) Module for IBM eServer BladeCenter$">
     <description>Brocade SAN switch</description>
     <example>Brocade 4Gb SAN Switch Module for IBM eServer BladeCenter</example>
@@ -944,7 +939,7 @@
     <param pos="0" name="os.vendor" value="Brocade"/>
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:brocade:{os.product}"/></fingerprint>
   <fingerprint pattern="^Brocade (?:Communications? Systems, Inc\. )?([^,\(]+)(?: \([^\)]+\))?,(?: Extended route scalability,)? IronWare Version V?(\S+) .*$">
     <description>Brocade IronWare</description>
     <example>Brocade Communications Systems, Inc. BigIron RX, IronWare Version V2.7.3aT143 Compiled on Jan 07 2011 at 19:37:41 labeled as V2.7.03a</example>
@@ -956,7 +951,7 @@
     <param pos="0" name="os.family" value="IronWare"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:brocade:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Brocade (?:Communications? Systems, Inc\. )?([^,\(]+)(?: \([^\)]+\))?,(?: Extended route scalability,)? TrafficWork Version V?(\S+)$">
     <description>Brocade TrafficWare</description>
     <example>Brocade Communications Systems, Inc. ServerIron ADX 1008-1-PREM, TrafficWork Version 12.4.00T401</example>
@@ -969,7 +964,7 @@
     <param pos="0" name="os.family" value="TrafficWare"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:brocade:{os.product}:{os.version}"/></fingerprint>
   <!--======================================================================
                               BROTHER
    =======================================================================-->
@@ -982,7 +977,7 @@
     <param pos="0" name="os.product" value="Unknown"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:brother:unknown:{os.version}"/></fingerprint>
   <fingerprint pattern="^Brother (NC-\d+\S+),\s*Firmware Ver\.\s?([^\s,]+).*">
     <description>Brother multifunction device</description>
     <example>Brother NC-130h, Firmware Ver.0.09  ,MID 8CA-A17-001</example>
@@ -1006,7 +1001,7 @@
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:brother:{os.product}:{os.version}"/></fingerprint>
   <!--======================================================================
                            C&amp;D Technologies
    =======================================================================-->
@@ -1097,7 +1092,7 @@
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:enterasys:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Enterasys Networks, Inc\. (\S+) Rev (\S+)$">
     <description>Enterasys Switch</description>
     <example>Enterasys Networks, Inc. B3G124-24 Rev 01.02.01.0004</example>
@@ -1105,7 +1100,7 @@
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:enterasys:{os.product}:{os.version}"/></fingerprint>
   <!--======================================================================
                               CANON
    =======================================================================-->
@@ -1136,7 +1131,7 @@
     <param pos="0" name="os.family" value="iR Series"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:canon:{os.product}"/></fingerprint>
   <fingerprint pattern="^Canon (iPR ?\S+(?: [A-Z0-9]\S+)?)(?: /P)?(?: EEPROM \S+)?$">
     <description>Canon iPR multifunction device</description>
     <example>Canon iPR C1 /P</example>
@@ -1157,7 +1152,7 @@
     <param pos="0" name="os.family" value="iPR Series"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:canon:{os.product}"/></fingerprint>
   <fingerprint pattern="^Canon LASER SHOT (\S+)(?: /P)?(?: EEPROM \S+)?$">
     <description>Canon Laser Shot multifunction device</description>
     <example>Canon LASER SHOT LBP-1310 /P</example>
@@ -1173,7 +1168,7 @@
     <param pos="0" name="os.family" value="Laser Shot"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:canon:{os.product}"/></fingerprint>
   <fingerprint pattern="^Canon imageCLASS (\S+)(?: /P)?(?: EEPROM \S+)?$">
     <description>Canon imageCLASS multifunction device</description>
     <example>Canon imageCLASS C2500 /P</example>
@@ -1182,7 +1177,7 @@
     <param pos="0" name="os.family" value="imageCLASS"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:canon:{os.product}"/></fingerprint>
   <fingerprint pattern="^Canon Inc\., (\S+) Printer(?: /P)?(?: EEPROM \S+)?$">
     <description>Canon printer</description>
     <example>Canon Inc., LBP-1760e Printer /P</example>
@@ -1191,7 +1186,7 @@
     <param pos="0" name="os.vendor" value="Canon"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:canon:{os.product}"/></fingerprint>
   <!-- This is a catch-all for other Canon models that are less common -->
   <fingerprint pattern="^Canon(?: Inc\.)? (?:Color )?(?:Large Format )?(?:LASER CLASS )?(?:LASER SHOT )?(\S+(?: [A-Z0-9]\S+)?)(?: Series)?(?: \([^\)]+\))?(?: /P)?(?: EEPROM \S+)?$" flags="REG_ICASE">
     <description>Canon printer</description>
@@ -1210,14 +1205,14 @@
     <param pos="0" name="os.vendor" value="Canon"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:canon:{os.product}"/></fingerprint>
   <fingerprint pattern="^Canon Network Camera (\S+)$">
     <description>Canon Camera</description>
     <example>Canon Network Camera VB-C60</example>
     <param pos="0" name="os.vendor" value="Canon"/>
     <param pos="0" name="os.device" value="Camera"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:canon:{os.product}"/></fingerprint>
   <fingerprint pattern="^Canon Network .* Board-(\S+)$">
     <description>Canon Network Printer Board</description>
     <example>Canon Network Interface Board-C1</example>
@@ -1424,7 +1419,7 @@
     <param pos="0" name="os.product" value="Adaptive Security Appliance"/>
     <param pos="0" name="os.device" value="Firewall"/>
     <param pos="1" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:cisco:adaptive_security_appliance:{os.version}"/></fingerprint>
   <fingerprint pattern="^Cisco 761 Software Version (.*) -.*$">
     <description>Cisco 761</description>
     <example>Cisco 761 Software Version c760-i.b.NET3 4.2(3) - Aug 21 1998 17:05:41 ISDN Stack Revision NET3 2.10</example>
@@ -1445,7 +1440,7 @@
     <param pos="0" name="os.product" value="VPN 3000 Concentrator"/>
     <param pos="0" name="os.device" value="VPN"/>
     <param pos="1" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:cisco:vpn_3000_concentrator:{os.version}"/></fingerprint>
   <fingerprint pattern="^(?:Cisco )?Network Analysis Module \(WS-[^\)]+\), Version ([^, ]+)[,\s]?.*$" flags="REG_DOT_NEWLINE">
     <description>Cisco Catalyst Network Analysis Module</description>
     <example>Network Analysis Module (WS-SVC-NAM-1), Version 3.1(1)
@@ -1483,7 +1478,7 @@ Copyright (c) 1999-2004 by cisco Systems, Inc.</example>
     <param pos="0" name="os.family" value="IOS"/>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="1" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:cisco:ios:{os.version}"/></fingerprint>
   <fingerprint pattern="^Cisco Systems, Inc\. \S+.Cisco Catalyst Operating System Software, Version (\S+).Copyright \(c\).*$" flags="REG_DOT_NEWLINE">
     <description>Cisco Catalyst</description>
     <example>Cisco Systems, Inc. WS-C2948
@@ -1536,7 +1531,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.arch" value="x86"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:cisco:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Cisco (VG2\S+) version (\S+)$">
     <description>Cisco VG200 series analog voice gateway</description>
     <example>Cisco VG248 version 1.3(1)</example>
@@ -1546,7 +1541,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="VoIP"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:cisco:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^(WLSE(?: \d+)?) Release (\S+) .* \(C\) Copyright .*Cisco Systems Inc.$">
     <description>Cisco Wireless LAN Solution Engine</description>
     <example>WLSE Release 2.5FCS Wed Oct 22 21:31:11 UTC 2003 (C) Copyright 2003 by Cisco Systems Inc.</example>
@@ -1564,7 +1559,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="WAP"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:cisco:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Cisco (NX-OS|SAN-OS)\(tm\) ([^,]+), Software \([^\)]+\), Version ([^\,]+), .* Cisco Systems.*$">
     <description>Cisco NX-OS/SAN-OS</description>
     <example>Cisco NX-OS(tm) cgr1000, Software (cgr1000-uk9), Version 5.2(1)CG2(1), Interim version 5.2(1)CG2(0.167, RELEASE SOFTWARE Copyright (c) 2002-2011 by Cisco Systems, Inc. Compiled 1/1/2012 1:00:00</example>
@@ -1602,7 +1597,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
     <param pos="2" name="hw.series"/>
     <param pos="3" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:cisco:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Cisco Controller$">
     <description>Cisco Controller</description>
     <example>Cisco Controller</example>
@@ -1610,7 +1605,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.device" value="WAP"/>
     <param pos="0" name="os.product" value="Wireless LAN Controller"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:cisco:wireless_lan_controller"/></fingerprint>
   <!--======================================================================
                              Cobox
    =======================================================================-->
@@ -1711,7 +1706,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="PowerVault"/>
     <param pos="0" name="os.device" value="Tape library"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:dell:{os.product}"/></fingerprint>
   <fingerprint pattern="^PowerEdge (\S+) Integrated Switch$">
     <description>Dell PowerEdge Switch</description>
     <example>PowerEdge 1655MC Integrated Switch</example>
@@ -1719,7 +1714,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="PowerEdge Integrated"/>
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:dell:{os.product}"/></fingerprint>
   <fingerprint pattern="^Dell (\d{4}[cd]?n) (?:Laser )?MFP.*$">
     <description>Dell Laser Printer</description>
     <example>Dell 2135cn MFP; Net 12.10, Controller 200903191302, Engine 03.00.10</example>
@@ -1729,7 +1724,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Laser Printer"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:dell:{os.product}"/></fingerprint>
   <fingerprint pattern="^Dell(?:.*Laser.*)? (\w*\d{4}cn)(?:.*Net |; V)(\S+)(?:,| ).*$">
     <description>Dell Color Laser Printer</description>
     <example>Dell Laser Printer 5100cn (Net 6.26, Controller 200408201123, Engine 01.00.04)</example>
@@ -1742,7 +1737,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:dell:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Dell Laser Printer (\S+) version (\S+).*$">
     <description>Dell Laser Printer</description>
     <example>Dell Laser Printer 1720dn version NM.NA.N099 kernel 2.6.10 All-N-1</example>
@@ -1753,7 +1748,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:dell:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Dell (\S+)(?: Mono)? Laser Printer(?:;| version) \S+;?.*$">
     <description>Dell Laser Printer</description>
     <example>Dell 2330dn Laser Printer version NR.APS.N449 kernel 2.6.18.5 All-N-1</example>
@@ -1764,7 +1759,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Laser Printer"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:dell:{os.product}"/></fingerprint>
   <fingerprint pattern="^Dell (\d{4}d?n) Series$">
     <description>Dell Laser Printer</description>
     <example>Dell 1815n Series</example>
@@ -1772,7 +1767,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Laser Printer"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:dell:{os.product}"/></fingerprint>
   <fingerprint pattern="^DELL Tape Library Remote Management Card$">
     <description>Dell PowerVault Tape Library</description>
     <example>DELL Tape Library Remote Management Card</example>
@@ -1889,14 +1884,14 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="D-Link"/>
     <param pos="0" name="os.product" value="Unknown"/>
     <param pos="0" name="os.device" value="WAP"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:d-link:unknown"/></fingerprint>
   <fingerprint pattern="^D-Link (\S+) Print Server$">
     <description>D-link Print Server</description>
     <example>D-Link DP-301P+ Print Server</example>
     <param pos="0" name="os.vendor" value="D-Link"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:d-link:{os.product}"/></fingerprint>
   <!--======================================================================
                               EATON
    =======================================================================-->
@@ -1924,7 +1919,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="Eaton"/>
     <param pos="0" name="os.device" value="UPS"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:eaton:{os.product}"/></fingerprint>
   <!--======================================================================
                               EMC
    =======================================================================-->
@@ -1938,7 +1933,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Connectrix"/>
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:emc:{os.product}"/></fingerprint>
   <fingerprint pattern="^(CX\S+) - Flare (\d\S+)$">
     <description>EMC Clariion NAS</description>
     <example>CX3-10c - Flare 3.26.0.10.5.032</example>
@@ -1951,7 +1946,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Storage"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:emc:{os.product}:{os.version}"/></fingerprint>
   <!--======================================================================
                               EMULEX
    =======================================================================-->
@@ -1979,7 +1974,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
     <param pos="3" name="os.version"/>
     <param pos="2" name="os.version.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:epson:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^EPSON ([A-Z]\S+) (\d+\.\S+)$">
     <description>Epson Printer</description>
     <example>EPSON AL-C2000 01.00</example>
@@ -1995,7 +1990,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:epson:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^EPSON ([A-Z]\S+)$">
     <description>Epson Printer</description>
     <example>EPSON LP-M720</example>
@@ -2006,7 +2001,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="Epson"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:epson:{os.product}"/></fingerprint>
   <fingerprint pattern="^(?:EPSON|EpsonNet)(?: Built-in)? (.* Print Server)$">
     <description>Epson Print Server</description>
     <example>EPSON 11b/g &amp; 10/100 USB Ext. Print Server</example>
@@ -2024,7 +2019,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="Epson"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:epson:{os.product}"/></fingerprint>
   <fingerprint pattern="^EPSON (?:Internal .* Scanning Card|Network Image Express|Network Scanning Box)$">
     <description>Epson Network Scanner</description>
     <example>EPSON Internal 10Base-T/100Base-TX Scanning Card</example>
@@ -2058,7 +2053,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:epson:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Epson Network Projector$">
     <description>Epson Network Projector</description>
     <example>Epson Network Projector</example>
@@ -2248,7 +2243,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:freebsd:freebsd:{os.version}"/></fingerprint>
   <!--======================================================================
                               FUJI XEROX
    =======================================================================-->
@@ -2280,7 +2275,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="GarrettCom"/>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:garrettcom:{os.product}"/></fingerprint>
   <!--======================================================================
                              Gigamon
    =======================================================================-->
@@ -2339,7 +2334,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:hp-ux:{os.version}"/></fingerprint>
   <fingerprint pattern="^(\S+) .*OpenVMS V(\S+) .*$">
     <description>OpenVMS</description>
     <example>hostname VAX 4000-200 OpenVMS V7.2 Compaq TCP/IP Services for OpenVMS</example>
@@ -2349,7 +2344,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:openvms:{os.version}"/></fingerprint>
   <fingerprint pattern="^(\S+) (.*?) (?:HP|Compaq) Tru64 UNIX V(\S+) \(Rev\. ([^\)]+)\).*TCP/IP$">
     <description>Digital/Compaq/HP Tru64 Unix</description>
     <example host.name="was1" hw.product="AlphaServer DS10 466 MHz" os.version="5.1B" os.version.version="2650">was1 AlphaServer DS10 466 MHz Compaq Tru64 UNIX V5.1B (Rev. 2650); Wed Feb 25 13:29:07 KST 2004 TCP/IP</example>
@@ -2519,7 +2514,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
     <param pos="1" name="hw.product"/>
     <param pos="3" name="os.version.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^HP (V1905\S+) Switch Product Version (\S+) Copyright.*$">
     <description>HP Switch</description>
     <example>HP V1905-24 Switch Product Version 02.00.01 Copyright (c) 2011 Hewlett-Packard Development Company, L.P All rights Reserved.</example>
@@ -2531,7 +2526,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.version"/>
     <param pos="1" name="os.product"/>
     <param pos="1" name="hw.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Hewlett-Packard Company (\S+) HP ProCurve Routing Switch.*Software Version (\S+) .*$">
     <description>HP ProCurve Routing Switch</description>
     <example>Hewlett-Packard Company J4139A HP ProCurve Routing Switch 9304M, Software Version 08.0.01kT53 Compiled on Apr 27 2007 at 18:55:59 labeled as H2R08001k</example>
@@ -2540,7 +2535,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^HP (J\S+) ProCurve Switch.*, revision (\S+),.*$">
     <description>HP ProCurve Routing Switch</description>
     <example>HP J4813A ProCurve Switch 2524, revision F.05.34, ROM F.02.01  (/sw/code/build/info(s02))</example>
@@ -2550,7 +2545,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^ProCurve (J\S+) Switch.*, revision (\S+),.*$">
     <description>HP ProCurve Switch</description>
     <example>ProCurve J4900B Switch 2626, revision H.08.98, ROM H.08.02 (/sw/code/build/fish(ts_08_5))</example>
@@ -2559,7 +2554,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^HP ProCurve (\S+) - \d+ GE, ([A-Z]{1,2}\.[^,]+), .*$">
     <description>HP ProCurve Switch</description>
     <example os.product="1810G" os.version="H.1.2">HP ProCurve 1810G - 8 GE, H.1.2, eCos-2.0</example>
@@ -2709,7 +2704,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="WAP"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^HP ProCurve AP (.*?)v(\d[0-9\.]+)\(.*SN-.*$">
     <description>HP ProCurve Wireless Access Point</description>
     <example>HP ProCurve AP 520wlv2.4.5(758) SN-PG44JL9CWY23 v2.0.10</example>
@@ -2718,7 +2713,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="WAP"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^ProCurve Access Point (\S+(?: \S+)) ([^,]+), revision ([^,]+),.*$">
     <description>HP ProCurve Wireless Access Point</description>
     <example>ProCurve Access Point 10ag WW J9141A, revision WM.01.11, boot version WAB.01.00</example>
@@ -2734,7 +2729,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
     <param pos="3" name="os.version"/>
     <param pos="2" name="hw.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^ProCurve Secure Router ([^,]+), Version: ([^,]+),.*$">
     <description>HP ProCurve Secure Router</description>
     <example>ProCurve Secure Router 7102dl, Version: 03.01, Date: Fri Aug 12 08:41:29 2005</example>
@@ -2748,7 +2743,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Router"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^ProCurve Threat Management Services zl Module$">
     <description>ProCurve Threat Management Services</description>
     <example>ProCurve Threat Management Services zl Module</example>
@@ -2766,7 +2761,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="LaserJet"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}"/></fingerprint>
   <fingerprint pattern="^MSA (Fabric Switch \d+)$">
     <description>HP MSA Fabric Switch</description>
     <example>MSA Fabric Switch 6</example>
@@ -2774,7 +2769,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="MSA"/>
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}"/></fingerprint>
   <fingerprint pattern="^Network Storage Router SNMPv1/v2c Agent$">
     <description>HP Storageworks NetworkStorage Router</description>
     <example>Network Storage Router SNMPv1/v2c Agent</example>
@@ -2810,7 +2805,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="StorageWorks"/>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Storage"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}"/></fingerprint>
   <fingerprint pattern="^HP StorageWorks (P2000.*)$">
     <description>HP StorageWorks Modular Smart Array</description>
     <example>HP StorageWorks P2000 G3 FC</example>
@@ -2822,7 +2817,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="StorageWorks"/>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Storage"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}"/></fingerprint>
   <fingerprint pattern="^HP StorageWorks (\S+) Stackable Single Power Supply Fibre Channel Switch$">
     <description>HP StorageWorks FC Switch</description>
     <example>HP StorageWorks SN6000 Stackable Single Power Supply Fibre Channel Switch</example>
@@ -2831,7 +2826,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="StorageWorks"/>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Switch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}"/></fingerprint>
   <fingerprint pattern="^HP StorageWorks (\S+) Fibre Channel Switch$">
     <description>HP StorageWorks FC Switch</description>
     <example>HP StorageWorks 8/20q Fibre Channel Switch</example>
@@ -2839,7 +2834,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="StorageWorks"/>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Switch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}"/></fingerprint>
   <fingerprint pattern="^HP StorageWorks VLS$">
     <description>HP StorageWorks Virtual Library</description>
     <example>HP StorageWorks VLS</example>
@@ -2887,7 +2882,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="HP"/>
     <param pos="0" name="os.device" value="Onboard Administrator"/>
     <param pos="0" name="os.product" value="Onboard Administrator"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:onboard_administrator"/></fingerprint>
   <fingerprint pattern="^Management Processor \(MP\) for HP Integrity Servers$">
     <description>HP Integrity Server Management Processor</description>
     <example>Management Processor (MP) for HP Integrity Servers</example>
@@ -2920,7 +2915,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="JetDirect"/>
     <param pos="0" name="os.device" value="Print server"/>
     <param pos="0" name="os.product" value="Unknown"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:unknown"/></fingerprint>
   <fingerprint pattern="^HP ETHERNET MULTI-ENVIRONMENT,ROM (\S+?),JETDIRECT(?: EX)?,(\w+),EEPROM.*$">
     <description>HP JetDirect printer</description>
     <example>HP ETHERNET MULTI-ENVIRONMENT,ROM A.03.15,JETDIRECT,JD24,EEPROM A.04.09</example>
@@ -3009,7 +3004,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Print server"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^HP ETHERNET MULTI-ENVIRONMENT,SN:\w+,FN:\w+,SVCID:\d+,PID:HP (?:Color )?LaserJet (.*)$">
     <description>HP JetDirect-based printer</description>
     <example>HP ETHERNET MULTI-ENVIRONMENT,SN:CNBJL00199,FN:JK0086J,SVCID:17036,PID:HP LaserJet P2015 Series</example>
@@ -3023,7 +3018,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="LaserJet"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}"/></fingerprint>
   <fingerprint pattern="^TippingPoint Core Controller$">
     <description>TippingPoint Core Controller</description>
     <example>TippingPoint Core Controller</example>
@@ -3061,7 +3056,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows 2000"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_2000"/></fingerprint>
   <fingerprint pattern="^MAS 1\.0 \(Intel X86\) Copyright.*Huawei Technologies Co\., Ltd on SUSE LINUX ([\d\.]+)$">
     <description>Huawei device on SuSE Linux</description>
     <example>MAS 1.0 (Intel X86) Copyright (c) 1998-2006 Huawei Technologies Co., Ltd on SUSE LINUX 9.0</example>
@@ -3071,7 +3066,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
     <param pos="1" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:suse:linux:{os.version}"/></fingerprint>
   <fingerprint pattern="^HUAWEI-3COM WBR-204g$">
     <description>HUAWEI-3COM WBR-204g WAP</description>
     <example>HUAWEI-3COM WBR-204g</example>
@@ -3092,7 +3087,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="3.2"/>
     <param pos="0" name="os.arch" value="System/6000"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:aix:3.2"/></fingerprint>
   <fingerprint pattern="^RISC System/6000 .* Base Operating System Runtime AIX [^:]+: 04\.02\..*$">
     <description>IBM AIX</description>
     <example>RISC System/6000 Architecture Machine Type: 0x0800 Processor id: 000148364800 Base Operating System Runtime AIX version: 04.02.0001.0000 TCP/IP Client Support version: 04.02.0001.0000</example>
@@ -3102,7 +3097,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="4.2"/>
     <param pos="0" name="os.arch" value="System/6000"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:aix:4.2"/></fingerprint>
   <fingerprint pattern="^RISC System/6000 .* Base Operating System Runtime AIX [^:]+: 04\.03\..*$">
     <description>IBM AIX</description>
     <example>RISC System/6000 Architecture Machine Type: 0x0400 Processor id: 000033407200 Base Operating System Runtime AIX version: 04.03.0003.0000 TCP/IP Client Support version: 04.03.0003.0000</example>
@@ -3117,7 +3112,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="4.3"/>
     <param pos="0" name="os.arch" value="System/6000"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:aix:4.3"/></fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 04\.02\..*$">
     <description>IBM AIX</description>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 0040906A4C00 Base Operating System Runtime AIX version: 04.02.0001.0000 TCP/IP Client Support version: 04.02.0001.0000</example>
@@ -3131,7 +3126,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="4.2"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:aix:4.2"/></fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 04\.03\..*$">
     <description>IBM AIX</description>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 0056BD5A4C00 Base Operating System Runtime AIX version: 04.03.0003.0075 TCP/IP Client Support version: 04.03.0003.0075</example>
@@ -3147,7 +3142,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="4.3"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:aix:4.3"/></fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 05\.01\..*$">
     <description>IBM AIX</description>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 0059B7BA4C00 Base Operating System Runtime AIX version: 05.01.0000.0051 TCP/IP Client Support version: 05.01.0000.0070</example>
@@ -3169,7 +3164,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="5.1"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:aix:5.1"/></fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Operating System Software: AIX version: 5\.1 Networking Software:.*$">
     <description>IBM AIX</description>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 0008FB8A4C00 Operating System Software: AIX version: 5.1 Networking Software: not available!</example>
@@ -3180,7 +3175,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="5.1"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:aix:5.1"/></fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 05\.02\..*$">
     <description>IBM AIX</description>
     <example>IBM PowerPC CHRP Computer.Machine Type: 0x0800004c Processor id: 00C0E53F4C00.Base Operating System Runtime AIX version: 05.02.0000.0105.TCP/IP Client Support version: 05.02.0000.0107</example>
@@ -3206,7 +3201,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="5.2"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:aix:5.2"/></fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 05\.03\..*$">
     <description>IBM AIX</description>
     <example>IBM PowerPC CHRP Computer.Machine Type: 0x0800004c Processor id: 000A3CD8D600.Base Operating System Runtime AIX version: 05.03.0000.0060.TCP/IP Client Support version: 05.03.0000.0063</example>
@@ -3228,7 +3223,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="5.3"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:aix:5.3"/></fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime VIOS [^:]+: 05\.03\..*$">
     <description>IBM VIOS</description>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 00018C4AD400 Base Operating System Runtime VIOS version: 05.03.0008.0000 TCP/IP Client Support version: 05.03.0008.0000</example>
@@ -3244,7 +3239,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="5.3"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:vios:5.3"/></fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 06\.01\..*$">
     <description>IBM AIX</description>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 00F77AEE4C00 Base Operating System Runtime AIX version: 06.01.0006.0015 TCP/IP Client Support version: 06.01.0006.0015</example>
@@ -3257,7 +3252,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="6.1"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:aix:6.1"/></fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime VIOS [^:]+: 06\.01\..*$">
     <description>IBM VIOS</description>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 00055539D600 Base Operating System Runtime VIOS version: 06.01.0007.0000 TCP/IP Client Support version: 06.01.0005.0000</example>
@@ -3266,7 +3261,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.1"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:vios:6.1"/></fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 07\.01\..*$">
     <description>IBM AIX</description>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 000B0148D700 Base Operating System Runtime AIX version: 07.01.0000.0015 TCP/IP Client Support version: 07.01.0000.0015</example>
@@ -3278,7 +3273,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="7.1"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:aix:7.1"/></fingerprint>
   <fingerprint pattern="^(?:\S+ )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 05\.01\..*$">
     <description>IBM AIX</description>
     <example>UNIX System Machine Type: not available! Processor id: 0001FDAF4C00 Base Operating System Runtime AIX version: 05.01.0000.0051 TCP/IP Client Support version: 05.01.0000.0070</example>
@@ -3287,7 +3282,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="5.1"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:aix:5.1"/></fingerprint>
   <fingerprint pattern="^(?:\S+ )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 05\.02\..*$">
     <description>IBM AIX</description>
     <example>UNIX System Machine Type: not available! Processor id: 0001FDAF4C00 Base Operating System Runtime AIX version: 05.02.0000.0105 TCP/IP Client Support version: 05.02.0000.0107</example>
@@ -3296,7 +3291,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="5.2"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:aix:5.2"/></fingerprint>
   <fingerprint pattern="^(?:\S+ )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 05\.03\..*$">
     <description>IBM AIX</description>
     <example>UNIX System Machine Type: not available! Processor id: 0001FDAF4C00 Base Operating System Runtime AIX version: 05.03.0000.0050 TCP/IP Client Support version: 05.03.0000.0053</example>
@@ -3305,7 +3300,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="5.3"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:aix:5.3"/></fingerprint>
   <fingerprint pattern="^(?:\S+ )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 06\.01\..*$">
     <description>IBM AIX</description>
     <example>UNIX System Machine Type: not available! Processor id: 0001FDAF4C00 Base Operating System Runtime AIX version: 06.01.0007.0000 TCP/IP Client Support version: 06.01.0005.0000</example>
@@ -3314,7 +3309,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.1"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:aix:6.1"/></fingerprint>
   <fingerprint pattern="^(?:\S+ )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 07\.01\..*$">
     <description>IBM AIX</description>
     <example>UNIX System Machine Type: not available! Processor id: 0001FDAF4C00 Base Operating System Runtime AIX version: 07.01.0001.0000 TCP/IP Client Support version: 07.01.0001.0002</example>
@@ -3323,7 +3318,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="7.1"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:aix:7.1"/></fingerprint>
   <fingerprint pattern="^IBM Network Printer (\S+)$">
     <description>IBM Network Printer</description>
     <example>IBM Network Printer 12</example>
@@ -3332,7 +3327,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Network Printer"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:{os.product}"/></fingerprint>
   <fingerprint pattern="^IBM 6400 Version (\S+).*$">
     <description>IBM 6400 Matrix Printer</description>
     <example>IBM 6400 Version 1.1.41 3-3-3</example>
@@ -3353,7 +3348,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="z/OS"/>
     <param pos="0" name="os.product" value="z/OS"/>
     <param pos="0" name="os.device" value="General"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ibm:z/os"/></fingerprint>
   <fingerprint pattern="^BladeCenter Management Module$">
     <description>IBM BladeCenter Management Module</description>
     <example>BladeCenter Management Module</example>
@@ -3411,7 +3406,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.version"/>
     <param pos="0" name="os.family" value="ScreenOS"/>
     <param pos="1" name="hw.model"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:juniper:screenos:{os.version}"/></fingerprint>
 <fingerprint pattern="^Juniper (\S+) : (\d+\S+)$">
     <description>Juniper Router</description>
     <example>Juniper WXC-1800 : 5.6.4.0</example>
@@ -3425,7 +3420,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Router"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:juniper:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Juniper Networks,Inc,([^,]+),([^,]+) \(build (\d+)\)$">
     <description>Juniper Router</description>
     <example>Juniper Networks,Inc,MAG-4610,7.1R6 (build 20169)</example>
@@ -3449,7 +3444,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.version.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:juniper:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Juniper Standalone IDP device$">
     <description>Juniper IDP</description>
     <example>Juniper Standalone IDP device</example>
@@ -3473,7 +3468,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="Juniper"/>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:juniper:{os.product}"/></fingerprint>
   <fingerprint pattern="^Juniper Networks, Inc\. (?:(?:Dell|DELL) )?(\S+) internet router, kernel JUNOS (\S+) .*$">
     <description>Juniper Router</description>
     <example>Juniper Networks, Inc. DELL J-EX4200-24T internet router, kernel JUNOS 11.1R3.5 #0: 2011-06-25 01:18:46 UTC builder@briath.juniper.net:/volume/build/junos/11.1/release/11.1R3.5/obj-powerpc/bsd/kernels/JUNIPER-EX/kernel Build date: 2011-06-25 01:01:37</example>
@@ -3915,7 +3910,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.version.version"/>
     <param pos="4" name="os.version.version.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:juniper:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Juniper Networks (\S+(?: \S+)?) Switch, SW Version (\S+)$">
     <description>Juniper Switch</description>
     <example>Juniper Networks EX2500 10GbE Switch, SW Version 3.1R1.0</example>
@@ -3923,7 +3918,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:juniper:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Juniper Networks, Inc\. (\S+) Edge Switch Router SW Version : \((\S+) (\S+) \[BuildId (\d+)\]\) .*$">
     <description>Juniper Edge Routing Switch</description>
     <example>Juniper Networks, Inc. RX1400 Edge Switch Router SW Version : (10.3.2 patch-0.2 [BuildId 12841]) Build Date : February 3, 2011 16:26 Copyright (c) 1999, 2001 Juniper Networks, Inc.</example>
@@ -3933,7 +3928,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.version.version"/>
     <param pos="4" name="os.version.version.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:juniper:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Juniper Networks, Inc (MX-\d+) (\S+) REL$">
     <description>Juniper Wireless LAN Controller</description>
     <example>Juniper Networks, Inc MX-8 7.6.2.3 REL</example>
@@ -3941,7 +3936,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="WAP"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:juniper:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Juniper Networks, Inc. SRC-PE (C\d+)$">
     <description>Juniper Edge Routing Switch</description>
     <example>Juniper Networks, Inc. SRC-PE C2000</example>
@@ -3949,7 +3944,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="Juniper"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:juniper:{os.product}"/></fingerprint>
   <!--======================================================================
                               LANIER
    =======================================================================-->
@@ -3993,7 +3988,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="2" name="os.version"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lantronix:{os.product}:{os.version}"/></fingerprint>
   <!-- These devices are all some form of device/terminal/serial/console server -->
   <fingerprint pattern="^Lantronix ((MSS|SCS|LRS|ETS|EDS)\S+) (?:Version |[VB])?([^/\(\s]+)[/\(\s]?.*$">
     <description>Lantronix terminal server</description>
@@ -4034,7 +4029,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.family"/>
     <param pos="3" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lantronix:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Lantronix ((EDS)\S+)$">
     <description>Lantronix terminal server</description>
     <example>Lantronix EDS16PR</example>
@@ -4042,7 +4037,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Terminal Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.family"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lantronix:{os.product}"/></fingerprint>
   <fingerprint pattern="^LANTRONIX ((ETS)\S+) Version [VB]?([^/\(\s]+)[/\(\s]?.*$">
     <description>Lantronix terminal server</description>
     <example>LANTRONIX ETS-16 Version V2.2/45(940822)</example>
@@ -4051,14 +4046,14 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.family"/>
     <param pos="3" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lantronix:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Lantronix Inc\. - (Modbus Bridge)$">
     <description>Lantronix modbus bridge</description>
     <example>Lantronix Inc. - Modbus Bridge</example>
     <param pos="0" name="os.vendor" value="Lantronix"/>
     <param pos="0" name="os.device" value="Terminal Server"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lantronix:{os.product}"/></fingerprint>
   <fingerprint pattern="^Lantronix (U[TD]S\S*) (?:Snr )?(?:[\-\dA-Za-z]+\s+)?V?(\S+)(?: \d+\.\S+)?(?: \(.*\))?\s*$">
     <description>Lantronix UDS/UTS serial to ethernet adapter</description>
     <example>Lantronix UDS1100 V6.1.0.3 (060811)</example>
@@ -4091,7 +4086,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Terminal Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lantronix:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Lantronix (UDS)$">
     <description>Lantronix UDS serial to ethernet adapter</description>
     <example>Lantronix UDS</example>
@@ -4099,7 +4094,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="UDS"/>
     <param pos="0" name="os.device" value="Terminal Server"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lantronix:{os.product}"/></fingerprint>
   <fingerprint pattern="^Lantronix (X[pP]ort \S+) V(\S+) \(.*\)\s*$">
     <description>Lantronix XPort serial to ethernet adapter</description>
     <example>Lantronix XPort AR V4.0.0.0R16 (0)</example>
@@ -4116,7 +4111,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Terminal Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lantronix:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Lantronix (XPort \S+)$">
     <description>Lantronix XPort serial to ethernet adapter</description>
     <example>Lantronix XPort AR</example>
@@ -4124,7 +4119,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="XPort"/>
     <param pos="0" name="os.device" value="Terminal Server"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lantronix:{os.product}"/></fingerprint>
   <fingerprint pattern="^Lantronix (XPress \S+) V(\S+) \(.*\)\s*$">
     <description>Lantronix XPress serial to ethernet adapter</description>
     <example>Lantronix XPress DR+ V6.1.0.1 (060404)</example>
@@ -4133,7 +4128,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Terminal Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lantronix:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Lantronix (MatchPort \S+(?: \S+)?) V(\S+) \(.*$">
     <description>Lantronix MatchPort serial to ethernet adapter</description>
     <example>Lantronix MatchPort AR V1.1.0.0R1 (07101497G7IJFA)</example>
@@ -4152,7 +4147,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Terminal Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lantronix:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Lantronix (WiBox) V(\S+) \(.*\)\s*$">
     <description>Lantronix WiBox</description>
     <example>Lantronix WiBox V5.8.0.1 (041013)</example>
@@ -4166,7 +4161,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Terminal Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lantronix:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Lantronix ((SDS)\S*) V(\S+) \(.*\)\s*$">
     <description>Lantronix SDS</description>
     <example>Lantronix SDS V5.8.0.1 (041014)</example>
@@ -4179,7 +4174,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.family"/>
     <param pos="3" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lantronix:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Lantronix ((SLS)\S*) (\S+)$">
     <description>Lantronix SLS</description>
     <example>Lantronix SLS 010100</example>
@@ -4190,7 +4185,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.family"/>
     <param pos="3" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lantronix:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Lantronix ((NTS)\S*) \S+ (\S+) \(.*$">
     <description>Lantronix NTS</description>
     <example>Lantronix NTS 0239032 04.4 (010817)</example>
@@ -4200,7 +4195,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.family"/>
     <param pos="3" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lantronix:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Lantronix ((NTS)\S*) V(\S+)$">
     <description>Lantronix NTS</description>
     <example>Lantronix NTS1536-076 V3.8</example>
@@ -4209,7 +4204,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.family"/>
     <param pos="3" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lantronix:{os.product}:{os.version}"/></fingerprint>
   <!--======================================================================
                               LEXMARK
    =======================================================================-->
@@ -4238,7 +4233,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lexmark:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^(?:Lexmark )?MarkNet (.*) Version (\S+) Ethernet.*$">
     <description>Lexmark MarkNet Printer Server</description>
     <example>MarkNet Pro 1 Version 2.10.192 Ethernet 10T.</example>
@@ -4254,7 +4249,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Print server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lexmark:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Lexmark Optra (\S+(?: \S+)?(?: \S+)?) +Version (\S+).*$">
     <description>Lexmark Optra Laser Printer</description>
     <example>Lexmark Optra T610  Version 5.15.18  FaxSCSI-Ethernet.</example>
@@ -4269,7 +4264,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lexmark:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Lexmark Forms Printer (\S+(?: plus)?) +version (\S+).*$">
     <description>Lexmark Optra Laser Printer</description>
     <example>Lexmark Forms Printer 2580 version LC.CO.N061 kernel 2.6.10 All-N-1</example>
@@ -4288,7 +4283,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lexmark:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Lexmark (\S+) Series version (\S+).*$">
     <description>Lexmark Printer</description>
     <example>Lexmark Pro4000 Series version FHN.111006-ac191 kernel 2.6.28.10.1 All-N-1</example>
@@ -4317,7 +4312,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lexmark:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^(?:Lexmark|LEXMARK) (\S+) [vV]ersion (\S+).*$">
     <description>Lexmark Printer</description>
     <example>LEXMARK X204 version NM.APS.N058 kernel 2.6.18.5 All-N-1</example>
@@ -4335,7 +4330,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lexmark:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Lexmark ([^;]+); Net.*ESS ([^,]+),IOT (\S+)$">
     <description>Lexmark Printer</description>
     <example>Lexmark X560n; Net 11.73,ESS 200709260947,IOT 05.10.00</example>
@@ -4345,21 +4340,21 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
     <param pos="3" name="os.version"/>
     <param pos="2" name="os.version.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lexmark:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Lexmark (\S+(?: \S+)?) Print Server$">
     <description>Lexmark Printer</description>
     <example>Lexmark C500 PS Print Server</example>
     <param pos="0" name="os.vendor" value="Lexmark"/>
     <param pos="0" name="os.device" value="Print Server"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lexmark:{os.product}"/></fingerprint>
   <fingerprint pattern="^Lexmark (\S+) Series$">
     <description>Lexmark Printer</description>
     <example>Lexmark X500 Series</example>
     <param pos="0" name="os.vendor" value="Lexmark"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:lexmark:{os.product}"/></fingerprint>
   <!--======================================================================
                               KONICA MINOLTA
    =======================================================================-->
@@ -4435,7 +4430,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:red_hat:enterprise_linux:3"/></fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\.6\.9-22\.EL(?:smp)?) .* (\S+)$">
     <description>Red Hat Enterprise Linux 4 Update 2</description>
     <example>Linux hostname 2.6.9-22.ELsmp #1 SMP Mon Sep 19 18:32:14 EDT 2005 i686</example>
@@ -4448,7 +4443,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:red_hat:enterprise_linux:4"/></fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\.6\.9-34\.EL(?:smp)?) .* (\S+)$">
     <description>Red Hat Enterprise Linux 4 Update 3</description>
     <param pos="0" name="os.certainty" value="0.9"/>
@@ -4460,7 +4455,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:red_hat:enterprise_linux:4"/></fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\.6\.18-53.*el5) .* (\S+)$">
     <description>Red Hat Enterprise Linux 5</description>
     <example>Linux hostname 2.6.18-53.1.4.el5 #1 SMP Fri Nov 30 00:45:16 EST 2007 i686</example>
@@ -4474,7 +4469,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:red_hat:enterprise_linux:5"/></fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\.4\.9-e\.\S+).* (\S+)$">
     <description>Red Hat Enterprise Linux 2.1</description>
     <example>Linux hostname 2.4.9-e.40smp #1 SMP Thu Apr 8 16:53:29 EDT 2004 i686</example>
@@ -4487,7 +4482,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:red_hat:enterprise_linux:2.1"/></fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\.4\.18-3) .* (\S+)$">
     <description>Red Hat Linux 7.3</description>
     <example>Linux hostname 2.4.18-3 #1 Thu Apr 18 07:37:53 EDT 2002 i686</example>
@@ -4500,7 +4495,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:red_hat:linux:7.3"/></fingerprint>
   <fingerprint pattern="^CentOS release ([\d.]*) .*$">
     <description>CentOS Linux</description>
     <example>CentOS release 4.9 (Final)</example>
@@ -4510,7 +4505,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:centos:linux:{os.version}"/></fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\.6\.9-55[\d.]*EL(?:smp)?) .* (\S+)$">
     <description>CentOS Linux 4.5</description>
     <example>Linux hostname 2.6.9-55.0.9.ELsmp #1 SMP Thu Sep 27 18:27:41 EDT 2007 i686</example>
@@ -4523,7 +4518,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:centos:centos:4.5"/></fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\.6\.18-53[\d\.]*el5xen) .* (\S+)$">
     <description>CentOS Linux 5</description>
     <example>Linux hostname 2.6.18-53.1.4.el5xen #1 SMP Fri Nov 30 01:21:23 EST 2007 x86_64</example>
@@ -4538,7 +4533,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:centos:centos:5"/></fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\S+.FC4) .* (\S+)$">
     <description>Fedora Core Linux 4</description>
     <example>Linux hostname 2.6.11-1.1369_FC4 #1 Thu Jun 2 22:55:56 EDT 2005 i686</example>
@@ -4551,7 +4546,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:red_hat:fedora:6"/></fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\S+.fc6) .* (\S+)$">
     <description>Fedora Core Linux 6</description>
     <example>Linux hostname 2.6.20-1.2948.fc6 #1 SMP Fri Apr 27 19:48:40 EDT 2007 i686</example>
@@ -4564,7 +4559,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:red_hat:fedora:6"/></fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\S+.fc7) .* (\S+)$">
     <description>Fedora Core Linux 7</description>
     <example>Linux hostname 2.6.22.9-91.fc7 #1 SMP Thu Sep 27 23:10:59 EDT 2007 i686</example>
@@ -4577,7 +4572,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:red_hat:fedora:7"/></fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\.6\.4-52(?:-smp)) .* (\S+)$">
     <description>SuSE Linux 9.1</description>
     <example>Linux hostname 2.6.4-52-smp #1 SMP Wed Apr 7 02:11:20 UTC 2004 i686</example>
@@ -4590,7 +4585,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:suse:linux:9.1"/></fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\.4\.32-ow1) (\S+)$">
     <description>OpenWall Linux</description>
     <example>Linux hostname 2.4.32-ow1 i686</example>
@@ -4615,7 +4610,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ubuntu:linux:7.04"/></fingerprint>
   <!--
       Sun's ILOM (Integrated Lights Out Manager) is actually a little ppc board running
       Yellow Dog Linux.
@@ -4741,7 +4736,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="10.3"/>
     <param pos="2" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:apple:mac_os_x:10.3"/></fingerprint>
   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 8.(\d+).\d+: .*RELEASE_\w* ?\s* (\S* ?\S*)$">
     <description>Mac OS X 10.4 (Tiger)</description>
     <example host.name="host.example.com" os.arch="Power Macintosh" os.version.version="6">Darwin host.example.com 8.6.0 Darwin Kernel Version 8.6.0: Tue Mar 7 16:58:48 PST 2006; root:xnu-792.6.70.obj~1/RELEASE_PPC Power Macintosh</example>
@@ -4754,7 +4749,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="10.4"/>
     <param pos="2" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:apple:mac_os_x:10.4"/></fingerprint>
   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 9.(\d+).\d+: .*RELEASE_\w* ?\s* (\S* ?\S*)$">
     <description>Mac OS X 10.5 (Leopard)</description>
     <example host.name="host.example.com" os.arch="Power Macintosh" os.version.version="0">Darwin host.example.com 9.0.0 Darwin Kernel Version 9.0.0: Tue Oct 9 21:37:58 PDT 2007; root:xnu-1228~1/RELEASE_PPC Power Macintosh</example>
@@ -4767,7 +4762,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="10.5"/>
     <param pos="2" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:apple:mac_os_x:10.5"/></fingerprint>
   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 10.(\d+).\d+: .*RELEASE_\w* ?\s* (\S* ?\S*)$">
     <description>Mac OS X 10.6 (Snow Leopard)</description>
     <example host.name="host.example.com" os.arch="x86_64" os.version.version="0">Darwin host.example.com 10.0.0 Darwin Kernel Version 10.0.0: Fri Jul 31 22:46:25 PDT 2009; root:xnu-1456.1.25~1/RELEASE_X86_64 x86_64</example>
@@ -4780,7 +4775,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="10.6"/>
     <param pos="2" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:apple:mac_os_x:10.6"/></fingerprint>
   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 11.(\d+).\d+: .*RELEASE_\w* ?\s* (\S* ?\S*)$">
     <description>Mac OS X 10.7 (Lion)</description>
     <example host.name="host.example.com" os.arch="x86_64" os.version.version="2">Darwin host.example.com 11.2.0 Darwin Kernel Version 11.2.0: Tue Aug 9 20:54:00 PDT 2011; root:xnu-1699.24.8~1/RELEASE_X86_64 x86_64</example>
@@ -4793,7 +4788,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="10.7"/>
     <param pos="2" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:apple:mac_os_x:10.7"/></fingerprint>
   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 12.(\d+).\d+: .*RELEASE_\w* ?\s* (\S* ?\S*)$">
     <description>Mac OS X 10.8 (Mountain Lion)</description>
     <example host.name="host.example.com" os.arch="x86_64" os.version.version="2">Darwin host.example.com 12.2.1 Darwin Kernel Version 12.2.1: Thu Oct 18 12:13:47 PDT 2012; root:xnu-2050.20.9~1/RELEASE_X86_64 x86_64</example>
@@ -4806,7 +4801,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="10.8"/>
     <param pos="2" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:apple:mac_os_x:10.8"/></fingerprint>
   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 13.(\d+).\d+: .*RELEASE_\w* ?\s* (\S* ?\S*)$">
     <description>Mac OS X 10.9 (Mavericks)</description>
     <example host.name="host.example.com" os.arch="x86_64" os.version.version="4">Darwin host.example.com 13.4.0 Darwin Kernel Version 13.4.0: Sun Aug 17 19:50:11 PDT 2014; root:xnu-2422.115.4~1/RELEASE_X86_64 x86_64</example>
@@ -4819,7 +4814,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="10.9"/>
     <param pos="2" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:apple:mac_os_x:10.9"/></fingerprint>
   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 14.(\d+).\d+: .*RELEASE_\w* ?\s* (\S* ?\S*)$">
     <description>Mac OS X 10.10 (Yosemite)</description>
     <example host.name="host.example.com" os.arch="x86_64" os.version.version="4">Darwin host.example.com 14.4.0 Darwin Kernel Version 14.4.0: Thu May 28 11:35:04 PDT 2015; root:xnu-2782.30.5~1/RELEASE_X86_64 x86_64</example>
@@ -4832,7 +4827,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="10.10"/>
     <param pos="2" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:apple:mac_os_x:10.10"/></fingerprint>
   <!--======================================================================
                               MICROSOFT
    =======================================================================-->
@@ -4857,7 +4852,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows 2000"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_2000"/></fingerprint>
   <fingerprint pattern="^Hardware: x86.*Software: Windows 2000 Version 5\.1.*$">
     <description>Windows XP on x86</description>
     <example>Hardware: x86 Family 15 Model 75 Stepping 2 AT/AT COMPATIBLE - Software: Windows 2000 Version 5.1 (Build 2600 Uniprocessor Free)</example>
@@ -4866,7 +4861,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows XP"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_xp"/></fingerprint>
   <fingerprint pattern="^Hardware: x86.*Software: Windows Version 5\.2.*$">
     <description>Windows Server 2003 on x86</description>
     <example>Hardware: x86 Family 6 Model 15 Stepping 6 AT/AT COMPATIBLE - Software: Windows Version 5.2 (Build 3790 Multiprocessor Free)</example>
@@ -4875,7 +4870,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows Server 2003"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2003"/></fingerprint>
   <fingerprint pattern="^Hardware: \S+64.*Software: Windows Version 5\.2.*$">
     <description>Windows Server 2003 on x86_64</description>
     <example>Hardware: AMD64 Family 15 Model 4 Stepping 3 AT/AT COMPATIBLE - Software: Windows Version 5.2 (Build 3790 Multiprocessor Free)</example>
@@ -4885,7 +4880,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows Server 2003"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86_64"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2003"/></fingerprint>
   <fingerprint pattern="^Windows_NT Microsoft Windows Server 2003 5.2 3790 Service Pack 2, GenuineIntel \S+64.*$">
     <description>Rare Windows 2003 SP2 sysDescr, x64</description>
     <example>Windows_NT Microsoft Windows Server 2003 5.2 3790 Service Pack 2, GenuineIntel EM64T Family 6 Model 23 Stepping 6</example>
@@ -4895,7 +4890,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86_64"/>
     <param pos="0" name="os.version" value="SP1"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2003:SP1"/></fingerprint>
   <fingerprint pattern="^Windows_NT Microsoft Windows Server 2003 5.2 3790 Service Pack 2, GenuineIntel x86.*$">
     <description>Rare Windows 2003 SP2 sysDescr, x86</description>
     <example>Windows_NT Microsoft Windows Server 2003 5.2 3790 Service Pack 2, GenuineIntel x86 Family 6 Model 23 Stepping 6</example>
@@ -4905,7 +4900,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
     <param pos="0" name="os.version" value="SP1"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2003:SP1"/></fingerprint>
   <fingerprint pattern="^Microsoft Windows CE Version ([\d.]+).*$">
     <description>Windows CE</description>
     <example>Microsoft Windows CE Version 4.20 (Build 0)</example>
@@ -4924,7 +4919,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows Vista"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_vista"/></fingerprint>
   <fingerprint pattern="^Hardware: \S+64.*Software: Windows Version 6.0 \(Build 6000.*$">
     <description>Windows Vista on x86_64</description>
     <example>Hardware: Intel64 Family 15 Model 2 Stepping 5 AT/AT COMPATIBLE - Software: Windows Version 6.0 (Build 6000 Multiprocessor Free)</example>
@@ -4933,7 +4928,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows Vista"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86_64"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_vista"/></fingerprint>
   <fingerprint pattern="^Hardware: x86.*Software: Windows Version 6.0 \(Build 6001.*$">
     <description>Windows Vista SP1 on x86</description>
     <example>Hardware: x86 Family 15 Model 2 Stepping 5 AT/AT COMPATIBLE - Software: Windows Version 6.0 (Build 6001 Multiprocessor Free)</example>
@@ -4943,7 +4938,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="SP1"/>
     <param pos="0" name="os.arch" value="x86"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_vista:SP1"/></fingerprint>
   <fingerprint pattern="^Hardware: \S+64.*Software: Windows Version 6.0 \(Build 6001.*$">
     <description>Windows Vista SP1 on x86_64</description>
     <example>Hardware: AMD64 Family 16 Model 2 Stepping 3 AT/AT COMPATIBLE - Software: Windows Version 6.0 (Build 6001 Multiprocessor Free)</example>
@@ -4954,7 +4949,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="SP1"/>
     <param pos="0" name="os.arch" value="x86_64"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_vista:SP1"/></fingerprint>
   <fingerprint pattern="^Hardware: x86.*Software: Windows Version 6.0 \(Build 6002.*$">
     <description>Windows Vista SP2 on x86</description>
     <example>Hardware: x86 Family 15 Model 2 Stepping 5 AT/AT COMPATIBLE - Software: Windows Version 6.0 (Build 6002 Multiprocessor Free)</example>
@@ -4964,7 +4959,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="SP2"/>
     <param pos="0" name="os.arch" value="x86"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_vista:SP2"/></fingerprint>
   <fingerprint pattern="^Hardware: \S+64.*Software: Windows Version 6.0 \(Build 6002.*$">
     <description>Windows Vista SP2 on x86_64</description>
     <example>Hardware: AMD64 Family 16 Model 2 Stepping 3 AT/AT COMPATIBLE - Software: Windows Version 6.0 (Build 6002 Multiprocessor Free)</example>
@@ -4975,7 +4970,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="SP2"/>
     <param pos="0" name="os.arch" value="x86_64"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_vista:SP2"/></fingerprint>
   <fingerprint pattern="^Hardware: x86.*Software: Windows Version 6.1 \(Build 7600.*$">
     <description>Windows 7 on x86</description>
     <example>Hardware: x86 Family 15 Model 2 Stepping 5 AT/AT COMPATIBLE - Software: Windows Version 6.1 (Build 7600 Multiprocessor Free)</example>
@@ -4984,7 +4979,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows 7"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_7"/></fingerprint>
   <fingerprint pattern="^Hardware: \S+64.*Software: Windows Version 6.1 \(Build 7600.*$">
     <description>Windows 7 on x86_64</description>
     <example>Hardware: AMD64 Family 16 Model 2 Stepping 3 AT/AT COMPATIBLE - Software: Windows Version 6.1 (Build 7600 Multiprocessor Free)</example>
@@ -4994,7 +4989,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows 7"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86_64"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_7"/></fingerprint>
   <fingerprint pattern="^Hardware: x86.*Software: Windows Version 6.1 \(Build 7601.*$">
     <description>Windows 7 on x86</description>
     <example>Hardware: x86 Family 15 Model 2 Stepping 5 AT/AT COMPATIBLE - Software: Windows Version 6.1 (Build 7601 Multiprocessor Free)</example>
@@ -5004,7 +4999,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="SP1"/>
     <param pos="0" name="os.arch" value="x86"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_7:SP1"/></fingerprint>
   <fingerprint pattern="^Hardware: \S+64.*Software: Windows Version 6.1 \(Build 7601.*$">
     <description>Windows 7 on x86_64</description>
     <example>Hardware: AMD64 Family 16 Model 2 Stepping 3 AT/AT COMPATIBLE - Software: Windows Version 6.1 (Build 7601 Multiprocessor Free)</example>
@@ -5015,7 +5010,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="SP1"/>
     <param pos="0" name="os.arch" value="x86_64"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_7:SP1"/></fingerprint>
   <fingerprint pattern="^Hardware: \S+64.*Software: Windows Version 6.2 \(Build 9200">
     <description>Windows 8 on x86_64</description>
     <example>Hardware: Intel64 Family 6 Model 2 Stepping 3 AT/AT COMPATIBLE - Software: Windows Version 6.2 (Build 9200 Multiprocessor Free)</example>
@@ -5024,7 +5019,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows 8"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86_64"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_8"/></fingerprint>
   <fingerprint pattern="^Hardware: x86.*Software: Windows Version 6.2 \(Build 9200">
     <description>Windows 8 on x86</description>
     <example>Hardware: x86 Family 6 Model 2 Stepping 3 AT/AT COMPATIBLE - Software: Windows Version 6.2 (Build 9200 Multiprocessor Free)</example>
@@ -5033,7 +5028,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows 8"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_8"/></fingerprint>
   <fingerprint pattern="^Hardware: \S+64.*Software: Windows Version 6.3 \(Build 9600">
     <description>Windows 8 on x86_64</description>
     <example>Hardware: AMD64 Family 21 Model 0 Stepping 2 AT/AT COMPATIBLE - Software: Windows Version 6.3 (Build 9600 Multiprocessor Free)</example>
@@ -5042,7 +5037,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows 8.1"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86_64"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_8.1"/></fingerprint>
   <fingerprint pattern="^Hardware: x86.*Software: Windows Version 6.3 \(Build 9600">
     <description>Windows 8 on x86</description>
     <example>Hardware: x86 Family 21 Model 0 Stepping 2 AT/AT COMPATIBLE - Software: Windows Version 6.3 (Build 9600 Multiprocessor Free)</example>
@@ -5051,7 +5046,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows 8.1"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_8.1"/></fingerprint>
   <fingerprint pattern="Windows\s\S+\s(6\.2\.\d+)\s+Server\s[\d\.]+\s(\w+).*">
     <description>Windows Server 2012</description>
     <example>Windows w12-srv-snmp 6.2.9200   Server 4.0 Intel64 Family 6 Model 26 Stepping 4</example>
@@ -5061,7 +5056,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows Server 2012"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="2" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2012:{os.version}"/></fingerprint>
   <!--======================================================================
                              MRV Communications
    =======================================================================-->
@@ -5110,7 +5105,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Data ONTAP"/>
     <param pos="0" name="os.device" value="File server"/>
     <param pos="1" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:netapp:data_ontap:{os.version}"/></fingerprint>
   <!--======================================================================
                               NETBOTZ
    =======================================================================-->
@@ -5250,7 +5245,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:citrix:{os.product}:{os.version}"/></fingerprint>
   <!--======================================================================
                               NORTEL
    =======================================================================-->
@@ -5447,7 +5442,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="3.12"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:novell:netware:3.12"/></fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.00\.09  *September 21, 2000$">
     <description>Novell NetWare</description>
     <example>Novell NetWare 5.00.09  September 21, 2000</example>
@@ -5457,7 +5452,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="5.1 SP2"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:novell:netware:5.1 SP2"/></fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.00\.10  *July 10, 2002$">
     <description>Novell NetWare</description>
     <example>Novell NetWare 5.00.10  July 10, 2002</example>
@@ -5467,7 +5462,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="5.1 SP5"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:novell:netware:5.1 SP5"/></fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.00\.10  *December 9, 2003$">
     <description>Novell NetWare</description>
     <example>Novell NetWare 5.00.10  December 9, 2003</example>
@@ -5477,7 +5472,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="5.1 SP7"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:novell:netware:5.1 SP7"/></fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.00\.11  *January 19, 2005$">
     <description>Novell NetWare</description>
     <example>Novell NetWare 5.00.11  January 19, 2005</example>
@@ -5487,7 +5482,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="5.1 SP8"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:novell:netware:5.1 SP8"/></fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.60\.03  *March 27, 2003$">
     <description>Novell NetWare</description>
     <example>Novell NetWare 5.60.03  March 27, 2003</example>
@@ -5497,7 +5492,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.0 SP3"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:novell:netware:6.0 SP3"/></fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.60\.05  *May 27, 2004$">
     <description>Novell NetWare</description>
     <example>Novell NetWare 5.60.05  May 27, 2004</example>
@@ -5507,7 +5502,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.0 SP5"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:novell:netware:6.0 SP5"/></fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.70\.02  *June 11, 2004$">
     <description>Novell NetWare</description>
     <example>Novell NetWare 5.70.02  June 11, 2004</example>
@@ -5517,7 +5512,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.5 SP2"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:novell:netware:6.5 SP2"/></fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.70\.03  *January 20, 2005$">
     <description>Novell NetWare</description>
     <example>Novell NetWare 5.70.03  January 20, 2005</example>
@@ -5527,7 +5522,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.5 SP3"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:novell:netware:6.5 SP3"/></fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.70\.03  *May 23, 2005$">
     <description>Novell NetWare</description>
     <example>Novell NetWare 5.70.03  May 23, 2005</example>
@@ -5537,7 +5532,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.5 SP3 CPR"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:novell:netware:6.5 SP3 CPR"/></fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.70\.04  *August 15, 2005$">
     <description>Novell NetWare</description>
     <example>Novell NetWare 5.70.04  August 15, 2005</example>
@@ -5547,7 +5542,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.5 SP4"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:novell:netware:6.5 SP4"/></fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.70\.05  *December 16, 2005$">
     <description>Novell NetWare</description>
     <example>Novell NetWare 5.70.05  December 16, 2005</example>
@@ -5557,7 +5552,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.5 SP5"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:novell:netware:6.5 SP5"/></fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.70\.05  *April 11, 2006$">
     <description>Novell NetWare</description>
     <example>Novell NetWare 5.70.05  April 11, 2006</example>
@@ -5567,7 +5562,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.5 SP5 CPR"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:novell:netware:6.5 SP5 CPR"/></fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.70\.06  *October 26, 2006$">
     <description>Novell NetWare</description>
     <example>Novell NetWare 5.70.06  October 26, 2006</example>
@@ -5577,7 +5572,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.5 SP6"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:novell:netware:6.5 SP6"/></fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.70\.07  *September 18, 2007$">
     <description>Novell NetWare</description>
     <example>Novell NetWare 5.70.07  September 18, 2007</example>
@@ -5587,7 +5582,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.5 SP7"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:novell:netware:6.5 SP7"/></fingerprint>
   <fingerprint pattern="^Novell NetWare ([\d.]+).*$">
     <description>Novell NetWare</description>
     <example>Novell NetWare 5.70.08 October 3, 2008</example>
@@ -5597,7 +5592,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:novell:netware:{os.version}"/></fingerprint>
   <fingerprint pattern="^Novell UnixWare v(\S+)$">
     <description>Novell UnixWare</description>
     <example>Novell UnixWare v2.1</example>
@@ -5758,7 +5753,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ricoh:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^NRG (\S+) (\d+\.\S+).*$">
     <description>Ricoh NRG network multifunction device</description>
     <example>NRG 4525/4508/4502 5.23 / NRG Network Printer C model / NRG Network Scanner C model</example>
@@ -5774,7 +5769,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ricoh:{os.product}:{os.version}"/></fingerprint>
   <!--
       Currently unmatched examples:
          NRG 1305 f/1308 F/1302f / NRG Network Printer D model
@@ -5874,7 +5869,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="Palo Alto Networks"/>
     <param pos="0" name="os.device" value="Firewall"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:palo_alto_networks:{os.product}"/></fingerprint>
   <fingerprint pattern="^Palo Alto Networks Panorama server$">
     <description>Palo Alto Panorama</description>
     <example>Palo Alto Networks Panorama server</example>
@@ -5892,14 +5887,14 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Storage"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:panasonic:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Panasonic ([A-Z][A-Z]-\S+)$">
     <description>Panasonic Printer</description>
     <example>Panasonic DP-1520P</example>
     <param pos="0" name="os.vendor" value="Panasonic"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:panasonic:{os.product}"/></fingerprint>
   <!--======================================================================
                               PARADYNE
    =======================================================================-->
@@ -5984,7 +5979,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="3" name="os.product"/>
     <param pos="4" name="os.version"/>
     <param pos="5" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:{os.vendor}:{os.product}:{os.version}"/></fingerprint>
   <!--
       Currently unmatched fingerprints:
          Vendor:Paradyne Corporation,ProductId:4929
@@ -6056,7 +6051,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
     <param pos="3" name="hw.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:raritan:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Raritan (Dominion PX) - Firmware Version (\S+)$">
     <description>Raritan Dominion PX</description>
     <example>Raritan Dominion PX - Firmware Version 010200</example>
@@ -6068,7 +6063,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="PDU"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:raritan:{os.product}:{os.version}"/></fingerprint>
   <!--======================================================================
                               RedBack Networks
    =======================================================================-->
@@ -6159,7 +6154,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ricoh:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^RICOH Aficio (\S+)$">
     <description>Generic Ricoh Aficio multifunction device</description>
     <example>RICOH Aficio 350e/355e</example>
@@ -6168,7 +6163,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Aficio"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ricoh:{os.product}"/></fingerprint>
   <fingerprint pattern="^RICOH Aficio (\S+ \S+)$">
     <description>Generic Ricoh Aficio multifunction device</description>
     <example>RICOH Aficio MP C2500</example>
@@ -6176,7 +6171,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Aficio"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ricoh:{os.product}"/></fingerprint>
   <fingerprint pattern="^RICOH Aficio (\S+) /.*$">
     <description>Generic Ricoh Aficio multifunction device</description>
     <example>RICOH Aficio 1013 / RICOH Network Printer D model</example>
@@ -6184,7 +6179,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Aficio"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ricoh:{os.product}"/></fingerprint>
   <fingerprint pattern="^RICOH imagio (\S+ \S+|\S+) (\d+\S+) /.*$">
     <description>Generic Ricoh Imagio multifunction device</description>
     <example>RICOH imagio MP C6001 1.04 / RICOH Network Printer C model / RICOH Network Scanner C model</example>
@@ -6197,7 +6192,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ricoh:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^RICOH IPS[Ii]O (\S+) (\S+) /.*$">
     <description>Generic Ricoh IPSIO multifunction device</description>
     <example>RICOH IPSiO NX96e 1.01 / RICOH Network Printer C model</example>
@@ -6206,7 +6201,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ricoh:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^RICOH IPS[Ii]O (\S+ \S+) [Vv]?(\S+) /.*$">
     <description>Generic Ricoh IPSIO multifunction device</description>
     <example>RICOH IPSiO SP C301SF v1.26 / RICOH Network Printer C model /RICOH Network Scanner C model /RICOH Network Facsimile C model</example>
@@ -6216,7 +6211,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ricoh:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^RICOH IPS[Ii]O (\S+ \S+) Ver [Vv]?(\S+) /.*$">
     <description>Generic Ricoh IPSIO multifunction device</description>
     <example>RICOH IPSiO GX e3300 Ver 1.02 / RICOH Network Printer C model</example>
@@ -6225,7 +6220,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ricoh:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^RICOH Pro (\S+) (\S+) /.*$">
     <description>Generic Ricoh Pro multifunction device</description>
     <example>RICOH Pro 907EX 1.02 / RICOH Network Printer C model / RICOH Network Scanner C model</example>
@@ -6234,7 +6229,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ricoh:{os.product}:{os.version}"/></fingerprint>
   <!--
       Currently unmatched fingerprints:
 
@@ -6327,7 +6322,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ricoh:{os.product}:{os.version}"/></fingerprint>
   <!--======================================================================
                               IBM Printers
    =======================================================================-->
@@ -6347,7 +6342,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ricoh:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^(?:IBM )InfoPrint (\d+)\s*$">
     <description>IBM Infoprint Printer</description>
     <example>IBM InfoPrint 40 </example>
@@ -6355,7 +6350,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Infoprint"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ricoh:{os.product}"/></fingerprint>
   <fingerprint pattern="^(?:IBM )?InfoPrint (?:\(v\d+\) )?(\d+\S+).*$">
     <description>IBM Infoprint Printer</description>
     <example>IBM InfoPrint (v1) 21</example>
@@ -6364,7 +6359,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Infoprint"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:ricoh:{os.product}"/></fingerprint>
   <!--======================================================================
                               Mikrotik
    =======================================================================-->
@@ -6423,7 +6418,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="RouterOS"/>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:mikrotik:{os.product}"/></fingerprint>
   <fingerprint pattern="^RouterOS\s*(?: x86)?\s*$">
     <description>Miktorik RouterOS</description>
     <example>RouterOS </example>
@@ -6623,7 +6618,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:samsung:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Samsung (CLX-\S+)$">
     <description>Samsung Printer</description>
     <example>Samsung CLX-7285</example>
@@ -6632,14 +6627,14 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="Samsung"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:samsung:{os.product}"/></fingerprint>
   <fingerprint pattern="^Samsung (CLP-705) Series; ; S/N.*$">
     <description>Samsung Printer</description>
     <example>Samsung CLP-705 Series; ; S/N XXXXXXXXXXXXXXXX</example>
     <param pos="0" name="os.vendor" value="Samsung"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:samsung:{os.product}"/></fingerprint>
   <!--======================================================================
                               SonicWall
    =======================================================================-->
@@ -6703,7 +6698,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="SonicOS"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sonicwall:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^SonicWALL (.*?)\s+\(([^\)]+)\)\s*$">
     <description>SonicWall</description>
     <example>SonicWALL StrongARM / 233 Mhz (PRO 200)</example>
@@ -6719,7 +6714,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="SonicOS"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sonicwall:{os.product}"/></fingerprint>
   <!--======================================================================
                               SCO
    =======================================================================-->
@@ -6777,7 +6772,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="MIPS"/>
     <param pos="1" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sgi:irix:{os.version}"/></fingerprint>
   <fingerprint pattern="^.* IRIX64 (?:version )?(\d+\S+).*$">
     <description>SGI IRIX</description>
     <example os.version="6.5">Silicon Graphics Challenge/1 running IRIX64 6.5</example>
@@ -6795,7 +6790,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="MIPS64"/>
     <param pos="1" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sgi:irix:{os.version}"/></fingerprint>
   <!--======================================================================
                               SHARP
    =======================================================================-->
@@ -6806,7 +6801,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="0" name="os.family" value="AR Series"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sharp:{os.product}"/></fingerprint>
   <fingerprint pattern="^SHARP (MX-\S+)$">
     <description>Sharp MX Series multifunction device</description>
     <example>SHARP MX-M350N</example>
@@ -6817,7 +6812,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="0" name="os.family" value="MX Series"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sharp:{os.product}"/></fingerprint>
   <!--======================================================================
                               SIEMENS
    =======================================================================-->
@@ -6839,7 +6834,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Scalance"/>
     <param pos="0" name="os.device" value="WAP"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:siemens:{os.product}"/></fingerprint>
   <fingerprint pattern="^HiPath Wireless Access Controller - ([^,]+)\s*, System Version ((?:V\d+ )?\S+)$">
     <description>Siemens HiPath Wireless Access Point</description>
     <example os.product="C20 Office" os.version="V6R1.10507.0">HiPath Wireless Access Controller - C20 Office, System Version V6R1.10507.0</example>
@@ -6857,7 +6852,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="WAP"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:siemens:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^HiPath (optiPoint \S+ \S+) HFA$">
     <description>Siemens Scalance Industrial Wireless Access Point</description>
     <example>HiPath optiPoint 400 Economy HFA</example>
@@ -6866,7 +6861,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="VOIP"/>
     <param pos="0" name="os.family" value="HFA"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:siemens:{os.product}"/></fingerprint>
   <fingerprint pattern="^optiPoint (\S+ \S+)$">
     <description>Siemens VoIP Phone</description>
     <example>optiPoint 410 phone</example>
@@ -6875,7 +6870,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="VOIP"/>
     <param pos="0" name="os.family" value="optiPoint"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:siemens:{os.product}"/></fingerprint>
   <fingerprint pattern="^Siemens (\S+)\s+(.*?Router) \(([^\)]+)\) v?(\S+)\s*.*$">
     <description>Siemens Router</description>
     <example>Siemens 5830 DMT Router (5830-001) v6.1.120 Copyright (C) 2004 Siemens Subscriber Networks, Inc. All Rights Reserved</example>
@@ -6933,7 +6928,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
     <param pos="4" name="os.version"/>
     <param pos="3" name="siemens.model"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:siemens:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Siemens (\S+)\s+(.*?)\s+\(([^\)]+)\) Router .*?v(\d+\S+)\s+.*$">
     <description>Siemens Router</description>
     <example>Siemens 7950 G.SHDSL [ATM] (7950-001) Router with ISDN Voice v6.1.077 All Rights Reserved</example>
@@ -6943,7 +6938,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
     <param pos="4" name="os.version"/>
     <param pos="3" name="siemens.model"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:siemens:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Siemens, SIMATIC HMI, ([^,]+),.*FW:\s*V([^,]+).*$">
     <description>Siemens HMI</description>
     <example>Siemens, SIMATIC HMI, KTP1000 Basic PN, 6AV6 647-0AF11-3AX0, HW: 1, FW: V01.06.00, Revision: 1</example>
@@ -6954,7 +6949,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Simatic HMI"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:siemens:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Siemens, SIMATIC HMI, ([^,]+),.*SW:\s*V\s*(\d+ \d+ \d+).*$">
     <description>Siemens HMI</description>
     <example>Siemens, SIMATIC HMI, MP177, 6AV6 642-0EA01-3AX0, HW: 0, SW: V 1 0 0</example>
@@ -6967,7 +6962,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Simatic HMI"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:siemens:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Siemens, SIMATIC NET, ([^,]+),.*FW:\s*(?:Version )?V?([^,]+).*$">
     <description>Siemens NET</description>
     <example os.product="CP 343-1 Advanced" os.version="1.2.3">Siemens, SIMATIC NET, CP 343-1 Advanced, 6GK7 343-1GX30-0XE0, HW: Version 3, FW: Version V1.2.3, VPB9502953</example>
@@ -6980,7 +6975,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Simatic NET"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:siemens:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Siemens, SIMATIC NET (\S+) FW V (\S+)$">
     <description>Siemens NET</description>
     <example>Siemens, SIMATIC NET CP1613 FW V 06.33</example>
@@ -6989,7 +6984,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Simatic NET"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:siemens:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Siemens, SIMATIC S7, ([^,]+), .*?FW: (?:Version )?V?\.?([^,]+).*$">
     <description>Siemens S7</description>
     <example os.product="CPU-1200" os.version="2.0.2">Siemens, SIMATIC S7, CPU-1200, 6ES7 211-1BD30-0XB0, HW: 1, FW: V.2.0.2, SZVX8YU9000553</example>
@@ -7000,7 +6995,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Simatic S7"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:siemens:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Siemens, SIMATIC S7, ([^,]+), .*?, V\.([^,]+).*$">
     <description>Siemens S7</description>
     <example>Siemens, SIMATIC S7, CPU-1200, 6ES7 212-1BD30-0XB0 SZVA1YU6008610 , 1, V.1.0.1, SZVA1YU6008610</example>
@@ -7011,7 +7006,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Simatic S7"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:siemens:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Siemens, SIMATIC, (\S+)$">
     <description>Siemens S7</description>
     <example>Siemens, SIMATIC, S7-300</example>
@@ -7019,7 +7014,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Simatic S7"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:siemens:{os.product}"/></fingerprint>
   <fingerprint pattern="^Siemens, SINUMERIK, solution line ([^,]+),.*?FW:V([^,]+).*$">
     <description>Siemens Sinumerik Solution Line</description>
     <example>Siemens, SINUMERIK, solution line PCU50, , HW:1, FW:V00.00.00,</example>
@@ -7029,7 +7024,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Simatic Sinumerik"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:siemens:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Name:(ReliantUNIX)-. release:(\S+) version:(\S+) machine:(\S+)$">
     <description>Siemens Reliant Unix (SINIX)</description>
     <example>Name:ReliantUNIX-N release:5.45 version:B0032 machine:RM400</example>
@@ -7043,7 +7038,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.version.version"/>
     <param pos="4" name="hw.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:siemens:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Siemens Subscriber Networks (\S+) \((\S+)\)$">
     <description>Siemens DSL Modems</description>
     <example>Siemens Subscriber Networks 4100-Series (D240)</example>
@@ -7059,7 +7054,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Subscriber Networks"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:siemens:{os.product}:{os.version}"/></fingerprint>
   <!--======================================================================
                               SOURCE TECHNOLOGIES
    =======================================================================-->
@@ -7089,7 +7084,7 @@ Copyright (c) 1995-2005 by Cisco Systems
    <param pos="1" name="host.name"/>
    <param pos="2" name="os.version"/>
    <param pos="3" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:oracle:solaris:{os.version}"/></fingerprint>
   <fingerprint pattern="^SunOS (\S+) 5\.([789]|10) \S+ (\S+)$">
     <description>SunOS/Solaris 5.7-5.10</description>
     <example host.name="sysname" os.arch="sun4u" os.version="10">SunOS sysname 5.10 Generic_118833-33 sun4u</example>
@@ -7102,7 +7097,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris:{os.version}"/></fingerprint>
   <fingerprint pattern="^SunOS (\S+) (\S+) \S+ (\S+)$">
     <description>SunOS/Solaris</description>
     <example>SunOS zeus.net.cmu.edu 4.1.3_U1 1 sun4m</example>
@@ -7113,7 +7108,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris:{os.version}"/></fingerprint>
   <!-- For Sun hardware/platform information, see http://docs.sun.com/source/817-6337/chapterHPG.html -->
   <fingerprint pattern="^Sun SNMP Agent, Sun-Blade-100$">
     <description>Sun SNMP agent on a Blade 100. Indicates Solaris 8 or higher</description>
@@ -7124,7 +7119,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris"/></fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, UltraAX-i2$">
     <description>Sun SNMP agent on an UltraAX-i2</description>
     <example>Sun SNMP Agent, UltraAX-i2</example>
@@ -7134,7 +7129,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris"/></fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, Ultra-5_10$">
     <description>Sun SNMP agent on an Ultra 5 or Ultra 10</description>
     <example>Sun SNMP Agent, Ultra-5_10</example>
@@ -7144,7 +7139,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris"/></fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, Ultra-1$">
     <description>Sun SNMP agent on an Ultra 1</description>
     <example>Sun SNMP Agent, Ultra-1</example>
@@ -7154,7 +7149,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris"/></fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, Ultra-Enterprise$">
     <description>Sun SNMP agent on an Ultra-Enterprise</description>
     <example>Sun SNMP Agent, Ultra-Enterprise</example>
@@ -7164,7 +7159,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris"/></fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, Sun-Fire-V240$">
     <description>Sun SNMP agent on a Sun-Fire-V240</description>
     <example>Sun SNMP Agent, Sun-Fire-V240</example>
@@ -7174,7 +7169,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris"/></fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, Netra-T12$">
     <description>Sun SNMP agent on a Sun-Fire-V240</description>
     <example>Sun SNMP Agent, Netra-T12</example>
@@ -7184,7 +7179,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris"/></fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, Ultra-25$">
     <description>Sun SNMP agent on an Ultra-25</description>
     <example>Sun SNMP Agent, Ultra-25</example>
@@ -7194,7 +7189,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris"/></fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, Ultra-80$">
     <description>Sun SNMP agent on an Ultra-80</description>
     <example>Sun SNMP Agent, Ultra-80</example>
@@ -7204,7 +7199,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris"/></fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, Ultra-60$">
     <description>Sun SNMP agent on an Ultra-60</description>
     <example>Sun SNMP Agent, Ultra-60</example>
@@ -7214,7 +7209,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris"/></fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, UltraAX-MP$">
     <description>Sun SNMP agent on an UltraAX-MP</description>
     <example>Sun SNMP Agent, UltraAX-MP</example>
@@ -7224,7 +7219,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris"/></fingerprint>
   <!-- This is definitely a Netra T1 -->
   <fingerprint pattern="^Sun SNMP Agent, UltraSPARC-IIi-cEngine$">
     <description>Sun SNMP agent on an UltraSPARC-IIi-cEngine</description>
@@ -7235,7 +7230,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris"/></fingerprint>
   <fingerprint pattern="^Sun SNMP Agent,.*$">
     <description>Sun SNMP agent on unknown Sun hardware</description>
     <example>Sun SNMP Agent, Ultra-whatever</example>
@@ -7245,7 +7240,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris"/></fingerprint>
   <fingerprint pattern="^Sun StorEdge (\S+)$">
     <description>Sun StorEdge disk array</description>
     <example>Sun StorEdge 3511</example>
@@ -7253,7 +7248,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="StorEdge"/>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Storage"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:{os.product}"/></fingerprint>
   <fingerprint pattern="^SunOS 5\.([789]|10) (\S+) sparc SUNW,([^,]+),.*$">
     <description>SunOS/Solaris 5.7-5.10</description>
     <example os.version="10" os.arch="sun4u" hw.product="Sun-Fire-V210">SunOS 5.10 sun4u sparc SUNW,Sun-Fire-V210, Class 4 Call Manager</example>
@@ -7274,7 +7269,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.arch"/>
     <param pos="3" name="hw.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris:{os.version}"/></fingerprint>
   <fingerprint pattern="^SunOS 5\.(1[1-9]) (\S+) sparc SUNW,([^,]+),.*$">
    <description>Oracle/Solaris 5.11 and upwards</description>
    <example os.version="11" os.arch="sun4u" hw.product="Sun-Fire-V210">SunOS 5.11 sun4u sparc SUNW,Sun-Fire-V210, Class 4 Call Manager</example>
@@ -7287,7 +7282,7 @@ Copyright (c) 1995-2005 by Cisco Systems
    <param pos="1" name="os.version"/>
    <param pos="2" name="os.arch"/>
    <param pos="3" name="hw.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:oracle:solaris:{os.version}"/></fingerprint>
   <fingerprint pattern="^SunOS (\S+) 5\.([789]|10) \S+ (\S+) \S+ SUNW,([^,]+).*$">
     <description>SunOS/Solaris 5.7-5.10</description>
     <example host.name="integra01" os.version="10" os.arch="sun4v" hw.product="T5240">SunOS integra01 5.10 Generic_127127-11 sun4v sparc SUNW,T5240</example>
@@ -7306,7 +7301,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.arch"/>
     <param pos="4" name="hw.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris:{os.version}"/></fingerprint>
   <fingerprint pattern="^SunOS (\S+) 5\.(1[1-9]) \S+ (\S+) \S+ SUNW,([^,]+).*$">
     <description>Oracle/Solaris 5.11 and upwards</description>
     <example host.name="integra01" os.version="11" os.arch="sun4v" hw.product="T5240">SunOS integra01 5.11 Generic_127127-11 sun4v sparc SUNW,T5240</example>
@@ -7320,7 +7315,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.arch"/>
     <param pos="4" name="hw.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:oracle:solaris:{os.version}"/></fingerprint>
   <fingerprint pattern="^SunOS 5\.([789]|10) \S+ (\S+)$">
     <description>SunOS/Solaris 5.7-5.10</description>
     <example os.version="10" os.arch="sun4u">SunOS 5.10 Generic sun4u</example>
@@ -7340,7 +7335,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris:{os.version}"/></fingerprint>
   <fingerprint pattern="^SunOS 5\.(1[1-9]) \S+ (\S+)$">
     <description>Oracle/Solaris 5.11 and upwards</description>
     <example os.version="11" os.arch="sun4u">SunOS 5.11 Generic sun4u</example>
@@ -7352,7 +7347,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.arch"/>
-  </fingerprint>  
+  <param pos="0" name="os.cpe" value="cpe:/o:oracle:solaris:{os.version}"/></fingerprint>  
   <fingerprint pattern="^SunOS release:5\.([789]|10) version:\S+ machine:(\S+)$">
     <description>SunOS/Solaris 5.7-5.10</description>
     <example os.version="10" os.arch="sun4u">SunOS release:5.10 version:Generic_125100-07 machine:sun4u</example>
@@ -7366,7 +7361,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:sun:solaris:{os.version}"/></fingerprint>
   <fingerprint pattern="^SunOS release:5\.(1[1-9]) version:\S+ machine:(\S+)$">
     <description>SunOS/Solaris 5.11 and upwards</description>
     <example os.version="11" os.arch="sun4u">SunOS release:5.11 version:Generic_125100-07 machine:sun4u</example>
@@ -7378,7 +7373,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.arch"/>
-   </fingerprint> 
+   <param pos="0" name="os.cpe" value="cpe:/o:oracle:solaris:{os.version}"/></fingerprint> 
   <!--======================================================================
                               SYMANTEC
    =======================================================================-->
@@ -7393,7 +7388,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="Symantec"/>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Firewall"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:symantec:{os.product}"/></fingerprint>
   <!--======================================================================
                               SYMBOL
    =======================================================================-->
@@ -7488,7 +7483,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="e-STUDIO"/>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:toshiba:{os.product}"/></fingerprint>
   <!--======================================================================
                               UNISYS
    =======================================================================-->
@@ -7499,13 +7494,13 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:unisys:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^VxWorks SNMPv1/v2c Agent">
     <description>VxWorks SNMP agent</description>
     <example>VxWorks SNMPv1/v2c Agent</example>
     <param pos="0" name="os.vendor" value="Wind River"/>
     <param pos="0" name="os.product" value="VxWorks"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:windriver:vxworks"/></fingerprint>
   <!--======================================================================
                              VMware
    =======================================================================-->
@@ -7518,7 +7513,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.arch"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:vmware:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^&quot;vSphere Management Assistant ([\d\.]+)&quot;$">
     <description>VMware vSphere Management assistant, which is a virtual machine (https://www.vmware.com/support/developer/vima/)</description>
     <example os.version="4.1.0">"vSphere Management Assistant 4.1.0"</example>
@@ -7544,7 +7539,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:xerox:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Xerox (Phaser .+) v\(.*/([^/]+)\).*$" certainty="1.0">
     <description>Xerox Phaser Laser Printer</description>
     <example>Xerox Phaser 6200 DX v(2.12/14.66.02.22.2002/1.6.7/4.26) Printer 256MB LPH130287</example>
@@ -7553,7 +7548,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:xerox:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Xerox (Phaser [^;]+);.*$" certainty="1.0">
     <description>Xerox Phaser Laser Printer</description>
     <example>Xerox Phaser 6140N; NIC 14.31,ESS 200905190951,IOT 02.01.00,Boot 200809191035</example>
@@ -7563,7 +7558,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Phaser"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:xerox:{os.product}"/></fingerprint>
   <fingerprint pattern="^Xerox Document Centre Multi-function System.*$">
     <description>Xerox Document Centre Multi-function System</description>
     <example>Xerox Document Centre Multi-function System, ESS 0.19.12.011.1, IOT 28.52.0, UI 0.10.27.31, Finisher 7.95.0</example>
@@ -7585,7 +7580,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:xerox:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^Xerox WorkCentre Pro Multifunction System[,;] .*$" certainty="1.0">
     <description>Xerox WorkCentre Pro Laser Printer</description>
     <example>Xerox WorkCentre Pro Multifunction System, ESS 0.C03.04.510.01, IOT 9.0.3, UI 0.1.4.509, Scanner 1.4.0</example>
@@ -7604,7 +7599,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="WorkCentre"/>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Printer"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:xerox:{os.product}"/></fingerprint>
   <fingerprint pattern="^Xerox (\S+ [^\s;]+).*$" certainty="1.0">
     <description>Xerox Default</description>
     <example>Xerox ColorQube 9203; System Software 000.000.000.00000, ESS</example>
@@ -7613,7 +7608,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="Xerox"/>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Printer"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:xerox:{os.product}"/></fingerprint>
   <fingerprint pattern="^XEROX (\d{4} WIDE FORMAT) PRINTER; ACCXES (\d+.\d+) \d+, IOT .*$" certainty="1.0">
     <description>Xerox Wide Format Printer</description>
     <example>XEROX 6204 WIDE FORMAT PRINTER; ACCXES 15.0 136, IOT 01.01.07</example>
@@ -7622,7 +7617,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:xerox:{os.product}:{os.version}"/></fingerprint>
   <fingerprint pattern="^XEROX (WIDE FORMAT \d{4}) PRINTER; ACCXES (\d+.\d+) \d+, IOT .*$" certainty="1.0">
     <description>Xerox Wide Format Printer</description>
     <example>XEROX WIDE FORMAT 6605 PRINTER; ACCXES 14.0 142, IOT 01.01.04XXXXXX</example>
@@ -7632,7 +7627,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Wide Format Printer"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:xerox:{os.product}:{os.version}"/></fingerprint>
   <!--======================================================================
                                     Xyplex
    =======================================================================-->

@@ -1,8 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-Set-Cookie HTTP header values are matched against these patterns to fingerprint HTTP
-servers.
--->
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="http_header.cookie" protocol="http" database_type="service">
   <fingerprint pattern="^(CFCLIENT_[^=]+|CFGLOBALS|CFID|CFTOKEN)=.*">
     <description>
@@ -14,7 +10,7 @@ servers.
     <param pos="0" name="service.vendor" value="Adobe"/>
     <param pos="0" name="service.family" value="ColdFusion"/>
     <param pos="0" name="service.product" value="ColdFusion"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:adobe:coldfusion"/></fingerprint>
   <fingerprint pattern="^(Apache)=[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.([0-9]+);.*">
     <description>Apache</description>
     <param pos="1" name="cookie"/>
@@ -22,7 +18,7 @@ servers.
     <param pos="0" name="service.vendor" value="Apache"/>
     <param pos="0" name="service.family" value="Apache"/>
     <param pos="0" name="service.product" value="HTTPD"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:apache:apache_http_server"/></fingerprint>
   <fingerprint pattern="^(JServSessionIdroot)=.*">
     <description>Apache JServ</description>
     <param pos="1" name="cookie"/>
@@ -58,7 +54,7 @@ servers.
     <param pos="0" name="service.vendor" value="Blue Coat"/>
     <param pos="0" name="service.family" value="Proxy"/>
     <param pos="0" name="service.product" value="Proxy"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:blue_coat:proxy"/></fingerprint>
   <fingerprint pattern="^(CAKEPHP)=.*">
     <description>CakePHP http://www.cakephp.org/</description>
     <param pos="1" name="cookie"/>
@@ -186,7 +182,7 @@ servers.
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="Commerce Server"/>
     <param pos="0" name="service.product" value="Commerce Server"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:microsoft:commerce_server"/></fingerprint>
   <fingerprint pattern="^(ASPSESSIONID[A-Z]+|ASP\.NET_SessionId|\.ASPXANONYMOUS)=.*">
     <description>Microsoft IIS (ASP.NET)
       http://msdn2.microsoft.com/en-us/library/ms953828.aspx
@@ -200,7 +196,7 @@ servers.
     <param pos="0" name="service.component.vendor" value="Microsoft"/>
     <param pos="0" name="service.component.family" value="ASP.NET"/>
     <param pos="0" name="service.component.product" value="ASP.NET"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:microsoft:iis"/></fingerprint>
   <fingerprint pattern="^(AlteonP)=.*">
     <description>Nortel Alteon Web Switch</description>
     <param pos="1" name="cookie"/>
@@ -228,7 +224,7 @@ servers.
     <param pos="0" name="service.vendor" value="PHP"/>
     <param pos="0" name="service.family" value="PHP"/>
     <param pos="0" name="service.product" value="PHP"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:php:php"/></fingerprint>
   <fingerprint pattern="^(RMID)=.*">
     <description>RealMedia OpenAdStream</description>
     <param pos="1" name="cookie"/>
@@ -268,7 +264,7 @@ servers.
     <param pos="0" name="service.family" value="Java System Web Server"/>
     <param pos="0" name="service.product" value="Java System Web Server"/>
     <param pos="0" name="service.version" value="4.0"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:sun:java_system_web_server:4.0"/></fingerprint>
   <fingerprint pattern="^(gx_session_id|JROUTE)=.*">
     <description>Sun Java System Application Server (formerly iPlanet Application Server,
          Sun ONE Application Server)</description>
@@ -276,14 +272,14 @@ servers.
     <param pos="0" name="service.vendor" value="Sun"/>
     <param pos="0" name="service.family" value="Java System Application Server"/>
     <param pos="0" name="service.product" value="Java System Application Server"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:sun:java_system_application_server"/></fingerprint>
   <fingerprint pattern="^(fe_typo_user)=.*">
     <description>TYPO3 CMS - http://typo3.com/</description>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="TYPO3"/>
     <param pos="0" name="service.family" value="CMS"/>
     <param pos="0" name="service.product" value="CMS"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:typo3:cms"/></fingerprint>
   <fingerprint pattern="^(SaneID)=.*">
     <description>Unica NetTracker - http://netinsight.unica.com/Products/NetTracker.cfm</description>
     <param pos="1" name="cookie"/>

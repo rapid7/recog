@@ -1,8 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-NNTP greeting messages (part of the banner after the response code) are matched
-against these patterns to fingerprint NNTP servers.
--->
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="nntp.banner" protocol="nntp" database_type="service">
   <fingerprint pattern="^NNTP Service (?:.*) Version: (5.0.2195.[0-9]+) .*$">
     <description>Microsoft IIS NNTP Server on Windows 2000</description>
@@ -17,7 +13,7 @@ against these patterns to fingerprint NNTP servers.
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows 2000"/>
     <param pos="1" name="ms.nttp.version"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:microsoft:iis:{service.version}"/><param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_2000"/></fingerprint>
   <fingerprint pattern="^NNTP Service (?:.*) Version: (6.0.3790.[0-9]+) .*$">
     <description>Microsoft IIS NNTP Server on Windows Server 2003</description>
     <example>NNTP Service 6.0.3790.3959 Version: 6.0.3790.3959 Posting Allowed</example>
@@ -31,7 +27,7 @@ against these patterns to fingerprint NNTP servers.
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2003"/>
     <param pos="1" name="ms.nttp.version"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:microsoft:iis:{service.version}"/><param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2003"/></fingerprint>
   <fingerprint pattern="^NNTP Service Microsoft. Internet Services (?:.*) Version: (?:[^ ]+) .*$">
     <description>Older Microsoft IIS NNTP Servers</description>
     <example>NNTP Service Microsoft. Internet Services 5.00 Version: 5.0.2068.0 Posting Allowed</example>
@@ -44,5 +40,5 @@ against these patterns to fingerprint NNTP servers.
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:microsoft:exchange_server"/><param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows"/></fingerprint>
 </fingerprints>

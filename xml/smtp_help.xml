@@ -1,13 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-SMTP response lines to the HELP command are matched against these patterns
-(1 line at a time) to fingerprint SMTP servers.
-
-See comment at the top of smtp_banners.xml for additional info.
-
-'preference' note: This value has been set so as to implement the ordering
-  of SMTP related fingerprint databases as described in 'smtp_banners.xml'.
--->
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints protocol="smtp" database_type="service" preference="0.18">
   <fingerprint pattern="^214[ -]This is ArGoSoft Mail Server, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
     <description>
@@ -18,7 +9,7 @@ See comment at the top of smtp_banners.xml for additional info.
     <param pos="0" name="service.family" value="Mail Server"/>
     <param pos="0" name="service.product" value="Mail Server"/>
     <param pos="1" name="service.version"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:argosoft:mail_server:{service.version}"/></fingerprint>
   <fingerprint pattern="^214[ -].*support@argosoft\.com *$">
     <description>
          ArgoSoft mail server HELP response
@@ -27,7 +18,7 @@ See comment at the top of smtp_banners.xml for additional info.
     <param pos="0" name="service.vendor" value="ArGoSoft"/>
     <param pos="0" name="service.family" value="Mail Server"/>
     <param pos="0" name="service.product" value="Mail Server"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:argosoft:mail_server"/></fingerprint>
   <fingerprint pattern="^500[ -]Syntax error, command &quot;XXXX&quot; unrecognized$">
     <description>
          Cisco PIX changes the command letters to 'X' before passing
@@ -55,7 +46,7 @@ See comment at the top of smtp_banners.xml for additional info.
     <param pos="0" name="service.family" value="VM"/>
     <param pos="0" name="service.product" value="VM"/>
     <param pos="1" name="host.name"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:ibm:vm"/></fingerprint>
   <!--
    Shouldn't we ignore XEXCH50 for the same reasons than described in the XEXCH50 regex
    in smtp_ehlo.xml ? -mrb
@@ -71,7 +62,7 @@ See comment at the top of smtp_banners.xml for additional info.
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Windows"/>
-  </fingerprint>
+  <param pos="0" name="service.cpe" value="cpe:/a:microsoft:exchange_server"/><param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows"/></fingerprint>
   <fingerprint pattern="^214[ -]Help system currently inactive\.$">
     <description>
          214 Help system currently inactive.
@@ -84,7 +75,7 @@ See comment at the top of smtp_banners.xml for additional info.
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.arch" value="x86"/>
-  </fingerprint>
+  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows"/></fingerprint>
   <fingerprint pattern="^214[ -].*This is MERAK ([^ ]+\.[^ ]+\.[^ ]+).*$">
     <description>
          Merak mail server http://www.icewarp.com/merakmail/ (runs on 2000/NT/9x)
