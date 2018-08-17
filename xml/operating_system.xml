@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Patterns for common names of various operating systems.
-  -->
 <fingerprints matches="operating_system.name" database_type="util.os" preference="0.80">
+  <!--
+    Patterns for common names of various operating systems.
+  -->
+
   <!-- Windows begin -->
   <fingerprint pattern="^(?i:(?:Microsoft )?(Windows (?:[a-z]+\s[a-z]+\s|[a-z]+\s)?Server (?:\d{4} R2|\d{4}))(?:,\s|\s)?([a-z]+)?(?: Evaluation)?(?: Edition)?(?:\s|\swith(?:out)? Hyper-V\s)?(SP\d|SP \d|Service Pack \d)?)$">
     <description>Windows Server 2003 and later</description>
@@ -187,7 +188,7 @@
     <example os.version="6">Fedora Core 6</example>
     <example os.version="25">Fedora 25</example>
     <example os.version="26">Fedora release 26 (Twenty Six)</example>
-    <param pos="0" name="os.vendor" value="Fedora"/>
+    <param pos="0" name="os.vendor" value="Red Hat"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>

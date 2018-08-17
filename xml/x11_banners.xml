@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-During X11 connection setup as specified in the X11 protocol 
-(page 111 https://www.x.org/archive/X11R7.5/doc/x11proto/proto.pdf) a 
-success message is sent when a clients request to connect is successful. 
-This success response contains a vendor field which can be used to 
-fingerprint systems with the following fingerprints.
--->
 <fingerprints matches="x11.vendor" protocol="x11">
+  <!--
+  During X11 connection setup as specified in the X11 protocol
+  (page 111 https://www.x.org/archive/X11R7.5/doc/x11proto/proto.pdf) a
+  success message is sent when a clients request to connect is successful.
+  This success response contains a vendor field which can be used to
+  fingerprint systems with the following fingerprints.
+  -->
   <fingerprint pattern="^AT&amp;T Laboratories Cambridge$">
     <description>AT&amp;T Laboratories Cambridge</description>
     <example>AT&amp;T Laboratories Cambridge</example>
@@ -55,7 +55,7 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="os.vendor" value="Red Hat"/>
     <param pos="0" name="service.vendor" value="X.Org"/>
     <param pos="0" name="service.product" value="X.Org X11"/>
-    <param pos="0" name="os.product" value="Fedora Core"/>
+    <param pos="0" name="os.product" value="Fedora Core Linux"/>
     <param pos="0" name="os.family" value="Linux"/>
   </fingerprint>
   <fingerprint pattern="^freedesktop\.org$">

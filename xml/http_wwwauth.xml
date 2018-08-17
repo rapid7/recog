@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- HTTP WWW-Authenticate headers are matched against these patterns to fingerprint HTTP servers. -->
 <fingerprints matches="http_header.wwwauth" protocol="http" database_type="service" preference="0.85">
+  <!-- HTTP WWW-Authenticate headers are matched against these patterns to fingerprint HTTP servers. -->
   <fingerprint pattern="^(?:Basic|Digest) realm=.[iI]RMC(?:@(IRMC[0-9a-fA-F]{6}))?..*$">
     <description>Fujitsu Siemens Primergy with BMC RemoteView on an iRMC card</description>
     <param pos="0" name="service.vendor" value="Fujitsu Siemens"/>

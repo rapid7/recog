@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Notes: Ruby will fail to build the RegExp if it contains \x84 which is a standard
-         byte in ASN.1 Sequence length fields.
--->
 <fingerprints matches="ldap.search_result" protocol="ldap" database_type="service" preference=".80">
+  <!--
+    Notes: Ruby will fail to build the RegExp if it contains \x84 which is a standard
+          byte in ASN.1 Sequence length fields.
+  -->
 
   <!--
     Samba - position prior to Windows entries due to regex. When testing new
@@ -352,7 +352,7 @@
       dmVuZG9yTmFtZTEQBA5GZWRvcmEgUHJvamVjdDA4BA12ZW5kb3JWZXJzaW9uMScEJUZlZG9yY
       S1EaXJlY3RvcnkvMS4wLjQgQjIwMDcuMzA0LjExMzgw
     </example>
-    <param pos="0" name="service.vendor" value="Fedora Project"/>
+    <param pos="0" name="service.vendor" value="Red Hat"/>
     <param pos="0" name="service.product" value="Fedora Directory Server"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
