@@ -1,4 +1,8 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Notes: Ruby will fail to build the RegExp if it contains \x84 which is a standard
+         byte in ASN.1 Sequence length fields.
+-->
 <fingerprints matches="ldap.search_result" protocol="ldap" database_type="service" preference=".80">
 
   <!--
@@ -54,7 +58,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2016"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2016"/></fingerprint>
+  </fingerprint>
 
   <fingerprint pattern="(?im:1.2.840.113556.1.4.1851.*domainControllerFunctionality1.{1,5}\x04\x017)">
     <description>Microsoft LDS on Windows Server Server 2016</description>
@@ -67,7 +71,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2016"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2016"/></fingerprint>
+  </fingerprint>
 
   <fingerprint pattern="(?im:domainControllerFunctionality1.{1,5}\x04\x017)">
     <description>Windows Server Server 2016</description>
@@ -77,7 +81,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2016"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2016"/></fingerprint>
+  </fingerprint>
 
 
 
@@ -93,7 +97,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2012"/></fingerprint>
+  </fingerprint>
 
   <fingerprint pattern="(?im:1.2.840.113556.1.4.1851.*domainControllerFunctionality1.{1,5}\x04\x016)">
     <description>Microsoft LDS on Windows Server Server 2012 R2</description>
@@ -106,7 +110,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2012"/></fingerprint>
+  </fingerprint>
 
   <fingerprint pattern="(?im:domainControllerFunctionality1.{1,5}\x04\x016)">
     <description>Windows Server Server 2012 R2</description>
@@ -116,7 +120,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2012"/></fingerprint>
+  </fingerprint>
 
 
 
@@ -132,7 +136,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2012"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2012"/></fingerprint>
+  </fingerprint>
 
   <fingerprint pattern="(?im:1.2.840.113556.1.4.1851.*domainControllerFunctionality1.{1,5}\x04\x015)">
     <description>Microsoft LDS on Windows Server 2012 R2</description>
@@ -145,7 +149,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2012"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2012"/></fingerprint>
+  </fingerprint>
 
   <fingerprint pattern="(?im:domainControllerFunctionality1.{1,5}\x04\x015)">
     <description>Windows Server Server 2012</description>
@@ -155,7 +159,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2012"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2012"/></fingerprint>
+  </fingerprint>
 
   <!-- Windows 2008 R2 -->
   <fingerprint pattern="(?im:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x014)">
@@ -169,7 +173,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008"/></fingerprint>
+  </fingerprint>
 
   <fingerprint pattern="(?im:1.2.840.113556.1.4.1851.*domainControllerFunctionality1.{1,5}\x04\x014)">
     <description>Microsoft LDS on Windows Server Server 2008 R2</description>
@@ -182,7 +186,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008"/></fingerprint>
+  </fingerprint>
 
   <!--
     This generic match for domainControllerFunctionality =  4 will capture
@@ -196,7 +200,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008"/></fingerprint>
+  </fingerprint>
 
   <!-- Windows 2008 -->
   <fingerprint pattern="(?im:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x013)">
@@ -210,7 +214,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008"/></fingerprint>
+  </fingerprint>
 
   <fingerprint pattern="(?im:1.2.840.113556.1.4.1851.*domainControllerFunctionality1.{1,5}\x04\x013)">
     <description>Microsoft LDS on Windows Server 2008</description>
@@ -223,7 +227,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008"/></fingerprint>
+  </fingerprint>
 
   <fingerprint pattern="(?im:domainControllerFunctionality1.{1,5}\x04\x013)">
     <description>Windows Server Server 2008</description>
@@ -233,7 +237,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008"/></fingerprint>
+  </fingerprint>
 
   <!-- Windows 2003 -->
   <fingerprint pattern="(?im:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x012)">
@@ -247,7 +251,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2003"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2003"/></fingerprint>
+  </fingerprint>
 
   <fingerprint pattern="(?im:1.2.840.113556.1.4.1851.*domainControllerFunctionality1.{1,5}\x04\x012)">
     <description>Microsoft LDS on Windows Server 2003</description>
@@ -260,7 +264,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2003"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2003"/></fingerprint>
+  </fingerprint>
 
   <fingerprint pattern="(?im:domainControllerFunctionality1.{1,5}\x04\x012)">
     <description>Windows Server Server 2003</description>
@@ -270,7 +274,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2003"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2003"/></fingerprint>
+  </fingerprint>
 
   <!-- Win Server 2000 Service Pack 3 only has two matching supportedCapabilities OIDs, match them and look for explicit end-->
   <fingerprint pattern="(?im:supportedCapabilities1.{1,5}\x04\x161.2.840.113556.1.4.800\x04\x171.2.840.113556.1.4.17910.{1,5}\x04.(?:supportedControl|isSynchronized))">
@@ -314,7 +318,7 @@
     </example>
     <param pos="0" name="service.vendor" value="OpenLDAP"/>
     <param pos="0" name="service.product" value="OpenLDAP"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:openldap:openldap"/></fingerprint>
+  </fingerprint>
 
   <fingerprint pattern="(?i:namingcontexts1.\x04.fn=ContactRoot0.[\x02\x04])">
     <description>Kerio Connect</description>
@@ -324,7 +328,7 @@
     </example>
     <param pos="0" name="service.vendor" value="Kerio"/>
     <param pos="0" name="service.product" value="Connect"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:kerio:connect"/></fingerprint>
+  </fingerprint>
 
   <fingerprint pattern="(?im:vmwPlatformServicesControllerVersion1.\x04.(\d\.\d\.\d)0.)">
     <description>VMware Platform Services Controller</description>
@@ -475,7 +479,7 @@
     <param pos="0" name="service.vendor" value="Novell"/>
     <param pos="0" name="service.product" value="eDirectory"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:novell:edirectory:{service.version}"/></fingerprint>
+  </fingerprint>
 
   <!-- Various iterations of Sun, now Oracle, Directory Server -->
   <fingerprint pattern="(?i:vendorname1\x18\x04\x16Sun Microsystems, Inc.0.+\x04\rvendorversion1.{1,2}\x04.{1,2}Sun[- ]Java\(tm\)[- ]System[- ]Directory(?: Server)?/(\d\.\d+[\w.]*)0.{1,3}\x04)">
@@ -578,7 +582,7 @@
     <param pos="0" name="service.vendor" value="IBM"/>
     <param pos="0" name="service.product" value="Security Directory Server"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:ibm:security_directory_server:{service.version}"/></fingerprint>
+  </fingerprint>
 
   <fingerprint pattern="(?im:vendorname1.+?\x04%International Business Machines \(IBM\)0.+?\x04\rvendorversion1.+?\x04.([\d.]+)0.[\x00\x02\x04])">
     <description>IBM Security Directory Server</description>
@@ -593,7 +597,7 @@
     <param pos="0" name="service.vendor" value="IBM"/>
     <param pos="0" name="service.product" value="Security Directory Server"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:ibm:security_directory_server:{service.version}"/></fingerprint>
+  </fingerprint>
 
   <fingerprint pattern="(?im:vendorName1.\x00\x00\x00\v\x04\tMirapoint0.\x00\x00\x00.\x04\rvendorVersion1.\x00\x00\x00.\x04.([\d.]+)0.\x00)">
     <description>Mirapoint LDAP Server</description>
@@ -693,7 +697,7 @@
     <param pos="0" name="service.vendor" value="innovaphone"/>
     <param pos="0" name="service.family" value="VoiP Gateway"/>
     <param pos="1" name="service.product"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:innovaphone:{service.product}"/></fingerprint>
+  </fingerprint>
 
   <fingerprint pattern="(?im:namingContexts1.\x04.cn=.?pbx.*\x04.ldapServiceName1.\x04.(IPBS\d*)-\w+-)">
     <description>Ascom IP-DECT Base Station</description>

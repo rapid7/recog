@@ -1,4 +1,7 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SIP Server header values are matched against these patterns to fingerprint SIP devices.
+-->
 <fingerprints matches="sip_header.server" protocol="sip" database_type="service">
   <fingerprint pattern="^Cisco-SIPGateway/IOS-([\d\.x]+)$">
     <description>Cisco SIPGateway</description>
@@ -6,7 +9,7 @@
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.product" value="IOS"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:cisco:ios:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^TANDBERG/\d+ \(([a-zA-Z]+\d+(?:\.\d+)+).*\)">
     <description>Cisco TelePresence</description>
     <example os.version="X8.2.1">TANDBERG/4130 (X8.2.1)</example>

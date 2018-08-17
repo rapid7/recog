@@ -1,4 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- UPnP Server headers are matched against these patterns to fingerprint UPnP servers. -->
 <fingerprints matches="ssdp_header.server" protocol="ssdp" database_type="service" preference="0.70">
   <fingerprint pattern="^Linux/(\S+) UPnP/[\d\.]+ miniupnpd/([\d\.]+)$" flags="REG_ICASE">
     <description>Linux MiniUPnPd UPnP Server</description>
@@ -28,7 +29,7 @@
     <param pos="0" name="os.vendor" value="Unknown"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:unknown:linux:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Tomato UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>Tomato UPnP Server</description>
     <example>Tomato UPnP/1.0 MiniUPnPd/1.2</example>
@@ -45,7 +46,7 @@
     <param pos="0" name="os.vendor" value="Asus"/>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="WAP"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:asus:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^DrayTek/Vigor(\S+) UPnP/\S+ miniupnpd/(\S+)$" flags="REG_ICASE">
     <description>DrayTek Vigor router UPnP Server</description>
     <example>DrayTek/Vigor2130 UPnP/1.0 miniupnpd/1.0</example>
@@ -55,7 +56,7 @@
     <param pos="0" name="os.family" value="Vigor"/>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Router"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:draytek:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^OpenWRT/kamikaze UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
     <description>OpenWRT Kamikaze WAP UPnP Server</description>
     <example>OpenWRT/kamikaze UPnP/1.0 MiniUPnPd/1.5</example>
@@ -77,7 +78,7 @@
     <param pos="0" name="os.vendor" value="Netgear"/>
     <param pos="0" name="os.product" value="Unknown"/>
     <param pos="0" name="os.device" value="WAP"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:netgear:unknown"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^[^/]+/(\S+) DLNADOC/\S+ UPnP/\S+ MiniDLNA/(\S+)$">
     <description>DLNADOC UPnP Server</description>
     <example>Debian/4.0r8 DLNADOC/1.50 UPnP/1.0 MiniDLNA/1.0</example>
@@ -132,7 +133,7 @@
     <param pos="0" name="os.vendor" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:linux:linux:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Debian\/(\S+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
     <description>miniupnpd on a Debian variant</description>
     <example os.version="wheezy/sid" service.version="1.8">Debian/wheezy/sid UPnP/1.1 MiniUPnPd/1.8</example>
@@ -143,7 +144,7 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.certainty" value="0.5"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:debian:linux:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Fedora(?:Core)?\/(\S+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
     <description>miniupnpd on a Fedora variant</description>
     <example os.version="10" service.version="1.4">Fedora/10 UPnP/1.0 MiniUPnPd/1.4</example>
@@ -155,7 +156,7 @@
     <param pos="0" name="os.vendor" value="Red Hat"/>
     <param pos="0" name="os.product" value="Fedora Core Linux"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:red_hat:fedora:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Ubuntu\/(\S+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
     <description>miniupnpd on an Ubuntu variant</description>
     <example os.version="10.04" service.version="1.0">Ubuntu/10.04 UPnP/1.0 miniupnpd/1.0</example>
@@ -168,7 +169,7 @@
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:ubuntu:linux:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Linux Mips (\S+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
     <description>Linux MIPS UPnP Server</description>
     <example>Linux Mips 2.4.20 UPnP/1.0 MiniUPnPd/1.2</example>
@@ -177,14 +178,14 @@
     <param pos="0" name="os.vendor" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:linux:linux:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^SmoothWall Express/\S+ UPnP/\S+ miniupnpd/(\S+)$" flags="REG_ICASE">
     <description>Smoothwall Express UPnP Server</description>
     <example>SmoothWall Express/3.0 UPnP/1.0 miniupnpd/1.0</example>
     <param pos="0" name="service.vendor" value="Smoothwall"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:smoothwall:miniupnp:{service.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(\S+) \d+/Service Pack \d+, UPnP/[\d\.]+, TVersity Media Server$">
     <description>TVersity Media Server UPnP Server</description>
     <example>5.2.3790 2/Service Pack 1, UPnP/1.0, TVersity Media Server</example>
@@ -219,7 +220,7 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.device" value="Router"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:linksys:linux:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Linux-(\S+), UPnP/[\d\.]+, PMS/([\d\.]+)$">
     <description>PlayStation3 Media Server UPnP Server</description>
     <example>Linux-amd64-2.6.18-238.9.1.el5, UPnP/1.0, PMS/1.52.1</example>
@@ -268,7 +269,7 @@
     <param pos="0" name="os.vendor" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:linux:linux:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Windows_XP-(\S+), UPnP/[\d\.]+, PMS/([\d\.]+)$">
     <description>PlayStation3 Media Server UPnP Server</description>
     <example>Windows_XP-amd64-5.2, UPnP/1.0, PMS/1.54.0</example>
@@ -303,7 +304,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows XP"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_xp:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Windows_7-x86-(\S+), UPnP/[\d\.]+, PMS/([\d\.]+)$">
     <description>PlayStation3 Media Server UPnP Server</description>
     <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.20</example>
@@ -331,7 +332,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows 7"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_7:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Windows_7-x86_64-(\S+), UPnP/[\d\.]+, PMS/([\d\.]+)$">
     <description>PlayStation3 Media Server UPnP Server</description>
     <param pos="0" name="service.vendor" value="Sony"/>
@@ -340,13 +341,13 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows 7"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_7:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Microsoft-Windows/6.2 UPnP/(?:\S+) UPnP-Device-Host/(?:\S+)$">
     <description>Windows 8 or Windows Server 2012 with unknown UPnP components</description>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows 8"/>
     <param pos="0" name="os.certainty" value="0.65"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_8"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Mac_OS_X-x86_64-(\S+), UPnP/[\d\.]+, PMS/([\d\.]+)$">
     <description>PlayStation3 Media Server UPnP Server</description>
     <example>Mac_OS_X-x86_64-10.5.8, UPnP/1.0, PMS/1.20</example>
@@ -412,7 +413,7 @@
     <param pos="0" name="os.vendor" value="Apple"/>
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:apple:mac_os_x:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Linux/(\S+), UPnP/\S+, Free UPnP Entertainment Service/ReadyNAS$">
     <description>Free UPnP Entertainment Service UPnP Server</description>
     <param pos="0" name="service.vendor" value="Unknown"/>
@@ -420,7 +421,7 @@
     <param pos="0" name="os.vendor" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:linux:linux:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Linux/(\S+), UPnP/\S+, Free UPnP Entertainment Service/$">
     <description>Free UPnP Entertainment Service UPnP Server</description>
     <param pos="0" name="service.vendor" value="Unknown"/>
@@ -428,7 +429,7 @@
     <param pos="0" name="os.vendor" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:linux:linux:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^FreeBSD/(\S+), UPnP/\S+, Free UPnP Entertainment Service/$">
     <description>Free UPnP Entertainment Service UPnP Server</description>
     <param pos="0" name="service.vendor" value="Unknown"/>
@@ -436,7 +437,7 @@
     <param pos="0" name="os.vendor" value="FreeBSD"/>
     <param pos="0" name="os.product" value="FreeBSD"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:freebsd:freebsd:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^ipOS/([\d\.]+) UPnP/[\d\.]+ ipUPnP/([\d\.]+)$">
     <description>D-Link WAP Dynamic DNS UPnP Server</description>
     <param pos="0" name="service.vendor" value="D-Link"/>
@@ -475,7 +476,7 @@
     <param pos="0" name="os.product" value="ipOS"/>
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.device" value="WAP"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:tp-link:{service.product}:{service.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Linux/(\S+), UPnP/[\d\.]+, Portable SDK for UPnP devices/(\S+)$">
     <description>Portable SDK for UPnP Server</description>
     <example>Linux/2.4.20-46.7asp, UPnP/1.0, Portable SDK for UPnP devices/1.6.17</example>
@@ -501,7 +502,7 @@
     <param pos="0" name="os.vendor" value="Unknown"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:unknown:libupnp:{service.version}"/><param pos="0" name="os.cpe" value="cpe:/o:unknown:linux:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Linux/(\S+) UPnP/[\d\.]+ DLNADOC/[\d\.]+ Portable SDK for UPnP devices/(\S+)$">
     <description>DLNADOC Portable SDK for UPnP Server</description>
     <example>Linux/3.0.8 UPnP/1.0 DLNADOC/1.50 Portable SDK for UPnP devices/1.6.6</example>
@@ -512,7 +513,7 @@
     <param pos="0" name="os.vendor" value="Unknown"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:unknown:libupnp:{service.version}"/><param pos="0" name="os.cpe" value="cpe:/o:unknown:linux:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Linux/(\S+), UPnP/[\d\.]+, Intel SDK for UPnP devices ?/(\S+)$">
     <description>Intel SDK for UPnP Server</description>
     <example>Linux/3.2.0-3-686-pae, UPnP/1.0, Intel SDK for UPnP devices/1.3.1</example>
@@ -542,14 +543,14 @@
     <param pos="0" name="os.vendor" value="Unknown"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:unknown:libupnp:{service.version}"/><param pos="0" name="os.cpe" value="cpe:/o:unknown:linux:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Linux, UPnP/[\d\.]+, Intel SDK for UPnP devices ?/(\S+)$">
     <description>Intel SDK for UPnP Server</description>
     <example>Linux, UPnP/1.0, Intel SDK for UPnP devices /1.2</example>
     <param pos="0" name="service.vendor" value="Unknown"/>
     <param pos="0" name="service.product" value="libupnp"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:unknown:libupnp:{service.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Darwin/(\S+), UPnP/\S+, Portable SDK for UPnP devices/(\S+)$">
     <description>Portable SDK for UPnP Server</description>
     <example>Darwin/10.2.0, UPnP/1.0, Portable SDK for UPnP devices/1.6.6</example>
@@ -582,7 +583,7 @@
     <param pos="0" name="os.vendor" value="Apple"/>
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:unknown:libupnp:{service.version}"/><param pos="0" name="os.cpe" value="cpe:/o:apple:mac_os_x:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^UPnP/\S+, DLNADOC/\S+, Platinum/(\S+)$">
     <description>Xbox Media Center UPnP Server</description>
     <example>UPnP/1.0, DLNADOC/1.50, Platinum/0.5.1</example>
@@ -592,5 +593,5 @@
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.product" value="XBMC"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:microsoft:xbmc:{service.version}"/></fingerprint>
+  </fingerprint>
 </fingerprints>

@@ -1,4 +1,7 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SIP User Agent header values are matched against these patterns to fingerprint SIP devices.
+-->
 <fingerprints matches="sip_header.user_agent" protocol="sip" database_type="service">
   <!-- Cisco Devices -->
   <fingerprint pattern="^Cisco-SIPGateway/IOS-([\d\.x]+)$">
@@ -7,14 +10,14 @@
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.product" value="IOS"/>
     <param pos="1" name="os.version"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:cisco:ios:{os.version}"/></fingerprint>
+  </fingerprint>
   <!-- AVM.DE Devices -->
   <fingerprint pattern="^FRITZ!OS$">
     <description>AVM FritzOS Device</description>
     <example>FRITZ!OS</example>
     <param pos="0" name="os.vendor" value="AVM"/>
     <param pos="0" name="os.product" value="FRITZ!BOX"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:avm:fritz!box"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(?:AVM )?(FRITZ!Box .*) +(\d+\.\d+\.\d+)">
     <description>AVM FritzBox</description>
     <example>AVM FRITZ!Box Fon 06.03.13</example>
@@ -44,7 +47,7 @@
     <param pos="0" name="os.family" value="FRITZ!Box"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:avm:{os.product}:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(?:AVM )?(FRITZ!Fon .*) +(\d+\.\d+\.\d+)">
     <description>AVM FritzFon</description>
     <example>AVM FRITZ!Fon 7150 (fs) 38.04.56 (Mar 31 2008)</example>
@@ -53,7 +56,7 @@
     <param pos="0" name="os.family" value="FRITZ!Fon"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:avm:{os.product}:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(?:AVM )?(Multibox .*) +(\d+\.\d+\.\d+)">
     <description>AVM Multibox</description>
     <example>AVM Multibox 7390 NGN 84.05.09 (Jan 13 2012)</example>
@@ -61,5 +64,5 @@
     <param pos="0" name="os.family" value="Multibox"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:avm:{os.product}:{os.version}"/></fingerprint>
+  </fingerprint>
 </fingerprints>

@@ -1,4 +1,12 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+For printers running the PJL protocol (usually on 9100/tcp), their type can be requested
+by the INFO ID command. The printer types (strings surrounded by double quotes) are
+matched against these patterns to fingerprint the printer.
+
+'preference' notes: The value has been explicitly set to 0.10 due to the very loose
+regex that is used here.
+-->
 <fingerprints protocol="pjl" database_type="service" preference="0.10">
   <!--
    LaserJet and Designjet are registered trademarks of HP. Therefore matching for the keywords
@@ -37,7 +45,7 @@
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="0" name="os.family" value="LaserJet"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="(designjet \S+)" flags="REG_ICASE">
     <description>HP Designjet printer</description>
     <example>hp designjet 110plus</example>
@@ -51,7 +59,7 @@
     <param pos="0" name="os.family" value="DesignJet"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Xerox ColorQube (\S+)$">
     <description>Xerox ColorQube Multifunction Printer</description>
     <example>Xerox ColorQube 8570DN</example>
@@ -61,14 +69,14 @@
     <param pos="0" name="os.family" value="ColorQube"/>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:xerox:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Brother (.+)$">
     <description>Brother Printer</description>
     <example>Brother HL-1660e</example>
     <param pos="0" name="os.vendor" value="Brother"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:brother:{os.product}"/></fingerprint>
+  </fingerprint>
   <!-- Assert the product range as a product fingerprint. -->
   <fingerprint pattern="^(iR ?\S+)">
     <description>Canon iR multifunction device</description>
@@ -79,7 +87,7 @@
     <param pos="0" name="os.family" value="iR Series"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:canon:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(?:Dell (?:Color Laser |Laser Printer )?|(?:Color Laser |Laser Printer ))(\d+(?:n|cn|dn|cdn))(?: Color Laser| Laser Printer)?$">
     <description>Dell Laser Printer</description>
     <example>Dell Laser Printer 1710n</example>
@@ -96,7 +104,7 @@
     <param pos="0" name="os.family" value="Laser Printer"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:dell:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Dell (\d+(?:n|cn|dn|cdn)) MFP$">
     <description>Dell Laser multifunction device</description>
     <example>Dell 2135cn MFP</example>
@@ -105,7 +113,7 @@
     <param pos="0" name="os.family" value="Laser Printer"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:dell:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^HP (\S+ Digital Sender)$">
     <description>HP Digital Sender scanner</description>
     <example>HP 9250C Digital Sender</example>
@@ -113,21 +121,21 @@
     <param pos="0" name="os.device" value="Scanner"/>
     <param pos="0" name="os.family" value="Digital Sender"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:hp:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(?:IBM )?Infoprint(?: Color)? (\S+)$">
     <description>IBM Infoprint Printer</description>
     <param pos="0" name="os.vendor" value="IBM"/>
     <param pos="0" name="os.family" value="Infoprint"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:ibm:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^KM-(.*)$">
     <description>Konica Minolta printer</description>
     <example>KM-5050</example>
     <param pos="0" name="os.vendor" value="Lexmark"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:lexmark:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(FS-\S+MFP\S*)$">
     <description>Kyocera Mita Multifunction device</description>
     <example>FS-C2126MFP</example>
@@ -166,7 +174,7 @@
     <param pos="0" name="os.vendor" value="Lexmark"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:lexmark:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Oce (fx[^\s:]+):.*$" flags="REG_ICASE">
     <description>Oce FX series multifunction device</description>
     <example os.product="fx3000">Oce fx3000:8C5-B29:Ver.D:U0707161719:B0601271355</example>
@@ -230,7 +238,7 @@
     <param pos="0" name="os.family" value="Aficio"/>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Printer"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:ricoh:{os.product}"/></fingerprint>
+  </fingerprint>
   <!-- NRG was acquired by Ricoh; classify NRG printers as such.
          Be consistent with snmp_sysdescr.xml. -->
   <fingerprint pattern="^NRG ([MS]P \S+)$" flags="REG_ICASE">
@@ -246,7 +254,7 @@
     <param pos="0" name="os.vendor" value="Ricoh"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:ricoh:{os.product}"/></fingerprint>
+  </fingerprint>
   <!-- Gestetner == NRG, and was acquired by Ricoh.
          Assert the range of products as os.product. -->
   <fingerprint pattern="^Gestetner (MP\S+/DSc\S+)$" flags="REG_ICASE">
@@ -255,7 +263,7 @@
     <param pos="0" name="os.vendor" value="Ricoh"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:ricoh:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^HYDRA$" flags="REG_ICASE">
     <description>RSI Hydra printer</description>
     <example>HYDRA</example>
@@ -277,7 +285,7 @@
     <param pos="0" name="os.vendor" value="Samsung"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:samsung:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Samsung ((?:ML|CLP)-\S+) Series$" flags="REG_ICASE">
     <description>Samsung printer</description>
     <example>Samsung CLP-680 Series</example>
@@ -285,7 +293,7 @@
     <param pos="0" name="os.vendor" value="Samsung"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:samsung:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^SHARP (\S+-\S+) .*$" flags="REG_ICASE">
     <description>Sharp Printer</description>
     <example>Sharp MX-NBX3 18-Mar-08 10:22</example>
@@ -293,7 +301,7 @@
     <param pos="0" name="os.vendor" value="Sharp"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:sharp:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Source Technologies (\S+)$" flags="REG_ICASE">
     <description>Source Technologies Printer</description>
     <example>Source Technologies ST-9620</example>
@@ -312,7 +320,7 @@
     <param pos="0" name="os.family" value="e-STUDIO"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:toshiba:{os.product}"/></fingerprint>
+  </fingerprint>
   <!-- TODO:
         Xerox AccXES devices are documented to return:
 
@@ -353,7 +361,7 @@
     <param pos="0" name="os.family" value="Phaser"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:xerox:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Xerox (WorkCentre .*)$" certainty="0.9">
     <description>Xerox Workcentre Printer</description>
     <example>Xerox WorkCentre 7425</example>
@@ -363,7 +371,7 @@
     <param pos="0" name="os.family" value="WorkCentre"/>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Printer"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:xerox:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(XC\S+)$" certainty="0.9">
     <description>Xerox XC Printer</description>
     <example>XC560</example>
@@ -371,7 +379,7 @@
     <param pos="0" name="os.family" value="XC"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:xerox:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(DC\S+)$" certainty="0.9">
     <description>Xerox DocuColor Printer</description>
     <example>DC250</example>
@@ -379,7 +387,7 @@
     <param pos="0" name="os.family" value="DocuColor"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:xerox:{os.product}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(EX\d+-\d+)$" certainty="0.9">
     <description>Xerox EX Print Server, powered by EFI Fiery</description>
     <example>EX4112-4127</example>
@@ -387,5 +395,5 @@
     <param pos="0" name="os.family" value="EX"/>
     <param pos="0" name="os.device" value="Print server"/>
     <param pos="1" name="os.product"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:xerox:{os.product}"/></fingerprint>
+  </fingerprint>
 </fingerprints>

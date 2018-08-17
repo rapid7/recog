@@ -1,4 +1,8 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SMB fingerprints obtained from the Native LM (LAN manager) field of SMB
+  negotations
+-->
 <fingerprints matches="smb.native_lm" protocol="smb" database_type="service">
   <!-- Mac OS X -->
   <fingerprint pattern="^Samba (3\.0\.28a-apple)$">
@@ -12,7 +16,7 @@
     <param pos="0" name="service.vendor" value="Samba"/>
     <param pos="0" name="service.product" value="Samba"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:samba:samba:{service.version}"/><param pos="0" name="os.cpe" value="cpe:/o:apple:mac_os_x:10.6"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Samba (3\.0\.25b-apple)$">
     <description>Samba on OS X 10.5</description>
     <example service.version="3.0.25b-apple">Samba 3.0.25b-apple</example>
@@ -24,7 +28,7 @@
     <param pos="0" name="service.vendor" value="Samba"/>
     <param pos="0" name="service.product" value="Samba"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:samba:samba:{service.version}"/><param pos="0" name="os.cpe" value="cpe:/o:apple:mac_os_x:10.5"/></fingerprint>
+  </fingerprint>
   <!-- TODO: Detect vendor, distribution, and package versions -->
   <fingerprint pattern="^Samba (\d\.\d+.\d+\w*)">
     <description>Samba</description>
@@ -37,5 +41,5 @@
     <param pos="0" name="service.vendor" value="Samba"/>
     <param pos="0" name="service.product" value="Samba"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:samba:samba:{service.version}"/></fingerprint>
+  </fingerprint>
 </fingerprints>

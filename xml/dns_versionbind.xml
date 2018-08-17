@@ -1,4 +1,14 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  This fingerprint file matches the text string response from a DNS
+  version.bind request.
+
+  For example, the string 'dnsmasq-2.76-1-ubnt2' emitted by the command below:
+
+  $ nslookup -type=txt -class=chaos VERSION.BIND <dns_server> | grep VERSION.BIND | cut -d\" -f2
+  dnsmasq-2.76-1-ubnt2
+
+-->
 <fingerprints matches="dns.versionbind" protocol="dns" database_type="service" preference="0.750">
   <!-- Red Hat package naming:
        https://fedoraproject.org/wiki/Packaging:DistTag
@@ -25,7 +35,7 @@
     <param pos="0" name="os.product" value="Enterprise Linux"/>
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.version.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:isc:bind:{service.version}"/><param pos="0" name="os.cpe" value="cpe:/o:red_hat:enterprise_linux:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(9.[^-]+(?:-rl[.\d]+)?(?:-[SP]\d)?)-RedHat-[\d.]+-[\w.]+fc([\d]+)$">
     <description>ISC BIND: Fedora</description>
     <example service.version="9.10.4-P8">9.10.4-P8-RedHat-9.10.4-4.P8.fc25</example>
@@ -40,7 +50,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Fedora"/>
     <param pos="2" name="os.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:isc:bind:{service.version}"/><param pos="0" name="os.cpe" value="cpe:/o:fedora:fedora:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)-RedHat-[\w.-]+amzn1$">
     <description>ISC BIND: Red Hat - Amazon hosted</description>
     <example service.version="9.8.2rc1">9.8.2rc1-RedHat-9.8.2-0.37.rc1.45.amzn1</example>
@@ -52,7 +62,7 @@
     <param pos="0" name="os.vendor" value="Red Hat"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Linux"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:isc:bind:{service.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="(9.[^-]+(?:-[SP]\d)?)-RedHat-[\w.-]+alios([\d\.]+)$">
     <description>ISC BIND: Red Hat - Alibaba Customized EL</description>
     <example service.version="9.9.9-P3" os.version="6">9.9.9-P3-RedHat-9.9.9-2.1.alios6</example>
@@ -66,7 +76,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Enterprise Linux"/>
     <param pos="2" name="os.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:isc:bind:{service.version}"/><param pos="0" name="os.cpe" value="cpe:/o:red_hat:enterprise_linux:{os.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(9.[^-]+(?:rc\d)?(?:-[SP]\d)?)-RedHat-[\d.-]+(?:[-\.][SP]\d)?(?:rc[\d\.]+)?$">
     <description>ISC BIND: Red Hat nonspecific platform</description>
     <example service.version="9.9.10-P2">9.9.10-P2-RedHat-9.9.10-P2</example>
@@ -79,7 +89,7 @@
     <param pos="0" name="os.vendor" value="Red Hat"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:isc:bind:{service.version}"/><param pos="0" name="os.cpe" value="cpe:/o:red_hat:linux"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)-[\d.]+ubuntu[\d.]+-Ubuntu$">
     <description>ISC BIND: Ubuntu</description>
     <example service.version="9.9.5">9.9.5-11ubuntu1.1-Ubuntu</example>
@@ -91,7 +101,7 @@
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:isc:bind:{service.version}"/><param pos="0" name="os.cpe" value="cpe:/o:ubuntu:linux"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(9.[^-]+-rpz\d?[+.]rl[\d.]+(?:-[SP]\d)?)-Ubuntu-[\d\.:]+[\w\.]+(?:-[SP]\d)?-\d?ubuntu[\d\.]+$">
     <description>ISC BIND: Ubuntu with Response Policy Zone and Request Limiting patches</description>
     <example service.version="9.9.3-rpz2+rl.13214.22-P2">9.9.3-rpz2+rl.13214.22-P2-Ubuntu-1:9.9.3.dfsg.P2-4ubuntu1.1</example>
@@ -102,7 +112,7 @@
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:isc:bind:{service.version}"/><param pos="0" name="os.cpe" value="cpe:/o:ubuntu:linux"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)(?:-[\d\.]+)?-Ubuntu$">
     <description>ISC BIND: Ubuntu short</description>
     <example service.version="9.10.3-P4">9.10.3-P4-Ubuntu</example>
@@ -115,7 +125,7 @@
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:isc:bind:{service.version}"/><param pos="0" name="os.cpe" value="cpe:/o:ubuntu:linux"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(9.[\d\.]+(?:[+-]rpz\d?[+.]rl[\d.]+)?(?:-[SP]\d)?).*[+-]zentyal\d*">
     <description>ISC BIND: Ubuntu Zentyal custom distribution</description>
     <example service.version="9.9.5">9.9.5-3+zentyal-Ubuntu</example>
@@ -128,7 +138,7 @@
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Zentyal"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:isc:bind:{service.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)-9\+deb8u[\w~\.]+-Debian$">
     <description>ISC BIND: Debian Jessie</description>
     <example service.version="9.9.5">9.9.5-9+deb8u11-Debian</example>
@@ -141,7 +151,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="8.0"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:isc:bind:{service.version}"/><param pos="0" name="os.cpe" value="cpe:/o:debian:linux:8.0"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)-9wheezy\w+-Debian$">
     <description>ISC BIND: Debian Wheezy</description>
     <example service.version="9.9.5">9.9.5-9wheezy1-Debian</example>
@@ -153,7 +163,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="7.0"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:isc:bind:{service.version}"/><param pos="0" name="os.cpe" value="cpe:/o:debian:linux:7.0"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)-(?:[\d\.]+-)?Debian$">
     <description>ISC BIND: Debian no version simple</description>
     <example service.version="9.10.3-P4">9.10.3-P4-Debian</example>
@@ -166,7 +176,7 @@
     <param pos="0" name="os.vendor" value="Debian"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:isc:bind:{service.version}"/><param pos="0" name="os.cpe" value="cpe:/o:debian:linux"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(9\.\d{1,2}\.\d{1,2}-rpz\d?[+.]rl[\d.]+(?:-[SPW]\d+)?)$">
     <description>ISC BIND: Response Policy Zone and Request Limiting patches</description>
     <example service.version="9.8.4-rpz2+rl005.12-P1">9.8.4-rpz2+rl005.12-P1</example>
@@ -175,7 +185,7 @@
     <param pos="0" name="service.family" value="BIND"/>
     <param pos="0" name="service.product" value="BIND"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:isc:bind:{service.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^DNS Server BIND (9\.\d{1,2}-ESV(?:-R\d+)?(?:-[SPW]\d+)?)$">
     <description>ISC BIND: ESV</description>
     <example service.version="9.6-ESV-R7-P2">DNS Server BIND 9.6-ESV-R7-P2</example>
@@ -183,7 +193,7 @@
     <param pos="0" name="service.family" value="BIND"/>
     <param pos="0" name="service.product" value="BIND"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:isc:bind:{service.version}"/></fingerprint>
+  </fingerprint>
   <!--
     FP below might be overly specific, trying to avoid false positive when
     matching cross-service/protocol.
@@ -208,7 +218,7 @@
     <param pos="0" name="service.family" value="BIND"/>
     <param pos="0" name="service.product" value="BIND"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:isc:bind:{service.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^dnsmasq-(\d.[\w\.]+)$">
     <description>dnsmasq: simple</description>
     <example service.version="2.40">dnsmasq-2.40</example>
@@ -219,7 +229,7 @@
     <param pos="0" name="service.family" value="Dnsmasq"/>
     <param pos="0" name="service.product" value="Dnsmasq"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:thekelleys:dnsmasq:{service.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^dnsmasq-(\d.[\w]+-\d)-ubnt\d$">
     <description>dnsmasq: Ubiquiti</description>
     <example service.version="2.76-1">dnsmasq-2.76-1-ubnt2</example>
@@ -228,7 +238,7 @@
     <param pos="0" name="service.product" value="Dnsmasq"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="hw.vendor" value="Ubiquiti"/>
-    <param pos="0" name="service.cpe" value="cpe:/a:thekelleys:dnsmasq:{service.version}"/><!-- Not including more info at this time as I'm not sure this doesn't
+    <!-- Not including more info at this time as I'm not sure this doesn't
          run on products other than EdgeRouter.
     -->
   </fingerprint>
@@ -239,7 +249,7 @@
     <param pos="0" name="service.family" value="Dnsmasq"/>
     <param pos="0" name="service.product" value="Dnsmasq"/>
     <param pos="1" name="service.version"/>
-    <param pos="0" name="service.cpe" value="cpe:/a:thekelleys:dnsmasq:{service.version}"/><!-- Seems to correlate with OpenWRT and Netgear but I haven't been able
+    <!-- Seems to correlate with OpenWRT and Netgear but I haven't been able
          to verify that it isn't used elsewhere.
     -->
   </fingerprint>
@@ -251,7 +261,7 @@
     <param pos="0" name="service.vendor" value="Thekelleys"/>
     <param pos="0" name="service.family" value="Dnsmasq"/>
     <param pos="0" name="service.product" value="Dnsmasq"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:thekelleys:dnsmasq"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^PowerDNS Recursor (\d\.[\d.]+(?:-\w+)?) \(\w+@[\w.]+ built \d+ \w+@[\w.-]*\)$">
     <description>PowerDNS Recursor</description>
     <example service.version="3.6.2">PowerDNS Recursor 3.6.2 (jenkins@autotest.powerdns.com built 20141031140810 mockbuild@)</example>
@@ -260,7 +270,7 @@
     <param pos="0" name="service.family" value="PowerDNS"/>
     <param pos="0" name="service.product" value="Recursor"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:powerdns:recursor:{service.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^PowerDNS Recursor (\d\.[\d.]+) \(built [\w\s:]+ by [\w]+\@[\w.-]*\)$">
     <description>PowerDNS Recursor: format 2</description>
     <example service.version="4.0.4">PowerDNS Recursor 4.0.4 (built Apr 13 2017 09:59:06 by root@oof-e.baz.foo.bar)</example>
@@ -268,7 +278,7 @@
     <param pos="0" name="service.family" value="PowerDNS"/>
     <param pos="0" name="service.product" value="Recursor"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:powerdns:recursor:{service.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^PowerDNS Recursor (\d\.[\d.]+(?:-\w+)?)$">
     <description>PowerDNS Recursor: version only</description>
     <example service.version="4.0.4">PowerDNS Recursor 4.0.4</example>
@@ -277,7 +287,7 @@
     <param pos="0" name="service.family" value="PowerDNS"/>
     <param pos="0" name="service.product" value="Recursor"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:powerdns:recursor:{service.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^PowerDNS Recursor (\d\.[\d.]+) \$Id[^$]*\$$">
     <description>PowerDNS Recursor: ID format</description>
     <example service.version="3.5.3">PowerDNS Recursor 3.5.3 $Id$</example>
@@ -286,14 +296,14 @@
     <param pos="0" name="service.family" value="PowerDNS"/>
     <param pos="0" name="service.product" value="Recursor"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:powerdns:recursor:{service.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^PowerDNS Recursor$">
     <description>PowerDNS Recursor: no version</description>
     <example>PowerDNS Recursor</example>
     <param pos="0" name="service.vendor" value="PowerDNS"/>
     <param pos="0" name="service.family" value="PowerDNS"/>
     <param pos="0" name="service.product" value="Recursor"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:powerdns:recursor"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^PowerDNS Authoritative Server (\d\.[\d.]+(?:-rc\d)?) \(\w+@[\w.]+ built [\d\s]+\w*@[\w.-]*\)$">
     <description>PowerDNS Authoritative Server</description>
     <example service.version="3.4.19">PowerDNS Authoritative Server 3.4.19 (jenkins@autotest.powerdns.com built 20160102220341 root@)</example>
@@ -305,7 +315,7 @@
     <param pos="0" name="service.family" value="PowerDNS"/>
     <param pos="0" name="service.product" value="Authoritative Server"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:powerdns:authoritative_server:{service.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^PowerDNS Authoritative Server (\d\.[\w.]+(?:-rc\d)?(?:-alpha\d)?(?:-beta\d)?) \(built [\w\s:]+ by [\w]+\@[\w.-:-]*\)$">
     <description>PowerDNS Authoritative Server: format 2</description>
     <example service.version="4.0.4">PowerDNS Authoritative Server 4.0.4 (built Jul 26 2017 15:04:27 by root@FreeBSD:11:amd64-default-job-03)</example>
@@ -317,7 +327,7 @@
     <param pos="0" name="service.family" value="PowerDNS"/>
     <param pos="0" name="service.product" value="Authoritative Server"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:powerdns:authoritative_server:{service.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^PowerDNS Authoritative Server (\d\.[\d.]+(?:-\w+)?)$">
     <description>PowerDNS Authoritative Server: version only</description>
     <example service.version="4.0.0">PowerDNS Authoritative Server 4.0.0</example>
@@ -326,7 +336,7 @@
     <param pos="0" name="service.family" value="PowerDNS"/>
     <param pos="0" name="service.product" value="Authoritative Server"/>
     <param pos="1" name="service.version"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:powerdns:authoritative_server:{service.version}"/></fingerprint>
+  </fingerprint>
   <!-- PowerDNS returns 'Served by ...' when the 'version-string' configuration
        value / arguement is set to 'powerdns'. If this value is set to
        'anonymous' then PowerDNS will return a ServFail DNS response
@@ -412,7 +422,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="8.0"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:isc:bind:{service.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)-(?:\d-)?Raspbian$">
     <description>ISC BIND: Raspbian based on Debian Jessie no version simple</description>
     <example service.version="9.10.3-P4">9.10.3-P4-Raspbian</example>
@@ -423,7 +433,7 @@
     <param pos="0" name="os.vendor" value="Raspbian"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-  <param pos="0" name="service.cpe" value="cpe:/a:isc:bind:{service.version}"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Knot DNS ([\d.]+(?:-dev)?)$">
     <description>Knot DNS</description>
     <example service.version="1.6.0">Knot DNS 1.6.0</example>
@@ -475,7 +485,7 @@
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2016"/>
     <param pos="1" name="os.build"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2016"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Microsoft DNS 6.3.9600(?: \(\w+\))?$">
     <description>Microsoft DNS on Windows 2012 R2</description>
     <example>Microsoft DNS 6.3.9600 (25804825)</example>
@@ -488,7 +498,7 @@
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
     <param pos="0" name="os.build" value="6.3.9600"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2012"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Microsoft DNS 6.2.9200(?: \(\w+\))?$">
     <description>Microsoft DNS on Windows 2012</description>
     <example>Microsoft DNS 6.2.9200 (23F04000)</example>
@@ -501,7 +511,7 @@
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2012"/>
     <param pos="0" name="os.build" value="6.2.9200"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2012"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Microsoft DNS 6.1.7601(?: \(\w+\))?$">
     <description>Microsoft DNS on Windows 2008 R2 Service Pack 1</description>
     <example>Microsoft DNS 6.1.7601 (1DB15CD4)</example>
@@ -516,7 +526,7 @@
     <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
     <param pos="0" name="os.version" value="Service Pack 1"/>
     <param pos="0" name="os.build" value="6.1.7601"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008:Service Pack 1"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Microsoft DNS 6.1.7600(?: \(\w+\))?$">
     <description>Microsoft DNS on Windows 2008 R2</description>
     <example>Microsoft DNS 6.1.7600 (1DB04228)</example>
@@ -529,7 +539,7 @@
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
     <param pos="0" name="os.build" value="6.1.7600"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Microsoft DNS 6.0.6002(?: \(\w+\))?$">
     <description>Microsoft DNS on Windows 2008 Service Pack 2</description>
     <example>Microsoft DNS 6.0.6002 (17724D35)</example>
@@ -543,7 +553,7 @@
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="0" name="os.version" value="Service Pack 2"/>
     <param pos="0" name="os.build" value="6.0.6002"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008:Service Pack 2"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^Microsoft DNS 6.0.6001(?: \(\w+\))?$">
     <description>Microsoft DNS on Windows 2008 Service Pack 1</description>
     <example>Microsoft DNS 6.0.6001 (17714726)</example>
@@ -557,7 +567,7 @@
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="0" name="os.version" value="Service Pack 1"/>
     <param pos="0" name="os.build" value="6.0.6001"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008:Service Pack 1"/></fingerprint>
+  </fingerprint>
   <fingerprint pattern="^DNSServer$">
     <description>Synology DNS service</description>
     <example>DNSServer</example>

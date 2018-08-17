@@ -1,4 +1,13 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SMTP response lines to the RSET command are matched against these patterns
+(1 line at a time) to fingerprint SMTP servers.
+
+See comment at the top of smtp_banners.xml for additional info.
+
+'preference' note: This value has been set so as to implement the ordering
+  of SMTP related fingerprint databases as described in 'smtp_banners.xml'.
+-->
 <fingerprints protocol="smtp" database_type="service" preference="0.12">
   <fingerprint pattern="^250[ -]RSET\?  Well, OK\.$">
     <description>
@@ -12,5 +21,5 @@
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.arch" value="x86"/>
-  <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows"/></fingerprint>
+  </fingerprint>
 </fingerprints>
