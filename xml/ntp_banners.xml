@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-NTP "banners", taken from a readvar response
--->
 <fingerprints matches="ntp.readvar" protocol="ntp" database_type="service" preference="0.80">
+  <!--
+  NTP "banners", taken from a readvar response
+  -->
   <fingerprint pattern="^.*version=Domain Time II (\S+),hostname=([^,]+),.*system=Win2003.*,processor=(\S+)" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>Greyware Automation Products, Inc. Domain Time II on Windows Server 2003</description>
     <example service.version="5.1.b.20100331R" os.arch="x64" host.name="blah">
@@ -542,7 +542,7 @@ NTP "banners", taken from a readvar response
     <example service.version="4.2.0@1.1161-r" os.arch="sun4u">
       version="ntpd 4.2.0@1.1161-r Wed Apr 20 11:28:05 EDT 2005 (1)",
       processor="sun4u", system="SunOS5.6", leap=00, stratum=2,
-    </example>    
+    </example>
     <param pos="0" name="os.vendor" value="Sun"/>
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.product" value="Solaris"/>
@@ -729,7 +729,7 @@ NTP "banners", taken from a readvar response
    <param pos="0" name="os.product" value="Solaris"/>
    <param pos="1" name="os.arch"/>
    <param pos="2" name="os.version"/>
-  </fingerprint> 
+  </fingerprint>
   <fingerprint pattern="^.*system=&quot;UNIX/SunOS ([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>SunOS with no ntp version</description>
     <example>

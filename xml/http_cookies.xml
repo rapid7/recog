@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Set-Cookie HTTP header values are matched against these patterns to fingerprint HTTP
-servers.
--->
 <fingerprints matches="http_header.cookie" protocol="http" database_type="service">
+  <!--
+  Set-Cookie HTTP header values are matched against these patterns to fingerprint HTTP
+  servers.
+  -->
   <fingerprint pattern="^(CFCLIENT_[^=]+|CFGLOBALS|CFID|CFTOKEN)=.*">
     <description>
          Adobe (Macromedia) ColdFusion uses various cookies.

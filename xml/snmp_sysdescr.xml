@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  $Id: snmp_sysdescr.xml,v 1.21 2008/08/21 00:31:58 mbevand Exp $
-  SNMP fingerprint definitions. These are matched against the value of the
-  'sysDescr' (OID 1.3.6.1.2.1.1.1) variable.
--->
 <fingerprints matches="snmp.sys_description" protocol="snmp" database_type="service" preference="0.20">
+  <!--
+    $Id: snmp_sysdescr.xml,v 1.21 2008/08/21 00:31:58 mbevand Exp $
+    SNMP fingerprint definitions. These are matched against the value of the
+    'sysDescr' (OID 1.3.6.1.2.1.1.1) variable.
+  -->
   <!--======================================================================
                               3COM
    =======================================================================-->
@@ -7352,7 +7352,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.arch"/>
-  </fingerprint>  
+  </fingerprint>
   <fingerprint pattern="^SunOS release:5\.([789]|10) version:\S+ machine:(\S+)$">
     <description>SunOS/Solaris 5.7-5.10</description>
     <example os.version="10" os.arch="sun4u">SunOS release:5.10 version:Generic_125100-07 machine:sun4u</example>
@@ -7378,7 +7378,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.arch"/>
-   </fingerprint> 
+   </fingerprint>
   <!--======================================================================
                               SYMANTEC
    =======================================================================-->

@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-SMTP greeting lines (part of the banner after the response code) are matched
-against these patterns (1 line at a time) to fingerprint SMTP servers.
-
-This is always done in addition to the patterns in other smtp_*.xml files.
-These XML files are used in this order:
-   smtp_banners.xml
-   smtp_ehlo.xml
-   smtp_help.xml
-   smtp_noop.xml
-   smtp_expn.xml
-   smtp_vrfy.xml
-   smtp_debug.xml
-   smtp_turn.xml
-   smtp_rset.xml
-   smtp_quit.xml
-
-The system or service fingerprint with the highest certainty overwrites the others.
-
-'preference' notes: This value has been impacted by the poor quality of the 'Cisco PIX' match.
-  Additionally, the 'preference' value for the other databases mentioned above has been set so
-  as to implement their preference as described.
--->
 <fingerprints matches="smtp.banner" protocol="smtp" database_type="service" preference="0.20">
+  <!--
+  SMTP greeting lines (part of the banner after the response code) are matched
+  against these patterns (1 line at a time) to fingerprint SMTP servers.
+
+  This is always done in addition to the patterns in other smtp_*.xml files.
+  These XML files are used in this order:
+    smtp_banners.xml
+    smtp_ehlo.xml
+    smtp_help.xml
+    smtp_noop.xml
+    smtp_expn.xml
+    smtp_vrfy.xml
+    smtp_debug.xml
+    smtp_turn.xml
+    smtp_rset.xml
+    smtp_quit.xml
+
+  The system or service fingerprint with the highest certainty overwrites the others.
+
+  'preference' notes: This value has been impacted by the poor quality of the 'Cisco PIX' match.
+    Additionally, the 'preference' value for the other databases mentioned above has been set so
+    as to implement their preference as described.
+  -->
   <fingerprint pattern="^X1 NT-ESMTP Server ([^ ]+) \(IMail (\d+\.[^ ]+) EVAL \d+-\d+\)$">
     <description>IMail - EVAL version</description>
     <example service.version="6.06">X1 NT-ESMTP Server foo.bar (IMail 6.06 EVAL 11347-1)</example>
