@@ -3,7 +3,6 @@
   <!--
     Patterns for common names of various operating systems.
   -->
-
   <!-- Windows begin -->
   <fingerprint pattern="^(?i:(?:Microsoft )?(Windows (?:[a-z]+\s[a-z]+\s|[a-z]+\s)?Server (?:\d{4} R2|\d{4}))(?:,\s|\s)?([a-z]+)?(?: Evaluation)?(?: Edition)?(?:\s|\swith(?:out)? Hyper-V\s)?(SP\d|SP \d|Service Pack \d)?)$">
     <description>Windows Server 2003 and later</description>
@@ -105,7 +104,7 @@
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows 8 or Windows Server 2012"/>
   </fingerprint>
-    <fingerprint pattern="^(?i:(?:Microsoft )?Windows(?:\sNT)? 6.3)$">
+  <fingerprint pattern="^(?i:(?:Microsoft )?Windows(?:\sNT)? 6.3)$">
     <description>Windows version 6.3 (Windows 8.1 or Windows Server 2012 R2)</description>
     <example>Windows 6.3</example>
     <param pos="0" name="os.vendor" value="Microsoft"/>
@@ -129,7 +128,6 @@
     <param pos="0" name="os.certainty" value="0.5"/>
   </fingerprint>
   <!-- Windows end -->
-
   <!-- Liunx begin -->
   <fingerprint pattern="^(?i:Alpine Linux\s?(?:v)?(\d+?(?:\.\d+?)*?(?:\src\d+?)?)?)$">
     <description>Alpine Linux</description>
@@ -358,7 +356,6 @@
     <param pos="1" name="os.version"/>
   </fingerprint>
   <!-- Linux end -->
-
   <!-- Mac begin -->
   <!-- Match Mac OS Classic first due to weak matching on Mac OS X -->
   <fingerprint pattern="^(?i:(?:Apple )?Mac OS ([7-9](?:\.\d+?)*?))$">
@@ -489,7 +486,6 @@
     <param pos="0" name="os.device" value="Mobile"/>
   </fingerprint>
   <!-- Mac end -->
-
   <!-- BSD begin -->
   <fingerprint pattern="^(?i:(.*?BSD)\s?(\d+?(?:\.\d+?)*?(?:[\-\/_ ]?\w+?)?(?:-[a-z]\d+?)?)?)$">
     <description>Many BSD family OSes</description>
@@ -504,7 +500,6 @@
     <param pos="2" name="os.version"/>
   </fingerprint>
   <!-- BSD end -->
-
   <!-- Other Unix-likes begin -->
   <fingerprint pattern="^(?i:(?:Oracle|Sun)?\s?OpenSolaris\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>OpenSolaris</description>
@@ -576,7 +571,6 @@
     <param pos="2" name="os.version"/>
   </fingerprint>
   <!-- Other Unix-likes end -->
-
   <!-- Network equipment begin -->
   <fingerprint pattern="^(?i:(?:Juniper\s?)?(Junos|Junos OS|ScreenOS)\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>Juniper</description>
