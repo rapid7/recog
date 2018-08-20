@@ -43,6 +43,7 @@ for fingerprint in doc.xpath('//fingerprint'):
         # remove any existing CPE params
         if name.endswith('.cpe'):
             param.getparent().remove(param)
+            continue
 
         match = re.search('^(?P<fp_type>os|service)\.', name)
         if match:
@@ -117,7 +118,10 @@ for fingerprint in doc.xpath('//fingerprint'):
 
             parent = param.getparent()
             for param_name in params[fp_type]:
-                parent.insert(parent.index(param)+1, cpe_param)
+                param = params[fp_type][param_name]
+                parent = param.getparent()
+                index = parent.index(param) + 1
+                parent.insert(index, cpe_param)
 
 root = doc.getroot()
 
