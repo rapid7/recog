@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  SMB fingerprints obtained from the Native OS field of SMB negotations
--->
 <fingerprints matches="smb.native_os" protocol="smb" database_type="util.os">
+  <!--
+    SMB fingerprints obtained from the Native OS field of SMB negotations
+  -->
   <fingerprint pattern="^(Windows NT \d\.\d+)$">
     <description>Windows NT</description>
     <example os.product="Windows NT 4.0">Windows NT 4.0</example>
@@ -408,7 +408,6 @@
     <param pos="0" name="service.vendor" value="Wind River"/>
     <param pos="0" name="service.product" value="VxWorks CIFS"/>
   </fingerprint>
-
   <fingerprint pattern="^OS/400 \D(\d+)\D(\d+)\D(\d+)">
     <description>OS/400</description>
     <example os.version="4" os.version.version="5" os.version.version.version="0">OS/400 V4R5M0</example>
@@ -418,9 +417,7 @@
     <param pos="2" name="os.version.version"/>
     <param pos="3" name="os.version.version.version"/>
   </fingerprint>
-
   <!-- VisionFS -->
-
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)ai(\d{4})">
     <description>AIX</description>
     <example service.version="9876">axai9876</example>
@@ -430,7 +427,6 @@
     <param pos="0" name="service.product" value="VisionFS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)dg(\d{4})">
     <description>DG/UX</description>
     <example service.version="9876">i3dg9876</example>
@@ -440,7 +436,6 @@
     <param pos="0" name="service.product" value="VisionFS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)dw(\d{4})">
     <description>Darwin</description>
     <example service.version="9876">m8dw9876</example>
@@ -450,7 +445,6 @@
     <param pos="0" name="service.product" value="VisionFS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)dy(\d{4})">
     <description>DYNIX</description>
     <example service.version="9876">m8dy9876</example>
@@ -460,7 +454,6 @@
     <param pos="0" name="service.product" value="VisionFS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)fb(\d{4})">
     <description>FreeBSD</description>
     <example service.version="9876">m8fb9876</example>
@@ -470,7 +463,6 @@
     <param pos="0" name="service.product" value="VisionFS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)hp(\d{4})">
     <description>HP-UX</description>
     <example service.version="9876">m8hp9876</example>
@@ -480,7 +472,6 @@
     <param pos="0" name="service.product" value="VisionFS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)ir(\d{4})">
     <description>IRIX</description>
     <example service.version="9876">m8ir9876</example>
@@ -490,7 +481,6 @@
     <param pos="0" name="service.product" value="VisionFS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)li(\d{4})">
     <description>Linux</description>
     <example service.version="9876">m8li9876</example>
@@ -500,7 +490,6 @@
     <param pos="0" name="service.product" value="VisionFS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)mo(\d{4})">
     <description>SVR</description>
     <example service.version="9876">m8mo9876</example>
@@ -510,7 +499,6 @@
     <param pos="0" name="service.product" value="VisionFS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)o1(\d{4})">
     <description>OSF/1</description>
     <example service.version="9876">m8o19876</example>
@@ -520,7 +508,6 @@
     <param pos="0" name="service.product" value="VisionFS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)ro(\d{4})">
     <description>RISC OS</description>
     <example service.version="9876">m8ro9876</example>
@@ -529,7 +516,6 @@
     <param pos="0" name="service.product" value="VisionFS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)sc(\d{4})">
     <description>OpenServer</description>
     <example service.version="9876">m8sc9876</example>
@@ -539,7 +525,6 @@
     <param pos="0" name="service.product" value="VisionFS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)so(\d{4})">
     <description>SunOS</description>
     <example service.version="9876">m8so9876</example>
@@ -549,7 +534,6 @@
     <param pos="0" name="service.product" value="VisionFS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)su(\d{4})">
     <description>Solaris</description>
     <example service.version="9876">m8su9876</example>
@@ -559,7 +543,6 @@
     <param pos="0" name="service.product" value="VisionFS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)sx(\d{4})">
     <description>SINIX</description>
     <example service.version="9876">m8sx9876</example>
@@ -569,7 +552,6 @@
     <param pos="0" name="service.product" value="VisionFS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)ul(\d{4})">
     <description>Ultrix/1</description>
     <example service.version="9876">m8ul9876</example>
@@ -579,7 +561,6 @@
     <param pos="0" name="service.product" value="VisionFS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)un(\d{4})">
     <description>UnixWare</description>
     <example service.version="9876">m8un9876</example>
@@ -589,7 +570,6 @@
     <param pos="0" name="service.product" value="VisionFS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)wi(\d{4})">
     <description>Windows</description>
     <example service.version="9876">m8wi9876</example>
@@ -599,7 +579,6 @@
     <param pos="0" name="service.product" value="VisionFS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-
   <fingerprint pattern="^(?i:unix)$">
     <description>Generally some Samba variant, which reports Unix</description>
     <example>Unix</example>
@@ -608,5 +587,4 @@
     <param pos="0" name="service.product" value="Samba"/>
     <param pos="0" name="service.vendor" value="Samba"/>
   </fingerprint>
-
 </fingerprints>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-FTP greeting messages (part of the banner after the response code) are matched
-against these patterns to fingerprint FTP servers.
--->
 <fingerprints matches="ftp.banner" protocol="ftp" database_type="service" preference="0.90">
+  <!--
+  FTP greeting messages (part of the banner after the response code) are matched
+  against these patterns to fingerprint FTP servers.
+  -->
   <fingerprint pattern="^([^ ]+) Microsoft FTP Service \(Version ([1234]\.\d+)\)\.$">
     <description>Microsoft FTP Server on Windows NT</description>
     <example>xx Microsoft FTP Service (Version 3.0).</example>
@@ -147,7 +147,7 @@ example.com FTP server (Version:  Mac OS X Server) ready.</example>
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
-  </fingerprint>  
+  </fingerprint>
   <fingerprint pattern="^(\S+) FTP Server \(SunOS 5.6\) ready\." flags="REG_ICASE">
     <description>SunOS 5.6 (Solaris 2.6)</description>
     <example host.name="example.com">example.com FTP Server (SunOS 5.6) ready.</example>
@@ -156,7 +156,7 @@ example.com FTP server (Version:  Mac OS X Server) ready.</example>
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.version" value="2.6"/>
     <param pos="1" name="host.name"/>
-  </fingerprint>  
+  </fingerprint>
   <fingerprint pattern="^ProFTPD (\d+\.[^\s]+) Server \(Debian\) \[(.+)\]$">
     <description>ProFTPD on Debian Linux</description>
     <example>ProFTPD 1.3.0rc2 Server (Debian) [host]</example>
@@ -292,7 +292,7 @@ more text</example>
   <fingerprint pattern="^zFTPServer v?(\S+), .*ready\.$" flags="REG_ICASE">
     <description>zftpserver (only runs on Windows)</description>
     <example service.version="4.0">zFTPServer v4.0, build 2008-12-24 01:41 ready.</example>
-    <param pos="0" name="service.vendor" value="Västgöta-Data AB" />
+    <param pos="0" name="service.vendor" value="Västgöta-Data AB"/>
     <param pos="0" name="service.product" value="zFTPServer"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
@@ -322,7 +322,7 @@ more text</example>
     <param pos="0" name="service.product" value="vsFTPd Extended"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-    <fingerprint pattern="^OOPS: .*vsftp.*$">
+  <fingerprint pattern="^OOPS: .*vsftp.*$">
     <description>vsFTPd (Very Secure FTP Daemon) error message</description>
     <example>OOPS: vsftpd: root is not mounted.</example>
     <example>OOPS: cannot read user list file:/etc/vsftpd.user_list</example>
@@ -1030,7 +1030,7 @@ more text</example>
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-    <fingerprint pattern="^MikroTik FTP server \(MikroTik ([\w.]+)\) ready\.?$">
+  <fingerprint pattern="^MikroTik FTP server \(MikroTik ([\w.]+)\) ready\.?$">
     <description>MikroTik w/o hostname</description>
     <example os.version="6.0rc14">MikroTik FTP server (MikroTik 6.0rc14) ready</example>
     <param pos="0" name="os.vendor" value="MikroTik"/>
@@ -1167,7 +1167,7 @@ more text</example>
   </fingerprint>
   <fingerprint pattern="^Twisted ([\w.]+) FTP Server$">
     <description>Twisted (Python) FTP Server</description>
-    <example service.version="14.0.0" >Twisted 14.0.0 FTP Server</example>
+    <example service.version="14.0.0">Twisted 14.0.0 FTP Server</example>
     <example service.version="16.5.0rc2">Twisted 16.5.0rc2 FTP Server</example>
     <param pos="0" name="service.family" value="Twisted"/>
     <param pos="0" name="service.product" value="Twisted FTPD"/>
@@ -1228,7 +1228,7 @@ more text</example>
     <example>Welcome to TP-LINK FTP server</example>
     <param pos="0" name="hw.vendor" value="TP-LINK"/>
   </fingerprint>
-   <fingerprint pattern="^ucftpd\((\w{3}\s+\d{1,2} \d{4}-\d\d:\d\d:\d\d)\) FTP server ready\.$">
+  <fingerprint pattern="^ucftpd\((\w{3}\s+\d{1,2} \d{4}-\d\d:\d\d:\d\d)\) FTP server ready\.$">
     <description>ucftpd with version</description>
     <example service.version="Jul  2 2012-22:13:49">ucftpd(Jul  2 2012-22:13:49) FTP server ready.</example>
     <example service.version="Sep 10 2010-17:23:34">ucftpd(Sep 10 2010-17:23:34) FTP server ready.</example>
@@ -1323,6 +1323,6 @@ more text</example>
     <param pos="0" name="os.vendor" value="Amazon"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux AMI"/>
-    <param pos="1" name="os.version"/> 
+    <param pos="1" name="os.version"/>
   </fingerprint>
 </fingerprints>

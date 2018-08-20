@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- HTTP Server headers are matched against these patterns to fingerprint HTTP servers. -->
 <fingerprints matches="http_header.server" protocol="http" database_type="service" preference="0.90">
+  <!-- HTTP Server headers are matched against these patterns to fingerprint HTTP servers. -->
   <fingerprint pattern="^Stronghold/(\d\.\d) Apache/([012][\d.]*)\s*(.*)$">
     <description>Red Hat Stronghold Enterprise Apache</description>
     <example>Stronghold/3.0 Apache/1.3.19 RedHat/3014c</example>
@@ -1696,7 +1696,7 @@
     <param pos="0" name="service.product" value="JBoss AS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-    <fingerprint pattern="^JBoss-EAP\/(\d+)$">
+  <fingerprint pattern="^JBoss-EAP\/(\d+)$">
     <description>JBoss EAP</description>
     <example service.version="7">JBoss-EAP/7</example>
     <param pos="0" name="service.vendor" value="Red Hat"/>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-SSH "software revision and comment" strings (official RFC nomenclature for the part of
-the identification string after "SSH-x.x-") are matched against these patterns to
-fingerprint SSH servers.
--->
 <fingerprints matches="ssh.banner" protocol="ssh" database_type="service" preference="0.90">
+  <!--
+  SSH "software revision and comment" strings (official RFC nomenclature for the part of
+  the identification string after "SSH-x.x-") are matched against these patterns to
+  fingerprint SSH servers.
+  -->
   <fingerprint pattern="^RomSShell_([\d\.]+)$">
     <description>Allegro RomSShell SSH</description>
     <example service.version="4.62">RomSShell_4.62</example>
