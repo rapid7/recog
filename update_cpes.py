@@ -11,19 +11,20 @@ from sets import Set
 
 def parse_r7_remapping(file):
     remap = {} # r7_vendor => { 'cpe_vendor' => <cpe_vendor>, 'products': { r7_product1 => cpe_product1 }}
-    remap_json = None
+    remappings = None
     with open(file) as f:
-        for line in f:
-            remap_json = json.loads(line)
-            r7_vendor = remap_json['r7_vendor']
-            cpe_vendor = remap_json['cpe_vendor']
-            if r7_vendor in remap:
-                raise ValueError("R7 vendor {} duplicated in {}".format(r7_vendor, file))
+        remappings = json.load(f)["remappings"]
 
-            product_map = {}
-            if 'products' in remap_json:
-                product_map = remap_json['products']
-            remap[r7_vendor] = {'cpe_vendor': cpe_vendor, 'products': product_map}
+    for remap_json in remappings:
+        r7_vendor = remap_json['r7_vendor']
+        cpe_vendor = remap_json['cpe_vendor']
+        if r7_vendor in remap:
+            raise ValueError("R7 vendor {} duplicated in {}".format(r7_vendor, file))
+
+        product_map = {}
+        if 'products' in remap_json:
+            product_map = remap_json['products']
+        remap[r7_vendor] = {'cpe_vendor': cpe_vendor, 'products': product_map}
 
     return remap
 
@@ -33,7 +34,6 @@ def parse_cpe_vp_map(file):
     parser = etree.XMLParser(remove_comments=False)
     doc = etree.parse(file, parser)
     final = 0
-    #for final_cpe_name in doc.xpath("/cpe-list/cpe-item/*[local-name() = 'item-metadata' and @status = 'FINAL']/../@name"):
     namespaces = {'ns': 'http://cpe.mitre.org/dictionary/2.0', 'meta': 'http://scap.nist.gov/schema/cpe-dictionary-metadata/0.2'}
     for meta in doc.xpath("//ns:cpe-list/ns:cpe-item/meta:item-metadata[@status = 'FINAL']", namespaces=namespaces):
         final_cpe_name = meta.getparent().attrib['name']
@@ -52,6 +52,8 @@ def parse_cpe_vp_map(file):
         else:
             logging.error("Unexpected CPE %s", final_cpe_name)
 
+    # TODO: handle deprecation in cpe dictionary, which would allow us to map old r7 names to their new correct CPE via the old CPE name
+    #   <cpe-item name="cpe:/o:sun:solaris:-" deprecated="true" deprecated_by="cpe:/o:sun:sunos:-" deprecation_date="2010-02-26T17:19:19.047Z">
     return map
 
 
