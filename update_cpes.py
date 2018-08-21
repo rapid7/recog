@@ -143,10 +143,10 @@ for fingerprint in doc.xpath('//fingerprint'):
                         vendor = r7_vp_map[vendor]['cpe_vendor']
                         remapped_vendor = True
                         if not vendor in cpe_vp_map[cpe_type]:
-                            logging.error("Remapped vendor %s (remapped from %s) invalid for CPE %s", vendor, og_vendor, cpe_type)
+                            logging.error("Remapped vendor %s (remapped from %s) invalid for CPE %s (product %s)", vendor, og_vendor, cpe_type, product)
                             continue
                     else:
-                        logging.error("Vendor %s invalid for CPE %s and no remapping", vendor, cpe_type)
+                        logging.error("Vendor %s invalid for CPE %s and no remapping (product %s)", vendor, cpe_type, product)
                         continue
 
 
