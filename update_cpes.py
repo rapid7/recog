@@ -133,49 +133,46 @@ for fingerprint in doc.xpath('//fingerprint'):
             if 'unknown' in [vendor, product]:
                 continue
 
+            if (vendor.startswith('{') and vendor.endswith('}')) or (product.startswith('{') and product.endswith('}')):
+                continue
+
             remapped_vendor = False
-            if vendor.startswith('{') and vendor.endswith('}'):
-                continue
-            else:
-                og_vendor = vendor
-                if not vendor in cpe_vp_map[cpe_type]:
-                    if vendor in r7_vp_map:
-                        vendor = r7_vp_map[vendor]['cpe_vendor']
-                        remapped_vendor = True
-                        if not vendor in cpe_vp_map[cpe_type]:
-                            logging.error("Remapped vendor %s (remapped from %s) invalid for CPE %s (product %s)", vendor, og_vendor, cpe_type, product)
-                            continue
-                    else:
-                        logging.error("Vendor %s invalid for CPE %s and no remapping (product %s)", vendor, cpe_type, product)
+            og_vendor = vendor
+            if not vendor in cpe_vp_map[cpe_type]:
+                if vendor in r7_vp_map:
+                    vendor = r7_vp_map[vendor]['cpe_vendor']
+                    remapped_vendor = True
+                    if not vendor in cpe_vp_map[cpe_type]:
+                        logging.error("Remapped vendor %s (remapped from %s) invalid for CPE %s (product %s)", vendor, og_vendor, cpe_type, product)
                         continue
+                else:
+                    logging.error("Vendor %s invalid for CPE %s and no remapping (product %s)", vendor, cpe_type, product)
+                    continue
 
 
-            if product.startswith('{') and product.endswith('}'):
-                continue
-            else:
-                # if the product as specified is not found in the CPE dictionary for this vendor
-                if not product in cpe_vp_map[cpe_type][vendor]:
-                    # if this vendor has a remapping from R7
-                    if og_vendor in r7_vp_map:
-                        # if this product has a remapping for this vendor from R7
-                        if product in r7_vp_map[og_vendor]['products']:
-                            og_product = product
-                            product = r7_vp_map[og_vendor]['products'][product]
-                            # ensure that the remapped product is valid for the given vendor in CPE
-                            if not product in cpe_vp_map[cpe_type][vendor]:
-                                logging.error("Remapped product %s (remapped from %s) from vendor %s invalid for CPE %s", product, og_product, vendor, cpe_type)
-                                continue
-                        else:
-                            if remapped_vendor:
-                                logging.error("Product %s from vendor %s (remapped from %s) invalid for CPE %s and no mapping", product, vendor, og_vendor, cpe_type)
-                            else:
-                                logging.error("Product %s from vendor %s invalid for CPE %s and no mapping", product, vendor, cpe_type)
+            # if the product as specified is not found in the CPE dictionary for this vendor
+            if not product in cpe_vp_map[cpe_type][vendor]:
+                # if this vendor has a remapping from R7
+                if og_vendor in r7_vp_map:
+                    # if this product has a remapping for this vendor from R7
+                    if product in r7_vp_map[og_vendor]['products']:
+                        og_product = product
+                        product = r7_vp_map[og_vendor]['products'][product]
+                        # ensure that the remapped product is valid for the given vendor in CPE
+                        if not product in cpe_vp_map[cpe_type][vendor]:
+                            logging.error("Remapped product %s (remapped from %s) from vendor %s invalid for CPE %s", product, og_product, vendor, cpe_type)
                             continue
                     else:
                         if remapped_vendor:
-                            logging.error("Vendor %s (remapped from %s) is valid for CPE %s but product %s not valid and no mapping", vendor, og_vendor, cpe_type, product)
+                            logging.error("Product %s from vendor %s (remapped from %s) invalid for CPE %s and no mapping", product, vendor, og_vendor, cpe_type)
                         else:
-                            logging.error("Vendor %s is valid for CPE %s but product %s not valid and no mapping", vendor, cpe_type, product)
+                            logging.error("Product %s from vendor %s invalid for CPE %s and no mapping", product, vendor, cpe_type)
+                        continue
+                else:
+                    if remapped_vendor:
+                        logging.error("Vendor %s (remapped from %s) is valid for CPE %s but product %s not valid and no mapping", vendor, og_vendor, cpe_type, product)
+                    else:
+                        logging.error("Vendor %s is valid for CPE %s but product %s not valid and no mapping", vendor, cpe_type, product)
 
             # building the CPE string
             cpe_value = 'cpe:/{}:{}:{}'.format(cpe_type, vendor, product)
