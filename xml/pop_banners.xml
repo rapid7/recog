@@ -12,6 +12,7 @@
     <param pos="0" name="service.product" value="Cyrus POP"/>
     <param pos="2" name="service.version"/>
     <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:apple:mac_os_x:{os.version}"/>
     <param pos="0" name="os.family" value="Mac OS X"/>
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="0" name="os.device" value="General"/>
@@ -34,6 +35,7 @@
     <param pos="0" name="service.vendor" value="IBM"/>
     <param pos="0" name="service.family" value="Lotus Domino"/>
     <param pos="0" name="service.product" value="Lotus Domino"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:ibm:lotus_domino"/>
   </fingerprint>
   <fingerprint pattern="^Lotus Notes POP3 server version Release ([^ ]+) ready on .*$">
     <description>IBM Lotus Notes/Domino</description>
@@ -41,6 +43,7 @@
     <param pos="0" name="service.vendor" value="IBM"/>
     <param pos="0" name="service.family" value="Lotus Domino"/>
     <param pos="0" name="service.product" value="Lotus Domino"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:ibm:lotus_domino:{service.version}"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^Qpopper \(version (\d+\.\d+\.\d+), modified by Sphera Technologies\) at (.+) starting\..*$">
@@ -60,6 +63,7 @@
     <param pos="0" name="service.product" value="Qpopper"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.component.family" value="qpopper-mysql"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:qualcomm:qpopper:{service.version}"/>
     <param pos="0" name="service.component.product" value="qpopper-mysql"/>
     <param pos="2" name="service.component.version"/>
     <param pos="3" name="host.domain"/>
@@ -72,6 +76,7 @@
     <param pos="0" name="service.vendor" value="Qualcomm"/>
     <param pos="0" name="service.family" value="Qpopper"/>
     <param pos="0" name="service.product" value="Qpopper"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:qualcomm:qpopper:{service.version}"/>
     <param pos="1" name="service.version"/>
     <param pos="2" name="host.domain"/>
   </fingerprint>
@@ -81,6 +86,7 @@
     <param pos="0" name="service.vendor" value="Qualcomm"/>
     <param pos="0" name="service.family" value="Qpopper"/>
     <param pos="0" name="service.product" value="Qpopper"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:qualcomm:qpopper"/>
     <param pos="1" name="qpopper.version"/>
     <param pos="2" name="host.domain"/>
   </fingerprint>
@@ -93,6 +99,7 @@
     <param pos="1" name="service.version"/>
     <param pos="2" name="host.name"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
@@ -106,6 +113,7 @@
     <param pos="1" name="service.version"/>
     <param pos="2" name="host.name"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
@@ -116,8 +124,10 @@
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="Exchange Server"/>
     <param pos="0" name="service.product" value="Exchange Server"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:microsoft:exchange_server:{service.version}"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
@@ -130,6 +140,7 @@
     <param pos="0" name="service.product" value="E-mail Services"/>
     <param pos="1" name="host.name"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2003"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2003"/>
@@ -141,6 +152,7 @@
     <param pos="0" name="service.family" value="Exchange Server"/>
     <param pos="0" name="service.product" value="Exchange 2007 Server"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
@@ -151,7 +163,9 @@
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="Exchange Server"/>
     <param pos="0" name="service.product" value="Exchange Server"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:microsoft:exchange_server"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
@@ -168,6 +182,7 @@
     <example>dogfood.example.com Zimbra POP3 server ready</example>
     <param pos="0" name="service.vendor" value="VMware"/>
     <param pos="0" name="service.product" value="Zimbra"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:vmware:zimbra"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^(\S+) Zimbra (\S+) POP3 server ready\.?$">
@@ -175,6 +190,7 @@
     <example>example.com Zimbra 7.0.0_GA_3079 POP3 server ready</example>
     <param pos="0" name="service.vendor" value="VMware"/>
     <param pos="0" name="service.product" value="Zimbra"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:vmware:zimbra:{service.version}"/>
     <param pos="2" name="service.version"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
@@ -190,7 +206,9 @@
     <example>ApplePasswordServer 10.5.0.1 password serv</example>
     <param pos="0" name="service.vendor" value="Apple"/>
     <param pos="0" name="service.product" value="Open Directory"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:apple:open_directory"/>
     <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:apple:mac_os_x:{os.version}"/>
     <param pos="0" name="os.family" value="Mac OS X"/>
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="1" name="os.version"/>
@@ -201,8 +219,10 @@
     <example os.version="7.3-2" host.name="example.com">TCPIP POP server V5.4J-15A, OpenVMS V7.3-2 Alpha at example.com, up since 2015-02-12 08:44:53 20400434.2</example>
     <param pos="0" name="service.family" value="OpenVMS"/>
     <param pos="0" name="service.product" value="TCPIP POP server"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:hp:tcpip_pop_server"/>
     <param pos="0" name="service.vendor" value="HP"/>
     <param pos="0" name="os.vendor" value="HP"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:hp:openvms:{os.version}"/>
     <param pos="0" name="os.family" value="OpenVMS"/>
     <param pos="0" name="os.product" value="OpenVMS"/>
     <param pos="0" name="os.device" value="General"/>
@@ -249,6 +269,7 @@
     <param pos="0" name="service.product" value="WinWebMail"/>
     <param pos="0" name="service.vendor" value="Ma Jian"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="1" name="service.version"/>
@@ -260,6 +281,7 @@
     <param pos="0" name="service.product" value="BlackJumboDog"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="1" name="service.version"/>
   </fingerprint>

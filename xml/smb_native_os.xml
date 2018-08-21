@@ -23,6 +23,7 @@
     <example>Windows 5.0</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_2000"/>
     <param pos="0" name="os.product" value="Windows 2000"/>
   </fingerprint>
   <fingerprint pattern="^Windows 5\.1$">
@@ -30,6 +31,7 @@
     <example>Windows 5.1</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_xp"/>
     <param pos="0" name="os.product" value="Windows XP"/>
   </fingerprint>
   <fingerprint pattern="^Windows XP (\d+) (Service Pack \d+)$">
@@ -37,6 +39,7 @@
     <example os.build="2600" os.version="Service Pack 1">Windows XP 2600 Service Pack 1</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_xp:{os.version}"/>
     <param pos="0" name="os.product" value="Windows XP"/>
     <param pos="1" name="os.build"/>
     <param pos="2" name="os.version"/>
@@ -46,6 +49,7 @@
     <example os.build="2600">Windows XP 2600</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_xp"/>
     <param pos="0" name="os.product" value="Windows XP"/>
     <param pos="1" name="os.build"/>
   </fingerprint>
@@ -55,6 +59,7 @@
     <example os.edition="Professional">Windows XP Professional</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_xp"/>
     <param pos="0" name="os.product" value="Windows XP"/>
     <param pos="1" name="os.edition"/>
   </fingerprint>
@@ -62,6 +67,7 @@
     <description>Windows Server 2003 Beta</description>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2003:Beta"/>
     <param pos="0" name="os.product" value="Windows Server 2003"/>
     <param pos="0" name="os.version" value="Beta"/>
   </fingerprint>
@@ -69,6 +75,7 @@
     <description>Windows Server 2003 R2</description>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2003"/>
     <param pos="0" name="os.product" value="Windows Server 2003 R2"/>
     <param pos="1" name="os.build"/>
   </fingerprint>
@@ -78,6 +85,7 @@
     <example os.build="3790" os.version="Service Pack 2">Windows Server 2003 R2 3790 Service Pack 2, v.2825</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2003:{os.version}"/>
     <param pos="0" name="os.product" value="Windows Server 2003 R2"/>
     <param pos="1" name="os.build"/>
     <param pos="2" name="os.version"/>
@@ -87,6 +95,7 @@
     <example os.build="3790">Windows Server 2003 3790</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2003"/>
     <param pos="0" name="os.product" value="Windows Server 2003"/>
     <param pos="1" name="os.build"/>
   </fingerprint>
@@ -95,6 +104,7 @@
     <example>Windows Server 2003</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2003"/>
     <param pos="0" name="os.product" value="Windows Server 2003"/>
   </fingerprint>
   <fingerprint pattern="^Windows Server 2003 (\d+) (Service Pack \d+)(?:, v\.\d+)?$">
@@ -103,6 +113,7 @@
     <example os.build="3790" os.version="Service Pack 2">Windows Server 2003 3790 Service Pack 2</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2003:{os.version}"/>
     <param pos="0" name="os.product" value="Windows Server 2003"/>
     <param pos="1" name="os.build"/>
     <param pos="2" name="os.version"/>
@@ -113,6 +124,7 @@
     <example>Windows Server 2008</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
   </fingerprint>
   <fingerprint pattern="^Windows Server \(R\) 2008 (\w+|\w+ \w+|\w+ \w+ \w+)(?: (?:with|without) Hyper-V|) (\d+) (Service Pack \d+)(?:, v\.\d+)?$">
@@ -122,6 +134,7 @@
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008:{os.version}"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
     <param pos="3" name="os.version"/>
@@ -132,6 +145,7 @@
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008:{os.version}"/>
     <param pos="0" name="os.edition" value="Web"/>
     <param pos="1" name="os.build"/>
     <param pos="2" name="os.version"/>
@@ -141,6 +155,7 @@
     <example>Windows (R) Web Server 2008 6002</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="0" name="os.edition" value="Web"/>
     <param pos="1" name="os.build"/>
@@ -151,6 +166,7 @@
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008:{os.version}"/>
     <param pos="0" name="os.edition" value="Storage"/>
     <param pos="1" name="os.build"/>
     <param pos="2" name="os.version"/>
@@ -160,6 +176,7 @@
     <description>Windows Web Server 2008 Storage</description>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="0" name="os.edition" value="Storage"/>
     <param pos="1" name="os.build"/>
@@ -170,6 +187,7 @@
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008:{os.version}"/>
     <param pos="0" name="os.edition" value="HPC"/>
     <param pos="1" name="os.build"/>
     <param pos="2" name="os.version"/>
@@ -180,6 +198,7 @@
     <example>Windows Server 2008 HPC Edition 7600</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="0" name="os.edition" value="HPC"/>
     <param pos="1" name="os.build"/>
@@ -192,6 +211,7 @@
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008:{os.version}"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
     <param pos="3" name="os.version"/>
@@ -203,6 +223,7 @@
     <example os.edition="Datacenter">Windows Server 2008 R2 Datacenter 7600</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008"/>
     <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
@@ -214,6 +235,7 @@
     <example os.edition="Essentials" os.build="10586">Windows Server 2016 Technical Preview 4 Essentials 10586</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2016"/>
     <param pos="0" name="os.product" value="Windows Server 2016"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
@@ -223,6 +245,7 @@
     <example os.build="14393">Windows Storage Server 2016 Standard 14393</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2016"/>
     <param pos="0" name="os.product" value="Windows Server 2016"/>
     <param pos="0" name="os.edition" value="Storage"/>
     <param pos="1" name="os.build"/>
@@ -233,6 +256,7 @@
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008:{os.version}"/>
     <param pos="0" name="os.edition" value="Web"/>
     <param pos="1" name="os.build"/>
     <param pos="2" name="os.version"/>
@@ -242,6 +266,7 @@
     <example>Windows Web Server 2008 R2 7600</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008"/>
     <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
     <param pos="0" name="os.edition" value="Web"/>
     <param pos="1" name="os.build"/>
@@ -252,6 +277,7 @@
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2008:{os.version}"/>
     <param pos="0" name="os.edition" value="Storage"/>
     <param pos="1" name="os.build"/>
     <param pos="2" name="os.version"/>
@@ -262,6 +288,7 @@
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Vista"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_vista:{os.version}"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
     <param pos="3" name="os.version"/>
@@ -271,6 +298,7 @@
     <example os.edition="Home Premium">Windows Vista (TM) Home Premium 6000</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_vista"/>
     <param pos="0" name="os.product" value="Windows Vista"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
@@ -322,6 +350,7 @@
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2012:{os.version}"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
     <param pos="3" name="os.version"/>
@@ -331,6 +360,7 @@
     <example os.edition="Standard">Windows Server 2012 R2 Standard 9600</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2012"/>
     <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
@@ -341,6 +371,7 @@
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Server 2012"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2012:{os.version}"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
     <param pos="3" name="os.version"/>
@@ -350,6 +381,7 @@
     <example>Windows Server 2012 Standard 9200</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2012"/>
     <param pos="0" name="os.product" value="Windows Server 2012"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
@@ -360,6 +392,7 @@
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Server 2012"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2012:{os.version}"/>
     <param pos="0" name="os.edition" value="MultiPoint"/>
     <param pos="1" name="os.build"/>
     <param pos="2" name="os.version"/>
@@ -369,6 +402,7 @@
     <example os.build="9200">Windows MultiPoint Server 2012 Premium 9200</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_server_2012"/>
     <param pos="0" name="os.product" value="Windows Server 2012"/>
     <param pos="0" name="os.edition" value="MultiPoint"/>
     <param pos="1" name="os.build"/>
@@ -379,6 +413,7 @@
     <example os.build="10130" os.edition="Enterprise">Windows 10 Enterprise Insider Preview 10130</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_10"/>
     <param pos="0" name="os.product" value="Windows 10"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
@@ -395,6 +430,7 @@
     <example os.build="14393" os.edition="Enterprise 2016 LTSB Evaluation">Windows 10 Enterprise 2016 LTSB Evaluation 14393</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows_10"/>
     <param pos="0" name="os.product" value="Windows 10"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
@@ -404,6 +440,7 @@
     <example>VxWorks</example>
     <param pos="0" name="os.certainty" value="0.5"/>
     <param pos="0" name="os.vendor" value="Wind River"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:windriver:vxworks"/>
     <param pos="0" name="os.product" value="VxWorks"/>
     <param pos="0" name="service.vendor" value="Wind River"/>
     <param pos="0" name="service.product" value="VxWorks CIFS"/>
@@ -412,6 +449,7 @@
     <description>OS/400</description>
     <example os.version="4" os.version.version="5" os.version.version.version="0">OS/400 V4R5M0</example>
     <param pos="0" name="os.vendor" value="IBM"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:ibm:os/400:{os.version}"/>
     <param pos="0" name="os.product" value="OS/400"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.version.version"/>
@@ -422,6 +460,7 @@
     <description>AIX</description>
     <example service.version="9876">axai9876</example>
     <param pos="0" name="os.vendor" value="IBM"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:ibm:aix"/>
     <param pos="0" name="os.family" value="AIX"/>
     <param pos="0" name="os.product" value="AIX"/>
     <param pos="0" name="service.product" value="VisionFS"/>
@@ -440,6 +479,7 @@
     <description>Darwin</description>
     <example service.version="9876">m8dw9876</example>
     <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:apple:mac_os_x"/>
     <param pos="0" name="os.family" value="Mac OS X"/>
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="0" name="service.product" value="VisionFS"/>
@@ -458,6 +498,7 @@
     <description>FreeBSD</description>
     <example service.version="9876">m8fb9876</example>
     <param pos="0" name="os.vendor" value="FreeBSD"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:freebsd:freebsd"/>
     <param pos="0" name="os.family" value="FreeBSD"/>
     <param pos="0" name="os.product" value="FreeBSD"/>
     <param pos="0" name="service.product" value="VisionFS"/>
@@ -467,6 +508,7 @@
     <description>HP-UX</description>
     <example service.version="9876">m8hp9876</example>
     <param pos="0" name="os.vendor" value="HP"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:hp:hp-ux"/>
     <param pos="0" name="os.family" value="HP-UX"/>
     <param pos="0" name="os.product" value="HP-UX"/>
     <param pos="0" name="service.product" value="VisionFS"/>
@@ -476,6 +518,7 @@
     <description>IRIX</description>
     <example service.version="9876">m8ir9876</example>
     <param pos="0" name="os.vendor" value="SGI"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:sgi:irix"/>
     <param pos="0" name="os.family" value="Irix"/>
     <param pos="0" name="os.product" value="Irix"/>
     <param pos="0" name="service.product" value="VisionFS"/>
@@ -485,6 +528,7 @@
     <description>Linux</description>
     <example service.version="9876">m8li9876</example>
     <param pos="0" name="os.vendor" value="Linux"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:linux:linux_kernel"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="service.product" value="VisionFS"/>
@@ -494,6 +538,7 @@
     <description>SVR</description>
     <example service.version="9876">m8mo9876</example>
     <param pos="0" name="os.vendor" value="Motorola"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:motorola:svr"/>
     <param pos="0" name="os.family" value="SVR4"/>
     <param pos="0" name="os.product" value="SVR"/>
     <param pos="0" name="service.product" value="VisionFS"/>
@@ -529,6 +574,7 @@
     <description>SunOS</description>
     <example service.version="9876">m8so9876</example>
     <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:sun:sunos"/>
     <param pos="0" name="os.family" value="SunOS"/>
     <param pos="0" name="os.product" value="SunOS"/>
     <param pos="0" name="service.product" value="VisionFS"/>
@@ -538,6 +584,7 @@
     <description>Solaris</description>
     <example service.version="9876">m8su9876</example>
     <param pos="0" name="os.vendor" value="Sun"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:sun:sunos"/>
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="service.product" value="VisionFS"/>
@@ -547,6 +594,7 @@
     <description>SINIX</description>
     <example service.version="9876">m8sx9876</example>
     <param pos="0" name="os.vendor" value="Siemens"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:siemens:sinix"/>
     <param pos="0" name="os.family" value="SINIX"/>
     <param pos="0" name="os.product" value="SINIX"/>
     <param pos="0" name="service.product" value="VisionFS"/>
@@ -574,6 +622,7 @@
     <description>Windows</description>
     <example service.version="9876">m8wi9876</example>
     <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:microsoft:windows"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="service.product" value="VisionFS"/>
@@ -585,6 +634,7 @@
     <param pos="0" name="os.family" value="Unix"/>
     <param pos="0" name="os.certainty" value="0.75"/>
     <param pos="0" name="service.product" value="Samba"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:samba:samba"/>
     <param pos="0" name="service.vendor" value="Samba"/>
   </fingerprint>
 </fingerprints>

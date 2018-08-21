@@ -16,9 +16,11 @@
     <description>Cisco IOS 11.x</description>
     <param pos="0" name="service.vendor" value="Cisco"/>
     <param pos="0" name="service.product" value="IOS"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:cisco:ios:11"/>
     <param pos="0" name="service.family" value="IOS"/>
     <param pos="0" name="service.version" value="11"/>
     <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:cisco:ios:11"/>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="0" name="os.family" value="IOS"/>
     <param pos="0" name="os.product" value="IOS"/>
@@ -28,9 +30,11 @@
     <description>Cisco IOS 12.x</description>
     <param pos="0" name="service.vendor" value="Cisco"/>
     <param pos="0" name="service.product" value="IOS"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:cisco:ios:12"/>
     <param pos="0" name="service.family" value="IOS"/>
     <param pos="0" name="service.version" value="12"/>
     <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:cisco:ios:12"/>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="0" name="os.family" value="IOS"/>
     <param pos="0" name="os.product" value="IOS"/>
@@ -40,9 +44,11 @@
     <description>Cisco IOS 12.x</description>
     <param pos="0" name="service.vendor" value="Cisco"/>
     <param pos="0" name="service.product" value="IOS"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:cisco:ios:12"/>
     <param pos="0" name="service.family" value="IOS"/>
     <param pos="0" name="service.version" value="12"/>
     <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:cisco:ios:12"/>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="0" name="os.family" value="IOS"/>
     <param pos="0" name="os.product" value="IOS"/>
@@ -52,6 +58,7 @@
     <description>Check Point FireWall-1</description>
     <param pos="0" name="service.vendor" value="Check Point"/>
     <param pos="0" name="service.product" value="Firewall-1"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:checkpoint:firewall-1"/>
     <param pos="0" name="service.family" value="Firewall-1"/>
     <param pos="0" name="os.vendor" value="Check Point"/>
     <param pos="0" name="os.device" value="Firewall"/>
@@ -62,6 +69,7 @@
     <description>APC device</description>
     <param pos="0" name="service.vendor" value="APC"/>
     <param pos="0" name="service.product" value="HTTP"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:apc:http"/>
     <param pos="0" name="os.vendor" value="APC"/>
     <param pos="0" name="os.product" value="Unknown"/>
     <param pos="0" name="os.device" value="Power device"/>
@@ -263,6 +271,7 @@
     <example>Digest qop="auth", realm="Broadcom Management Service", nonce="AAAAAAAAAAAAAP//DwHpMwYy1zc=", algorithm="MD5"</example>
     <param pos="0" name="service.vendor" value="Broadcom"/>
     <param pos="0" name="service.product" value="Management Service"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:broadcom:management_service"/>
   </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) .*realm=&quot;SWAT&quot;.*$">
     <description>Samba Web Administration Tool (SWAT)</description>
@@ -270,24 +279,28 @@
     <param pos="0" name="service.vendor" value="Samba"/>
     <param pos="0" name="service.family" value="Samba"/>
     <param pos="0" name="service.product" value="SWAT"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:samba:swat"/>
   </fingerprint>
   <fingerprint pattern="^.*(?:Basic|Digest) realm=&quot;SPIP Configuration&quot;.*$">
     <description>SPIP publishing system (www.spip.net)</description>
     <example>Basic realm="SPIP Configuration", Digest realm="SPIP Configuration", nonce="116761147", algorithm="MD5"</example>
     <param pos="0" name="service.vendor" value="SPIP"/>
     <param pos="0" name="service.product" value="SPIP"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:spip:spip"/>
   </fingerprint>
   <fingerprint pattern="^.*(?:Basic|Digest) .*realm=&quot;HP ISEE @ ([^&quot;]+)&quot;.*$">
     <description>HP Instant Support Enterprise Edition with a hostname</description>
     <example host.name="blah">Basic realm="HP ISEE @ blah"</example>
     <param pos="0" name="service.vendor" value="HP"/>
     <param pos="0" name="service.product" value="ISEE"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:hp:isee"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^.*(?:Basic|Digest) .*realm=&quot;BIG-IP&quot;.*$">
     <description>Generic F5 Big-IP</description>
     <example>Basic realm="BIG-IP"</example>
     <param pos="0" name="os.vendor" value="F5"/>
+    <param pos="0" name="os.cpe" value="cpe:/o:f5:big-ip"/>
     <param pos="0" name="os.product" value="BIG-IP"/>
   </fingerprint>
   <!-- HP ProCurve -->
@@ -315,6 +328,7 @@
     <example>Basic realm="XDB"</example>
     <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.product" value="XML DB"/>
+    <param pos="0" name="service.cpe" value="cpe:/a:oracle:xml_db"/>
     <param pos="0" name="service.family" value="Oracle"/>
   </fingerprint>
   <!-- a variety of headers we currently just ignore -->
