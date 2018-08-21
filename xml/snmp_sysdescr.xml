@@ -3543,11 +3543,12 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Router"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="^Juniper Networks, Inc\. (?:(?:Dell|DELL) )?(\S+) internet router, kernel JUNOS (\S+) .*$">
+  <fingerprint pattern="^Juniper Networks, Inc\. (?:(?:Dell|DELL) )?(\S+) internet router, kernel JUNOS (\S+?),? .*$">
     <description>Juniper Router</description>
-    <example>Juniper Networks, Inc. DELL J-EX4200-24T internet router, kernel JUNOS 11.1R3.5 #0: 2011-06-25 01:18:46 UTC builder@briath.juniper.net:/volume/build/junos/11.1/release/11.1R3.5/obj-powerpc/bsd/kernels/JUNIPER-EX/kernel Build date: 2011-06-25 01:01:37</example>
-    <example>Juniper Networks, Inc. ex4200-48p internet router, kernel JUNOS 11.4R1.6 #0: 2011-11-15 11:14:01 UTC builder@evenath.juniper.net:/volume/build/junos/11.4/release/11.4R1.6/obj-powerpc/bsd/kernels/JUNIPER-EX/kernel Build date: 2011-11-15 10:35:08 UTC C</example>
-    <example>Juniper Networks, Inc. t640 internet router, kernel JUNOS 9.2R4.4 #0: 2009-05-27 07:54:10 UTC builder@amalath.juniper.net:/volume/build/junos/9.2/release/9.2R4.4/obj-i386/sys/compile/JUNIPER Build date: 2009-05-27 08:11:51 UTC Copyright (c) 1996-2009</example>
+    <example hw.model="J-EX4200-24T" os.version="11.1R3.5">Juniper Networks, Inc. DELL J-EX4200-24T internet router, kernel JUNOS 11.1R3.5 #0: 2011-06-25 01:18:46 UTC builder@briath.juniper.net:/volume/build/junos/11.1/release/11.1R3.5/obj-powerpc/bsd/kernels/JUNIPER-EX/kernel Build date: 2011-06-25 01:01:37</example>
+    <example os.version="11.4R1.6">Juniper Networks, Inc. ex4200-48p internet router, kernel JUNOS 11.4R1.6 #0: 2011-11-15 11:14:01 UTC builder@evenath.juniper.net:/volume/build/junos/11.4/release/11.4R1.6/obj-powerpc/bsd/kernels/JUNIPER-EX/kernel Build date: 2011-11-15 10:35:08 UTC C</example>
+    <example os.version="9.2R4.4">Juniper Networks, Inc. t640 internet router, kernel JUNOS 9.2R4.4 #0: 2009-05-27 07:54:10 UTC builder@amalath.juniper.net:/volume/build/junos/9.2/release/9.2R4.4/obj-i386/sys/compile/JUNIPER Build date: 2009-05-27 08:11:51 UTC Copyright (c) 1996-2009</example>
+    <example hw.model="srx3400" os.version="12.3X48-D60.2">Juniper Networks, Inc. srx3400 internet router, kernel JUNOS 12.3X48-D60.2, Build date: 2017-12-11 19:52:52 UTC Copyright (c) 1996-2017 Juniper Networks, Inc.</example>
     <param pos="0" name="os.vendor" value="Juniper"/>
     <param pos="0" name="os.cpe" value="cpe:/o:juniper:junos_os:{os.version}"/>
     <param pos="0" name="os.family" value="Junos"/>
