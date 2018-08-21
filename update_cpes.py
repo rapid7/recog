@@ -77,7 +77,7 @@ for fingerprint in doc.xpath('//fingerprint'):
             param.getparent().remove(param)
             continue
 
-        match = re.search('^(?P<fp_type>hw|os|service)\.', name)
+        match = re.search('^(?P<fp_type>hw|os|service(?:\.component)?)\.', name)
         if match:
             fp_type = match.group('fp_type')
             if not fp_type in params:
@@ -91,7 +91,7 @@ for fingerprint in doc.xpath('//fingerprint'):
     for fp_type in params:
         if fp_type == 'os':
             cpe_type = 'o'
-        elif fp_type == 'service':
+        elif fp_type.startswith('service'):
             cpe_type = 'a'
         elif fp_type == 'hw':
             cpe_type = 'h'
