@@ -173,6 +173,7 @@ for fingerprint in doc.xpath('//fingerprint'):
                         logging.error("Vendor %s (remapped from %s) is valid for CPE %s but product %s not valid and no mapping", vendor, og_vendor, cpe_type, product)
                     else:
                         logging.error("Vendor %s is valid for CPE %s but product %s not valid and no mapping", vendor, cpe_type, product)
+                    continue
 
             # building the CPE string
             cpe_value = 'cpe:/{}:{}:{}'.format(cpe_type, vendor, product)

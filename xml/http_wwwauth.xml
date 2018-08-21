@@ -69,7 +69,6 @@
     <description>APC device</description>
     <param pos="0" name="service.vendor" value="APC"/>
     <param pos="0" name="service.product" value="HTTP"/>
-    <param pos="0" name="service.cpe" value="cpe:/a:apc:http"/>
     <param pos="0" name="os.vendor" value="APC"/>
     <param pos="0" name="os.product" value="Unknown"/>
     <param pos="0" name="os.device" value="Power device"/>
@@ -271,7 +270,6 @@
     <example>Digest qop="auth", realm="Broadcom Management Service", nonce="AAAAAAAAAAAAAP//DwHpMwYy1zc=", algorithm="MD5"</example>
     <param pos="0" name="service.vendor" value="Broadcom"/>
     <param pos="0" name="service.product" value="Management Service"/>
-    <param pos="0" name="service.cpe" value="cpe:/a:broadcom:management_service"/>
   </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) .*realm=&quot;SWAT&quot;.*$">
     <description>Samba Web Administration Tool (SWAT)</description>
@@ -279,7 +277,6 @@
     <param pos="0" name="service.vendor" value="Samba"/>
     <param pos="0" name="service.family" value="Samba"/>
     <param pos="0" name="service.product" value="SWAT"/>
-    <param pos="0" name="service.cpe" value="cpe:/a:samba:swat"/>
   </fingerprint>
   <fingerprint pattern="^.*(?:Basic|Digest) realm=&quot;SPIP Configuration&quot;.*$">
     <description>SPIP publishing system (www.spip.net)</description>
@@ -293,14 +290,12 @@
     <example host.name="blah">Basic realm="HP ISEE @ blah"</example>
     <param pos="0" name="service.vendor" value="HP"/>
     <param pos="0" name="service.product" value="ISEE"/>
-    <param pos="0" name="service.cpe" value="cpe:/a:hp:isee"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^.*(?:Basic|Digest) .*realm=&quot;BIG-IP&quot;.*$">
     <description>Generic F5 Big-IP</description>
     <example>Basic realm="BIG-IP"</example>
     <param pos="0" name="os.vendor" value="F5"/>
-    <param pos="0" name="os.cpe" value="cpe:/o:f5:big-ip"/>
     <param pos="0" name="os.product" value="BIG-IP"/>
   </fingerprint>
   <!-- HP ProCurve -->
@@ -328,7 +323,6 @@
     <example>Basic realm="XDB"</example>
     <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.product" value="XML DB"/>
-    <param pos="0" name="service.cpe" value="cpe:/a:oracle:xml_db"/>
     <param pos="0" name="service.family" value="Oracle"/>
   </fingerprint>
   <!-- a variety of headers we currently just ignore -->
