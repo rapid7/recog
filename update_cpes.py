@@ -133,6 +133,7 @@ for fingerprint in doc.xpath('//fingerprint'):
             if 'unknown' in [vendor, product]:
                 continue
 
+            remapped_vendor = False
             if vendor.startswith('{') and vendor.endswith('}'):
                 continue
             else:
@@ -140,6 +141,7 @@ for fingerprint in doc.xpath('//fingerprint'):
                 if not vendor in cpe_vp_map[cpe_type]:
                     if vendor in r7_vp_map:
                         vendor = r7_vp_map[vendor]['cpe_vendor']
+                        remapped_vendor = True
                         if not vendor in cpe_vp_map[cpe_type]:
                             logging.error("Remapped vendor %s (remapped from %s) invalid for CPE %s", vendor, og_vendor, cpe_type)
                             continue
@@ -164,10 +166,16 @@ for fingerprint in doc.xpath('//fingerprint'):
                                 logging.error("Remapped product %s (remapped from %s) from vendor %s invalid for CPE %s", product, og_product, vendor, cpe_type)
                                 continue
                         else:
-                            logging.error("Product %s from vendor %s (remapped from %s) invalid for CPE %s and no mapping", product, vendor, og_vendor, cpe_type)
+                            if remapped_vendor:
+                                logging.error("Product %s from vendor %s (remapped from %s) invalid for CPE %s and no mapping", product, vendor, og_vendor, cpe_type)
+                            else:
+                                logging.error("Product %s from vendor %s invalid for CPE %s and no mapping", product, vendor, cpe_type)
                             continue
                     else:
-                        logging.error("Vendor %s (remapped from %s) is valid for CPE %s but product %s not valid and no mapping", vendor, og_vendor, cpe_type, product)
+                        if remapped_vendor:
+                            logging.error("Vendor %s (remapped from %s) is valid for CPE %s but product %s not valid and no mapping", vendor, og_vendor, cpe_type, product)
+                        else:
+                            logging.error("Vendor %s is valid for CPE %s but product %s not valid and no mapping", vendor, cpe_type, product)
 
             # building the CPE string
             cpe_value = 'cpe:/{}:{}:{}'.format(cpe_type, vendor, product)
