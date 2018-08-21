@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 
+import json
 import logging
 import re
 import sys
@@ -8,24 +9,24 @@ import sys
 from lxml import etree, objectify
 from sets import Set
 
-def parse_remapping(file):
-    remap = {}
-    with open(file, 'r') as p:
-        for line in p:
-            line = line.strip()
-            map_match = re.match("^(?P<v_from>[^=]+)=(?P<v_to>[^=]+)$", line)
-            if map_match:
-                v_from = map_match.group('v_from')
-                v_to = map_match.group('v_to')
-                if v_from in remap:
-                    raise ValueError("Duplicated '{}' from {}".format(v_from, file))
-                else:
-                    remap[v_from] = v_to
-                    remap[v_to] = v_to
-            else:
-                remap[line] = line
+def parse_r7_remapping(file):
+    remap = {} # r7_vendor => { 'cpe_vendor' => <cpe_vendor>, 'products': { r7_product1 => cpe_product1 }}
+    remap_json = None
+    with open(file) as f:
+        for line in f:
+            remap_json = json.loads(line)
+            r7_vendor = remap_json['r7_vendor']
+            cpe_vendor = remap_json['cpe_vendor']
+            if r7_vendor in remap:
+                raise ValueError("R7 vendor {} duplicated in {}".format(r7_vendor, file))
+
+            product_map = {}
+            if 'products' in remap_json:
+                product_map = remap_json['products']
+            remap[r7_vendor] = {'cpe_vendor': cpe_vendor, 'products': product_map}
 
     return remap
+
 
 def parse_cpe_vp_map(file):
     map = {} # cpe_type -> vendor -> products
@@ -54,15 +55,14 @@ def parse_cpe_vp_map(file):
     return map
 
 
-if len(sys.argv) != 5:
-    raise ValueError("Expecting exactly 4 arguments; recog XML file, CPE XML dictionary, file of remapped vendors, file of remapped products, got {}".format(len(sys.argv) - 1))
+if len(sys.argv) != 4:
+    raise ValueError("Expecting exactly 3 arguments; recog XML file, CPE XML dictionary, JSON remapping, got {}".format(len(sys.argv) - 1))
 
 xml_file = sys.argv[1]
 parser = etree.XMLParser(remove_comments=False)
 doc = etree.parse(xml_file, parser)
 cpe_vp_map = parse_cpe_vp_map(sys.argv[2])
-vendor_map = parse_remapping(sys.argv[3])
-product_map = parse_remapping(sys.argv[4])
+r7_vp_map = parse_r7_remapping(sys.argv[3])
 
 for fingerprint in doc.xpath('//fingerprint'):
 
@@ -134,11 +134,12 @@ for fingerprint in doc.xpath('//fingerprint'):
             if vendor.startswith('{') and vendor.endswith('}'):
                 continue
             else:
+                og_vendor = vendor
                 if not vendor in cpe_vp_map[cpe_type]:
-                    if vendor in vendor_map:
-                        vendor = vendor_map[vendor]
+                    if vendor in r7_vp_map:
+                        vendor = r7_vp_map[vendor]['cpe_vendor']
                         if not vendor in cpe_vp_map[cpe_type]:
-                            logging.error("Remapped vendor %s invalid for CPE %s", vendor, cpe_type)
+                            logging.error("Remapped vendor %s (from %s) invalid for CPE %s", vendor, og_vendor, cpe_type)
                             continue
                     else:
                         logging.error("Vendor %s invalid for CPE %s and no remapping", vendor, cpe_type)
@@ -149,14 +150,18 @@ for fingerprint in doc.xpath('//fingerprint'):
                 continue
             else:
                 if not product in cpe_vp_map[cpe_type][vendor]:
-                    if product in product_map:
-                        product = product_map[product]
-                        if not product in cpe_vp_map[cpe_type][vendor]:
-                            logging.error("Remapped product %s from %s invalid for CPE %s", product, vendor, cpe_type)
+                    if og_vendor in r7_vp_map:
+                        if product in r7_vp_map[og_vendor]['products']:
+                            og_product = product
+                            product = r7_vp_map[og_vendor]['products'][product]
+                            if not product in cpe_vp_map[cpe_type][vendor]:
+                                logging.error("Remapped product %s (from %s) from %s invalid for CPE %s", product, og_product, vendor, cpe_type)
+                                continue
+                        else:
+                            logging.error("Product %s from %s invalid for CPE %s and no mapping", product, vendor, cpe_type)
                             continue
                     else:
-                        logging.error("Product %s from %s invalid for CPE %s and no mapping", product, vendor, cpe_type)
-                        continue
+                        logging.error("Vendor %s/%s is valid for CPE %s but product %s not valid and no mapping", og_vendor, vendor, cpe_type, product)
 
             # building the CPE string
             cpe_value = 'cpe:/{}:{}:{}'.format(cpe_type, vendor, product)
