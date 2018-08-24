@@ -7,7 +7,6 @@ import re
 import sys
 
 from lxml import etree, objectify
-from sets import Set
 
 def parse_r7_remapping(file):
     remap = {} # r7_vendor => { 'cpe_vendor' => <cpe_vendor>, 'products': { r7_product1 => cpe_product1 }}
@@ -41,13 +40,10 @@ def parse_cpe_vp_map(file):
         cpe_match = re.match('^cpe:/([aho]):([^:]+):([^:]+)', final_cpe_name)
         if cpe_match:
             cpe_type, vendor, product = cpe_match.group(1, 2, 3)
-            cpe_type = cpe_type.encode('utf-8')
-            vendor = vendor.encode('utf-8')
-            product = product.encode('utf-8')
             if not cpe_type in map:
                 map[cpe_type] = {}
             if not vendor in map[cpe_type]:
-                map[cpe_type][vendor] = Set()
+                map[cpe_type][vendor] = set()
             map[cpe_type][vendor].add(product)
         else:
             logging.error("Unexpected CPE %s", final_cpe_name)
@@ -123,11 +119,14 @@ for fingerprint in doc.xpath('//fingerprint'):
         # lowercasing, replacing whitespace with _, and more
         if vendor and product:
             if not cpe_type in cpe_vp_map:
+                print(cpe_type)
                 logging.error("Didn't find CPE type %s", cpe_type)
                 continue
 
-            vendor = vendor.encode('utf-8').lower().replace(' ', '_').replace(',', '')
-            product = product.encode('utf-8').lower().replace(' ', '_').replace(',', '')
+            #vendor = vendor.encode('utf-8').lower().replace(b' ', b'_').replace(b',', b'')
+            vendor = vendor.lower().replace(' ', '_').replace(',', '')
+            #product = product.encode('utf-8').lower().replace(b' ', b'_').replace(b',', b'')
+            product = product.lower().replace(' ', '_').replace(',', '')
             if 'unknown' in [vendor, product]:
                 continue
 
@@ -193,5 +192,5 @@ for fingerprint in doc.xpath('//fingerprint'):
 
 root = doc.getroot()
 
-with open(xml_file, 'w') as fh:
+with open(xml_file, 'wb') as fh:
     fh.write(etree.tostring(root, pretty_print=True, xml_declaration=True, encoding=doc.docinfo.encoding))
