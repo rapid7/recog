@@ -102,7 +102,7 @@ def update_cpes(xml_file, cpe_vp_map, r7_vp_map):
             fp_data = {
                 'vendor': None,
                 'product': None,
-                'version': None,
+                'version': '-',
             }
             for fp_datum in fp_data:
                 fp_datum_param_name = "{}.{}".format(fp_type, fp_datum)
