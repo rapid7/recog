@@ -52,13 +52,11 @@ def parse_cpe_vp_map(file):
         else:
             logging.error("Unexpected CPE %s", final_cpe_name)
 
-    # TODO: handle deprecation in cpe dictionary, which would allow us to map old r7 names to their new correct CPE via the old CPE name
-    #   <cpe-item name="cpe:/o:sun:solaris:-" deprecated="true" deprecated_by="cpe:/o:sun:sunos:-" deprecation_date="2010-02-26T17:19:19.047Z">
     return map
 
 
 if len(sys.argv) != 4:
-    raise ValueError("Expecting exactly 3 arguments; recog XML file, CPE XML dictionary, JSON remapping, got {}".format(len(sys.argv) - 1))
+    raise ValueError("Expecting exactly 3 arguments; recog XML file, CPE 2.3 XML dictionary, JSON remapping, got {}".format(len(sys.argv) - 1))
 
 xml_file = sys.argv[1]
 parser = etree.XMLParser(remove_comments=False)
@@ -73,7 +71,7 @@ for fingerprint in doc.xpath('//fingerprint'):
     for param in fingerprint.xpath('./param'):
         name = param.attrib['name']
         # remove any existing CPE params
-        if name.endswith('.cpe'):
+        if re.match('^.*\.cpe\d{0,2}$', name):
             param.getparent().remove(param)
             continue
 
@@ -183,7 +181,7 @@ for fingerprint in doc.xpath('//fingerprint'):
 
             cpe_param = etree.Element('param')
             cpe_param.attrib['pos'] = '0'
-            cpe_param.attrib['name'] = '{}.cpe'.format(fp_type)
+            cpe_param.attrib['name'] = '{}.cpe23'.format(fp_type)
             cpe_param.attrib['value'] = cpe_value
 
             parent = param.getparent()
