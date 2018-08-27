@@ -35,6 +35,12 @@ describe Recog::DB do
           param_names = []
           fp.params.each do |param_name, pos_value|
             pos, value = pos_value
+            it "has valid looking fingerprint parameter names" do
+              unless param_name =~ /^(?:cookie|[^\.]+\..*)$/
+                fail "'#{param_name}' is invalid"
+              end
+            end
+
             it "doesn't have param values for capture params" do
               if pos > 0 && !value.to_s.empty?
                 fail "'#{fp.name}'s #{param_name} is a non-zero pos but specifies a value of '#{value}'"
@@ -59,7 +65,7 @@ describe Recog::DB do
 
         context "#{fp.regex}" do
 
-          it "has a name" do
+          it "has a valid looking name" do
             expect(fp.name).not_to be_nil
             expect(fp.name).not_to be_empty
           end
