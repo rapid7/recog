@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-
 import json
 import logging
 import re
@@ -49,12 +48,19 @@ def parse_cpe_vp_map(file):
 
 def main():
     if len(sys.argv) != 4:
-        raise ValueError("Expecting exactly 3 arguments; recog XML file, CPE 2.3 XML dictionary, JSON remapping, got {}".format(len(sys.argv) - 1))
+        logging.critical("Expecting exactly 3 arguments; recog XML file, CPE 2.3 XML dictionary, JSON remapping, got %s", (len(sys.argv) - 1))
+        exit(1)
 
-    xml_file = sys.argv[1]
     cpe_vp_map = parse_cpe_vp_map(sys.argv[2])
+    if not cpe_vp_map:
+        logging.critical("No CPE vendor => product mappings read from CPE 2.3 XML dictionary %s", sys.argv[2])
+        exit(1)
+
     r7_vp_map = parse_r7_remapping(sys.argv[3])
-    update_cpes(xml_file, cpe_vp_map, r7_vp_map)
+    if not r7_vp_map:
+        logging.warning("No Rapid7 vendor/product => CPE mapping read from %s", sys.argv[3])
+
+    update_cpes(sys.argv[1], cpe_vp_map, r7_vp_map)
 
 def update_cpes(xml_file, cpe_vp_map, r7_vp_map):
     parser = etree.XMLParser(remove_comments=False)
@@ -119,12 +125,10 @@ def update_cpes(xml_file, cpe_vp_map, r7_vp_map):
             # lowercasing, replacing whitespace with _, and more
             if vendor and product:
                 if not cpe_type in cpe_vp_map:
-                    logging.error("Didn't find CPE type %s", cpe_type)
+                    logging.error("Didn't find CPE type '%s' for '%s' '%s'", cpe_type, vendor, product)
                     continue
 
-                #vendor = vendor.encode('utf-8').lower().replace(b' ', b'_').replace(b',', b'')
                 vendor = vendor.lower().replace(' ', '_').replace(',', '')
-                #product = product.encode('utf-8').lower().replace(b' ', b'_').replace(b',', b'')
                 product = product.lower().replace(' ', '_').replace(',', '')
                 if 'unknown' in [vendor, product]:
                     continue
@@ -190,9 +194,9 @@ def update_cpes(xml_file, cpe_vp_map, r7_vp_map):
 
     root = doc.getroot()
 
-    with open(xml_file, 'wb') as fh:
-        fh.write(etree.tostring(root, pretty_print=True, xml_declaration=True, encoding=doc.docinfo.encoding))
+    with open(xml_file, 'wb') as xml_out:
+        xml_out.write(etree.tostring(root, pretty_print=True, xml_declaration=True, encoding=doc.docinfo.encoding))
 
 if __name__ == '__main__':
-    try: sys.exit(main())
+    try: exit(main())
     except KeyboardInterrupt: pass
