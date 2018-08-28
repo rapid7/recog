@@ -33,10 +33,8 @@ def parse_cpe_vp_map(file):
     parser = etree.XMLParser(remove_comments=False)
     doc = etree.parse(file, parser)
     namespaces = {'ns': 'http://cpe.mitre.org/dictionary/2.0', 'meta': 'http://scap.nist.gov/schema/cpe-dictionary-metadata/0.2'}
-    for meta in doc.xpath("//ns:cpe-list/ns:cpe-item/meta:item-metadata[@status = 'FINAL']", namespaces=namespaces):
-        final_cpe_name = meta.getparent().attrib['name']
-
-        cpe_match = re.match('^cpe:/([aho]):([^:]+):([^:]+)', final_cpe_name)
+    for cpe_name in doc.xpath("//ns:cpe-list/ns:cpe-item/@name", namespaces=namespaces):
+        cpe_match = re.match('^cpe:/([aho]):([^:]+):([^:]+)', cpe_name)
         if cpe_match:
             cpe_type, vendor, product = cpe_match.group(1, 2, 3)
             if not cpe_type in vp_map:
@@ -45,7 +43,7 @@ def parse_cpe_vp_map(file):
                 vp_map[cpe_type][vendor] = set()
             vp_map[cpe_type][vendor].add(product)
         else:
-            logging.error("Unexpected CPE %s", final_cpe_name)
+            logging.error("Unexpected CPE %s", cpe_name)
 
     return vp_map
 
@@ -121,7 +119,6 @@ def update_cpes(xml_file, cpe_vp_map, r7_vp_map):
             # lowercasing, replacing whitespace with _, and more
             if vendor and product:
                 if not cpe_type in cpe_vp_map:
-                    print(cpe_type)
                     logging.error("Didn't find CPE type %s", cpe_type)
                     continue
 
