@@ -13,32 +13,27 @@
        This fingerprint file is meant to be used to fingerprint each of the
        modules individually after splitting the module string on whitespace.
   -->
-  <fingerprint pattern="^(DAV|Frontpage|Perl|PHP|Python|OpenSSL)/(\S+)$">
+  <fingerprint pattern="^(Ben-SSL|Communique|DAV|FrontPage|JRun|LibreSSL|NSS|mod_(\S+)|mpm-itk|OpenSSL|Perl|PHP\d?|proxy_html|Python|Resin|Ruby|SVN|Tomcat)/(\S+)$">
     <description>Language-specific apache modules with a version</description>
     <example service.component.product="PHP" service.component.version="7.0.30">PHP/7.0.30</example>
+    <example service.component.product="mod_ssl" service.component.version="2.2.25">mod_ssl/2.2.25</example>
     <param pos="1" name="service.component.product"/>
     <param pos="2" name="service.component.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^(DAV|Frontpage|Perl|PHP|Python|OpenSSL)/?$">
+  <fingerprint pattern="^(Ben-SSL|Communique|DAV|FrontPage|JRun|mod_[^/]+|LibreSSL|mpm-itk|NSS|OpenSSL|Perl|PHP\d?|proxy_html|Python|Resin|Ruby|SVN|Tomcat)/?$">
     <description>Language-specific apache modules without a version</description>
     <example service.component.product="PHP">PHP</example>
     <example service.component.product="Perl">Perl/</example>
     <param pos="1" name="service.component.product"/>
   </fingerprint>
 
-  <fingerprint pattern="(mod_\S+)/(\S+)$">
-    <description>Standard apache modules with a version</description>
-    <example service.component.product="mod_ssl" service.component.version="2.2.25">mod_ssl/2.2.25</example>
-    <example service.component.product="mod_gzip" service.component.version="1.3.19.1a">mod_gzip/1.3.19.1a</example>
-    <param pos="1" name="service.component.product"/>
-    <param pos="2" name="service.component.version"/>
-  </fingerprint>
+  <!-- more specific ones that can't be had with generic regex -->
 
-  <fingerprint pattern="(mod_[^/]+)/?$">
-    <description>Standard apache modules without a version</description>
-    <example service.component.product="mod_ssl">mod_ssl/</example>
-    <example service.component.product="mod_gzip">mod_gzip</example>
-    <param pos="1" name="service.component.product"/>
+  <fingerprint pattern="^Phusion_Passenger/(\S+)$">
+    <description>Phusion passenger with version</description>
+    <example service.component.version="1.1">Phusion_Passenger/1.1</example>
+    <param pos="0" name="service.component.product" value="Phusion Passenger"/>
+    <param pos="1" name="service.component.version"/>
   </fingerprint>
 </fingerprints>
