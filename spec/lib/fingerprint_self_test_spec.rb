@@ -104,6 +104,10 @@ describe Recog::DB do
           #  expect(fp.tests.length).not_to equal(0)
           # end
 
+          it "Has a reasonable number (<= 20) of test cases" do
+            expect(fp.tests.length).to be <= 20
+          end
+
           fp.tests.each do |example|
             it "Example '#{example.content}' matches this regex" do
               match = fp.match(example.content)
