@@ -935,6 +935,7 @@
     <param pos="0" name="os.vendor" value="Brocade"/>
     <param pos="0" name="os.product" value="Fabric OS"/>
     <param pos="0" name="os.device" value="Switch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:brocade:fabric_os:-"/>
   </fingerprint>
   <fingerprint pattern="^Brocade ((?:\S+ )?SAN Switch) Module for IBM eServer BladeCenter$">
     <description>Brocade SAN switch</description>
@@ -1424,6 +1425,7 @@
     <param pos="0" name="os.product" value="Adaptive Security Appliance"/>
     <param pos="0" name="os.device" value="Firewall"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:adaptive_security_appliance:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Cisco 761 Software Version (.*) -.*$">
     <description>Cisco 761</description>
@@ -1445,6 +1447,7 @@
     <param pos="0" name="os.product" value="VPN 3000 Concentrator"/>
     <param pos="0" name="os.device" value="VPN"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:vpn_3000_concentrator:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?:Cisco )?Network Analysis Module \(WS-[^\)]+\), Version ([^, ]+)[,\s]?.*$" flags="REG_DOT_NEWLINE">
     <description>Cisco Catalyst Network Analysis Module</description>
@@ -1483,6 +1486,7 @@ Copyright (c) 1999-2004 by cisco Systems, Inc.</example>
     <param pos="0" name="os.family" value="IOS"/>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Cisco Systems, Inc\. \S+.Cisco Catalyst Operating System Software, Version (\S+).Copyright \(c\).*$" flags="REG_DOT_NEWLINE">
     <description>Cisco Catalyst</description>
@@ -1512,6 +1516,7 @@ Copyright (c) 1995-2002 by Cisco Systems, Inc.
     <param pos="0" name="os.family" value="CatOS"/>
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:catos:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Cisco Systems \S+.Cisco Catalyst Operating System Software, Version (\S+).Copyright \(c\).*$" flags="REG_DOT_NEWLINE">
     <description>Cisco Catalyst</description>
@@ -1525,6 +1530,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="CatOS"/>
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:catos:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Hardware:(\S+),.*Software:UCOS (\S+)$">
     <description>Cisco UCOS</description>
@@ -1610,6 +1616,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.device" value="WAP"/>
     <param pos="0" name="os.product" value="Wireless LAN Controller"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:wireless_lan_controller:-"/>
   </fingerprint>
   <!--======================================================================
                              Cobox
@@ -2248,6 +2255,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:{os.version}"/>
   </fingerprint>
   <!--======================================================================
                               FUJI XEROX
@@ -2339,6 +2347,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:hp:hp-ux:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(\S+) .*OpenVMS V(\S+) .*$">
     <description>OpenVMS</description>
@@ -2349,6 +2358,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:hp:openvms:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(\S+) (.*?) (?:HP|Compaq) Tru64 UNIX V(\S+) \(Rev\. ([^\)]+)\).*TCP/IP$">
     <description>Digital/Compaq/HP Tru64 Unix</description>
@@ -2361,6 +2371,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="hw.product"/>
     <param pos="3" name="os.version"/>
     <param pos="4" name="os.version.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:hp:tru64:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(\S+) (.*?) Digital UNIX V(\S+)\s+\(Rev\. ([^\)]+)\).*TCP/IP$">
     <description>Digital/Compaq/HP Tru64 Unix</description>
@@ -3061,6 +3072,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows 2000"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_2000:-"/>
   </fingerprint>
   <fingerprint pattern="^MAS 1\.0 \(Intel X86\) Copyright.*Huawei Technologies Co\., Ltd on SUSE LINUX ([\d\.]+)$">
     <description>Huawei device on SuSE Linux</description>
@@ -3071,6 +3083,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:suse:linux:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^HUAWEI-3COM WBR-204g$">
     <description>HUAWEI-3COM WBR-204g WAP</description>
@@ -3092,6 +3105,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="3.2"/>
     <param pos="0" name="os.arch" value="System/6000"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:3.2"/>
   </fingerprint>
   <fingerprint pattern="^RISC System/6000 .* Base Operating System Runtime AIX [^:]+: 04\.02\..*$">
     <description>IBM AIX</description>
@@ -3102,6 +3116,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="4.2"/>
     <param pos="0" name="os.arch" value="System/6000"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:4.2"/>
   </fingerprint>
   <fingerprint pattern="^RISC System/6000 .* Base Operating System Runtime AIX [^:]+: 04\.03\..*$">
     <description>IBM AIX</description>
@@ -3117,6 +3132,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="4.3"/>
     <param pos="0" name="os.arch" value="System/6000"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:4.3"/>
   </fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 04\.02\..*$">
     <description>IBM AIX</description>
@@ -3131,6 +3147,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="4.2"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:4.2"/>
   </fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 04\.03\..*$">
     <description>IBM AIX</description>
@@ -3147,6 +3164,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="4.3"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:4.3"/>
   </fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 05\.01\..*$">
     <description>IBM AIX</description>
@@ -3169,6 +3187,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="5.1"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:5.1"/>
   </fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Operating System Software: AIX version: 5\.1 Networking Software:.*$">
     <description>IBM AIX</description>
@@ -3180,6 +3199,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="5.1"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:5.1"/>
   </fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 05\.02\..*$">
     <description>IBM AIX</description>
@@ -3206,6 +3226,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="5.2"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:5.2"/>
   </fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 05\.03\..*$">
     <description>IBM AIX</description>
@@ -3228,6 +3249,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="5.3"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:5.3"/>
   </fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime VIOS [^:]+: 05\.03\..*$">
     <description>IBM VIOS</description>
@@ -3244,6 +3266,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="5.3"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:vios:5.3"/>
   </fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 06\.01\..*$">
     <description>IBM AIX</description>
@@ -3257,6 +3280,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="6.1"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:6.1"/>
   </fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime VIOS [^:]+: 06\.01\..*$">
     <description>IBM VIOS</description>
@@ -3266,6 +3290,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.1"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:vios:6.1"/>
   </fingerprint>
   <fingerprint pattern="^(?:\S+ )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 07\.01\..*$">
     <description>IBM AIX</description>
@@ -3278,6 +3303,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="7.1"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:7.1"/>
   </fingerprint>
   <fingerprint pattern="^(?:\S+ )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 05\.01\..*$">
     <description>IBM AIX</description>
@@ -3287,6 +3313,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="5.1"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:5.1"/>
   </fingerprint>
   <fingerprint pattern="^(?:\S+ )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 05\.02\..*$">
     <description>IBM AIX</description>
@@ -3296,6 +3323,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="5.2"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:5.2"/>
   </fingerprint>
   <fingerprint pattern="^(?:\S+ )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 05\.03\..*$">
     <description>IBM AIX</description>
@@ -3305,6 +3333,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="5.3"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:5.3"/>
   </fingerprint>
   <fingerprint pattern="^(?:\S+ )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 06\.01\..*$">
     <description>IBM AIX</description>
@@ -3314,6 +3343,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.1"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:6.1"/>
   </fingerprint>
   <fingerprint pattern="^(?:\S+ )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 07\.01\..*$">
     <description>IBM AIX</description>
@@ -3323,6 +3353,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="7.1"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:7.1"/>
   </fingerprint>
   <fingerprint pattern="^IBM Network Printer (\S+)$">
     <description>IBM Network Printer</description>
@@ -3410,6 +3441,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="ScreenOS"/>
     <param pos="2" name="os.version"/>
     <param pos="0" name="os.family" value="ScreenOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:juniper:screenos:{os.version}"/>
     <param pos="1" name="hw.model"/>
   </fingerprint>
   <fingerprint pattern="^Juniper (\S+) : (\d+\S+)$">
@@ -3486,6 +3518,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Junos OS"/>
     <param pos="1" name="hw.model"/>
     <param pos="2" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:juniper:junos:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Juniper Networks, Inc\. (\S+) Edge Routing Switch SW Version : \((\S+) (\S+) \[BuildId (\d+)\]\) .*$">
     <description>Juniper Edge Routing Switch</description>
@@ -4018,6 +4051,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:redhat:enterprise_linux:3"/>
   </fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\.6\.9-22\.EL(?:smp)?) .* (\S+)$">
     <description>Red Hat Enterprise Linux 4 Update 2</description>
@@ -4031,6 +4065,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:redhat:enterprise_linux:4"/>
   </fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\.6\.9-34\.EL(?:smp)?) .* (\S+)$">
     <description>Red Hat Enterprise Linux 4 Update 3</description>
@@ -4043,6 +4078,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:redhat:enterprise_linux:4"/>
   </fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\.6\.18-53.*el5) .* (\S+)$">
     <description>Red Hat Enterprise Linux 5</description>
@@ -4057,6 +4093,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:redhat:enterprise_linux:5"/>
   </fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\.4\.9-e\.\S+).* (\S+)$">
     <description>Red Hat Enterprise Linux 2.1</description>
@@ -4070,6 +4107,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:redhat:enterprise_linux:2.1"/>
   </fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\.4\.18-3) .* (\S+)$">
     <description>Red Hat Linux 7.3</description>
@@ -4083,6 +4121,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:redhat:linux:7.3"/>
   </fingerprint>
   <fingerprint pattern="^CentOS release ([\d.]*) .*$">
     <description>CentOS Linux</description>
@@ -4093,6 +4132,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:centos:centos:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\.6\.9-55[\d.]*EL(?:smp)?) .* (\S+)$">
     <description>CentOS Linux 4.5</description>
@@ -4106,6 +4146,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:centos:centos:4.5"/>
   </fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\.6\.18-53[\d\.]*el5xen) .* (\S+)$">
     <description>CentOS Linux 5</description>
@@ -4121,6 +4162,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:centos:centos:5"/>
   </fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\S+.FC4) .* (\S+)$">
     <description>Fedora Core Linux 4</description>
@@ -4134,6 +4176,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:redhat:fedora_core:6"/>
   </fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\S+.fc6) .* (\S+)$">
     <description>Fedora Core Linux 6</description>
@@ -4147,6 +4190,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:redhat:fedora_core:6"/>
   </fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\S+.fc7) .* (\S+)$">
     <description>Fedora Core Linux 7</description>
@@ -4160,6 +4204,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:redhat:fedora_core:7"/>
   </fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\.6\.4-52(?:-smp)) .* (\S+)$">
     <description>SuSE Linux 9.1</description>
@@ -4173,6 +4218,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:suse:linux:9.1"/>
   </fingerprint>
   <fingerprint pattern="^Linux (\S+) (2\.4\.32-ow1) (\S+)$">
     <description>OpenWall Linux</description>
@@ -4198,6 +4244,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:7.04"/>
   </fingerprint>
   <!--
       Sun's ILOM (Integrated Lights Out Manager) is actually a little ppc board running
@@ -4324,6 +4371,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="10.3"/>
     <param pos="2" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.3"/>
   </fingerprint>
   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 8.(\d+).\d+: .*RELEASE_\w* ?\s* (\S* ?\S*)$">
     <description>Mac OS X 10.4 (Tiger)</description>
@@ -4337,6 +4385,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="10.4"/>
     <param pos="2" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.4"/>
   </fingerprint>
   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 9.(\d+).\d+: .*RELEASE_\w* ?\s* (\S* ?\S*)$">
     <description>Mac OS X 10.5 (Leopard)</description>
@@ -4350,6 +4399,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="10.5"/>
     <param pos="2" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.5"/>
   </fingerprint>
   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 10.(\d+).\d+: .*RELEASE_\w* ?\s* (\S* ?\S*)$">
     <description>Mac OS X 10.6 (Snow Leopard)</description>
@@ -4363,6 +4413,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="10.6"/>
     <param pos="2" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.6"/>
   </fingerprint>
   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 11.(\d+).\d+: .*RELEASE_\w* ?\s* (\S* ?\S*)$">
     <description>Mac OS X 10.7 (Lion)</description>
@@ -4376,6 +4427,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="10.7"/>
     <param pos="2" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.7"/>
   </fingerprint>
   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 12.(\d+).\d+: .*RELEASE_\w* ?\s* (\S* ?\S*)$">
     <description>Mac OS X 10.8 (Mountain Lion)</description>
@@ -4389,6 +4441,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="10.8"/>
     <param pos="2" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.8"/>
   </fingerprint>
   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 13.(\d+).\d+: .*RELEASE_\w* ?\s* (\S* ?\S*)$">
     <description>Mac OS X 10.9 (Mavericks)</description>
@@ -4402,6 +4455,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="10.9"/>
     <param pos="2" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.9"/>
   </fingerprint>
   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 14.(\d+).\d+: .*RELEASE_\w* ?\s* (\S* ?\S*)$">
     <description>Mac OS X 10.10 (Yosemite)</description>
@@ -4415,6 +4469,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="10.10"/>
     <param pos="2" name="os.version.version"/>
     <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.10"/>
   </fingerprint>
   <!--======================================================================
                               MICROSOFT
@@ -4440,6 +4495,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows 2000"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_2000:-"/>
   </fingerprint>
   <fingerprint pattern="^Hardware: x86.*Software: Windows 2000 Version 5\.1.*$">
     <description>Windows XP on x86</description>
@@ -4449,6 +4505,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows XP"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_xp:-"/>
   </fingerprint>
   <fingerprint pattern="^Hardware: x86.*Software: Windows Version 5\.2.*$">
     <description>Windows Server 2003 on x86</description>
@@ -4458,6 +4515,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows Server 2003"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:-"/>
   </fingerprint>
   <fingerprint pattern="^Hardware: \S+64.*Software: Windows Version 5\.2.*$">
     <description>Windows Server 2003 on x86_64</description>
@@ -4468,6 +4526,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows Server 2003"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86_64"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:-"/>
   </fingerprint>
   <fingerprint pattern="^Windows_NT Microsoft Windows Server 2003 5.2 3790 Service Pack 2, GenuineIntel \S+64.*$">
     <description>Rare Windows 2003 SP2 sysDescr, x64</description>
@@ -4478,6 +4537,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86_64"/>
     <param pos="0" name="os.version" value="SP1"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:SP1"/>
   </fingerprint>
   <fingerprint pattern="^Windows_NT Microsoft Windows Server 2003 5.2 3790 Service Pack 2, GenuineIntel x86.*$">
     <description>Rare Windows 2003 SP2 sysDescr, x86</description>
@@ -4488,6 +4548,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
     <param pos="0" name="os.version" value="SP1"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:SP1"/>
   </fingerprint>
   <fingerprint pattern="^Microsoft Windows CE Version ([\d.]+).*$">
     <description>Windows CE</description>
@@ -4498,6 +4559,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows CE"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_ce:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Hardware: x86.*Software: Windows Version 6.0 \(Build 6000.*$">
     <description>Windows Vista on x86</description>
@@ -4507,6 +4569,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows Vista"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_vista:-"/>
   </fingerprint>
   <fingerprint pattern="^Hardware: \S+64.*Software: Windows Version 6.0 \(Build 6000.*$">
     <description>Windows Vista on x86_64</description>
@@ -4516,6 +4579,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows Vista"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86_64"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_vista:-"/>
   </fingerprint>
   <fingerprint pattern="^Hardware: x86.*Software: Windows Version 6.0 \(Build 6001.*$">
     <description>Windows Vista SP1 on x86</description>
@@ -4526,6 +4590,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="SP1"/>
     <param pos="0" name="os.arch" value="x86"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_vista:SP1"/>
   </fingerprint>
   <fingerprint pattern="^Hardware: \S+64.*Software: Windows Version 6.0 \(Build 6001.*$">
     <description>Windows Vista SP1 on x86_64</description>
@@ -4537,6 +4602,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="SP1"/>
     <param pos="0" name="os.arch" value="x86_64"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_vista:SP1"/>
   </fingerprint>
   <fingerprint pattern="^Hardware: x86.*Software: Windows Version 6.0 \(Build 6002.*$">
     <description>Windows Vista SP2 on x86</description>
@@ -4547,6 +4613,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="SP2"/>
     <param pos="0" name="os.arch" value="x86"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_vista:SP2"/>
   </fingerprint>
   <fingerprint pattern="^Hardware: \S+64.*Software: Windows Version 6.0 \(Build 6002.*$">
     <description>Windows Vista SP2 on x86_64</description>
@@ -4558,6 +4625,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="SP2"/>
     <param pos="0" name="os.arch" value="x86_64"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_vista:SP2"/>
   </fingerprint>
   <fingerprint pattern="^Hardware: x86.*Software: Windows Version 6.1 \(Build 7600.*$">
     <description>Windows 7 on x86</description>
@@ -4567,6 +4635,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows 7"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_7:-"/>
   </fingerprint>
   <fingerprint pattern="^Hardware: \S+64.*Software: Windows Version 6.1 \(Build 7600.*$">
     <description>Windows 7 on x86_64</description>
@@ -4577,6 +4646,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows 7"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86_64"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_7:-"/>
   </fingerprint>
   <fingerprint pattern="^Hardware: x86.*Software: Windows Version 6.1 \(Build 7601.*$">
     <description>Windows 7 on x86</description>
@@ -4587,6 +4657,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="SP1"/>
     <param pos="0" name="os.arch" value="x86"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_7:SP1"/>
   </fingerprint>
   <fingerprint pattern="^Hardware: \S+64.*Software: Windows Version 6.1 \(Build 7601.*$">
     <description>Windows 7 on x86_64</description>
@@ -4598,6 +4669,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="SP1"/>
     <param pos="0" name="os.arch" value="x86_64"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_7:SP1"/>
   </fingerprint>
   <fingerprint pattern="^Hardware: \S+64.*Software: Windows Version 6.2 \(Build 9200">
     <description>Windows 8 on x86_64</description>
@@ -4607,6 +4679,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows 8"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86_64"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_8:-"/>
   </fingerprint>
   <fingerprint pattern="^Hardware: x86.*Software: Windows Version 6.2 \(Build 9200">
     <description>Windows 8 on x86</description>
@@ -4616,6 +4689,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows 8"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_8:-"/>
   </fingerprint>
   <fingerprint pattern="^Hardware: \S+64.*Software: Windows Version 6.3 \(Build 9600">
     <description>Windows 8 on x86_64</description>
@@ -4625,6 +4699,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows 8.1"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86_64"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_8.1:-"/>
   </fingerprint>
   <fingerprint pattern="^Hardware: x86.*Software: Windows Version 6.3 \(Build 9600">
     <description>Windows 8 on x86</description>
@@ -4634,6 +4709,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows 8.1"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="x86"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_8.1:-"/>
   </fingerprint>
   <fingerprint pattern="Windows\s\S+\s(6\.2\.\d+)\s+Server\s[\d\.]+\s(\w+).*">
     <description>Windows Server 2012</description>
@@ -4644,6 +4720,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Windows Server 2012"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:{os.version}"/>
   </fingerprint>
   <!--======================================================================
                              MRV Communications
@@ -4693,6 +4770,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Data ONTAP"/>
     <param pos="0" name="os.device" value="File server"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:netapp:data_ontap:{os.version}"/>
   </fingerprint>
   <!--======================================================================
                               NETBOTZ
@@ -5030,6 +5108,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="3.12"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:3.12"/>
   </fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.00\.09  *September 21, 2000$">
     <description>Novell NetWare</description>
@@ -5040,6 +5119,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="5.1 SP2"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:5.1 SP2"/>
   </fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.00\.10  *July 10, 2002$">
     <description>Novell NetWare</description>
@@ -5050,6 +5130,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="5.1 SP5"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:5.1 SP5"/>
   </fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.00\.10  *December 9, 2003$">
     <description>Novell NetWare</description>
@@ -5060,6 +5141,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="5.1 SP7"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:5.1 SP7"/>
   </fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.00\.11  *January 19, 2005$">
     <description>Novell NetWare</description>
@@ -5070,6 +5152,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="5.1 SP8"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:5.1 SP8"/>
   </fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.60\.03  *March 27, 2003$">
     <description>Novell NetWare</description>
@@ -5080,6 +5163,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.0 SP3"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:6.0 SP3"/>
   </fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.60\.05  *May 27, 2004$">
     <description>Novell NetWare</description>
@@ -5090,6 +5174,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.0 SP5"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:6.0 SP5"/>
   </fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.70\.02  *June 11, 2004$">
     <description>Novell NetWare</description>
@@ -5100,6 +5185,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.5 SP2"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:6.5 SP2"/>
   </fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.70\.03  *January 20, 2005$">
     <description>Novell NetWare</description>
@@ -5110,6 +5196,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.5 SP3"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:6.5 SP3"/>
   </fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.70\.03  *May 23, 2005$">
     <description>Novell NetWare</description>
@@ -5120,6 +5207,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.5 SP3 CPR"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:6.5 SP3 CPR"/>
   </fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.70\.04  *August 15, 2005$">
     <description>Novell NetWare</description>
@@ -5130,6 +5218,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.5 SP4"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:6.5 SP4"/>
   </fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.70\.05  *December 16, 2005$">
     <description>Novell NetWare</description>
@@ -5140,6 +5229,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.5 SP5"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:6.5 SP5"/>
   </fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.70\.05  *April 11, 2006$">
     <description>Novell NetWare</description>
@@ -5150,6 +5240,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.5 SP5 CPR"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:6.5 SP5 CPR"/>
   </fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.70\.06  *October 26, 2006$">
     <description>Novell NetWare</description>
@@ -5160,6 +5251,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.5 SP6"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:6.5 SP6"/>
   </fingerprint>
   <fingerprint pattern="^Novell NetWare 5\.70\.07  *September 18, 2007$">
     <description>Novell NetWare</description>
@@ -5170,6 +5262,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.version" value="6.5 SP7"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:6.5 SP7"/>
   </fingerprint>
   <fingerprint pattern="^Novell NetWare ([\d.]+).*$">
     <description>Novell NetWare</description>
@@ -5180,6 +5273,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Novell UnixWare v(\S+)$">
     <description>Novell UnixWare</description>
@@ -5189,6 +5283,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="UnixWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:novell:unixware:{os.version}"/>
   </fingerprint>
   <!--======================================================================
                                 OCE
@@ -5561,6 +5656,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.certainty" value="0.9"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.component.version"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:pfsense:pfsense:{service.component.version}"/>
     <param pos="3" name="os.vendor"/>
     <param pos="3" name="service.vendor"/>
     <param pos="3" name="os.family"/>
@@ -6360,6 +6456,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="MIPS"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sgi:irix:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^.* IRIX64 (?:version )?(\d+\S+).*$">
     <description>SGI IRIX</description>
@@ -6378,6 +6475,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="MIPS64"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sgi:irix:{os.version}"/>
   </fingerprint>
   <!--======================================================================
                               SHARP
@@ -6672,6 +6770,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:oracle:solaris:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^SunOS (\S+) 5\.([789]|10) \S+ (\S+)$">
     <description>SunOS/Solaris 5.7-5.10</description>
@@ -6685,6 +6784,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^SunOS (\S+) (\S+) \S+ (\S+)$">
     <description>SunOS/Solaris</description>
@@ -6696,6 +6796,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:{os.version}"/>
   </fingerprint>
   <!-- For Sun hardware/platform information, see http://docs.sun.com/source/817-6337/chapterHPG.html -->
   <fingerprint pattern="^Sun SNMP Agent, Sun-Blade-100$">
@@ -6707,6 +6808,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:-"/>
   </fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, UltraAX-i2$">
     <description>Sun SNMP agent on an UltraAX-i2</description>
@@ -6717,6 +6819,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:-"/>
   </fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, Ultra-5_10$">
     <description>Sun SNMP agent on an Ultra 5 or Ultra 10</description>
@@ -6727,6 +6830,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:-"/>
   </fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, Ultra-1$">
     <description>Sun SNMP agent on an Ultra 1</description>
@@ -6737,6 +6841,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:-"/>
   </fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, Ultra-Enterprise$">
     <description>Sun SNMP agent on an Ultra-Enterprise</description>
@@ -6747,6 +6852,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:-"/>
   </fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, Sun-Fire-V240$">
     <description>Sun SNMP agent on a Sun-Fire-V240</description>
@@ -6757,6 +6863,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:-"/>
   </fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, Netra-T12$">
     <description>Sun SNMP agent on a Sun-Fire-V240</description>
@@ -6767,6 +6874,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:-"/>
   </fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, Ultra-25$">
     <description>Sun SNMP agent on an Ultra-25</description>
@@ -6777,6 +6885,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:-"/>
   </fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, Ultra-80$">
     <description>Sun SNMP agent on an Ultra-80</description>
@@ -6787,6 +6896,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:-"/>
   </fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, Ultra-60$">
     <description>Sun SNMP agent on an Ultra-60</description>
@@ -6797,6 +6907,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:-"/>
   </fingerprint>
   <fingerprint pattern="^Sun SNMP Agent, UltraAX-MP$">
     <description>Sun SNMP agent on an UltraAX-MP</description>
@@ -6807,6 +6918,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:-"/>
   </fingerprint>
   <!-- This is definitely a Netra T1 -->
   <fingerprint pattern="^Sun SNMP Agent, UltraSPARC-IIi-cEngine$">
@@ -6818,6 +6930,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.arch" value="sun4u"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:-"/>
   </fingerprint>
   <fingerprint pattern="^Sun SNMP Agent,.*$">
     <description>Sun SNMP agent on unknown Sun hardware</description>
@@ -6828,6 +6941,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:-"/>
   </fingerprint>
   <fingerprint pattern="^Sun StorEdge (\S+)$">
     <description>Sun StorEdge disk array</description>
@@ -6856,6 +6970,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:{os.version}"/>
     <param pos="3" name="hw.product"/>
   </fingerprint>
   <fingerprint pattern="^SunOS 5\.(1[1-9]) (\S+) sparc SUNW,([^,]+),.*$">
@@ -6869,6 +6984,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:oracle:solaris:{os.version}"/>
     <param pos="3" name="hw.product"/>
   </fingerprint>
   <fingerprint pattern="^SunOS (\S+) 5\.([789]|10) \S+ (\S+) \S+ SUNW,([^,]+).*$">
@@ -6888,6 +7004,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:{os.version}"/>
     <param pos="4" name="hw.product"/>
   </fingerprint>
   <fingerprint pattern="^SunOS (\S+) 5\.(1[1-9]) \S+ (\S+) \S+ SUNW,([^,]+).*$">
@@ -6902,6 +7019,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:oracle:solaris:{os.version}"/>
     <param pos="4" name="hw.product"/>
   </fingerprint>
   <fingerprint pattern="^SunOS 5\.([789]|10) \S+ (\S+)$">
@@ -6923,6 +7041,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^SunOS 5\.(1[1-9]) \S+ (\S+)$">
     <description>Oracle/Solaris 5.11 and upwards</description>
@@ -6935,6 +7054,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:oracle:solaris:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^SunOS release:5\.([789]|10) version:\S+ machine:(\S+)$">
     <description>SunOS/Solaris 5.7-5.10</description>
@@ -6949,6 +7069,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^SunOS release:5\.(1[1-9]) version:\S+ machine:(\S+)$">
     <description>SunOS/Solaris 5.11 and upwards</description>
@@ -6961,6 +7082,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:oracle:solaris:{os.version}"/>
   </fingerprint>
   <!--======================================================================
                               SYMANTEC
@@ -7088,6 +7210,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>VxWorks SNMPv1/v2c Agent</example>
     <param pos="0" name="os.vendor" value="Wind River"/>
     <param pos="0" name="os.product" value="VxWorks"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:windriver:vxworks:-"/>
   </fingerprint>
   <!--======================================================================
                              VMware

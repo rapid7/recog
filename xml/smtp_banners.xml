@@ -30,6 +30,7 @@
     <param pos="0" name="service.family" value="IMail Server"/>
     <param pos="0" name="service.product" value="IMail Server"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ipswitch:imail_server:{service.version}"/>
     <param pos="1" name="host.name"/>
     <param pos="0" name="imail.eval" value="yes"/>
   </fingerprint>
@@ -40,6 +41,7 @@
     <param pos="0" name="service.family" value="IMail Server"/>
     <param pos="0" name="service.product" value="IMail Server"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ipswitch:imail_server:{service.version}"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) \(IMail (\d+\.[^ ]+) \d+-\d+\) NT-ESMTP Server X1$">
@@ -49,6 +51,7 @@
     <param pos="0" name="service.family" value="IMail Server"/>
     <param pos="0" name="service.product" value="IMail Server"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ipswitch:imail_server:{service.version}"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) SMTP AnalogX Proxy ([^ ]+\.[^ ]+) \(Release\) ready *$">
@@ -58,6 +61,7 @@
     <param pos="0" name="service.family" value="Proxy"/>
     <param pos="0" name="service.product" value="Proxy"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:analogx:proxy:{service.version}"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^ArGoSoft Mail Server, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
@@ -66,6 +70,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
     <param pos="0" name="service.vendor" value="ArGoSoft"/>
     <param pos="0" name="service.family" value="Mail Server"/>
     <param pos="0" name="service.product" value="Mail Server"/>
@@ -78,6 +83,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
     <param pos="0" name="service.vendor" value="ArGoSoft"/>
     <param pos="0" name="service.family" value="Mail Server"/>
     <param pos="0" name="service.product" value="Mail Server"/>
@@ -92,6 +98,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
     <param pos="0" name="service.vendor" value="ArGoSoft"/>
     <param pos="0" name="service.family" value="Mail Server"/>
     <param pos="0" name="service.product" value="Mail Server"/>
@@ -115,6 +122,7 @@
     <param pos="0" name="service.vendor" value="Check Point"/>
     <param pos="0" name="service.family" value="Check Point"/>
     <param pos="0" name="service.product" value="Firewall-1"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:checkpoint:firewall-1:-"/>
   </fingerprint>
   <fingerprint pattern="^SMTP/cmap ready_+$">
     <description>Cisco Pix v4.x</description>
@@ -123,6 +131,7 @@
     <param pos="0" name="os.family" value="PIX"/>
     <param pos="0" name="os.product" value="PIX"/>
     <param pos="0" name="os.version" value="4"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:pix_firewall_software:4"/>
   </fingerprint>
   <fingerprint pattern="CCProxy (\S+) SMTP Service Ready(?:\(Unregistered\))?$">
     <description>Youngzsoft CCProxy SMTP</description>
@@ -147,6 +156,7 @@
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="PIX"/>
     <param pos="0" name="os.product" value="PIX"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:pix_firewall_software:-"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +ESMTP CPMTA-([^ ]+)_([^ ]+)_([^ ]+)_([^ ]+) - NO UCE *$">
     <description>Critical Path (aka InScribe) Messaging Server
@@ -190,6 +200,7 @@
     <param pos="0" name="os.family" value="Mac OS"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Mac OS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os:-"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
@@ -200,11 +211,13 @@
     <param pos="0" name="service.family" value="Exchange Server"/>
     <param pos="0" name="service.product" value="Exchange Server"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:exchange_server:{service.version}"/>
     <param pos="1" name="host.name"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) Microsoft Exchange Internet Mail Service (\d+\.\d+\.\d+\.\d+) ready *$">
     <description>Microsoft Exchange Server 5.0 (for sure, can't be confused with the IIS builtin SMTP service)</description>
@@ -213,11 +226,13 @@
     <param pos="0" name="service.family" value="Exchange Server"/>
     <param pos="0" name="service.product" value="Exchange Server"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:exchange_server:{service.version}"/>
     <param pos="1" name="host.name"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) Microsoft ESMTP MAIL Service ready at .*$">
     <description>Microsoft Exchange 2007/2010 (for sure, can't be confused with the IIS builtin SMTP service)</description>
@@ -225,11 +240,13 @@
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="Exchange Server"/>
     <param pos="0" name="service.product" value="Exchange Server"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:exchange_server:-"/>
     <param pos="1" name="host.name"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) Microsoft SMTP MAIL ready at (.+) Version: +(\d+\.\d+\.\d+\.\d+\.\d+) *$">
     <description>Microsoft IIS builtin SMTP service, or Microsoft Exchange Server (they are differentiated from each other in smtp-iis.clp)  - variant 1</description>
@@ -238,6 +255,7 @@
     <param pos="0" name="service.family" value="IIS"/>
     <param pos="0" name="service.product" value="IIS"/>
     <param pos="3" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:iis:{service.version}"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="system.time"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
@@ -245,6 +263,7 @@
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^(:?[^ ]+)? ?Microsoft ESMTP MAIL Service, Version: +(\d+\.\d+\.\d+\.\d+) +ready +(?:at +)?(.+)$">
     <description>Microsoft IIS builtin SMTP service, or Microsoft Exchange Server (they are differentiated from each other in smtp-iis.clp) - variant 2 </description>
@@ -255,6 +274,7 @@
     <param pos="0" name="service.family" value="IIS"/>
     <param pos="0" name="service.product" value="IIS"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:iis:{service.version}"/>
     <param pos="1" name="host.name"/>
     <param pos="3" name="system.time"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
@@ -262,6 +282,7 @@
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^ESMTP Exim$">
     <description>Exim - without version string or hostname</description>
@@ -269,6 +290,7 @@
     <param pos="0" name="service.vendor" value="exim"/>
     <param pos="0" name="service.family" value="exim"/>
     <param pos="0" name="service.product" value="exim"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:exim:exim:-"/>
   </fingerprint>
   <fingerprint pattern="^ ?([^, ]+)(?:,)? ESMTP \(?(?i:Exim) +(\d+\.[\d_.bRC-]+)\)?(?: +#\d)? ?.?((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *(?:We do not authorize the use of this system to transport unsolicited, and\/or bulk e-mail.)?$">
     <description>Exim - with version string and optional timestamp</description>
@@ -288,6 +310,7 @@
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:exim:exim:{service.version}"/>
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^, ]+)(?:,)? ESMTP (?i:Exim) +(\d+) ((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
@@ -299,6 +322,7 @@
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:exim:exim:{service.version}"/>
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^, ]+)(?:,)? ESMTP (?i:Exim) +(\d+\.[\d_.]+)(?: +#\d)? Ubuntu ((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
@@ -307,12 +331,14 @@
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:-"/>
     <param pos="0" name="service.vendor" value="exim"/>
     <param pos="0" name="service.family" value="exim"/>
     <param pos="0" name="service.product" value="exim"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:exim:exim:{service.version}"/>
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^, ]+)(?:,)? ESMTP (?i:Exim)(?: +#\d)? *((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
@@ -323,6 +349,7 @@
     <param pos="0" name="service.vendor" value="exim"/>
     <param pos="0" name="service.family" value="exim"/>
     <param pos="0" name="service.product" value="exim"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:exim:exim:-"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="system.time"/>
@@ -337,6 +364,7 @@
     <param pos="0" name="service.product" value="exim"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:exim:exim:{service.version}"/>
     <param pos="2" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) FTGate server ready .*$">
@@ -367,6 +395,7 @@
     <param pos="0" name="service.product" value="GroupWise"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:novell:groupwise:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) GroupWise Internet Agent (\d+\.[\d.]+)  Copyright .*\d{4}-\d{4} Novell, Inc..* All rights reserved. Ready *$">
     <description>Novell GroupWise Internet Agent - versions 5 and higher, second variant</description>
@@ -377,6 +406,7 @@
     <param pos="0" name="service.product" value="GroupWise"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:novell:groupwise:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) GroupWise SMTP/MIME Daemon ([^ ]+\.[^ ]+) v([^ ]+) Ready \(C\).* Novell, Inc\. *$">
     <description>Novell GroupWise - versions below 5</description>
@@ -387,6 +417,7 @@
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
     <param pos="3" name="service.version.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:novell:groupwise:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) (?:ESMTP )?running IBM VM SMTP (.+)(?:; | on )(.+) *$">
     <description>IBM SMTP server for VM/ESA on IBM S/390 and IBM eserver z/Series 900.</description>
@@ -419,6 +450,7 @@
     <param pos="0" name="service.vendor" value="Apache"/>
     <param pos="0" name="service.product" value="James"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:apache:james:{service.version}"/>
     <param pos="1" name="host.name"/>
     <param pos="3" name="system.time"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
@@ -429,6 +461,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
     <param pos="0" name="service.vendor" value="MailEnable"/>
     <param pos="0" name="service.family" value="Mail Server"/>
     <param pos="0" name="service.product" value="Mail Server"/>
@@ -445,6 +478,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
     <param pos="0" name="service.vendor" value="MailEnable"/>
     <param pos="0" name="service.family" value="Mail Server"/>
     <param pos="0" name="service.product" value="Mail Server"/>
@@ -513,8 +547,10 @@
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.arch" value="x86"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:altn:mdaemon:{service.version}"/>
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+); *(.+) *$">
@@ -529,8 +565,10 @@
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.arch" value="x86"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:altn:mdaemon:{service.version}"/>
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+) ready *$">
@@ -544,8 +582,10 @@
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.arch" value="x86"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:altn:mdaemon:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] (?:using )?MDaemon v(\d+\.[\d.]+) ([^ ]+) *$">
     <description>MDaemon mail server - with version revision</description>
@@ -560,9 +600,11 @@
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.arch" value="x86"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
     <param pos="3" name="service.version.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:altn:mdaemon:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] (?:\()?MDaemon v([\d.]+) ([^ ]+) ([^ )]+)(?:\))? *$">
     <description>MDaemon mail server - with service pack</description>
@@ -576,10 +618,12 @@
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.arch" value="x86"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
     <param pos="3" name="service.version.version"/>
     <param pos="4" name="service.version.version.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:altn:mdaemon:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] \(MDaemon v([^ ]+\.[^ ]+) ([^ ]+) ([^ ]+) ([^ ]+)\) *$">
     <description>MDaemon mail server</description>
@@ -592,11 +636,13 @@
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.arch" value="x86"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
     <param pos="3" name="service.version.version"/>
     <param pos="4" name="service.version.version.version"/>
     <param pos="5" name="service.version.version.version.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:altn:mdaemon:{service.version}"/>
   </fingerprint>
   <!-- example: 220 mail.db-list.com ESMTP MERAK 3.00.140; Tue, 24 Jul 2001 21:30:47 -0700 -->
   <fingerprint pattern="^([^ ]+) +E?SMTP (?i:MERAK) ([^ ]+\.[^ ]+\.[^ ]+); *(.+) *$">
@@ -634,6 +680,7 @@
     <param pos="0" name="os.family" value="NetWare"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="NetWare"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:-"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
@@ -647,6 +694,7 @@
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
@@ -670,6 +718,7 @@
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
     <param pos="3" name="service.version.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:netscape:messaging_server:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP server \(Netscape Messaging Server - Version ([\d.]+)\) ready (\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d) *$">
     <description>Netscape Messaging Server - w/o patch number</description>
@@ -680,6 +729,7 @@
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:netscape:messaging_server:{service.version}"/>
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) Lotus SMTP MTA Service Ready *$">
@@ -712,6 +762,7 @@
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ibm:lotus_domino:{service.version}"/>
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^ ?(?:([^ ]+))? *ESMTP Service \(IBM Domino Release (\d+\.[\w.]+(?: HF\d+)?)\) ready at (.+) *$">
@@ -783,6 +834,7 @@
     <param pos="0" name="os.device" value="General"/>
     <param pos="2" name="os.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:hp:openvms:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(\S+) E?SMTP PMailServer(?: \[Free Edition\])? ([\d\.]+); (\w\w\w, +\d+ \w\w\w \d\d\d\d [\d:]+)$">
     <description>A.K.I PMail</description>
@@ -832,6 +884,7 @@
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:-"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+)(?: ESMTP)? Hi, I'm a Mail-in-a-Box \(Ubuntu/Postfix; see https://mailinabox.email/\)$">
     <description>Postfix - Ubuntu, Mail-in-a-Box package</description>
@@ -844,6 +897,7 @@
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:-"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +E?SMTP Postfix \(Debian/GNU\)$">
     <description>Postfix - Debian</description>
@@ -855,6 +909,7 @@
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:-"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP.* Postfix *\(.+\) *$">
     <description>Postfix - generic banner with amusing comments in parentheses</description>
@@ -926,6 +981,7 @@
     <param pos="0" name="os.family" value="HP-UX"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="HP-UX"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:hp:hp-ux:-"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
@@ -943,6 +999,7 @@
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="HP-UX"/>
     <param pos="3" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:hp:hp-ux:{os.version}"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
@@ -975,6 +1032,7 @@
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:{os.version}"/>
     <param pos="3" name="service.version"/>
     <param pos="4" name="system.time"/>
   </fingerprint>
@@ -990,6 +1048,7 @@
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:{os.version}"/>
     <param pos="3" name="service.version"/>
     <param pos="4" name="sendmail.config.version"/>
     <param pos="5" name="system.time"/>
@@ -1007,6 +1066,7 @@
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:{os.version}"/>
     <param pos="3" name="service.version"/>
     <param pos="4" name="sendmail.config.version"/>
     <param pos="5" name="system.time"/>
@@ -1020,6 +1080,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:suse:linux:-"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
@@ -1036,6 +1097,7 @@
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:-"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss zzz"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
@@ -1051,6 +1113,7 @@
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:-"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
@@ -1067,6 +1130,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:-"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
@@ -1084,6 +1148,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="7.0"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:7.0"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
@@ -1099,6 +1164,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="8.0"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:8.0"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
@@ -1114,6 +1180,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="5.0"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:5.0"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
@@ -1129,6 +1196,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="4.0"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:4.0"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
@@ -1144,6 +1212,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="3.1"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:3.1"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
@@ -1160,6 +1229,7 @@
     <param pos="0" name="os.vendor" value="Debian"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:-"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
@@ -1175,6 +1245,7 @@
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:-"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
@@ -1189,6 +1260,7 @@
     <param pos="0" name="os.family" value="SunOS"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:-"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
@@ -1219,6 +1291,7 @@
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Windows NT"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_nt:-"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="metainfo.version"/>
@@ -1347,6 +1420,7 @@
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="Solaris"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:-"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
@@ -1440,6 +1514,7 @@
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
     <param pos="3" name="service.version.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:mcafee:webshield:{service.version}"/>
     <param pos="4" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) McAfee WebShield ASaP v([^ ]+\.[^ ]+\.[^ ]+): (.+) *$">
@@ -1455,6 +1530,7 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:mcafee:webshield:{service.version}"/>
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) McAfee VirusScreen ASaP v([^ ]+\.[^ ]+): (.+) *$">
@@ -1470,6 +1546,7 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:mcafee:webshield:{service.version}"/>
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP Lyris ListManager service ready$">

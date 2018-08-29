@@ -16,6 +16,7 @@
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="3" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:{os.version}"/>
     <param pos="1" name="host.domain"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +Cyrus POP3 v([\d\.]+)">
@@ -34,6 +35,7 @@
     <param pos="0" name="service.vendor" value="IBM"/>
     <param pos="0" name="service.family" value="Lotus Domino"/>
     <param pos="0" name="service.product" value="Lotus Domino"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ibm:lotus_domino:-"/>
   </fingerprint>
   <fingerprint pattern="^Lotus Notes POP3 server version Release ([^ ]+) ready on .*$">
     <description>IBM Lotus Notes/Domino</description>
@@ -42,6 +44,7 @@
     <param pos="0" name="service.family" value="Lotus Domino"/>
     <param pos="0" name="service.product" value="Lotus Domino"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ibm:lotus_domino:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^Qpopper \(version (\d+\.\d+\.\d+), modified by Sphera Technologies\) at (.+) starting\..*$">
     <description>Qpopper with Sphera mods</description>
@@ -91,11 +94,13 @@
     <param pos="0" name="service.family" value="Exchange Server"/>
     <param pos="0" name="service.product" value="Exchange 2003 Server"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:exchange_server:{service.version}"/>
     <param pos="2" name="host.name"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^Microsoft Exchange 2000 POP3 server version (\d+\.\d+\.\d+\.\d+) (.+) ready.$">
     <description>Microsoft Exchange Server 2000</description>
@@ -104,11 +109,13 @@
     <param pos="0" name="service.family" value="Exchange Server"/>
     <param pos="0" name="service.product" value="Exchange 2000 Server"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:exchange_server:{service.version}"/>
     <param pos="2" name="host.name"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^Microsoft Exchange POP3 server version (\d+\.\d+\.\d+\.\d+) ready$">
     <description>Microsoft Exchange Server</description>
@@ -117,10 +124,12 @@
     <param pos="0" name="service.family" value="Exchange Server"/>
     <param pos="0" name="service.product" value="Exchange Server"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:exchange_server:{service.version}"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^Microsoft Windows POP3 Service Version 1.0 &lt;.+@(.+)&gt; ready.$">
     <description>Microsoft POP3 Services on Windows 2003</description>
@@ -133,6 +142,7 @@
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2003"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:-"/>
   </fingerprint>
   <fingerprint pattern="^Microsoft Exchange Server 2007 POP3 service ready\.?$">
     <description>Microsoft Exchange Server 2007</description>
@@ -140,10 +150,12 @@
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="Exchange Server"/>
     <param pos="0" name="service.product" value="Exchange 2007 Server"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:exchange_server:-"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^The? Microsoft Exchange POP3 service is ready\.?$">
     <description>Microsoft Exchange Server, generic</description>
@@ -151,10 +163,12 @@
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="Exchange Server"/>
     <param pos="0" name="service.product" value="Exchange Server"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:exchange_server:-"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^[dD]ovecot (?:DA )?ready\.(?: &lt;.+@(.+)&gt;)?$">
     <description>Dovecot Secure POP Server</description>
@@ -168,6 +182,7 @@
     <example>dogfood.example.com Zimbra POP3 server ready</example>
     <param pos="0" name="service.vendor" value="VMware"/>
     <param pos="0" name="service.product" value="Zimbra"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:vmware:zimbra_desktop:-"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^(\S+) Zimbra (\S+) POP3 server ready\.?$">
@@ -176,6 +191,7 @@
     <param pos="0" name="service.vendor" value="VMware"/>
     <param pos="0" name="service.product" value="Zimbra"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:vmware:zimbra_desktop:{service.version}"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^(?:S?POP3? server ready |Hello there.? )?&lt;.*@([^&gt;]+)&gt;$">
@@ -195,6 +211,7 @@
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.certainty" value="0.5"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^TCPIP POP server V\d\.\d\S-\S{3}, OpenVMS V(\d\.\d-\d)(?:\s+\S+)?\s+at\s+(\S+), .*$">
     <description>TCP/IP Services for OpenVMS POP server</description>
@@ -207,6 +224,7 @@
     <param pos="0" name="os.product" value="OpenVMS"/>
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:hp:openvms:{os.version}"/>
     <param pos="2" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^Hello there\.$">
@@ -251,6 +269,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^BlackJumboDog \(Version ([\d\.]+)\) ready$">
@@ -261,6 +280,7 @@
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
   <!--

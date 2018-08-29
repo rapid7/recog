@@ -60,6 +60,7 @@
     <param pos="0" name="os.product" value="Windows 2000"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_2000:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Microsoft )?Windows NT (\d.\d{1,2})?(?:\s)?([a-z]+|[a-z]+\s[a-z]+)?)$">
     <description>Windows NT</description>
@@ -72,6 +73,7 @@
     <param pos="0" name="os.product" value="NT"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.edition"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_nt:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Microsoft )?Windows Phone (\d|\d\.\d)?)$">
     <description>Windows Phone 7 and later</description>
@@ -126,6 +128,7 @@
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.certainty" value="0.5"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <!-- Windows end -->
   <!-- Liunx begin -->
@@ -169,6 +172,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:centos:centos:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?i:Debian(?: (?:GNU\/)?Linux)?\s?((?:\d+?(?:\.\d+?)*?)|(?:\w+?\/sid\s?))?(?:\s[a-z\(\)]+)?)$">
     <description>Debian Linux</description>
@@ -180,6 +184,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?i:Fedora(?: Core)?(?: Linux)?(?: release)?\s?(\d+?)?(?:\s.*)?)$">
     <description>Fedora Linux</description>
@@ -190,6 +195,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:redhat:linux:{os.version}"/>
   </fingerprint>
   <!-- Gentoo currently uses rolling releases with no version, but older versions were typically based on the year of release. -->
   <fingerprint pattern="^(?i:Gentoo(?: Linux)\s?(\d+?(?:\.\d+?)*?)?)$">
@@ -199,6 +205,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:gentoo:linux:{os.version}"/>
   </fingerprint>
   <!-- Kali switched to rolling release in January 2016. -->
   <fingerprint pattern="^(?i:Kali(?: Linux)?\s?(\d+?(?:\.\d+?)+?(?:[a-z])?|\d+?)?)$">
@@ -233,6 +240,7 @@
     <param pos="0" name="os.family" value="Enterprise Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:oracle:linux:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?i:OpenSUSE(?: Linux)?(?: [a-z]+?)??\s?(\d+?(?:\.\d+?)*?)?(?:\s\(.*)?)$">
     <description>OpenSUSE Linux</description>
@@ -255,6 +263,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Enterprise Linux"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:redhat:enterprise_linux:{os.version}"/>
   </fingerprint>
   <!-- Red Hat Enterprise Linux derivative -->
   <fingerprint pattern="^(?i:Scientific(?: Linux)?\s?(\d+?(?:\.\d+?)*?)?)$">
@@ -283,6 +292,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux Enterprise Desktop"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:suse:linux_enterprise_desktop:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?i:SUSE(?: SLES)?(?: Linux Enterprise Server)?\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>SUSE Linux Enterprise Server</description>
@@ -292,6 +302,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux Enterprise Server"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:suse:linux_enterprise_server:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?i:SLES(?: Linux Enterprise Server)?\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>SLES Linux Enterprise Server</description>
@@ -301,6 +312,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux Enterprise Server"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:suse:linux_enterprise_server:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?i:Ubuntu(?: Linux)?(?:\s|-)(\d+?(?:\.\d+?)*?)?\s?(LTS)?)$">
     <description>Ubuntu Linux</description>
@@ -313,6 +325,7 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.edition"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
   </fingerprint>
   <!-- Ubuntu derivative -->
   <fingerprint pattern="^(?i:Xubuntu(?: Linux)?\s(\d+?(?:\.\d+?)*?)?\s?(LTS)?)$">
@@ -334,6 +347,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Photon Linux"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:vmware:photon_os:{os.version}"/>
   </fingerprint>
   <!-- Vendor-based distribution catch-call -->
   <fingerprint pattern="^(?i:(.*)\sLinux?\s(.*))$">
@@ -354,6 +368,7 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.certainty" value="0.5"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
   <!-- Linux end -->
   <!-- Mac begin -->
@@ -366,6 +381,7 @@
     <param pos="0" name="os.family" value="Mac OS"/>
     <param pos="0" name="os.product" value="Mac OS"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Apple OS X|Apple Mac OS X|Mac OS X|OS X|Mac OS)\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>Mac OS X with version number</description>
@@ -376,6 +392,7 @@
     <param pos="0" name="os.family" value="Mac OS X"/>
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Apple )?Mac OS X Cheetah)$">
     <description>Mac OS X Cheetah</description>
@@ -384,6 +401,7 @@
     <param pos="0" name="os.family" value="Mac OS X"/>
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="0" name="os.version" value="10.0"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.0"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Apple )?Mac OS X Puma)$">
     <description>Mac OS X Puma</description>
@@ -392,6 +410,7 @@
     <param pos="0" name="os.family" value="Mac OS X"/>
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="0" name="os.version" value="10.1"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.1"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Apple )?Mac OS X Jaguar)$">
     <description>Mac OS X Jaguar</description>
@@ -400,6 +419,7 @@
     <param pos="0" name="os.family" value="Mac OS X"/>
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="0" name="os.version" value="10.2"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.2"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Apple )?Mac OS X Panther)$">
     <description>Mac OS X Panther</description>
@@ -408,6 +428,7 @@
     <param pos="0" name="os.family" value="Mac OS X"/>
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="0" name="os.version" value="10.3"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.3"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Apple )?Mac OS X Tiger)$">
     <description>Mac OS X Tiger</description>
@@ -416,6 +437,7 @@
     <param pos="0" name="os.family" value="Mac OS X"/>
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="0" name="os.version" value="10.4"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.4"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Apple )?Mac OS X Leopard)$">
     <description>Mac OS X Leopard</description>
@@ -424,6 +446,7 @@
     <param pos="0" name="os.family" value="Mac OS X"/>
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="0" name="os.version" value="10.5"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.5"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Apple )?Mac OS X Snow Leopard)$">
     <description>Mac OS X Snow Leopard</description>
@@ -432,6 +455,7 @@
     <param pos="0" name="os.family" value="Mac OS X"/>
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="0" name="os.version" value="10.6"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.6"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Apple )?Mac OS X Lion)$">
     <description>Mac OS X Lion</description>
@@ -440,6 +464,7 @@
     <param pos="0" name="os.family" value="Mac OS X"/>
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="0" name="os.version" value="10.7"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.7"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Apple )?Mac OS X Mountain Lion)$">
     <description>Mac OS X Mountain Lion</description>
@@ -448,6 +473,7 @@
     <param pos="0" name="os.family" value="Mac OS X"/>
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="0" name="os.version" value="10.8"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.8"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Apple )?Mac OS X Mavericks)$">
     <description>Mac OS X Mavericks</description>
@@ -456,6 +482,7 @@
     <param pos="0" name="os.family" value="Mac OS X"/>
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="0" name="os.version" value="10.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.9"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Apple )?Mac OS X Yosemite)$">
     <description>Mac OS X Yosemite</description>
@@ -464,6 +491,7 @@
     <param pos="0" name="os.family" value="Mac OS X"/>
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="0" name="os.version" value="10.10"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.10"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Apple )?Mac OS X El Capitan)$">
     <description>Mac OS X El Capitan</description>
@@ -472,6 +500,7 @@
     <param pos="0" name="os.family" value="Mac OS X"/>
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="0" name="os.version" value="10.11"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.11"/>
   </fingerprint>
   <!-- This can also match Cisco IOS if the vendor name is not present. -->
   <fingerprint pattern="^(?i:(?:Apple )?iOS\s?(\d+?(?:\.\d+?)*?)?)$">
@@ -508,6 +537,7 @@
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Oracle|Sun)?\s?Solaris\s?(1[1-9]?(?:\.\d+?)*?)?)$">
     <description>Solaris 11 and up</description>
@@ -517,6 +547,7 @@
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:oracle:solaris:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Oracle|Sun)?\s?Solaris\s?((?:[789]|10)+?(?:\.\d+?)*?)?)$">
     <description>Solaris 7-10</description>
@@ -528,6 +559,7 @@
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Oracle|Sun)?\s?SunOS\s?5.([789]|10)?)$">
     <description>SunOS/Solaris 5.7-5.10</description>
@@ -537,6 +569,7 @@
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:Oracle|Sun)?\s?SunOS\s?5.(1[1-9])?)$">
     <description>Oracle/Solaris 5.11 and upwards</description>
@@ -545,6 +578,7 @@
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:oracle:solaris:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?i:(?:IBM\s?)?(AIX|MVS|OS/(?:\d{1,3})|VM/CMS|VM/ESA|z/OS)\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>IBM OSes</description>
