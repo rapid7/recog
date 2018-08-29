@@ -25,13 +25,6 @@
     <example service.component.product="Perl">Perl/</example>
     <param pos="1" name="service.component.product"/>
   </fingerprint>
-  <!-- more specific ones that can't be had with generic regex -->
-  <fingerprint pattern="^Phusion_Passenger/(\S+)$">
-    <description>Phusion passenger with version</description>
-    <example service.component.version="1.1">Phusion_Passenger/1.1</example>
-    <param pos="0" name="service.component.product" value="Phusion Passenger"/>
-    <param pos="1" name="service.component.version"/>
-  </fingerprint>
   <fingerprint pattern="mod_access/(\S+)$">
     <description>mod_access with version</description>
     <example service.component.version="1.2.3">mod_access/1.2.3</example>
@@ -1004,6 +997,19 @@
     <param pos="0" name="service.component.vendor" value="Apache"/>
     <param pos="0" name="service.component.product" value="mod_jk"/>
   </fingerprint>
+  <fingerprint pattern="mod_jk2/(\S+)$">
+    <description>mod_jk2 with version</description>
+    <example service.component.version="1.2.3">mod_jk2/1.2.3</example>
+    <param pos="0" name="service.component.vendor" value="Apache"/>
+    <param pos="0" name="service.component.product" value="mod_jk2"/>
+    <param pos="1" name="service.component.version"/>
+  </fingerprint>
+  <fingerprint pattern="mod_jk2/?$">
+    <description>mod_jk2 without version</description>
+    <example>mod_jk2/</example>
+    <param pos="0" name="service.component.vendor" value="Apache"/>
+    <param pos="0" name="service.component.product" value="mod_jk2"/>
+  </fingerprint>
   <fingerprint pattern="mod_lbmethod_bybusyness/(\S+)$">
     <description>mod_lbmethod_bybusyness with version</description>
     <example service.component.version="1.2.3">mod_lbmethod_bybusyness/1.2.3</example>
@@ -1726,15 +1732,17 @@
   <fingerprint pattern="mod_ssl/(\S+)$">
     <description>mod_ssl with version</description>
     <example service.component.version="1.2.3">mod_ssl/1.2.3</example>
-    <param pos="0" name="service.component.vendor" value="Apache"/>
+    <param pos="0" name="service.component.vendor" value="mod_ssl"/>
     <param pos="0" name="service.component.product" value="mod_ssl"/>
     <param pos="1" name="service.component.version"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:modssl:mod_ssl:{service.component.version}"/>
   </fingerprint>
   <fingerprint pattern="mod_ssl/?$">
     <description>mod_ssl without version</description>
     <example>mod_ssl/</example>
-    <param pos="0" name="service.component.vendor" value="Apache"/>
+    <param pos="0" name="service.component.vendor" value="mod_ssl"/>
     <param pos="0" name="service.component.product" value="mod_ssl"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:modssl:mod_ssl:-"/>
   </fingerprint>
   <fingerprint pattern="mod_status/(\S+)$">
     <description>mod_status with version</description>
@@ -1866,6 +1874,21 @@
     <param pos="0" name="service.component.vendor" value="Apache"/>
     <param pos="0" name="service.component.product" value="mod_watchdog"/>
   </fingerprint>
+  <fingerprint pattern="mod_wsgi/(\S+)$">
+    <description>mod_wsgi with version</description>
+    <example service.component.version="1.2.3">mod_wsgi/1.2.3</example>
+    <param pos="0" name="service.component.vendor" value="mod_wsgi"/>
+    <param pos="0" name="service.component.product" value="mod_wsgi"/>
+    <param pos="1" name="service.component.version"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:modwsgi:mod_wsgi:{service.component.version}"/>
+  </fingerprint>
+  <fingerprint pattern="mod_wsgi/?$">
+    <description>mod_wsgi without version</description>
+    <example>mod_wsgi/</example>
+    <param pos="0" name="service.component.vendor" value="mod_wsgi"/>
+    <param pos="0" name="service.component.product" value="mod_wsgi"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:modwsgi:mod_wsgi:-"/>
+  </fingerprint>
   <fingerprint pattern="mod_xml2enc/(\S+)$">
     <description>mod_xml2enc with version</description>
     <example service.component.version="1.2.3">mod_xml2enc/1.2.3</example>
@@ -1878,5 +1901,11 @@
     <example>mod_xml2enc/</example>
     <param pos="0" name="service.component.vendor" value="Apache"/>
     <param pos="0" name="service.component.product" value="mod_xml2enc"/>
+  </fingerprint>
+  <fingerprint pattern="^Phusion_Passenger/(\S+)$">
+    <description>Phusion passenger with version</description>
+    <example service.component.version="1.1">Phusion_Passenger/1.1</example>
+    <param pos="0" name="service.component.product" value="Phusion Passenger"/>
+    <param pos="1" name="service.component.version"/>
   </fingerprint>
 </fingerprints>
