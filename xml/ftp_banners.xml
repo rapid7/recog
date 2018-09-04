@@ -435,9 +435,10 @@ more text</example>
     <param pos="0" name="service.family" value="Firewall-1"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:checkpoint:firewall-1:-"/>
     <param pos="0" name="os.vendor" value="Check Point"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:checkpoint:gaia_os:-"/>
     <param pos="0" name="os.device" value="Firewall"/>
     <param pos="0" name="os.family" value="Firewall-1"/>
-    <param pos="0" name="os.product" value="Firewall-1"/>
+    <param pos="0" name="os.product" value="GAiA OS"/>
     <param pos="0" name="hw.vendor" value="Check Point"/>
     <param pos="0" name="hw.device" value="Firewall"/>
     <param pos="0" name="hw.family" value="Firewall-1"/>
@@ -1292,10 +1293,10 @@ more text</example>
   </fingerprint>
   <fingerprint pattern="^Sofrel (S5[\w]+) SN ([\d-]+)  ready. Time is (\d{2}:\d{2}:\d{2} \d{2}\/\d{2}\/\d{2})\.$">
     <description>Sofrel Remote Terminal Unit</description>
-    <example hw.device="S500" host.id="01-499-00427" system.time="00:11:39 01/11/16">Sofrel S500 SN 01-499-00427  ready. Time is 00:11:39 01/11/16.</example>
+    <example hw.product="S500" host.id="01-499-00427" system.time="00:11:39 01/11/16">Sofrel S500 SN 01-499-00427  ready. Time is 00:11:39 01/11/16.</example>
     <param pos="0" name="hw.vendor" value="Sofrel"/>
     <param pos="0" name="hw.family" value="S500 Range"/>
-    <param pos="1" name="hw.device"/>
+    <param pos="1" name="hw.product"/>
     <param pos="2" name="host.id"/>
     <param pos="0" name="system.time.format" value="HH:mm::ss dd/MM/yy"/>
     <param pos="3" name="system.time"/>
@@ -1303,12 +1304,12 @@ more text</example>
   <fingerprint pattern="^TiMOS-[CB]-([\S]+) cpm\/[\w]+ ALCATEL (SR [\S]+) Copyright .{1,4}$">
     <description>ALCATEL Service Router running TiMOS</description>
     <example os.version="13.0.R9">TiMOS-C-13.0.R9 cpm/hops64 ALCATEL SR 7750 Copyright (</example>
-    <example hw.device="SR 7750">TiMOS-C-9.0.R8 cpm/hops ALCATEL SR 7750 Copyright (c) </example>
+    <example hw.product="SR 7750">TiMOS-C-9.0.R8 cpm/hops ALCATEL SR 7750 Copyright (c) </example>
     <param pos="0" name="os.vendor" value="ALCATEL"/>
     <param pos="1" name="os.version"/>
     <param pos="0" name="hw.vendor" value="ALCATEL"/>
     <param pos="0" name="hw.family" value="Service Router"/>
-    <param pos="2" name="hw.device"/>
+    <param pos="2" name="hw.product"/>
   </fingerprint>
   <fingerprint pattern="^(\S+) FTP server ready\.?$" flags="REG_ICASE">
     <description>Generic FTP fingerprint with a hostname</description>
