@@ -76,9 +76,14 @@
     <param pos="0" name="service.family" value="Firewall-1"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:checkpoint:firewall-1:-"/>
     <param pos="0" name="os.vendor" value="Check Point"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:checkpoint:gaia_os:-"/>
     <param pos="0" name="os.device" value="Firewall"/>
     <param pos="0" name="os.family" value="Firewall-1"/>
-    <param pos="0" name="os.product" value="Firewall-1"/>
+    <param pos="0" name="os.product" value="GAiA OS"/>
+    <param pos="0" name="hw.vendor" value="Check Point"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+    <param pos="0" name="hw.family" value="Firewall-1"/>
+    <param pos="0" name="hw.product" value="Firewall-1"/>
   </fingerprint>
   <fingerprint pattern="^Microsoft-IIS/([1234]\.0)$">
     <description>Microsoft IIS 1.0 - 4.0 runs on Windows NT 4.0</description>
@@ -594,6 +599,100 @@
     <param pos="0" name="os.vendor" value="HP"/>
     <param pos="0" name="os.family" value="TippingPoint"/>
     <param pos="0" name="os.device" value="IPS"/>
+    <param pos="0" name="hw.vendor" value="HP"/>
+    <param pos="0" name="hw.family" value="TippingPoint"/>
+    <param pos="0" name="hw.device" value="IPS"/>
+  </fingerprint>
+  <fingerprint pattern="^uc-httpd[ \/]([\d.]+)$">
+    <description>Xiongmai Tech uc-httpd</description>
+    <example service.version="1.0.0">uc-httpd 1.0.0</example>
+    <example service.version="1.0.0">uc-httpd/1.0.0</example>
+    <param pos="0" name="service.vendor" value="Xiongmai Tech"/>
+    <param pos="0" name="service.product" value="uc-httpd"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^micro_httpd$">
+    <description>ACME micro_httpd</description>
+    <example>micro_httpd</example>
+    <param pos="0" name="service.vendor" value="ACME"/>
+    <param pos="0" name="service.product" value="micro_httpd"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:acme:micro_httpd:-"/>
+  </fingerprint>
+  <fingerprint pattern="^mini_httpd$">
+    <description>ACME mini_httpd</description>
+    <example>mini_httpd</example>
+    <param pos="0" name="service.vendor" value="ACME"/>
+    <param pos="0" name="service.product" value="mini_httpd"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:acme:mini_httpd:-"/>
+  </fingerprint>
+  <fingerprint pattern="^LiteSpeed\/?(:?[\d.]+)?(?: \S+)?">
+    <description>LiteSpeed</description>
+    <example>LiteSpeed</example>
+    <example>LiteSpeed/5.2.8 Enterprise</example>
+    <param pos="0" name="service.vendor" value="LiteSpeed Technologies"/>
+    <param pos="0" name="service.product" value="LiteSpeed Web Server"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^IdeaWebServer\/v?([\d.]+)$">
+    <description>Idea Web Server</description>
+    <example service.version="0.83.74">IdeaWebServer/0.83.74</example>
+    <example service.version="0.70">IdeaWebServer/v0.70</example>
+    <param pos="0" name="service.vendor" value="home.pl"/>
+    <param pos="0" name="service.product" value="Idea Web Server"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^openresty\/?(:?[\d.]+)?$">
+    <description>OpenResty OpenResty</description>
+    <example>openresty</example>
+    <example service.version="1.13.6.2">openresty/1.13.6.2</example>
+    <param pos="0" name="service.vendor" value="OpenResty"/>
+    <param pos="0" name="service.product" value="OpenResty"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^gunicorn\/([\d.]+)+$">
+    <description>Gunicorn Gunicorn</description>
+    <example service.version="19.7.1">gunicorn/19.7.1</example>
+    <param pos="0" name="service.vendor" value="Gunicorn"/>
+    <param pos="0" name="service.product" value="Gunicorn"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Serv-U\/([\d.]+)$">
+    <description>Serv-U HTTP interface</description>
+    <example service.version="15.1.6.31">Serv-U/15.1.6.31</example>
+    <param pos="0" name="service.vendor" value="SolarWinds"/>
+    <param pos="0" name="service.family" value="Serv-U"/>
+    <param pos="0" name="service.product" value="FTP Server"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Varnish(?:[- ]Cache)?$">
+    <description>Varnish Cache</description>
+    <example>Varnish</example>
+    <example>Varnish-Cache</example>
+    <param pos="0" name="service.vendor" value="Varnish-cache"/>
+    <param pos="0" name="service.family" value="Varnish"/>
+    <param pos="0" name="service.product" value="Varnish"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:varnish-cache:varnish:-"/>
+  </fingerprint>
+  <fingerprint pattern="^Tengine\/?(:?[\d.]+)?$">
+    <description>Tengine</description>
+    <example>Tengine</example>
+    <example service.version="2.0.0">Tengine/2.0.0</example>
+    <param pos="0" name="service.vendor" value="Taobao"/>
+    <param pos="0" name="service.family" value="Tengine"/>
+    <param pos="0" name="service.product" value="Tengine"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Mikrotik HttpProxy$">
+    <description>MikroTik RouterOS - Proxy service</description>
+    <example>Mikrotik HttpProxy</example>
+    <param pos="0" name="service.vendor" value="MikroTik"/>
+    <param pos="0" name="service.product" value="HttpProxy"/>
+    <param pos="0" name="os.vendor" value="MikroTik"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:mikrotik:routeros:-"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="0" name="os.product" value="RouterOS"/>
+    <param pos="0" name="hw.vendor" value="MikroTik"/>
+    <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
   <fingerprint pattern="^Helix Server Version ([0-9.]*) \(win32\) \(RealServer compatible\)$">
     <description>RealMedia Helix Server</description>
@@ -674,16 +773,20 @@
     <description>Bosch VCS VIDOS-NVR network video recorder</description>
     <example>VCS-VIDOS-NVR</example>
     <param pos="0" name="os.vendor" value="Bosch"/>
-    <param pos="0" name="os.device" value="Video"/>
+    <param pos="0" name="os.device" value="DVR"/>
     <param pos="0" name="os.product" value="VIDOS-NVR"/>
+    <param pos="0" name="hw.vendor" value="Bosch"/>
+    <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
   <fingerprint pattern="^HeiTel GmbH Web Server \[\S+\]$">
     <description>HeiTel Digital Video Recorder</description>
     <example>HeiTel GmbH Web Server [V1.15/V1.14/V1.3]</example>
     <example>HeiTel GmbH Web Server [V1.26/V1.15/V1.7]</example>
     <param pos="0" name="os.vendor" value="HeiTel"/>
-    <param pos="0" name="os.device" value="Video"/>
+    <param pos="0" name="os.device" value="DVR"/>
     <param pos="0" name="os.product" value="Unknown"/>
+    <param pos="0" name="hw.vendor" value="HeiTel"/>
+    <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
   <fingerprint pattern="^MiniServ/([0-9.]*)$">
     <description>mini_httpd</description>
@@ -884,6 +987,7 @@
     <param pos="0" name="service.family" value="iLO"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:hp:integrated_lights_out:-"/>
     <param pos="0" name="hw.vendor" value="HP"/>
+    <param pos="0" name="hw.device" value="Lights Out Management"/>
     <param pos="0" name="os.vendor" value="HP"/>
     <param pos="0" name="os.product" value="iLO"/>
     <param pos="0" name="os.family" value="iLO"/>
@@ -963,16 +1067,6 @@
     <param pos="0" name="service.family" value="lighttpd"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="^nginx/(\S+)">
-    <description>nginx with version info</description>
-    <example>nginx/0.8.53 + Phusion Passenger 3.0.0 (mod_rails/mod_rack)</example>
-    <example>nginx/0.8.53</example>
-    <param pos="0" name="service.product" value="nginx"/>
-    <param pos="0" name="service.family" value="nginx"/>
-    <param pos="0" name="service.vendor" value="nginx"/>
-    <param pos="1" name="service.version"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:nginx:nginx:{service.version}"/>
-  </fingerprint>
   <fingerprint pattern="^nginx$">
     <description>nginx without version info</description>
     <example>nginx</example>
@@ -980,6 +1074,18 @@
     <param pos="0" name="service.family" value="nginx"/>
     <param pos="0" name="service.vendor" value="nginx"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:nginx:nginx:-"/>
+  </fingerprint>
+  <fingerprint pattern="^nginx\/?(:?[\d.]+)?">
+    <description>nginx with version info and/or mods</description>
+    <example service.version="0.8.53">nginx/0.8.53 + Phusion Passenger 3.0.0 (mod_rails/mod_rack)</example>
+    <example>nginx/0.8.53</example>
+    <example>nginx + Phusion Passenger 5.1.11</example>
+    <example>nginx + Phusion Passenger</example>
+    <param pos="0" name="service.product" value="nginx"/>
+    <param pos="0" name="service.family" value="nginx"/>
+    <param pos="0" name="service.vendor" value="nginx"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:nginx:nginx:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^Lotus(?:-Domino)?(?:/|/0|/Release)?$">
     <description>IBM Lotus Notes/Domino with no useful version info</description>
@@ -1180,6 +1286,8 @@
     <param pos="0" name="os.device" value="VPN"/>
     <param pos="0" name="os.family" value="SSL-VPN"/>
     <param pos="1" name="os.product"/>
+    <param pos="0" name="hw.vendor" value="SonicWALL"/>
+    <param pos="0" name="hw.device" value="VPN"/>
   </fingerprint>
   <fingerprint pattern="^SonicWALL$">
     <description>SonicWALL device</description>
@@ -1233,6 +1341,8 @@
     <param pos="0" name="service.product" value="BIG-IP LTM"/>
     <param pos="0" name="service.family" value="BIG-IP"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:f5:big-ip_local_traffic_manager:-"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
   <fingerprint pattern="^Foundry Networks(?:/(\d+\.\d+))?$">
     <description>Foundry Networks device (though not sure which)</description>
@@ -1254,6 +1364,10 @@
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="0" name="os.family" value="JetDirect"/>
     <param pos="0" name="os.product" value="JetDirect"/>
+    <param pos="0" name="hw.vendor" value="HP"/>
+    <param pos="0" name="hw.family" value="JetDirect"/>
+    <param pos="0" name="hw.product" value="JetDirect"/>
+    <param pos="0" name="hw.device" value="Printer"/>
   </fingerprint>
   <fingerprint pattern="^HP HTTP Server; (?:Hewlett-Packard )?HP ((\S+) \S+)">
     <description>HP Printer</description>
@@ -1267,6 +1381,10 @@
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="2" name="os.family"/>
     <param pos="1" name="os.product"/>
+    <param pos="0" name="hw.vendor" value="HP"/>
+    <param pos="0" name="hw.family" value="JetDirect"/>
+    <param pos="0" name="hw.product" value="JetDirect"/>
+    <param pos="0" name="hw.device" value="Printer"/>
   </fingerprint>
   <fingerprint pattern="^HTTP/1\.0$">
     <description>Old HP printers identify themselves as "HTTP/1.0"</description>
@@ -1277,6 +1395,10 @@
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="0" name="os.family" value="JetDirect"/>
     <param pos="0" name="os.product" value="JetDirect"/>
+    <param pos="0" name="hw.vendor" value="HP"/>
+    <param pos="0" name="hw.family" value="JetDirect"/>
+    <param pos="0" name="hw.product" value="JetDirect"/>
+    <param pos="0" name="hw.device" value="Printer"/>
   </fingerprint>
   <fingerprint pattern="^(?:Allegro-Software-)?RomPager/\s*(\S+)">
     <description>Embedded HTTP server used by many vendors and device
@@ -1301,20 +1423,24 @@
     <param pos="0" name="os.device" value="Router"/>
     <param pos="0" name="os.family" value="RT"/>
     <param pos="0" name="os.product" value="RT"/>
+    <param pos="0" name="hw.vendor" value="Yamaha"/>
+    <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
   <fingerprint pattern="^(?:Canon Http|CANON HTTP) Server (?:Ver)?(?:\d+\.\d+)$">
-    <description>Canon device running embedded web server, though
-      not sure if this is a printer or network camera</description>
+    <description>Canon Multifunction Printer/Copiers</description>
     <param pos="0" name="service.vendor" value="Canon"/>
     <param pos="0" name="service.product" value="HTTP"/>
     <param pos="0" name="os.vendor" value="Canon"/>
-    <param pos="0" name="os.product" value="Unknown"/>
+    <param pos="0" name="hw.vendor" value="Canon"/>
+    <param pos="0" name="hw.device" value="Multifunction Device"/>
   </fingerprint>
   <fingerprint pattern=".*Linksys.*">
     <description>Linksys Wireless Access Point</description>
     <param pos="0" name="os.vendor" value="Linksys"/>
     <param pos="0" name="os.product" value="Unknown"/>
     <param pos="0" name="os.device" value="WAP"/>
+    <param pos="0" name="hw.vendor" value="Linksys"/>
+    <param pos="0" name="hw.device" value="WAP"/>
   </fingerprint>
   <fingerprint pattern="^cisco-IOS$">
     <description>Cisco IOS</description>
@@ -1328,6 +1454,7 @@
     <param pos="0" name="os.product" value="IOS"/>
     <param pos="0" name="os.certainty" value="0.8"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:-"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
   </fingerprint>
   <fingerprint pattern="^cisco-IOS/([^\s]+) HTTP-server/.*$">
     <description>Cisco IOS with version information</description>
@@ -1341,6 +1468,7 @@
     <param pos="0" name="os.product" value="IOS"/>
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:{os.version}"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
   </fingerprint>
   <fingerprint pattern="^Cisco AWARE (.*)$">
     <description>Cisco ASA</description>
@@ -1351,6 +1479,11 @@
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="ASA"/>
     <param pos="0" name="os.product" value="VPN"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.family" value="ASA"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:cisco:adaptive_security_appliance:-"/>
+    <param pos="0" name="hw.product" value="Adaptive Security Appliance"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
   </fingerprint>
   <fingerprint pattern="^DesktopAuthority/(.*)$">
     <description>ScriptLogic DesktopAuthority</description>
@@ -1382,6 +1515,8 @@
     <param pos="0" name="os.vendor" value="Xerox"/>
     <param pos="0" name="os.product" value="Unknown"/>
     <param pos="0" name="os.device" value="Printer"/>
+    <param pos="0" name="hw.vendor" value="Xerox"/>
+    <param pos="0" name="hw.device" value="Printer"/>
   </fingerprint>
   <fingerprint pattern="^Adaptec ASM (\S+)$">
     <description>Adaptec - Adaptec Storage Manager (runs on Windows Only)</description>
@@ -1452,6 +1587,10 @@
     <param pos="0" name="os.family" value="Document Centre"/>
     <param pos="0" name="os.product" value="Document Centre"/>
     <param pos="0" name="os.device" value="Printer"/>
+    <param pos="0" name="hw.vendor" value="Xerox"/>
+    <param pos="0" name="hw.family" value="Document Centre"/>
+    <param pos="0" name="hw.product" value="Document Centre"/>
+    <param pos="0" name="hw.device" value="Printer"/>
   </fingerprint>
   <fingerprint pattern="^TSM_HTTP/\d\.\d$">
     <description>IBM Tivoli Storage Manager</description>
@@ -1488,6 +1627,7 @@
     <example>RealVNC/4.0</example>
     <param pos="0" name="service.vendor" value="RealVNC Ltd."/>
     <param pos="0" name="service.product" value="RealVNC"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:realvnc:realvnc:-"/>
   </fingerprint>
   <fingerprint pattern="(Agranat|Conexant|(?:Globespan)?Virata)-EmWeb/(.*)$">
     <description>EmWeb variants</description>
@@ -1530,9 +1670,10 @@
     <description>Polycom Soundpoint IP Telephone</description>
     <example>Polycom SoundPoint IP Telephone HTTPd</example>
     <param pos="0" name="service.vendor" value="Polycom"/>
-    <param pos="0" name="service.product" value="SoundPoint"/>
-    <param pos="0" name="os.vendor" value="Polycom"/>
-    <param pos="0" name="os.product" value="SoundPoint"/>
+    <param pos="0" name="service.family" value="SoundPoint"/>
+    <param pos="0" name="hw.vendor" value="Polycom"/>
+    <param pos="0" name="hw.family" value="SoundPoint"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
   </fingerprint>
   <!-- 4D WebSTAR was aquired by Kerio but it seems that both
         Kerio and 4D have branched the product. The 4D banners
@@ -1608,8 +1749,9 @@
   <fingerprint pattern="^TornadoServer/((?:\d+\.)*\d+)$" flags="REG_ICASE">
     <description>Tornado Python web framework and asynchronous networking library.</description>
     <example>TornadoServer/4.0.2</example>
-    <param pos="0" name="service.vendor" value="Tornado"/>
+    <param pos="0" name="service.vendor" value="TornadoWeb"/>
     <param pos="0" name="service.product" value="Tornado"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:tornadoweb:tornado:{service.version}"/>
     <param pos="0" name="service.family" value="Tornado"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
@@ -1660,31 +1802,48 @@
     <param pos="0" name="service.family" value="Lotus Expeditor"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="^GoAhead-Webs$">
-    <description>An embedded web server developed by GoAhead Software, which was later acquired by Oracle.</description>
+  <!-- GoAhead software was acquired by Oracle in 2011. They later handed this
+       off to (E)Mbedthis. Version 3.0 released in October 2012 appears to be
+       the first version to fully be Mbedthis software.
+  -->
+  <fingerprint pattern="^GoAhead-(?:Webs|http)$">
+    <description>GoAhead-Webs - no version</description>
     <example>GoAhead-Webs</example>
     <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.product" value="GoAhead Webserver"/>
     <param pos="0" name="service.family" value="GoAhead Webserver"/>
   </fingerprint>
-  <fingerprint pattern="^Mbedthis-Appweb/((?:\d+\.)*\d+)$">
-    <description>An embedded web server for hosting dynamic web applications.</description>
-    <example>Mbedthis-Appweb/2.4.0</example>
+  <fingerprint pattern="^GoAhead-(?:Webs|http)\/([\d.]+)(?: PeerSec-MatrixSSL\/[\d.]+-OPEN)?$">
+    <description>GoAhead-Webs - version</description>
+    <example service.version="2.5.0">GoAhead-Webs/2.5.0 PeerSec-MatrixSSL/3.4.2-OPEN</example>
+    <example>GoAhead-Webs/2.5.0</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="GoAhead Webserver"/>
+    <param pos="0" name="service.family" value="GoAhead Webserver"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <!-- MBedthis changed its name/branding to Embedthis-->
+  <fingerprint pattern="^Mbedthis-App[Ww]eb/([\d.]+)$">
+    <description>Mbedthis Appweb</description>
+    <example service.version="2.4.0">Mbedthis-Appweb/2.4.0</example>
+    <example service.version="2.4.0">Mbedthis-AppWeb/2.4.0</example>
     <example>Mbedthis-Appweb/2.4.2</example>
     <example>Mbedthis-Appweb/2</example>
-    <param pos="0" name="service.vendor" value="Embedthis"/>
+    <param pos="0" name="service.vendor" value="Mbedthis Software"/>
     <param pos="0" name="service.product" value="Appweb"/>
     <param pos="0" name="service.family" value="Appweb"/>
     <param pos="1" name="service.version"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:embedthis:appweb:{service.version}"/>
   </fingerprint>
-  <fingerprint pattern="^Embedthis-http$">
-    <description>An embedded web server for hosting dynamic web applications.</description>
+  <fingerprint pattern="^Embedthis-(?:Appweb|http)\/?(:?[\d.]+)?$">
+    <description>Embedthis AppWeb</description>
+    <example service.version="3.2.3">Embedthis-Appweb/3.2.3</example>
     <example>Embedthis-http</example>
+    <example service.version="4.0.0">Embedthis-http/4.0.0</example>
     <param pos="0" name="service.vendor" value="Embedthis"/>
     <param pos="0" name="service.product" value="Appweb"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:embedthis:appweb:{service.version}"/>
     <param pos="0" name="service.family" value="Appweb"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:embedthis:appweb:-"/>
+    <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^Avaya CMBE/((?:\d+\.)*\d+)$">
     <description>Web server for Avaya Aura Communication Manager Branch, a SIP-based communications platform.</description>
@@ -1727,10 +1886,12 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:apple:cups:{service.version}"/>
   </fingerprint>
-  <fingerprint pattern="^TwistedWeb/((?:\d\.)+\d+)$">
-    <description>An HTTP server, HTML templating engind, and HTTP client library from Twisted Labs.</description>
+  <fingerprint pattern="^TwistedWeb/([\d.rc]+)$">
+    <description>Twisted Matrix Labs - TwistedWeb</description>
     <example>TwistedWeb/2.5.0</example>
-    <param pos="0" name="service.vendor" value="Twisted Matrix Labs"/>
+    <example service.version="16.4.0">TwistedWeb/16.4.0</example>
+    <example service.version="16.5.0rc2">TwistedWeb/16.5.0rc2</example>
+    <param pos="0" name="service.vendor" value="TwistedMatrix"/>
     <param pos="0" name="service.product" value="Twisted Web"/>
     <param pos="0" name="service.family" value="Twisted Web"/>
     <param pos="1" name="service.version"/>
@@ -1845,6 +2006,9 @@
     <param pos="0" name="service.family" value="Network Printer Manager"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+  <!-- NOTE: '$ProjectRevision: {some version string} $' has been seen in a
+       variety of products including printers, PDUs, etc.
+  -->
   <fingerprint pattern="^\$ProjectRevision: 4.0.2.38 \$$">
     <description>This banner is seen on some HP LaserJet printers.</description>
     <example>$ProjectRevision: 4.0.2.38 $</example>
@@ -1883,6 +2047,7 @@
     <param pos="0" name="service.product" value="Cross Web Server"/>
     <param pos="0" name="os.vendor" value="HiSilicon"/>
     <param pos="0" name="os.device" value="DVR"/>
+    <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
   <!-- Hikvision is OEMd by a number of DVR manufacturers -->
   <fingerprint pattern="^(?:Hikvision|DVRDVS)-Webs$">
@@ -1893,6 +2058,16 @@
     <param pos="0" name="service.product" value="Hikvision Web Server"/>
     <param pos="0" name="os.vendor" value="Hikvision"/>
     <param pos="0" name="os.device" value="DVR"/>
+    <param pos="0" name="hw.device" value="DVR"/>
+  </fingerprint>
+  <fingerprint pattern="^DNVRS-Webs$">
+    <description>Hikvision httpd</description>
+    <example>DNVRS-Webs</example>
+    <param pos="0" name="service.vendor" value="Hikvision"/>
+    <param pos="0" name="service.product" value="Hikvision Web Server"/>
+    <param pos="0" name="os.vendor" value="Hikvision"/>
+    <param pos="0" name="os.device" value="DVR"/>
+    <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
   <fingerprint pattern="^NET-DK[/ ](\d+\.\d+)$">
     <description>Web server found on ARRIS cable modems</description>
@@ -1903,6 +2078,8 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="os.vendor" value="ARRIS"/>
     <param pos="0" name="os.device" value="Cable Modem"/>
+    <param pos="0" name="hw.vendor" value="ARRIS"/>
+    <param pos="0" name="hw.device" value="Cable Modem"/>
   </fingerprint>
   <!-- junit says,
      "Example pattern '' from http_servers.xml didn't match pattern '^$'"
@@ -1920,6 +2097,10 @@
   <fingerprint pattern="^Web-Server/(?:\d+\.+\d+)$">
     <description>Obfuscated web server -- assert nothing.</description>
     <example>Web-Server/3.0</example>
+  </fingerprint>
+  <fingerprint pattern="^httpd$">
+    <description>httpd - generic -- assert nothing.</description>
+    <example>httpd</example>
   </fingerprint>
   <!-- Service provider equipment (CDNs, etc) -->
   <fingerprint pattern="^AkamaiGHost$">
@@ -2022,5 +2203,72 @@
     <param pos="0" name="service.product" value="Intel(R) Standard Manageability"/>
     <param pos="0" name="service.family" value="Intel(R) Active Management Technology"/>
     <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Sunny WebBox$">
+    <description>Sunny WebBox</description>
+    <example>Sunny WebBox</example>
+    <param pos="0" name="service.vendor" value="SMA Solar Technology Ag"/>
+    <param pos="0" name="service.family" value="Sunny"/>
+    <param pos="0" name="service.product" value="WebBox"/>
+    <param pos="0" name="hw.family" value="Sunny"/>
+    <param pos="0" name="hw.product" value="WebBox"/>
+    <param pos="0" name="hw.device" value="Power Management"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_ce:-"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows CE"/>
+  </fingerprint>
+  <fingerprint pattern="^EnergyICT RTU \d+-\w+-\d+$">
+    <description>EnergyICT RTU</description>
+    <example>EnergyICT RTU 101-F25CE1-1524</example>
+    <param pos="0" name="hw.family" value="Honeywell"/>
+    <param pos="0" name="hw.product" value="RTU"/>
+    <param pos="0" name="hw.device" value="Power Management"/>
+  </fingerprint>
+  <fingerprint pattern="^AV-TECH AV787 Video Web Server$">
+    <description>AV-TECH AVC787 Video Web Server</description>
+    <example>AV-TECH AV787 Video Web Server</example>
+    <param pos="0" name="service.vendor" value="AVTECH"/>
+    <param pos="0" name="service.family" value="MPEG4 DVR"/>
+    <param pos="0" name="service.product" value="HTTPD"/>
+    <param pos="0" name="hw.family" value="MPEG4 DVR"/>
+    <param pos="0" name="hw.product" value="AVC787"/>
+    <param pos="0" name="hw.device" value="DVR"/>
+  </fingerprint>
+  <fingerprint pattern="^tivo-httpd-\S+$">
+    <description>Tivo DVR</description>
+    <example>tivo-httpd-1:20.7.4.RC35-D18-6:D18</example>
+    <param pos="0" name="hw.vendor" value="Tivo"/>
+    <param pos="0" name="hw.family" value="DVR"/>
+    <param pos="0" name="hw.device" value="DVR"/>
+  </fingerprint>
+  <!-- Tridium previously had a product with the 'Niagra' spelling -->
+  <fingerprint pattern="^Niagara Web Server\/([\d.]+)$">
+    <description>Tridium Niagara AX Framework</description>
+    <example service.version="3.8.111">Niagara Web Server/3.8.111</example>
+    <param pos="0" name="service.vendor" value="Tridium"/>
+    <param pos="0" name="service.family" value="Niagara"/>
+    <param pos="0" name="service.product" value="Niagara AX"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Microsoft WinCE Fidelix v([\d.]+)$">
+    <description>Fidelix Industrial Control Web Server</description>
+    <example service.version="11.50.29">Microsoft WinCE Fidelix v11.50.29</example>
+    <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_ce:-"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows CE"/>
+    <param pos="0" name="service.vendor" value="Fidelix"/>
+    <param pos="0" name="service.product" value="Web Server"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="hw.vendor" value="Fidelix"/>
+    <param pos="0" name="hw.device" value="Industrial Control"/>
+  </fingerprint>
+  <fingerprint pattern="^chainpoint-node$">
+    <description>Chainpoint Node</description>
+    <example>chainpoint-node</example>
+    <param pos="0" name="service.vendor" value="Chainpoint"/>
+    <param pos="0" name="service.product" value="Node"/>
   </fingerprint>
 </fingerprints>
