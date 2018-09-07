@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import json
+import yaml
 import logging
 import re
 import sys
@@ -8,24 +8,8 @@ import sys
 from lxml import etree
 
 def parse_r7_remapping(file):
-    remap = {} # r7_vendor => { 'cpe_vendor' => <cpe_vendor>, 'products': { r7_product1 => cpe_product1 }}
-    remappings = None
     with open(file) as remap_file:
-        remappings = json.load(remap_file)["remappings"]
-
-    for remap_json in remappings:
-        r7_vendor = remap_json['r7_vendor']
-        cpe_vendor = remap_json['cpe_vendor']
-        if r7_vendor in remap:
-            raise ValueError("R7 vendor {} duplicated in {}".format(r7_vendor, file))
-
-        product_map = {}
-        if 'products' in remap_json:
-            product_map = remap_json['products']
-        remap[r7_vendor] = {'cpe_vendor': cpe_vendor, 'products': product_map}
-
-    return remap
-
+        return yaml.load(remap_file)["mappings"]
 
 def parse_cpe_vp_map(file):
     vp_map = {} # cpe_type -> vendor -> products
@@ -63,7 +47,7 @@ def main():
     update_cpes(sys.argv[1], cpe_vp_map, r7_vp_map)
 
 def update_cpes(xml_file, cpe_vp_map, r7_vp_map):
-    parser = etree.XMLParser(remove_comments=False)
+    parser = etree.XMLParser(remove_comments=False, remove_blank_text=True)
     doc = etree.parse(xml_file, parser)
 
     for fingerprint in doc.xpath('//fingerprint'):
@@ -140,7 +124,7 @@ def update_cpes(xml_file, cpe_vp_map, r7_vp_map):
                 og_vendor = vendor
                 if not vendor in cpe_vp_map[cpe_type]:
                     if vendor in r7_vp_map:
-                        vendor = r7_vp_map[vendor]['cpe_vendor']
+                        vendor = r7_vp_map[vendor]['vendor']
                         remapped_vendor = True
                         if not vendor in cpe_vp_map[cpe_type]:
                             logging.error("Remapped vendor %s (remapped from %s) invalid for CPE %s (product %s)", vendor, og_vendor, cpe_type, product)
@@ -153,7 +137,7 @@ def update_cpes(xml_file, cpe_vp_map, r7_vp_map):
                 # if the product as specified is not found in the CPE dictionary for this vendor
                 if not product in cpe_vp_map[cpe_type][vendor]:
                     # if this vendor has a remapping from R7
-                    if og_vendor in r7_vp_map:
+                    if og_vendor in r7_vp_map and 'products' in r7_vp_map[og_vendor]:
                         # if this product has a remapping for this vendor from R7
                         if product in r7_vp_map[og_vendor]['products']:
                             og_product = product
