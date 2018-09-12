@@ -148,14 +148,12 @@
   <fingerprint pattern="^(?:\r|\n)*ZyXEL login:$">
     <description>ZyXEL simple</description>
     <example>ZyXEL login:</example>
-    <param pos="0" name="service.vendor" value="ZyXEL"/>
     <param pos="0" name="hw.vendor" value="ZyXEL"/>
   </fingerprint>
   <fingerprint pattern="^ZyXEL \w?DSL Router\r\nLogin:$">
     <description>ZyXEL Router - simple</description>
     <!-- ZyXEL VDSL Router\r\nLogin: -->
     <example _encoding="base64">WnlYRUwgVkRTTCBSb3V0ZXINCkxvZ2luOgo=</example>
-    <param pos="0" name="service.vendor" value="ZyXEL"/>
     <param pos="0" name="hw.vendor" value="ZyXEL"/>
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
@@ -619,7 +617,6 @@
   <fingerprint pattern="^192.0.0.64 login:\s*$">
     <description>Hikvision cameras and NVRs (multiple)</description>
     <example>192.0.0.64 login:</example>
-    <param pos="0" name="service.vendor" value="Hikvision"/>
     <param pos="0" name="os.vendor" value="Hikvision"/>
     <param pos="0" name="hw.vendor" value="Hikvision"/>
   </fingerprint>
