@@ -5,6 +5,56 @@
   Examples with CR, LF, etc must be base64 encoded in order to past tests.
   Please follow the style established below.
   -->
+  <!--
+  The following 'assert nothing' block is intended to handle banners so simple
+  that they cannot be attributed to a product or vendor. They are at the
+  beginning of the file as a performance tweak given how frequenty they occur.
+
+  NOTE:
+  Due to the multi-line nature of TELNET banners the regex are leveraging \A
+  instead of ^ to prevent matching in the beginning of a 'line' (^) instead of
+  at the beginning of the string (\A). This has been verified to work with
+  Ruby, Python, Javascript, and Golang.
+  -->
+  <fingerprint pattern="\A(?i)(?:\r|\n)*login:\s*$">
+    <description>bare 'login:' -- assert nothing.</description>
+    <example>login:</example>
+  </fingerprint>
+  <fingerprint pattern="\A(?i)(?:\r|\n)*User(?:name)?\s*:\s*$">
+    <description>bare 'Username:' -- assert nothing.</description>
+    <example>Username:</example>
+    <example>User:</example>
+  </fingerprint>
+  <fingerprint pattern="\A(?i)(?:\r|\n)*Password:\s*$">
+    <description>bare 'Password:' -- assert nothing.</description>
+    <example>Password:</example>
+  </fingerprint>
+  <fingerprint pattern="\A(?i)(?:\r|\n)*Account:\s*$">
+    <description>bare 'Account:' -- assert nothing.</description>
+    <example>Account:</example>
+  </fingerprint>
+  <fingerprint pattern="\A(?i)Connection refused(?:\r|\n)*$">
+    <description>bare 'Connection refused' -- assert nothing.</description>
+    <example>Connection refused</example>
+  </fingerprint>
+  <!-- end of assert nothing block -->
+  <fingerprint pattern="^(?:\r|\n)*User Access Verification(?:\r|\n)+(?:Username|Password):\s*$">
+    <description>Cisco switch or router - user access variant</description>
+    <!-- User Access Verification\r\n\r\nUsername: -->
+    <example _encoding="base64">VXNlciBBY2Nlc3MgVmVyaWZpY2F0aW9uDQoNClVzZXJuYW1lOgo=</example>
+    <!-- User Access Verification\r\n\r\nPassword: -->
+    <example _encoding="base64">VXNlciBBY2Nlc3MgVmVyaWZpY2F0aW9uDQoNClBhc3N3b3JkOgo=</example>
+    <param pos="0" name="service.vendor" value="Cisco"/>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:\r|\n)*Password required, but none set(?:\r|\n)*$">
+    <description>Cisco switch or router - password not set variant</description>
+    <example>Password required, but none set</example>
+    <param pos="0" name="service.vendor" value="Cisco"/>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+  </fingerprint>
   <fingerprint pattern="^(?:\r|\n)*MikroTik v([\w.]+)(?: \(\w+\))?(?:\r|\n)+Login:\s*$">
     <description>MikroTik RouterOS</description>
     <!-- MikroTik v5.2\r\nLogin: -->
@@ -120,7 +170,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:9.0"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="^Debian GNU\/Linux 8(?:\r|\n)+([\w.-]+) login:\s*$">
+  <fingerprint pattern="^Debian GNU\/Linux 8(?:.0)?(?:\r|\n)+([\w.-]+) login:\s*$">
     <description>Debian 8.0 (jessie)</description>
     <!-- Debian GNU/Linux 8\r\nserver-01.2 login: -->
     <example _encoding="base64" host.name="server-01.2">RGViaWFuIEdOVS9MaW51eCA4DQpzZXJ2ZXItMDEuMiBsb2dpbjoK</example>
@@ -131,7 +181,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:8.0"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="^(?:\r|\n)*Debian GNU\/Linux 7(?:\r|\n)+([\w.-]+) login:\s*$">
+  <fingerprint pattern="^(?:\r|\n)*Debian GNU\/Linux 7(?:.0)?(?:\r|\n)+([\w.-]+) login:\s*$">
     <description>Debian 7.0 (wheezy)</description>
     <!-- Debian GNU/Linux 7\r\nserver-01.2 login: -->
     <example _encoding="base64" host.name="server-01.2">RGViaWFuIEdOVS9MaW51eCA3DQpzZXJ2ZXItMDEuMiBsb2dpbjoK</example>
@@ -142,7 +192,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:7.0"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="^(?:\r|\n)*Debian GNU\/Linux 6.0(?:\r|\n)+([\w.-]+) login:\s*$">
+  <fingerprint pattern="^(?:\r|\n)*Debian GNU\/Linux 6(?:.0)?(?:\r|\n)+([\w.-]+) login:\s*$">
     <description>Debian 6.0 (sqeeze)</description>
     <!-- Debian GNU/Linux 6.0\r\nserver-01.2 login: -->
     <example _encoding="base64" host.name="server-01.2">RGViaWFuIEdOVS9MaW51eCA2LjANCnNlcnZlci0wMS4yIGxvZ2luOgo=</example>
@@ -153,7 +203,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:6.0"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="^(?:\r|\n)*Debian GNU\/Linux 5.0(?:\r|\n)+([\w.-]+) login:\s*$">
+  <fingerprint pattern="^(?:\r|\n)*Debian GNU\/Linux 5(?:.0)?(?:\r|\n)+([\w.-]+) login:\s*$">
     <description>Debian 5.0 (lenny)</description>
     <!-- Debian GNU/Linux 5.0\r\nserver-01.2 login: -->
     <example _encoding="base64" host.name="server-01.2">RGViaWFuIEdOVS9MaW51eCA1LjANCnNlcnZlci0wMS4yIGxvZ2luOgo=</example>
@@ -164,7 +214,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:5.0"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="^(?:\r|\n)*Debian GNU\/Linux 4.0(?:\r|\n)+([\w.-]+) login:\s*$">
+  <fingerprint pattern="^(?:\r|\n)*Debian GNU\/Linux 4(?:.0)?(?:\r|\n)+([\w.-]+) login:\s*$">
     <description>Debian 4.0 (etch)</description>
     <!-- Debian GNU/Linux 4.0\r\nserver-01.2 login: -->
     <example _encoding="base64" host.name="server-01.2">RGViaWFuIEdOVS9MaW51eCA0LjANCnNlcnZlci0wMS4yIGxvZ2luOgo=</example>
@@ -524,23 +574,6 @@
     <param pos="0" name="hw.vendor" value="Huawei"/>
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
-  <fingerprint pattern="^(?:\r|\n)*User Access Verification(?:\r|\n)+(?:Username|Password):\s*$">
-    <description>Cisco switch or router - user access variant</description>
-    <!-- User Access Verification\r\n\r\nUsername: -->
-    <example _encoding="base64">VXNlciBBY2Nlc3MgVmVyaWZpY2F0aW9uDQoNClVzZXJuYW1lOgo=</example>
-    <!-- User Access Verification\r\n\r\nPassword: -->
-    <example _encoding="base64">VXNlciBBY2Nlc3MgVmVyaWZpY2F0aW9uDQoNClBhc3N3b3JkOgo=</example>
-    <param pos="0" name="service.vendor" value="Cisco"/>
-    <param pos="0" name="os.vendor" value="Cisco"/>
-    <param pos="0" name="hw.vendor" value="Cisco"/>
-  </fingerprint>
-  <fingerprint pattern="^(?:\r|\n)*Password required, but none set(?:\r|\n)*$">
-    <description>Cisco switch or router - password not set variant</description>
-    <example>Password required, but none set</example>
-    <param pos="0" name="service.vendor" value="Cisco"/>
-    <param pos="0" name="os.vendor" value="Cisco"/>
-    <param pos="0" name="hw.vendor" value="Cisco"/>
-  </fingerprint>
   <fingerprint pattern="^(?:\r|\n)*(?:% Password expiration warning.\r\n)?-+\r\nCisco Configuration Professional \(Cisco CP\) is installed on this device. \r\nThis feature requires the one-time use of the username">
     <description>Cisco router - Cisco Configuration Pro  variant</description>
     <!-- There are are roughly 69 dash characters before the CRLF in the banner below but can't be included in XML comments. -->
@@ -783,26 +816,5 @@
     <param pos="3" name="host.id"/>
     <param pos="4" name="os.version"/>
     <param pos="5" name="os.version.version"/>
-  </fingerprint>
-  <fingerprint pattern="^(?i)(?:\r|\n)*login:\s*$">
-    <description>bare 'login:' -- assert nothing.</description>
-    <example>login:</example>
-  </fingerprint>
-  <fingerprint pattern="^(?i)(?:\r|\n)*User(?:name)?\s*:\s*$">
-    <description>bare 'Username:' -- assert nothing.</description>
-    <example>Username:</example>
-    <example>User:</example>
-  </fingerprint>
-  <fingerprint pattern="^(?i)(?:\r|\n)*Password:\s*$">
-    <description>bare 'Password:' -- assert nothing.</description>
-    <example>Password:</example>
-  </fingerprint>
-  <fingerprint pattern="^(?i)(?:\r|\n)*Account:\s*$">
-    <description>bare 'Account:' -- assert nothing.</description>
-    <example>Account:</example>
-  </fingerprint>
-  <fingerprint pattern="(?i)^Connection refused(?:\r|\n)*$">
-    <description>bare 'Connection refused' -- assert nothing.</description>
-    <example>Connection refused</example>
   </fingerprint>
 </fingerprints>
