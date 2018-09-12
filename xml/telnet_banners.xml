@@ -15,8 +15,6 @@
     <example _encoding="base64" os.version="6.40.8">TWlrcm9UaWsgdjYuNDAuOCAoYnVnZml4KQ0KTG9naW46Cg==</example>
     <!-- MikroTik v6.36rc12 (testing)\r\nLogin: -->
     <example _encoding="base64" os.version="6.36rc12">TWlrcm9UaWsgdjYuMzZyYzEyICh0ZXN0aW5nKQ0KTG9naW46Cg==</example>
-    <param pos="0" name="service.vendor" value="MikroTik"/>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="os.vendor" value="MikroTik"/>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="0" name="os.product" value="RouterOS"/>
@@ -30,11 +28,9 @@
     <!-- ZXHN H108N\r\nLogin: -->
     <example _encoding="base64" hw.product="H108N">WlhITiBIMTA4Tg0KTG9naW46Cg==</example>
     <!-- ZXHN H298A V1.1\r\nLogin: -->
-    <example _encoding="base64"  hw.product="H298A" hw.version="1.1">WlhITiBIMjk4QSBWMS4xDQpMb2dpbjoK</example>
+    <example _encoding="base64" hw.product="H298A" hw.version="1.1">WlhITiBIMjk4QSBWMS4xDQpMb2dpbjoK</example>
     <!-- ZXHN H367N\r\n\rLogin: -->
     <example _encoding="base64" hw.product="H367N">WlhITiBIMzY3Tg0KDUxvZ2luOgo=</example>
-    <param pos="0" name="service.vendor" value="ZTE"/>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="hw.vendor" value="ZTE"/>
     <param pos="0" name="hw.device" value="Router"/>
     <param pos="0" name="hw.family" value="ZXHN"/>
@@ -47,8 +43,6 @@
     <example _encoding="base64" hw.product="F668">RjY2OA0KDUxvZ2luOgo=</example>
     <!-- F612W\r\n\rLogin: -->
     <example _encoding="base64" hw.product="F612W">RjYxMlcNCg1Mb2dpbjoK</example>
-    <param pos="0" name="service.vendor" value="ZTE"/>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="hw.vendor" value="ZTE"/>
     <param pos="0" name="hw.device" value="Router"/>
     <param pos="1" name="hw.product"/>
@@ -66,8 +60,6 @@
       DgvMDcvMTAgKFNWTiByZXZpc2lvbjogMTQ4OTYpDQoNClByb2xpYW50IERMOTgwUjA3IFg2NT
       UwIDgtY29yZSA0UCBTQVMgbG9naW46Cg==
     </example>
-    <param pos="0" name="service.vendor" value="DD-WRT"/>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="os.vendor" value="DD-WRT"/>
     <param pos="0" name="os.product" value="DD-WRT"/>
     <param pos="0" name="os.device" value="Router"/>
@@ -83,8 +75,6 @@
       REQtV1JUIHYzLjAtcjM0ODg2TSBzdGQgKGMpIDIwMTggTmV3TWVkaWEtTkVUIEdtYkgNClJlb
       GVhc2U6IDAyLzEwLzE4DQoNCndpYnJhdGUgbG9naW46Cg==
     </example>
-    <param pos="0" name="service.vendor" value="DD-WRT"/>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="os.vendor" value="DD-WRT"/>
     <param pos="0" name="os.product" value="DD-WRT"/>
     <param pos="0" name="os.device" value="Router"/>
@@ -92,6 +82,18 @@
     <param pos="2" name="os.version.version"/>
     <param pos="3" name="os.build"/>
     <param pos="4" name="os.edition"/>
+  </fingerprint>
+  <fingerprint pattern="^(TD-\w+) [\d.]+ DSL Modem Router(?:\r|\n)+Authorization failed after trying \d+ times!!!\.(?:\r|\n)+Please login after \d+ seconds!\s*$">
+    <description>TP-LINK TD Family DSL Modem/Router</description>
+    <!-- TD-W8960N 5.0 DSL Modem Router\r\nAuthorization failed after trying 5 times!!!.\r\nPlease login after 416 seconds! -->
+    <example _encoding="base64" hw.product="TD-W8960N">
+      VEQtVzg5NjBOIDUuMCBEU0wgTW9kZW0gUm91dGVyDQpBdXRob3JpemF0aW9uIGZhaWxlZCBhZ
+      nRlciB0cnlpbmcgNSB0aW1lcyEhIS4NClBsZWFzZSBsb2dpbiBhZnRlciA0MTYgc2Vjb25kcy
+      E=
+    </example>
+    <param pos="0" name="hw.vendor" value="TP-Link"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
   <fingerprint pattern="^(?:\r|\n)*ZyXEL login:$">
     <description>ZyXEL simple</description>
@@ -111,8 +113,6 @@
     <description>Debian 9.0 (stretch)</description>
     <!-- Debian GNU/Linux 9\r\nserver-01.2 login: -->
     <example _encoding="base64" host.name="server-01.2">RGViaWFuIEdOVS9MaW51eCA5DQpzZXJ2ZXItMDEuMiBsb2dpbjoK</example>
-    <param pos="0" name="service.vendor" value="Debian"/>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="os.vendor" value="Debian"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
@@ -124,8 +124,6 @@
     <description>Debian 8.0 (jessie)</description>
     <!-- Debian GNU/Linux 8\r\nserver-01.2 login: -->
     <example _encoding="base64" host.name="server-01.2">RGViaWFuIEdOVS9MaW51eCA4DQpzZXJ2ZXItMDEuMiBsb2dpbjoK</example>
-    <param pos="0" name="service.vendor" value="Debian"/>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="os.vendor" value="Debian"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
@@ -137,8 +135,6 @@
     <description>Debian 7.0 (wheezy)</description>
     <!-- Debian GNU/Linux 7\r\nserver-01.2 login: -->
     <example _encoding="base64" host.name="server-01.2">RGViaWFuIEdOVS9MaW51eCA3DQpzZXJ2ZXItMDEuMiBsb2dpbjoK</example>
-    <param pos="0" name="service.vendor" value="Debian"/>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="os.vendor" value="Debian"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
@@ -150,8 +146,6 @@
     <description>Debian 6.0 (sqeeze)</description>
     <!-- Debian GNU/Linux 6.0\r\nserver-01.2 login: -->
     <example _encoding="base64" host.name="server-01.2">RGViaWFuIEdOVS9MaW51eCA2LjANCnNlcnZlci0wMS4yIGxvZ2luOgo=</example>
-    <param pos="0" name="service.vendor" value="Debian"/>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="os.vendor" value="Debian"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
@@ -163,8 +157,6 @@
     <description>Debian 5.0 (lenny)</description>
     <!-- Debian GNU/Linux 5.0\r\nserver-01.2 login: -->
     <example _encoding="base64" host.name="server-01.2">RGViaWFuIEdOVS9MaW51eCA1LjANCnNlcnZlci0wMS4yIGxvZ2luOgo=</example>
-    <param pos="0" name="service.vendor" value="Debian"/>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="os.vendor" value="Debian"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
@@ -176,8 +168,6 @@
     <description>Debian 4.0 (etch)</description>
     <!-- Debian GNU/Linux 4.0\r\nserver-01.2 login: -->
     <example _encoding="base64" host.name="server-01.2">RGViaWFuIEdOVS9MaW51eCA0LjANCnNlcnZlci0wMS4yIGxvZ2luOgo=</example>
-    <param pos="0" name="service.vendor" value="Debian"/>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="os.vendor" value="Debian"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
@@ -191,8 +181,23 @@
     <example _encoding="base64" os.version="3.1" host.name="server-01.2">
       RGViaWFuIEdOVS9MaW51eCAzLjENCnNlcnZlci0wMS4yIGxvZ2luOgo=
     </example>
-    <param pos="0" name="service.vendor" value="Debian"/>
-    <param pos="0" name="service.product" value="telnet"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:{os.version}"/>
+    <param pos="2" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:\r|\n)*Ubuntu ([\d.]+)(?: LTS)?(?:\r|\n)+([\w.-]+) login:\s*$">
+    <description>Ubuntu - most versions</description>
+    <!-- Ubuntu 16.04.4 LTS\r\nserver-01.2 login: -->
+    <example _encoding="base64" os.version="16.04.4" host.name="server-01.2">
+      VWJ1bnR1IDE2LjA0LjQgTFRTDQpzZXJ2ZXItMDEuMiBsb2dpbjoK
+    </example>
+    <!-- Ubuntu 17.04\r\nnginx login: -->
+    <example _encoding="base64" os.version="17.04" host.name="nginx">
+      VWJ1bnR1IDE3LjA0DQpuZ2lueCBsb2dpbjoK
+    </example>
     <param pos="0" name="os.vendor" value="Debian"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
@@ -210,8 +215,6 @@
     <example _encoding="base64" os.version="2.2" host.name="moon">
       RGViaWFuIEdOVS9MaW51eCAyLjIgbG9jYWxob3N0LmxvY2FsZG9tYWluDQptb29uIGxvZ2luOgo=
     </example>
-    <param pos="0" name="service.vendor" value="Debian"/>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="os.vendor" value="Debian"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
@@ -231,8 +234,6 @@
       Q2VudE9TIHJlbGVhc2UgNi4xMCAoRmluYWwpDQpLZXJuZWwgMi42LjMyLTc1NC4yLjEuZWw2L
       ng4Nl82NCBvbiBhbiB4ODZfNjQNCnNlcnZlci0wMS4yIGxvZ2luOgo=
     </example>
-    <param pos="0" name="service.vendor" value="CentOS"/>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="os.vendor" value="CentOS"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
@@ -246,7 +247,6 @@
     <description>Asus Wireless Access Point/Router - RT-AC prefix</description>
     <example hw.product="RT-AC54U">RT-AC54U login:</example>
     <example hw.product="RT-AC68R">RT-AC68R login:</example>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="hw.vendor" value="Asus"/>
@@ -257,7 +257,6 @@
     <description>Asus Wireless Access Point/Router - AC prefix</description>
     <example hw.product="AC1000">AC1000 login:</example>
     <example hw.product="AC3000">AC3000 login:</example>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="hw.vendor" value="Asus"/>
@@ -268,7 +267,6 @@
     <description>Airties</description>
     <example hw.product="Air5650">Air5650 login:</example>
     <example hw.product="Air5650TT">Air5650TT login:</example>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="hw.vendor" value="Airties"/>
     <param pos="0" name="hw.device" value="WAP"/>
     <param pos="1" name="hw.product"/>
@@ -280,8 +278,6 @@
       QW1hem9uIExpbnV4IEFNSSByZWxlYXNlIDIwMTMuMDkNCktlcm5lbCAzLjQuNjgtNTkuOTcuY
       W16bjEueDg2XzY0IG9uIGFuIHg4Nl82NA0Kc2VydmVyLTAxLjIgbG9naW46Cg==
     </example>
-    <param pos="0" name="service.vendor" value="Amazon"/>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="os.vendor" value="Amazon"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
@@ -580,7 +576,6 @@
     <param pos="0" name="service.vendor" value="Cisco"/>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.device" value="Switch"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:-"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.product" value="Catalyst 1900"/>
     <param pos="0" name="hw.device" value="Switch"/>
@@ -599,9 +594,6 @@
     <description>Juniper Netscreen</description>
     <!-- Remote Management Console\r\nlogin: -->
     <example _encoding="base64">UmVtb3RlIE1hbmFnZW1lbnQgQ29uc29sZQ0KbG9naW46Cg==</example>
-    <param pos="0" name="service.vendor" value="Juniper"/>
-    <param pos="0" name="service.family" value="NetScreen"/>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="os.vendor" value="Juniper"/>
     <param pos="0" name="os.device" value="Firewall"/>
     <param pos="0" name="os.family" value="ScreenOS"/>
@@ -611,11 +603,22 @@
     <param pos="0" name="hw.device" value="Firewall"/>
     <param pos="0" name="hw.product" value="NetScreen"/>
   </fingerprint>
+  <fingerprint pattern="^(?:\r|\n)*(FGT\w{13}) login:\s*$">
+    <description>Fortinet FortiGate - w/ autogenerated hostname</description>
+    <example host.name="FGT60C3G13001111">FGT60C3G13001111 login:</example>
+    <param pos="0" name="os.vendor" value="Fortinet"/>
+    <param pos="0" name="os.family" value="FortiOS"/>
+    <param pos="0" name="os.product" value="FortiOS"/>
+    <param pos="0" name="os.device" value="Firewall"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:fortinet:fortios:-"/>
+    <param pos="0" name="hw.vendor" value="Fortinet"/>
+    <param pos="0" name="hw.family" value="FortiGate"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
   <fingerprint pattern="^(?:\r|\n)*KWS-1043N login:\s*$">
     <description>Clipcomm KWS router</description>
     <example hw.product="KWS-1043N">KWS-1043N login:</example>
-    <param pos="0" name="service.vendor" value="Clipcomm"/>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="hw.vendor" value="Clipcomm"/>
     <param pos="0" name="hw.device" value="Router"/>
     <param pos="0" name="hw.product" value="KWS-1043N"/>
@@ -623,31 +626,16 @@
   <fingerprint pattern="^(?:\r|\n)*(SMCD3\w+-\w\w\w) login:\s*$">
     <description>SMC Cable Modem</description>
     <example hw.product="SMCD3GN2-BIZ">SMCD3GN2-BIZ login:</example>
-    <param pos="0" name="service.vendor" value="SMC Networks"/>
-    <param pos="0" name="service.product" value="telnet"/>
     <param pos="0" name="hw.vendor" value="SMC Networks"/>
     <param pos="0" name="hw.device" value="Cable Modem"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
-  <fingerprint pattern="^(?:\r|\n)*ADB-4820CD login:\s*$">
-    <description>ADB ADB-4820CD DVR</description>
-    <example>ADB-4820CD login:</example>>
-    <param pos="0" name="hw.vendor" value="ADB"/>
-    <param pos="0" name="hw.device" value="DVR"/>
-    <param pos="0" name="hw.product" value="ADB-4820CD"/>
-  </fingerprint>
-  <fingerprint pattern="^(?:\r|\n)*IMDVRS login:\s*$">
-    <description>Rifatron IMDVRS DVR</description>
-    <example>IMDVRS login:</example>>
-    <param pos="0" name="hw.vendor" value="Rifatron"/>
-    <param pos="0" name="hw.family" value="IMDVR"/>
-    <param pos="0" name="hw.device" value="DVR"/>
-  </fingerprint>
-  <fingerprint pattern="^(?:\r|\n)*Ruijie login:\s*$">
-    <description>Ruijie device (likely router/switch) </description>
-    <example>Ruijie login:</example>>
-    <param pos="0" name="hw.vendor" value="Ruijie"/>
-  </fingerprint>
+  <fingerprint pattern="^(?:\r|\n)*ADB-4820CD login:\s*$"><description>ADB ADB-4820CD DVR</description><example>ADB-4820CD login:</example>&gt;
+    <param pos="0" name="hw.vendor" value="ADB"/><param pos="0" name="hw.device" value="DVR"/><param pos="0" name="hw.product" value="ADB-4820CD"/></fingerprint>
+  <fingerprint pattern="^(?:\r|\n)*IMDVRS login:\s*$"><description>Rifatron IMDVRS DVR</description><example>IMDVRS login:</example>&gt;
+    <param pos="0" name="hw.vendor" value="Rifatron"/><param pos="0" name="hw.family" value="IMDVR"/><param pos="0" name="hw.device" value="DVR"/></fingerprint>
+  <fingerprint pattern="^(?:\r|\n)*Ruijie login:\s*$"><description>Ruijie device (likely router/switch) </description><example>Ruijie login:</example>&gt;
+    <param pos="0" name="hw.vendor" value="Ruijie"/></fingerprint>
   <fingerprint pattern="^Welcome to Microsoft Telnet Service \r\n\n\rlogin:\s*$">
     <description>Microsoft Windows</description>
     <!-- Welcome to Microsoft Telnet Service \r\n\n\rlogin: -->
@@ -710,6 +698,91 @@
     </example>
     <param pos="0" name="hw.device" value="Router"/>
     <param pos="1" name="hw.product"/>
+  </fingerprint>
+  <!-- Moxa Industrial Solutions-->
+  <fingerprint pattern="^(?:\r|\n)*NPort (NP6[\w-]+)(?:\r|\n|\x00)+Console terminal type">
+    <description>Moxa NPort Terminal Server - 6xxx Series</description>
+    <!-- NPort NP6610-32\r\u0000\nConsole terminal type (1: ansi/vt100, 2: vt52) : 1 -->
+    <example _encoding="base64" hw.product="NP6610-32">
+     TlBvcnQgTlA2NjEwLTMyDQAKQ29uc29sZSB0ZXJtaW5hbCB0eXBlICgxOiBhbnNpL3Z0MTAwLC
+     AyOiB2dDUyKSA6IDE=
+    </example>
+    <param pos="0" name="hw.vendor" value="Moxa"/>
+    <param pos="0" name="hw.family" value="NPort"/>
+    <param pos="0" name="hw.device" value="Terminal Server"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+  <fingerprint pattern="^Model name\s+: NPort (IA-\d+)(?:\r|\n|\x00)+MAC address\s+: ([\w:]+)(?:\r|\n|\x00)+Serial No.\s+: (\d+)(?:\r|\n|\x00)+Firmware version : ([\d.]+) Build (\d+)(?:\r|\n|\x00)+System uptime">
+    <description>Moxa NPort Device Server - IA Series</description>
+    <!-- Model name       : NPort IA-5250\r\u0000\nMAC address      : 00:90:E8:AA:AA:AA\r\u0000\nSerial No.       : 281\r\u0000\nFirmware version : 1.6 Build 17060616\r\u0000\nSystem uptime    : 31 days, 06h:03m:45s\r\u0000\n\r\u0000\nPlease keyin your password: -->
+    <example _encoding="base64" hw.product="IA-5250" host.mac="00:90:E8:AA:AA:AA" host.id="281" os.version="1.6" os.version.version="17060616">
+      TW9kZWwgbmFtZSAgICAgICA6IE5Qb3J0IElBLTUyNTANAApNQUMgYWRkcmVzcyAgICAgIDogM
+      DA6OTA6RTg6QUE6QUE6QUENAApTZXJpYWwgTm8uICAgICAgIDogMjgxDQAKRmlybXdhcmUgdm
+      Vyc2lvbiA6IDEuNiBCdWlsZCAxNzA2MDYxNg0AClN5c3RlbSB1cHRpbWUgICAgOiAzMSBkYXl
+      zLCAwNmg6MDNtOjQ1cw0ACg0AClBsZWFzZSBrZXlpbiB5b3VyIHBhc3N3b3JkOg==
+    </example>
+    <param pos="0" name="hw.vendor" value="Moxa"/>
+    <param pos="0" name="hw.family" value="NPort"/>
+    <param pos="0" name="hw.device" value="Device Server"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="host.mac"/>
+    <param pos="3" name="host.id"/>
+    <param pos="4" name="os.version"/>
+    <param pos="5" name="os.version.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:\r|\n|\x00|-)*Model name\s+: NPort (5[\w-]+)(?:\r|\n|\x00)+MAC address\s+: ([\w:]+)(?:\r|\n|\x00)+Serial No.\s+: (\d+)(?:\r|\n|\x00)+Firmware version : ([\d.]+) Build (\d+)(?:\r|\n|\x00)+">
+    <description>Moxa NPort Device Server - 5xxx Series</description>
+    <!-- Some versions of the banner below have a line full of dashes which cannot be included in the example comment -->
+    <!-- Model name       : NPort 5610-8-DT\r\u0000\nMAC address      : 00:90:E8:AA:AA:AA\r\u0000\nSerial No.       : 9522\r\u0000\nFirmware version : 2.2 Build 11090613\r\u0000\nSystem uptime    : 8 days, 02h:11m:44s\r\u0000\n\r\u0000\nPlease keyin your password: -->
+    <example _encoding="base64" hw.product="5610-8-DT" host.mac="00:90:E8:AA:AA:AA" host.id="9522" os.version="2.2" os.version.version="11090613">
+      TW9kZWwgbmFtZSAgICAgICA6IE5Qb3J0IDU2MTAtOC1EVA0ACk1BQyBhZGRyZXNzICAgICAgO
+      iAwMDo5MDpFODpBQTpBQTpBQQ0AClNlcmlhbCBOby4gICAgICAgOiA5NTIyDQAKRmlybXdhcm
+      UgdmVyc2lvbiA6IDIuMiBCdWlsZCAxMTA5MDYxMw0AClN5c3RlbSB1cHRpbWUgICAgOiA4IGR
+      heXMsIDAyaDoxMW06NDRzDQAKDQAKUGxlYXNlIGtleWluIHlvdXIgcGFzc3dvcmQ6
+    </example>
+    <param pos="0" name="hw.vendor" value="Moxa"/>
+    <param pos="0" name="hw.family" value="NPort"/>
+    <param pos="0" name="hw.device" value="Device Server"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="host.mac"/>
+    <param pos="3" name="host.id"/>
+    <param pos="4" name="os.version"/>
+    <param pos="5" name="os.version.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Model name\s+: MGate (MB3[\w-]+)(?:\r|\n|\x00|)+MAC address\s+: ([\w:]+)(?:\r|\n|\x00)+Serial No.\s+: (\d+)(?:\r|\n|\x00)+Firmware version : ([\d.]+) Build (\d+)(?:\r|\n|\x00)+">
+    <description>Moxa MGate Modbus Gateway</description>
+    <!-- Model name       : MGate MB3180\r\u0000\nMAC address      : 00:90:E8:AA:AA:AA\r\u0000\nSerial No.       : 9474\r\u0000\nFirmware version : 1.2 Build 09101913\r\u0000\nSystem uptime    : 15 days, 16h:37m:48s\r\u0000\n\r\u0000\nPlease keyin your password: -->
+    <example _encoding="base64" hw.product="MB3180" host.mac="00:90:E8:AA:AA:AA" host.id="9474" os.version="1.2" os.version.version="09101913">
+      TW9kZWwgbmFtZSAgICAgICA6IE1HYXRlIE1CMzE4MA0ACk1BQyBhZGRyZXNzICAgICAgOiAwM
+      Do5MDpFODpBQTpBQTpBQQ0AClNlcmlhbCBOby4gICAgICAgOiA5NDc0DQAKRmlybXdhcmUgdm
+      Vyc2lvbiA6IDEuMiBCdWlsZCAwOTEwMTkxMw0AClN5c3RlbSB1cHRpbWUgICAgOiAxNSBkYXl
+      zLCAxNmg6MzdtOjQ4cw0ACg0AClBsZWFzZSBrZXlpbiB5b3VyIHBhc3N3b3JkOg==
+    </example>
+    <param pos="0" name="hw.vendor" value="Moxa"/>
+    <param pos="0" name="hw.family" value="MGate"/>
+    <param pos="0" name="hw.device" value="Industrial Control"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="host.mac"/>
+    <param pos="3" name="host.id"/>
+    <param pos="4" name="os.version"/>
+    <param pos="5" name="os.version.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Model name\s+: (NE[\w-]+)(?:\r|\n|\x00)+MAC address\s+: ([\w:]+)(?:\r|\n|\x00)+Serial No.\s+: (\d+)(?:\r|\n|\x00)+Firmware version\s+: ([\d.]+) Build (\d+)(?:\r|\n|\x00)+">
+    <description>Moxa NE Series Embedded device server</description>
+    <!-- Model name       : NE-4110S\r\u0000\nMAC address      : 00:90:E8:AA:AA:AA\r\u0000\nSerial No        : 3616\r\u0000\nFirmware version : 4.1 Build 07061517\r\u0000\n\r\u0000\nPlease keyin your password: -->
+    <example _encoding="base64" hw.product="NE-4110S" host.mac="00:90:E8:AA:AA:AA" host.id="3616" os.version="4.1" os.version.version="07061517">
+      TW9kZWwgbmFtZSAgICAgICA6IE5FLTQxMTBTDQAKTUFDIGFkZHJlc3MgICAgICA6IDAwOjkwO
+      kU4OkFBOkFBOkFBDQAKU2VyaWFsIE5vICAgICAgICA6IDM2MTYNAApGaXJtd2FyZSB2ZXJzaW
+      9uIDogNC4xIEJ1aWxkIDA3MDYxNTE3DQAKDQAKUGxlYXNlIGtleWluIHlvdXIgcGFzc3dvcmQ6
+    </example>
+    <param pos="0" name="hw.vendor" value="Moxa"/>
+    <param pos="0" name="hw.family" value="NE"/>
+    <param pos="0" name="hw.device" value="Device Server"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="host.mac"/>
+    <param pos="3" name="host.id"/>
+    <param pos="4" name="os.version"/>
+    <param pos="5" name="os.version.version"/>
   </fingerprint>
   <fingerprint pattern="^(?i)(?:\r|\n)*login:\s*$">
     <description>bare 'login:' -- assert nothing.</description>
