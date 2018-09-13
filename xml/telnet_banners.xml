@@ -117,6 +117,7 @@
     <param pos="2" name="os.version.version"/>
     <param pos="3" name="os.edition"/>
     <param pos="4" name="os.build"/>
+    <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
   <fingerprint pattern="^(?:\r|\n)*DD-WRT v(3.\d)-(r([\w]+)) ([\w-]+) \(c\) \d{4} NewMedia-NET GmbH(?:\r|\n)+Release: \d+\/\d+\/\d+(?:\r|\n)+.* login:\s*$">
     <description>DD-WRT - 3.0 family</description>
@@ -132,6 +133,7 @@
     <param pos="2" name="os.version.version"/>
     <param pos="3" name="os.build"/>
     <param pos="4" name="os.edition"/>
+    <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
   <fingerprint pattern="^(TD-\w+) [\d.]+ DSL Modem Router(?:\r|\n)+Authorization failed after trying \d+ times!!!\.(?:\r|\n)+Please login after \d+ seconds!\s*$">
     <description>TP-LINK TD Family DSL Modem/Router</description>
@@ -467,7 +469,7 @@
   <fingerprint pattern="^(?:\r|\n)*Hi, my name is :\s+[\w.\s-]+(?:\r|\n)+Here is what I know about myself:(?:\r|\n)+Model:\s+VSX (\w+)(?:\r|\n)+Serial Number:\s+(\w+)(?:\r|\n)+Software Version:\s+Release ([\d.-]+)\s">
     <description>Polycom Video Conferencing - VSX Family</description>
     <!-- Hi, my name is :     Something Pity\r\nHere is what I know about myself:\r\nModel:               VSX 6000A\r\nSerial Number:       00070906FC34F6\r\nSoftware Version:    Release 9.0.6.2-103 - 04Sep2011 21:27\r\nBuild Information:   ecomman -->
-    <example _encoding="base64" hw.product="6000A" hw.id="00070906FC34F6" os.version="9.0.6.2-103">
+    <example _encoding="base64" hw.product="6000A" host.id="00070906FC34F6" os.version="9.0.6.2-103">
       SGksIG15IG5hbWUgaXMgOiAgICAgU29tZXRoaW5nIFBpdHkNCkhlcmUgaXMgd2hhdCBJIGtub
       3cgYWJvdXQgbXlzZWxmOg0KTW9kZWw6ICAgICAgICAgICAgICAgVlNYIDYwMDBBDQpTZXJpYW
       wgTnVtYmVyOiAgICAgICAwMDA3MDkwNkZDMzRGNg0KU29mdHdhcmUgVmVyc2lvbjogICAgUmV
@@ -478,7 +480,7 @@
     <param pos="0" name="hw.family" value="VSX"/>
     <param pos="0" name="hw.device" value="Video Conferencing"/>
     <param pos="1" name="hw.product"/>
-    <param pos="2" name="hw.id"/>
+    <param pos="2" name="host.id"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="Polycom Command Shell(?:\r|\n)+XCOM host:\s+localhost port: \d+">
@@ -544,6 +546,13 @@
     <param pos="0" name="hw.product" value="JetDirect"/>
     <param pos="0" name="hw.device" value="Printer"/>
   </fingerprint>
+  <fingerprint pattern="^(?:\r|\n)*%connection closed by remote host!(?:\u0000)?$">
+    <description>HP switch blocking connection using network ACL</description>
+    <!-- %connection closed by remote host! -->
+    <example _encoding="base64">JWNvbm5lY3Rpb24gY2xvc2VkIGJ5IHJlbW90ZSBob3N0IQ==</example>
+    <param pos="0" name="hw.vendor" value="HP"/>
+    <param pos="0" name="hw.device" value="Switch"/>
+  </fingerprint>
   <fingerprint pattern="^(?:\r|\n)*Welcome Visiting Huawei Home Gateway\r\nCopyright by Huawei Technologies Co., Ltd.\r\n\r\nLogin:$">
     <description>Huawei HG series Home Gateway routers</description>
     <!-- Welcome Visiting Huawei Home Gateway\r\nCopyright by Huawei Technologies Co., Ltd.\r\n\r\nLogin: -->
@@ -553,13 +562,6 @@
     </example>
     <param pos="0" name="hw.vendor" value="Huawei"/>
     <param pos="0" name="hw.device" value="Router"/>
-  </fingerprint>
-  <fingerprint pattern="^(?:\r|\n)*%connection closed by remote host!(?:\u0000)?$">
-    <description>HP switch blocking connection using network ACL</description>
-    <!-- %connection closed by remote host! -->
-    <example _encoding="base64">JWNvbm5lY3Rpb24gY2xvc2VkIGJ5IHJlbW90ZSBob3N0IQ==</example>
-    <param pos="0" name="hw.vendor" value="HP"/>
-    <param pos="0" name="hw.device" value="Switch"/>
   </fingerprint>
   <fingerprint pattern="^(?:\r|\n)*Warning: Telnet is not a secure protocol, and it is recommended to use Stelnet.(?:(?:\r|\n)+Login authentication)?(?:\r|\n)+Username:$">
     <description>Huawei Router</description>
