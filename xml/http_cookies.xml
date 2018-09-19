@@ -16,6 +16,14 @@
     <param pos="0" name="service.product" value="ColdFusion"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:adobe:coldfusion:-"/>
   </fingerprint>
+  <fingerprint pattern="^ANsession\d+=(\S+);.*">
+    <description>Array Networks Secure Access Gateway / SSL VPN</description>
+    <example>ANsession0002262072457555=IPMI; path=/;secure</example>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="Array Networks"/>
+    <param pos="0" name="service.family" value="Secure Access Gateway"/>
+    <param pos="0" name="hw.device" value="VPN"/>
+  </fingerprint>
   <fingerprint pattern="^(Apache)=[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.([0-9]+);.*">
     <description>Apache</description>
     <param pos="1" name="cookie"/>
