@@ -67,7 +67,7 @@ git rebase upstream/master
 git checkout -b FOO
 ```
 
-Now, make your changes, commit as necessary with useful commit messages. 
+Now, make your changes, commit as necessary with useful commit messages.
 
 Please note that changes to [lib/recog/version.rb](https://github.com/rapid7/recog/blob/master/lib/recog/version.rb) in PRs are almost never necessary.
 
@@ -82,6 +82,37 @@ Finally, submit the PR.  Navigate to ```https://github.com/<your-github-username
 ### Testing
 
 When your PR is submitted, it will be automatically subjected to the full run of tests in [Travis](https://travis-ci.org/rapid7/recog/), however you are encourage to perform testing _before_ submitting the PR.  To do this, simply run `rake tests`.
+
+## Updating CPEs
+
+There exists some automation to update the CPEs that might be asserted with
+some recog fingerprints.  This should be run periodically to ensure that all
+fingerprints that could have CPEs do, etc.
+
+First, setup a python3 venv:
+
+  ```
+  python3 -m venv venv
+  source venv/bin/activate
+  pip install -r requirements.txt
+  ```
+
+Download the latest CPE 2.3 dictionary:
+
+  ```
+  wget https://nvd.nist.gov/feeds/xml/cpe/dictionary/official-cpe-dictionary_v2.3.xml.gz
+  ````
+
+Run the CPE automation against every XML file, using GNU `parallel` to speed things up:
+
+  ```
+  ls xml/*.xml | parallel --gnu "./update_cpes.py {} official-cpe-dictionary_v2.3.xml cpe-remap.yaml && xmllint --format --noblanks {} > {}.bak &&  mv {}.bak {} || echo {}" 2> errors.txt
+  ```
+
+Any mismatched fingerprints will be listed in `errors.txt` for eventual
+maintenance.  The `cpe-remap.yaml` file can be used to map between
+vendor/product/etc differences between Recog and CPE, or to work around bugs in
+either.
 
 ## Landing PRs
 
