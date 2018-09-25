@@ -100,13 +100,27 @@ class Fingerprint
       next if v.nil?
       # if this key's value uses interpolation of the form "foo{some.thing}",
       # if some.thing was "bar" then this keys value would be set to "foobar".
-      if matches = v.match(/\{(?<replace>[^\s{}]+)\}/)
-        replace = matches[:replace]
+      if /\{(?<replace>[^\s{}]+)\}/ =~ v
         if result[replace]
-          if recursive_match = result[replace].match(/\{(?<bad_replace>[^\s{}]+)\}/)
-            raise "Invalid recursive use of #{recursive_match[:bad_replace]} in #{replace}"
+          if /\{(?<bad_replace>[^\s{}]+)\}/ =~ result[replace]
+            raise "Invalid recursive use of #{bad_replace} in #{replace}"
           end
-          v.gsub!(/\{#{replace}\}/, result[replace])
+          result[k] = v.gsub(/\{#{replace}\}/, result[replace])
+        else
+          # if the value uses an interpolated value that does not exist, in general this could be
+          # very bad, but over time we have allowed the use of regexes with
+          # optional captures that are then used for parts of the asserted
+          # fingerprints.  This is frequently done for optional version
+          # strings.  If the key in question is cpe23 and the interpolated
+          # value we are trying to replace is version related, use the CPE
+          # standard of '-' for the version, otherwise raise and exception as
+          # this code currently does not handle interpolation of undefined
+          # values in other cases.
+          if k =~ /\.cpe23$/ and replace =~ /\.version$/
+            result[k] = v.gsub(/\{#{replace}\}/, '-')
+          else
+            raise "Invalid use of nil interpolated value #{replace} in non-cpe23 fingerprint param #{k}"
+          end
         end
       end
     end
