@@ -100,10 +100,10 @@ class Fingerprint
       next if v.nil?
       # if this key's value uses interpolation of the form "foo{some.thing}",
       # if some.thing was "bar" then this keys value would be set to "foobar".
-      if matches = v.match(/\{(?<replace>\S+)\}/)
+      if matches = v.match(/\{(?<replace>[^\s{}]+)\}/)
         replace = matches[:replace]
         if result[replace]
-          if recursive_match = result[replace].match(/\{(?<bad_replace>\S+)\}/)
+          if recursive_match = result[replace].match(/\{(?<bad_replace>[^\s{}]+)\}/)
             raise "Invalid recursive use of #{recursive_match[:bad_replace]} in #{replace}"
           end
           v.gsub!(/\{#{replace}\}/, result[replace])
