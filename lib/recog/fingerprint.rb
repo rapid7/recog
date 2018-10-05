@@ -81,7 +81,7 @@ class Fingerprint
       if pos == 0
         # A match offset of 0 means this param has a hardcoded value
         result[k] = v[1]
-        # if this value uses interpolation, not it for handling later
+        # if this value uses interpolation, note it for handling later
         v[1].scan(/\{([^\s{}]+)\}/).flatten.each do |replacement|
           replacements[k] ||= Set[]
           replacements[k] << replacement
@@ -103,6 +103,7 @@ class Fingerprint
 
     result['fingerprint_db'] = @match_key if @match_key
 
+    # for everything identified as using interpolation, do so
     replacements.each_pair do |replacement_k, replacement_vs|
       replacement_vs.each do |replacement|
         if result[replacement]
