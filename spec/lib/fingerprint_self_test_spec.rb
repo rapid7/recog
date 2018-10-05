@@ -60,6 +60,14 @@ describe Recog::DB do
                 param_names << param_name
               end
             end
+
+            it "uses interpolation correctly" do
+              if pos == 0 && /\{(?<interpolated>[^\s{}]+)\}/ =~ value
+                unless fp.params.key?(interpolated)
+                  fail "'#{fp.name}' uses interpolated value '#{interpolated}' that does not exist"
+                end
+              end
+            end
           end
         end
 
