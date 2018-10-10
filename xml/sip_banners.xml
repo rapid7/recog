@@ -81,6 +81,19 @@
     <param pos="1" name="hw.model"/>
     <param pos="2" name="hw.version"/>
   </fingerprint>
+  <fingerprint pattern="(?:Cisco|Linksys)/(WRP\d+)(\S+)$">
+    <description>Cisco/Linksys WRP Wireless Router</description>
+    <example hw.version="2.00.26" hw.model="WRP400">aabbccddeeff_FinalStage_Linksys/WRP400-2.00.26</example>
+    <example hw.version="1.01.08" hw.model="WRP200">Linksys/WRP200-1.01.08</example>
+    <example hw.version="1.00.05B2" hw.model="WRP400">Linksys/WRP400-1.00.05B2</example>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.product" value="Wireless Router"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="2" name="hw.version"/>
+  </fingerprint>
   <fingerprint pattern="^M5T SIP(?: Stack|-UA SAFE)/v?([\d\.]+)">
     <description>Media5 Corporation SIP Stack</description>
     <example service.version="4.1.2.2">M5T SIP Stack/4.1.2.2</example>
