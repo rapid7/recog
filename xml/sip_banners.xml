@@ -3,9 +3,21 @@
   <!--
   SIP Server header values are matched against these patterns to fingerprint SIP devices.
   -->
-  <fingerprint pattern="^Cisco-SIPGateway/IOS-([\d\.x]+)$">
-    <description>Cisco SIPGateway</description>
-    <example>Cisco-SIPGateway/IOS-12.x</example>
+  <fingerprint pattern="^Cisco-SIPGateway/IOS-(\d+)\.x$">
+    <description>Cisco IOS with SIPGateway with only major version</description>
+    <example os.version="12">Cisco-SIPGateway/IOS-12.x</example>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.product" value="IOS"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:{os.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^Cisco-SIPGateway/IOS-([\d\.a-zA-Z]+)$">
+    <description>Cisco IOS with SIPGateway</description>
+    <example os.version="15.2.2.T1">Cisco-SIPGateway/IOS-15.2.2.T1</example>
+    <example os.version="15.2.3.T">Cisco-SIPGateway/IOS-15.2.3.T</example>
+    <example os.version="15.4.3.S5">Cisco-SIPGateway/IOS-15.4.3.S5</example>
+    <example os.version="15.6.3.M0a">Cisco-SIPGateway/IOS-15.6.3.M0a</example>
+    <example os.version="16.3.6">Cisco-SIPGateway/IOS-16.3.6</example>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.product" value="IOS"/>
     <param pos="1" name="os.version"/>
