@@ -54,6 +54,21 @@
     <param pos="1" name="hw.model"/>
     <param pos="2" name="hw.version"/>
   </fingerprint>
+  <fingerprint pattern="(?:Cisco|Linksys)(?: |/)(PAP2T?)(?:-|/)(\S+)$">
+    <description>Cisco/Linksys VoIP / Internet Phone adapter</description>
+    <example hw.version="3.1.22(LS)" hw.model="PAP2">PhoneSystems.net aabbccddeeff Linksys/PAP2-3.1.22(LS)</example>
+    <example hw.version="3.1.9(LSc)" hw.model="PAP2">aabbccddeeff Linksys/PAP2-3.1.9(LSc)</example>
+    <example hw.version="3.52.12X" hw.model="PAP2T">Linksys PAP2T/3.52.12X</example>
+    <example hw.version="2.0.10(LSb)" hw.model="PAP2">iLinksys/PAP2-2.0.10(LSb)</example>
+    <example hw.version="3.1.16(LS)" hw.model="PAP2T">Linksys/PAP2T-3.1.16(LS)</example>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.device" value="VoIP"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.product" value="Internet Phone Adapter"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="2" name="hw.version"/>
+  </fingerprint>
   <fingerprint pattern="^Cisco/(SRP\d+)-([\d\.]+)">
     <description>Cisco Services Ready Platforms (SRP) Router</description>
     <example hw.model="SRP541" hw.version="1.2.6">Cisco/SRP541-1.2.6(003)</example>
