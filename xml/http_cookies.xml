@@ -105,6 +105,24 @@
     <param pos="0" name="service.family" value="Content Service Switch"/>
     <param pos="0" name="service.product" value="11000 Series Content Service Switch"/>
   </fingerprint>
+  <fingerprint pattern="^webvpn(?:c|_portal|Lang|login|SharePoint)?=">
+    <description>Cisco ASA VPN</description>
+    <example>webvpn=; expires=Thu, 01 Jan 1970 22:00:00 GMT; path=/; secure</example>
+    <example>webvpnc=; expires=Thu, 01 Jan 1970 22:00:00 GMT; path=/; secure</example>
+    <example>webvpn_portal=; expires=Thu, 01 Jan 1970 22:00:00 GMT; path=/; secure</example>
+    <example>webvpnSharePoint=; expires=Thu, 01 Jan 1970 22:00:00 GMT; path=/; secure</example>
+    <example>webvpnlogin=1; path=/; secure</example>
+    <param pos="0" name="service.vendor" value="Cisco"/>
+    <param pos="0" name="service.product" value="HTTP"/>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.family" value="ASA"/>
+    <param pos="0" name="os.product" value="VPN"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.family" value="ASA"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:cisco:adaptive_security_appliance:-"/>
+    <param pos="0" name="hw.product" value="Adaptive Security Appliance"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+  </fingerprint>
   <fingerprint pattern="^(st8id)=.*">
     <description>Citrix Application Protection System, Enterprise
       http://support.citrix.com/article/CTX109330
