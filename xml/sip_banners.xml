@@ -11,6 +11,22 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:{os.version}"/>
   </fingerprint>
+  <fingerprint pattern="^Cisco/(SPA\d+G?)-([\d\.a-zA-Z]+)">
+    <description>Cisco SPA VoIP Phone</description>
+    <example hw.model="SPA122" hw.version="1.3.3">Cisco/SPA122-1.3.3(004)</example>
+    <example hw.model="SPA504G" hw.version="7.5.2">Cisco/SPA504G-7.5.2</example>
+    <example hw.model="SPA122" hw.version="1.3.2">Cisco/SPA122-1.3.2-XU(014)</example>
+    <example hw.model="SPA112" hw.version="1.4.1SR1">Cisco/SPA112-1.4.1SR1(002)d-hisec</example>
+    <example hw.model="SPA303" hw.version="7.5.5">Cisco/SPA303-7.5.5</example>
+    <example hw.model="SPA112" hw.version="1.0.1">Cisco/SPA112-1.0.1(022)</example>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.device" value="VoIP"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.product" value="SPA"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="2" name="hw.version"/>
+  </fingerprint>
   <fingerprint pattern="^TANDBERG/\d+ \(([a-zA-Z]+\d+(?:\.\d+)+).*\)">
     <description>Cisco TelePresence</description>
     <example os.version="X8.2.1">TANDBERG/4130 (X8.2.1)</example>
@@ -29,6 +45,6 @@
     <example hw.model="452W">Tilgin Vood 452W_S_3_4_2_RC_2</example>
     <param pos="0" name="hw.vendor" value="Tilgin"/>
     <param pos="0" name="hw.product" value="Vood"/>
-    <param pos="1" name="hw.version"/>
+    <param pos="1" name="hw.model"/>
   </fingerprint>
 </fingerprints>
