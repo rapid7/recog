@@ -99,18 +99,177 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:redhat:fedora_core:{os.version}"/>
   </fingerprint>
-  <fingerprint pattern="^Ubuntu\/(\S+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="^Ubuntu\/([\d\.]+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
     <description>miniupnpd on an Ubuntu variant</description>
     <example os.version="10.04" service.version="1.0">Ubuntu/10.04 UPnP/1.0 miniupnpd/1.0</example>
     <example os.version="10.10" service.version="1.0">Ubuntu/10.10 UPnP/1.0 miniupnpd/1.0</example>
     <example os.version="7.10" service.version="1.0">Ubuntu/7.10 UPnP/1.0 miniupnpd/1.0</example>
     <example os.version="9.04" service.version="1.0">Ubuntu/9.04 UPnP/1.0 miniupnpd/1.0</example>
-    <example os.version="lucid" service.version="1.4">Ubuntu/lucid UPnP/1.0 MiniUPnPd/1.4</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="2" name="service.version"/>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^Ubuntu\/bionic UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+    <description>miniupnpd on an Ubuntu bionic/18.04</description>
+    <example os.version="18.04" service.version="1.4">Ubuntu/bionic UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="18.04"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^Ubuntu\/yakkety UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+    <description>miniupnpd on an Ubuntu yakkety/16.10</description>
+    <example os.version="16.10" service.version="1.4">Ubuntu/yakkety UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="16.10"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^Ubuntu\/xenial UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+    <description>miniupnpd on an Ubuntu xenial/16.04</description>
+    <example os.version="16.04" service.version="1.4">Ubuntu/xenial UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="16.04"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^Ubuntu\/utopic UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+    <description>miniupnpd on an Ubuntu utopic/14.10</description>
+    <example os.version="14.10" service.version="1.4">Ubuntu/utopic UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="14.10"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^Ubuntu\/trusty UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+    <description>miniupnpd on an Ubuntu trusty/14.04</description>
+    <example os.version="14.04" service.version="1.4">Ubuntu/trusty UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="14.04"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^Ubuntu\/saucy UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+    <description>miniupnpd on an Ubuntu saucy/13.10</description>
+    <example os.version="13.10" service.version="1.4">Ubuntu/saucy UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="13.10"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^Ubuntu\/raring UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+    <description>miniupnpd on an Ubuntu raring/13.04</description>
+    <example os.version="13.04" service.version="1.4">Ubuntu/raring UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="13.04"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^Ubuntu\/quantal UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+    <description>miniupnpd on an Ubuntu quantal/12.10</description>
+    <example os.version="12.10" service.version="1.4">Ubuntu/quantal UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="12.10"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^Ubuntu\/precise UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+    <description>miniupnpd on an Ubuntu precise/12.04</description>
+    <example os.version="12.04" service.version="1.4">Ubuntu/precise UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="12.04"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^Ubuntu\/oneiric UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+    <description>miniupnpd on an Ubuntu oneiric/11.10</description>
+    <example os.version="11.10" service.version="1.4">Ubuntu/oneiric UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="11.10"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^Ubuntu\/natty UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+    <description>miniupnpd on an Ubuntu natty/11.04</description>
+    <example os.version="11.04" service.version="1.4">Ubuntu/natty UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="11.04"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^Ubuntu\/maverick UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+    <description>miniupnpd on an Ubuntu maverick/10.10</description>
+    <example os.version="10.10" service.version="1.4">Ubuntu/maverick UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="10.10"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^Ubuntu\/lucid UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+    <description>miniupnpd on an Ubuntu lucid/10.04</description>
+    <example os.version="10.04" service.version="1.4">Ubuntu/lucid UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="10.04"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^Ubuntu\/karmic UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+    <description>miniupnpd on an Ubuntu karmic/9.10</description>
+    <example os.version="9.10" service.version="1.4">Ubuntu/karmic UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="9.10"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^Ubuntu\/jaunty UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+    <description>miniupnpd on an Ubuntu jaunty/9.04</description>
+    <example os.version="9.04" service.version="1.4">Ubuntu/jaunty UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="9.04"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^Ubuntu\/hardy UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+    <description>miniupnpd on an Ubuntu hardy/8.04</description>
+    <example os.version="8.04" service.version="1.4">Ubuntu/hardy UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="8.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Linux Mips (\S+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
