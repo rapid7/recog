@@ -54,12 +54,18 @@
   <fingerprint pattern="^Kerio (?:Connect|MailServer)\s+(\d\.[\d.]+)\s+(?:(?:patch|RC) (\d)\s+)?NNTP server ready$">
     <description>Kerio Connect NNTP</description>
     <example service.version="9.2.3">Kerio Connect 9.2.3 NNTP server ready</example>
-    <example service.version="9.2.6.2">Kerio Connect 9.2.6 patch 2 NNTP server ready</example>
+    <example service.version="9.2.6" service.version.version="2">Kerio Connect 9.2.6 patch 2 NNTP server ready</example>
     <example service.version="6.7.3">Kerio MailServer 6.7.3 NNTP server ready</example>
     <param pos="0" name="service.vendor" value="Kerio"/>
     <param pos="0" name="service.family" value="Connect"/>
     <param pos="0" name="service.product" value="NNTP"/>
-    <param pos="2" name="service.version"/>
-    <param pos="3" name="service.version.version"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.version.version"/>
+  </fingerprint>
+  <fingerprint pattern="^NNTP server ready(?: \(no posting\))?$">
+    <description>Non-specific NNTP</description>
+    <example>NNTP server ready (no posting)</example>
+    <example>NNTP server ready</example>
+    <param pos="0" name="service.product" value="Unknown"/>
   </fingerprint>
 </fingerprints>
