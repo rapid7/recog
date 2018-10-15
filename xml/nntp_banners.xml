@@ -4,6 +4,13 @@
   NNTP greeting messages (part of the banner after the response code) are matched
   against these patterns to fingerprint NNTP servers.
   -->
+  <fingerprint pattern="CCProxy NNTP Service$">
+    <description>Youngzsoft CCProxy NNTP with no version</description>
+    <example>CCProxy NNTP Service</example>
+    <param pos="0" name="service.vendor" value="Youngzsoft"/>
+    <param pos="0" name="service.family" value="CCProxy"/>
+    <param pos="0" name="service.product" value="CCProxy"/>
+  </fingerprint>
   <fingerprint pattern="^NNTP Service (?:.*) Version: (5.0.2195.[0-9]+) .*$">
     <description>Microsoft IIS NNTP Server on Windows 2000</description>
     <example>NNTP Service 5.00.0984 Version: 5.0.2195.7034 Posting Allowed</example>
