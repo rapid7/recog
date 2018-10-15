@@ -51,10 +51,11 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
-  <fingerprint pattern="^Kerio Connect (\d\.[\d.]+) (?:patch (\d) )?NNTP server ready$">
+  <fingerprint pattern="^Kerio (?:Connect|MailServer)\s+(\d\.[\d.]+)\s+(?:(?:patch|RC) (\d)\s+)?NNTP server ready$">
     <description>Kerio Connect NNTP</description>
     <example service.version="9.2.3">Kerio Connect 9.2.3 NNTP server ready</example>
-    <example service.version="9.2.6">Kerio Connect 9.2.6 patch 2 NNTP server ready</example>
+    <example service.version="9.2.6.2">Kerio Connect 9.2.6 patch 2 NNTP server ready</example>
+    <example service.version="6.7.3">Kerio MailServer 6.7.3 NNTP server ready</example>
     <param pos="0" name="service.vendor" value="Kerio"/>
     <param pos="0" name="service.family" value="Connect"/>
     <param pos="0" name="service.product" value="NNTP"/>
