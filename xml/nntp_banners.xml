@@ -11,6 +11,14 @@
     <param pos="0" name="service.family" value="CCProxy"/>
     <param pos="0" name="service.product" value="CCProxy"/>
   </fingerprint>
+  <fingerprint pattern="^(\S+) Lyris ListManager NNTP Service ready">
+    <description>Lyris Listmanager</description>
+    <example host.name="blah">blah Lyris ListManager NNTP Service ready (posting ok).</example>
+    <param pos="0" name="service.vendor" value="Lyris"/>
+    <param pos="0" name="service.family" value="ListManager"/>
+    <param pos="0" name="service.product" value="ListManager"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
   <fingerprint pattern="^NNTP Service (?:.*) Version: (5.0.2195.[0-9]+) .*$">
     <description>Microsoft IIS NNTP Server on Windows 2000</description>
     <example>NNTP Service 5.00.0984 Version: 5.0.2195.7034 Posting Allowed</example>
