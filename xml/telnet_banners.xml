@@ -826,7 +826,7 @@
     <param pos="0" name="hw.device" value="Linux"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="Red Hat Enterprise Linux ES release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d)" flags="REG_MULTILINE">
+  <fingerprint pattern="Red Hat Enterprise Linux ES release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d)">
     <description>RedHat Enterprise Linux ES</description>
     <example _encoding="base64" os.version="3" linux.kernel.version="2.4.21-47.EL" os.arch="x86_64">
       UmVkIEhhdCBFbnRlcnByaXNlIExpbnV4IEVTIHJlbGVhc2UgMyAoVGFyb29uIFVwZGF0ZSA5KQpLZXJuZWwgMi40LjIxLTQ3Lk
@@ -931,26 +931,27 @@
   <fingerprint pattern="^Welcome. Type return, enter password at # prompt">
     <description>Brother Printer</description>
     <example _encoding="base64">
-     V2VsY29tZS4gVHlwZSByZXR1cm4sIGVudGVyIHBhc3N3b3JkIGF0ICMgcHJvbXB0Cg== 
+      V2VsY29tZS4gVHlwZSByZXR1cm4sIGVudGVyIHBhc3N3b3JkIGF0ICMgcHJvbXB0Cg== 
     </example>
     <param pos="0" name="hw.vendor" value="Brother"/>
-    <param pos="0" name="hw.device" value="Printer" />
+    <param pos="0" name="hw.family" value="Brother"/>
+    <param pos="0" name="hw.device" value="Printer"/>
     <param pos="0" name="hw.product" value="Brother Printer"/>
   </fingerprint>
   <fingerprint pattern="^(.*) Copyright by ARESCOM">
     <description>Arescom System</description>
     <example _encoding="base64" hw.model="NDS1260HE-TLI">
-     TkRTMTI2MEhFLVRMSSBDb3B5cmlnaHQgYnkgQVJFU0NPTSAyMDAyCgoKClBhc3N3b3JkOgo=
+      TkRTMTI2MEhFLVRMSSBDb3B5cmlnaHQgYnkgQVJFU0NPTSAyMDAyCgoKClBhc3N3b3JkOgo=
     </example>
     <param pos="0" name="hw.vendor" value="Arescom"/>
-    <param pos="0" name="hw.device" value="WAP" />
+    <param pos="0" name="hw.device" value="WAP"/>
     <param pos="0" name="hw.family" value="UNKNOWN"/>
     <param pos="1" name="hw.model"/>
   </fingerprint>
   <fingerprint pattern="Welcome to ViewStation">
     <description>Polycom ViewStation Video Vonference System</description>
     <example _encoding="base64">
-    V2VsY29tZSB0byBWaWV3U3RhdGlvbgoKUGFzc3dvcmQ6
+      V2VsY29tZSB0byBWaWV3U3RhdGlvbgoKUGFzc3dvcmQ6
     </example>
     <param pos="0" name="hw.vendor" value="Polycom"/>
     <param pos="0" name="hw.device" value="ViewStation"/>
@@ -1118,7 +1119,7 @@
   </fingerprint>
   <fingerprint pattern="Digital UNIX">
     <description>System is Digital Unix</description>
-    <example _encoding="base64"  >
+    <example _encoding="base64">
       RGlnaXRhbCBVTklYIChqb3VybmFsKSAodHR5cDIpCgoKCmxvZ2luOiA=
     </example>
     <param pos="0" name="hw.vendor" value="HP"/>
