@@ -1123,6 +1123,15 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+  <fingerprint pattern="^libssh[-_]([\d.]+)$">
+    <description>SSH server utilising libssh</description>
+    <example service.version="0.6.0">libssh-0.6.0</example>
+    <example service.version="0.8.0">libssh_0.8.0</example>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.family" value="libssh"/>
+    <param pos="0" name="service.product" value="libssh"/>
+    <param pos="0" name="service.vendor" value="libssh"/>
+  </fingerprint>
   <!--
 1.2.22j4rad
 2.40
