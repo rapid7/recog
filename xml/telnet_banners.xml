@@ -818,6 +818,7 @@
   </fingerprint>
   <fingerprint pattern="^Red Hat Linux release ([^\\s]+)\\s*.*$">
     <description>RedHat general purpose linux</description>
+    <!-- Red Hat Linux release 9 (Shrike)\nKernel 2.4.20-8 on an i686\nlogin: -->
     <example _encoding="base64" os.version="9 (Shrike)">
       UmVkIEhhdCBMaW51eCByZWxlYXNlIDkgKFNocmlrZSlcbktlcm5lbCAyLjQuMjAtOCBvbiBhbiBpNjg2XG5sb2dpbjo=
    </example>
@@ -826,8 +827,9 @@
     <param pos="0" name="hw.device" value="Linux"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="Red Hat Enterprise Linux ES release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d)" flags="REG_MULTILINE">
+  <fingerprint pattern="^(?m)Red Hat Enterprise Linux ES release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d)">
     <description>RedHat Enterprise Linux ES</description>
+    <!-- Red Hat Enterprise Linux ES release 3 (Taroon Update 9\nKernel 2.4.21-47.EL on an x86_64\nlogin: -->
     <example _encoding="base64" os.version="3" linux.kernel.version="2.4.21-47.EL" os.arch="x86_64">
       UmVkIEhhdCBFbnRlcnByaXNlIExpbnV4IEVTIHJlbGVhc2UgMyAoVGFyb29uIFVwZGF0ZSA5KQpLZXJuZWwgMi40LjIxLTQ3Lk
       VMIG9uIGFuIHg4Nl82NApsb2dpbjo=
@@ -839,61 +841,63 @@
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
   </fingerprint>
-  <fingerprint pattern="^Red Hat Enterprise Linux AS release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d)" flags="REG_MULTILINE">
+  <fingerprint pattern="^(?m)Red Hat Enterprise Linux AS release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d)">
     <description>RedHat Enterprise Linux AS</description>
+    <!-- Red Hat Enterprise Linux AS release 5.8 (Tikanga)\nKernel 2.6.18-308.11.1.el5 on an x86_64\nlogin: -->
     <example _encoding="base64" os.version="5.8" linux.kernel.version="2.6.18-308.11.1.el5" os.arch="x86_64">
-      UmVkIEhhdCBFbnRlcnByaXNlIExpbnV4IEFTIHJlbGVhc2UgNS44IChUaWthbmdhKQpLZXJuZWwgMi42LjE4LTMwOC4xMS4xLmVsNSBvbiBhbiB4ODZfNjQKbG9naW46
+      UmVkIEhhdCBFbnRlcnByaXNlIExpbnV4IEFTIHJlbGVhc2UgNS44IChUaWthbmdhKQpLZXJuZWwgM
+      i42LjE4LTMwOC4xMS4xLmVsNSBvbiBhbiB4ODZfNjQKbG9naW46
     </example>
     <param pos="0" name="hw.vendor" value="RedHat"/>
     <param pos="0" name="hw.family" value="Linux"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="0" name="hw.product" value="RedHat Enterprise AS"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
   </fingerprint>
-  <fingerprint pattern="^Red Hat Enterprise Linux WS release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*)" flags="REG_MULTILINE">
+  <fingerprint pattern="^(?m)Red Hat Enterprise Linux WS release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*)">
     <description>RedHat Enterprise Linux WS</description>
+    <!--Red Hat Enterprise Linux WS release 2.1 (Tampa) \nKernel 2.4.9-e.40smp on an i686 \nlogin:  -->
     <example _encoding="base64" os.version="2.1" linux.kernel.version="2.4.9-e.40smp" os.arch="i686">
       UmVkIEhhdCBFbnRlcnByaXNlIExpbnV4IFdTIHJlbGVhc2UgMi4xIChUYW1wY
       SkgCktlcm5lbCAyLjQuOS1lLjQwc21wIG9uIGFuIGk2ODYgCmxvZ2luOiA=
     </example>
     <param pos="0" name="hw.vendor" value="RedHat"/>
     <param pos="0" name="hw.family" value="Linux"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="0" name="hw.product" value="RedHat Enterprise WS"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
   </fingerprint>
-  <fingerprint pattern="^Fedora Core.release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d).*$" flags="REG_MULTILINE">
+  <fingerprint pattern="^(?m)Fedora Core.release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d).*$">
     <description>Fedora Core Release</description>
+    <!-- Fedora Core release 1 (Yarrow)\nKernel 2.4.20-13.9ensim-3.5.0-13 on an i686\nlogin:-->
     <example _encoding="base64" os.version="1" linux.kernel.version="2.4.20-13.9ensim-3.5.0-13" os.arch="i686">
      RmVkb3JhIENvcmUgcmVsZWFzZSAxIChZYXJyb3cpCktlcm5lbCAyLjQuMjAtMTMuOWVuc2ltLTMuNS4wLTEzIG9uIGFuIGk2ODYKbG9naW46
     </example>
     <param pos="0" name="hw.vendor" value="Redhat"/>
     <param pos="0" name="hw.family" value="Linux"/>
     <param pos="0" name="hw.product" value="Fedora"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
   </fingerprint>
-  <fingerprint pattern="^Welcome to SuSE Linux (.*) \(([^\)]+)\) - Kernel (.*) .*" flags="REG_MULTILINE">
+  <fingerprint pattern="^(?m)Welcome to SuSE Linux (.*) \(([^\)]+)\) - Kernel (.*) .*">
     <description>SuSE Linux</description>
+    <!-- Welcome to SuSE Linux 7.0 (i386) - Kernel 2.2.16-RAID (0). 2VG029037\n\nlogin: -->
     <example _encoding="base64" os.version="7.0" os.arch="i386" linux.kernel.version="2.2.16-RAID (0). 2VG029037">
       V2VsY29tZSB0byBTdVNFIExpbnV4IDcuMCAoaTM4NikgLSBLZXJuZWwgMi4yLjE2LVJBSUQgKDApLiAyVkcwMjkwMzcgCgpsb2dpbjo=
     </example>
     <param pos="0" name="hw.vendor" value="SUSE"/>
     <param pos="0" name="hw.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.arch"/>
     <param pos="3" name="linux.kernel.version"/>
   </fingerprint>
   <fingerprint pattern="^Turbolinux ApplianceServer (\d+\.\d+).*">
     <description>Turbolinux ApplianceServer</description>
+    <!--Turbolinux ApplianceServer 4.0 (Atlas2) Linux 2.6.32-431.23.3.el6.x86_64 on a x86_64\n(senyo191x89.digitalink.ne.jp) TTY: 12:15 on Tuesday, 02 October 2018 login:  -->
     <example _encoding="base64" os.version="4.0">
      VHVyYm9saW51eCBBcHBsaWFuY2VTZXJ2ZXIgNC4wIChBdGxhczIpIExpbnV4IDIuNi4zMi00MzEuMjMuMy5lbDYueDg
      2XzY0IG9uIGEgeDg2XzY0IChzZW55bzE5MXg4OS5kaWdpdGFsaW5rLm5lLmpwKSBUVFk6IDEyOjE1IG9uIFR1ZXNkYX
@@ -902,11 +906,11 @@
     <param pos="0" name="hw.vendor" value="Turbolinux"/>
     <param pos="0" name="hw.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="^UnixWare ([^ ]+).*$">
     <description>UnixWare</description>
+    <!-- UnixWare 2.1.3 (profil) (pts/3)\n\n\nlogin:  -->
     <example _encoding="base64" os.version="2.1.3">
      VW5peFdhcmUgMi4xLjMgKHByb2ZpbCkgKHB0cy8zKQoKCgpsb2dpbjog
     </example>
@@ -918,6 +922,7 @@
   </fingerprint>
   <fingerprint pattern="^Telnet Server Build (5.*)">
     <description>Windows 2000</description>
+    <!--Microsoft (R) Windows NT (TM) Version 4.00 (Build 1381)\nWelcome to Microsoft Telnet Service \nTelnet Server Build 5.00.99034.1\nlogin:  -->
     <example _encoding="base64" os.version="5.00.99034.1">
       TWljcm9zb2Z0IChSKSBXaW5kb3dzIE5UIChUTSkgVmVyc2lvbiA0LjAwIChCdWlsZCAxMzgxKQpXZWxj
       b21lIHRvIE1pY3Jvc29mdCBUZWxuZXQgU2VydmljZSAKVGVsbmV0IFNlcnZlciBCdWlsZCA1LjAwLjk5MDM0LjEKCmxvZ2luOiA=
@@ -925,11 +930,11 @@
     <param pos="0" name="hw.vendor" value="Microsoft"/>
     <param pos="0" name="hw.family" value="Windows"/>
     <param pos="0" name="hw.product" value="Windows 2000"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="^Welcome. Type return, enter password at # prompt">
     <description>Brother Printer</description>
+    <!-- Welcome. Type return, enter password at # prompt -->
     <example _encoding="base64">
       V2VsY29tZS4gVHlwZSByZXR1cm4sIGVudGVyIHBhc3N3b3JkIGF0ICMgcHJvbXB0Cg== 
     </example>
@@ -940,25 +945,25 @@
   </fingerprint>
   <fingerprint pattern="^(.*) Copyright by ARESCOM">
     <description>Arescom System</description>
+    <!--NDS1260HE-TLI Copyright by ARESCOM 2002\n\n\nPassword: -->
     <example _encoding="base64" hw.model="NDS1260HE-TLI">
       TkRTMTI2MEhFLVRMSSBDb3B5cmlnaHQgYnkgQVJFU0NPTSAyMDAyCgoKClBhc3N3b3JkOgo=
     </example>
     <param pos="0" name="hw.vendor" value="Arescom"/>
     <param pos="0" name="hw.device" value="WAP"/>
-    <param pos="0" name="hw.family" value="UNKNOWN"/>
     <param pos="1" name="hw.model"/>
   </fingerprint>
   <fingerprint pattern="Welcome to ViewStation">
     <description>Polycom ViewStation Video Vonference System</description>
+    <!-- Welcome to ViewStation\nPassword: -->
     <example _encoding="base64">
       V2VsY29tZSB0byBWaWV3U3RhdGlvbgoKUGFzc3dvcmQ6
     </example>
     <param pos="0" name="hw.vendor" value="Polycom"/>
     <param pos="0" name="hw.device" value="ViewStation"/>
-    <param pos="0" name="hw.product" value="UNKNOWN"/>
-    <param pos="0" name="hw.family" value="UNKNOWN"/>
   </fingerprint>
   <fingerprint pattern="FlowPoint\/(.*) SDSL \[ATM\] Router .*v(.*) Ready">
+    <!--FlowPoint/2200 SDSL [ATM] Router fp2200-12 v3.0.2 Ready\nLogin:  -->
     <description>iFlowPoint 2200 DSL router</description>
     <example _encoding="base64" hw.model="2200" os.version="3.0.2">
     Rmxvd1BvaW50LzIyMDAgU0RTTCBbQVRNXSBSb3V0ZXIgZnAyMjAwLTEyIHYzLjAuMiBSZWFkeQpMb2dpbjog
@@ -966,32 +971,28 @@
     <param pos="0" name="hw.vendor" value="Flowpoint"/>
     <param pos="0" name="hw.device" value="Broadband Router"/>
     <param pos="0" name="hw.product" value="DSL router"/>
-    <param pos="0" name="hw.family" value="UNKNOWN"/>
     <param pos="1" name="hw.model"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="GlobespanVirata Inc\., Software Release (.*)">
     <description>GlobespanVirata broadband router</description>
+    <!--GlobespanVirata Inc., Software Release 2.1.040407a3_u_e_A\nCopyright (c) 2001-2003 by GlobespanVirata, Inc.\n\nlogin:  -->
     <example _encoding="base64" os.version="2.1.040407a3_u_e_A">
       R2xvYmVzcGFuVmlyYXRhIEluYy4sIFNvZnR3YXJlIFJlbGVhc2UgMi4xLjA0MDQwN2EzX3VfZV9BCgpDb3B5cmlnaHQgKG
       MpIDIwMDEtMjAwMyBieSBHbG9iZXNwYW5WaXJhdGEsIEluYy4KCgpsb2dpbjog
     </example>
     <param pos="0" name="hw.vendor" value="Conexant"/>
     <param pos="0" name="hw.device" value="Broadband Router"/>
-    <param pos="0" name="hw.family" value="UNKNOWN"/>
-    <param pos="0" name="hw.product" value="UNKNOWN"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="VxWorks login:">
     <description>VxWorks embedded device</description>
     <example>VxWorks login: </example>
     <param pos="0" name="hw.family" value="VxWorks"/>
-    <param pos="0" name="hw.product" value="UNKNOWN"/>
-    <param pos="0" name="hw.vendor" value="UNKNOWN"/>
-    <param pos="0" name="hw.device" value="UNKNOWN"/>
   </fingerprint>
   <fingerprint pattern=".*Nortel.*Passport ([^ ]*) .*Software Release ([^ ]*).*">
     <description>Nortel Passport</description>
+    <!-- *********************************************\n\n\n* Copyright (c) 2003 Nortel Networks, Inc.  *\n\n\n* All Rights Reserved                       *\n\n\n* Passport 8010                             *\n\n\n* Software Release 3.5.0.0                  *\n\n\n*********************************************\n\n\n\n\nLogin: -->
     <example _encoding="base64" hw.product="8010" os.version="3.5.0.0">
       KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqXG5cblxuKiBDb3B5cmlnaHQgKG
       MpIDIwMDMgTm9ydGVsIE5ldHdvcmtzLCBJbmMuICAqXG5cblxuKiBBbGwgUmlnaHRzIFJlc2VydmVkICAgICAg
@@ -1001,12 +1002,12 @@
     </example>
     <param pos="0" name="hw.vendor" value="Nortel"/>
     <param pos="0" name="hw.device" value="Switch"/>
-    <param pos="0" name="hw.family" value="UNKNOWN"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="IPSO.* \((.*)\) \(tty.*\)">
     <description>Checkpoint Firewall-1 running on a Nokia IPSO appliance</description>
+    <!-- IPSO/i386 (BJ-IDC-FW2) (ttyp7)\n\n\nThis system is for authorized use only.\n\n\n\n\n\n\nlogin: -->
     <example _encoding="base64" host.name="BJ-IDC-FW2">
      SVBTTy9pMzg2IChCSi1JREMtRlcyKSAodHR5cDcpCgoKClRoaXMgc3lzdGVtIGlzIGZvciBhdXRob3Jpem
      VkIHVzZSBvbmx5LgoKCgoKCgoKbG9naW46IA==
@@ -1019,6 +1020,7 @@
   </fingerprint>
   <fingerprint pattern="Tasman Networks Inc.*Telnet Login">
     <description>Tasman Networks Login</description>
+    <!-- Welcome to Gemadept Logistics RF Server\n(C) Copyright 1994-2012 Pragma Systems, Inc.\nlogin name: -->
     <example _encoding="base64" hw.vendor="Tasman Networks">
       Iy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0
       tLS0tLS0tCiMgVGFzbWFuIE5ldHdvcmtzIEluYy4gVGVsbmV0IExvZ2luCiMtLS0tLS0tLS0tLS0tLS0tLS0tLS
@@ -1028,54 +1030,52 @@
     <param pos="0" name="hw.vendor" value="Tasman Networks"/>
     <param pos="0" name="hw.device" value="Router"/>
     <param pos="0" name="hw.product" value="Tasman Networks router"/>
-    <param pos="0" name="hw.family" value="UNKNOWN"/>
   </fingerprint>
   <fingerprint pattern="Pragma Systems">
     <description>MS Windows running Pragma TelnetD server</description>
+    <!-- Welcome to Gemadept Logistics RF Server\n(C) Copyright 1994-2012 Pragma Systems, Inc.\nlogin name: -->
     <example _encoding="base64">
       V2VsY29tZSB0byBHZW1hZGVwdCBMb2dpc3RpY3MgUkYgU2VydmVyCihDKSBDb3B5cmlnaHQgMTk5NC0yMDEyIFB
       yYWdtYSBTeXN0ZW1zLCBJbmMuCgpsb2dpbiBuYW1lOiA=
     </example>
     <param pos="0" name="hw.vendor" value="Microsoft"/>
     <param pos="0" name="hw.family" value="Windows"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="0" name="hw.product" value="Windows"/>
   </fingerprint>
   <fingerprint pattern="Application Required. No Installation Default">
     <description>probably IBM AS/400 running TN3270 or 5250 emulation server</description>
+    <!-- Application Required. No Installation Default\nEnter Application Name: -->
     <example _encoding="base64">
      QXBwbGljYXRpb24gUmVxdWlyZWQuIE5vIEluc3RhbGxhdGlvbiBEZWZhdWx0ICAgICAgICA
      gICAgICAgICAgICAgICAgICAgICAgICAgIApFbnRlciBBcHBsaWNhdGlvbiBOYW1lOg==
     </example>
     <param pos="0" name="hw.vendor" value="IBM"/>
-    <param pos="0" name="hw.device" value="General"/>
-    <param pos="0" name="hw.product" value="UNKNOWN"/>
-    <param pos="0" name="hw.family" value="UNKNOWN"/>
   </fingerprint>
   <fingerprint pattern="This copy of the Ataman TCP Remote Logon Services">
     <description>Windows NT/2k/2k3 running Ataman telnet server</description>
+    <!-- This copy of the Ataman TCP Remote Logon Services is registered as licensed to:\nECI2/DDMS\nAccount Name: -->
     <example _encoding="base64">
       VGhpcyBjb3B5IG9mIHRoZSBBdGFtYW4gVENQIFJlbW90ZSBMb2dvbiBTZXJ2aWNlcyBpcyByZWdpc3RlcmVkIG
       FzIGxpY2Vuc2VkIHRvOgoJRUNJMi9ERE1TCgpBY2NvdW50IE5hbWU6IA==
     </example>
     <param pos="0" name="hw.vendor" value="Microsoft"/>
     <param pos="0" name="hw.family" value="Windows"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="0" name="hw.product" value="Windows"/>
   </fingerprint>
-  <fingerprint pattern="Cobalt Linux release (.*)$">
+  <fingerprint pattern="Cobalt Linux release\W(.*)\W\(.*">
     <description>Cobalt Linux</description>
-    <example _encoding="base64" os.version="6.0 (Shinkansen)">
+    <!-- Cobalt Linux release 6.0 (Shinkansen)\nKernel 2.2.16C37_III on an i586\nlogin:  -->
+    <example _encoding="base64" os.version="6.0">
       Q29iYWx0IExpbnV4IHJlbGVhc2UgNi4wIChTaGlua2Fuc2VuKQpLZXJuZWwgMi4yLjE2QzM3X0lJSSBvbiBhbiBpNTg2CmxvZ2luOiA=
     </example>
     <param pos="0" name="hw.vendor" value="Cobalt"/>
     <param pos="0" name="hw.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="Check Point FireWall-1 authenticated Telnet server running on (.*)">
     <description>Check Point Firewall-1</description>
+    <!-- Check Point FireWall-1 authenticated Telnet server running on gaatdrf2\nUser: -->
     <example _encoding="base64" host.name="gaatdrf2">
       Q2hlY2sgUG9pbnQgRmlyZVdhbGwtMSBhdXRoZW50aWNhdGVkIFRlbG5ldCBzZXJ2ZXIgcnVubmluZyBvbiBnYWF0ZHJmMgoKVXNlcjog
     </example>
@@ -1087,6 +1087,7 @@
   </fingerprint>
   <fingerprint pattern="Raptor Firewall">
     <description>Raptor Firewall</description>
+    <!-- Raptor Firewall Secure Gateway.\nHostname: -->
     <example _encoding="base64">
       UmFwdG9yIEZpcmV3YWxsIFNlY3VyZSBHYXRld2F5LgoKSG9zdG5hbWU6IA==
     </example>
@@ -1095,58 +1096,59 @@
     <param pos="0" name="hw.device" value="Firewall"/>
     <param pos="0" name="hw.product" value="Raptor"/>
   </fingerprint>
-  <fingerprint pattern="UNIX\(r\) System V Release 4.0">
-    <description>SunOS 5.x (Solaris)</description>
-    <example _encoding="base64">
+  <fingerprint pattern="UNIX\(r\) System V Release (\d*.\d*)">
+    <description>SunOS (Solaris)</description>
+    <!-- Raptor Firewall Secure Gateway.\nHostname: -->
+    <example _encoding="base64" os.version="4.0">
       VU5JWChyKSBTeXN0ZW0gViBSZWxlYXNlIDQuMCAoVGhlLVNlcnZlcikKCgoKbG9naW46IA==
     </example>
     <param pos="0" name="hw.vendor" value="Sun"/>
     <param pos="0" name="hw.family" value="Solaris"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="0" name="hw.product" value="Solaris"/>
+    <param pos="1" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="Solaris (.*)">
     <description>Solaris</description>
+    <!-- Seattle Community Network Sun Solaris 1.1.1.B\nPlease login as 'visitor' if you are a visitorn\n\nSunOS UNIX (scn)\n\n\nlogin:-->
     <example _encoding="base64" os.version="1.1.1.B">
       U2VhdHRsZSBDb21tdW5pdHkgTmV0d29yayBTdW4gU29sYXJpcyAxLjEuMS5CClBsZWFzZSBsb2dpbiBhcyAndml
       zaXRvcicgaWYgeW91IGFyZSBhIHZpc2l0b3IKCgpTdW5PUyBVTklYIChzY24pCgoKCmxvZ2luOg==
     </example>
     <param pos="0" name="hw.vendor" value="Sun"/>
     <param pos="0" name="hw.family" value="Solaris"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="0" name="hw.product" value="Solaris"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="Digital UNIX">
     <description>Digital Unix</description>
+    <!-- Digital UNIX (journal) (ttyp2)\n\n\nlogin: -->
     <example _encoding="base64">
       RGlnaXRhbCBVTklYIChqb3VybmFsKSAodHR5cDIpCgoKCmxvZ2luOiA=
     </example>
     <param pos="0" name="hw.vendor" value="HP"/>
     <param pos="0" name="hw.family" value="Digital Unix"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="0" name="hw.product" value="Digital Unix"/>
   </fingerprint>
-  <fingerprint pattern="Compaq Tru64 UNIX V(.*) \(Rev. (.*\d)\) .*" flags="REG_MULTILINE">
+  <fingerprint pattern="^(?m)Compaq Tru64 UNIX V(.*) \(Rev. (.*\d)\) .*">
     <description>Compaq Tru64 UNIX V</description>
+    <!-- Compaq Tru64 UNIX V5.1B (Rev. 2650) (docalpha) (pts/11)\n\n\n\n\nlogin: -->
     <example _encoding="base64" os.version="5.1B" os.rev="2650">
      Q29tcGFxIFRydTY0IFVOSVggVjUuMUIgKFJldi4gMjY1MCkgKGRvY2FscGhhKSAocHRzLzExKQoKCgoKCmxvZ2luOg== 
     </example>
     <param pos="0" name="hw.vendor" value="HP"/>
     <param pos="0" name="hw.family" value="Digital Unix"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="0" name="hw.product" value="TRU64"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.rev"/>
   </fingerprint>
   <fingerprint pattern="HP-UX ([^ ]+) [A-Z]\.([^ ]+) ([^ ]+) ([^ ]+)\s([^ ]+\)).*$">
     <description>System HP-UX</description>
+    <!-- HP-UX ctout B.11.11 U 9000/800 (tc)\nlogin: -->
     <example _encoding="base64" host.name="ctout" os.version="11.11" hw.series="9000/800" hw.model="(tc)">
       SFAtVVggY3RvdXQgQi4xMS4xMSBVIDkwMDAvODAwICh0YykKCmxvZ2luOiA=
     </example>
     <param pos="0" name="hw.vendor" value="HP"/>
     <param pos="0" name="hw.family" value="HP-UX"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="0" name="hw.product" value="HP-UX"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
@@ -1156,41 +1158,44 @@
   </fingerprint>
   <fingerprint pattern="Data ONTAP">
     <description>A NetApp apliance</description>
+    <!-- Data ONTAP (s500.)\nlogin: -->
     <example _encoding="base64">RGF0YSBPTlRBUCAoczUwMC4pCmxvZ2luOiA=</example>
     <param pos="0" name="hw.vendor" value="NetApp"/>
     <param pos="0" name="hw.family" value="Data ONTAP"/>
     <param pos="0" name="hw.device" value="Storage"/>
     <param pos="0" name="hw.product" value="Data ONTAP"/>
   </fingerprint>
-  <fingerprint pattern="OpenVMS">
+  <fingerprint pattern="OpenVMS.*Version\sV(\d*.\d*).*">
     <description>OpenVMS</description>
-    <example _encoding="base64">
-      V2VsY29tZSB0byBPcGVuVk1TIChUTSkgQWxwaGEgT3BlcmF0aW5nIFN5c3RlbSwgVmVyc2lvbiBWNy4zLTIgIAoKClVzZXJuYW1lOiA=
+    <!--  Welcome to OpenVMS (TM) Alpha Operating System, Version V8.4     - NOT70\n\nUsername: -->
+    <example _encoding="base64" os.version="8.4">
+      IFdlbGNvbWUgdG8gT3BlblZNUyAoVE0pIEFscGhhIE9wZXJhdGluZyBTeXN0Z
+      W0sIFZlcnNpb24gVjguNCAgICAgLSBOT1Q3MAoKClVzZXJuYW1lOiA=
     </example>
     <param pos="0" name="hw.vendor" value="HP"/>
-    <param pos="0" name="hw.family" value="OpenVMS"/>
-    <param pos="0" name="hw.device" value="General"/>
+          <param pos="0" name="hw.family" value="OpenVMS"/>CCESS RUNNER ADSL CONSOLE PORT
     <param pos="0" name="hw.product" value="VMS"/>
+    <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="SCO OpenServer\(TM\) Release ([^ ]+).*$" flags="REG_MULTILINE">
+  <fingerprint pattern="^(?m)SCO OpenServer\(TM\) Release ([^ ]+).*$">
     <description>SCO OpenServer</description>
+    <!-- SCO OpenServer(TM) Release 5 (bomdia.co.za) (ttyp6)\nlogin: -->
     <example _encoding="base64" os.version="5">
       U0NPIE9wZW5TZXJ2ZXIoVE0pIFJlbGVhc2UgNSAoYm9tZGlhLmNvLnphKSAodHR5cDYpCgpsb2dpbjo=
     </example>
     <param pos="0" name="hw.vendor" value="SCO"/>
     <param pos="0" name="hw.family" value="OpenServer"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="0" name="hw.product" value="OpenServer"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="% Username:  timeout expired!">
     <description>Some kind of Cisco device</description>
+    <!-- % Username:  timeout expired!-->
     <example _encoding="base64">
       JSBVc2VybmFtZTogIHRpbWVvdXQgZXhwaXJlZCE=
     </example>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.family" value="IOS"/>
-    <param pos="0" name="hw.device" value="UNKNOWN"/>
     <param pos="0" name="hw.product" value="IOS"/>
   </fingerprint>
   <fingerprint pattern="Welcome to MKS Telnet Server Version">
@@ -1200,7 +1205,6 @@
     </example>
     <param pos="0" name="hw.vendor" value="Microsoft"/>
     <param pos="0" name="hw.family" value="Windows"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="0" name="hw.product" value="Windows"/>
   </fingerprint>
   <fingerprint pattern="Sorry, this system is engaged\.">
@@ -1208,11 +1212,10 @@
     <example>Sorry, this system is engaged.</example>
     <param pos="0" name="hw.vendor" value="Epson"/>
     <param pos="0" name="hw.device" value="Printer"/>
-    <param pos="0" name="hw.product" value="UNKNOWN"/>
-    <param pos="0" name="hw.family" value="UNKNOWN"/>
   </fingerprint>
   <fingerprint pattern="TELNET session now in ESTABLISHED state">
     <description>an Allied Telesyn router</description>
+    <!-- TELNET session now in ESTABLISHED state\n\nGEO-003 login: -->
     <example _encoding="base64">
       VEVMTkVUIHNlc3Npb24gbm93IGluIEVTVEFCTElTSEVEIHN0YXRlCgpHRU8tMDAzIGxvZ2luOiA=
     </example>
@@ -1233,6 +1236,7 @@
   </fingerprint>
   <fingerprint pattern="System administrator is connecting from">
     <description>a DrayTek Vigor SOHO Router</description>
+    <!-- System administrator is connecting from 54.39.173.86\n\nReject the connection request !!! -->
     <example _encoding="base64">
       U3lzdGVtIGFkbWluaXN0cmF0b3IgaXMgY29ubmVjdGluZyBmcm9tIDU0LjM5LjE3My44NgoKUmVqZWN0IH
       RoZSBjb25uZWN0aW9uIHJlcXVlc3QgISEh
@@ -1241,54 +1245,52 @@
     <param pos="0" name="hw.device" value="Broadband router"/>
     <param pos="0" name="hw.product" value="Vigor"/>
   </fingerprint>
-  <fingerprint pattern="OpenBSD">
+  <fingerprint pattern=".*Version\s(\d*.\d*)\/OpenBSD.*">
     <description>OpenBSD</description>
-    <example _encoding="base64">
-      V2VsY29tZSB0byB0aGUgT3BlbkJTRCBpbnN0YWxsYXRpb24gYW5kIHVwZGF0ZSBkZW1vcwoKVGhlcmUgYXJ
-      lIHNldmVyYWwgc2hvd3MgYXZhaWxhYmxlIHRoYXQgd2lsbCBiZSByb3RhdGVkIGV2ZXJ5IDYwIHNlY29uZH
-      MuCkN1cnJlbnRseSBzZWxlY3RlZCBpcyBzaG93IG51bWJlciAwMy4gSWYgeW91IHdhbnQgdG8gc2VlIGFub
-      3RoZXIgb25lLApkaXNjb25uZWN0IG5vdyBhbmQgcmVjb25uZWN0IGxhdGVyLgoKU2hvdyAwMSAoRHVyYXRp
-      b246IDAwOjA3OjU3KToKICAgICAgICBQZXJmZWN0bHkgbm9ybWFsIGFuZCBib3JpLi4u
+    <!-- 220 killer09 FTP server (Version 6.4/OpenBSD/Linux-ftpd-0.17) ready. -->
+    <example _encoding="base64" os.version="6.4">
+      MjIwIGtpbGxlcjA5IEZUUCBzZXJ2ZXIgKFZlcnNpb24gNi40L09wZW5CU0QvTGludXgtZnRwZC0wLjE3KSByZWFkeS4K
     </example>
     <param pos="0" name="hw.vendor" value="OpenBSD"/>
     <param pos="0" name="hw.family" value="OpenBSD"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="0" name="hw.product" value="OpenBSD"/>
+    <param pos="1" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="FreeBSD\/([^\\s]+)\s+\(([^\s]+)\)">
     <description>a FreeBSD</description>
+    <!-- FreeBSD/amd64 (ms.gymspgs.cz) (pts/0)\n\n\n\nlogin: -->
     <example _encoding="base64" os.arch="amd64" host.name="ms.gymspgs.cz">
       RnJlZUJTRC9hbWQ2NCAobXMuZ3ltc3Bncy5jeikgKHB0cy8wKQoKCgpsb2dpbjo=
     </example>
     <param pos="0" name="hw.vendor" value="FreeBSD"/>
     <param pos="0" name="hw.family" value="FreeBSD"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="0" name="hw.product" value="FreeBSD"/>
     <param pos="1" name="os.arch"/>
     <param pos="2" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="NetBSD">
     <description>NetBSD</description>
+    <!-- NetBSD/messimips () (ttyp3)\n\nlogin:  -->
     <example _encoding="base64">
       TmV0QlNEL21lc3NpbWlwcyAoKSAodHR5cDMpCgpsb2dpbjog
     </example>
     <param pos="0" name="hw.vendor" value="NetBSD"/>
     <param pos="0" name="hw.family" value="NetBSD"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="0" name="hw.product" value="NetBSD"/>
   </fingerprint>
   <fingerprint pattern="IRIX">
     <description>SGI IRIX</description>
+    <!-- IRIX (artemis.biol.uoa.gr)\n\n\n\nlogin: -->
     <example _encoding="base64">
       SVJJWCAoYXJ0ZW1pcy5iaW9sLnVvYS5ncikKCgoKbG9naW46IA==
     </example>
     <param pos="0" name="hw.vendor" value="SGI"/>
     <param pos="0" name="hw.family" value="IRIX"/>
-    <param pos="0" name="hw.device" value="General"/>
     <param pos="0" name="hw.product" value="IRIX"/>
   </fingerprint>
-  <fingerprint pattern="^(RS [^\s]+) System Software, Version ([^\s]+).*" flags="REG_MULTILINE">
+  <fingerprint pattern="^(?m)(RS [^\s]+) System Software, Version ([^\s]+).*">
     <description>RiverStone router</description>
+    <!-- ++++++++++++++++++++++++++++++++++++++++\nRS 8000 System Software, Version 9.3.0.5\nRiverstone Networks, Inc., Copyright (c) 2000-2004. All rights reserved.\nSystem started on 2018-10-11 22:02:03\n++++++++++++++++++++++++++++++++++++++++ -->
     <example _encoding="base64" hw.product="RS 8000" os.version="9.3.0.5">
       LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tL
       S0tLS0tLQpSUyA4MDAwIFN5c3RlbSBTb2Z0d2FyZSwgVmVyc2lvbiA5LjMuMC41ClJpdmVyc3RvbmUgTmV0d2
@@ -1304,6 +1306,7 @@
   </fingerprint>
   <fingerprint pattern="(ES [^\s]+) System Software, Version ([^\s]+)">
     <description>a Riverstone router`</description>
+    <!-- +++++++++++++++++++++++++++++++++++++++\nES 10170 System Software, Version 9.3.0.4\nRiverstone Networks, Inc., Copyright (c) 2000-2003. All rights reserved.\nSystem started on 2018-09-06 15:58:\n+++++++++++++++++++++++++++++++++++++++ -->
     <example _encoding="base64" hw.product="ES 10170" os.version="9.3.0.4">
       LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tL
       S0tLS0tLQpFUyAxMDE3MCBTeXN0ZW0gU29mdHdhcmUsIFZlcnNpb24gOS4zLjAuNApSaXZlcnN0b25lIE5ldH
@@ -1319,6 +1322,7 @@
   </fingerprint>
   <fingerprint pattern="HP.*ProCurve Switch">
     <description>HP ProCurve Switch</description>
+    <!-- ==============================================================================\nHP J4121A ProCurve Switch 4000M\nFirmware revision v2.2.3\n\nCopyright (C) 1991-2004 Hewlett-Packard Co. All Rights Reserved.\n\n RESTRICTED RIGHTS LEGEND\n\n Use, duplication, or disclosure by the Government is subject to restrictions\n\nas set forth in subdivision (b) (3) (ii) of the Rights in Technical Data and\n\nComputer Software clause at 52.227-7013.\n\nHEWLETT-PACKARD COMPANY, 3000 Hanover St., Palo Alto, CA 94303\n\n\nWe'd like to keep you up to date about:\n* Software feature updates\n* New product announcements\n* Special events\n\n\nPlease register your products now at: www.ProCurve.com\n==============================================================================\n\n\nUsername:  -->
     <example _encoding="base64">
       PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09P
       T09PT09PT09PT09PT09PT09PT09PT09CkhQIEo0MTIxQSBQcm9DdXJ2ZSBTd2l0Y2ggNDAwME
@@ -1344,7 +1348,8 @@
   </fingerprint>
   <fingerprint pattern="ConnectUPS">
     <description>PowerWare ConnectUPS</description>
-    <example _encoding="base64"  >
+    <!-- +============================================================================+\n|            [ ConnectUPS Web/SNMP Card Configuration Utility ]              |\n+============================================================================+\n\nEnter Password: -->
+    <example _encoding="base64">
       Kz09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0
       9PT09PT09PT09PT09PT0rCnwgICAgICAgICAgICBbIENvbm5lY3RVUFMgV2ViL1NOTVAgQ2FyZCBDb25maW
       d1cmF0aW9uIFV0aWxpdHkgXSAgICAgICAgICAgICAgfAorPT09PT09PT09PT09PT09PT09PT09PT09PT09P
@@ -1358,6 +1363,7 @@
   </fingerprint>
   <fingerprint pattern="Imagistics.*im">
     <description>an Imagistics device</description>
+    <!-- Imagistics im3511/im4511 Ver 01.00.20 TELNET server.\nCopyright(c) 2001-2005, silex technology, Inc.\nlogin: -->
     <example _encoding="base64">
       SW1hZ2lzdGljcyBpbTM1MTEvaW00NTExIFZlciAwMS4wMC4yMCBURUxORVQgc2VydmVyLgpDb3B5cmlnaH
       QoYykgMjAwMS0yMDA1LCBzaWxleCB0ZWNobm9sb2d5LCBJbmMuCmxvZ2luOiA=
@@ -1369,6 +1375,7 @@
   </fingerprint>
   <fingerprint pattern="NRG Maintenance Shell">
     <description>a Ricoh NRG device</description>
+    <!-- NRG Maintenance Shell.   \nUser access verification.\nlogin: -->
     <example _encoding="base64"  >
       TlJHIE1haW50ZW5hbmNlIFNoZWxsLiAgIAoKVXNlciBhY2Nlc3MgdmVyaWZpY2F0aW9uLgoKbG9naW46
     </example>
@@ -1378,6 +1385,7 @@
   </fingerprint>
   <fingerprint pattern="^SHARP (AR-[^\\s]+) Ver ([^\\s]+) TELNET server">
     <description>SHARP AR Series multifunction device</description>
+    <!-- SHARP AR-M351U Ver 01.00.18 TELNET server.\nCopyright(c) 2001-2005, silex technology, Inc.\nlogin: -->
     <example _encoding="base64" hw.product="AR-M351U" os.version="01.00.18">
       U0hBUlAgQVItTTM1MVUgVmVyIDAxLjAwLjE4IFRFTE5FVCBzZXJ2ZXIuCkNvcHlyaWdodChjKSAyMDAx
       LTIwMDUsIHNpbGV4IHRlY2hub2xvZ3ksIEluYy4KbG9naW46IA==
@@ -1390,6 +1398,7 @@
   </fingerprint>
   <fingerprint pattern="^SHARP (MX-[^\\s]+) Ver ([^\\s]+) TELNET server">
     <description>SHARP MX Series multifunction device</description>
+    <!-- SHARP MX-3610N Ver 01.05.00.0o.18 TELNET server.\nCopyright(C) 2005-     SHARP CORPORATION\nCopyright(C) 2005-     silex technology, Inc.\nlogin:  -->
     <example _encoding="base64" hw.product="MX-3610N" os.version="01.05.00.0o.18">
       U0hBUlAgTVgtMzYxME4gVmVyIDAxLjA1LjAwLjBvLjE4IFRFTE5FVCBzZXJ2ZXIuCkNvcHlyaWdodC
       hDKSAyMDA1LSAgICAgU0hBUlAgQ09SUE9SQVRJT04KQ29weXJpZ2h0KEMpIDIwMDUtICAgICBzaWxl
