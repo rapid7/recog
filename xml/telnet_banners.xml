@@ -1271,7 +1271,7 @@
   </fingerprint>
   <fingerprint pattern="NetBSD">
     <description>NetBSD</description>
-    <!-- NetBSD/messimips () (ttyp3)\n\nlogin:  -->
+    <!-- NetBSD/evbsh3 (Fukuyama.Host_AKS_0555_WL-v2.60d) (ttyp1)  -->
     <example _encoding="base64">
       TmV0QlNEL21lc3NpbWlwcyAoKSAodHR5cDMpCgpsb2dpbjog
     </example>
@@ -1279,15 +1279,16 @@
     <param pos="0" name="hw.family" value="NetBSD"/>
     <param pos="0" name="hw.product" value="NetBSD"/>
   </fingerprint>
-  <fingerprint pattern="IRIX">
+  <fingerprint pattern="IRIX\W\((.*)\)">
     <description>SGI IRIX</description>
     <!-- IRIX (artemis.biol.uoa.gr)\n\n\n\nlogin: -->
-    <example _encoding="base64">
+    <example _encoding="base64" host.name="artemis.biol.uoa.gr">
       SVJJWCAoYXJ0ZW1pcy5iaW9sLnVvYS5ncikKCgoKbG9naW46IA==
     </example>
     <param pos="0" name="hw.vendor" value="SGI"/>
     <param pos="0" name="hw.family" value="IRIX"/>
     <param pos="0" name="hw.product" value="IRIX"/>
+    <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^(?m)(RS [^\s]+) System Software, Version ([^\s]+).*">
     <description>RiverStone router</description>
