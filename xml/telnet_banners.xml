@@ -1119,15 +1119,16 @@
     <param pos="0" name="hw.product" value="Solaris"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="Digital UNIX">
+  <fingerprint pattern="Digital UNIX \(([^)]+).*">
     <description>Digital Unix</description>
     <!-- Digital UNIX (journal) (ttyp2)\n\n\nlogin: -->
-    <example _encoding="base64">
+    <example _encoding="base64" host.name="journal">
       RGlnaXRhbCBVTklYIChqb3VybmFsKSAodHR5cDIpCgoKCmxvZ2luOiA=
     </example>
     <param pos="0" name="hw.vendor" value="HP"/>
     <param pos="0" name="hw.family" value="Digital Unix"/>
     <param pos="0" name="hw.product" value="Digital Unix"/>
+    <param pos="1" name="host.name"/>`
   </fingerprint>
   <fingerprint pattern="^(?m)Compaq Tru64 UNIX V(.*) \(Rev. (.*\d)\) .*">
     <description>Compaq Tru64 UNIX V</description>
@@ -1428,5 +1429,49 @@
     <param pos="2" name="hw.model"/>
     <param pos="3" name="os.version"/>
     <param pos="4" name="hw.address"/>
+  </fingerprint>
+  <fingerprint pattern="^(?m)AIX Version\W(\d).*">
+    <description>System is IBM AIX v</description>
+    <!-- AIX Version 6\nCopyright IBM Corporation, 1982, 2007.\nlogin: -->
+    <example _encoding="base64" os.version="6">
+      QUlYIFZlcnNpb24gNgpDb3B5cmlnaHQgSUJNIENvcnBvcmF0aW9uLCAxOTgyLCAyMDA3Lgpsb2dpbjogCg==
+    </example>
+    <param pos="0" name="hw.vendor" value="IBM"/>
+    <param pos="0" name="hw.family" value="AIX"/>
+    <param pos="0" name="hw.device" value="General"/>
+    <param pos="0" name="hw.product" value="AIX"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(?m)CIMC Debug Firmware Utility Shell\W([^\s]+).*">
+    <description>System is Cisco UCS Device</description>
+    <!-- CIMC Debug Firmware Utility Shell\nfake-ucs-device-3-1-p login: -->
+    <example _encoding="base64" host.name="fake-ucs-device-3-1-p">
+      Q0lNQyBEZWJ1ZyBGaXJtd2FyZSBVdGlsaXR5IFNoZWxsCmZha2UtdWNzLWRldmljZS0zLTEtcCBsb2dpbjogCg==
+    </example>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.family" value="UCS"/>
+    <param pos="0" name="hw.device" value="General"/>
+    <param pos="0" name="hw.product" value="UCS Device"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^(?m)HP ProLiant.*v(\d+.\d+)">
+    <description>Sytem is HP ProLiant switch</description>
+    <example _encoding="base64" os.version="2.00">
+      SFAgUHJvTGlhbnQgQkwgZS1DbGFzcyBJbnRlZ3JhdGVkIEFkbWluaXN0cmF0b3IgdjIuMDAKICAgICAgI
+      CAgQ29weXJpZ2h0IDIwMDUgSGV3bGV0dC1QYWNrYXJkIERldmVsb3BtZW50IEdyb3VwLCBMLlAuCgogIC
+      AgICAgICAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0
+      tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQogICAgICAgICBXQVJOSU5HOiBUaGlzIGlzIGEgcHJpdmF0ZSBz
+      eXN0ZW0uICBEbyBub3QgYXR0ZW1wdCB0byBsb2dpbiB1bmxlc3MgeW91IGFyZSBhbgogICAgICAgICBhd
+      XRob3JpemVkIHVzZXIuICBBbnkgYXV0aG9yaXplZCBvciB1bmF1dGhvcml6ZWQgYWNjZXNzIGFuZCB1c2
+      UgbWF5IGJlIG1vbmktCiAgICAgICAgIHRvcmVkIGFuZCBjYW4gcmVzdWx0IGluIGNyaW1pbmFsIG9yIGN
+      pdmlsIHByb3NlY3V0aW9uIHVuZGVyIGFwcGxpY2FibGUgbGF3LgogICAgICAgICAtLS0tLS0tLS0tLS0t
+      LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tL
+      S0tLQoKCiAgICAgICAgIElBLTAwNTA4QkVCQUE1OSBsb2dpbjo=
+    </example>
+    <param pos="0" name="hw.vendor" value="HP"/>
+    <param pos="0" name="hw.family" value="ProLiant"/>
+    <param pos="0" name="hw.device" value="Switch"/>
+    <param pos="0" name="hw.product" value="ProLiant"/>
+    <param pos="1" name="os.version"/>
   </fingerprint>
 </fingerprints>
