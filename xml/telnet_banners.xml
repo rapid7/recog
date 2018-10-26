@@ -823,7 +823,7 @@
       UmVkIEhhdCBMaW51eCByZWxlYXNlIDkgKFNocmlrZSlcbktlcm5lbCAyLjQuMjAtOCBvbiBhbiBpNjg2XG5sb2dpbjo=
    </example>
     <param pos="0" name="hw.vendor" value="RedHat"/>
-    <param pos="0" name="he.family" value="Linux"/>
+    <param pos="0" name="hw.family" value="Linux"/>
     <param pos="0" name="hw.device" value="Linux"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
@@ -1129,7 +1129,7 @@
     <param pos="0" name="hw.vendor" value="HP"/>
     <param pos="0" name="hw.family" value="Digital Unix"/>
     <param pos="0" name="hw.product" value="Digital Unix"/>
-    <param pos="1" name="host.name"/>`
+    <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^(?m)Compaq Tru64 UNIX V(.*) \(Rev. (.*\d)\) .*">
     <description>Compaq Tru64 UNIX V</description>
@@ -1164,7 +1164,7 @@
     <example _encoding="base64">RGF0YSBPTlRBUCAoczUwMC4pCmxvZ2luOiA=</example>
     <param pos="0" name="hw.vendor" value="NetApp"/>
     <param pos="0" name="hw.family" value="Data ONTAP"/>
-    <param pos="0" name="hw.device" value="Storage"/>
+    <param pos="0" name="hw.device" value="Server"/>
     <param pos="0" name="hw.product" value="Data ONTAP"/>
   </fingerprint>
   <fingerprint pattern="OpenVMS.*Version\sV(\d*.\d*).*">
@@ -1291,12 +1291,22 @@
     <param pos="0" name="hw.product" value="IRIX"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="^(?m)(RS [^\s]+) System Software, Version ([^\s]+).*">
-    <description>RiverStone router</description>
-    <!-- ++++++++++++++++++++++++++++++++++++++++\nRS 8000 System Software, Version 9.3.0.5\n
-    Riverstone Networks, Inc., Copyright (c) 2000-2004. All rights reserved.\nSystem started on 2018-10-11 22:02:03
-    \n++++++++++++++++++++++++++++++++++++++++ -->
-    <example _encoding="base64" hw.product="RS 8000" os.version="9.3.0.5">
+  <fingerprint pattern="(?m)(ES|RS)\s([^\s]+) System Software, Version ([^\s]+).*Riverstone Networks">
+    <description>a Riverstone router</description>
+    <!-- +++++++++++++++++++++++++++++++++++++++\nES 10170 System Software, Version 9.3.0.4\n
+    Riverstone Networks, Inc., Copyright (c) 2000-2003. All rights reserved.\nSystem started on 2018-09-06 15:58:\n
+    +++++++++++++++++++++++++++++++++++++++ -->
+    <example _encoding="base64" hw.product="10170" os.version="9.3.0.4" os.family="ES">
+      LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tL
+      S0tLS0tLQpFUyAxMDE3MCBTeXN0ZW0gU29mdHdhcmUsIFZlcnNpb24gOS4zLjAuNApSaXZlcnN0b25lIE5ldH
+      dvcmtzLCBJbmMuLCBDb3B5cmlnaHQgKGMpIDIwMDAtMjAwMy4gQWxsIHJpZ2h0cyByZXNlcnZlZC4KU3lzdGV
+      tIHN0YXJ0ZWQgb24gMjAxOC0wOS0wNiAxNTo1ODozMAotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+      LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS4uLg==
+    </example>
+        <!-- +++++++++++++++++++++++++++++++++++++++\nRS 10170 System Software, Version 9.3.0.5\n
+    Riverstone Networks, Inc., Copyright (c) 2000-2003. All rights reserved.\nSystem started on 2018-09-06 15:58:\n
+    +++++++++++++++++++++++++++++++++++++++ -->
+    <example _encoding="base64" hw.product="8000" os.version="9.3.0.5" os.family="RS">
       LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tL
       S0tLS0tLQpSUyA4MDAwIFN5c3RlbSBTb2Z0d2FyZSwgVmVyc2lvbiA5LjMuMC41ClJpdmVyc3RvbmUgTmV0d2
       9ya3MsIEluYy4sIENvcHlyaWdodCAoYykgMjAwMC0yMDA0LiBBbGwgcmlnaHRzIHJlc2VydmVkLgpTeXN0ZW0
@@ -1304,28 +1314,10 @@
       LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS4uLg==
     </example>
     <param pos="0" name="hw.vendor" value="Riverstone"/>
-    <param pos="0" name="hw.family" value="Riverstone"/>
     <param pos="0" name="hw.device" value="Router"/>
-    <param pos="1" name="hw.product"/>
-    <param pos="2" name="os.version"/>
-  </fingerprint>
-  <fingerprint pattern="(ES [^\s]+) System Software, Version ([^\s]+)">
-    <description>a Riverstone router`</description>
-    <!-- +++++++++++++++++++++++++++++++++++++++\nES 10170 System Software, Version 9.3.0.4\n
-    Riverstone Networks, Inc., Copyright (c) 2000-2003. All rights reserved.\nSystem started on 2018-09-06 15:58:\n
-    +++++++++++++++++++++++++++++++++++++++ -->
-    <example _encoding="base64" hw.product="ES 10170" os.version="9.3.0.4">
-      LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tL
-      S0tLS0tLQpFUyAxMDE3MCBTeXN0ZW0gU29mdHdhcmUsIFZlcnNpb24gOS4zLjAuNApSaXZlcnN0b25lIE5ldH
-      dvcmtzLCBJbmMuLCBDb3B5cmlnaHQgKGMpIDIwMDAtMjAwMy4gQWxsIHJpZ2h0cyByZXNlcnZlZC4KU3lzdGV
-      tIHN0YXJ0ZWQgb24gMjAxOC0wOS0wNiAxNTo1ODozMAotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-      LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS4uLg==
-    </example>
-    <param pos="0" name="hw.vendor" value="Riverstone"/>
-    <param pos="0" name="hw.family" value="ES"/>
-    <param pos="0" name="hw.device" value="Router"/>
-    <param pos="1" name="hw.product"/>
-    <param pos="2" name="os.version"/>
+    <param pos="1" name="os.family"/>
+    <param pos="2" name="hw.product"/>
+    <param pos="3" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="HP.*ProCurve Switch">
     <description>HP ProCurve Switch</description>
