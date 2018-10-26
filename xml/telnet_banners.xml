@@ -1319,7 +1319,7 @@
     <param pos="2" name="os.product"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="HP.*ProCurve Switch">
+  <fingerprint pattern="HP ([^\s]+) ProCurve Switch">
     <description>HP ProCurve Switch</description>
     <!-- ==============================================================================\nHP J4121A ProCurve Switch 4000M\n
     Firmware revision v2.2.3\n\nCopyright (C) 1991-2004 Hewlett-Packard Co. All Rights Reserved.\n\n
@@ -1329,7 +1329,7 @@
     Software feature updates\n* New product announcements\n* Special events\n\n\nPlease register your
     products now at: www.ProCurve.com\n==============================================================================\n
     \n\nUsername:  -->
-    <example _encoding="base64">
+    <example _encoding="base64" os.product="J4121A">
       PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09P
       T09PT09PT09PT09PT09PT09PT09PT09CkhQIEo0MTIxQSBQcm9DdXJ2ZSBTd2l0Y2ggNDAwME
       0KRmlybXdhcmUgcmV2aXNpb24gdjIuMi4zCgpDb3B5cmlnaHQgKEMpIDE5OTEtMjAwNCBIZXd
@@ -1350,7 +1350,7 @@
     <param pos="0" name="os.vendor" value="HP"/>
     <param pos="0" name="os.family" value="ProCurve"/>
     <param pos="0" name="os.device" value="Switch"/>
-    <param pos="0" name="os.product" value="ProCurve"/>
+    <param pos="1" name="os.product"/>
   </fingerprint>
   <fingerprint pattern="ConnectUPS">
     <description>PowerWare ConnectUPS</description>
