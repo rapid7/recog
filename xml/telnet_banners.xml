@@ -953,7 +953,7 @@
     <param pos="0" name="os.device" value="WAP"/>
     <param pos="1" name="os.model"/>
   </fingerprint>
-  <fingerprint pattern="Welcome to ViewStation">
+  <fingerprint pattern="^Welcome to ViewStation">
     <description>Polycom ViewStation Video Vonference System</description>
     <!-- Welcome to ViewStation\nPassword: -->
     <example _encoding="base64">
@@ -962,11 +962,11 @@
     <param pos="0" name="os.vendor" value="Polycom"/>
     <param pos="0" name="os.device" value="ViewStation"/>
   </fingerprint>
-  <fingerprint pattern="FlowPoint\/(.*) SDSL \[ATM\] Router .*v(.*) Ready">
+  <fingerprint pattern="^FlowPoint\/(.*) SDSL \[ATM\] Router .*v(.*) Ready">
     <!--FlowPoint/2200 SDSL [ATM] Router fp2200-12 v3.0.2 Ready\nLogin:  -->
-    <description>iFlowPoint 2200 DSL router</description>
+    <description>FlowPoint 2200 DSL router</description>
     <example _encoding="base64" hw.model="2200" os.version="3.0.2">
-    Rmxvd1BvaW50LzIyMDAgU0RTTCBbQVRNXSBSb3V0ZXIgZnAyMjAwLTEyIHYzLjAuMiBSZWFkeQpMb2dpbjog
+      Rmxvd1BvaW50LzIyMDAgU0RTTCBbQVRNXSBSb3V0ZXIgZnAyMjAwLTEyIHYzLjAuMiBSZWFkeQpMb2dpbjog
     </example>
     <param pos="0" name="hw.vendor" value="Flowpoint"/>
     <param pos="0" name="hw.device" value="Broadband Router"/>
@@ -974,7 +974,7 @@
     <param pos="1" name="hw.model"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="GlobespanVirata Inc\., Software Release (.*)">
+  <fingerprint pattern="^GlobespanVirata Inc\., Software Release (.*)">
     <description>GlobespanVirata broadband router</description>
     <!--GlobespanVirata Inc., Software Release 2.1.040407a3_u_e_A\nCopyright (c) 2001-2003 by GlobespanVirata, Inc.\n\nlogin:  -->
     <example _encoding="base64" os.version="2.1.040407a3_u_e_A">
@@ -985,7 +985,7 @@
     <param pos="0" name="hw.device" value="Broadband Router"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="VxWorks login:">
+  <fingerprint pattern="^VxWorks login:">
     <description>VxWorks embedded device</description>
     <example>VxWorks login: </example>
     <param pos="0" name="os.family" value="VxWorks"/>
@@ -1005,7 +1005,7 @@
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="IPSO.* \((.*)\) \(tty.*\)">
+  <fingerprint pattern="^IPSO.* \((.*)\) \(tty.*\)">
     <description>Checkpoint Firewall-1 running on a Nokia IPSO appliance</description>
     <!-- IPSO/i386 (BJ-IDC-FW2) (ttyp7)\n\n\nThis system is for authorized use only.\n\n\n\n\n\n\nlogin: -->
     <example _encoding="base64" host.name="BJ-IDC-FW2">
@@ -1043,7 +1043,7 @@
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
   </fingerprint>
-  <fingerprint pattern="Application Required. No Installation Default">
+  <fingerprint pattern="^Application Required. No Installation Default">
     <description>probably IBM AS/400 running TN3270 or 5250 emulation server</description>
     <!-- Application Required. No Installation Default\nEnter Application Name: -->
     <example _encoding="base64">
@@ -1052,7 +1052,7 @@
     </example>
     <param pos="0" name="os.vendor" value="IBM"/>
   </fingerprint>
-  <fingerprint pattern="This copy of the Ataman TCP Remote Logon Services">
+  <fingerprint pattern="^This copy of the Ataman TCP Remote Logon Services">
     <description>Windows NT/2k/2k3 running Ataman telnet server</description>
     <!-- This copy of the Ataman TCP Remote Logon Services is registered as licensed to:\nECI2/DDMS\nAccount Name: -->
     <example _encoding="base64">
@@ -1074,7 +1074,7 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="Check Point FireWall-1 authenticated Telnet server running on (.*)">
+  <fingerprint pattern="^Check Point FireWall-1 authenticated Telnet server running on (.*)">
     <description>Check Point Firewall-1</description>
     <!-- Check Point FireWall-1 authenticated Telnet server running on gaatdrf2\nUser: -->
     <example _encoding="base64" host.name="gaatdrf2">
@@ -1086,7 +1086,7 @@
     <param pos="0" name="os.product" value="Checkpoint FW1"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="Raptor Firewall">
+  <fingerprint pattern="^Raptor Firewall">
     <description>Raptor Firewall</description>
     <!-- Raptor Firewall Secure Gateway.\nHostname: -->
     <example _encoding="base64">
@@ -1120,7 +1120,7 @@
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="Digital UNIX \(([^)]+).*">
+  <fingerprint pattern="^Digital UNIX \(([^)]+).*">
     <description>Digital Unix</description>
     <!-- Digital UNIX (journal) (ttyp2)\n\n\nlogin: -->
     <example _encoding="base64" host.name="journal">
@@ -1158,7 +1158,7 @@
     <param pos="4" name="hw.series"/>
     <param pos="5" name="hw.model"/>
   </fingerprint>
-  <fingerprint pattern="Data ONTAP">
+  <fingerprint pattern="^Data ONTAP">
     <description>A NetApp apliance</description>
     <!-- Data ONTAP (s500.)\nlogin: -->
     <example _encoding="base64">RGF0YSBPTlRBUCAoczUwMC4pCmxvZ2luOiA=</example>
@@ -1190,7 +1190,7 @@
     <param pos="0" name="os.product" value="OpenServer"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="% Username:  timeout expired!">
+  <fingerprint pattern="^% Username:  timeout expired!">
     <description>Some kind of Cisco device</description>
     <!-- % Username:  timeout expired!-->
     <example _encoding="base64">
@@ -1200,7 +1200,7 @@
     <param pos="0" name="os.family" value="IOS"/>
     <param pos="0" name="os.product" value="IOS"/>
   </fingerprint>
-  <fingerprint pattern="Welcome to MKS Telnet Server Version">
+  <fingerprint pattern="^Welcome to MKS Telnet Server Version">
     <description>Windows running MKS Telnet Server</description>
     <example _encoding="base64">
       V2VsY29tZSB0byBNS1MgVGVsbmV0IFNlcnZlciBWZXJzaW9uIDQuNzAuMDAwMC4KbG9naW46IA==
@@ -1209,13 +1209,13 @@
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
   </fingerprint>
-  <fingerprint pattern="Sorry, this system is engaged\.">
+  <fingerprint pattern="^Sorry, this system is engaged\.">
     <description>an embedded print server</description>
     <example>Sorry, this system is engaged.</example>
     <param pos="0" name="os.vendor" value="Epson"/>
     <param pos="0" name="os.device" value="Printer"/>
   </fingerprint>
-  <fingerprint pattern="TELNET session now in ESTABLISHED state">
+  <fingerprint pattern="^TELNET session now in ESTABLISHED state">
     <description>an Allied Telesyn router</description>
     <!-- TELNET session now in ESTABLISHED state\n\nGEO-003 login: -->
     <example _encoding="base64">
@@ -1225,19 +1225,18 @@
     <param pos="0" name="os.device" value="Router"/>
     <param pos="0" name="os.product" value="Allied Telesyn router"/>
   </fingerprint>
-  <fingerprint pattern="CONEXANT SYSTEMS.*ACCESS RUNNER ADSL">
+  <fingerprint pattern="^CONEXANT SYSTEMS.*ACCESS RUNNER ADSL">
     <description>a Conexant ADSL router</description>
     <!-- CONEXANT SYSTEMS, INC. ACCESS RUNNER ADSL CONSOLE PORT>>>LOGON PASSWORD>3.27****** -->
     <example _encoding="base64">
-      G1swbRtbMkobWzAxOzI4SENPTkVYQU5UIFNZU1RFTVMsIElOQy4bWzAyOzE5SCBBQ0NFU1MgUlVOTkVSIEF
-      EU0wgQ09OU09MRSBQT1JUG1syNDswMUg+Pj4bWzI0OzAxSExPR09OIFBBU1NXT1JEPhtbMDI7NTNIMy4yNx
-      tbMjQ7MTdIG1syNDsxN0g=
+      Q09ORVhBTlQgU1lTVEVNUywgSU5DLiBBQ0NFU1MgUlVOTkVSIEFEU0wgQ09OU09MRSBQ
+      T1JUPj4+TE9HT04gUEFTU1dPUkQ+My4yNyoqKioqKg==
     </example>
     <param pos="0" name="os.vendor" value="Conexant"/>
     <param pos="0" name="os.device" value="Broadband router"/>
     <param pos="0" name="os.product" value="AccessRunner ADSL router"/>
   </fingerprint>
-  <fingerprint pattern="System administrator is connecting from">
+  <fingerprint pattern="^System administrator is connecting from">
     <description>a DrayTek Vigor SOHO Router</description>
     <!-- System administrator is connecting from 54.39.173.86\n\nReject the connection request !!! -->
     <example _encoding="base64">
@@ -1259,7 +1258,7 @@
     <param pos="0" name="os.product" value="OpenBSD"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="FreeBSD\/([^\\s]+)\s+\(([^\s]+)\)">
+  <fingerprint pattern="^FreeBSD\/([^\\s]+)\s+\(([^\s]+)\)">
     <description>a FreeBSD</description>
     <!-- FreeBSD/amd64 (ms.gymspgs.cz) (pts/0)\n\n\n\nlogin: -->
     <example _encoding="base64" os.arch="amd64" host.name="ms.gymspgs.cz">
@@ -1271,7 +1270,7 @@
     <param pos="1" name="os.arch"/>
     <param pos="2" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="NetBSD">
+  <fingerprint pattern="^NetBSD">
     <description>NetBSD</description>
     <!-- NetBSD/evbsh3 (Fukuyama.Host_AKS_0555_WL-v2.60d) (ttyp1)  -->
     <example _encoding="base64">
@@ -1281,7 +1280,7 @@
     <param pos="0" name="os.family" value="NetBSD"/>
     <param pos="0" name="os.product" value="NetBSD"/>
   </fingerprint>
-  <fingerprint pattern="IRIX\W\((.*)\)">
+  <fingerprint pattern="^IRIX\W\((.*)\)">
     <description>SGI IRIX</description>
     <!-- IRIX (artemis.biol.uoa.gr)\n\n\n\nlogin: -->
     <example _encoding="base64" host.name="artemis.biol.uoa.gr">
@@ -1320,7 +1319,7 @@
     <param pos="2" name="os.product"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="HP ([^\s]+) ProCurve Switch">
+  <fingerprint pattern="^HP ([^\s]+) ProCurve Switch">
     <description>HP ProCurve Switch</description>
     <!-- ==============================================================================\nHP J4121A ProCurve Switch 4000M\n
     Firmware revision v2.2.3\n\nCopyright (C) 1991-2004 Hewlett-Packard Co. All Rights Reserved.\n\n
@@ -1353,7 +1352,7 @@
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="ConnectUPS">
+  <fingerprint pattern="^(?m).*ConnectUPS">
     <description>PowerWare ConnectUPS</description>
     <!-- +============================================================================+\n|            [ ConnectUPS Web/SNMP
      Card Configuration Utility ]              |\n+============================================================================+\n
@@ -1370,7 +1369,7 @@
     <param pos="0" name="os.device" value="UPS"/>
     <param pos="0" name="os.product" value="ConnectUPS"/>
   </fingerprint>
-  <fingerprint pattern="Imagistics.*im">
+  <fingerprint pattern="^Imagistics.*im">
     <description>an Imagistics device</description>
     <!-- Imagistics im3511/im4511 Ver 01.00.20 TELNET server.\nCopyright(c) 2001-2005, silex technology, Inc.\nlogin: -->
     <example _encoding="base64">
@@ -1382,7 +1381,7 @@
     <param pos="0" name="os.device" value="Malfunction Device"/>
     <param pos="0" name="os.product" value="im"/>
   </fingerprint>
-  <fingerprint pattern="NRG Maintenance Shell">
+  <fingerprint pattern="^NRG Maintenance Shell">
     <description>a Ricoh NRG device</description>
     <!-- NRG Maintenance Shell.   \nUser access verification.\nlogin: -->
     <example _encoding="base64"  >
