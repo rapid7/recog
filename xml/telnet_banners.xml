@@ -840,6 +840,7 @@
     <param pos="1" name="os.version"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:redhat:linux:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?m)Red Hat Enterprise Linux AS release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d)">
     <description>RedHat Enterprise Linux AS</description>
@@ -881,6 +882,7 @@
     <param pos="1" name="os.version"/>
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:redhat:fedora:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?m)Welcome to SuSE Linux (.*) \(([^\)]+)\) - Kernel (.*) .*">
     <description>SuSE Linux</description>
@@ -893,6 +895,7 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:suse:linux:{os.version}"/>
     <param pos="3" name="linux.kernel.version"/>
   </fingerprint>
   <fingerprint pattern="^Turbolinux ApplianceServer (\d+\.\d+).*">
@@ -931,6 +934,7 @@
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows 2000"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_2000:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Welcome. Type return, enter password at # prompt">
     <description>Brother Printer</description>
@@ -1042,6 +1046,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^Application Required. No Installation Default">
     <description>probably IBM AS/400 running TN3270 or 5250 emulation server</description>
@@ -1062,6 +1067,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="Cobalt Linux release\W(.*)\W\(.*">
     <description>Cobalt Linux</description>
@@ -1107,6 +1113,7 @@
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="Solaris (.*)">
     <description>Solaris</description>
@@ -1119,6 +1126,7 @@
     <param pos="0" name="os.family" value="Solaris"/>
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Digital UNIX \(([^)]+).*">
     <description>Digital Unix</description>
@@ -1142,6 +1150,7 @@
     <param pos="0" name="os.product" value="TRU64"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.rev"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:hp:tru64:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="HP-UX ([^ ]+) [A-Z]\.([^ ]+) ([^ ]+) ([^ ]+)\s([^ ]+\)).*$">
     <description>System HP-UX</description>
@@ -1154,6 +1163,7 @@
     <param pos="0" name="os.product" value="HP-UX"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:hp:hp-ux:{os.version}"/>
     <param pos="3" name="hw.version"/>
     <param pos="4" name="hw.series"/>
     <param pos="5" name="hw.model"/>
@@ -1166,6 +1176,7 @@
     <param pos="0" name="os.family" value="Data ONTAP"/>
     <param pos="0" name="os.device" value="Server"/>
     <param pos="0" name="os.product" value="Data ONTAP"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:netapp:data_ontap:-"/>
   </fingerprint>
   <fingerprint pattern="OpenVMS.*Version\sV([^\s]+).*">
     <description>OpenVMS</description>
@@ -1199,6 +1210,7 @@
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="IOS"/>
     <param pos="0" name="os.product" value="IOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:-"/>
   </fingerprint>
   <fingerprint pattern="^Welcome to MKS Telnet Server Version">
     <description>Windows running MKS Telnet Server</description>
@@ -1208,6 +1220,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^Sorry, this system is engaged\.">
     <description>an embedded print server</description>
@@ -1257,6 +1270,7 @@
     <param pos="0" name="os.family" value="OpenBSD"/>
     <param pos="0" name="os.product" value="OpenBSD"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:openbsd:openbsd:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^FreeBSD\/([^\\s]+)\s+\(([^\s]+)\)">
     <description>a FreeBSD</description>
@@ -1268,6 +1282,7 @@
     <param pos="0" name="os.family" value="FreeBSD"/>
     <param pos="0" name="os.product" value="FreeBSD"/>
     <param pos="1" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:-"/>
     <param pos="2" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^NetBSD">
@@ -1279,6 +1294,7 @@
     <param pos="0" name="os.vendor" value="NetBSD"/>
     <param pos="0" name="os.family" value="NetBSD"/>
     <param pos="0" name="os.product" value="NetBSD"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:netbsd:netbsd:-"/>
   </fingerprint>
   <fingerprint pattern="^IRIX\W\((.*)\)">
     <description>SGI IRIX</description>
@@ -1289,6 +1305,7 @@
     <param pos="0" name="os.vendor" value="SGI"/>
     <param pos="0" name="os.family" value="IRIX"/>
     <param pos="0" name="os.product" value="IRIX"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sgi:irix:-"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="(?m)(ES|RS)\s([^\s]+) System Software, Version ([^\s]+).*Riverstone Networks">
@@ -1304,7 +1321,7 @@
       tIHN0YXJ0ZWQgb24gMjAxOC0wOS0wNiAxNTo1ODozMAotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
       LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS4uLg==
     </example>
-        <!-- +++++++++++++++++++++++++++++++++++++++\nRS 10170 System Software, Version 9.3.0.5\n
+    <!-- +++++++++++++++++++++++++++++++++++++++\nRS 10170 System Software, Version 9.3.0.5\n
     Riverstone Networks, Inc., Copyright (c) 2000-2003. All rights reserved.\nSystem started on 2018-09-06 15:58:\n
     +++++++++++++++++++++++++++++++++++++++ -->
     <example _encoding="base64" os.product="8000" os.version="9.3.0.5" os.family="RS">
@@ -1385,11 +1402,11 @@
   <fingerprint pattern="^NRG Maintenance Shell">
     <description>a Ricoh NRG device</description>
     <!-- NRG Maintenance Shell.   \nUser access verification.\nlogin: -->
-    <example _encoding="base64"  >
+    <example _encoding="base64">
       TlJHIE1haW50ZW5hbmNlIFNoZWxsLiAgIAoKVXNlciBhY2Nlc3MgdmVyaWZpY2F0aW9uLgoKbG9naW46
     </example>
     <param pos="0" name="os.vendor" value="Ricoh"/>
-    <param pos="0" name="os.device" value="Printer" />
+    <param pos="0" name="os.device" value="Printer"/>
     <param pos="0" name="os.product" value="NRG Printer"/>
   </fingerprint>
   <fingerprint pattern="^SHARP (AR-[^\\s]+) Ver ([^\\s]+) TELNET server">
@@ -1420,7 +1437,7 @@
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-    <fingerprint pattern="^(?m).*Welcome to MELCO Print Server.*Server Name *: *([^ ]*)\W.*Server Model *: *([^ ]*).*F \/ W Version *: *([^ ]*).*MAC Address *: *(.. .. .. .. .. ..).*$">
+  <fingerprint pattern="^(?m).*Welcome to MELCO Print Server.*Server Name *: *([^ ]*)\W.*Server Model *: *([^ ]*).*F \/ W Version *: *([^ ]*).*MAC Address *: *(.. .. .. .. .. ..).*$">
     <description>System is a Buffalo/MELCO Embedded Print Server</description>
     <!-- ***********************************\n* Welcome to MELCO Print Server *\n* Telnet Console *\n***********************************
     \n \nServer Name: PS-B04E8E\nServer Model: LPV 2 - TX 1\nF / W Version: 2.00 J \nMAC Address: AE 32 EA 21 BB E3\n
@@ -1434,7 +1451,7 @@
       29yZDoi
     </example>
     <param pos="0" name="os.vendor" value="Buffalo"/>
-    <param pos="0" name="os.family" value="PrintServer" />
+    <param pos="0" name="os.family" value="PrintServer"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="host.id"/>
     <param pos="2" name="os.model"/>
@@ -1452,6 +1469,7 @@
     <param pos="0" name="os.device" value="General"/>
     <param pos="0" name="os.product" value="AIX"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?m)CIMC Debug Firmware Utility Shell\W([^\s]+).*">
     <description>System is Cisco UCS Device</description>
