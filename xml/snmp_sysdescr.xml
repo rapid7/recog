@@ -63,7 +63,7 @@
     <param pos="0" name="os.product" value="ADSL Modem"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^3Com (Link(?:Switch|Builder) [^,]+), SW version:(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^3Com (Link(?:Switch|Builder) [^,]+), SW version:(\S+)$">
     <description>3COM LinkBuilder/LinkSwitch</description>
     <example>3Com LinkBuilder FMS, SW version:3.11</example>
     <example>3Com LinkSwitch 1000, SW Version:1.04</example>
@@ -73,7 +73,7 @@
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^3Com MCNS external (\S+(?: \S+)?) Cable Modem,.*SW_VER:\s*(.*)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^3Com MCNS external (\S+(?: \S+)?) Cable Modem,.*SW_VER:\s*(.*)$">
     <description>3COM Cable Modem</description>
     <example>3Com MCNS external 2-way Cable Modem, HW_REV: 2.00 ,SW_VER: 01.03</example>
     <example>3Com MCNS external 2-way Cable Modem, HW_REV: A01.3 ,SW_VER: 12.30</example>
@@ -207,7 +207,7 @@
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="^3Com Baseline Switch (\S+ Plus).* Software Version (\d+\.\S+ release \S+).*$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^3Com Baseline Switch (\S+ Plus).* Software Version (\d+\.\S+ release \S+).*$">
     <description>3COM Switch</description>
     <example>3Com Baseline Switch 2920-SFP Plus Software Version 5.20 RELEASE 1101 Copyright (c) 2004-2009 3Com Corporation. All rights reserved.</example>
     <example>3Com Baseline Switch 2920-SFP Plus Software Version 5.20 Release 1101P02 Copyright (c) 2004-2009 3Com Corporation. All rights reserved.</example>
@@ -420,7 +420,7 @@
   <!--======================================================================
                               ADTRAN
    =======================================================================-->
-  <fingerprint pattern="^ADTRAN (MX\d+(?: \S+)?(?: \S+)?)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^ADTRAN (MX\d+(?: \S+)?(?: \S+)?)$">
     <description>ADTRAN Multiplexer</description>
     <example>ADTRAN MX2820 Multiplexer</example>
     <example>ADTRAN MX2800 DS3 Multiplexer</example>
@@ -431,7 +431,7 @@
     <param pos="0" name="os.family" value="MX"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="^ADTRAN (NetVanta\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^ADTRAN (NetVanta\S+)$">
     <description>ADTRAN Netvanta Router</description>
     <example>ADTRAN NetVanta8044</example>
     <example>ADTRAN NetVanta8044M</example>
@@ -449,7 +449,7 @@
     <param pos="0" name="os.family" value="NetVanta"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="^ADTRAN (TA\S+(?: \S+)?(?: \S+)?)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^ADTRAN (TA\S+(?: \S+)?(?: \S+)?)$">
     <description>ADTRAN TotalAccess</description>
     <example os.product="TA1448S-CE">ADTRAN TA1448S-CE</example>
     <example os.product="TA1124">Adtran TA1124</example>
@@ -505,7 +505,7 @@
     <param pos="0" name="os.family" value="Total Access"/>
     <param pos="0" name="os.product" value="DSLAM Shelf"/>
   </fingerprint>
-  <fingerprint pattern="^ADTRAN (T3SU-\S+).*$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^ADTRAN (T3SU-\S+).*$">
     <description>ADTRAN DSU/CSU</description>
     <example>ADTRAN T3SU-300 (1200.217L1)</example>
     <param pos="0" name="os.device" value="DSU/CSU"/>
@@ -876,7 +876,7 @@
   <!--======================================================================
                               AXIS
    =======================================================================-->
-  <fingerprint pattern="^AXIS (.*server).*(?:v|Version:\s*)([\d\.]+)" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^AXIS (.*server).*(?:v|Version:\s*)([\d\.]+)">
     <description>AXIS Network Print Server</description>
     <example os.product="5470e Network Print Server" os.version="6.21">AXIS 5470e Network Print Server V6.21 Dec  5 2000</example>
     <example os.product="70U Network Document Server" os.version="1.08">AXIS 70U Network Document Server,Version: 1.08</example>
@@ -1169,7 +1169,7 @@
     <param pos="1" name="os.product"/>
   </fingerprint>
   <!-- This is a catch-all for other Canon models that are less common -->
-  <fingerprint pattern="^Canon(?: Inc\.)? (?:Color )?(?:Large Format )?(?:LASER CLASS )?(?:LASER SHOT )?(\S+(?: [A-Z0-9]\S+)?)(?: Series)?(?: \([^\)]+\))?(?: /P)?(?: EEPROM \S+)?$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Canon(?: Inc\.)? (?:Color )?(?:Large Format )?(?:LASER CLASS )?(?:LASER SHOT )?(\S+(?: [A-Z0-9]\S+)?)(?: Series)?(?: \([^\)]+\))?(?: /P)?(?: EEPROM \S+)?$">
     <description>Canon printer</description>
     <example>Canon MF8170 /P</example>
     <example>Canon MF5900 Series /P</example>
@@ -1394,7 +1394,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:vpn_3000_concentrator:{os.version}"/>
   </fingerprint>
-  <fingerprint pattern="^(?:Cisco )?Network Analysis Module \(WS-[^\)]+\), Version ([^, ]+)[,\s]?.*$" flags="REG_DOT_NEWLINE">
+  <fingerprint pattern="^(?:Cisco )?Network Analysis Module \(WS-[^\)]+\), Version ([^, ]+)[,\s]?">
     <description>Cisco Catalyst Network Analysis Module</description>
     <example>Network Analysis Module (WS-SVC-NAM-1), Version 3.1(1)
 Copyright (c) 1999-2003 by cisco Systems, Inc.</example>
@@ -1420,11 +1420,31 @@ Copyright (c) 1999-2004 by cisco Systems, Inc.</example>
     <param pos="0" name="os.device" value="General"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
-  <fingerprint pattern="^Cisco (?:Internetwork Operating System|IOS) Software.*Version\s+([^,]+),?.*" flags="REG_DOT_NEWLINE">
+  <fingerprint pattern="^Cisco (?:Internetwork Operating System|IOS) Software,? (?:\r|\n|.)+Version\s+([^,]+),">
     <description>Cisco IOS</description>
-    <example>Cisco Internetwork Operating System Software ..IOS (tm) C1700 Software (C1700-Y-M), Version 12.2(4)YB, EARLY DEPLOYMENT RELEASE SOFTWARE (fc1)..Synched to technology version 12.2(6.8)T2..TAC Support: http://www.cisco.com/tac..Copyright (c) 1986-2002 by ci</example>
-    <example>Cisco Internetwork Operating System Software ..IOS (tm) C2600 Software (C2600-I-M), Version 12.0(3)T3,  RELEASE SOFTWARE (fc1)..Copyright (c) 1986-1999 by cisco Systems, Inc...Compiled Thu 15-Apr-99 15:41 by kpma</example>
-    <example>Cisco IOS Software, C1700 Software (C1700-ADVSECURITYK9-M), Version 12.3(11)YZ2, RELEASE SOFTWARE (fc2)..Technical Support: http://www.cisco.com/techsupport..Copyright (c) 1986-2007 by Cisco Systems, Inc...Compiled Wed 08-Aug-07 19:22 by dchih</example>
+    <!-- Cisco Internetwork Operating System Software \r\nIOS (tm) C1700 Software (C1700-Y-M), Version 12.2(4)YB, EARLY DEPLOYMENT RELEASE SOFTWARE (fc1)\r\nSynched to technology version 12.2(6.8)T2\r\nTAC Support: http://www.cisco.com/tac\r\nCopyright (c) 1986-2002 by ci -->
+    <example _encoding="base64">
+      Q2lzY28gSW50ZXJuZXR3b3JrIE9wZXJhdGluZyBTeXN0ZW0gU29mdHdhcmUgDQpJT1MgKHRtK
+      SBDMTcwMCBTb2Z0d2FyZSAoQzE3MDAtWS1NKSwgVmVyc2lvbiAxMi4yKDQpWUIsIEVBUkxZIE
+      RFUExPWU1FTlQgUkVMRUFTRSBTT0ZUV0FSRSAoZmMxKQ0KU3luY2hlZCB0byB0ZWNobm9sb2d
+      5IHZlcnNpb24gMTIuMig2LjgpVDINClRBQyBTdXBwb3J0OiBodHRwOi8vd3d3LmNpc2NvLmNv
+      bS90YWMNCkNvcHlyaWdodCAoYykgMTk4Ni0yMDAyIGJ5IGNpCg==
+    </example>
+    <!-- Cisco Internetwork Operating System Software \r\nIOS (tm) C2600 Software (C2600-I-M), Version 12.0(3)T3,  RELEASE SOFTWARE (fc1)\r\nCopyright (c) 1986-1999 by cisco Systems, Inc\r\n\nCompiled Thu 15-Apr-99 15:41 by kpma -->
+    <example _encoding="base64">
+      Q2lzY28gSW50ZXJuZXR3b3JrIE9wZXJhdGluZyBTeXN0ZW0gU29mdHdhcmUgDQpJT1MgKHRtK
+      SBDMjYwMCBTb2Z0d2FyZSAoQzI2MDAtSS1NKSwgVmVyc2lvbiAxMi4wKDMpVDMsICBSRUxFQV
+      NFIFNPRlRXQVJFIChmYzEpDQpDb3B5cmlnaHQgKGMpIDE5ODYtMTk5OSBieSBjaXNjbyBTeXN
+      0ZW1zLCBJbmMNCgpDb21waWxlZCBUaHUgMTUtQXByLTk5IDE1OjQxIGJ5IGtwbWEK
+    </example>
+    <!-- Cisco IOS Software, C1700 Software (C1700-ADVSECURITYK9-M), Version 12.3(11)YZ2, RELEASE SOFTWARE (fc2)\r\nTechnical Support: http://www.cisco.com/techsupport\r\nCopyright (c) 1986-2007 by Cisco Systems, Inc\r\nCompiled Wed 08-Aug-07 19:22 by dchih -->
+    <example _encoding="base64">
+      Q2lzY28gSU9TIFNvZnR3YXJlLCBDMTcwMCBTb2Z0d2FyZSAoQzE3MDAtQURWU0VDVVJJVFlLO
+      S1NKSwgVmVyc2lvbiAxMi4zKDExKVlaMiwgUkVMRUFTRSBTT0ZUV0FSRSAoZmMyKQ0KVGVjaG
+      5pY2FsIFN1cHBvcnQ6IGh0dHA6Ly93d3cuY2lzY28uY29tL3RlY2hzdXBwb3J0DQpDb3B5cml
+      naHQgKGMpIDE5ODYtMjAwNyBieSBDaXNjbyBTeXN0ZW1zLCBJbmMNCkNvbXBpbGVkIFdlZCAw
+      OC1BdWctMDcgMTk6MjIgYnkgZGNoaWgK
+    </example>
     <param pos="0" name="os.certainty" value="0.85"/>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.product" value="IOS"/>
@@ -1433,7 +1453,7 @@ Copyright (c) 1999-2004 by cisco Systems, Inc.</example>
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:{os.version}"/>
   </fingerprint>
-  <fingerprint pattern="^Cisco Systems, Inc\. \S+.Cisco Catalyst Operating System Software, Version (\S+).Copyright \(c\).*$" flags="REG_DOT_NEWLINE">
+  <fingerprint pattern="^Cisco Systems, Inc\. \S+[\r\n]+Cisco Catalyst Operating System Software, Version (\S+)[\r\n]+Copyright \(c\)">
     <description>Cisco Catalyst</description>
     <example>Cisco Systems, Inc. WS-C2948
 Cisco Catalyst Operating System Software, Version 6.3(5)
@@ -1463,7 +1483,7 @@ Copyright (c) 1995-2002 by Cisco Systems, Inc.
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:catos:{os.version}"/>
   </fingerprint>
-  <fingerprint pattern="^Cisco Systems \S+.Cisco Catalyst Operating System Software, Version (\S+).Copyright \(c\).*$" flags="REG_DOT_NEWLINE">
+  <fingerprint pattern="^Cisco Systems \S+[\r\n]+Cisco Catalyst Operating System Software, Version (\S+)[\r\n]+Copyright \(c\)">
     <description>Cisco Catalyst</description>
     <example>Cisco Systems WS-C6009
 Cisco Catalyst Operating System Software, Version 8.3(7)
@@ -2249,18 +2269,21 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="3" name="hw.product"/>
     <param pos="2" name="os.version.version"/>
   </fingerprint>
-  <fingerprint pattern="^H3C Comware Platform Software, Software Version ([\d\.]+) Release \d+.*H3C (\S+).*Copyright.*$" flags="REG_DOT_NEWLINE">
+  <fingerprint pattern="^H3C Comware Platform Software, Software Version ([\d\.]+) Release \d+[\r\n]+H3C (\S+)[\r\n]+Copyright">
     <description>H3C Comware, generic, pre-HP acquisition</description>
-    <example os.version="5.20" hw.product="S5500-28C-EI">H3C Comware Platform Software, Software Version 5.20 Release 2208
-       H3C S5500-28C-EI
-       Copyright (c) 2004-2010 Hangzhou H3C Tech. Co., Ltd. All rights reserved.</example>
+    <!-- H3C Comware Platform Software, Software Version 5.20 Release 2208\r\nH3C S5500-28C-EI\r\nCopyright (c) 2004-2010 Hangzhou H3C Tech. Co., Ltd. All rights reserved. -->
+    <example _encoding="base64">
+      SDNDIENvbXdhcmUgUGxhdGZvcm0gU29mdHdhcmUsIFNvZnR3YXJlIFZlcnNpb24gNS4yMCBSZ
+      WxlYXNlIDIyMDgNCkgzQyBTNTUwMC0yOEMtRUkNCkNvcHlyaWdodCAoYykgMjAwNC0yMDEwIE
+      hhbmd6aG91IEgzQyBUZWNoLiBDby4sIEx0ZC4gQWxsIHJpZ2h0cyByZXNlcnZlZC4K
+    </example>
     <param pos="0" name="os.vendor" value="H3C"/>
     <param pos="0" name="os.family" value="Comware"/>
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.product" value="Comware"/>
     <param pos="2" name="hw.product"/>
   </fingerprint>
-  <fingerprint pattern="^H3C Switch (\S+) Software Version ([\d\.]+), Release .*" flags="REG_DOT_NEWLINE">
+  <fingerprint pattern="^H3C Switch (\S+) Software Version ([\d\.]+), Release">
     <description>H3C Comware, switch, pre-HP acquisition</description>
     <example os.version="5.20" hw.product="S5120-28P-SI">H3C Switch S5120-28P-SI Software Version 5.20, Release 1101P10
        Copyright(c) 2004-2010 Hangzhou H3C Tech. Co., Ltd. All rights reserved.
@@ -5439,7 +5462,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               IBM Printers
    =======================================================================-->
-  <fingerprint pattern="^(?:IBM )?InfoPrint(?: Color)? (\S+)(?: MFP)? Version (\S+)" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^(?:IBM )?InfoPrint(?: Color)? (\S+)(?: MFP)? Version (\S+)">
     <description>IBM Infoprint Printer</description>
     <example>IBM Infoprint 1332 version 55.00.39 kernel 2.4.0-test6 All-N-1</example>
     <example>IBM Infoprint 1372 version 55.10.19 kernel 2.4.0-test6 All-N-1</example>
@@ -5511,7 +5534,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                                     SAVIN
    =======================================================================-->
-  <fingerprint pattern="^SAVIN (\S+)(?: / .*)?$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^SAVIN (\S+)(?: / .*)?$">
     <description>Savin Printer</description>
     <example>SAVIN 2400WD</example>
     <example>Savin 9965DP</example>
@@ -6462,7 +6485,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                                     Xyplex
    =======================================================================-->
-  <fingerprint pattern="^.*Xyplex hardware (\S+) .*Xyplex software Terminal Server V(\S+)\s*$" flags="REG_DOT_NEWLINE">
+  <fingerprint pattern="^.*Xyplex hardware (\S+) .*Xyplex software Terminal Server V(\S+)\s*$">
     <description>Xyplex Terminal Server</description>
     <example>- Netlink-Xyplex Xyplex hardware MX-1600 00.00.00 Rom 470000 Xyplex software Terminal Server V6.0S91 </example>
     <example>- WTF? Xyplex hardware CSERV-20 00.00.00 Rom 470000 Xyplex software Terminal Server V6.0.3 </example>
