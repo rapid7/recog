@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fingerprints matches="ssdp_header.server" protocol="ssdp" database_type="service" preference="0.70">
   <!-- UPnP Server headers are matched against these patterns to fingerprint UPnP servers. -->
-  <fingerprint pattern="^Linux/(\S+) UPnP/[\d\.]+ miniupnpd/([\d\.]+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Linux/(\S+) UPnP/[\d\.]+ miniupnpd/([\d\.]+)$">
     <description>Linux MiniUPnPd UPnP Server</description>
     <example>Linux/Cross_compiled UPnP/1.0 miniupnpd/1.0</example>
     <example>Linux/2.6.29.6-217.2.3.fc11.i686.PAE UPnP/1.0 miniupnpd/1.0</example>
@@ -20,7 +20,7 @@
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="^(RT-\w+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^(RT-\w+) UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>Asus WAP UPnP Server</description>
     <example>RT-G32 UPnP/1.0 MiniUPnPd/1.2</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -29,7 +29,7 @@
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="WAP"/>
   </fingerprint>
-  <fingerprint pattern="^DrayTek/Vigor(\S+) UPnP/\S+ miniupnpd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^DrayTek/Vigor(\S+) UPnP/\S+ miniupnpd/(\S+)$">
     <description>DrayTek Vigor router UPnP Server</description>
     <example>DrayTek/Vigor2130 UPnP/1.0 miniupnpd/1.0</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -39,7 +39,7 @@
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Router"/>
   </fingerprint>
-  <fingerprint pattern="^OpenWRT/kamikaze UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^OpenWRT/kamikaze UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>OpenWRT Kamikaze WAP UPnP Server</description>
     <example>OpenWRT/kamikaze UPnP/1.0 MiniUPnPd/1.5</example>
     <example>OpenWRT/kamikaze UPnP/1.0 MiniUPnPd/1.2</example>
@@ -51,7 +51,7 @@
     <param pos="0" name="os.product" value="Kamikaze"/>
     <param pos="0" name="os.device" value="WAP"/>
   </fingerprint>
-  <fingerprint pattern="^Netgear/\S+ UPnP/\S+ miniupnpd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Netgear/\S+ UPnP/\S+ miniupnpd/(\S+)$">
     <description>Netgear DG834G or WNDR3300 WAP UPnP Server</description>
     <example>Netgear/1.0 UPnP/1.0 miniupnpd/1.0</example>
     <example>Netgear/1.0 UPnP/1.0 miniupnpd/1.0</example>
@@ -74,7 +74,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
-  <fingerprint pattern="^Debian\/(\S+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Debian\/(\S+) UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on a Debian variant</description>
     <example os.version="wheezy/sid" service.version="1.8">Debian/wheezy/sid UPnP/1.1 MiniUPnPd/1.8</example>
     <example os.version="4.0" service.version="1.0">Debian/4.0 UPnP/1.0 miniupnpd/1.0</example>
@@ -86,7 +86,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:{os.version}"/>
   </fingerprint>
-  <fingerprint pattern="^Fedora(?:Core)?\/(\S+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Fedora(?:Core)?\/(\S+) UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on a Fedora variant</description>
     <example os.version="10" service.version="1.4">Fedora/10 UPnP/1.0 MiniUPnPd/1.4</example>
     <example os.version="8" service.version="1.0">Fedora/8 UPnP/1.0 miniupnpd/1.0</example>
@@ -99,7 +99,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:redhat:fedora_core:{os.version}"/>
   </fingerprint>
-  <fingerprint pattern="^Ubuntu\/([\d\.]+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Ubuntu\/([\d\.]+) UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu variant</description>
     <example os.version="10.04" service.version="1.0">Ubuntu/10.04 UPnP/1.0 miniupnpd/1.0</example>
     <example os.version="10.10" service.version="1.0">Ubuntu/10.10 UPnP/1.0 miniupnpd/1.0</example>
@@ -112,7 +112,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
   </fingerprint>
-  <fingerprint pattern="^Ubuntu\/bionic UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Ubuntu\/bionic UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu bionic/18.04</description>
     <example os.version="18.04" service.version="1.4">Ubuntu/bionic UPnP/1.0 MiniUPnPd/1.4</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -122,7 +122,7 @@
     <param pos="0" name="os.version" value="18.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:18.04"/>
   </fingerprint>
-  <fingerprint pattern="^Ubuntu\/yakkety UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Ubuntu\/yakkety UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu yakkety/16.10</description>
     <example os.version="16.10" service.version="1.4">Ubuntu/yakkety UPnP/1.0 MiniUPnPd/1.4</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -132,7 +132,7 @@
     <param pos="0" name="os.version" value="16.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:16.10"/>
   </fingerprint>
-  <fingerprint pattern="^Ubuntu\/xenial UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Ubuntu\/xenial UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu xenial/16.04</description>
     <example os.version="16.04" service.version="1.4">Ubuntu/xenial UPnP/1.0 MiniUPnPd/1.4</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -142,7 +142,7 @@
     <param pos="0" name="os.version" value="16.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:16.04"/>
   </fingerprint>
-  <fingerprint pattern="^Ubuntu\/utopic UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Ubuntu\/utopic UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu utopic/14.10</description>
     <example os.version="14.10" service.version="1.4">Ubuntu/utopic UPnP/1.0 MiniUPnPd/1.4</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -152,7 +152,7 @@
     <param pos="0" name="os.version" value="14.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:14.10"/>
   </fingerprint>
-  <fingerprint pattern="^Ubuntu\/trusty UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Ubuntu\/trusty UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu trusty/14.04</description>
     <example os.version="14.04" service.version="1.4">Ubuntu/trusty UPnP/1.0 MiniUPnPd/1.4</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -162,7 +162,7 @@
     <param pos="0" name="os.version" value="14.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:14.04"/>
   </fingerprint>
-  <fingerprint pattern="^Ubuntu\/saucy UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Ubuntu\/saucy UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu saucy/13.10</description>
     <example os.version="13.10" service.version="1.4">Ubuntu/saucy UPnP/1.0 MiniUPnPd/1.4</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -172,7 +172,7 @@
     <param pos="0" name="os.version" value="13.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:13.10"/>
   </fingerprint>
-  <fingerprint pattern="^Ubuntu\/raring UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Ubuntu\/raring UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu raring/13.04</description>
     <example os.version="13.04" service.version="1.4">Ubuntu/raring UPnP/1.0 MiniUPnPd/1.4</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -182,7 +182,7 @@
     <param pos="0" name="os.version" value="13.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:13.04"/>
   </fingerprint>
-  <fingerprint pattern="^Ubuntu\/quantal UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Ubuntu\/quantal UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu quantal/12.10</description>
     <example os.version="12.10" service.version="1.4">Ubuntu/quantal UPnP/1.0 MiniUPnPd/1.4</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -192,7 +192,7 @@
     <param pos="0" name="os.version" value="12.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:12.10"/>
   </fingerprint>
-  <fingerprint pattern="^Ubuntu\/precise UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Ubuntu\/precise UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu precise/12.04</description>
     <example os.version="12.04" service.version="1.4">Ubuntu/precise UPnP/1.0 MiniUPnPd/1.4</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -202,7 +202,7 @@
     <param pos="0" name="os.version" value="12.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:12.04"/>
   </fingerprint>
-  <fingerprint pattern="^Ubuntu\/oneiric UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Ubuntu\/oneiric UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu oneiric/11.10</description>
     <example os.version="11.10" service.version="1.4">Ubuntu/oneiric UPnP/1.0 MiniUPnPd/1.4</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -212,7 +212,7 @@
     <param pos="0" name="os.version" value="11.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:11.10"/>
   </fingerprint>
-  <fingerprint pattern="^Ubuntu\/natty UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Ubuntu\/natty UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu natty/11.04</description>
     <example os.version="11.04" service.version="1.4">Ubuntu/natty UPnP/1.0 MiniUPnPd/1.4</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -222,7 +222,7 @@
     <param pos="0" name="os.version" value="11.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:11.04"/>
   </fingerprint>
-  <fingerprint pattern="^Ubuntu\/maverick UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Ubuntu\/maverick UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu maverick/10.10</description>
     <example os.version="10.10" service.version="1.4">Ubuntu/maverick UPnP/1.0 MiniUPnPd/1.4</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -232,7 +232,7 @@
     <param pos="0" name="os.version" value="10.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:10.10"/>
   </fingerprint>
-  <fingerprint pattern="^Ubuntu\/lucid UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Ubuntu\/lucid UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu lucid/10.04</description>
     <example os.version="10.04" service.version="1.4">Ubuntu/lucid UPnP/1.0 MiniUPnPd/1.4</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -242,7 +242,7 @@
     <param pos="0" name="os.version" value="10.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:10.04"/>
   </fingerprint>
-  <fingerprint pattern="^Ubuntu\/karmic UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Ubuntu\/karmic UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu karmic/9.10</description>
     <example os.version="9.10" service.version="1.4">Ubuntu/karmic UPnP/1.0 MiniUPnPd/1.4</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -252,7 +252,7 @@
     <param pos="0" name="os.version" value="9.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:9.10"/>
   </fingerprint>
-  <fingerprint pattern="^Ubuntu\/jaunty UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Ubuntu\/jaunty UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu jaunty/9.04</description>
     <example os.version="9.04" service.version="1.4">Ubuntu/jaunty UPnP/1.0 MiniUPnPd/1.4</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -262,7 +262,7 @@
     <param pos="0" name="os.version" value="9.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:9.04"/>
   </fingerprint>
-  <fingerprint pattern="^Ubuntu\/hardy UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Ubuntu\/hardy UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu hardy/8.04</description>
     <example os.version="8.04" service.version="1.4">Ubuntu/hardy UPnP/1.0 MiniUPnPd/1.4</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -272,7 +272,7 @@
     <param pos="0" name="os.version" value="8.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:8.04"/>
   </fingerprint>
-  <fingerprint pattern="^Linux Mips (\S+) UPnP/\S+ MiniUPnPd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^Linux Mips (\S+) UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>Linux MIPS UPnP Server</description>
     <example>Linux Mips 2.4.20 UPnP/1.0 MiniUPnPd/1.2</example>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -282,7 +282,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
-  <fingerprint pattern="^SmoothWall Express/\S+ UPnP/\S+ miniupnpd/(\S+)$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^SmoothWall Express/\S+ UPnP/\S+ miniupnpd/(\S+)$">
     <description>Smoothwall Express UPnP Server</description>
     <example>SmoothWall Express/3.0 UPnP/1.0 miniupnpd/1.0</example>
     <param pos="0" name="service.vendor" value="Smoothwall"/>
