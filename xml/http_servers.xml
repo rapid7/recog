@@ -1031,14 +1031,23 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:mortbay:jetty:{service.version}"/>
   </fingerprint>
-  <fingerprint pattern="^[Ss]quid/(\d+\.[\w.]+)$">
-    <description>Squid Web </description>
+  <fingerprint pattern="^(?i)squid/(\d+\.[\w.]+)$">
+    <description>Squid Web Proxy with a version</description>
     <example>Squid/2.3.STABLE1</example>
     <example>squid/2.5.12.cc1.29</example>
     <example>squid/2.6.STABLE13</example>
+    <param pos="0" name="service.vendor" value="Squid Cache"/>
     <param pos="0" name="service.product" value="Squid"/>
     <param pos="0" name="service.family" value="Squid"/>
     <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(?i)squid$">
+    <description>Squid Web Proxy without a version</description>
+    <example>Squid</example>
+    <example>squid</example>
+    <param pos="0" name="service.vendor" value="Squid Cache"/>
+    <param pos="0" name="service.product" value="Squid"/>
+    <param pos="0" name="service.family" value="Squid"/>
   </fingerprint>
   <fingerprint pattern="^thttpd/(\d\.[\w.]+)-MX\s*.*$">
     <description>thttpd with SSL support</description>
