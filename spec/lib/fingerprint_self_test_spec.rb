@@ -33,6 +33,11 @@ describe Recog::DB do
 
         context "#{fp.name}" do
           param_names = []
+          it "has consistent os.device and hw.device" do
+            if fp.params['os.device'] && fp.params['hw.device'] && (fp.params['os.device'] != fp.params['hw.device'])
+              fail "#{fp.name} has both hw.device and os.device but with differing values"
+            end
+          end
           fp.params.each do |param_name, pos_value|
             pos, value = pos_value
             it "has valid looking fingerprint parameter names" do
