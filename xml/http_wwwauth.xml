@@ -73,6 +73,14 @@
     <param pos="0" name="os.product" value="Unknown"/>
     <param pos="0" name="os.device" value="Power device"/>
   </fingerprint>
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;ADSL\S* (?:Modem|Router|Modem/Router)&quot;.*$">
+    <description>Generic ADSL modems/routers</description>
+    <example>Basic realm=&quot;ADSL Modem&quot;</example>
+    <example>Basic realm=&quot;ADSL Modem/Router&quot;</example>
+    <example>Basic realm=&quot;ADSL Router&quot;</example>
+    <example>Basic realm=&quot;ADSL2+ Router&quot;</example>
+    <param pos="0" name="hw.device" value="ADSL Modem"/>
+  </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;DVR&quot;.*$">
     <description>Generic DVR</description>
     <example>Basic realm=&quot;DVR&quot;</example>
