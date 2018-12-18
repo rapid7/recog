@@ -250,6 +250,11 @@
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;SERCOMM CPE Authentication&quot;.*$">
+    <description>Assorted Sercomm CPE devices</description>
+    <example>Digest realm="SERCOMM CPE Authentication"</example>
+    <param pos="0" name="hw.vendor" value="Sercomm"/>
+  </fingerprint>
   <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;UBEE&quot;.*$">
     <description>Ubee Cable Modems</description>
     <example>Digest qop=&quot;auth&quot;, realm=&quot;Ubee&quot;, nonce=&quot;1544738973&quot;</example>
