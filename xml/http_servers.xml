@@ -754,6 +754,13 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^(?:(?:Cube|(?:Mini )?Dome|Day/Night|PAN/?Tilt|POE|IR|HD|H.264|Surveillance|With|Wired|Wireless(?: N)?|Network|Internet|(?:IP(?:[\s_-])?)?Cameras?[\s_]*\d*) ?){1,5}?(?: Login)?$">
+    <description>Generic IP Cameras</description>
+    <example>camera</example>
+    <example>IPCamera Login</example>
+    <example>Mini Dome IP Camera</example>
+    <param pos="0" name="hw.device" value="Camera"/>
+  </fingerprint>
   <fingerprint pattern="^ASP.NET$">
     <description>Something written in ASP.NET</description>
     <example>ASP.NET</example>
@@ -2094,6 +2101,7 @@
     <param pos="0" name="hw.vendor" value="ARRIS"/>
     <param pos="0" name="hw.device" value="Cable Modem"/>
   </fingerprint>
+
   <!-- junit says,
      "Example pattern '' from http_servers.xml didn't match pattern '^$'"
      Figure out if we have a way to support matching empty strings later.
