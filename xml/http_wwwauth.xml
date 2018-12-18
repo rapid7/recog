@@ -54,6 +54,10 @@
     <param pos="0" name="os.version" value="12"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:12"/>
   </fingerprint>
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;Cisco_CCSP_CWMP_TCPCR&quot;.*$">
+    <description>Generic Cisco CWMP/CPE equipment</description>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+  </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=.FW-1.      Reason: no user      Server .$">
     <description>Check Point FireWall-1</description>
     <param pos="0" name="service.vendor" value="Check Point"/>
