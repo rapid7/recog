@@ -2123,7 +2123,12 @@
     <param pos="0" name="hw.vendor" value="ARRIS"/>
     <param pos="0" name="hw.device" value="Cable Modem"/>
   </fingerprint>
-
+  <fingerprint pattern="^2wire Gateway$">
+    <description>Web server found on some Arris/2wire devices</description>
+    <example>2wire Gateway</example>
+    <param pos="0" name="service.vendor" value="ARRIS"/>
+    <param pos="0" name="service.product" value="2wire"/>
+  </fingerprint>
   <!-- junit says,
      "Example pattern '' from http_servers.xml didn't match pattern '^$'"
      Figure out if we have a way to support matching empty strings later.
