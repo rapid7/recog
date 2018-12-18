@@ -1520,6 +1520,13 @@
     <param pos="0" name="hw.product" value="Adaptive Security Appliance"/>
     <param pos="0" name="hw.device" value="Firewall"/>
   </fingerprint>
+  <fingerprint pattern="^CradlepointHTTPService/([\d\.]+)$">
+    <description>Cradlepoint HTTP service</description>
+    <example service.version="1.0.0">CradlepointHTTPService/1.0.0</example>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="Cradlepoint"/>
+    <param pos="0" name="service.product" value="HTTP"/>
+  </fingerprint>
   <fingerprint pattern="^DesktopAuthority/(.*)$">
     <description>ScriptLogic DesktopAuthority</description>
     <param pos="1" name="service.version"/>
