@@ -252,7 +252,7 @@
     <param pos="0" name="os.device" value="WAP"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;TP-LINK.*Router.*&quot;.*$">
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;TP-LINK (.*Router.*)&quot;.*$">
     <description>TP-LINK Routers</description>
     <example>Basic realm=&quot;TP-LINK Wireless N Router WR841N&quot;</example>
     <example>Basic realm=&quot;TP-LINK Gigabit Broadband VPN Router R600VPN&quot;</example>
@@ -266,7 +266,6 @@
     <example>Basic realm=&quot;TP-LINK IP-Camera&quot;</example>
     <param pos="0" name="hw.vendor" value="TP-Link"/>
     <param pos="0" name="hw.device" value="Camera"/>
-    <param pos="1" name="hw.product"/>
   </fingerprint>
   <fingerprint pattern="(?i)^(?:Basic|Digest) .*realm=&quot;Broadcom Management Service&quot;.*$">
     <description>Supposedly part of Broadcom Advanced Control Suite 3 (BACS3) or something similar</description>
@@ -359,6 +358,7 @@
     <param pos="0" name="hw.vendor" value="ZTE"/>
     <param pos="0" name="hw.device" value="Router"/>
     <param pos="0" name="hw.family" value="ZXHN"/>
+    <param pos="1" name="hw.product"/>
   </fingerprint>
   <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;(ZXV\S* \S+)&quot;.*$">
     <description>ZTE ZXV router</description>
