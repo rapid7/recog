@@ -72,6 +72,18 @@
     <param pos="0" name="hw.product" value="Border GW"/>
     <param pos="1" name="hw.version"/>
   </fingerprint>
+  <fingerprint pattern="^?PolycomSoundPointIP-SPIP_(\d+)-UA/([\d\.]+)(?:_(.{12}))?$">
+    <description>Polycom Soundpoint VOIP Phones</description>
+    <example hw.version="4.0.7.2514" hw.product="SoundPoint 670">PolycomSoundPointIP-SPIP_670-UA/4.0.7.2514</example>
+    <example hw.version="4.0.7.4180" hw.product="SoundPoint 670" host.mac="010203040506">PolycomSoundPointIP-SPIP_670-UA/4.0.7.4180_010203040506</example>
+    <param pos="0" name="hw.vendor" value="Polycom"/>
+    <param pos="0" name="hw.device" value="VOIP"/>
+    <param pos="0" name="hw.family" value="SoundPoint"/>
+    <param pos="0" name="hw.product" value="SoundPoint {hw.model}"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="2" name="hw.version"/>
+    <param pos="3" name="host.mac"/>
+  </fingerprint>
   <fingerprint pattern="^(?:Polycom/[\d\.]+ )?PolycomVVX-VVX_(\d+)-UA/([\d\.]+)(?:_(.{12}))?$">
     <description>Polycom VVX VOIP Phones</description>
     <example hw.version="5.8.0.13337" hw.product="VVX 350">PolycomVVX-VVX_350-UA/5.8.0.13337</example>
