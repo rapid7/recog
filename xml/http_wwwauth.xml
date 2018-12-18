@@ -99,6 +99,12 @@
     <param pos="0" name="hw.device" value="Camera"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;GoAhead&quot;.*$">
+    <description>GoAhead webserver</description>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="GoAhead Webserver"/>
+    <param pos="0" name="service.family" value="GoAhead Webserver"/>
+  </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;kubernetes-master&quot;.*$">
     <description>Kuberentes master nodes</description>
     <example>Basic realm=&quot;kubernetes-master&quot;</example>
