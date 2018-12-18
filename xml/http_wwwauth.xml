@@ -73,6 +73,14 @@
     <param pos="0" name="os.product" value="Unknown"/>
     <param pos="0" name="os.device" value="Power device"/>
   </fingerprint>
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;(DCS-[^&quot;]+)&quot;.*$">
+    <description>D-Link DCS IP Cameras</description>
+    <example hw.product="DCS-5222LB1">Basic realm=&quot;DCS-5222LB1&quot;</example>
+    <example hw.product="DCS-2530L">Basic realm=&quot;DCS-2530L&quot;</example>
+    <param pos="0" name="hw.vendor" value="D-Link"/>
+    <param pos="0" name="hw.device" value="Camera"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=.SpeedTouch \(([0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2})\).$">
     <description>Thomson SpeedTouch xDSL routers</description>
     <param pos="0" name="service.vendor" value="Thomson"/>
