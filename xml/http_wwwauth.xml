@@ -226,6 +226,12 @@
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;UBEE&quot;.*$">
+    <description>Ubee Cable Modems</description>
+    <example>Digest qop=&quot;auth&quot;, realm=&quot;Ubee&quot;, nonce=&quot;1544738973&quot;</example>
+    <param pos="0" name="hw.vendor" value="Ubee"/>
+    <param pos="0" name="hw.device" value="Broadband router"/>
+  </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;XDB&quot;$">
     <description>Web server providing web services for Oracle's XML DB.</description>
     <example>Basic realm="XDB"</example>
