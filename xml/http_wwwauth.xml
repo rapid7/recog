@@ -114,6 +114,13 @@
     <param pos="1" name="os.product"/>
     <param pos="2" name="host.mac"/>
   </fingerprint>
+  <fingerprint pattern="^(?:Basic|Digest).*realm=&quot;Thomson(?: Gateway)?&quot;.*$">
+    <description>Thomson generic devices</description>
+    <example>Digest realm=&quot;Thomson Gateway&quot;</example>
+    <example>Basic realm=&quot;Thomson&quot;</example>
+    <param pos="0" name="hw.vendor" value="Thomson"/>
+    <param pos="0" name="hw.device" value="Broadband router"/>
+  </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=.(?:SmartAX )?(MT\d+[^ ]*)(?: ADSL Router)?.$">
     <description>Huawei xDSL routers</description>
     <param pos="0" name="service.vendor" value="Huawei"/>
