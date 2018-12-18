@@ -164,6 +164,15 @@
     <param pos="0" name="os.device" value="WAP"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;TP-LINK.*Router.*&quot;.*$">
+    <description>TP-LINK Routers</description>
+    <example>Basic realm=&quot;TP-LINK Wireless N Router WR841N&quot;</example>
+    <example>Basic realm=&quot;TP-LINK Gigabit Broadband VPN Router R600VPN&quot;</example>
+    <example>Basic realm=&quot;TP-LINK Wireless Lite N Router WR740N/WR741ND&quot;</example>
+    <param pos="0" name="hw.vendor" value="TP-Link"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
   <fingerprint pattern="(?i)^(?:Basic|Digest) .*realm=&quot;Broadcom Management Service&quot;.*$">
     <description>Supposedly part of Broadcom Advanced Control Suite 3 (BACS3) or something similar</description>
     <example>Digest qop="auth", realm="Broadcom Management Service", nonce="AAAAAAAAAAAAAP//DwHpMwYy1zc=", algorithm="MD5"</example>
@@ -218,15 +227,6 @@
     <param pos="0" name="os.family" value="ProCurve"/>
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
-  </fingerprint>
-  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;TP-LINK.*Router.*&quot;.*$">
-    <description>TP-LINK Routers</description>
-    <example>Basic realm=&quot;TP-LINK Wireless N Router WR841N&quot;</example>
-    <example>Basic realm=&quot;TP-LINK Gigabit Broadband VPN Router R600VPN&quot;</example>
-    <example>Basic realm=&quot;TP-LINK Wireless Lite N Router WR740N/WR741ND&quot;</example>
-    <param pos="0" name="hw.vendor" value="TP-Link"/>
-    <param pos="0" name="hw.device" value="Router"/>
-    <param pos="1" name="hw.product"/>
   </fingerprint>
   <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;UBEE&quot;.*$">
     <description>Ubee Cable Modems</description>
