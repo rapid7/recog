@@ -303,6 +303,14 @@
     <param pos="0" name="service.component.family" value="Coyote"/>
     <param pos="1" name="service.component.version"/>
   </fingerprint>
+  <fingerprint pattern="^Apache Tomcat$">
+    <description>HTTP connector for Apache Tomcat with no version</description>
+    <example>Apache Tomcat</example>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="Tomcat"/>
+    <param pos="0" name="service.family" value="Tomcat"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:apache:tomcat:-"/>
+  </fingerprint>
   <fingerprint pattern="^Servlet [\d\.]+; JBoss-(\S+) \(build: .*\)/Tomcat-(\S+)$">
     <description>JBoss with embedded tomcat</description>
     <example service.version="4.0.4.GA" service.component.version="5.5">Servlet 2.4; JBoss-4.0.4.GA (build: CVSTag=JBoss_4_0_4_GA date=200605151000)/Tomcat-5.5</example>
