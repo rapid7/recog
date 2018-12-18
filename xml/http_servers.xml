@@ -65,6 +65,13 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:{service.version}"/>
     <param pos="2" name="apache.info"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^CouchDB/([\.\d]+) .*$">
+    <description>Apache CouchDB</description>
+    <example service.version="2.1.1">CouchDB/2.1.1 (Erlang OTP/20)</example>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="CouchDB"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
   <fingerprint pattern="^support@arraynetworks.net$">
     <description>Array Networks device</description>
     <example>support@arraynetworks.net</example>
