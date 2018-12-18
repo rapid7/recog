@@ -273,6 +273,13 @@
     <example>Digest realm=&quot;cpe@zte.com&quot;</example>
     <param pos="0" name="hw.vendor" value="ZTE"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;ZXHN (\S+)&quot;.*$">
+    <description>ZTE ZXHN router</description>
+    <example>Basic realm=&quot;ZXHN H108L&quot;</example>
+    <param pos="0" name="hw.vendor" value="ZTE"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.family" value="ZXHN"/>
+  </fingerprint>
   <!-- a variety of headers we currently just ignore -->
   <fingerprint pattern="(?i)^NTLM$">
     <description>Ignore NTLM-only</description>
