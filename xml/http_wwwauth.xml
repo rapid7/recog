@@ -299,6 +299,13 @@
     <example>Digest realm="SERCOMM CPE Authentication"</example>
     <param pos="0" name="hw.vendor" value="Sercomm"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;TiVo DVR&quot;.*$">
+    <description>Tivo DVR</description>
+    <example>Digest realm=&quot;TiVo DVR&quot;</example>
+    <param pos="0" name="hw.vendor" value="Tivo"/>
+    <param pos="0" name="hw.family" value="DVR"/>
+    <param pos="0" name="hw.device" value="DVR"/>
+  </fingerprint>
   <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;UBEE&quot;.*$">
     <description>Ubee Cable Modems</description>
     <example>Digest qop=&quot;auth&quot;, realm=&quot;Ubee&quot;, nonce=&quot;1544738973&quot;</example>
