@@ -70,6 +70,12 @@
     <param pos="0" name="os.family" value="Firewall-1"/>
     <param pos="0" name="os.product" value="Firewall-1"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;cpanel&quot;.*">
+    <description>cPanel</description>
+    <example>Basic realm=&quot;cPanel&quot;</example>
+    <param pos="0" name="service.vendor" value="cPanel"/>
+    <param pos="0" name="service.product" value="cPanel"/>
+  </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=.APC Management Card.$">
     <description>APC device</description>
     <param pos="0" name="service.vendor" value="APC"/>
