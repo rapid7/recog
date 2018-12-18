@@ -105,9 +105,11 @@
     <example>Basic realm=&quot;Wireless Access Point&quot;</example>
     <param pos="0" name="hw.device" value="WAP"/>
   </fingerprint>
-  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;IPCamera(?: Login)?&quot;.*$">
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;(?:(?:Cube|(?:Mini )?Dome|Day/Night|PAN/Tilt|POE|IR|HD|H.264|Surveillance|Wired|Wireless(?: N)?|Network|Internet|(?:IP(?:[\s_-])?)?Cameras?[\s_]*\d*) ?){1,4}?(?: Login)?&quot;.*$">
     <description>Generic IP Cameras</description>
+    <example>Basic realm=&quot;camera&quot;</example>
     <example>Basic realm=&quot;IPCamera Login&quot;</example>
+    <example>Basic realm=&quot;Mini Dome IP Camera&quot;</example>
     <param pos="0" name="hw.device" value="Camera"/>
   </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;(DCS-[^&quot;]+)&quot;.*$">
