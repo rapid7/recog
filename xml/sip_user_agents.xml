@@ -72,4 +72,17 @@
     <param pos="0" name="hw.product" value="Border GW"/>
     <param pos="1" name="hw.version"/>
   </fingerprint>
+  <fingerprint pattern="^(?:Polycom/[\d\.]+ )?PolycomVVX-VVX_(\d+)-UA/([\d\.]+)(?:_(.{12}))?$">
+    <description>Polycom VVX VOIP Phones</description>
+    <example hw.version="5.8.0.13337" hw.product="VVX 350">PolycomVVX-VVX_350-UA/5.8.0.13337</example>
+    <example hw.version="4.1.4.7430" hw.product="VVX 400" host.mac="010203040506">PolycomVVX-VVX_400-UA/4.1.4.7430_010203040506</example>
+    <example hw.version="5.5.0.23866" hw.product="VVX 501">Polycom/5.5.0.23866 PolycomVVX-VVX_501-UA/5.5.0.23866</example>
+    <param pos="0" name="hw.vendor" value="Polycom"/>
+    <param pos="0" name="hw.device" value="VOIP"/>
+    <param pos="0" name="hw.family" value="VVX"/>
+    <param pos="0" name="hw.product" value="VVX {hw.model}"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="2" name="hw.version"/>
+    <param pos="3" name="host.mac"/>
+  </fingerprint>
 </fingerprints>
