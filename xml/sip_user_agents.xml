@@ -55,4 +55,21 @@
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
+  <fingerprint pattern="^Mitel-(\S+)-SIP-Phone ([\d\.]+) (.{12})$">
+    <description>Mitel SIP Phones</description>
+    <example hw.product="5320" hw.version="06.05.00.11" host.mac="010203040506">Mitel-5320-SIP-Phone 06.05.00.11 010203040506</example>
+    <param pos="0" name="hw.vendor" value="Mitel"/>
+    <param pos="0" name="hw.device" value="VOIP"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="hw.version"/>
+    <param pos="3" name="host.mac"/>
+  </fingerprint>
+  <fingerprint pattern="^Mitel Border GW/(\S+)$">
+    <description>Mitel SIP Gateway</description>
+    <example hw.version="4.0.0.9">Mitel Border GW/4.0.0.9</example>
+    <param pos="0" name="hw.vendor" value="Mitel"/>
+    <param pos="0" name="hw.device" value="VOIP"/>
+    <param pos="0" name="hw.product" value="Border GW"/>
+    <param pos="1" name="hw.version"/>
+  </fingerprint>
 </fingerprints>
