@@ -318,6 +318,14 @@
     <param pos="0" name="hw.device" value="Router"/>
     <param pos="0" name="hw.family" value="ZXHN"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;(ZXV\S* \S+)&quot;.*$">
+    <description>ZTE ZXV router</description>
+    <example hw.product="ZXV10 W300">Basic realm=&quot;ZXV10 W300&quot;</example>
+    <param pos="0" name="hw.vendor" value="ZTE"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.family" value="ZXV"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
   <!-- a variety of headers we currently just ignore -->
   <fingerprint pattern="(?i)^NTLM$">
     <description>Ignore NTLM-only</description>
