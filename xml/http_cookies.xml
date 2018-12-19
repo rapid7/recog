@@ -105,13 +105,14 @@
     <param pos="0" name="service.family" value="Content Service Switch"/>
     <param pos="0" name="service.product" value="11000 Series Content Service Switch"/>
   </fingerprint>
-  <fingerprint pattern="^webvpn(?:c|_portal|Lang|login|SharePoint)?=">
+  <fingerprint pattern="^webvpn(?:c|context|_portal|Lang|login|SharePoint)?=">
     <description>Cisco ASA VPN</description>
     <example>webvpn=; expires=Thu, 01 Jan 1970 22:00:00 GMT; path=/; secure</example>
     <example>webvpnc=; expires=Thu, 01 Jan 1970 22:00:00 GMT; path=/; secure</example>
     <example>webvpn_portal=; expires=Thu, 01 Jan 1970 22:00:00 GMT; path=/; secure</example>
     <example>webvpnSharePoint=; expires=Thu, 01 Jan 1970 22:00:00 GMT; path=/; secure</example>
     <example>webvpnlogin=1; path=/; secure</example>
+    <example>webvpncontext=00@sslvpn</example>
     <param pos="0" name="service.vendor" value="Cisco"/>
     <param pos="0" name="service.product" value="HTTP"/>
     <param pos="0" name="os.vendor" value="Cisco"/>
@@ -131,6 +132,14 @@
     <param pos="0" name="service.vendor" value="Citrix"/>
     <param pos="0" name="service.family" value="Application Protection System"/>
     <param pos="0" name="service.product" value="Application Protection System, Enterprise"/>
+  </fingerprint>
+  <fingerprint pattern="^NSC_(?:AAAC|CERT|DLGE|EPAC|TASS|TEMP|TMA[APS])=.*">
+    <description>Citrix NetScaler</description>
+    <example>NSC_AAAC=xyz;</example>
+    <param pos="0" name="os.vendor" value="Citrix"/>
+    <param pos="0" name="os.family" value="NetScaler"/>
+    <param pos="0" name="os.device" value="NetScaler"/>
+    <param pos="0" name="os.product" value="NetScaler"/>
   </fingerprint>
   <fingerprint pattern="^(EktGUID|ecm)=.*">
     <description>Ektron CMS400.net
