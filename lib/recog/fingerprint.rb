@@ -3,6 +3,8 @@ module Recog
 # A fingerprint that can be {#match matched} against a particular kind of
 # fingerprintable data, e.g. an HTTP `Server` header
 class Fingerprint
+  require 'set'
+
   require 'recog/fingerprint/regexp_factory'
   require 'recog/fingerprint/test'
 
@@ -73,11 +75,17 @@ class Fingerprint
     return if match_data.nil?
 
     result = { 'matched' => @name }
+    replacements = {}
     @params.each_pair do |k,v|
       pos = v[0]
       if pos == 0
         # A match offset of 0 means this param has a hardcoded value
         result[k] = v[1]
+        # if this value uses interpolation, note it for handling later
+        v[1].scan(/\{([^\s{}]+)\}/).flatten.each do |replacement|
+          replacements[k] ||= Set[]
+          replacements[k] << replacement
+        end
       else
         # A match offset other than 0 means the value should come from
         # the corresponding match result index
@@ -94,6 +102,30 @@ class Fingerprint
     end
 
     result['fingerprint_db'] = @match_key if @match_key
+
+    # for everything identified as using interpolation, do so
+    replacements.each_pair do |replacement_k, replacement_vs|
+      replacement_vs.each do |replacement|
+        if result[replacement]
+          result[replacement_k] = result[replacement_k].gsub(/\{#{replacement}\}/, result[replacement])
+        else
+          # if the value uses an interpolated value that does not exist, in general this could be
+          # very bad, but over time we have allowed the use of regexes with
+          # optional captures that are then used for parts of the asserted
+          # fingerprints.  This is frequently done for optional version
+          # strings.  If the key in question is cpe23 and the interpolated
+          # value we are trying to replace is version related, use the CPE
+          # standard of '-' for the version, otherwise raise and exception as
+          # this code currently does not handle interpolation of undefined
+          # values in other cases.
+          if replacement_k =~ /\.cpe23$/ and replacement =~ /\.version$/
+            result[replacement_k] = result[replacement_k].gsub(/\{#{replacement}\}/, '-')
+          else
+            raise "Invalid use of nil interpolated non-version value #{replacement} in non-cpe23 fingerprint param #{replacement_k}"
+          end
+        end
+      end
+    end
 
     return result
   end

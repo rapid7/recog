@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-During X11 connection setup as specified in the X11 protocol 
-(page 111 https://www.x.org/archive/X11R7.5/doc/x11proto/proto.pdf) a 
-success message is sent when a clients request to connect is successful. 
-This success response contains a vendor field which can be used to 
-fingerprint systems with the following fingerprints.
--->
 <fingerprints matches="x11.vendor" protocol="x11">
+  <!--
+  During X11 connection setup as specified in the X11 protocol
+  (page 111 https://www.x.org/archive/X11R7.5/doc/x11proto/proto.pdf) a
+  success message is sent when a clients request to connect is successful.
+  This success response contains a vendor field which can be used to
+  fingerprint systems with the following fingerprints.
+  -->
   <fingerprint pattern="^AT&amp;T Laboratories Cambridge$">
     <description>AT&amp;T Laboratories Cambridge</description>
     <example>AT&amp;T Laboratories Cambridge</example>
@@ -19,8 +19,10 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="os.vendor" value="CentOS"/>
     <param pos="0" name="service.vendor" value="X.Org"/>
     <param pos="0" name="service.product" value="X.Org X11"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:x.org:x11:-"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:centos:centos:-"/>
   </fingerprint>
   <fingerprint pattern="^Colin Harrison$">
     <description>Colin Harrison</description>
@@ -30,6 +32,7 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="service.product" value="Xming"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^DECWINDOWS DigitalEquipmentCorporation, eXcursion$">
     <description>DECWINDOWS DigitalEquipmentCorporation, eXcursion</description>
@@ -39,6 +42,7 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="service.product" value="DEC eXcursion X server"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^DECWINDOWS Hewlett-Packard Development Company OpenVMS$">
     <description>DECWINDOWS Hewlett-Packard Development Company OpenVMS</description>
@@ -55,8 +59,10 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="os.vendor" value="Red Hat"/>
     <param pos="0" name="service.vendor" value="X.Org"/>
     <param pos="0" name="service.product" value="X.Org X11"/>
-    <param pos="0" name="os.product" value="Fedora Core"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:x.org:x11:-"/>
+    <param pos="0" name="os.product" value="Fedora Core Linux"/>
     <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:redhat:fedora_core:-"/>
   </fingerprint>
   <fingerprint pattern="^freedesktop\.org$">
     <description>freedesktop.org</description>
@@ -64,8 +70,10 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="os.vendor" value="Linux"/>
     <param pos="0" name="service.vendor" value="X.Org"/>
     <param pos="0" name="service.product" value="X.Org X11"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:x.org:x11:-"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:-"/>
   </fingerprint>
   <fingerprint pattern="^HC-Consult$">
     <description>HC-Consult</description>
@@ -75,6 +83,7 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="service.product" value="VcXsrv"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^Hummingbird Communications Ltd\.$|^Hummingbird Ltd\.$">
     <description>Hummingbird Communications Ltd.</description>
@@ -85,6 +94,7 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="service.product" value="Hummingbird Exceed X server"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^Labtam Inc$">
     <description>Labtam Inc</description>
@@ -94,6 +104,7 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="service.product" value="XSecurePro"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^Moba\/X$">
     <description>Moba/X</description>
@@ -101,8 +112,10 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="service.vendor" value="Mobatek"/>
     <param pos="0" name="service.product" value="MobaXterm"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:mobatek:mobaxterm:-"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^MobaXterm$">
     <description>MobaXterm</description>
@@ -110,8 +123,10 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="service.vendor" value="Mobatek"/>
     <param pos="0" name="service.product" value="MobaXterm"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:mobatek:mobaxterm:-"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^NetSarang Computer, Inc\.$">
     <description>NetSarang Computer, Inc.</description>
@@ -121,6 +136,7 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="service.product" value="NetSarang XManager"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^Open Text$">
     <description>Open Text</description>
@@ -130,6 +146,7 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="service.product" value="OpenText Exceed"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^Red Hat, Inc\.$">
     <description>Red Hat, Inc.</description>
@@ -137,8 +154,10 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="os.vendor" value="Red Hat"/>
     <param pos="0" name="service.vendor" value="X.Org"/>
     <param pos="0" name="service.product" value="X.Org X11"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:x.org:x11:-"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:redhat:linux:-"/>
   </fingerprint>
   <fingerprint pattern="^Santa Cruz Operation Inc\.$">
     <description>Santa Cruz Operation Inc.</description>
@@ -157,6 +176,7 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="service.product" value="StarNet X-Win32"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^Sun Microsystems, Inc\.$">
     <description>Sun Microsystems, Inc.</description>
@@ -166,6 +186,7 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="service.product" value="XSun Solaris X11 server"/>
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.family" value="Solaris"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:-"/>
   </fingerprint>
   <fingerprint pattern="^The Cygwin\/X Project$">
     <description>The Cygwin/X Project</description>
@@ -173,8 +194,10 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="service.vendor" value="Red Hat"/>
     <param pos="0" name="service.product" value="Cygwin X Server Project"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:redhat:cygwin:-"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^The X\.Org Foundation$">
     <description>The X.Org Foundation</description>
@@ -182,6 +205,7 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="os.vendor" value="UNIX"/>
     <param pos="0" name="service.vendor" value="X.Org"/>
     <param pos="0" name="service.product" value="X.Org X11"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:x.org:x11:-"/>
     <param pos="0" name="os.product" value="UNIX"/>
     <param pos="0" name="os.family" value="UNIX"/>
   </fingerprint>
@@ -191,6 +215,7 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="os.vendor" value="UNIX"/>
     <param pos="0" name="service.vendor" value="XFree86"/>
     <param pos="0" name="service.product" value="XFree86"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:xfree86:xfree86:-"/>
     <param pos="0" name="os.product" value="UNIX"/>
     <param pos="0" name="os.family" value="UNIX"/>
   </fingerprint>
@@ -202,6 +227,6 @@ fingerprint systems with the following fingerprints.
     <param pos="0" name="service.product" value="ReflectionX"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
 </fingerprints>
-

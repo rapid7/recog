@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- HTTP WWW-Authenticate headers are matched against these patterns to fingerprint HTTP servers. -->
 <fingerprints matches="http_header.wwwauth" protocol="http" database_type="service" preference="0.85">
+  <!-- HTTP WWW-Authenticate headers are matched against these patterns to fingerprint HTTP servers. -->
   <fingerprint pattern="^(?:Basic|Digest) realm=.[iI]RMC(?:@(IRMC[0-9a-fA-F]{6}))?..*$">
     <description>Fujitsu Siemens Primergy with BMC RemoteView on an iRMC card</description>
     <param pos="0" name="service.vendor" value="Fujitsu Siemens"/>
@@ -18,11 +18,13 @@
     <param pos="0" name="service.product" value="IOS"/>
     <param pos="0" name="service.family" value="IOS"/>
     <param pos="0" name="service.version" value="11"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cisco:ios:11"/>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="0" name="os.family" value="IOS"/>
     <param pos="0" name="os.product" value="IOS"/>
     <param pos="0" name="os.version" value="11"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:11"/>
   </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=.level[ _]15[ _]or[ _]view[ _]access.$">
     <description>Cisco IOS 12.x</description>
@@ -30,11 +32,13 @@
     <param pos="0" name="service.product" value="IOS"/>
     <param pos="0" name="service.family" value="IOS"/>
     <param pos="0" name="service.version" value="12"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cisco:ios:12"/>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="0" name="os.family" value="IOS"/>
     <param pos="0" name="os.product" value="IOS"/>
     <param pos="0" name="os.version" value="12"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:12"/>
   </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=.level[ _]\d\d?[ _]access.$">
     <description>Cisco IOS 12.x</description>
@@ -42,17 +46,20 @@
     <param pos="0" name="service.product" value="IOS"/>
     <param pos="0" name="service.family" value="IOS"/>
     <param pos="0" name="service.version" value="12"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cisco:ios:12"/>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="0" name="os.family" value="IOS"/>
     <param pos="0" name="os.product" value="IOS"/>
     <param pos="0" name="os.version" value="12"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:12"/>
   </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=.FW-1.      Reason: no user      Server .$">
     <description>Check Point FireWall-1</description>
     <param pos="0" name="service.vendor" value="Check Point"/>
     <param pos="0" name="service.product" value="Firewall-1"/>
     <param pos="0" name="service.family" value="Firewall-1"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:checkpoint:firewall-1:-"/>
     <param pos="0" name="os.vendor" value="Check Point"/>
     <param pos="0" name="os.device" value="Firewall"/>
     <param pos="0" name="os.family" value="Firewall-1"/>
@@ -119,30 +126,8 @@
   <fingerprint pattern="^(?:Basic|Digest) realm=.(TD-[VW8][A-Z0-9]+)(?:| \d+\.\d+).$">
     <description>TP-LINK SoHo Router</description>
     <example>Basic realm="TD-W8901G"</example>
-    <example>Basic realm="TD-8817"</example>
-    <example>Basic realm="TD-8840T"</example>
-    <example>Basic realm="TD-W8101G"</example>
-    <example>Basic realm="TD-W8961ND"</example>
-    <example>Basic realm="TD-W8951ND"</example>
-    <example>Basic realm="TD-8816"</example>
     <example>Basic realm="TD-8840T 2.0"</example>
-    <example>Basic realm="TD-W8151N"</example>
-    <example>Basic realm="TD-8817 2.0"</example>
-    <example>Basic realm="TD-W8901GB"</example>
-    <example>Basic realm="TD-W8901G 3.0"</example>
-    <example>Basic realm="TD-8820"</example>
-    <example>Basic realm="TD-W8961NB"</example>
     <example>Basic realm="TD-8811"</example>
-    <example>Basic realm="TD-8816 1.0"</example>
-    <example>Basic realm="TD-W8951NB"</example>
-    <example>Basic realm="TD-W8901N"</example>
-    <example>Basic realm="TD-8816 2.0"</example>
-    <example>Basic realm="TD-8840TB"</example>
-    <example>Basic realm="TD-8817 1.0"</example>
-    <example>Basic realm="TD-8816B"</example>
-    <example>Basic realm="TD-8817B"</example>
-    <example>Basic realm="TD-8820 1.0"</example>
-    <example>Basic realm="TD-8616"</example>
     <param pos="0" name="os.vendor" value="TP-LINK"/>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="1" name="os.product"/>
@@ -160,78 +145,6 @@
   <fingerprint pattern="^(?:Basic|Digest) realm=.TP-LINK.*Router ([A-Z0-9\-\+]+).*$">
     <description>TP-LINK SoHo Router</description>
     <example>Basic realm="TP-LINK Wireless N Router WR841N"</example>
-    <example>Basic realm="TP-LINK Wireless Lite N Router WR740N"</example>
-    <example>Basic realm="TP-LINK Wireless N Router WR740N"</example>
-    <example>Basic realm="TP-LINK Wireless Router WR543G"</example>
-    <example>Basic realm="TP-LINK Wireless G Router WR340G"</example>
-    <example>Basic realm="TP-LINK Wireless Lite N Router WR741ND"</example>
-    <example>Basic realm="TP-LINK Wireless N Router WR847N"</example>
-    <example>Basic realm="TP-LINK Wireless N Gigabit Router WR1043ND"</example>
-    <example>Basic realm="TP-LINK Wireless N Router WR745N"</example>
-    <example>Basic realm="TP-LINK SOHO Router R406"</example>
-    <example>Basic realm="TP-LINK ADSL2+ Modem Router TD-8840T"</example>
-    <example>Basic realm="TP-LINK Wireless N Router WR840N"</example>
-    <example>Basic realm="TP-LINK Wireless N Router WR845N"</example>
-    <example>Basic realm="TP-LINK SOHO Router R402M"</example>
-    <example>Basic realm="TP-LINK 300Mbps Wireless N USB ADSL2+ Modem Router TD-W8968"</example>
-    <example>Basic realm="TP-LINK Wireless N Router WR941ND"</example>
-    <example>Basic realm="TP-LINK Wireless Dual Band Gigabit Router WDR4300"</example>
-    <example>Basic realm="TP-LINK 300Mbps Wireless N Gigabit ADSL2+ Modem Router TD-W8970"</example>
-    <example>Basic realm="TP-LINK Wireless Router WR541G/542G"</example>
-    <example>Basic realm="TP-LINK Gigabit Broadband VPN Router R600VPN"</example>
-    <example>Basic realm="TP-LINK Wireless Router WR340G"</example>
-    <example>Basic realm="TP-LINK Wireless N 3G/4G Router MR3420"</example>
-    <example>Basic realm="TP-LINK Router R478"</example>
-    <example>Basic realm="TP-LINK Wireless N Router WR842N"</example>
-    <example>Basic realm="TP-LINK Multi-Function Wireless N Router WR842ND"</example>
-    <example>Basic realm="TP-LINK Wireless Router WR340G+"</example>
-    <example>Basic realm="TP-LINK Wireless N Router WR941N"</example>
-    <example>Basic realm="TP-LINK Router R4148"</example>
-    <example>Basic realm="TP-LINK Wireless Dual Band Gigabit Router WDR3600"</example>
-    <example>Basic realm="TP-LINK Router R860"</example>
-    <example>Basic realm="TP-LINK Wireless N Gigabit Router WR1042ND"</example>
-    <example>Basic realm="TP-LINK Router R480T+"</example>
-    <example>Basic realm="TP-LINK Wireless Router WR641G/642G"</example>
-    <example>Basic realm="TP-LINK Wireless Lite N 3G/4G Router MR3220"</example>
-    <example>Basic realm="TP-LINK Router R478+"</example>
-    <example>Basic realm="TP-LINK N600 Wireless Dual Band Gigabit ADSL2+ Modem Router TD-W8980"</example>
-    <example>Basic realm="TP-LINK Wireless N Router WR742N"</example>
-    <example>Basic realm="TP-LINK Router R470T+"</example>
-    <example>Basic realm="TP-LINK Wireless Dual Band Router WDR3500"</example>
-    <example>Basic realm="TP-LINK Wireless N Router WR2041N"</example>
-    <example>Basic realm="TP-LINK Wireless N Gigabit Router WR2543ND"</example>
-    <example>Basic realm="TP-LINK 300Mbps Wireless N VoIP ADSL2+ Modem Router TD-VG3631"</example>
-    <example>Basic realm="TP-LINK ADSL2+ Router TD-W89841N"</example>
-    <example>Basic realm="TP-LINK Router R460"</example>
-    <example>Basic realm="TP-LINK ADSL2+ Router TD-W89741N"</example>
-    <example>Basic realm="TP-LINK Wireless Lite N Router WR741N"</example>
-    <example>Basic realm="TP-LINK Portable Wireless N 3G/4G Router MR3020"</example>
-    <example>Basic realm="TP-LINK Router R480T"</example>
-    <example>Basic realm="TP-LINK Wireless Lite N Router WR743ND"</example>
-    <example>Basic realm="TP-LINK Router R4299G"</example>
-    <example>Basic realm="TP-LINK Wireless Dual Band Gigabit Router WDR4900"</example>
-    <example>Basic realm="TP-LINK Router R488T"</example>
-    <example>Basic realm="TP-LINK Router R473"</example>
-    <example>Basic realm="TP-LINK Router R410"</example>
-    <example>Basic realm="TP-LINK Router R4238"</example>
-    <example>Basic realm="TP-LINK Wireless N Router WR846N"</example>
-    <example>Basic realm="TP-LINK Router R4149"</example>
-    <example>Basic realm="TP-LINK Wireless N Nano Router WR702N"</example>
-    <example>Basic realm="TP-LINK Router R483"</example>
-    <example>Basic realm="TP-LINK Wireless N Router WR843ND"</example>
-    <example>Basic realm="TP-LINK Wireless Dual Band Gigabit Router Archer C7"</example>
-    <example>Basic realm="TP-LINK Wireless N Router WR842ND"</example>
-    <example>Basic realm="TP-LINK Router R4419"</example>
-    <example>Basic realm="TP-LINK Wireless N 3G Router MR3420"</example>
-    <example>Basic realm="TP-LINK Wireless Dual Band Gigabit Router WDR4310/WDR4320"</example>
-    <example>Basic realm="TP-LINK Router R4239"</example>
-    <example>Basic realm="TP-LINK Router R4199G"</example>
-    <example>Basic realm="TP-LINK Wireless Dual Band Router WDR3320"</example>
-    <example>Basic realm="TP-LINK Wireless N Router WR741N/742N"</example>
-    <example>Basic realm="TP-LINK Wireless N 3G Router WR843N"</example>
-    <example>Basic realm="TP-LINK VPN Router R400VPN"</example>
-    <example>Basic realm="TP-LINK Wireless N Router WR746N"</example>
-    <example>Basic realm="TP-LINK Router R488"</example>
     <param pos="0" name="os.vendor" value="TP-LINK"/>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="1" name="os.product"/>
@@ -258,7 +171,7 @@
     <param pos="0" name="os.device" value="WAP"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="^(?:Basic|Digest) .*realm=&quot;Broadcom Management Service&quot;.*$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^(?:Basic|Digest) .*realm=&quot;Broadcom Management Service&quot;.*$">
     <description>Supposedly part of Broadcom Advanced Control Suite 3 (BACS3) or something similar</description>
     <example>Digest qop="auth", realm="Broadcom Management Service", nonce="AAAAAAAAAAAAAP//DwHpMwYy1zc=", algorithm="MD5"</example>
     <param pos="0" name="service.vendor" value="Broadcom"/>
@@ -276,6 +189,7 @@
     <example>Basic realm="SPIP Configuration", Digest realm="SPIP Configuration", nonce="116761147", algorithm="MD5"</example>
     <param pos="0" name="service.vendor" value="SPIP"/>
     <param pos="0" name="service.product" value="SPIP"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:spip:spip:-"/>
   </fingerprint>
   <fingerprint pattern="^.*(?:Basic|Digest) .*realm=&quot;HP ISEE @ ([^&quot;]+)&quot;.*$">
     <description>HP Instant Support Enterprise Edition with a hostname</description>
@@ -287,11 +201,13 @@
   <fingerprint pattern="^.*(?:Basic|Digest) .*realm=&quot;BIG-IP&quot;.*$">
     <description>Generic F5 Big-IP</description>
     <example>Basic realm="BIG-IP"</example>
-    <param pos="0" name="os.vendor" value="F5"/>
-    <param pos="0" name="os.product" value="BIG-IP"/>
+    <param pos="0" name="service.vendor" value="F5"/>
+    <param pos="0" name="service.family" value="BIG-IP"/>
+    <param pos="0" name="service.product" value="BIG-IP LTM"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:f5:big-ip_local_traffic_manager:-"/>
   </fingerprint>
   <!-- HP ProCurve -->
-  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;(?:HP|ProCurve) (J[3]\d{3}A)&quot;$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^(?:Basic|Digest) realm=&quot;(?:HP|ProCurve) (J[3]\d{3}A)&quot;$">
     <description>HP ProCurve Hubs</description>
     <example os.product="J3295A">Basic realm="HP J3295A"</example>
     <param pos="0" name="os.vendor" value="HP"/>
@@ -299,7 +215,7 @@
     <param pos="0" name="os.device" value="Hub"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;(?:HP|ProCurve) (J[489]\d{3}A)&quot;$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^(?:Basic|Digest) realm=&quot;(?:HP|ProCurve) (J[489]\d{3}A)&quot;$">
     <description>HP ProCurve Switches</description>
     <example os.product="J4110A">Basic realm="HP J4110A"</example>
     <example os.product="J8164A">Basic realm="ProCurve J8164A"</example>
@@ -318,7 +234,7 @@
     <param pos="0" name="service.family" value="Oracle"/>
   </fingerprint>
   <!-- a variety of headers we currently just ignore -->
-  <fingerprint pattern="^NTLM$" flags="REG_ICASE">
+  <fingerprint pattern="(?i)^NTLM$">
     <description>Ignore NTLM-only</description>
     <example>NTLM</example>
     <example>Ntlm</example>

@@ -32,8 +32,20 @@ describe Recog::DB do
         fp = db.fingerprints[i]
 
         context "#{fp.name}" do
+          param_names = []
+          it "has consistent os.device and hw.device" do
+            if fp.params['os.device'] && fp.params['hw.device'] && (fp.params['os.device'] != fp.params['hw.device'])
+              fail "#{fp.name} has both hw.device and os.device but with differing values"
+            end
+          end
           fp.params.each do |param_name, pos_value|
             pos, value = pos_value
+            it "has valid looking fingerprint parameter names" do
+              unless param_name =~ /^(?:cookie|[^\.]+\..*)$/
+                fail "'#{param_name}' is invalid"
+              end
+            end
+
             it "doesn't have param values for capture params" do
               if pos > 0 && !value.to_s.empty?
                 fail "'#{fp.name}'s #{param_name} is a non-zero pos but specifies a value of '#{value}'"
@@ -45,12 +57,28 @@ describe Recog::DB do
                 fail "'#{fp.name}'s #{param_name} is not a capture (pos=0) but doesn't specify a value"
               end
             end
+
+            it "doesn't have duplicate params" do
+              if param_names.include?(param_name)
+                fail "'#{fp.name}'s has duplicate #{param_name}"
+              else
+                param_names << param_name
+              end
+            end
+
+            it "uses interpolation correctly" do
+              if pos == 0 && /\{(?<interpolated>[^\s{}]+)\}/ =~ value
+                unless fp.params.key?(interpolated)
+                  fail "'#{fp.name}' uses interpolated value '#{interpolated}' that does not exist"
+                end
+              end
+            end
           end
         end
 
         context "#{fp.regex}" do
 
-          it "has a name" do
+          it "has a valid looking name" do
             expect(fp.name).not_to be_nil
             expect(fp.name).not_to be_empty
           end
@@ -88,6 +116,10 @@ describe Recog::DB do
           # it "has test cases" do
           #  expect(fp.tests.length).not_to equal(0)
           # end
+
+          it "Has a reasonable number (<= 20) of test cases" do
+            expect(fp.tests.length).to be <= 20
+          end
 
           fp.tests.each do |example|
             it "Example '#{example.content}' matches this regex" do
