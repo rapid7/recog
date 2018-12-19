@@ -74,7 +74,6 @@
   </fingerprint>
   <fingerprint pattern="^(?:Polycom/[\d\.]+ )?Polycom(SoundPoint|VVX|SoundStation)\S+_(\d+)-UA/([\d\.]+)(?:_(.{12}))?$">
     <description>Polycom SoundPoint, SountdStation, VVX VOIP phones</description>
-    <example hw.version="5.8.0.13337" hw.family="VVX" hw.product="VVX 350">PolycomRealPresenceTrio-Trio_8800-UA/5.7.2.3123</example>
     <example hw.version="5.8.0.13337" hw.family="VVX" hw.product="VVX 350">PolycomVVX-VVX_350-UA/5.8.0.13337</example>
     <example hw.version="4.1.4.7430" hw.family="VVX" hw.product="VVX 400" host.mac="010203040506">PolycomVVX-VVX_400-UA/4.1.4.7430_010203040506</example>
     <example hw.version="5.5.0.23866" hw.family="VVX" hw.product="VVX 501">Polycom/5.5.0.23866 PolycomVVX-VVX_501-UA/5.5.0.23866</example>
@@ -87,5 +86,17 @@
     <param pos="2" name="hw.model"/>
     <param pos="3" name="hw.version"/>
     <param pos="4" name="host.mac"/>
+  </fingerprint>
+  <fingerprint pattern="^Polycom ?HDX ?(\d+)(?: ?HD)?(?:/| \(Release - )([^\)]+)\)?">
+    <example hw.model="9006" hw.product="HDX 9006" hw.version="3.0.6-37004">Polycom HDX 9006 (Release - 3.0.6-37004)</example>
+    <example hw.model="4000" hw.product="HDX 4000" hw.version="3.1.0">PolycomHDX4000/3.1.0</example>
+    <example hw.model="7000" hw.product="HDX 7000" hw.version="3.0.2.1-17007">Polycom HDX 7000 HD (Release - 3.0.2.1-17007)</example>
+    <example hw.model="8000" hw.product="HDX 8000" hw.version="3.1.7">PolycomHDX8000HD/3.1.7</example>
+    <param pos="0" name="hw.vendor" value="Polycom"/>
+    <param pos="0" name="hw.family" value="HDX"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
+    <param pos="0" name="hw.product" value="HDX {hw.model}"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="2" name="hw.version"/>
   </fingerprint>
 </fingerprints>
