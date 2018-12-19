@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- UPnP Server headers are matched against these patterns to fingerprint UPnP servers. -->
 <fingerprints matches="ssdp_header.server" protocol="ssdp" database_type="service" preference="0.70">
+  <fingerprint pattern="(?i)^(.*) UPnP/[\d\.]+\s+AVM FRITZ!(.*) ([\d\.]+)$">
+    <description>AVM FRITZ! devices of various types</description>
+    <example host.name="some thing" os.product="WLAN Repeater 1750E" os.version="134.07.01">some thing UPnP/1.0 AVM FRITZ!WLAN Repeater 1750E 134.07.01</example>
+    <param pos="0" name="os.vendor" value="AVM"/>
+    <param pos="0" name="os.family" value="FRITZ!Box"/>
+    <param pos="2" name="os.product"/>
+    <param pos="3" name="os.version"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
   <fingerprint pattern="^Linux/(\S+) UPnP/[\d\.]+ miniupnpd/([\d\.]+)$" flags="REG_ICASE">
     <description>Linux MiniUPnPd UPnP Server</description>
     <example>Linux/Cross_compiled UPnP/1.0 miniupnpd/1.0</example>
