@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- UPnP Server headers are matched against these patterns to fingerprint UPnP servers. -->
 <fingerprints matches="ssdp_header.server" protocol="ssdp" database_type="service" preference="0.70">
-  <!-- UPnP Server headers are matched against these patterns to fingerprint UPnP servers. -->
+  <fingerprint pattern="(?i)^(.*) UPnP/[\d\.]+\s+AVM FRITZ!(.*) ([\d\.]+)$">
+    <description>AVM FRITZ! devices of various types</description>
+    <example host.name="some thing" os.product="WLAN Repeater 1750E" os.version="134.07.01">some thing UPnP/1.0 AVM FRITZ!WLAN Repeater 1750E 134.07.01</example>
+    <param pos="0" name="os.vendor" value="AVM"/>
+    <param pos="0" name="os.family" value="FRITZ!Box"/>
+    <param pos="2" name="os.product"/>
+    <param pos="3" name="os.version"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
   <fingerprint pattern="(?i)^Linux/(\S+) UPnP/[\d\.]+ miniupnpd/([\d\.]+)$">
     <description>Linux MiniUPnPd UPnP Server</description>
     <example>Linux/Cross_compiled UPnP/1.0 miniupnpd/1.0</example>
@@ -441,6 +450,11 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.device" value="Router"/>
   </fingerprint>
+  <fingerprint pattern="^TBS/R2 UPnP/[\d\.]+ MiniUPnPd/[\d\.]+$">
+    <description>D-Link generic</description>
+    <example>TBS/R2 UPnP/1.0 MiniUPnPd/1.2</example>
+    <param pos="0" name="hw.vendor" value="D-Link"/>
+  </fingerprint>
   <fingerprint pattern="^ipos/([\d\.]+) UPnP/[\d\.]+ (TL-\w+)/(\S+)$">
     <description>TP-Link WAP UPnP Server</description>
     <example>ipos/7.0 UPnP/1.0 TL-WR841N/6.0/7.0</example>
@@ -521,6 +535,38 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:{os.version}"/>
   </fingerprint>
+  <fingerprint pattern="^Loxone Miniserver (.*) UPnP/1.0$">
+    <description>Loxone Miniserver Smart Home</description>
+    <example host.name="some name">Loxone Miniserver some name UPnP/1.0</example>
+    <param pos="0" name="hw.vendor" value="Loxone"/>
+    <param pos="0" name="hw.product" value="Miniserver"/>
+    <param pos="0" name="hw.device" value="Building Automation"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^RouterOS/(\S+)UPnP/1.0 MikroTik UPnP/1.0$">
+    <description>Mikrotik RouterOS</description>
+    <example os.version="6.43">RouterOS/6.43UPnP/1.0 MikroTik UPnP/1.0</example>
+    <param pos="0" name="os.vendor" value="MikroTik"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="0" name="os.family" value="RouterOS"/>
+    <param pos="0" name="os.product" value="RouterOS"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Roku UPnP/\S+ Roku/(\S+)$">
+    <description>Roku with a version</description>
+    <example hw.version="8.1.6">Roku UPnP/1.0 Roku/8.1.6</example>
+    <param pos="0" name="hw.vendor" value="Roku"/>
+    <param pos="0" name="hw.product" value="Roku"/>
+    <param pos="0" name="hw.device" value="Media Server"/>
+    <param pos="1" name="hw.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Roku UPnP/\S+ MiniUPnPd/\S+$">
+    <description>Roku without a version</description>
+    <example>Roku UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="hw.vendor" value="Roku"/>
+    <param pos="0" name="hw.product" value="Roku"/>
+    <param pos="0" name="hw.device" value="Media Server"/>
+  </fingerprint>
   <fingerprint pattern="^UPnP/\S+, DLNADOC/\S+, Platinum/(\S+)$">
     <description>Xbox Media Center UPnP Server</description>
     <example>UPnP/1.0, DLNADOC/1.50, Platinum/0.5.1</example>
@@ -530,5 +576,25 @@
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.product" value="XBMC"/>
     <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="Synology/DSM/(\d+\.\d+\.\d+\.\d+)$">
+    <description>Synology DiskStation NAS with IP</description>
+    <example host.ip="192.168.1.100">Synology/DSM/192.168.1.100</example>
+    <param pos="0" name="hw.vendor" value="Synology"/>
+    <param pos="0" name="hw.family" value="DiskStation"/>
+    <param pos="0" name="hw.device" value="NAS"/>
+    <param pos="0" name="os.device" value="NAS"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="DSM"/>
+    <param pos="0" name="os.vendor" value="Synology"/>
+    <param pos="1" name="host.ip"/>
+  </fingerprint>
+  <fingerprint pattern="Synology/DSM/(\S+)$">
+    <description>Synology DiskStation NAS with hostname</description>
+    <example host.name="stuff">Synology/DSM/stuff</example>
+    <param pos="0" name="hw.vendor" value="Synology"/>
+    <param pos="0" name="hw.family" value="DiskStation"/>
+    <param pos="0" name="hw.device" value="NAS"/>
+    <param pos="1" name="host.name"/>
   </fingerprint>
 </fingerprints>

@@ -53,6 +53,11 @@
     <param pos="0" name="os.version" value="12"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:12"/>
   </fingerprint>
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;Cisco_CCSP_CWMP_TCPCR&quot;.*$">
+    <description>Generic Cisco CWMP/CPE equipment</description>
+    <example>Basic realm=&quot;Cisco_CCSP_CWMP_TCPCR&quot;</example>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+  </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=.FW-1.      Reason: no user      Server .$">
     <description>Check Point FireWall-1</description>
     <param pos="0" name="service.vendor" value="Check Point"/>
@@ -64,12 +69,73 @@
     <param pos="0" name="os.family" value="Firewall-1"/>
     <param pos="0" name="os.product" value="Firewall-1"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;cpanel&quot;.*">
+    <description>cPanel</description>
+    <example>Basic realm=&quot;cPanel&quot;</example>
+    <param pos="0" name="service.vendor" value="cPanel"/>
+    <param pos="0" name="service.product" value="cPanel"/>
+  </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=.APC Management Card.$">
     <description>APC device</description>
     <param pos="0" name="service.vendor" value="APC"/>
     <param pos="0" name="service.product" value="HTTP"/>
     <param pos="0" name="os.vendor" value="APC"/>
     <param pos="0" name="os.device" value="Power device"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;ADSL\S* (?:Modem|Router|Modem/Router)&quot;.*$">
+    <description>Generic ADSL modems/routers</description>
+    <example>Basic realm=&quot;ADSL Modem&quot;</example>
+    <example>Basic realm=&quot;ADSL Modem/Router&quot;</example>
+    <example>Basic realm=&quot;ADSL Router&quot;</example>
+    <example>Basic realm=&quot;ADSL2+ Router&quot;</example>
+    <param pos="0" name="hw.device" value="ADSL Modem"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;Broadband Router&quot;.*$">
+    <description>Generic Broadband modems/routers</description>
+    <example>Basic realm=&quot;Broadband Router&quot;</example>
+    <param pos="0" name="hw.device" value="Broadband router"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;DSL\S* (?:Modem|Router|Modem/Router)&quot;.*$">
+    <description>Generic DSL modems/routers</description>
+    <example>Basic realm=&quot;DSL Modem&quot;</example>
+    <param pos="0" name="hw.device" value="DSL Modem"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;DVR&quot;.*$">
+    <description>Generic DVR</description>
+    <example>Basic realm=&quot;DVR&quot;</example>
+    <param pos="0" name="hw.device" value="DVR"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;Wireless Access Point&quot;.*$">
+    <description>Generic WAP</description>
+    <example>Basic realm=&quot;Wireless Access Point&quot;</example>
+    <param pos="0" name="hw.device" value="WAP"/>
+  </fingerprint>
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;(?:(?:Cube|(?:Mini )?Dome|Day/Night|PAN/Tilt|POE|IR|HD|H.264|Surveillance|Wired|Wireless(?: N)?|Network|Internet|(?:IP(?:[\s_-])?)?Cameras?[\s_]*\d*) ?){1,4}?(?: Login)?&quot;.*$">
+    <description>Generic IP Cameras</description>
+    <example>Basic realm=&quot;camera&quot;</example>
+    <example>Basic realm=&quot;IPCamera Login&quot;</example>
+    <example>Basic realm=&quot;Mini Dome IP Camera&quot;</example>
+    <param pos="0" name="hw.device" value="Camera"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;(DCS-[^&quot;]+)&quot;.*$">
+    <description>D-Link DCS IP Cameras</description>
+    <example hw.product="DCS-5222LB1">Basic realm=&quot;DCS-5222LB1&quot;</example>
+    <example hw.product="DCS-2530L">Basic realm=&quot;DCS-2530L&quot;</example>
+    <param pos="0" name="hw.vendor" value="D-Link"/>
+    <param pos="0" name="hw.device" value="Camera"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;GoAhead&quot;.*$">
+    <description>GoAhead webserver</description>
+    <example>Basic realm=&quot;GoAhead&quot;</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="GoAhead Webserver"/>
+    <param pos="0" name="service.family" value="GoAhead Webserver"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;kubernetes-master&quot;.*$">
+    <description>Kubernetes master nodes</description>
+    <example>Basic realm=&quot;kubernetes-master&quot;</example>
+    <param pos="0" name="service.vendor" value="Kubernetes"/>
   </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=.SpeedTouch \(([0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2})\).$">
     <description>Thomson SpeedTouch xDSL routers</description>
@@ -104,6 +170,13 @@
     <param pos="1" name="os.product"/>
     <param pos="2" name="host.mac"/>
   </fingerprint>
+  <fingerprint pattern="^(?:Basic|Digest).*realm=&quot;Thomson(?: Gateway)?&quot;.*$">
+    <description>Thomson generic devices</description>
+    <example>Digest realm=&quot;Thomson Gateway&quot;</example>
+    <example>Basic realm=&quot;Thomson&quot;</example>
+    <param pos="0" name="hw.vendor" value="Thomson"/>
+    <param pos="0" name="hw.device" value="Broadband router"/>
+  </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=.(?:SmartAX )?(MT\d+[^ ]*)(?: ADSL Router)?.$">
     <description>Huawei xDSL routers</description>
     <param pos="0" name="service.vendor" value="Huawei"/>
@@ -113,6 +186,21 @@
     <param pos="0" name="os.device" value="Broadband router"/>
     <param pos="0" name="os.family" value="MT"/>
     <param pos="1" name="os.product"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;HuaweiHomeGateway&quot;.*$">
+    <description>Huawei Home Gateway Routers</description>
+    <example>Basic realm=&quot;HuaweiHomeGateway&quot;</example>
+    <param pos="0" name="hw.vendor" value="Huawei"/>
+    <param pos="0" name="hw.device" value="Broadband router"/>
+    <param pos="0" name="hw.product" value="Home Gateway"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;EchoLife .*&quot;.*$">
+    <description>Huawei EchoLife Home Gateways</description>
+    <example>Basic realm=&quot;EchoLife Portal de Inicio&quot;</example>
+    <example>Basic realm=&quot;EchoLife Home Gateway&quot;</example>
+    <param pos="0" name="hw.vendor" value="Huawei"/>
+    <param pos="0" name="hw.device" value="Broadband router"/>
+    <param pos="0" name="hw.product" value="EchoLife Home Gateway"/>
   </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=.WRT54G.$">
     <description>Linksys WRT54G wireless access point
@@ -140,13 +228,6 @@
     <param pos="0" name="os.device" value="Router"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="^(?:Basic|Digest) realm=.TP-LINK.*Router ([A-Z0-9\-\+]+).*$">
-    <description>TP-LINK SoHo Router</description>
-    <example>Basic realm="TP-LINK Wireless N Router WR841N"</example>
-    <param pos="0" name="os.vendor" value="TP-LINK"/>
-    <param pos="0" name="os.device" value="Router"/>
-    <param pos="1" name="os.product"/>
-  </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=.TP-LINK.*(?:Access Point|Extender|AP) ([A-Z0-9\-\+]+).*$">
     <description>TP-LINK SoHo Router</description>
     <example>Basic realm="TP-LINK Wireless N Access Point WA801N"</example>
@@ -168,6 +249,21 @@
     <param pos="0" name="os.vendor" value="TP-LINK"/>
     <param pos="0" name="os.device" value="WAP"/>
     <param pos="1" name="os.product"/>
+  </fingerprint>
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;TP-LINK (.*Router.*)&quot;.*$">
+    <description>TP-LINK Routers</description>
+    <example>Basic realm=&quot;TP-LINK Wireless N Router WR841N&quot;</example>
+    <example>Basic realm=&quot;TP-LINK Gigabit Broadband VPN Router R600VPN&quot;</example>
+    <example>Basic realm=&quot;TP-LINK Wireless Lite N Router WR740N/WR741ND&quot;</example>
+    <param pos="0" name="hw.vendor" value="TP-Link"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;TP-LINK IP-Camera&quot;.*$">
+    <description>TP-LINK IP-Cameras</description>
+    <example>Basic realm=&quot;TP-LINK IP-Camera&quot;</example>
+    <param pos="0" name="hw.vendor" value="TP-Link"/>
+    <param pos="0" name="hw.device" value="Camera"/>
   </fingerprint>
   <fingerprint pattern="(?i)^(?:Basic|Digest) .*realm=&quot;Broadcom Management Service&quot;.*$">
     <description>Supposedly part of Broadcom Advanced Control Suite 3 (BACS3) or something similar</description>
@@ -224,12 +320,51 @@
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;SERCOMM CPE Authentication&quot;.*$">
+    <description>Assorted Sercomm CPE devices</description>
+    <example>Digest realm="SERCOMM CPE Authentication"</example>
+    <param pos="0" name="hw.vendor" value="Sercomm"/>
+  </fingerprint>
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;TiVo DVR&quot;.*$">
+    <description>Tivo DVR</description>
+    <example>Digest realm=&quot;TiVo DVR&quot;</example>
+    <param pos="0" name="hw.vendor" value="Tivo"/>
+    <param pos="0" name="hw.family" value="DVR"/>
+    <param pos="0" name="hw.device" value="DVR"/>
+  </fingerprint>
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;UBEE&quot;.*$">
+    <description>Ubee Cable Modems</description>
+    <example>Digest qop=&quot;auth&quot;, realm=&quot;Ubee&quot;, nonce=&quot;1544738973&quot;</example>
+    <param pos="0" name="hw.vendor" value="Ubee"/>
+    <param pos="0" name="hw.device" value="Broadband router"/>
+  </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;XDB&quot;$">
     <description>Web server providing web services for Oracle's XML DB.</description>
     <example>Basic realm="XDB"</example>
     <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.product" value="XML DB"/>
     <param pos="0" name="service.family" value="Oracle"/>
+  </fingerprint>
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;cpe@zte.com&quot;.*$">
+    <description>Assorted ZTE CPE devices</description>
+    <example>Digest realm=&quot;cpe@zte.com&quot;</example>
+    <param pos="0" name="hw.vendor" value="ZTE"/>
+  </fingerprint>
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;ZXHN (\S+)&quot;.*$">
+    <description>ZTE ZXHN router</description>
+    <example>Basic realm=&quot;ZXHN H108L&quot;</example>
+    <param pos="0" name="hw.vendor" value="ZTE"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.family" value="ZXHN"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;(ZXV\S* \S+)&quot;.*$">
+    <description>ZTE ZXV router</description>
+    <example hw.product="ZXV10 W300">Basic realm=&quot;ZXV10 W300&quot;</example>
+    <param pos="0" name="hw.vendor" value="ZTE"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.family" value="ZXV"/>
+    <param pos="1" name="hw.product"/>
   </fingerprint>
   <!-- a variety of headers we currently just ignore -->
   <fingerprint pattern="(?i)^NTLM$">
@@ -241,9 +376,13 @@
     <description>Ignore Negotiate-only</description>
     <example>Negotiate</example>
   </fingerprint>
-  <fingerprint pattern="^(?:Basic|Digest) .*realm=&quot;null&quot;">
-    <description>Ignore null</description>
+  <fingerprint pattern="^(?:Basic|Digest) .*realm=&quot;(?:/|\.|null|/?index.html?)?&quot;">
+    <description>Ignore null/empty/period/index.</description>
     <example>Basic realm="null"</example>
+    <example>Basic realm="."</example>
+    <example>Basic realm=""</example>
+    <example>Basic realm="/"</example>
+    <example>Basic realm="index.html"</example>
   </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) .*realm=&quot;(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)&quot;.*$">
     <description>Ignore realms with an IPv4 address</description>

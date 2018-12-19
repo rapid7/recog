@@ -64,6 +64,13 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:{service.version}"/>
     <param pos="2" name="apache.info"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^CouchDB/([\.\d]+) .*$">
+    <description>Apache CouchDB</description>
+    <example service.version="2.1.1">CouchDB/2.1.1 (Erlang OTP/20)</example>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="CouchDB"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
   <fingerprint pattern="^support@arraynetworks.net$">
     <description>Array Networks device</description>
     <example>support@arraynetworks.net</example>
@@ -281,6 +288,14 @@
     <param pos="0" name="service.component.product" value="Coyote"/>
     <param pos="0" name="service.component.family" value="Coyote"/>
     <param pos="1" name="service.component.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Apache Tomcat$">
+    <description>HTTP connector for Apache Tomcat with no version</description>
+    <example>Apache Tomcat</example>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="Tomcat"/>
+    <param pos="0" name="service.family" value="Tomcat"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:apache:tomcat:-"/>
   </fingerprint>
   <fingerprint pattern="^Servlet [\d\.]+; JBoss-(\S+) \(build: .*\)/Tomcat-(\S+)$">
     <description>JBoss with embedded tomcat</description>
@@ -735,6 +750,13 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^(?:(?:Cube|(?:Mini )?Dome|Day/Night|PAN/?Tilt|POE|IR|HD|H.264|Surveillance|With|Wired|Wireless(?: N)?|Network|Internet|(?:IP(?:[\s_-])?)?Cameras?[\s_]*\d*) ?){1,5}?(?: Login)?$">
+    <description>Generic IP Cameras</description>
+    <example>camera</example>
+    <example>IPCamera Login</example>
+    <example>Mini Dome IP Camera</example>
+    <param pos="0" name="hw.device" value="Camera"/>
+  </fingerprint>
   <fingerprint pattern="^ASP.NET$">
     <description>Something written in ASP.NET</description>
     <example>ASP.NET</example>
@@ -758,6 +780,12 @@
     <param pos="0" name="os.device" value="DVR"/>
     <param pos="0" name="os.product" value="VIDOS-NVR"/>
     <param pos="0" name="hw.vendor" value="Bosch"/>
+    <param pos="0" name="hw.device" value="DVR"/>
+  </fingerprint>
+  <fingerprint pattern="^FUHO-DVR$">
+    <description>FUHO Surveillance/DVR</description>
+    <example>FUHO-DVR</example>
+    <param pos="0" name="hw.vendor" value="FUHO"/>
     <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
   <fingerprint pattern="^HeiTel GmbH Web Server \[\S+\]$">
@@ -1465,6 +1493,13 @@
     <param pos="0" name="hw.product" value="Adaptive Security Appliance"/>
     <param pos="0" name="hw.device" value="Firewall"/>
   </fingerprint>
+  <fingerprint pattern="^CradlepointHTTPService/([\d\.]+)$">
+    <description>Cradlepoint HTTP service</description>
+    <example service.version="1.0.0">CradlepointHTTPService/1.0.0</example>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="Cradlepoint"/>
+    <param pos="0" name="service.product" value="HTTP"/>
+  </fingerprint>
   <fingerprint pattern="^DesktopAuthority/(.*)$">
     <description>ScriptLogic DesktopAuthority</description>
     <param pos="1" name="service.version"/>
@@ -2057,6 +2092,12 @@
     <param pos="0" name="hw.vendor" value="ARRIS"/>
     <param pos="0" name="hw.device" value="Cable Modem"/>
   </fingerprint>
+  <fingerprint pattern="^2wire Gateway$">
+    <description>Web server found on some Arris/2wire devices</description>
+    <example>2wire Gateway</example>
+    <param pos="0" name="service.vendor" value="ARRIS"/>
+    <param pos="0" name="service.product" value="2wire"/>
+  </fingerprint>
   <!-- junit says,
      "Example pattern '' from http_servers.xml didn't match pattern '^$'"
      Figure out if we have a way to support matching empty strings later.
@@ -2134,9 +2175,10 @@
     <param pos="0" name="service.vendor" value="Amazon"/>
     <param pos="0" name="service.product" value="Snowball"/>
   </fingerprint>
-  <fingerprint pattern="^cloudflare-nginx$">
+  <fingerprint pattern="^cloudflare(?:-nginx)?$">
     <description>CloudFlare web load balancer endpoint</description>
     <example>cloudflare-nginx</example>
+    <example>cloudflare</example>
     <param pos="0" name="service.vendor" value="CloudFlare"/>
     <param pos="0" name="service.product" value="CloudFlare Load Balancer"/>
     <param pos="0" name="service.family" value="CloudFlare"/>
@@ -2238,6 +2280,15 @@
     <example>tivo-httpd-1:20.7.4.RC35-D18-6:D18</example>
     <param pos="0" name="hw.vendor" value="Tivo"/>
     <param pos="0" name="hw.family" value="DVR"/>
+    <param pos="0" name="hw.device" value="DVR"/>
+  </fingerprint>
+  <fingerprint pattern="^OpenTV/([\d\.]+)$">
+    <description>OpenTV</description>
+    <example os.version="5.40">OpenTV/5.40</example>
+    <param pos="0" name="os.vendor" value="NAGRA"/>
+    <param pos="0" name="os.product" value="OpenTV"/>
+    <param pos="0" name="os.device" value="DVR"/>
+    <param pos="1" name="os.version"/>
     <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
   <!-- Tridium previously had a product with the 'Niagra' spelling -->
