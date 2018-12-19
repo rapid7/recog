@@ -584,6 +584,21 @@
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
+  <fingerprint pattern="^Roku UPnP/\S+ Roku/(\S+)$">
+    <description>Roku with a version</description>
+    <example hw.version="8.1.6">Roku UPnP/1.0 Roku/8.1.6</example>
+    <param pos="0" name="hw.vendor" value="Roku"/>
+    <param pos="0" name="hw.product" value="Roku"/>
+    <param pos="0" name="hw.device" value="Media Server"/>
+    <param pos="1" name="hw.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Roku UPnP/\S+ MiniUPnPd/\S+$">
+    <description>Roku without a version</description>
+    <example>Roku UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="hw.vendor" value="Roku"/>
+    <param pos="0" name="hw.product" value="Roku"/>
+    <param pos="0" name="hw.device" value="Media Server"/>
+  </fingerprint>
   <fingerprint pattern="^UPnP/\S+, DLNADOC/\S+, Platinum/(\S+)$">
     <description>Xbox Media Center UPnP Server</description>
     <example>UPnP/1.0, DLNADOC/1.50, Platinum/0.5.1</example>
