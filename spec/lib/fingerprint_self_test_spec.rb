@@ -52,6 +52,12 @@ describe Recog::DB do
               end
             end
 
+            it "has parameter values other than General or Unknown, which are not helpful" do
+              if pos == 0 && value =~ /^(?i:general|unknown)$/
+                fail "'#{param_name}' has general/unknown value '#{value}'"
+              end
+            end
+
             it "doesn't omit values for non-capture params" do
               if pos == 0 && value.to_s.empty?
                 fail "'#{fp.name}'s #{param_name} is not a capture (pos=0) but doesn't specify a value"
