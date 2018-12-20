@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fingerprints matches="http_header.server" protocol="http" database_type="service" preference="0.90">
   <!-- HTTP Server headers are matched against these patterns to fingerprint HTTP servers. -->
+  <fingerprint pattern="(?i)^AirTunes/([\d\.]+)$">
+    <description>Apple AirTunes/AirPlay, more generally RTSP used by a variety of wireless a/v products</description>
+    <example service.version="220.68">AirTunes/220.68</example>
+    <param pos="0" name="service.vendor" value="Apple"/>
+    <param pos="0" name="service.product" value="AirTunes"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="hw.device" value="Media Server"/>
+  </fingerprint>
   <fingerprint pattern="^Stronghold/(\d\.\d) Apache/([012][\d.]*)\s*(.*)$">
     <description>Red Hat Stronghold Enterprise Apache</description>
     <example service.version="1.3.19" service.cpe23="cpe:/a:apache:http_server:1.3.19" service.component.cpe23="cpe:/a:redhat:stronghold:3.0">Stronghold/3.0 Apache/1.3.19 RedHat/3014c</example>
