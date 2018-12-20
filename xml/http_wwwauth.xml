@@ -107,6 +107,16 @@
     <example>Basic realm=&quot;DVR&quot;</example>
     <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
+  <!-- Hikvision is OEMd by a number of DVR manufacturers -->
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;(?i:hikvision)&quot;.*$">
+    <description>Web server found on DVR and webcam servers sourced from Hikvision</description>
+    <example>Basic realm=&quot;hikvision&quot;</example>
+    <param pos="0" name="service.vendor" value="Hikvision"/>
+    <param pos="0" name="service.product" value="Hikvision Web Server"/>
+    <param pos="0" name="os.vendor" value="Hikvision"/>
+    <param pos="0" name="os.device" value="DVR"/>
+    <param pos="0" name="hw.device" value="DVR"/>
+  </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;Merit LILIN Ent\. Co\., Ltd.&quot;.*$">
     <description>Merit LILIN generic device</description>
     <example>Basic realm=&quot;Merit LILIN Ent. Co., Ltd,&quot;</example>
