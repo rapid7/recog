@@ -1353,8 +1353,10 @@
     <param pos="0" name="service.product" value="Access Server"/>
     <param pos="0" name="hw.device" value="VPN"/>
   </fingerprint>
-  <fingerprint pattern="^SonicWALL (SSL-VPN(?: (?:\d+))?) Web Server\.?$">
+  <fingerprint pattern="^SonicWALL (SSL-?VPN(?: (?:\d+))?) Web Server\.?$">
     <description>SonicWALL SSL-VPN device</description>
+    <example>SonicWALL SSLVPN Web Server</example>
+    <example>SonicWALL SSL-VPN Web Server</example>
     <param pos="0" name="service.vendor" value="SonicWALL"/>
     <param pos="0" name="service.product" value="SSL-VPN"/>
     <param pos="0" name="service.family" value="SSL-VPN"/>
@@ -1367,6 +1369,7 @@
   </fingerprint>
   <fingerprint pattern="^SonicWALL$">
     <description>SonicWALL device</description>
+    <example>SonicWALL</example>
     <param pos="0" name="service.vendor" value="SonicWALL"/>
     <param pos="0" name="service.product" value="HTTP"/>
     <param pos="0" name="os.vendor" value="SonicWALL"/>
