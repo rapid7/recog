@@ -107,6 +107,12 @@
     <example>Basic realm=&quot;DVR&quot;</example>
     <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;Merit LILIN Ent\. Co\., Ltd.&quot;.*$">
+    <description>Merit LILIN generic device</description>
+    <example>Basic realm=&quot;Merit LILIN Ent. Co., Ltd,&quot;</example>
+    <example>Basic realm=&quot;Merit LILIN Ent. Co., Ltd.&quot;</example>
+    <param pos="0" name="hw.vendor" value="Mertit LILIN"/>
+  </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;Wireless Access Point&quot;.*$">
     <description>Generic WAP</description>
     <example>Basic realm=&quot;Wireless Access Point&quot;</example>
