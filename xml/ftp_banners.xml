@@ -547,55 +547,47 @@ more text</example>
   </fingerprint>
   <fingerprint pattern="(?i)^AXIS (\S+) .* Camera(?:\s+version)?\s+(\S+) .*">
     <description>Axis Network Camera</description>
-    <example os.product="2100" os.version="2.43">Axis 2100 Network Camera 2.43 Nov 04 2008 ready.</example>
-    <example os.product="216FD" os.version="4.47">AXIS 216FD Network Fixed Dome Camera 4.47 (Mar 13 2008) ready.</example>
-    <example os.product="214" os.version="4.49">AXIS 214 PTZ Network Camera 4.49 (Oct 05 2009) ready</example>
-    <example os.product="205" os.version="4.05">AXIS 205 Network Camera version 4.05 (Sep 27 2004) ready.</example>
-    <example os.product="233D" os.version="4.48.4">AXIS 233D Network Dome Camera 4.48.4 (Mar 23 2010) ready.</example>
-    <example os.product="P1346" os.version="5.50beta3">AXIS P1346 Network Camera 5.50beta3 (2014) ready</example>
-    <param pos="0" name="os.vendor" value="Axis"/>
-    <param pos="0" name="os.device" value="Web cam"/>
-    <param pos="1" name="os.product"/>
-    <param pos="2" name="os.version"/>
+    <example hw.product="2100" hw.version="2.43">Axis 2100 Network Camera 2.43 Nov 04 2008 ready.</example>
+    <example hw.product="216FD" hw.version="4.47">AXIS 216FD Network Fixed Dome Camera 4.47 (Mar 13 2008) ready.</example>
+    <example hw.product="214" hw.version="4.49">AXIS 214 PTZ Network Camera 4.49 (Oct 05 2009) ready</example>
+    <example hw.product="205" hw.version="4.05">AXIS 205 Network Camera version 4.05 (Sep 27 2004) ready.</example>
+    <example hw.product="233D" hw.version="4.48.4">AXIS 233D Network Dome Camera 4.48.4 (Mar 23 2010) ready.</example>
+    <example hw.product="P1346" hw.version="5.50beta3">AXIS P1346 Network Camera 5.50beta3 (2014) ready</example>
+    <param pos="0" name="hw.vendor" value="Axis"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="hw.version"/>
   </fingerprint>
   <fingerprint pattern="(?i)^AXIS (\S+) (?:(?:Mk II )?Video|IO Audio) (?:Encoder|Encoder Blade|Module|Server|Decoder) (\S+) .*">
     <description>Axis Audio/Video encoders/servers</description>
     <example hw.product="Q7406">AXIS Q7406 Video Encoder Blade 5.01 (Aug 01 2008) ready.</example>
-    <example os.product="241Q">AXIS 241Q Video Server 4.47.2 (Dec 11 2008) ready.</example>
-    <example os.version="5.07.2">AXIS P7701 Video Decoder 5.07.2 (Apr 20 2010) ready.</example>
-    <example hw.product="Q7401" os.version="5.01">AXIS Q7401 Video Encoder 5.01 (Aug 01 2008) ready.</example>
-    <example hw.product="Q7401" os.version="5.50.2_cst_412205_1">AXIS Q7401 Video Encoder 5.50.2_cst_412205_1 (2013)</example>
-    <example hw.product="Q7424-R" os.version="5.51.3.1">AXIS Q7424-R Mk II Video Encoder 5.51.3.1 (2016) ready.</example>
-    <example hw.product="P8221" os.version="5.10.2">AXIS P8221 IO Audio Module 5.10.2 (Nov 07 2011) ready.</example>
+    <example hw.product="241Q">AXIS 241Q Video Server 4.47.2 (Dec 11 2008) ready.</example>
+    <example hw.version="5.07.2">AXIS P7701 Video Decoder 5.07.2 (Apr 20 2010) ready.</example>
+    <example hw.product="Q7401" hw.version="5.01">AXIS Q7401 Video Encoder 5.01 (Aug 01 2008) ready.</example>
+    <example hw.product="Q7401" hw.version="5.50.2_cst_412205_1">AXIS Q7401 Video Encoder 5.50.2_cst_412205_1 (2013)</example>
+    <example hw.product="Q7424-R" hw.version="5.51.3.1">AXIS Q7424-R Mk II Video Encoder 5.51.3.1 (2016) ready.</example>
+    <example hw.product="P8221" hw.version="5.10.2">AXIS P8221 IO Audio Module 5.10.2 (Nov 07 2011) ready.</example>
     <param pos="0" name="hw.vendor" value="Axis"/>
     <param pos="1" name="hw.product"/>
-    <param pos="0" name="os.vendor" value="Axis"/>
-    <param pos="1" name="os.product"/>
-    <param pos="2" name="os.version"/>
+    <param pos="2" name="hw.version"/>
   </fingerprint>
   <fingerprint pattern="(?i)^AXIS (\S+) Network Door Controller (\S+) .* ready\.?$">
     <description>Axis Door Controllers</description>
-    <example hw.product="A1001" os.version="1.65.1.1">AXIS A1001 Network Door Controller 1.65.1.1 (2018) ready.</example>
+    <example hw.product="A1001" hw.version="1.65.1.1">AXIS A1001 Network Door Controller 1.65.1.1 (2018) ready.</example>
     <param pos="0" name="hw.vendor" value="Axis"/>
     <param pos="0" name="hw.device" value="Building Automation"/>
     <param pos="1" name="hw.product"/>
-    <param pos="0" name="os.vendor" value="Axis"/>
-    <param pos="0" name="os.device" value="Building Automation"/>
-    <param pos="1" name="os.product"/>
-    <param pos="2" name="os.version"/>
+    <param pos="2" name="hw.version"/>
   </fingerprint>
   <fingerprint pattern="^AXIS (\S+) .*FTP Network Print Server V?([\d\.]+\S+) .* ready\.?$" flags="REG_ICASE">
     <description>Axis print servers</description>
     <example hw.product="5600+">AXIS 5600+ (rev 3) FTP Network Print Server V7.00 Sep 10 2004 ready.</example>
-    <example os.product="560">AXIS 560 FTP Network Print Server V6.00 Jul 7 1999 ready.</example>
-    <example os.version="6.30.beta2">AXIS 5470e FTP Network Print Server V6.30.beta2 Sep 25 2002 ready.</example>
+    <example hw.product="560">AXIS 560 FTP Network Print Server V6.00 Jul 7 1999 ready.</example>
+    <example hw.version="6.30.beta2">AXIS 5470e FTP Network Print Server V6.30.beta2 Sep 25 2002 ready.</example>
     <param pos="0" name="hw.vendor" value="Axis"/>
     <param pos="0" name="hw.device" value="Print server"/>
     <param pos="1" name="hw.product"/>
-    <param pos="0" name="os.vendor" value="Axis"/>
-    <param pos="0" name="os.device" value="Print server"/>
-    <param pos="1" name="os.product"/>
-    <param pos="2" name="os.version"/>
+    <param pos="2" name="hw.version"/>
   </fingerprint>
   <fingerprint pattern="^RICOH Aficio ((?:[MS]P )?\S+) FTP server \(([0-9\.a-zA-Z]+)\) ready.?$" flags="REG_ICASE">
     <description>Ricoh Aficio multifunction device</description>
