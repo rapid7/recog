@@ -547,12 +547,15 @@ more text</example>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Storage"/>
   </fingerprint>
-  <fingerprint pattern="^AXIS (\S+) (?:(?:Fixed Dome )?Network(?: Fixed Dome)? Camera) ([\d\.]+) .* ready\.?$" flags="REG_ICASE">
+  <fingerprint pattern="^AXIS (\S+) .* Camera(?:\s+version)?\s+([\d\.]+) .* ready\.?$" flags="REG_ICASE">
     <description>Axis Network Camera</description>
     <example os.product="2100" os.version="2.43">Axis 2100 Network Camera 2.43 Nov 04 2008 ready.</example>
     <example os.product="207" os.version="4.40.1">AXIS 207 Network Camera 4.40.1 (Apr 16 2007) ready.</example>
     <example os.product="216FD" os.version="4.47">AXIS 216FD Network Fixed Dome Camera 4.47 (Mar 13 2008) ready.</example>
     <example os.product="M3203" os.version="5.12.1">AXIS M3203 Fixed Dome Network Camera 5.12.1 (Feb 07 2011) ready.</example>
+    <example os.product="214" os.version="4.49">AXIS 214 PTZ Network Camera 4.49 (Oct 05 2009) ready</example>
+    <example os.product="205" os.version="4.05">AXIS 205 Network Camera version 4.05 (Sep 27 2004) ready.</example>
+    <example os.product="233D" os.version="4.48.4">AXIS 233D Network Dome Camera 4.48.4 (Mar 23 2010) ready.</example>
     <param pos="0" name="os.vendor" value="Axis"/>
     <param pos="0" name="os.device" value="Web cam"/>
     <param pos="1" name="os.product"/>
