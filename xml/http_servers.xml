@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fingerprints matches="http_header.server" protocol="http" database_type="service" preference="0.90">
   <!-- HTTP Server headers are matched against these patterns to fingerprint HTTP servers. -->
+  <fingerprint pattern="(?i)^AirTunes/([\d\.]+)$">
+    <description>Apple AirTunes/AirPlay, more generally RTSP used by a variety of wireless a/v products</description>
+    <example service.version="220.68">AirTunes/220.68</example>
+    <param pos="0" name="service.vendor" value="Apple"/>
+    <param pos="0" name="service.product" value="AirTunes"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="hw.device" value="Media Server"/>
+  </fingerprint>
   <fingerprint pattern="^Stronghold/(\d\.\d) Apache/([012][\d.]*)\s*(.*)$">
     <description>Red Hat Stronghold Enterprise Apache</description>
     <example service.version="1.3.19" service.cpe23="cpe:/a:apache:http_server:1.3.19" service.component.cpe23="cpe:/a:redhat:stronghold:3.0">Stronghold/3.0 Apache/1.3.19 RedHat/3014c</example>
@@ -390,6 +398,13 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:apache:tomcat:{service.version}"/>
   </fingerprint>
+  <fingerprint pattern="^PDR-M800/1.0$">
+    <description>Merit LILIN PDR M800</description>
+    <example>PDR-M800/1.0</example>
+    <param pos="0" name="hw.vendor" value="Merit LILIN"/>
+    <param pos="0" name="hw.product" value="PDR M800"/>
+    <param pos="0" name="hw.device" value="DVR"/>
+  </fingerprint>
   <fingerprint pattern="^PHP/(\S+)$">
     <description>PHP</description>
     <example service.component.version="4.4.2-1build1">PHP/4.4.2-1build1</example>
@@ -717,6 +732,19 @@
     <param pos="0" name="service.product" value="HTTP"/>
     <param pos="0" name="service.family" value="Helix Server"/>
     <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^ReeCam IP Camera$">
+    <description>Shenzhen ReeCam cameras</description>
+    <example>ReeCam IP Camera</example>
+    <param pos="0" name="hw.vendor" value="Shenzhen Reecam Tech. Ltd."/>
+    <param pos="0" name="hw.product" value="ReeCam"/>
+    <param pos="0" name="hw.device" value="Camera"/>
+  </fingerprint>
+  <fingerprint pattern="^Netwave IP Camera$">
+    <description>Netwave cameras</description>
+    <example>Netwave IP Camera</example>
+    <param pos="0" name="hw.vendor" value="Netwave"/>
+    <param pos="0" name="hw.device" value="Camera"/>
   </fingerprint>
   <fingerprint pattern="^Cougar/([0-9.]*)$">
     <description>Windows Media Services (older versions)</description>
@@ -1288,8 +1316,17 @@
     <param pos="0" name="service.family" value="NetWeaver"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="^SonicWALL (SSL-VPN(?: (?:\d+))?) Web Server\.?$">
+  <fingerprint pattern="^OpenVPN-AS$">
+    <description>OpenVPN Access Server</description>
+    <example>OpenVPN-AS</example>
+    <param pos="0" name="service.vendor" value="OpenVPN"/>
+    <param pos="0" name="service.product" value="Access Server"/>
+    <param pos="0" name="hw.device" value="VPN"/>
+  </fingerprint>
+  <fingerprint pattern="^SonicWALL (SSL-?VPN(?: (?:\d+))?) Web Server\.?$">
     <description>SonicWALL SSL-VPN device</description>
+    <example>SonicWALL SSLVPN Web Server</example>
+    <example>SonicWALL SSL-VPN Web Server</example>
     <param pos="0" name="service.vendor" value="SonicWALL"/>
     <param pos="0" name="service.product" value="SSL-VPN"/>
     <param pos="0" name="service.family" value="SSL-VPN"/>
@@ -1302,6 +1339,7 @@
   </fingerprint>
   <fingerprint pattern="^SonicWALL$">
     <description>SonicWALL device</description>
+    <example>SonicWALL</example>
     <param pos="0" name="service.vendor" value="SonicWALL"/>
     <param pos="0" name="service.product" value="HTTP"/>
     <param pos="0" name="os.vendor" value="SonicWALL"/>
@@ -1565,7 +1603,7 @@
     <example>NS_6.1</example>
     <param pos="0" name="os.vendor" value="Citrix"/>
     <param pos="0" name="os.family" value="NetScaler"/>
-    <param pos="0" name="os.device" value="NetScaler"/>
+    <param pos="0" name="os.device" value="Network Management Device"/>
     <param pos="0" name="os.product" value="NetScaler"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
@@ -1990,6 +2028,13 @@
     <param pos="0" name="service.family" value="Oracle"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+  <fingerprint pattern="^Oracle XML DB/Oracle Database$">
+    <description>Web server providing web services for Oracle's XML DB.</description>
+    <example>Oracle XML DB/Oracle Database</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="XML DB"/>
+    <param pos="0" name="service.family" value="Oracle"/>
+  </fingerprint>
   <fingerprint pattern="^sfcHttpd$">
     <description>Server for HTTP interface to sfcb, a lightweight CIM server.
    </description>
@@ -2061,18 +2106,10 @@
     <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
   <!-- Hikvision is OEMd by a number of DVR manufacturers -->
-  <fingerprint pattern="^(?:Hikvision|DVRDVS)-Webs$">
+  <fingerprint pattern="^(?:Hikvision|DNVRS|DVRDVS)-Webs$">
     <description>Web server found on DVR and webcam servers sourced from Hikvision</description>
     <example>Hikvision-Webs</example>
     <example>DVRDVS-Webs</example>
-    <param pos="0" name="service.vendor" value="Hikvision"/>
-    <param pos="0" name="service.product" value="Hikvision Web Server"/>
-    <param pos="0" name="os.vendor" value="Hikvision"/>
-    <param pos="0" name="os.device" value="DVR"/>
-    <param pos="0" name="hw.device" value="DVR"/>
-  </fingerprint>
-  <fingerprint pattern="^DNVRS-Webs$">
-    <description>Hikvision httpd</description>
     <example>DNVRS-Webs</example>
     <param pos="0" name="service.vendor" value="Hikvision"/>
     <param pos="0" name="service.product" value="Hikvision Web Server"/>
@@ -2274,6 +2311,11 @@
     <param pos="0" name="hw.family" value="MPEG4 DVR"/>
     <param pos="0" name="hw.product" value="AVC787"/>
     <param pos="0" name="hw.device" value="DVR"/>
+  </fingerprint>
+  <fingerprint pattern="^Splunkd$">
+    <description>Splunk HTTP server used in the web interface, forwarders, indexers and more</description>
+    <example>Splunkd</example>
+    <param pos="0" name="service.vendor" value="Splunk"/>
   </fingerprint>
   <fingerprint pattern="^tivo-httpd-\S+$">
     <description>Tivo DVR</description>
