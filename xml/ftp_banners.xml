@@ -235,9 +235,10 @@ example.com FTP server (Version:  Mac OS X Server) ready.</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:proftpd:proftpd:{service.version}"/>
   </fingerprint>
-  <fingerprint pattern="^ProFTPD FTP Server ready\.$">
+  <fingerprint pattern="^ProFTPD (?:FTP )?Server ready\.$">
     <description>ProFTPD with no version info</description>
     <example>ProFTPD FTP Server ready.</example>
+    <example>ProFTPD Server ready.</example>
     <param pos="0" name="service.family" value="ProFTPD"/>
     <param pos="0" name="service.vendor" value="ProFTPD Project"/>
     <param pos="0" name="service.product" value="ProFTPD"/>
