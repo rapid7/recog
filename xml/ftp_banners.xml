@@ -1189,10 +1189,11 @@ more text</example>
     <param pos="0" name="service.cpe23" value="cpe:/a:bftpd_project:bftpd:{service.version}"/>
     <param pos="2" name="host.ip"/>
   </fingerprint>
-  <fingerprint pattern="^NASFTPD Turbo station (?:2.x )?([\w.]+) Server \(ProFTPD\) \[([[a-f\d].:]+)\]$">
+  <fingerprint pattern="^NASFTPD Turbo station (?:2.x )?([\w.]+) Server \(ProFTPD\)(?: \[([[a-f\d].:]+)\])?$">
     <description>ProFTPD on QNAP Turbo Station NAS</description>
     <example service.version="1.3.5a" host.ip="192.168.1.100">NASFTPD Turbo station 1.3.5a Server (ProFTPD) [192.168.1.100]</example>
     <example service.version="1.3.1rc2" host.ip="192.168.1.100">NASFTPD Turbo station 2.x 1.3.1rc2 Server (ProFTPD) [192.168.1.100]</example>
+    <example service.version="1.3.5a">NASFTPD Turbo station 1.3.5a Server (ProFTPD)</example>
     <param pos="0" name="service.family" value="ProFTPD"/>
     <param pos="0" name="service.vendor" value="ProFTPD Project"/>
     <param pos="0" name="service.product" value="ProFTPD"/>
