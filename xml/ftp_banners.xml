@@ -575,6 +575,17 @@ more text</example>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^AXIS (\S+) Network Door Controller (\S+) .* ready\.?$">
+    <description>Axis Door Controllers</description>
+    <example hw.product="A1001" os.version="1.65.1.1">AXIS A1001 Network Door Controller 1.65.1.1 (2018) ready.</example>
+    <param pos="0" name="hw.vendor" value="Axis"/>
+    <param pos="0" name="hw.device" value="Door Controller"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="os.vendor" value="Axis"/>
+    <param pos="0" name="os.device" value="Building Automation"/>
+    <param pos="1" name="os.product"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
   <fingerprint pattern="^AXIS (\S+) .*FTP Network Print Server V?([\d\.]+\S+) .* ready\.?$" flags="REG_ICASE">
     <description>Axis print servers</description>
     <example hw.product="5600+">AXIS 5600+ (rev 3) FTP Network Print Server V7.00 Sep 10 2004 ready.</example>
