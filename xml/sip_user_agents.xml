@@ -3,6 +3,17 @@
   <!--
   SIP User Agent header values are matched against these patterns to fingerprint SIP devices.
   -->
+  <!-- Axis devices -->
+  <fingerprint pattern="(?i)^AXIS (\S+) Network Video Door Station$">
+    <description>Axis Network Video Door stations, which have voice</description>
+    <example>AXIS A8105-E Network Video Door Station</example>
+    <param pos="0" name="hw.vendor" value="Axis"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="os.vendor" value="Axis"/>
+    <param pos="0" name="os.device" value="Web cam"/>
+    <param pos="1" name="os.product"/>
+  </fingerprint>
   <!-- Cisco Devices -->
   <fingerprint pattern="^Cisco-SIPGateway/IOS-([\d\.x]+)$">
     <description>Cisco SIPGateway</description>
