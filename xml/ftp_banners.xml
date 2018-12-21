@@ -283,11 +283,13 @@ more stuff</example>
     <param pos="0" name="service.product" value="Pure-FTPd"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="^-{9,10} Welcome to Pure-FTPd (.*)-{9,10}" flags="REG_MULTILINE">
+  <fingerprint pattern="^-{9,10}(?:.*)\s+Pure-FTPd\s+(.*)-{9,10}" flags="REG_MULTILINE">
     <description>Pure-FTPd versions &gt;= 1.0.14
       Config data can be zero or more of: [privsep] [TLS]
     </description>
     <example>---------- Welcome to Pure-FTPd ----------</example>
+    <example>--------- Bienvenido a Pure-FTPd [privsep] [TLS] ----------</example>
+    <example>---------  Pure-FTPd [privsep] ----------</example>
     <example>--------- Welcome to Pure-FTPd [privsep] [TLS] ----------</example>
     <example>--------- Welcome to Pure-FTPd [privsep] [TLS] ----------&#13;
 more text</example>
