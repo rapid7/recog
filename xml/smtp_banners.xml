@@ -461,6 +461,7 @@
     <param pos="0" name="service.product" value="Mail Server"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:mailenable:mailenable:{service.version}"/>
   </fingerprint>
   <!-- MailEnable has an odd, three version string. Not sure about the meaning the second and third version #s. -->
   <fingerprint pattern="^(?:(\S+) +)?ESMTP MailEnable Service, Version: (?:([\d.]+))?-[\d.]*-[\d.]* (?:ready|denied access) at (\d{2}/\d{2}/\d{2} \d{2}:\d{2}:\d{2})$">
@@ -479,6 +480,7 @@
     <param pos="0" name="system.time.format" value="MM/dd/yy HH:mm:ss"/>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:mailenable:mailenable:{service.version}"/>
     <param pos="3" name="system.time"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) \(Mail-Max Version (\d+\.[\d\.]+), (.+, .+)\) ESMTP Mail Server Ready. *$">
