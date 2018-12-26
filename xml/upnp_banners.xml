@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- UPnP Server headers are matched against these patterns to fingerprint UPnP servers. -->
 <fingerprints matches="ssdp_header.server" protocol="ssdp" database_type="service" preference="0.70">
+  <!-- UPnP Server headers are matched against these patterns to fingerprint UPnP servers. -->
   <fingerprint pattern="(?i)^(.*) UPnP/[\d\.]+\s+AVM FRITZ!(.*) ([\d\.]+)$">
     <description>AVM FRITZ! devices of various types</description>
     <example host.name="some thing" os.product="WLAN Repeater 1750E" os.version="134.07.01">some thing UPnP/1.0 AVM FRITZ!WLAN Repeater 1750E 134.07.01</example>
@@ -20,6 +20,7 @@
     <param pos="0" name="os.vendor" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Tomato UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>Tomato UPnP Server</description>
@@ -289,12 +290,15 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
-  <fingerprint pattern="(?i)^SmoothWall Express/\S+ UPnP/\S+ miniupnpd/(\S+)$">
+  <fingerprint pattern="(?i)^SmoothWall Express/(\S+) UPnP/\S+ miniupnpd/(\S+)$">
     <description>Smoothwall Express UPnP Server</description>
-    <example>SmoothWall Express/3.0 UPnP/1.0 miniupnpd/1.0</example>
-    <param pos="0" name="service.vendor" value="Smoothwall"/>
+    <example os.version="3.0" service.version="1.0">SmoothWall Express/3.0 UPnP/1.0 miniupnpd/1.0</example>
+    <param pos="0" name="os.vendor" value="Smoothwall"/>
+    <param pos="0" name="os.product" value="Smoothwall"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:smoothwall:smoothwall:{os.version}"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
-    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^(\S+) \d+/Service Pack \d+, UPnP/[\d\.]+, TVersity Media Server$">
     <description>TVersity Media Server UPnP Server</description>
@@ -502,6 +506,7 @@
     <param pos="0" name="os.vendor" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Linux/(\S+) UPnP/[\d\.]+ DLNADOC/[\d\.]+ Portable SDK for UPnP devices/(\S+)$">
     <description>DLNADOC Portable SDK for UPnP Server</description>
@@ -512,6 +517,7 @@
     <param pos="0" name="os.vendor" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Linux/(\S+), UPnP/[\d\.]+, Intel SDK for UPnP devices ?/(\S+)$">
     <description>Intel SDK for UPnP Server</description>
@@ -522,6 +528,7 @@
     <param pos="0" name="os.vendor" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Linux, UPnP/[\d\.]+, Intel SDK for UPnP devices ?/(\S+)$">
     <description>Intel SDK for UPnP Server</description>
@@ -555,6 +562,7 @@
     <param pos="0" name="os.family" value="RouterOS"/>
     <param pos="0" name="os.product" value="RouterOS"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:mikrotik:routeros:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Roku UPnP/\S+ Roku/(\S+)$">
     <description>Roku with a version</description>

@@ -679,7 +679,8 @@
   <fingerprint pattern="^(?:\r|\n)*Ruijie login:\s*$">
     <description>Ruijie device (likely router/switch)</description>
     <example>Ruijie login:</example>
-    <param pos="0" name="hw.vendor" value="Ruijie"/></fingerprint>
+    <param pos="0" name="hw.vendor" value="Ruijie"/>
+  </fingerprint>
   <fingerprint pattern="^Welcome to Microsoft Telnet Service \r\n\n\rlogin:\s*$">
     <description>Microsoft Windows</description>
     <!-- Welcome to Microsoft Telnet Service \r\n\n\rlogin: -->
@@ -687,6 +688,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <!-- The following fingerprints are for generic Broadcom hardware where the
        vendor has left the default banner in place. These could be rebadged by
