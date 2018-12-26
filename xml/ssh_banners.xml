@@ -807,12 +807,28 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^([^\s]+) FlowSsh: (?:Bitvise SSH Server \(WinSSHD\)|WinSSHD) ([\d\.]+):?.*$">
-    <description>Bitvise WinSSHD (which uses Bitvise flowssh)</description>
+    <description>Bitvise WinSSHD (which uses Bitvise flowssh) with version</description>
     <example service.version="5.09" service.component.version="1.03">1.03 FlowSsh: WinSSHD 5.09</example>
     <example service.version="5.20" service.component.version="1.07">1.07 FlowSsh: WinSSHD 5.20: free only for personal non-commercial use</example>
     <example service.version="6.03" service.component.version="5.21">5.21 FlowSsh: Bitvise SSH Server (WinSSHD) 6.03: free only for personal non-commercial use</example>
     <param pos="1" name="service.component.version"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.component.vendor" value="Bitvise"/>
+    <param pos="0" name="service.component.family" value="flowssh"/>
+    <param pos="0" name="service.component.product" value="flowssh"/>
+    <param pos="0" name="service.vendor" value="Bitvise"/>
+    <param pos="0" name="service.family" value="WinSSHD"/>
+    <param pos="0" name="service.product" value="WinSSHD"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
+  </fingerprint>
+  <fingerprint pattern="^([^\s]+) FlowSsh: (?:Bitvise SSH Server \(WinSSHD\)|WinSSHD)(?: :.*)?$">
+    <description>Bitvise WinSSHD (which uses Bitvise flowssh) without version</description>
+    <example service.component.version="9.99">9.99 FlowSsh: Bitvise SSH Server (WinSSHD)</example>
+    <example service.component.version="9.99">9.99 FlowSsh: Bitvise SSH Server (WinSSHD) : free only for personal non-commercial use</example>
+    <param pos="1" name="service.component.version"/>
     <param pos="0" name="service.component.vendor" value="Bitvise"/>
     <param pos="0" name="service.component.family" value="flowssh"/>
     <param pos="0" name="service.component.product" value="flowssh"/>
