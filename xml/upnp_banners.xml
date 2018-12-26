@@ -290,12 +290,15 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
-  <fingerprint pattern="(?i)^SmoothWall Express/\S+ UPnP/\S+ miniupnpd/(\S+)$">
+  <fingerprint pattern="(?i)^SmoothWall Express/(\S+) UPnP/\S+ miniupnpd/(\S+)$">
     <description>Smoothwall Express UPnP Server</description>
-    <example>SmoothWall Express/3.0 UPnP/1.0 miniupnpd/1.0</example>
-    <param pos="0" name="service.vendor" value="Smoothwall"/>
+    <example os.version="3.0" service.version="1.0">SmoothWall Express/3.0 UPnP/1.0 miniupnpd/1.0</example>
+    <param pos="0" name="os.vendor" value="Smoothwall"/>
+    <param pos="0" name="os.product" value="Smoothwall"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:smoothwall:smoothwall:{os.version}"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
-    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^(\S+) \d+/Service Pack \d+, UPnP/[\d\.]+, TVersity Media Server$">
     <description>TVersity Media Server UPnP Server</description>
