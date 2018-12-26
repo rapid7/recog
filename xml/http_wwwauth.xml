@@ -162,6 +162,11 @@
     <param pos="0" name="hw.family" value="Orbi"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^(?:Basic|Digest) realm=&quot;RUIJIE(?:-CPE)?&quot;.*$">
+    <description>Ruijie Networks generic</description>
+    <example>RUIJIE-CPE</example>
+    <param pos="0" name="hw.vendor" value="Ruijie"/>
+  </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=.SpeedTouch \(([0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2})\).$">
     <description>Thomson SpeedTouch xDSL routers</description>
     <param pos="0" name="service.vendor" value="Thomson"/>
