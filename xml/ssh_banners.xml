@@ -725,6 +725,14 @@
     <param pos="0" name="os.product" value="Wireless LAN Controller"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:wireless_lan_controller:-"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^Cleo (\S+)/(\S+) SSH FTP server$">
+    <description>Cleo networks Harmony, VLProxy, VLTrader, others</description>
+    <example service.product="Harmony" service.version="5.5.0.3">Cleo Harmony/5.5.0.3 SSH FTP server</example>
+    <example service.product="VLProxy" service.version="3.2">Cleo VLProxy/3.2 SSH FTP server</example>
+    <param pos="0" name="service.vendor" value="Cleo"/>
+    <param pos="1" name="service.product"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
   <fingerprint pattern="^Sun_SSH_(.*)$">
     <description>Sun SSH banner</description>
     <example service.version="1.1">Sun_SSH_1.1</example>
