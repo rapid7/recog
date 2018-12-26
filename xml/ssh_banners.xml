@@ -52,6 +52,14 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:ipswitch:ws_ftp:{service.version}"/>
   </fingerprint>
+  <fingerprint pattern="IPSSH[-_]([\d\.p]+).*$">
+    <description>VxWorks with version information</description>
+    <example os.version="6.9.0">IPSSH-6.9.0</example>
+    <param pos="0" name="os.vendor" value="Wind River"/>
+    <param pos="0" name="os.product" value="VxWorks"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:windriver:vxworks:{os.version}"/>
+  </fingerprint>
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(FreeBSD[ -].*)$">
     <description>OpenSSH running on FreeBSD</description>
     <example service.version="7.2" openssh.comment="FreeBSD-20160310">OpenSSH_7.2 FreeBSD-20160310</example>
