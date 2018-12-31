@@ -454,6 +454,31 @@
     <param pos="2" name="os.version.version"/>
     <param pos="3" name="os.version.version.version"/>
   </fingerprint>
+  <fingerprint pattern="^Apple Base Station$">
+    <description>SMB exposed via SMB shared USB disks on Apple devices</description>
+    <example>Apple Base Station</example>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="hw.vendor" value="Apple"/>
+  </fingerprint>
+  <fingerprint pattern="^EMC-SNAS:T([\d\.]+)?$">
+    <description>EMC Celerra</description>
+    <example service.version="7.1.80.7">EMC-SNAS:T7.1.80.7</example>
+    <param pos="0" name="service.vendor" value="EMC"/>
+    <param pos="0" name="service.product" value="Celerra"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="EMC"/>
+    <param pos="0" name="os.device" value="Storage"/>
+    <param pos="0" name="os.product" value="Celerra"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="hw.vendor" value="EMC"/>
+    <param pos="0" name="hw.device" value="Storage"/>
+    <param pos="0" name="hw.product" value="Celerra"/>
+  </fingerprint>
+  <fingerprint pattern="^Netreon OS 1.0$">
+    <description>Netreon SAN software</description>
+    <example>Netreon OS 1.0</example>
+    <param pos="0" name="service.vendor" value="Netreon"/>
+  </fingerprint>
   <!-- VisionFS -->
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)ai(\d{4})">
     <description>AIX</description>
