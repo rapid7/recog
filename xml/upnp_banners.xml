@@ -49,6 +49,12 @@
     <param pos="1" name="hw.model"/>
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
+  <fingerprint pattern="(?i)Linux UPnP/\d\.\d Huawei-ATP-IGD$">
+    <description>Huawei Echolife / Home Gateway (and possibly other) devices with UPnP</description>
+    <example>Linux UPnP/1.0 Huawei-ATP-IGD</example>
+    <param pos="0" name="hw.vendor" value="Huawei"/>
+    <param pos="0" name="hw.device" value="Broadband router"/>
+  </fingerprint>
   <fingerprint pattern="(?i)^OpenWRT/kamikaze UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>OpenWRT Kamikaze WAP UPnP Server</description>
     <example>OpenWRT/kamikaze UPnP/1.0 MiniUPnPd/1.5</example>

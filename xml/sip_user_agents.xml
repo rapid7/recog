@@ -73,6 +73,35 @@
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
+   <!-- Huawei devices -->
+   <fingerprint pattern="(?i)^Huawei$">
+    <description>Huawei generic</description>
+    <example>Huawei</example>
+    <param pos="0" name="hw.vendor" value="Huawei"/>
+  </fingerprint>
+   <fingerprint pattern="(?i)^Huawei-HomeGateway/V(?:\d.*)$">
+    <description>Huawei Home Gateway</description>
+    <example>Huawei-HomeGateway/V100R001</example>
+    <param pos="0" name="hw.vendor" value="Huawei"/>
+    <param pos="0" name="hw.device" value="Broadband router"/>
+    <param pos="0" name="hw.product" value="Home Gateway"/>
+  </fingerprint>
+  <fingerprint pattern="(?i)^Huawei-EchoLife (HG.*)/V(?:\d.*)$">
+    <description>Huawei EchoLife Home Gateway</description>
+    <example hw.model="HG8121H">HUAWEI-EchoLife HG8121H/V3R018C00S110</example>
+    <param pos="0" name="hw.vendor" value="Huawei"/>
+    <param pos="0" name="hw.device" value="Broadband router"/>
+    <param pos="0" name="hw.product" value="EchoLife Home Gateway"/>
+    <param pos="1" name="hw.model"/>
+  </fingerprint>
+  <fingerprint pattern="(?i)^Huawei (SoftX\d+) (?:V\d.*)$">
+    <description>Huawei Softswitch</description>
+    <example hw.model="SoftX3000">Huawei SoftX3000 V300R010</example>
+    <param pos="0" name="hw.vendor" value="Huawei"/>
+    <param pos="0" name="hw.device" value="Telecom"/>
+    <param pos="0" name="hw.product" value="Softswitch"/>
+    <param pos="1" name="hw.model"/>
+  </fingerprint>
   <fingerprint pattern="^Mitel-(\S+)-SIP-Phone ([\d\.]+) (.{12})$">
     <description>Mitel SIP Phones</description>
     <example hw.product="5320" hw.version="06.05.00.11" host.mac="010203040506">Mitel-5320-SIP-Phone 06.05.00.11 010203040506</example>

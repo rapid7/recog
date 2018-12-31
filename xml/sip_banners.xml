@@ -101,6 +101,19 @@
     <param pos="0" name="hw.product" value="DuraFon"/>
     <param pos="0" name="hw.device" value="VoIP"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^Huawei (SoftX\d+) (?:V\d.*)$">
+    <description>Huawei Softswitch</description>
+    <example hw.model="SoftX3000">Huawei SoftX3000 V300R006</example>
+    <param pos="0" name="hw.vendor" value="Huawei"/>
+    <param pos="0" name="hw.device" value="Telecom"/>
+    <param pos="0" name="hw.product" value="Softswitch"/>
+    <param pos="1" name="hw.model"/>
+  </fingerprint>
+  <fingerprint pattern="(?i)^SIP/1.0 \(Huawei\)$">
+    <description>Huawei generic</description>
+    <example>SIP/1.0 (Huawei)</example>
+    <param pos="0" name="hw.vendor" value="Huawei"/>
+  </fingerprint>
   <fingerprint pattern="^M5T SIP(?: Stack|-UA SAFE)/v?([\d\.]+)">
     <description>Media5 Corporation SIP Stack</description>
     <example service.version="4.1.2.2">M5T SIP Stack/4.1.2.2</example>
