@@ -1927,17 +1927,9 @@
     <param pos="0" name="os.vendor" value="Sophos"/>
     <param pos="0" name="os.product" value="Email Appliance"/>
   </fingerprint>
-  <fingerprint pattern="^CUPS/((?:\d\.)+\d+)$">
+  <fingerprint pattern="^CUPS\/((?:\d\.)+\d+)(\s*IPP\/\d+\.\d+)?$">
     <description>Server for the CUPS web interface.</description>
     <example service.version="1.1">CUPS/1.1</example>
-    <param pos="0" name="service.vendor" value="Apple"/>
-    <param pos="0" name="service.product" value="CUPS"/>
-    <param pos="0" name="service.family" value="CUPS"/>
-    <param pos="1" name="service.version"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:apple:cups:{service.version}"/>
-  </fingerprint>
-  <fingerprint pattern="^CUPS\/((?:\d\.)+\d+)\s*IPP\/\d+\.\d+$">
-    <description>Server for the CUPS web interface w/ a specified IPP version.</description>
     <example service.version="1.7">CUPS/1.7 IPP/2.1</example>
     <param pos="0" name="service.vendor" value="Apple"/>
     <param pos="0" name="service.product" value="CUPS"/>
