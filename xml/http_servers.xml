@@ -17,6 +17,15 @@
     <param pos="0" name="service.product" value="cPanel Service Daemon"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^cwpsrv$">
+    <description>CentOS Web Panel</description>
+    <example>cwpsrv</example>
+    <param pos="0" name="service.vendor" value="CentOS"/>
+    <param pos="0" name="service.product" value="CentOS Web Panel"/>
+    <param pos="0" name="os.vendor" value="CentOS"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+  </fingerprint>
   <fingerprint pattern="^Stronghold/(\d\.\d) Apache/([012][\d.]*)\s*(.*)$">
     <description>Red Hat Stronghold Enterprise Apache</description>
     <example service.version="1.3.19" service.cpe23="cpe:/a:apache:http_server:1.3.19" service.component.cpe23="cpe:/a:redhat:stronghold:3.0">Stronghold/3.0 Apache/1.3.19 RedHat/3014c</example>
