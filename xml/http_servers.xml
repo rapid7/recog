@@ -1066,11 +1066,11 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:mortbay:jetty:{service.version}"/>
   </fingerprint>
-  <fingerprint pattern="^(?i)squid/(\d+\.[\w.]+)$">
+  <fingerprint pattern="^(?i)squid/(\d+\.[\w.\-\+]+)$">
     <description>Squid Web Proxy with a version</description>
-    <example>Squid/2.3.STABLE1</example>
-    <example>squid/2.5.12.cc1.29</example>
-    <example>squid/2.6.STABLE13</example>
+    <example service.version="2.3.STABLE1">Squid/2.3.STABLE1</example>
+    <example service.version="4.4">squid/4.4</example>
+    <example service.version="3.2.9-BZR">squid/3.2.9-BZR</example>
     <param pos="0" name="service.vendor" value="Squid Cache"/>
     <param pos="0" name="service.product" value="Squid"/>
     <param pos="0" name="service.family" value="Squid"/>
