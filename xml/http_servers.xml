@@ -292,6 +292,14 @@
     <param pos="0" name="os.product" value="Windows 95"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_95:-"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^mt-daapd(?:/(.+))?$">
+    <description>Firefly Media Server</description>
+    <example service.version="0.2.4.1">mt-daapd/0.2.4.1</example>
+    <example service.version="svn-999">mt-daapd/svn-999</example>
+    <param pos="0" name="service.vendor" value="Firefly"/>
+    <param pos="0" name="service.product" value="Media Server"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
   <fingerprint pattern="^Apache[ -]Coyote/(\d\.\d)$">
     <description>HTTP connector for Apache Tomcat to run as a standalone
       HTTP server</description>
