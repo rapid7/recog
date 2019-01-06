@@ -316,6 +316,15 @@
     <param pos="2" name="hw.model"/>
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
+  <fingerprint pattern="^(?i)Linux UPnP/1.0 Sonos/([\d\.\-a-z]+) \(ANVIL\)$">
+    <description>Sonos Subwoofer Speaker</description>
+    <example>Linux UPnP/1.0 Sonos/31.3-22220 (ANVIL)</example>
+    <param pos="0" name="hw.vendor" value="Sonos"/>
+    <param pos="0" name="hw.product" value="Sub"/>
+    <param pos="0" name="hw.device" value="Network Audio"/>
+    <param pos="1" name="hw.version"/>
+    <param pos="0" name="os.product" value="Linux"/>
+  </fingerprint>
   <fingerprint pattern="(?i)^Linux UPnP/1.0 Sonos/([\d\.\-a-z]+) \(ZP(S?\d+)\)$">
     <description>Sonos PLAY/ZonePlayer wireless speaker</description>
     <example hw.model="S1" hw.version="39.2-47040c">Linux UPnP/1.0 Sonos/39.2-47040c (ZPS1)</example>
@@ -323,6 +332,16 @@
     <example hw.model="120" hw.version="34.16-37101">Linux UPnP/1.0 Sonos/34.16-37101 (ZP120)</example>
     <param pos="0" name="hw.vendor" value="Sonos"/>
     <param pos="0" name="hw.product" value="PLAY"/>
+    <param pos="0" name="hw.device" value="Network Audio"/>
+    <param pos="1" name="hw.version"/>
+    <param pos="2" name="hw.model"/>
+    <param pos="0" name="os.product" value="Linux"/>
+  </fingerprint>
+  <fingerprint pattern="(?i)^Linux UPnP/1.0 Sonos/([\d\.\-a-z]+) \(WD(\d+)\)$">
+    <description>Sonos Wireless Dock</description>
+    <example hw.model="100" hw.version="36.4-41270">Linux UPnP/1.0 Sonos/36.4-41270 (WD100)</example>
+    <param pos="0" name="hw.vendor" value="Sonos"/>
+    <param pos="0" name="hw.product" value="Wireless Dock"/>
     <param pos="0" name="hw.device" value="Network Audio"/>
     <param pos="1" name="hw.version"/>
     <param pos="2" name="hw.model"/>
