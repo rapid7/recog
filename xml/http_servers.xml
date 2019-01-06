@@ -707,6 +707,24 @@
     <param pos="0" name="service.product" value="FTP Server"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+  <fingerprint pattern="^Linux UPnP/1.0 Sonos/([\d\.\-]+) \((BR\d+)\)$">
+    <description>Sonos Bridge/ZoneBridge</description>
+    <example hw.model="BR100" hw.version="47.2-59120">Linux UPnP/1.0 Sonos/47.2-59120 (BR100)</example>
+    <param pos="0" name="hw.vendor" value="Sonos"/>
+    <param pos="0" name="hw.product" value="Bridge"/>
+    <param pos="0" name="hw.device" value="Network Audio"/>
+    <param pos="1" name="hw.version"/>
+    <param pos="2" name="hw.model"/>
+  </fingerprint>
+  <fingerprint pattern="^Linux UPnP/1.0 Sonos/([\d\.\-]+) \(ZP(S\d)\)$">
+    <description>Sonos PLAY/ZonePlayer wireless speaker</description>
+    <example hw.model="S3" hw.version="47.2-59120">Linux UPnP/1.0 Sonos/47.2-59120 (ZPS3)</example>
+    <param pos="0" name="hw.vendor" value="Sonos"/>
+    <param pos="0" name="hw.product" value="PLAY"/>
+    <param pos="0" name="hw.device" value="Network Audio"/>
+    <param pos="1" name="hw.version"/>
+    <param pos="2" name="hw.model"/>
+  </fingerprint>
   <fingerprint pattern="^Varnish(?:[- ]Cache)?$">
     <description>Varnish Cache</description>
     <example>Varnish</example>
