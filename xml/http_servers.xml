@@ -717,9 +717,10 @@
     <param pos="2" name="hw.model"/>
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
-  <fingerprint pattern="^Linux UPnP/1.0 Sonos/([\d\.\-]+) \(ZP(S\d)\)$">
+  <fingerprint pattern="^Linux UPnP/1.0 Sonos/([\d\.\-]+) \(ZP(S?\d+)\)$">
     <description>Sonos PLAY/ZonePlayer wireless speaker</description>
     <example hw.model="S3" hw.version="47.2-59120">Linux UPnP/1.0 Sonos/47.2-59120 (ZPS3)</example>
+    <example hw.model="120" hw.version="34.16-37101">Linux UPnP/1.0 Sonos/34.16-37101 (ZP120)</example>
     <param pos="0" name="hw.vendor" value="Sonos"/>
     <param pos="0" name="hw.product" value="PLAY"/>
     <param pos="0" name="hw.device" value="Network Audio"/>
@@ -1643,6 +1644,14 @@
     <param pos="0" name="os.device" value="Firewall"/>
     <param pos="0" name="os.product" value="Raptor"/>
     <param pos="1" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^IPG(\d+)$">
+    <description>Systech Internet Payment Gateway</description>
+    <example hw.model="8000">IPG8000</example>
+    <param pos="0" name="hw.vendor" value="Systech"/>
+    <param pos="0" name="hw.device" value="Telecom"/>
+    <param pos="0" name="hw.product" value="Internet Payment Gateway"/>
+    <param pos="1" name="hw.model"/>
   </fingerprint>
   <fingerprint pattern="^NS_(\d\.\d)$">
     <description>Citrix NetScaler</description>
