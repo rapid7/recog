@@ -336,7 +336,7 @@
     <param pos="3" name="os.arch"/>
     <param pos="4" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="^(?m)TiMOS-[CB]-([\S]+) (?:both|cpm)/([\w]+) ALCATEL (SR [\S]+) Copyright.*Login:\s*$">
+  <fingerprint pattern="^(?m)TiMOS-[CB]-([\S]+) (?:both|cpm)/([\w]+) ALCATEL (SR [\S]+) Copyright.*Login:\s*$" flags="REG_MULTILINE">
     <description>ALCATEL Service Router running TiMOS</description>
     <!-- TiMOS-C-12.0.R12 cpm/hops64 ALCATEL SR 7750 Copyright (c) 2000-2015 Alcatel-Lucent.\r\r\nBanner Shortened For \r\r\nBrevity\r\nLogin: -->
     <example _encoding="base64" os.version="12.0.R12" hw.product="SR 7750" os.arch="hops64">
@@ -355,7 +355,7 @@
     <param pos="3" name="hw.product"/>
   </fingerprint>
   <!-- Nokia purchased Alcatel Lucent, finalized in Nov 2016 -->
-  <fingerprint pattern="^(?m)TiMOS-[CB]-([\S]+) (?:both|cpm)\/([\w]+) Nokia ([\S]+ [SRX]+) Copyright.*Login:\s*$">
+  <fingerprint pattern="^(?m)TiMOS-[CB]-([\S]+) (?:both|cpm)\/([\w]+) Nokia ([\S]+ [SRX]+) Copyright.*Login:\s*$" flags="REG_MULTILINE">
     <description>Nokia Service Router running TiMOS</description>
     <!-- TiMOS-C-14.0.R5 cpm/hops64 Nokia 7750 SR Copyright (c) 2000-2016 Nokia.\r\r\nBanner Shortened For \r\r\nBrevity\r\nLogin: -->
     <example _encoding="base64" os.version="14.0.R5" os.arch="hops64" hw.product="7750 SR">
@@ -379,7 +379,7 @@
     <param pos="0" name="hw.device" value="Router"/>
     <param pos="3" name="hw.product"/>
   </fingerprint>
-  <fingerprint pattern="^(?m)TiMOS-[CB]-([\S]+) (?:both|cpm)\/([\w]+) Nokia (SAS[+\w\s-]+) Copyright.*Login:\s*$">
+  <fingerprint pattern="^(?m)TiMOS-[CB]-([\S]+) (?:both|cpm)\/([\w]+) Nokia (SAS[+\w\s-]+) Copyright.*Login:\s*$" flags="REG_MULTILINE">
     <description>Nokia Service Access Switch running TiMOS</description>
     <!-- TiMOS-B-8.0.R12 both/hops Nokia SAS-Mxp 22F2C 4SFP+ 7210 Copyright (c) 2000-2017 Nokia.\r\r\nBanner Shortened For \r\r\nBrevity\r\nLogin: -->
     <example _encoding="base64" os.version="8.0.R12" os.arch="hops" hw.product="SAS-Mxp 22F2C 4SFP+ 7210">
@@ -546,7 +546,7 @@
     <param pos="0" name="hw.product" value="JetDirect"/>
     <param pos="0" name="hw.device" value="Printer"/>
   </fingerprint>
-  <fingerprint pattern="^(?:\r|\n)*%connection closed by remote host!(?:\u0000)?$">
+  <fingerprint pattern="^(?:\r|\n)*%connection closed by remote host!(?:\x00)?$">
     <description>HP switch blocking connection using network ACL</description>
     <!-- %connection closed by remote host! -->
     <example _encoding="base64">JWNvbm5lY3Rpb24gY2xvc2VkIGJ5IHJlbW90ZSBob3N0IQ==</example>
@@ -593,7 +593,7 @@
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
-  <fingerprint pattern="^(?m)(?:\r|\n)*Catalyst 1900 Management Console(?:\r|\n)+.*Ethernet Address:\s+([\w-]+)(?:\r|\n)+.*Model Number:\s+([\w-]+)(?:\r|\n)+System Serial Number:\s+(\w+)(?:\r|\n)+Power Supply">
+  <fingerprint pattern="^(?m)(?:\r|\n)*Catalyst 1900 Management Console(?:\r|\n)+.*Ethernet Address:\s+([\w-]+)(?:\r|\n)+.*Model Number:\s+([\w-]+)(?:\r|\n)+System Serial Number:\s+(\w+)(?:\r|\n)+Power Supply" flags="REG_MULTILINE">
     <description>Cisco Catalyst 1900</description>
     <!-- Catalyst 1900, unlike other Catalyst models, didn't run CatOS or IOS -->
     <!-- Catalyst 1900 Management Console\r\nCopyright (c) Cisco Systems, Inc.  1993-1998\r\nAll rights reserved.\r\nEnterprise Edition Software\r\nEthernet Address:      00-AA-19-38-AA-00\r\n\r\nPCA Number:            73-31AA-AA\r\nPCA Serial Number:     FAB033AAAAA\r\nModel Number:          WS-C1924-EN\r\nSystem Serial Number:  FAB0341AAAA\r\nPower Supply S/N:    -->
@@ -708,7 +708,7 @@
     <param pos="0" name="hw.device" value="Router"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
-  <fingerprint pattern="^(?m)(BCM\d+) Broadband Router\r\n.*Please input the verification code:$">
+  <fingerprint pattern="^(?m)(BCM\d+) Broadband Router\r\n.*Please input the verification code:$" flags="REG_MULTILINE">
     <description>OEM'd Broadcom Router - input validation code</description>
     <!-- BCM96318 Broadband Router\r\n====================================================\r\n    * *         * * * *      * * * *      * * * *   \r\n      *         *                  *      *     *   \r\n      *         * * * *      * * * *      * * * *   \r\n      *         *     *            *            *   \r\n      *         *     *            *            *   \r\n   * * * *      * * * *      * * * *      * * * *   \r\n====================================================\r\nPlease input the verification code: -->
     <example _encoding="base64" hw.product="BCM96318">
@@ -842,7 +842,7 @@
     <param pos="0" name="os.device" value="Linux"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^(?m)Red Hat Enterprise Linux ES release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d)">
+  <fingerprint pattern="^(?m)Red Hat Enterprise Linux ES release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d)" flags="REG_MULTILINE">
     <description>RedHat Enterprise Linux ES</description>
     <!-- Red Hat Enterprise Linux ES release 3 (Taroon Update 9\nKernel 2.4.21-47.EL on an x86_64\nlogin: -->
     <example _encoding="base64" os.version="3" linux.kernel.version="2.4.21-47.EL" os.arch="x86_64">
@@ -857,7 +857,7 @@
     <param pos="3" name="os.arch"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:redhat:linux:{os.version}"/>
   </fingerprint>
-  <fingerprint pattern="^(?m)Red Hat Enterprise Linux AS release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d)">
+  <fingerprint pattern="^(?m)Red Hat Enterprise Linux AS release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d)" flags="REG_MULTILINE">
     <description>RedHat Enterprise Linux AS</description>
     <!-- Red Hat Enterprise Linux AS release 5.8 (Tikanga)\nKernel 2.6.18-308.11.1.el5 on an x86_64\nlogin: -->
     <example _encoding="base64" os.version="5.8" linux.kernel.version="2.6.18-308.11.1.el5" os.arch="x86_64">
@@ -871,7 +871,7 @@
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
   </fingerprint>
-  <fingerprint pattern="^(?m)Red Hat Enterprise Linux WS release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*)">
+  <fingerprint pattern="^(?m)Red Hat Enterprise Linux WS release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*)" flags="REG_MULTILINE">
     <description>RedHat Enterprise Linux WS</description>
     <!--Red Hat Enterprise Linux WS release 2.1 (Tampa) \nKernel 2.4.9-e.40smp on an i686 \nlogin:  -->
     <example _encoding="base64" os.version="2.1" linux.kernel.version="2.4.9-e.40smp" os.arch="i686">
@@ -885,7 +885,7 @@
     <param pos="2" name="linux.kernel.version"/>
     <param pos="3" name="os.arch"/>
   </fingerprint>
-  <fingerprint pattern="^(?m)Fedora Core.release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d).*$">
+  <fingerprint pattern="^(?m)Fedora Core.release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d).*$" flags="REG_MULTILINE">
     <description>Fedora Core Release</description>
     <!-- Fedora Core release 1 (Yarrow)\nKernel 2.4.20-13.9ensim-3.5.0-13 on an i686\nlogin:-->
     <example _encoding="base64" os.version="1" linux.kernel.version="2.4.20-13.9ensim-3.5.0-13" os.arch="i686">
@@ -1322,7 +1322,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:sgi:irix:-"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="(?m)(ES|RS)\s([^\s]+) System Software, Version ([^\s]+).*Riverstone Networks">
+  <fingerprint pattern="(?m)(ES|RS)\s([^\s]+) System Software, Version ([^\s]+).*Riverstone Networks" flags="REG_MULTILINE">
     <description>a Riverstone router</description>
     <!-- Using '+' instead of '-' due to xml issue -->
     <!-- ++++++++++++++++++++++++++++++++++\nES 10170 System Software, Version 9.3.0.4\n

@@ -287,7 +287,7 @@ example.com FTP server (Version:  Mac OS X Server) ready.</example>
     <param pos="0" name="service.cpe23" value="cpe:/a:proftpd:proftpd:-"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="^ProFTPD (\d+\.[^\s]+) Server \((.*)\) \[[[a-f\d].:\]]*$">
+  <fingerprint pattern="^ProFTPD (\d+\.[^\s]+) Server \((.*)\) \[[a-f\d.:\]]*$">
     <description>ProFTPD with version info - truncated</description>
     <example service.version="1.3.2c">ProFTPD 1.3.2c Server (ProFTPD Default Installation) [</example>
     <example proftpd.server.name="svrname.hosting.com">ProFTPD 1.3.0 Server (svrname.hosting.com) [10.10.10.</example>
@@ -1222,7 +1222,7 @@ more text</example>
     <param pos="0" name="service.vendor" value="Multicraft"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="^bftpd ([\d.]+) at ([[a-f\d].:]+) ready\.$">
+  <fingerprint pattern="^bftpd ([\d.]+) at ([a-f\d.:]+) ready\.$">
     <description>Bftpd FTPD Server</description>
     <example service.version="2.2.1" host.ip="192.168.0.1">bftpd 2.2.1 at 192.168.0.1 ready.</example>
     <example service.version="2.2" host.ip="::ffff:192.168.1.1">bftpd 2.2 at ::ffff:192.168.1.1 ready.</example>
@@ -1233,7 +1233,8 @@ more text</example>
     <param pos="0" name="service.cpe23" value="cpe:/a:bftpd_project:bftpd:{service.version}"/>
     <param pos="2" name="host.ip"/>
   </fingerprint>
-  <fingerprint pattern="^NASFTPD Turbo station (?:2.x )?([\w.]+) Server \(ProFTPD\)(?: \[([[a-f\d].:]+)\])?$">
+
+  <fingerprint pattern="^NASFTPD Turbo station (?:2.x )?([\w.]+) Server \(ProFTPD\)(?: \[([a-f\d.:]+)\])?$">
     <description>ProFTPD on QNAP Turbo Station NAS</description>
     <example service.version="1.3.5a" host.ip="192.168.1.100">NASFTPD Turbo station 1.3.5a Server (ProFTPD) [192.168.1.100]</example>
     <example service.version="1.3.1rc2" host.ip="192.168.1.100">NASFTPD Turbo station 2.x 1.3.1rc2 Server (ProFTPD) [192.168.1.100]</example>
@@ -1298,7 +1299,7 @@ more text</example>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
-  <fingerprint pattern="^FTP Server \(ZyWALL (USG\s?[\w-]+)\) \[([[a-f\d]:.]+)\]$">
+  <fingerprint pattern="^FTP Server \(ZyWALL (USG\s?[\w-]+)\) \[([a-f\d:.]+)\]$">
     <description>ZyXEL Unified Security Gateway</description>
     <example hw.product="USG 20" host.ip="::ffff:192.168.0.2">FTP Server (ZyWALL USG 20) [::ffff:192.168.0.2]</example>
     <example hw.product="USG100-PLUS" host.ip="::ffff:192.168.5.101">FTP Server (ZyWALL USG100-PLUS) [::ffff:192.168.5.101]</example>
