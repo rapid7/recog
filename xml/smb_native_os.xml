@@ -376,6 +376,16 @@
     <param pos="3" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:{os.version}"/>
   </fingerprint>
+  <fingerprint pattern="^Windows Storage Server 2012 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
+    <description>Windows Server 2012 Storage</description>
+    <example os.build="9200">=Windows Storage Server 2012 Standard 9200</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2012"/>
+    <param pos="0" name="os.edition" value="Storage"/>
+    <param pos="1" name="os.build"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
+  </fingerprint>
   <fingerprint pattern="^Windows Server 2012 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
     <description>Windows Server 2012</description>
     <example>Windows Server 2012 Standard 9200</example>
