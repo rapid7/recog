@@ -2288,6 +2288,13 @@
     <param pos="0" name="service.vendor" value="Amazon"/>
     <param pos="0" name="service.product" value="Snowball"/>
   </fingerprint>
+  <fingerprint pattern="^awselb/([\d.rc]+)$">
+    <description>Amazon Elastic Load Balancing</description>
+    <example service.version="2.0">awselb/2.0</example>
+    <param pos="0" name="service.vendor" value="Amazon"/>
+    <param pos="0" name="service.family" value="Elastic Load Balancing"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
   <fingerprint pattern="^cloudflare(?:-nginx)?$">
     <description>CloudFlare web load balancer endpoint</description>
     <example>cloudflare-nginx</example>
