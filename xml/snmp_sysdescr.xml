@@ -1315,9 +1315,11 @@
     <param pos="0" name="os.certainty" value="0.85"/>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.product" value="TelePresence"/>
-    <param pos="0" name="os.device" value="Codec"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="hw.series"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.product" value="TelePresence"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
   </fingerprint>
   <fingerprint pattern="^Cisco TelePresence (?:(?:HD )?MCU) ((?:MSE )?\d+)">
     <description>Cisco TelePresence</description>
@@ -1327,24 +1329,31 @@
     <param pos="0" name="os.certainty" value="0.85"/>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.product" value="TelePresence"/>
-    <param pos="0" name="os.device" value="Bridge"/>
     <param pos="1" name="hw.series"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.product" value="TelePresence"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
   </fingerprint>
   <fingerprint pattern="^Cisco TelePresence (Conductor|Supervisor)(?: (MSE \d+))?">
     <description>Cisco TelePresence</description>
-    <example os.device="Conductor">Cisco TelePresence Conductor</example>
-    <example os.device="Supervisor" hw.series="MSE 8050">Cisco TelePresence Supervisor MSE 8050</example>
+    <example hw.series"Conductor">Cisco TelePresence Conductor</example>
+    <example hw.series"Supervisor" hw.model="MSE 8050">Cisco TelePresence Supervisor MSE 8050</example>
     <param pos="0" name="os.certainty" value="0.85"/>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.product" value="TelePresence"/>
-    <param pos="1" name="os.device"/>
-    <param pos="2" name="hw.series"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.product" value="TelePresence"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
+    <param pos="1" name="hw.series"/>
+    <param pos="2" name="hw.model"/>
   </fingerprint>
   <fingerprint pattern="^TANDBERG Codec$">
     <description>Tandberg videoconferencing device</description>
     <example>TANDBERG Codec</example>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.product" value="TelePresence"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.product" value="TelePresence"/>
     <param pos="0" name="hw.device" value="Video Conferencing"/>
   </fingerprint>
   <fingerprint pattern="^TANDBERG MPS-MCU$">
