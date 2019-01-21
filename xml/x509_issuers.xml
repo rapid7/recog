@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fingerprints matches="x509.issuer" protocol="x509">
+    <!--
+  This fingerprint set matches the Issuer field of x509 certificates. These x509
+  certificates may be sourced from any SSL or TLS service. If a particular system
+  has identical subject and issuer fields, the subject field should be preferred.
+  -->
+
+    <fingerprint pattern="CN=Chromecast ICA (\d+)\s*([^,]*),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US$">
+        <description>Google Chromecast</description>
+
+        <example chromecast.generation="3">CN=Chromecast ICA 3,OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+        <example chromecast.generation="4" chromecast.capabilities="(Audio)">CN=Chromecast ICA 4 (Audio),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+        <example chromecast.generation="5" chromecast.capabilities="(4K)">CN=Chromecast ICA 5 (4K),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+        <example chromecast.generation="6" chromecast.capabilities="(Audio Assist)">CN=Chromecast ICA 6 (Audio Assist),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+        <example chromecast.generation="7" chromecast.capabilities="(Audio Assist 2)">CN=Chromecast ICA 7 (Audio Assist 2),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+        <example chromecast.generation="9" chromecast.capabilities="(Audio Assist)">CN=Chromecast ICA 9 (Audio Assist),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+        <example chromecast.generation="11" chromecast.capabilities="(Video Assist)">CN=Chromecast ICA 11 (Video Assist),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+        <example chromecast.generation="12">CN=Chromecast ICA 12,OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+
+        <param pos="0" name="service.vendor" value="Google"/>
+        <param pos="0" name="service.family" value="Chromecast"/>
+        <param pos="0" name="service.product" value="Google Chromecast"/>
+        <param pos="0" name="service.cpe23" value="cpe:/a:google:chromecast:-"/>
+        <param pos="0" name="os.vendor" value="Google"/>
+        <param pos="0" name="os.device" value="Chromecast"/>
+        <param pos="0" name="os.family" value="Google"/>
+        <param pos="0" name="os.product" value="Chromecast"/>
+        <param pos="0" name="hw.vendor" value="Google"/>
+        <param pos="0" name="hw.family" value="Chromecast"/>
+        <param pos="0" name="hw.device" value="Router"/>
+        <param pos="0" name="hw.product" value="Chromecast"/>
+        <param pos="1" name="chromecast.generation"/>
+        <param pos="2" name="chromecast.capabilities"/>
+    </fingerprint>
+
+</fingerprints>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fingerprints matches="x509.subject" protocol="x509">
+  <!--
+  This fingerprint set matches the Subject field of x509 certificates. These x509
+  certificates may be sourced from any SSL or TLS service. If a particular system
+  has identical subject and issuer fields, the subject field should be preferred.
+  -->
+  <fingerprint pattern="^CN=([0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}),OU=([^,]+),O=Araknis Networks \(TM\),L=Charlotte,C=US$">
+    <description>Araknis Networks Router</description>
+    <example host.mac="d4:6a:91:7a:a3:c4" hw.product="AN-300-RT-4L2W">CN=d4:6a:91:7a:a3:c4,OU=AN-300-RT-4L2W,O=Araknis Networks (TM),L=Charlotte,C=US</example>
+    <!-- no service or OS information -->
+    <!-- this fingerprint may also match WAPs and Switches, but we don't have examples -->
+    <param pos="0" name="hw.vendor" value="Araknis Networks"/>
+    <param pos="0" name="hw.family" value="Araknis Networks"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="2" name="hw.product"/>
+    <param pos="1" name="host.mac"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=([^,]+),OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US$">
+    <description>Cambium Networks Router</description>
+    <example hw.product="R190V">CN=R190V,OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US</example>
+    <example hw.product="R190W">CN=R190W,OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US</example>
+    <example hw.product="R200">CN=R200,OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US</example>
+    <example hw.product="R200P">CN=R200P,OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US</example>
+    <example hw.product="R201">CN=R201,OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US</example>
+    <example hw.product="R201P">CN=R201P,OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US</example>
+    <example hw.product="R201W">CN=R201W,OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US</example>
+    <!-- no service or OS information -->
+    <param pos="0" name="hw.vendor" value="Cambium Networks"/>
+    <param pos="0" name="hw.family" value="Cambium Networks"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=Cambium WLAN AP,OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US$">
+    <description>Cambium Networks WAP</description>
+    <example>CN=Cambium WLAN AP,OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US</example>
+    <!-- no service or OS information -->
+    <param pos="0" name="hw.vendor" value="Cambium Networks"/>
+    <param pos="0" name="hw.family" value="Cambium Networks"/>
+    <param pos="0" name="hw.device" value="WAP"/>
+    <param pos="0" name="hw.product" value="Cambian Networks WAP"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=Nepenthes Development Team,OU=anv,O=dionaea\.carnivore\.it,C=DE$">
+    <description>Nepenthes honeypot</description>
+    <example>CN=Nepenthes Development Team,OU=anv,O=dionaea.carnivore.it,C=DE</example>
+    <param pos="0" name="service.family" value="Nepenthes"/>
+    <param pos="0" name="service.product" value="Nepenthes"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=IPMI,OU=Software,O=Super Micro Computer,ST=California,C=US$">
+    <description>Super Micro IPMI Controller</description>
+    <example>CN=IPMI,OU=Software,O=Super Micro Computer,ST=California,C=US</example>
+    <param pos="0" name="service.vendor" value="Super Micro"/>
+    <param pos="0" name="service.product" value="IPMI"/>
+    <param pos="0" name="service.family" value="IPMI"/>
+    <param pos="0" name="hw.vendor" value="Super Micro"/>
+    <param pos="0" name="os.vendor" value="Super Micro"/>
+    <param pos="0" name="os.product" value="IPMI"/>
+    <param pos="0" name="os.family" value="IPMI"/>
+    <!-- should we standardize on BMC for all controllers? -->
+    <param pos="0" name="os.device" value="IPMI"/>
+  </fingerprint>
+
+  <!-- iDRAC with real service tag -->
+  <fingerprint pattern="^CN=idrac-([A-Z0-9]{7}),OU=Remote Access Group,O=Dell Inc\.,L=Round Rock,ST=Texas,C=US$">
+    <description>Dell iDRAC Remote Access Controller</description>
+    <example dell.service_tag="JXJJC02">CN=idrac-JXJJC02,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
+    <param pos="0" name="os.vendor" value="Dell"/>
+    <param pos="0" name="os.family" value="Dell Remote Access Controller"/>
+    <param pos="0" name="os.product" value="Dell Remote Access Controller"/>
+    <param pos="0" name="os.device" value="BMC"/>
+    <param pos="0" name="service.vendor" value="Dell"/>
+    <param pos="0" name="service.family" value="Remote Access Controller"/>
+    <param pos="1" name="dell.service_tag"/>
+  </fingerprint>
+
+  <!-- iDRAC without valid service tags -->
+  <fingerprint pattern="^CN=idrac.*,OU=Remote Access Group,O=Dell Inc\.,L=Round Rock,ST=Texas,C=US$">
+    <description>Dell iDRAC Remote Access Controller</description>
+    <example>CN=idrac-SVCTAG,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
+    <example>CN=idrac-prosit-laks,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
+    <example>CN=idrac-,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
+    <example>CN=idrac-SVCTAG,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
+    <example>CN=idrac,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
+    <param pos="0" name="os.vendor" value="Dell"/>
+    <param pos="0" name="os.family" value="Dell Remote Access Controller"/>
+    <param pos="0" name="os.product" value="Dell Remote Access Controller"/>
+    <param pos="0" name="os.device" value="BMC"/>
+    <param pos="0" name="service.vendor" value="Dell"/>
+    <param pos="0" name="service.family" value="Remote Access Controller"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=(Sourcefire3D|firepower|ciscoasa),OU=Intrusion Management System,O=(Sourcefire\\, Inc.|Cisco Systems\\, Inc),C=US$">
+    <description>Cisco Firepower</description>
+    <example>CN=firepower,OU=Intrusion Management System,O=Cisco Systems\, Inc,C=US</example>
+    <example>CN=ciscoasa,OU=Intrusion Management System,O=Cisco Systems\, Inc,C=US</example>
+    <example>CN=Sourcefire3D,OU=Intrusion Management System,O=Sourcefire\, Inc.,C=US</example>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.family" value="Firepower"/>
+    <param pos="0" name="os.product" value="IPS"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.family" value="Firepower"/>
+    <param pos="0" name="hw.product" value="Firepower"/>
+    <param pos="0" name="hw.device" value="IPS"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:cisco:firepower:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=ASA Temporary Self Signed Certificate$">
+    <description>Cisco ASA</description>
+    <example>CN=ASA Temporary Self Signed Certificate</example>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.family" value="Adaptive Security Appliance"/>
+    <param pos="0" name="os.product" value="VPN"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.family" value="Adaptive Security Appliance"/>
+    <param pos="0" name="hw.product" value="Adaptive Security Appliance"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:cisco:adaptive_security_appliance:-"/>
+  </fingerprint>
+
+</fingerprints>
