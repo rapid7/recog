@@ -17,7 +17,7 @@
     <param pos="1" name="host.mac"/>
   </fingerprint>
 
-  <fingerprint pattern="^CN=([^,]+),OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US$">
+  <fingerprint pattern="^CN=([^ ,]+),OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US$">
     <description>Cambium Networks Router</description>
     <example hw.product="R190V">CN=R190V,OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US</example>
     <example hw.product="R190W">CN=R190W,OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US</example>
@@ -93,7 +93,7 @@
     <param pos="0" name="service.family" value="Remote Access Controller"/>
   </fingerprint>
 
-  <fingerprint pattern="^CN=(Sourcefire3D|firepower|ciscoasa),OU=Intrusion Management System,O=(Sourcefire\\, Inc.|Cisco Systems\\, Inc),C=US$">
+  <fingerprint pattern="^CN=(?:Sourcefire3D|firepower|ciscoasa),OU=Intrusion Management System,O=(?:Sourcefire\\, Inc.|Cisco Systems\\, Inc),C=US$">
     <description>Cisco Firepower</description>
     <example>CN=firepower,OU=Intrusion Management System,O=Cisco Systems\, Inc,C=US</example>
     <example>CN=ciscoasa,OU=Intrusion Management System,O=Cisco Systems\, Inc,C=US</example>
