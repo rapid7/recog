@@ -26,9 +26,15 @@
     <param pos="0" name="hw.family" value="FortiGate"/>
     <param pos="0" name="hw.device" value="Firewall"/>
   </fingerprint>
+  <!-- Various products by Ubiquiti networks -->
   <fingerprint pattern="^Ubiquiti Networks$">
-    <description>Various products by Ubiquiti Networks</description>
+    <description>Generic products by Ubiquiti Networks</description>
     <example>Ubiquiti Networks</example>
+    <param pos="0" name="hw.vendor" value="Ubiquiti"/>
+  </fingerprint>
+  <fingerprint pattern="^EdgeOS$">
+    <description>Ubiquiti EdgeRouter/EdgeSwitch/etc</description>
+    <example>EdgeOS</example>
     <param pos="0" name="hw.vendor" value="Ubiquiti"/>
   </fingerprint>
   <fingerprint pattern="^UniFi Video$">
