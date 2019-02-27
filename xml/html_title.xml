@@ -9,6 +9,23 @@
     <param pos="0" name="service.family" value="Apache"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:-"/>
   </fingerprint>
+  <fingerprint pattern="^Apache Tomcat$">
+    <description> Apache Tomcat with no version</description>
+    <example>Apache Tomcat</example>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="Tomcat"/>
+    <param pos="0" name="service.family" value="Tomcat"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:apache:tomcat:-"/>
+  </fingerprint>
+  <fingerprint pattern="^Apache Tomcat/(\S+)$">
+    <description>Apache tomcat with minimal version information</description>
+    <example service.version="8.0.32">Apache Tomcat/8.0.32</example>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="Tomcat"/>
+    <param pos="0" name="service.family" value="Tomcat"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:apache:tomcat:{service.version}"/>
+  </fingerprint>
   <fingerprint pattern="^FRITZ!Box$">
     <description>AVM FRITZ!Box</description>
     <example>FRITZ!Box</example>
