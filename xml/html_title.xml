@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fingerprints matches="html_title" database_type="service" preference="0.90">
   <!-- HTML Title elements found in HTTP response bodies are matched against these patterns to fingerprint HTTP servers. -->
+  <fingerprint pattern="^cPanel Login$">
+    <description>cPanel</description>
+    <example>cPanel Login</example>
+    <param pos="0" name="service.vendor" value="cPanel"/>
+    <param pos="0" name="service.product" value="cPanel"/>
+  </fingerprint>
+  <fingerprint pattern="^WHM Login$">
+    <description>cPanel Web Host Manager</description>
+    <example>WHM Login</example>
+    <param pos="0" name="service.vendor" value="cPanel"/>
+    <param pos="0" name="service.product" value="WHM"/>
+  </fingerprint>
   <fingerprint pattern="^(.*)&amp;nbsp;-&amp;nbsp;Synology&amp;nbsp;DiskStation$">
     <description>Synology DiskStation</description>
     <example host.name="DiskStation">DiskStation&amp;nbsp;-&amp;nbsp;Synology&amp;nbsp;DiskStation</example>
