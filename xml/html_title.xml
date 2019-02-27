@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fingerprints matches="html_title" database_type="service" preference="0.90">
   <!-- HTML Title elements found in HTTP response bodies are matched against these patterns to fingerprint HTTP servers. -->
+  <fingerprint pattern="^Index of /">
+    <description>Apache HTTPD indexes</description>
+    <example>Index of /</example>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="HTTPD"/>
+    <param pos="0" name="service.family" value="Apache"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:-"/>
+  </fingerprint>
   <fingerprint pattern="^cPanel Login$">
     <description>cPanel</description>
     <example>cPanel Login</example>
