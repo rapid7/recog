@@ -66,6 +66,16 @@
     <param pos="0" name="hw.vendor" value="Asus"/>
     <param pos="0" name="hw.device" value="WAP"/>
   </fingerprint>
+  <!-- HiSilicon is OEMd by a number of DVR manufacturers -->
+  <fingerprint pattern="^DVR Components Download$">
+    <description>Web server found on DVR and webcam servers sourced from HiSilicon</description>
+    <example>DVR Components Download</example>
+    <param pos="0" name="service.vendor" value="HiSilicon"/>
+    <param pos="0" name="service.product" value="Cross Web Server"/>
+    <param pos="0" name="os.vendor" value="HiSilicon"/>
+    <param pos="0" name="os.device" value="DVR"/>
+    <param pos="0" name="hw.device" value="DVR"/>
+  </fingerprint>
   <fingerprint pattern="^FRITZ!Box$">
     <description>AVM FRITZ!Box</description>
     <example>FRITZ!Box</example>
@@ -138,10 +148,8 @@
   </fingerprint>
   <fingerprint pattern="^(?:Parallels )?Plesk (?:(?:Onyx|Panel) )?([\d\.]+) for Microsoft Windows$">
     <description>Plesk web hosting platform with a version on Windows</description>
-    <example service.version="12.0.18">Plesk 12.0.18</example>
-    <example service.version="17.5.3">Plesk Onyx 17.5.3</example>
-    <example service.version="12.0.1">Parallels Plesk 12.0.1</example>
-    <example service.version="11.5.30">Parallels Plesk Panel 11.5.30</example>
+    <example>Plesk 12.5.30 for Microsoft Windows</example>
+    <example>Parallels Plesk Panel 11.5.30 for Microsoft Windows</example>
     <param pos="0" name="service.vendor" value="Plesk"/>
     <param pos="0" name="service.product" value="Plesk"/>
     <param pos="1" name="service.version"/>
@@ -157,6 +165,12 @@
     <example>Default PLESK Page</example>
     <param pos="0" name="service.vendor" value="Plesk"/>
     <param pos="0" name="service.product" value="Plesk"/>
+  </fingerprint>
+  <fingerprint pattern="^Web Viewer for Samsung DVR$">
+    <description>Samsung DVRs</description>
+    <example>Web Viewer for Samsung DVR</example>
+    <param pos="0" name="hw.vendor" value="Samsung"/>
+    <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
   <fingerprint pattern="^(?i)(?:Dell )?Sonicwall - Authentication$">
     <description>Sonicwall firewalls</description>
