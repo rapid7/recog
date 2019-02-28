@@ -94,7 +94,6 @@
     <param pos="0" name="hw.vendor" value="AVM"/>
     <param pos="0" name="hw.device" value="WAP"/>
     <param pos="0" name="hw.family" value="FRITZ!Box"/>
-    <param pos="1" name="hw.product"/>
   </fingerprint>
   <fingerprint pattern="^cPanel Login$">
     <description>cPanel</description>
@@ -146,7 +145,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
-  <fingerprint pattern="^(NETIASPOT Management Console|Konsola zarzdzania NETIASPOT)$">
+  <fingerprint pattern="^(?:NETIASPOT Management Console|Konsola zarzdzania NETIASPOT)$">
     <description>Netia Spot wireless router</description>
     <example>Konsola zarzdzania NETIASPOT</example>
     <example>NETIASPOT Management Console</example>
@@ -331,17 +330,5 @@
     <param pos="0" name="os.vendor" value="Debian"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:-"/>
-  </fingerprint>
-  <fingerprint pattern="^Test Page for the Nginx HTTP Server on (?:Fedora|EPEL)$">
-    <description>Default nginx on Fedora</description>
-    <example>Test Page for the Nginx HTTP Server on Fedora</example>
-    <param pos="0" name="service.product" value="nginx"/>
-    <param pos="0" name="service.family" value="nginx"/>
-    <param pos="0" name="service.vendor" value="nginx"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:nginx:nginx:-"/>
-    <param pos="0" name="os.family" value="Linux"/>
-    <param pos="0" name="os.vendor" value="Red Hat"/>
-    <param pos="0" name="os.product" value="Fedora Core Linux"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:redhat:fedora_core:-"/>
   </fingerprint>
 </fingerprints>
