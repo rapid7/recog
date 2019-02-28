@@ -9,6 +9,18 @@
     <param pos="0" name="service.family" value="Apache"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:-"/>
   </fingerprint>
+  <fingerprint pattern="^Test Page for the Nginx HTTP Server on (?:the )?Amazon Linux(?: AMI)?$">
+    <description>Apache HTTPD default installation on Amazon Linux</description>
+    <example>Test Page for the Nginx HTTP Server on the Amazon Linux AMI</example>
+    <example>Test Page for the Nginx HTTP Server on Amazon Linux</example>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="HTTPD"/>
+    <param pos="0" name="service.family" value="Apache"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:-"/>
+    <param pos="0" name="os.vendor" value="Amazon"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux AMI"/>
+  </fingerprint>
   <fingerprint pattern="^Apache HTTP Server Test Page powered by CentOS$">
     <description>Apache HTTPD default installation on CentOS</description>
     <example>Apache HTTP Server Test Page powered by CentOS</example>
@@ -22,7 +34,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:centos:centos:-"/>
   </fingerprint>
   <fingerprint pattern="^Apache2 Debian Default Page: It works$">
-    <description>Apache HTTPD default installation on Ubuntu</description>
+    <description>Apache HTTPD default installation on Debian</description>
     <example>Apache2 Debian Default Page: It works</example>
     <param pos="0" name="service.vendor" value="Apache"/>
     <param pos="0" name="service.product" value="HTTPD"/>
@@ -276,12 +288,48 @@
     <param pos="0" name="hw.vendor" value="MikroTik"/>
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
-  <fingerprint pattern="^Welcome to nginx!$">
+  <fingerprint pattern="^(?:Welcome to nginx!|Test Page for the Nginx HTTP Server)$">
     <description>Default OS-agnostic nginx</description>
     <example>Welcome to nginx!</example>
+    <example>Test Page for the Nginx HTTP Server</example>
     <param pos="0" name="service.product" value="nginx"/>
     <param pos="0" name="service.family" value="nginx"/>
     <param pos="0" name="service.vendor" value="nginx"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:nginx:nginx:-"/>
+  </fingerprint>
+  <fingerprint pattern="^Test Page for the Nginx HTTP Server on (?:Fedora|EPEL)$">
+    <description>Default nginx on Fedora</description>
+    <example>Test Page for the Nginx HTTP Server on Fedora</example>
+    <param pos="0" name="service.product" value="nginx"/>
+    <param pos="0" name="service.family" value="nginx"/>
+    <param pos="0" name="service.vendor" value="nginx"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:nginx:nginx:-"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.vendor" value="Red Hat"/>
+    <param pos="0" name="os.product" value="Fedora Core Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:redhat:fedora_core:-"/>
+  </fingerprint>
+  <fingerprint pattern="^Welcome to nginx on Debian!$">
+    <description>Default nginx on Debian</description>
+    <example>Welcome to nginx on Debian!</example>
+    <param pos="0" name="service.product" value="nginx"/>
+    <param pos="0" name="service.family" value="nginx"/>
+    <param pos="0" name="service.vendor" value="nginx"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:nginx:nginx:-"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:-"/>
+  </fingerprint>
+  <fingerprint pattern="^Test Page for the Nginx HTTP Server on (?:Fedora|EPEL)$">
+    <description>Default nginx on Fedora</description>
+    <example>Test Page for the Nginx HTTP Server on Fedora</example>
+    <param pos="0" name="service.product" value="nginx"/>
+    <param pos="0" name="service.family" value="nginx"/>
+    <param pos="0" name="service.vendor" value="nginx"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:nginx:nginx:-"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.vendor" value="Red Hat"/>
+    <param pos="0" name="os.product" value="Fedora Core Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:redhat:fedora_core:-"/>
   </fingerprint>
 </fingerprints>
