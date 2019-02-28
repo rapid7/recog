@@ -126,6 +126,38 @@
     <param pos="0" name="hw.product" value="Hue"/>
     <param pos="0" name="hw.device" value="Light Bulb"/>
   </fingerprint>
+  <fingerprint pattern="^(?:Parallels )?Plesk (?:(?:Onyx|Panel) )?([\d\.]+)$">
+    <description>Plesk web hosting platform with a version</description>
+    <example service.version="12.0.18">Plesk 12.0.18</example>
+    <example service.version="17.5.3">Plesk Onyx 17.5.3</example>
+    <example service.version="12.0.1">Parallels Plesk 12.0.1</example>
+    <example service.version="11.5.30">Parallels Plesk Panel 11.5.30</example>
+    <param pos="0" name="service.vendor" value="Plesk"/>
+    <param pos="0" name="service.product" value="Plesk"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:Parallels )?Plesk (?:(?:Onyx|Panel) )?([\d\.]+) for Microsoft Windows$">
+    <description>Plesk web hosting platform with a version on Windows</description>
+    <example service.version="12.0.18">Plesk 12.0.18</example>
+    <example service.version="17.5.3">Plesk Onyx 17.5.3</example>
+    <example service.version="12.0.1">Parallels Plesk 12.0.1</example>
+    <example service.version="11.5.30">Parallels Plesk Panel 11.5.30</example>
+    <param pos="0" name="service.vendor" value="Plesk"/>
+    <param pos="0" name="service.product" value="Plesk"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
+  </fingerprint>
+  <fingerprint pattern="^(?i)Default (?:Parallels )?Plesk (?:Panel )?Page$">
+    <description>Plesk web hosting platform with no version</description>
+    <example>Default Parallels Plesk Panel Page</example>
+    <example>Default Parallels Plesk Page</example>
+    <example>Default PLESK Page</example>
+    <param pos="0" name="service.vendor" value="Plesk"/>
+    <param pos="0" name="service.product" value="Plesk"/>
+  </fingerprint>
   <fingerprint pattern="^(?i)(?:Dell )?Sonicwall - Authentication$">
     <description>Sonicwall firewalls</description>
     <example>SonicWall - Authentication</example>
