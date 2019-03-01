@@ -1,6 +1,208 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fingerprints matches="html_title" database_type="service" preference="0.90">
   <!-- HTML Title elements found in HTTP response bodies are matched against these patterns to fingerprint HTTP servers. -->
+  <fingerprint pattern="^Index of /">
+    <description>Apache HTTPD indexes</description>
+    <example>Index of /</example>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="HTTPD"/>
+    <param pos="0" name="service.family" value="Apache"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:-"/>
+  </fingerprint>
+  <fingerprint pattern="^Test Page for the Nginx HTTP Server on (?:the )?Amazon Linux(?: AMI)?$">
+    <description>Apache HTTPD default installation on Amazon Linux</description>
+    <example>Test Page for the Nginx HTTP Server on the Amazon Linux AMI</example>
+    <example>Test Page for the Nginx HTTP Server on Amazon Linux</example>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="HTTPD"/>
+    <param pos="0" name="service.family" value="Apache"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:-"/>
+    <param pos="0" name="os.vendor" value="Amazon"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux AMI"/>
+  </fingerprint>
+  <fingerprint pattern="^Apache HTTP Server Test Page powered by CentOS$">
+    <description>Apache HTTPD default installation on CentOS</description>
+    <example>Apache HTTP Server Test Page powered by CentOS</example>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="HTTPD"/>
+    <param pos="0" name="service.family" value="Apache"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:-"/>
+    <param pos="0" name="os.vendor" value="CentOS"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:centos:centos:-"/>
+  </fingerprint>
+  <fingerprint pattern="^Apache2 Debian Default Page: It works$">
+    <description>Apache HTTPD default installation on Debian</description>
+    <example>Apache2 Debian Default Page: It works</example>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="HTTPD"/>
+    <param pos="0" name="service.family" value="Apache"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:-"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:-"/>
+  </fingerprint>
+  <fingerprint pattern="^Apache2 Ubuntu Default Page: It works$">
+    <description>Apache HTTPD default installation on Ubuntu</description>
+    <example>Apache2 Ubuntu Default Page: It works</example>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="HTTPD"/>
+    <param pos="0" name="service.family" value="Apache"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:-"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:-"/>
+  </fingerprint>
+  <fingerprint pattern="^Apache Tomcat$">
+    <description>Apache Tomcat with no version</description>
+    <example>Apache Tomcat</example>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="Tomcat"/>
+    <param pos="0" name="service.family" value="Tomcat"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:apache:tomcat:-"/>
+  </fingerprint>
+  <fingerprint pattern="^Apache Tomcat/(\S+)$">
+    <description>Apache tomcat with minimal version information</description>
+    <example service.version="8.0.32">Apache Tomcat/8.0.32</example>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="Tomcat"/>
+    <param pos="0" name="service.family" value="Tomcat"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:apache:tomcat:{service.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^AiCloud">
+    <description>ASUS AiCloud</description>
+    <example>AiCloud</example>
+    <param pos="0" name="hw.vendor" value="Asus"/>
+    <param pos="0" name="hw.device" value="WAP"/>
+  </fingerprint>
+  <!-- HiSilicon is OEMd by a number of DVR manufacturers -->
+  <fingerprint pattern="^DVR Components Download$">
+    <description>Web server found on DVR and webcam servers sourced from HiSilicon</description>
+    <example>DVR Components Download</example>
+    <param pos="0" name="service.vendor" value="HiSilicon"/>
+    <param pos="0" name="service.product" value="Cross Web Server"/>
+    <param pos="0" name="os.vendor" value="HiSilicon"/>
+    <param pos="0" name="os.device" value="DVR"/>
+    <param pos="0" name="hw.device" value="DVR"/>
+  </fingerprint>
+  <fingerprint pattern="^FRITZ!Box$">
+    <description>AVM FRITZ!Box</description>
+    <example>FRITZ!Box</example>
+    <param pos="0" name="hw.vendor" value="AVM"/>
+    <param pos="0" name="hw.device" value="WAP"/>
+    <param pos="0" name="hw.family" value="FRITZ!Box"/>
+  </fingerprint>
+  <fingerprint pattern="^cPanel Login$">
+    <description>cPanel</description>
+    <example>cPanel Login</example>
+    <param pos="0" name="service.vendor" value="cPanel"/>
+    <param pos="0" name="service.product" value="cPanel"/>
+  </fingerprint>
+  <fingerprint pattern="^WHM Login$">
+    <description>cPanel Web Host Manager</description>
+    <example>WHM Login</example>
+    <param pos="0" name="service.vendor" value="cPanel"/>
+    <param pos="0" name="service.product" value="WHM"/>
+  </fingerprint>
+  <fingerprint pattern="^IIS7$">
+    <description>Default IIS 7</description>
+    <example>IIS7</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.product" value="IIS"/>
+    <param pos="0" name="service.family" value="IIS"/>
+    <param pos="0" name="service.version" value="7"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:iis:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
+  </fingerprint>
+  <fingerprint pattern="^Microsoft Internet Information Services 8">
+    <description>Default IIS 8</description>
+    <example>Microsoft Internet Information Services 8</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.product" value="IIS"/>
+    <param pos="0" name="service.family" value="IIS"/>
+    <param pos="0" name="service.version" value="8"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:iis:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
+  </fingerprint>
+  <fingerprint pattern="^IIS Windows(?: Server)?$">
+    <description>Default IIS</description>
+    <example>IIS Windows</example>
+    <example>IIS Windows Server</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.product" value="IIS"/>
+    <param pos="0" name="service.family" value="IIS"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:NETIASPOT Management Console|Konsola zarzdzania NETIASPOT)$">
+    <description>Netia Spot wireless router</description>
+    <example>Konsola zarzdzania NETIASPOT</example>
+    <example>NETIASPOT Management Console</example>
+    <param pos="0" name="hw.vendor" value="Netia"/>
+    <param pos="0" name="hw.product" value="Spot"/>
+    <param pos="0" name="hw.product" value="WAP"/>
+  </fingerprint>
+  <fingerprint pattern="^hue personal wireless lighting$">
+    <description>Philips Hue Personal Wireless Lighting</description>
+    <example>hue personal wireless lighting</example>
+    <param pos="0" name="hw.vendor" value="Philips"/>
+    <param pos="0" name="hw.product" value="Hue"/>
+    <param pos="0" name="hw.device" value="Light Bulb"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:Parallels )?Plesk (?:(?:Onyx|Panel) )?([\d\.]+)$">
+    <description>Plesk web hosting platform with a version</description>
+    <example service.version="12.0.18">Plesk 12.0.18</example>
+    <example service.version="17.5.3">Plesk Onyx 17.5.3</example>
+    <example service.version="12.0.1">Parallels Plesk 12.0.1</example>
+    <example service.version="11.5.30">Parallels Plesk Panel 11.5.30</example>
+    <param pos="0" name="service.vendor" value="Plesk"/>
+    <param pos="0" name="service.product" value="Plesk"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:Parallels )?Plesk (?:(?:Onyx|Panel) )?([\d\.]+) for Microsoft Windows$">
+    <description>Plesk web hosting platform with a version on Windows</description>
+    <example>Plesk 12.5.30 for Microsoft Windows</example>
+    <example>Parallels Plesk Panel 11.5.30 for Microsoft Windows</example>
+    <param pos="0" name="service.vendor" value="Plesk"/>
+    <param pos="0" name="service.product" value="Plesk"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
+  </fingerprint>
+  <fingerprint pattern="^(?i)Default (?:Parallels )?Plesk (?:Panel )?Page$">
+    <description>Plesk web hosting platform with no version</description>
+    <example>Default Parallels Plesk Panel Page</example>
+    <example>Default Parallels Plesk Page</example>
+    <example>Default PLESK Page</example>
+    <param pos="0" name="service.vendor" value="Plesk"/>
+    <param pos="0" name="service.product" value="Plesk"/>
+  </fingerprint>
+  <fingerprint pattern="^Web Viewer for Samsung DVR$">
+    <description>Samsung DVRs</description>
+    <example>Web Viewer for Samsung DVR</example>
+    <param pos="0" name="hw.vendor" value="Samsung"/>
+    <param pos="0" name="hw.device" value="DVR"/>
+  </fingerprint>
+  <fingerprint pattern="^(?i)(?:Dell )?Sonicwall - Authentication$">
+    <description>Sonicwall firewalls</description>
+    <example>SonicWall - Authentication</example>
+    <param pos="0" name="os.vendor" value="SonicWall"/>
+    <param pos="0" name="os.device" value="Firewall"/>
+    <param pos="0" name="os.family" value="SonicOS"/>
+  </fingerprint>
   <fingerprint pattern="^(.*)&amp;nbsp;-&amp;nbsp;Synology&amp;nbsp;DiskStation$">
     <description>Synology DiskStation</description>
     <example host.name="DiskStation">DiskStation&amp;nbsp;-&amp;nbsp;Synology&amp;nbsp;DiskStation</example>
@@ -13,6 +215,18 @@
     <param pos="0" name="os.product" value="DSM"/>
     <param pos="0" name="os.vendor" value="Synology"/>
     <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="Synology Web Station!$">
+    <description>Synology with WebStation web hosting</description>
+    <example>Hello! Welcome to Synology Web Station!</example>
+    <example>Hallo! Herzlich Willkommen bei Synology Web Station!</example>
+    <param pos="0" name="hw.vendor" value="Synology"/>
+    <param pos="0" name="hw.family" value="DiskStation"/>
+    <param pos="0" name="hw.device" value="NAS"/>
+    <param pos="0" name="os.device" value="NAS"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="DSM"/>
+    <param pos="0" name="os.vendor" value="Synology"/>
   </fingerprint>
   <fingerprint pattern="^Web Filter Block Override$">
     <description>Fortinet FortiGate/Fortiguard Web Filter</description>
@@ -37,12 +251,43 @@
     <example>EdgeOS</example>
     <param pos="0" name="hw.vendor" value="Ubiquiti"/>
   </fingerprint>
+  <fingerprint pattern="^CloudKey$">
+    <description>Ubiquiti UniFi Cloud Key</description>
+    <example>CloudKey</example>
+    <param pos="0" name="hw.vendor" value="Ubiquiti"/>
+    <param pos="0" name="hw.product" value="UniFi Cloud Key"/>
+  </fingerprint>
+  <fingerprint pattern="^airCube$">
+    <description>Ubiquiti airCube WAP</description>
+    <example>airCube</example>
+    <param pos="0" name="hw.vendor" value="Ubiquiti"/>
+    <param pos="0" name="hw.product" value="airCube"/>
+    <param pos="0" name="hw.device" value="WAP"/>
+  </fingerprint>
   <fingerprint pattern="^UniFi Video$">
     <description>Various UniFi Video products by Ubiquiti Networks</description>
     <example>UniFi Video</example>
     <param pos="0" name="hw.vendor" value="Ubiquiti"/>
     <param pos="0" name="hw.family" value="UniFi"/>
     <param pos="0" name="hw.device" value="Web cam"/>
+  </fingerprint>
+  <fingerprint pattern="^UniFi NVR: Software Portal$">
+    <description>UniFi NVR for recording from UniFi video cameras</description>
+    <example>UniFi NVR: Software Portal</example>
+    <param pos="0" name="hw.vendor" value="Ubiquiti"/>
+    <param pos="0" name="hw.family" value="UniFi"/>
+    <param pos="0" name="hw.family" value="UniFi NVR"/>
+    <param pos="0" name="hw.device" value="DVR"/>
+  </fingerprint>
+  <fingerprint pattern="^RomPager Embedded Web Server Toolkit$">
+    <description>Embedded HTTP server used by many vendors and device
+      types, including APC, 3Com, Andover Controls, Cisco VoIP, D-Link,
+      Extreme Networks, Foundry Networks, Konica Minolta, Kronos
+      Timekeeper, McDATA, Netopia, Nortel Networks, Power Measurement Ltd,
+      and Xerox.</description>
+    <example>RomPager Embedded Web Server Toolkit</example>
+    <param pos="0" name="service.vendor" value="Allegro Software"/>
+    <param pos="0" name="service.product" value="RomPager"/>
   </fingerprint>
   <fingerprint pattern="^RouterOS router configuration page$">
     <description>MikroTik RouterOS router configuration page</description>
@@ -54,12 +299,36 @@
     <param pos="0" name="hw.vendor" value="MikroTik"/>
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
-  <fingerprint pattern="^Welcome to nginx!$">
+  <fingerprint pattern="^(?:Welcome to nginx!|Test Page for the Nginx HTTP Server)$">
     <description>Default OS-agnostic nginx</description>
     <example>Welcome to nginx!</example>
+    <example>Test Page for the Nginx HTTP Server</example>
     <param pos="0" name="service.product" value="nginx"/>
     <param pos="0" name="service.family" value="nginx"/>
     <param pos="0" name="service.vendor" value="nginx"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:nginx:nginx:-"/>
+  </fingerprint>
+  <fingerprint pattern="^Test Page for the Nginx HTTP Server on (?:Fedora|EPEL)$">
+    <description>Default nginx on Fedora</description>
+    <example>Test Page for the Nginx HTTP Server on Fedora</example>
+    <param pos="0" name="service.product" value="nginx"/>
+    <param pos="0" name="service.family" value="nginx"/>
+    <param pos="0" name="service.vendor" value="nginx"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:nginx:nginx:-"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.vendor" value="Red Hat"/>
+    <param pos="0" name="os.product" value="Fedora Core Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:redhat:fedora_core:-"/>
+  </fingerprint>
+  <fingerprint pattern="^Welcome to nginx on Debian!$">
+    <description>Default nginx on Debian</description>
+    <example>Welcome to nginx on Debian!</example>
+    <param pos="0" name="service.product" value="nginx"/>
+    <param pos="0" name="service.family" value="nginx"/>
+    <param pos="0" name="service.vendor" value="nginx"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:nginx:nginx:-"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:-"/>
   </fingerprint>
 </fingerprints>
