@@ -6,18 +6,18 @@
   has identical subject and issuer fields, the subject field should be preferred.
   -->
 
-    <fingerprint pattern="CN=Chromecast ICA (\d+)\s*([^,]*),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US$">
+    <fingerprint pattern="CN=Chromecast ICA (\d+)\s*\(?([^,\)]*)\)?,OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US$">
         <description>Google Chromecast</description>
 
         <example chromecast.generation="3">CN=Chromecast ICA 3,OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
-        <example chromecast.generation="4" chromecast.capabilities="(Audio)">CN=Chromecast ICA 4 (Audio),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
-        <example chromecast.generation="5" chromecast.capabilities="(4K)">CN=Chromecast ICA 5 (4K),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
-        <example chromecast.generation="6" chromecast.capabilities="(Audio Assist)">CN=Chromecast ICA 6 (Audio Assist),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
-        <example chromecast.generation="7" chromecast.capabilities="(Audio Assist 2)">CN=Chromecast ICA 7 (Audio Assist 2),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
-        <example chromecast.generation="9" chromecast.capabilities="(Audio Assist)">CN=Chromecast ICA 9 (Audio Assist),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
-        <example chromecast.generation="11" chromecast.capabilities="(Video Assist)">CN=Chromecast ICA 11 (Video Assist),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+        <example chromecast.generation="4" chromecast.capabilities="Audio">CN=Chromecast ICA 4 (Audio),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+        <example chromecast.generation="5" chromecast.capabilities="4K">CN=Chromecast ICA 5 (4K),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+        <example chromecast.generation="6" chromecast.capabilities="Audio Assist">CN=Chromecast ICA 6 (Audio Assist),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+        <example chromecast.generation="7" chromecast.capabilities="Audio Assist 2">CN=Chromecast ICA 7 (Audio Assist 2),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+        <example chromecast.generation="9" chromecast.capabilities="Audio Assist">CN=Chromecast ICA 9 (Audio Assist),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+        <example chromecast.generation="11" chromecast.capabilities="Video Assist">CN=Chromecast ICA 11 (Video Assist),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
         <example chromecast.generation="12">CN=Chromecast ICA 12,OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
-        
+
         <param pos="0" name="hw.device" value="Media Server"/>
         <param pos="0" name="hw.vendor" value="Google"/>
         <param pos="0" name="hw.product" value="Chromecast"/>
