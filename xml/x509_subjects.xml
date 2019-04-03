@@ -49,27 +49,18 @@
   <fingerprint pattern="^CN=IPMI,OU=Software,O=Super Micro Computer,ST=California,C=US$">
     <description>Super Micro IPMI Controller</description>
     <example>CN=IPMI,OU=Software,O=Super Micro Computer,ST=California,C=US</example>
-    <param pos="0" name="service.vendor" value="Super Micro"/>
-    <param pos="0" name="service.product" value="IPMI"/>
-    <param pos="0" name="service.family" value="IPMI"/>
+    <param pos="0" name="hw.device" value="Lights Out Management"/>
     <param pos="0" name="hw.vendor" value="Super Micro"/>
-    <param pos="0" name="os.vendor" value="Super Micro"/>
-    <param pos="0" name="os.product" value="IPMI"/>
-    <param pos="0" name="os.family" value="IPMI"/>
-    <!-- should we standardize on BMC for all controllers? -->
-    <param pos="0" name="os.device" value="IPMI"/>
+    <param pos="0" name="hw.product" value="IPMI"/>
   </fingerprint>
 
   <!-- iDRAC with real service tag -->
   <fingerprint pattern="^CN=idrac-([A-Z0-9]{7}),OU=Remote Access Group,O=Dell Inc\.,L=Round Rock,ST=Texas,C=US$">
     <description>Dell iDRAC Remote Access Controller</description>
     <example dell.service_tag="JXJJC02">CN=idrac-JXJJC02,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
-    <param pos="0" name="os.vendor" value="Dell"/>
-    <param pos="0" name="os.family" value="Dell Remote Access Controller"/>
-    <param pos="0" name="os.product" value="Dell Remote Access Controller"/>
-    <param pos="0" name="os.device" value="BMC"/>
-    <param pos="0" name="service.vendor" value="Dell"/>
-    <param pos="0" name="service.family" value="Remote Access Controller"/>
+    <param pos="0" name="hw.device" value="Lights Out Management"/>
+    <param pos="0" name="hw.vendor" value="Dell"/>
+    <param pos="0" name="hw.product" value="iDRAC"/>
     <param pos="1" name="dell.service_tag"/>
   </fingerprint>
 
@@ -81,12 +72,9 @@
     <example>CN=idrac-,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
     <example>CN=idrac-SVCTAG,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
     <example>CN=idrac,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
-    <param pos="0" name="os.vendor" value="Dell"/>
-    <param pos="0" name="os.family" value="Dell Remote Access Controller"/>
-    <param pos="0" name="os.product" value="Dell Remote Access Controller"/>
-    <param pos="0" name="os.device" value="BMC"/>
-    <param pos="0" name="service.vendor" value="Dell"/>
-    <param pos="0" name="service.family" value="Remote Access Controller"/>
+    <param pos="0" name="hw.device" value="Lights Out Management"/>
+    <param pos="0" name="hw.vendor" value="Dell"/>
+    <param pos="0" name="hw.product" value="iDRAC"/>
   </fingerprint>
 
   <fingerprint pattern="^CN=(Sourcefire3D|firepower|ciscoasa),OU=Intrusion Management System,O=(Sourcefire\\, Inc.|Cisco Systems\\, Inc),C=US$">
