@@ -38,18 +38,23 @@
     </fingerprint>
 
 
-
-
-
-
-	<fingerprint pattern="^SERIALNUMBER=PID:([^ ]+) SN:([^,]+),CN=([a-zA-Z0-9\-]+)-SEP([a-fA-F0-9]{12}),OU=CTG,O=Cisco Systems Inc\.$">
+	<fingerprint pattern="^SERIALNUMBER=PID:([^ ]+) SN:([^,]+),CN=(?:[a-zA-Z0-9\-]+)-SEP([a-fA-F0-9]{12}),OU=CTG,O=Cisco Systems Inc\.$">
         <description>Cisco / Linksys Router</description>
         <example host.mac="B07D47D33A1C" hw.product="CP-8851" cisco.serial_number="FCH1924AHCA">SERIALNUMBER=PID:CP-8851 SN:FCH1924AHCA,CN=CP-8851-SEPB07D47D33A1C,OU=CTG,O=Cisco Systems Inc.</example>
         <param pos="0" name="hw.device" value="IP Phone"/>
         <param pos="0" name="hw.vendor" value="Cisco"/>
         <param pos="1" name="hw.product"/>
         <param pos="2" name="cisco.serial_number"/>
-        <param pos="4" name="host.mac"/>
+        <param pos="3" name="host.mac"/>
+    </fingerprint>
+
+
+	<fingerprint pattern="^CN=Cambium WLAN AP,OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US$">
+        <description>Cambium Networks WAP</description>
+        <example>CN=Cambium WLAN AP,OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US</example>
+        <param pos="0" name="hw.device" value="WAP"/>
+        <param pos="0" name="hw.vendor" value="Cambium Networks"/>
+        <param pos="0" name="hw.product" value="WLAN AP"/>
     </fingerprint>
 
 
@@ -57,20 +62,9 @@
         <description>Cambium Networks Router</description>
         <example hw.product="R190V">CN=R190V,OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US</example>
         <example hw.product="R200">CN=R200,OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US</example>
-        <!-- no service or OS information -->
         <param pos="0" name="hw.device" value="Router"/>
         <param pos="0" name="hw.vendor" value="Cambium Networks"/>
         <param pos="1" name="hw.product"/>
-    </fingerprint>
-
-
-	<fingerprint pattern="^CN=Cambium WLAN AP,OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US$">
-        <description>Cambium Networks WAP</description>
-        <example>CN=Cambium WLAN AP,OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US</example>
-        <!-- no service or OS information -->
-        <param pos="0" name="hw.device" value="WAP"/>
-        <param pos="0" name="hw.vendor" value="Cambium Networks"/>
-        <param pos="0" name="hw.product" value="WLAN AP"/>
     </fingerprint>
 
 
@@ -122,6 +116,8 @@
         <example>CN=idrac-,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
         <example>CN=idrac-SVCTAG,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
         <example>CN=idrac,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
+        <example>CN=idrac,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
+        <example>CN=idrac-SVCTAG,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>        
         <param pos="0" name="hw.device" value="Lights Out Management"/>
         <param pos="0" name="hw.vendor" value="Dell"/>
         <param pos="0" name="hw.product" value="iDRAC"/>
@@ -137,16 +133,6 @@
         <param pos="0" name="hw.device" value="Lights Out Management"/>
         <param pos="0" name="hw.vendor" value="Dell"/>
         <param pos="1" name="hw.product"/>
-    </fingerprint>
-
-
-	<fingerprint pattern="^CN=idrac(\-SVCTAG)?,OU=Remote Access Group,O=Dell Inc\.,L=Round Rock,ST=Texas,C=US$">
-        <description>Dell iDRAC Remote Access Controller</description>
-        <example>CN=idrac,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
-        <example>CN=idrac-SVCTAG,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
-        <param pos="0" name="hw.device" value="Lights Out Management"/>
-        <param pos="0" name="hw.vendor" value="Dell"/>
-        <param pos="0" name="hw.product" value="iDRAC"/>
     </fingerprint>
 
 
@@ -308,7 +294,7 @@
         <param pos="1" name="host.name"/>
     </fingerprint>
 
-	<fingerprint pattern="^CN=(Sourcefire3D|firepower|ciscoasa),OU=Intrusion Management System,O=(Sourcefire\\, Inc.|Cisco Systems\\, Inc),C=US$">
+	<fingerprint pattern="^CN=(?:Sourcefire3D|firepower|ciscoasa),OU=Intrusion Management System,O=(?:Sourcefire\\, Inc.|Cisco Systems\\, Inc),C=US$">
         <description>Cisco Firepower</description>
         <example>CN=firepower,OU=Intrusion Management System,O=Cisco Systems\, Inc,C=US</example>
         <example>CN=ciscoasa,OU=Intrusion Management System,O=Cisco Systems\, Inc,C=US</example>
@@ -346,7 +332,7 @@
     </fingerprint>
 
 
-	<fingerprint pattern="^CN=(\*\.)?([a-zA-Z0-9\.\_\-]+)\.wd2go\.com">
+	<fingerprint pattern="^CN=(?:\*\.)?([a-zA-Z0-9\.\_\-]+)\.wd2go\.com">
         <description>Western Digital WD2GO Devices</description>
         <example wd2go.device_id="device1133796-01b3e3fa">CN=device1133796-01b3e3fa.wd2go.com,OU=Domain Control Validated+OU=Hosted by Western Digital Corporation+OU=COMODO SSL Unified Communications</example>
         <example wd2go.device_id="device4113440">CN=*.device4113440.wd2go.com,OU=Branded Products,O=Western Digital,L=Mountain View,ST=California,C=US</example>
@@ -356,7 +342,7 @@
         <param pos="0" name="os.family" value="Linux"/>
         <param pos="0" name="os.vendor" value="Western Digital"/>
         <param pos="0" name="os.device" value="NAS"/>
-        <param pos="2" name="wd2go.device_id"/>
+        <param pos="1" name="wd2go.device_id"/>
     </fingerprint>
 
 
@@ -394,6 +380,7 @@
         <param pos="0" name="os.vendor" value="VMWare"/>
         <param pos="0" name="os.product" value="ESX"/>
         <param pos="0" name="os.device" value="Hypervisor"/>
+        <param pos="1" name="host.name"/>
     </fingerprint>
 
 	<fingerprint pattern="^CN=IOS-Self-Signed-Certificate-">
@@ -709,7 +696,6 @@
         <param pos="0" name="hw.product" value="Firewall"/>
     </fingerprint>
 
-
 	<fingerprint pattern="^CN=SophosApplianceCertificate">
         <description>Sophos Appliance</description>
         <example>CN=SophosApplianceCertificate_C330AC22W713PAF,OU=OU,O=Green House Data,L=Cheyenne,ST=WY,C=US</example>
@@ -793,7 +779,7 @@
     </fingerprint>
 
 
-	<fingerprint pattern="^CN=(alienvault|VirtualUSMAllInOne)$">
+	<fingerprint pattern="^CN=(?:alienvault|VirtualUSMAllInOne)$">
         <description>Alienvault OSSIM</description>
         <example>CN=alienvault</example>
         <example>CN=VirtualUSMAllInOne</example>
@@ -945,15 +931,6 @@
     </fingerprint>
 
 
-    <fingerprint pattern="^CN=selfappliance,OU=Engineering,O=Symplified,L=Boulder,ST=Colorado,C=US$">
-        <description>Symplified IAM Appliance (now RSA)</description>
-        <example>CN=selfappliance,OU=Engineering,O=Symplified,L=Boulder,ST=Colorado,C=US</example>
-        <param pos="0" name="hw.vendor" value="Symplified" />
-        <param pos="0" name="hw.device" value="Appliance" />
-        <param pos="0" name="hw.product" value="IAM" />
-    </fingerprint>
-
-
     <fingerprint pattern="^CN=OpenWrt,L=Leipzig,ST=Saxony,C=DE$">
         <description>OpenWRT WAP</description>
         <example>CN=OpenWrt,L=Leipzig,ST=Saxony,C=DE</example>
@@ -1038,69 +1015,5 @@
         <param pos="1" name="hw.product"/>
         <param pos="2" name="host.mac"/>
     </fingerprint>
-
-
-CN=Deep Discovery Inspector,OU=DeepDiscoveryInspector,O=Trend Micro,ST=CA,C=US
-
-CN=silver-peak,OU=Networking Appliance,O=Silver Peak Systems Inc,L=Mountain View,ST=California,C=--
-
-CN=Mercury Security EP-series,O=Mercury Security Corp.,L=Long Beach,ST=CA,C=US
-
-CN=poweralert-061036413178,OU=Research and Development,O=Tripp Lite,L=Chicago,ST=Illinois,C=US
-
-Basic realm="Cisco Digital Media Player"
-CN=DMP4400 (1024 bit RSA),OU=DMSBU,O=Cisco Systems\, Inc.,L=San Jose,ST=CA,C=US
-
-CN=TimeClock Plus Generated Certificate,O=TimeClock Plus Generated Certificate,L=,ST=,C=US
-
-
-    CN=hostname,OU=Cascade Profiler,O=Riverbed Technology\, Inc.,L=Cambridge,ST=MA,C=US
-
-
-CN=Leostream Corporation,OU=Leostream,O=Leostream,ST=Massachusetts,C=US
-
-CN=DW-Admin-GigaVUE,OU=Gigamon Network Visibility Systems,O=Gigamon Inc.,L=Santa Clara,ST=California,C=US
-
-CN=Access Director,OU=Access Director,O=Polycom,L=San Jose,ST=California,C=US
-
-CN=AccessCT-Server,OU=Engineering,O=Lenel,L=Austin,ST=TX,C=us
-CN=Prism SOA Common Trusted Root,OU=Engineering,O=Lenel,L=Austin,ST=TX,C=us
-
-CN=Avigilon Gateway,OU=Gateway,O=Avigilon,L=Vancouver,ST=BC,C=CA
-
-CN=sitecontroller,OU=Application Development Framework,O=verifone,L=TPA,ST=FL,C=US
-
-CN=NetGear,OU=Netgear Prosafe,O=NETGEAR Inc.,L=Santa Clara,ST=California,C=US
-CN=Linksys,OU=Division,O=Cisco-Linksys\, LLC,L=Irvine,ST=California,C=US
-CN=Netgear VPN Firewall\ ,OU=Netgear Prosafe,O=Netgear Inc.,C=US
-CN=TP-Link,L=ShenZhen,ST=GD,C=CN
-CN=Linksys,OU=Division,O=Cisco-Linksys\,LCC,L=Irvine,ST=California,C=US
-
-Orbi router -> CN=www.routerlogin.net,O=Netgear,L=San Jose,ST=California,C=US
-
-CN=FMI Default Certificate,O=FileMaker\, Inc.,L=Santa Clara,ST=California,C=US
-
-CN=A920001906BDF7B,OU=IT,O=TiVo Inc.,L=Alviso,ST=CA,C=US
-CN=D1809DA001DEDE0,OU=IT,O=TiVo Inc.,L=Alviso,ST=CA,C=US
-
-CN=DLP-appliance,O=Code Green Networks\, Inc.,L=Sunnyvale,ST=CA,C=US
-
-
-Integrated Lights Out Manager
-CN=sun-ilom,O=Sun Microsystems\, Inc.,L=Santa Clara,ST=California,C=US
-
-CN=epo-server,OU=Orion,O=McAfee
-
-
-CN=securityonion
-
-
-O=ntop.org,ST=Some-State,C=IT
-
-
-
-	Palo Alto Networks PANOS	Firewall				2	2						3389/TCP	3/28/2019, 2:56:33 PM	Primary
-	Palo Alto Networks PANOS	Firewall
-
 
 </fingerprints>
