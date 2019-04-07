@@ -466,8 +466,20 @@
     <param pos="0" name="os.vendor" value="Fortinet"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.device" value="Firewall"/>
+    <param pos="0" name="os.product" value="FortiOS"/>
     <param pos="1" name="fortinet.serial_number"/>
   </fingerprint>
+  <fingerprint pattern="^CN=([A-Za-z0-9]+),O=Fortinet Ltd\.$">
+    <description>Fortinet Gateway (Older)</description>
+    <example fortinet.serial_number="FG100D3G13803999">CN=FG100D3G13803999,O=Fortinet Ltd.</example>
+    <param pos="0" name="hw.vendor" value="Fortinet"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+    <param pos="0" name="os.vendor" value="Fortinet"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="Firewall"/>
+    <param pos="0" name="os.product" value="FortiOS"/>
+    <param pos="1" name="fortinet.serial_number"/>
+  </fingerprint>  
   <fingerprint pattern="^CN=FortiMail,OU=FortiMail,O=Fortinet,L=Sunnyvale,ST=California,C=US$">
     <description>Fortinet FortiMail Appliance</description>
     <example>CN=FortiMail,OU=FortiMail,O=Fortinet,L=Sunnyvale,ST=California,C=US</example>
@@ -476,6 +488,7 @@
     <param pos="0" name="hw.product" value="FortiMail"/>
     <param pos="0" name="os.vendor" value="Fortinet"/>
     <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="FortiOS"/>
     <param pos="0" name="os.device" value="Appliance"/>
   </fingerprint>
   <fingerprint pattern="^CN=.*,OU=FortiManager,O=Fortinet,L=Sunnyvale,ST=California,C=US$">
@@ -486,6 +499,7 @@
     <param pos="0" name="hw.product" value="FortiManager"/>
     <param pos="0" name="os.vendor" value="Fortinet"/>
     <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="FortiOS"/>
     <param pos="0" name="os.device" value="Appliance"/>
   </fingerprint>
   <fingerprint pattern="^CN=CyberoamApplianceCertificate">
