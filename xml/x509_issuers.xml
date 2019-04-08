@@ -4,6 +4,10 @@
   This fingerprint set matches the Issuer field of x509 certificates. These x509
   certificates may be sourced from any SSL or TLS service. If a particular system
   has identical subject and issuer fields, the subject field should be preferred.
+
+  The format of the Issuer field is built from the x509 distinguished names using
+  a specific order. Please see the comments in x509_subjects.xml for details.
+
   -->
   <!-- Chromecast and various devices that support the Cast protocol -->
   <fingerprint pattern="^CN=Chromecast ICA (\d+)\s*\(?([^,\)]*)\)?,OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US$">

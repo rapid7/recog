@@ -4,7 +4,49 @@
   This fingerprint set matches the Subject field of x509 certificates. These x509
   certificates may be sourced from any SSL or TLS service. If a particular system
   has identical subject and issuer fields, the subject field should be preferred.
+
+  The format of the Subject field is built from the x509 distinguished names using
+  a specific order. This order matches the Go implementation at the URL:
+    https://golang.org/src/crypto/x509/pkix/pkix.go#203
+
+  The ToRDNSequence() function builds the string in reverse order:
+
+        func (n Name) ToRDNSequence() (ret RDNSequence) {
+            ret = n.appendRDNs(ret, n.Country, oidCountry)
+            ret = n.appendRDNs(ret, n.Province, oidProvince)
+            ret = n.appendRDNs(ret, n.Locality, oidLocality)
+            ret = n.appendRDNs(ret, n.StreetAddress, oidStreetAddress)
+            ret = n.appendRDNs(ret, n.PostalCode, oidPostalCode)
+            ret = n.appendRDNs(ret, n.Organization, oidOrganization)
+            ret = n.appendRDNs(ret, n.OrganizationalUnit, oidOrganizationalUnit)
+            if len(n.CommonName) > 0 {
+                ret = n.appendRDNs(ret, []string{n.CommonName}, oidCommonName)
+            }
+            if len(n.SerialNumber) > 0 {
+                ret = n.appendRDNs(ret, []string{n.SerialNumber}, oidSerialNumber)
+            }
+            for _, atv := range n.ExtraNames {
+                ret = append(ret, []AttributeTypeAndValue{atv})
+            }
+
+            return ret
+        }
+
+    All names are separated by commas and any commas inside a name are escaped with a
+    single backslash character. See RFC 2253 for additional details on formatting.
+
+    Practically, most Subjects start with the Common Name (CN=) and then step through
+    Organization Unit (OU), Organization (O), and then some level of location, but
+    typically Locality (L) and Country (C). Names are guaranteed to be listed in
+    the order described above, but may start at any point in the list. For example,
+    Subjects may start with a Serial Number (SERIALNUMBER=) or even Extra Names, but
+    these are somewhat rare. Keep this name order in mind when working on these
+    fingerprints.
+
+    The same constraints also apply to the x509 Issuers (x509_issuers.xml).
+
   -->
+
   <fingerprint pattern="^CN=([0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}),OU=([^,]+),O=Araknis Networks \(TM\),L=Charlotte,C=US$">
     <description>Araknis Networks Router</description>
     <example host.mac="d4:6a:91:7a:a3:c4" hw.product="AN-300-RT-4L2W">CN=d4:6a:91:7a:a3:c4,OU=AN-300-RT-4L2W,O=Araknis Networks (TM),L=Charlotte,C=US</example>
