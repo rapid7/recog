@@ -25,7 +25,6 @@
     <param pos="0" name="hw.device" value="Media Server"/>
     <param pos="0" name="hw.vendor" value="Google"/>
     <param pos="0" name="hw.product" value="Chromecast"/>
-    <param pos="0" name="hw.cpe23" value="cpe:/a:google:chromecast:-"/>
     <param pos="1" name="chromecast.generation"/>
     <param pos="2" name="chromecast.capabilities"/>
   </fingerprint>
@@ -33,6 +32,7 @@
     <description>ASUS Nexus Player (Android) with Google Cast</description>
     <example>CN=Asus fugu Cast ICA,OU=Widevine,O=Google Inc,L=Kirkland,ST=Washington,C=US</example>
     <param pos="0" name="os.vendor" value="Google"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:google:android:-"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Android"/>
     <param pos="0" name="hw.device" value="Media Server"/>
@@ -43,6 +43,7 @@
     <description>Sony SmartTV (Android) with Google Cast</description>
     <example>CN=Sony amai Cast ICA,OU=Widevine,O=Google Inc,L=Kirkland,ST=Washington,C=US</example>
     <param pos="0" name="os.vendor" value="Google"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:google:android:-"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Android"/>
     <param pos="0" name="hw.device" value="Smart TV"/>
@@ -52,6 +53,7 @@
     <description>Vizio SmartTV (Android) with Google Cast</description>
     <example>CN=Cast TV ICA (Vizio),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
     <param pos="0" name="os.vendor" value="Google"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:google:android:-"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Android"/>
     <param pos="0" name="hw.device" value="Smart TV"/>
@@ -61,16 +63,18 @@
     <description>NVIDIA SHIELD (Android) with Google Cast</description>
     <example>CN=NVidia Shield Cast ICA,OU=Widevine,O=Google Inc,L=Kirkland,ST=Washington,C=US</example>
     <param pos="0" name="os.vendor" value="Google"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:google:android:-"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Android"/>
     <param pos="0" name="hw.device" value="Tablet"/>
     <param pos="0" name="hw.vendor" value="NVIDIA"/>
     <param pos="0" name="hw.product" value="SHIELD"/>
-  </fingerprint>  
+  </fingerprint>
   <fingerprint pattern="^CN=NVidia Darcy NVidia Tegra K1-Denver Cast ICA,OU=Widevine,O=Google Inc,L=Kirkland,ST=Washington,C=US$">
     <description>NVIDIA SHIELD (Android) with Google Cast (Darcy)</description>
     <example>CN=NVidia Darcy NVidia Tegra K1-Denver Cast ICA,OU=Widevine,O=Google Inc,L=Kirkland,ST=Washington,C=US</example>
     <param pos="0" name="os.vendor" value="Google"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:google:android:-"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Android"/>
     <param pos="0" name="hw.device" value="Tablet"/>
@@ -104,9 +108,9 @@
     <description>VMWare ESXi w/Installer</description>
     <example>O=VMware Installer</example>
     <param pos="0" name="os.vendor" value="VMWare"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:vmware:esxi:-"/>
     <param pos="0" name="os.product" value="ESXi"/>
     <param pos="0" name="os.device" value="Hypervisor"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:vmware:esxi:-"/>
   </fingerprint>
   <fingerprint pattern="^CN=CA,OU=VMware Engineering,O=vCenter,ST=California,C=US$">
     <description>VMWare vCenter</description>
@@ -120,12 +124,11 @@
     <param pos="0" name="hw.device" value="Lights Out Management"/>
     <param pos="0" name="hw.vendor" value="HP"/>
     <param pos="0" name="hw.family" value="iLO"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:hp:integrated_lights_out:-"/>
     <param pos="0" name="hw.product" value="iLO"/>
-    <param pos="0" name="hw.cpe23" value="cpe:/a:hp:integrated_lights_out:"/>
     <param pos="0" name="os.device" value="Lights Out Management"/>
     <param pos="0" name="os.vendor" value="HP"/>
     <param pos="0" name="os.family" value="iLO"/>
     <param pos="0" name="os.product" value="iLO"/>
-    <param pos="0" name="os.cpe23" value="cpe:/a:hp:integrated_lights_out:"/>
   </fingerprint>
 </fingerprints>
