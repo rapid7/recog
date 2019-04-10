@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fingerprints matches="x509.issuer" protocol="x509">
+  <!--
+  This fingerprint set matches the Issuer field of x509 certificates. These x509
+  certificates may be sourced from any SSL or TLS service. If a particular system
+  has identical subject and issuer fields, the subject field should be preferred.
+
+  The format of the Issuer field is built from the x509 distinguished names using
+  a specific order. Please see the comments in x509_subjects.xml for details.
+
+  -->
+  <!-- Chromecast and various devices that support the Cast protocol -->
+  <fingerprint pattern="^CN=Chromecast ICA (\d+)\s*\(?([^,\)]*)\)?,OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US$">
+    <description>Google Chromecast</description>
+    <example chromecast.generation="3">CN=Chromecast ICA 3,OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+    <example chromecast.generation="4" chromecast.capabilities="Audio">CN=Chromecast ICA 4 (Audio),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+    <example chromecast.generation="5" chromecast.capabilities="4K">CN=Chromecast ICA 5 (4K),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+    <example chromecast.generation="6" chromecast.capabilities="Audio Assist">CN=Chromecast ICA 6 (Audio Assist),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+    <example chromecast.generation="7" chromecast.capabilities="Audio Assist 2">CN=Chromecast ICA 7 (Audio Assist 2),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+    <example chromecast.generation="9" chromecast.capabilities="Audio Assist">CN=Chromecast ICA 9 (Audio Assist),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+    <example chromecast.generation="11" chromecast.capabilities="Video Assist">CN=Chromecast ICA 11 (Video Assist),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+    <example chromecast.generation="12">CN=Chromecast ICA 12,OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+    <param pos="0" name="os.vendor" value="Google"/>
+    <param pos="0" name="os.product" value="ChromeOS"/>
+    <param pos="0" name="hw.device" value="Media Server"/>
+    <param pos="0" name="hw.vendor" value="Google"/>
+    <param pos="0" name="hw.product" value="Chromecast"/>
+    <param pos="1" name="chromecast.generation"/>
+    <param pos="2" name="chromecast.capabilities"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=Asus fugu Cast ICA,OU=Widevine,O=Google Inc,L=Kirkland,ST=Washington,C=US$">
+    <description>ASUS Nexus Player (Android) with Google Cast</description>
+    <example>CN=Asus fugu Cast ICA,OU=Widevine,O=Google Inc,L=Kirkland,ST=Washington,C=US</example>
+    <param pos="0" name="os.vendor" value="Google"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:google:android:-"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Android"/>
+    <param pos="0" name="hw.device" value="Media Server"/>
+    <param pos="0" name="hw.vendor" value="ASUS"/>
+    <param pos="0" name="hw.product" value="Nexus Player"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=Sony amai Cast ICA,OU=Widevine,O=Google Inc,L=Kirkland,ST=Washington,C=US$">
+    <description>Sony SmartTV (Android) with Google Cast</description>
+    <example>CN=Sony amai Cast ICA,OU=Widevine,O=Google Inc,L=Kirkland,ST=Washington,C=US</example>
+    <param pos="0" name="os.vendor" value="Google"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:google:android:-"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Android"/>
+    <param pos="0" name="hw.device" value="Smart TV"/>
+    <param pos="0" name="hw.vendor" value="Sony"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=Cast TV ICA \(Vizio\),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US$">
+    <description>Vizio SmartTV (Android) with Google Cast</description>
+    <example>CN=Cast TV ICA (Vizio),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+    <param pos="0" name="os.vendor" value="Google"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:google:android:-"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Android"/>
+    <param pos="0" name="hw.device" value="Smart TV"/>
+    <param pos="0" name="hw.vendor" value="Vizio"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=NVidia Shield Cast ICA,OU=Widevine,O=Google Inc,L=Kirkland,ST=Washington,C=US$">
+    <description>NVIDIA SHIELD (Android) with Google Cast</description>
+    <example>CN=NVidia Shield Cast ICA,OU=Widevine,O=Google Inc,L=Kirkland,ST=Washington,C=US</example>
+    <param pos="0" name="os.vendor" value="Google"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:google:android:-"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Android"/>
+    <param pos="0" name="hw.device" value="Tablet"/>
+    <param pos="0" name="hw.vendor" value="NVIDIA"/>
+    <param pos="0" name="hw.product" value="SHIELD"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=NVidia Darcy NVidia Tegra K1-Denver Cast ICA,OU=Widevine,O=Google Inc,L=Kirkland,ST=Washington,C=US$">
+    <description>NVIDIA SHIELD (Android) with Google Cast (Darcy)</description>
+    <example>CN=NVidia Darcy NVidia Tegra K1-Denver Cast ICA,OU=Widevine,O=Google Inc,L=Kirkland,ST=Washington,C=US</example>
+    <param pos="0" name="os.vendor" value="Google"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:google:android:-"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Android"/>
+    <param pos="0" name="hw.device" value="Tablet"/>
+    <param pos="0" name="hw.vendor" value="NVIDIA"/>
+    <param pos="0" name="hw.product" value="SHIELD"/>
+  </fingerprint>
+  <!-- End of Chromecast -->
+  <fingerprint pattern="^CN=Yealink Equipment Issuing CA,OU=yealink\.com,O=Yealink Network Technology Co\.\\,Ltd.,L=Xiamen,ST=Fujian,C=CN$">
+    <description>Yealink VoIP Phone</description>
+    <example>CN=Yealink Equipment Issuing CA,OU=yealink.com,O=Yealink Network Technology Co.\,Ltd.,L=Xiamen,ST=Fujian,C=CN</example>
+    <param pos="0" name="os.vendor" value="Yealink"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="hw.device" value="IP Phone"/>
+    <param pos="0" name="hw.vendor" value="Yealink"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=[a-zA-Z0-9]+,OU=Internally Generated Certificate,O=American Power Conversion Corp,L=Default Locality,ST=Default State,C=US$">
+    <description>APC UPS</description>
+    <example>CN=ZA1117619249,OU=Internally Generated Certificate,O=American Power Conversion Corp,L=Default Locality,ST=Default State,C=US</example>
+    <param pos="0" name="hw.device" value="Power Device"/>
+    <param pos="0" name="hw.vendor" value="APC"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=Temporary CA [a-fA-F0-9]{8}\-[a-fA-F0-9]{4}\-[a-fA-F0-9]{4}\-[a-fA-F0-9]{4}\-[a-fA-F0-9]{12},OU=Temporary CA">
+    <description>Cisco Video Communication Server</description>
+    <example>CN=Temporary CA 218131fe-8af4-11e7-aa6e-9950d6bbaf74,OU=Temporary CA 218131fe-8af4-11e7-aa6e-9950d6bbaf74,O=Temporary CA 218131fe-8af4-11e7-aa6e-9950d6bbaf74</example>
+    <param pos="0" name="hw.device" value="Video Conference"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.product" value="TelePresence"/>
+  </fingerprint>
+  <fingerprint pattern="^O=VMware Installer$">
+    <description>VMWare ESXi w/Installer</description>
+    <example>O=VMware Installer</example>
+    <param pos="0" name="os.vendor" value="VMWare"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:vmware:esxi:-"/>
+    <param pos="0" name="os.product" value="ESXi"/>
+    <param pos="0" name="os.device" value="Hypervisor"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=CA,OU=VMware Engineering,O=vCenter,ST=California,C=US$">
+    <description>VMWare vCenter</description>
+    <example>CN=CA,OU=VMware Engineering,O=vCenter,ST=California,C=US</example>
+    <param pos="0" name="service.vendor" value="VMWare"/>
+    <param pos="0" name="service.product" value="vCenter"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=Default Issuer \(Do not trust\),OU=ISS,O=Hewlett Packard Enterprise,L=Houston,ST=Texas,C=US$">
+    <description>HP iLO</description>
+    <example>CN=Default Issuer (Do not trust),OU=ISS,O=Hewlett Packard Enterprise,L=Houston,ST=Texas,C=US</example>
+    <param pos="0" name="hw.device" value="Lights Out Management"/>
+    <param pos="0" name="hw.vendor" value="HP"/>
+    <param pos="0" name="hw.family" value="iLO"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:hp:integrated_lights_out:-"/>
+    <param pos="0" name="hw.product" value="iLO"/>
+    <param pos="0" name="os.device" value="Lights Out Management"/>
+    <param pos="0" name="os.vendor" value="HP"/>
+    <param pos="0" name="os.family" value="iLO"/>
+    <param pos="0" name="os.product" value="iLO"/>
+  </fingerprint>
+</fingerprints>
