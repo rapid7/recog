@@ -38,15 +38,15 @@
   </fingerprint>
   <fingerprint pattern="^Serv-U_([\d\.]+)$">
     <description>Serv-U SSH</description>
-    <example>Serv-U_7.4.0.1</example>
+    <example service.version="7.4.0.1">Serv-U_7.4.0.1</example>
     <param pos="0" name="service.vendor" value="Rhino Software"/>
     <param pos="0" name="service.product" value="Serv-U"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="WS_FTP-SSH_([\d\.]+)$">
     <description>WS_FTP Server with SSH</description>
-    <example>WS_FTP-SSH_6.1.1</example>
-    <example>WS_FTP-SSH_7.0</example>
+    <example service.version="6.1.1">WS_FTP-SSH_6.1.1</example>
+    <example service.version="7.0">WS_FTP-SSH_7.0</example>
     <param pos="0" name="service.vendor" value="Ipswitch"/>
     <param pos="0" name="service.product" value="WS_FTP"/>
     <param pos="1" name="service.version"/>
@@ -705,8 +705,7 @@
    </fingerprint>-->
   <!-- TODO: Handle "vpn3" banners for Cisco 3000 VPN Concentrators (need example banners first) -->
   <fingerprint pattern="^Cisco-(.*)$">
-    <description>Cisco SSH banner (could be IOS or PIX).
-         The version always seems to be 1.25</description>
+    <description>Cisco SSH banner (could be IOS or PIX), The version always seems to be 1.25</description>
     <example service.version="1.25">Cisco-1.25</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="Cisco"/>
@@ -924,7 +923,7 @@
     <param pos="0" name="hw.vendor" value="Ruijie"/>
   </fingerprint>
   <fingerprint pattern="^VShell_(?:Special_Edition_)?(\d+)_(\d+)_(\d+)_(\d+) VShell$">
-    <description>VanDyke VShell</description>
+    <description>VanDyke VShell - detailed variant</description>
     <example service.version="3" service.version.version="6" service.version.version.version="2" service.version.version.version.version="446">VShell_3_6_2_446 VShell</example>
     <example service.version="2" service.version.version="5" service.version.version.version="0" service.version.version.version.version="204">VShell_Special_Edition_2_5_0_204 VShell</example>
     <param pos="1" name="service.version"/>
@@ -945,8 +944,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:vandyke:vshell:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^WRQReflection(?i:F)orSecureIT_(.*)$">
-    <description>Attachmate Reflection (formerly WRQ Reflection for Secure IT)
-      </description>
+    <description>Attachmate Reflection (formerly WRQ Reflection for Secure IT)</description>
     <example service.version="6.1 Build 21">WRQReflectionForSecureIT_6.1 Build 21</example>
     <example service.version="8.2 Build 117">WRQReflectionforSecureIT_8.2 Build 117</example>
     <param pos="1" name="service.version"/>
@@ -955,8 +953,7 @@
     <param pos="0" name="service.product" value="Reflection"/>
   </fingerprint>
   <fingerprint pattern="^([^\s]*)\s*F-Secure SSH\s*(?:.*)$">
-    <description>Attachmate Reflection (formerly F-Secure SSH)
-      </description>
+    <description>Attachmate Reflection (formerly F-Secure SSH)</description>
     <example service.version="3.2.3">3.2.3 F-Secure SSH Windows NT Server</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="Attachmate"/>
@@ -964,7 +961,7 @@
     <param pos="0" name="service.product" value="Reflection"/>
   </fingerprint>
   <fingerprint pattern="^([^\s]*)\s*SSH Tectia Server$">
-    <description>SSH Communications Security Tectia Server</description>
+    <description>SSH Communications Security Tectia Server - branded</description>
     <example service.version="6.4.12.353">6.4.12.353 SSH Tectia Server</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="SSH Communications Security"/>
