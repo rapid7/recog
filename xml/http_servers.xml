@@ -260,9 +260,8 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^Microsoft-WinCE/(\d\.\d+)$">
-    <description>Windows CE embedded devices, including HP iPAQ,
-      Palm Treo, Motorola phones, and many more</description>
-    <example>Microsoft-WinCE/4.10</example>
+    <description>Windows CE embedded devices, including HP iPAQ, Palm Treo, Motorola phones, and many more</description>
+    <example os.version="4.10">Microsoft-WinCE/4.10</example>
     <example>Microsoft-WinCE/4.20</example>
     <example>Microsoft-WinCE/5.0</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
@@ -311,8 +310,7 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^Apache[ -]Coyote/(\d\.\d)$">
-    <description>HTTP connector for Apache Tomcat to run as a standalone
-      HTTP server</description>
+    <description>HTTP connector for Apache Tomcat to run as a standalone HTTP server - Coyote variant</description>
     <example>Apache-Coyote/1.1</example>
     <example>Apache Coyote/1.0</example>
     <param pos="0" name="service.vendor" value="Apache"/>
@@ -333,7 +331,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:apache:tomcat:-"/>
   </fingerprint>
   <fingerprint pattern="^Servlet [\d\.]+; JBoss-(\S+) \(build: .*\)/Tomcat-(\S+)$">
-    <description>JBoss with embedded tomcat</description>
+    <description>JBoss with embedded Tomcat</description>
     <example service.version="4.0.4.GA" service.component.version="5.5">Servlet 2.4; JBoss-4.0.4.GA (build: CVSTag=JBoss_4_0_4_GA date=200605151000)/Tomcat-5.5</example>
     <param pos="0" name="service.vendor" value="Red Hat"/>
     <param pos="0" name="service.product" value="JBoss EAP"/>
@@ -346,7 +344,7 @@
     <param pos="0" name="service.component.cpe23" value="cpe:/a:apache:tomcat:{service.component.version}"/>
   </fingerprint>
   <fingerprint pattern="^Servlet [\d\.]+; Tomcat-(\S+)/JBoss-(\S+) \(build: .*\)$">
-    <description>JBoss with embedded tomcat</description>
+    <description>JBoss with embedded Tomcat - Tomcat build variant</description>
     <example service.version="4.0.1sp1" service.component.version="5.0.28">Servlet 2.4; Tomcat-5.0.28/JBoss-4.0.1sp1 (build: CVSTag=JBoss_4_0_1_SP1 date=200502160314)</example>
     <param pos="0" name="service.vendor" value="Red Hat"/>
     <param pos="0" name="service.product" value="JBoss EAP"/>
@@ -388,11 +386,10 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:redhat:jboss_enterprise_application_platform:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^Apache Tomcat/(\d\.[\d.]+)(?:-LE-jdk14)? \(HTTP/1.1 Connector\)$">
-    <description>HTTP connector for Apache Tomcat to run as a standalone
-      HTTP server</description>
-    <example>Apache Tomcat/4.0.6 (HTTP/1.1 Connector)</example>
-    <example>Apache Tomcat/4.1.12 (HTTP/1.1 Connector)</example>
-    <example>Apache Tomcat/4.1.27-LE-jdk14 (HTTP/1.1 Connector)</example>
+    <description>HTTP connector for Apache Tomcat to run as a standalone HTTP server - Apache variant</description>
+    <example service.version="4.0.6">Apache Tomcat/4.0.6 (HTTP/1.1 Connector)</example>
+    <example service.version="4.1.12">Apache Tomcat/4.1.12 (HTTP/1.1 Connector)</example>
+    <example service.version="4.1.27">Apache Tomcat/4.1.27-LE-jdk14 (HTTP/1.1 Connector)</example>
     <param pos="0" name="service.vendor" value="Apache"/>
     <param pos="0" name="service.family" value="Tomcat"/>
     <param pos="0" name="service.product" value="Tomcat"/>
@@ -403,8 +400,7 @@
     <param pos="0" name="service.component.product" value="Apache Tomcat HTTP Connector"/>
   </fingerprint>
   <fingerprint pattern="^Tomcat Web Server/(\d\.[\dA-Z.]+)(?: Final)?(?:\s\(([^\)]+)\))?$">
-    <description>HTTP connector for Apache Tomcat to run as a standalone
-      HTTP server</description>
+    <description>HTTP connector for Apache Tomcat to run as a standalone HTTP server</description>
     <example>Tomcat Web Server/3.2.2 (JSP 1.1; Servlet 2.2; Java 1.3.1; Windows 2000 5.0 x86; java.vendor=Sun Microsystems Inc.)</example>
     <example>Tomcat Web Server/3.2.2 (JSP 1.1; Servlet 2.2; Java 1.4.2_13; Windows 2003 5.2 x86; java.vendor=Sun Microsystems Inc.)</example>
     <example>Tomcat Web Server/3.1M1 (JSP 1.1; Servlet 2.2; Java 1.3.1; AIX 5.3 ppc; java.vendor=IBM Corporation)</example>
@@ -503,7 +499,7 @@
     <param pos="1" name="apache.variant.version"/>
   </fingerprint>
   <fingerprint pattern="^Oracle HTTP Server Powered by Apache/([12][\d.]*)\s*(.*)$">
-    <description>Oracle HTTP Server (powered by Apache)</description>
+    <description>Oracle HTTP Server (powered by Apache) - version string variant</description>
     <example>Oracle HTTP Server Powered by Apache/1.3.12 (Unix) ApacheJServ/1.1 mod_ssl/2.6.4 OpenSSL/0.9.5a</example>
     <example>Oracle HTTP Server Powered by Apache/1.3.19 (Unix) mod_plsql/3.0.9.8.3b PHP/4.3.10 mod_fastcgi/2.2.10 mod_perl/1.25 mod_oprocmgr/1.0</example>
     <example>Oracle HTTP Server Powered by Apache/1.3.19 (Win32) mod_ssl/2.8.1 OpenSSL/0.9.5a mod_fastcgi/2.2.10 mod_oprocmgr/1.0 mod_perl/1.25</example>
@@ -780,7 +776,7 @@
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
   <fingerprint pattern="^Helix Server Version ([0-9.]*) \(win32\) \(RealServer compatible\)$">
-    <description>RealMedia Helix Server</description>
+    <description>RealMedia Helix Server - Windows</description>
     <example>Helix Server Version 9.0.4.960 (win32) (RealServer compatible)</example>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
@@ -792,7 +788,7 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^Helix Server Version ([0-9.]*) \(linux-\S+\) \(RealServer compatible\)$">
-    <description>RealMedia Helix Server</description>
+    <description>RealMedia Helix Server - Linux</description>
     <example>Helix Server Version 9.0.4.960 (linux-2.2-libc6-i586-server) (RealServer compatible)</example>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
@@ -959,8 +955,7 @@
    Netscape/Sun's Application Server
    -->
   <fingerprint pattern="^Sun[ -]Java[ -]System[ /]Application[ -]Server( \d\.[\d_]+)?$">
-    <description>Sun Java System Application Server (formerly iPlanet Application Server,
-         Sun ONE Application Server)</description>
+    <description>Sun Java System Application Server (formerly iPlanet Application Server, Sun ONE Application Server)</description>
     <example>Sun-Java-System/Application-Server</example>
     <param pos="0" name="service.vendor" value="Sun"/>
     <param pos="0" name="service.family" value="Java System Application Server"/>
@@ -968,11 +963,10 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:sun:java_system_application_server:{service.version}"/>
   </fingerprint>
-  <fingerprint pattern="^Sun[ -]Java[ -]System[ /]Application[ -]Server Platform Edition( \d\.[\d_]+)?$">
-    <description>Sun Java System Application Server (formerly iPlanet Application Server,
-         Sun ONE Application Server)</description>
+  <fingerprint pattern="^Sun[ -]Java[ -]System[ /]Application[ -]Server Platform Edition (\d\.[\d_]+)?$">
+    <description>Sun Java System Application Server Platform Edition(formerly iPlanet Application Server, Sun ONE Application Server)</description>
     <example>Sun Java System Application Server Platform Edition 9.0</example>
-    <example>Sun Java System Application Server Platform Edition 9.0_01</example>
+    <example service.version="9.0_01">Sun Java System Application Server Platform Edition 9.0_01</example>
     <param pos="0" name="service.vendor" value="Sun"/>
     <param pos="0" name="service.family" value="Java System Application Server"/>
     <param pos="0" name="service.product" value="Java System Application Server Platform Edition"/>
@@ -995,8 +989,7 @@
    Netscape/Sun's Web Server
    -->
   <fingerprint pattern="^Netscape-Enterprise/(\d+\.[\w\s.]+)$">
-    <description>Netscape Enterprise Server (subsequently iPlanet Web Server,
-         Sun ONE Web Server, presently Sun Java System Web Server)</description>
+    <description>Netscape Enterprise Server (subsequently iPlanet Web Server, Sun ONE Web Server, presently Sun Java System Web Server)</description>
     <example>Netscape-Enterprise/3.5.1</example>
     <example>Netscape-Enterprise/3.6 SP3</example>
     <example>Netscape-Enterprise/6.0</example>
@@ -1007,8 +1000,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:sun:java_system_web_server:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?:Sun-Java-System-Web-Server|Sun-ONE-Web-Server)/(?:\d\.[\d_]+)$">
-    <description>Sun Java System Web Server (formerly Netscape Enterprise Server, iPlanet Web
-         Server and Sun ONE Web Server)</description>
+    <description>Sun Java System Web Server (formerly Netscape Enterprise Server, iPlanet Web Server and Sun ONE Web Server)</description>
     <example>Sun-Java-System-Web-Server/7.0</example>
     <example>Sun-ONE-Web-Server/6.1</example>
     <param pos="0" name="service.vendor" value="Sun"/>
@@ -1030,10 +1022,9 @@
    there seems to be no relation between 3.54 and "3.6 Service Pack 4".
    -->
   <fingerprint pattern="^iPlanet-Web-Proxy-Server/(.*)$">
-    <description>iPlanet WebProxy Server (subsequently Sun ONE WebProxy Server,
-         presently Sun Java System Web Proxy Server)</description>
+    <description>iPlanet WebProxy Server (subsequently Sun ONE WebProxy Server, presently Sun Java System Web Proxy Server)</description>
     <example>iPlanet-Web-Proxy-Server/3.6</example>
-    <example>iPlanet-Web-Proxy-Server/3.6-SP5</example>
+    <example service.version="3.6-SP5">iPlanet-Web-Proxy-Server/3.6-SP5</example>
     <param pos="0" name="service.vendor" value="Sun"/>
     <param pos="0" name="service.family" value="Java System Web Proxy Server"/>
     <param pos="0" name="service.product" value="Java System Web Proxy Server"/>
@@ -1041,37 +1032,26 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:sun:java_system_web_proxy_server:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^Sun-ONE-Web-Proxy-Server/(.*)$">
-    <description>Sun ONE WebProxy Server (formerly iPlanet WebProxy Server,
-         presently Sun Java System Web Proxy Server)</description>
-    <example>Sun-ONE-Web-Proxy-Server/3.6-SP4</example>
+    <description>Sun ONE WebProxy Server (formerly iPlanet WebProxy Server, presently Sun Java System Web Proxy Server)</description>
+    <example service.version="3.6-SP4">Sun-ONE-Web-Proxy-Server/3.6-SP4</example>
     <param pos="0" name="service.vendor" value="Sun"/>
     <param pos="0" name="service.family" value="Java System Web Proxy Server"/>
     <param pos="0" name="service.product" value="Java System Web Proxy Server"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:sun:java_system_web_proxy_server:{service.version}"/>
   </fingerprint>
-  <fingerprint pattern="^Sun-Java-System-Web-Proxy-Server/([^.]+\.[^.]+\.[^.]+)$">
-    <description>Sun Java System Web Proxy Server (formerly iPlanet WebProxy Server,
-         Sun ONE WebProxy Server) with full version info</description>
+  <fingerprint pattern="^Sun-Java-System-Web-Proxy-Server/(\d\.[\d.]+)$">
+    <description>Sun Java System Web Proxy Server (formerly iPlanet WebProxy Server, Sun ONE WebProxy Server)</description>
     <example>Sun-Java-System-Web-Proxy-Server/4.0.2</example>
-    <param pos="0" name="service.vendor" value="Sun"/>
-    <param pos="0" name="service.family" value="Java System Web Proxy Server"/>
-    <param pos="0" name="service.product" value="Java System Web Proxy Server"/>
-    <param pos="1" name="service.version"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:sun:java_system_web_proxy_server:{service.version}"/>
-  </fingerprint>
-  <fingerprint pattern="^Sun-Java-System-Web-Proxy-Server/(?:4\.\d+)$">
-    <description>Sun Java System Web Proxy Server (formerly iPlanet WebProxy Server,
-         Sun ONE WebProxy Server) with partial version info</description>
     <example>Sun-Java-System-Web-Proxy-Server/4.0</example>
     <param pos="0" name="service.vendor" value="Sun"/>
     <param pos="0" name="service.family" value="Java System Web Proxy Server"/>
     <param pos="0" name="service.product" value="Java System Web Proxy Server"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:sun:java_system_web_proxy_server:-"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sun:java_system_web_proxy_server:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^Sun-ILOM-Web-Server/(?:\d\.[\d._]+)$">
-    <description>Sun Integrated Lights Out Manager (ILOM) usually
-      bundled with Sun Fire servers</description>
+    <description>Sun Integrated Lights Out Manager (ILOM) usually bundled with Sun Fire servers</description>
     <example>Sun-ILOM-Web-Server/1.0</example>
     <param pos="0" name="service.vendor" value="Sun"/>
     <param pos="0" name="service.product" value="Integrated Lights Out Manager"/>
@@ -1080,11 +1060,7 @@
     <param pos="0" name="hw.family" value="Sun Fire"/>
   </fingerprint>
   <fingerprint pattern="^HP-iLO-Server/(?:[\S]+)">
-    <description>
-        HP Integrated Lights Out Manager (iLO).  The version in the Server
-        header is the firmware version and is not currently used.  Furthermore,
-        this header value only seems to be present in iLO 4
-      </description>
+    <description>HP Integrated Lights Out Manager (iLO).  Version in the Server header (found on in iLO4) is the firmware version and is not currently used.</description>
     <example>HP-iLO-Server/1.30</example>
     <param pos="0" name="service.vendor" value="HP"/>
     <param pos="0" name="service.product" value="iLO"/>
@@ -1103,7 +1079,7 @@
       Sun_WebServer/2.1
      -->
   <fingerprint pattern="^Jetty/(\d+\.[\d.]+)(?: \((.*)\))?$">
-    <description>Mort Bay Jetty</description>
+    <description>Mort Bay Jetty with info</description>
     <example>Jetty/4.0.1 (SunOS 5.8 sparc)</example>
     <example>Jetty/4.2.23 (SunOS/5.9 sparc java/1.4.2_04)</example>
     <example>Jetty/5.1.10 (Linux/2.6.12 i386 java/1.5.0_05)</example>
@@ -1127,6 +1103,7 @@
   <fingerprint pattern="^Jetty\((\S+)\)$">
     <description>Mort Bay Jetty</description>
     <example>Jetty(6.1.7)</example>
+    <example>Jetty(9.4.z-SNAPSHOT)</example>
     <param pos="0" name="service.vendor" value="Mort Bay"/>
     <param pos="0" name="service.product" value="Jetty"/>
     <param pos="0" name="service.family" value="Jetty"/>
@@ -1225,9 +1202,9 @@
   </fingerprint>
   <fingerprint pattern="^WebLogic (?:WebLogic )?Server (\d+\.\d+(?:\s+SP\d+)?)\s+.*$">
     <description>BEA WebLogic</description>
-    <example>WebLogic Server 8.1 SP3 Tue Jun 29 23:11:19 PDT 2004 404973</example>
-    <example>WebLogic Server 7.0 SP4 Tue Aug 12 11:22:26 PDT 2003</example>
-    <example>WebLogic WebLogic Server 6.1 SP4  11/08/2002 21:50:43 #221641</example>
+    <example service.version="8.1 SP3">WebLogic Server 8.1 SP3 Tue Jun 29 23:11:19 PDT 2004 404973</example>
+    <example service.version="7.0 SP4">WebLogic Server 7.0 SP4 Tue Aug 12 11:22:26 PDT 2003</example>
+    <example service.version="6.1 SP4">WebLogic WebLogic Server 6.1 SP4  11/08/2002 21:50:43 #221641</example>
     <param pos="0" name="service.vendor" value="BEA"/>
     <param pos="0" name="service.product" value="WebLogic"/>
     <param pos="0" name="service.family" value="WebLogic"/>
@@ -1236,8 +1213,8 @@
   </fingerprint>
   <fingerprint pattern="^WebSphere Application Server/(\d+\.\d+)$">
     <description>IBM WebSphere</description>
-    <example>WebSphere Application Server/5.0</example>
-    <example>WebSphere Application Server/6.1</example>
+    <example service.version="5.0">WebSphere Application Server/5.0</example>
+    <example service.version="6.1">WebSphere Application Server/6.1</example>
     <param pos="0" name="service.vendor" value="IBM"/>
     <param pos="0" name="service.product" value="WebSphere"/>
     <param pos="0" name="service.family" value="WebSphere"/>
@@ -1270,8 +1247,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^Abyss/(\d\.[\d.]+)-X1-Win32 AbyssLib/(?:\d\.[\d.]+)$">
-    <description>Aprelium Technologies Abyss Web Server X1
-      (free personal edition) on Windows</description>
+    <description>Aprelium Technologies Abyss Web Server X1 (free personal edition) on Windows</description>
     <example>Abyss/2.0.0.20-X1-Win32 AbyssLib/2.0.0.20</example>
     <example>Abyss/2.3.2-X1-Win32 AbyssLib/2.3.2</example>
     <param pos="0" name="service.vendor" value="Aprelium Technologies"/>
@@ -1284,8 +1260,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^Abyss/(\d\.[\d.]+)-X2-Win32 AbyssLib/(?:\d\.[\d.]+)$">
-    <description>Aprelium Technologies Abyss Web Server X2
-      (licensed professional edition) on Windows</description>
+    <description>Aprelium Technologies Abyss Web Server X2 (licensed professional edition) on Windows</description>
     <param pos="0" name="service.vendor" value="Aprelium Technologies"/>
     <param pos="0" name="service.product" value="Abyss Web Server X1"/>
     <param pos="0" name="service.family" value="Abyss Web Server"/>
@@ -1413,9 +1388,8 @@
     <param pos="0" name="os.vendor" value="SonicWALL"/>
   </fingerprint>
   <fingerprint pattern="^NetCache appliance \(NetApp/+(\d+\.\d+[\w.]+)\)$">
-    <description>NetCache appliance (product line formerly owned by Network Appliances,
-      now owned by Blue Coat Systems).</description>
-    <example>NetCache appliance (NetApp/5.3.1R3)</example>
+    <description>NetCache appliance (product line formerly owned by Network Appliances, now owned by Blue Coat Systems).</description>
+    <example service.version="5.3.1R3">NetCache appliance (NetApp/5.3.1R3)</example>
     <example>NetCache appliance (NetApp/5.4R2D2)</example>
     <example>NetCache appliance (NetApp/5.6.1D22)</example>
     <example>NetCache appliance (NetApp/6.0.2P1)</example>
@@ -1626,9 +1600,9 @@
   </fingerprint>
   <fingerprint pattern="^EWS-NIC\d/(\S+)$">
     <description>Xerox Embedded Web Server (EWS)</description>
-    <example>EWS-NIC3/6.31</example>
-    <example>EWS-NIC4/13.40</example>
-    <example>EWS-NIC4/13.39</example>
+    <example service.version="6.31">EWS-NIC3/6.31</example>
+    <example service.version="13.40">EWS-NIC4/13.40</example>
+    <example service.version="13.39">EWS-NIC4/13.39</example>
     <param pos="0" name="service.vendor" value="Xerox"/>
     <param pos="0" name="service.family" value="EWS"/>
     <param pos="0" name="service.product" value="EWS"/>
@@ -1841,8 +1815,8 @@
    </fingerprint>
    -->
   <fingerprint pattern="^SentinelProtectionServer/((?:\d+\.)*\d+)$">
-    <description>Embedded web server in SafeNet's memory key dongles.</description>
-    <example>SentinelProtectionServer/7.1</example>
+    <description>Sentinel Protection Server - Embedded httpd in SafeNet's memory key dongles</description>
+    <example service.version="7.1">SentinelProtectionServer/7.1</example>
     <example>SentinelProtectionServer/7.3</example>
     <example>SentinelProtectionServer/7.0</example>
     <example>SentinelProtectionServer/7</example>
@@ -1852,8 +1826,8 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^SentinelKeysServer/((?:\d+\.)*\d+)$">
-    <description>Embedded web server in SafeNet's memory key dongles.</description>
-    <example>SentinelKeysServer/1.3.1</example>
+    <description>Sentinel Key Server - Embedded httpd in SafeNet's memory key dongles</description>
+    <example service.version="1.3.1">SentinelKeysServer/1.3.1</example>
     <example>SentinelKeysServer/1.0</example>
     <example>SentinelKeysServer/1</example>
     <param pos="0" name="service.vendor" value="SafeNet"/>
@@ -2097,7 +2071,7 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^Oracle XML DB/Oracle\S+ Enterprise Edition Release ((?:\d+\.)*\d+) - Production$">
-    <description>Web server providing web services for Oracle's XML DB.</description>
+    <description>Web server providing web services for Oracle's XML DB - with version string</description>
     <example>Oracle XML DB/Oracle9i Enterprise Edition Release 9.2.0.1.0 - Production</example>
     <example>Oracle XML DB/Oracle9i Enterprise Edition Release 9 - Production</example>
     <param pos="0" name="service.vendor" value="Oracle"/>
@@ -2106,15 +2080,14 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^Oracle XML DB/Oracle Database$">
-    <description>Web server providing web services for Oracle's XML DB.</description>
+    <description>Web server providing web services for Oracle's XML DB</description>
     <example>Oracle XML DB/Oracle Database</example>
     <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.product" value="XML DB"/>
     <param pos="0" name="service.family" value="Oracle"/>
   </fingerprint>
   <fingerprint pattern="^sfcHttpd$">
-    <description>Server for HTTP interface to sfcb, a lightweight CIM server.
-   </description>
+    <description>Server for HTTP interface to sfcb, a lightweight CIM server</description>
     <example>sfcHttpd</example>
     <param pos="0" name="service.vendor" value="SBLIM"/>
     <param pos="0" name="service.product" value="sfcb"/>
@@ -2221,8 +2194,7 @@
    </fingerprint>
    -->
   <fingerprint pattern="^(?:(?:\d+.){3}\d+):\d{1,4}$">
-    <description>A banner consisting of an IP address and port --
-         assert nothing.</description>
+    <description>A banner consisting of an IP address and port -- assert nothing.</description>
     <example>192.168.0.4:9999</example>
   </fingerprint>
   <fingerprint pattern="^Web-Server/(?:\d+\.+\d+)$">
@@ -2752,7 +2724,7 @@
     <param pos="2" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^(\S+) \d+/Service Pack \d+, UPnP/[\d\.]+, TVersity Media Server$">
-    <description>TVersity Media Server UPnP Server</description>
+    <description>TVersity Media Server UPnP Server with Service Pack</description>
     <example>5.2.3790 2/Service Pack 1, UPnP/1.0, TVersity Media Server</example>
     <example>5.1.2600 2/Service Pack 3, UPnP/1.0, TVersity Media Server</example>
     <param pos="0" name="service.vendor" value="TVersity"/>
@@ -2781,7 +2753,7 @@
     <param pos="0" name="os.device" value="Router"/>
   </fingerprint>
   <fingerprint pattern="^Linux-(\S+), UPnP/[\d\.]+, PMS/([\d\.]+)$">
-    <description>PlayStation3 Media Server UPnP Server</description>
+    <description>PlayStation3 Media Server UPnP Server - linux</description>
     <example>Linux-amd64-2.6.18-238.9.1.el5, UPnP/1.0, PMS/1.52.1</example>
     <example>Linux-i386-2.6.33.2, UPnP/1.0, PMS/1.21.1</example>
     <param pos="0" name="service.vendor" value="Sony"/>
@@ -2793,7 +2765,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Windows_XP-(\S+), UPnP/[\d\.]+, PMS/([\d\.]+)$">
-    <description>PlayStation3 Media Server UPnP Server</description>
+    <description>PlayStation3 Media Server UPnP Server - Windows XP</description>
     <example>Windows_XP-amd64-5.2, UPnP/1.0, PMS/1.54.0</example>
     <example>Windows_XP-x86-5.1, UPnP/1.0, PMS/1.20.400</example>
     <param pos="0" name="service.vendor" value="Sony"/>
@@ -2805,7 +2777,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_xp:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Windows_7-x86-(\S+), UPnP/[\d\.]+, PMS/([\d\.]+)$">
-    <description>PlayStation3 Media Server UPnP Server</description>
+    <description>PlayStation3 Media Server UPnP Server - Windows 7 x86</description>
     <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.20</example>
     <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.22.0</example>
     <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.25.1</example>
@@ -2834,7 +2806,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_7:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Windows_7-x86_64-(\S+), UPnP/[\d\.]+, PMS/([\d\.]+)$">
-    <description>PlayStation3 Media Server UPnP Server</description>
+    <description>PlayStation3 Media Server UPnP Server - Windows 7 x86_64</description>
     <param pos="0" name="service.vendor" value="Sony"/>
     <param pos="0" name="service.product" value="PMS"/>
     <param pos="2" name="service.version"/>
@@ -2851,7 +2823,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_8:-"/>
   </fingerprint>
   <fingerprint pattern="^Mac_OS_X-x86_64-(\S+), UPnP/[\d\.]+, PMS/([\d\.]+)$">
-    <description>PlayStation3 Media Server UPnP Server</description>
+    <description>PlayStation3 Media Server UPnP Server - macOS x86_64</description>
     <example>Mac_OS_X-x86_64-10.5.8, UPnP/1.0, PMS/1.20</example>
     <param pos="0" name="service.vendor" value="Sony"/>
     <param pos="0" name="service.product" value="PMS"/>
@@ -2862,7 +2834,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Linux/(\S+), UPnP/\S+, Free UPnP Entertainment Service/ReadyNAS$">
-    <description>Free UPnP Entertainment Service UPnP Server</description>
+    <description>Free UPnP Entertainment Service UPnP Server - Linux on ReadyNAS</description>
     <param pos="0" name="service.product" value="FUPPES"/>
     <param pos="0" name="os.vendor" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
@@ -2874,7 +2846,7 @@
     <param pos="0" name="hw.product" value="ReadyNAS"/>
   </fingerprint>
   <fingerprint pattern="^Linux/(\S+), UPnP/\S+, Free UPnP Entertainment Service/$">
-    <description>Free UPnP Entertainment Service UPnP Server</description>
+    <description>Free UPnP Entertainment Service UPnP Server - Linux</description>
     <param pos="0" name="service.product" value="FUPPES"/>
     <param pos="0" name="os.vendor" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
@@ -2882,7 +2854,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^FreeBSD/(\S+), UPnP/\S+, Free UPnP Entertainment Service/$">
-    <description>Free UPnP Entertainment Service UPnP Server</description>
+    <description>Free UPnP Entertainment Service UPnP Server - FreeBSD</description>
     <param pos="0" name="service.product" value="FUPPES"/>
     <param pos="0" name="os.vendor" value="FreeBSD"/>
     <param pos="0" name="os.product" value="FreeBSD"/>
@@ -2934,7 +2906,7 @@
     <param pos="0" name="os.device" value="WAP"/>
   </fingerprint>
   <fingerprint pattern="^Linux/(\S+), UPnP/[\d\.]+, Portable SDK for UPnP devices/(\S+)$">
-    <description>Portable SDK for UPnP Server</description>
+    <description>Portable SDK for UPnP Server - Linux</description>
     <example>Linux/2.4.20-46.7asp, UPnP/1.0, Portable SDK for UPnP devices/1.6.17</example>
     <example>Linux/2.6.10-iop1-1, UPnP/1.0, Portable SDK for UPnP devices/1.4.1</example>
     <example>Linux/2.6.12-5.1-brcmstb-dm800, UPnP/1.0, Portable SDK for UPnP devices/1.6.0</example>
@@ -2960,7 +2932,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Linux/(\S+) UPnP/[\d\.]+ DLNADOC/[\d\.]+ Portable SDK for UPnP devices/(\S+)$">
-    <description>DLNADOC Portable SDK for UPnP Server</description>
+    <description>DLNADOC Portable SDK for UPnP Server - Linux DNLADOC variant</description>
     <example>Linux/3.0.8 UPnP/1.0 DLNADOC/1.50 Portable SDK for UPnP devices/1.6.6</example>
     <example>Linux/2.6.23.17_stm23_0125dorade00 UPnP/1.0 DLNADOC/1.50 Portable SDK for UPnP devices/1.4.6-5</example>
     <param pos="0" name="service.product" value="libupnp"/>
@@ -2971,7 +2943,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^Linux/(\S+), UPnP/[\d\.]+, Intel SDK for UPnP devices ?/(\S+)$">
-    <description>Intel SDK for UPnP Server</description>
+    <description>Intel SDK for UPnP Server with verbose banner</description>
     <example>Linux/2.6.10_dev-malta-mips2_fp_le, UPnP/1.0, Intel SDK for UPnP devices /1.2</example>
     <example>Linux/2.4.18_mvl30-ixdp425, UPnP/1.0, Intel SDK for UPnP devices/1.3.1</example>
     <param pos="0" name="service.product" value="libupnp"/>
@@ -2988,8 +2960,8 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^Darwin/(\S+), UPnP/\S+, Portable SDK for UPnP devices/(\S+)$">
-    <description>Portable SDK for UPnP Server</description>
-    <example>Darwin/10.2.0, UPnP/1.0, Portable SDK for UPnP devices/1.6.6</example>
+    <description>Portable SDK for UPnP Server - macOS</description>
+    <example service.version="1.6.6" os.version="10.2.0">Darwin/10.2.0, UPnP/1.0, Portable SDK for UPnP devices/1.6.6</example>
     <param pos="0" name="service.product" value="libupnp"/>
     <param pos="2" name="service.version"/>
     <param pos="0" name="os.vendor" value="Apple"/>

@@ -159,10 +159,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:pix_firewall_software:-"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +ESMTP CPMTA-([^ ]+)_([^ ]+)_([^ ]+)_([^ ]+) - NO UCE *$">
-    <description>Critical Path (aka InScribe) Messaging Server
-         http://www.cp.net/products/inscr_messagingserv_overview.html
-         Runs on Windows NT4/2k, Solaris 2.6, 2.7, and 2.8 Sparc/Intel, SGI IRIX 6.5.3 or later, and AIX
-      </description>
+    <description>Critical Path (aka InScribe) Messaging Server on Windows NT4/2k, Solaris 2.6/2.7/2.8 Sparc/Intel, SGI IRIX 6.5.3 or later, or AIX </description>
     <param pos="0" name="service.vendor" value="Critical Path"/>
     <param pos="0" name="service.family" value="Messaging Server"/>
     <param pos="0" name="service.product" value="Messaging Server"/>
@@ -370,11 +367,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) +SMTP/smap Ready\.$">
-    <description>TIS FWTK and derivatives
-         http://www.tis.com/research/software/
-         This fingerprint may be ambiguous because other firewalls (like
-         Gauntlet) are derived from TIS
-      </description>
+    <description>TIS FWTK and derivatives (other firewalls, like Gauntlet, are derived from TIS)</description>
     <example host.name="foo.bar">foo.bar SMTP/smap Ready.</example>
     <param pos="0" name="service.vendor" value="TIS"/>
     <param pos="0" name="service.family" value="FWTK"/>
@@ -1255,7 +1248,7 @@
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP MetaInfo Sendmail ([^ ]+) Build ([^ ]+) \(Berkeley ([^ ]+)\)/([^;]+); (.+)$">
     <description>Sendmail - MetaInfo</description>
-    <example>foo.bar ESMTP MetaInfo Sendmail 2.5 Build 2630 (Berkeley 8.8.6)/8.8.4; Mon, 30 Jul</example>
+    <example host.name="foo.bar" service.version="8.8.6">foo.bar ESMTP MetaInfo Sendmail 2.5 Build 2630 (Berkeley 8.8.6)/8.8.4; Mon, 30 Jul</example>
     <param pos="0" name="service.vendor" value="MetaInfo"/>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>

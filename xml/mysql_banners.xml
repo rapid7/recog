@@ -144,7 +144,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.\d{1,2})-(?:Debian_)?\dubuntu(\d{1,2}\.\d\d)[.\d]*(?:-log)?$">
-    <description>Oracle MySQL on Ubuntu</description>
+    <description>Oracle MySQL on Ubuntu - Debian string variant</description>
     <example service.version="5.0.22" os.version="6.06">5.0.22-Debian_0ubuntu6.06.14-log</example>
     <example service.version="5.1.41" os.version="12.10">5.1.41-3ubuntu12.10</example>
     <param pos="1" name="service.version"/>
@@ -458,7 +458,7 @@
     <param pos="0" name="os.family" value="Windows"/>
   </fingerprint>
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-f\d]{1,3})(?:-rc)?-enterprise" flags="REG_ICASE">
-    <description>Oracle MySQL Enterprise Edition</description>
+    <description>Oracle MySQL Enterprise Edition - variant 1</description>
     <example service.version="5.1.26">5.1.26-rc-enterprise-gpl-log</example>
     <example service.version="5.5.27">5.5.27-enterprise-commercial-advanced-log</example>
     <param pos="1" name="service.version"/>
@@ -469,7 +469,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:oracle:mysql:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-ndb-\d\.\d{1,2}\.[a-f\d]{1,3})" flags="REG_ICASE">
-    <description>Oracle MySQL Cluster Edition</description>
+    <description>Oracle MySQL Cluster Edition - nbd variant</description>
     <example service.version="5.1.30-ndb-6.3.20">5.1.30-ndb-6.3.20-cluster-gpl-log</example>
     <example service.version="5.5.20-ndb-7.2.5">5.5.20-ndb-7.2.5-gpl</example>
     <param pos="1" name="service.version"/>

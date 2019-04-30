@@ -72,7 +72,7 @@
     <param pos="1" name="host.mac"/>
   </fingerprint>
   <fingerprint pattern="^SERIALNUMBER=PID:([^ ]+) SN:([^,]+),CN=(?:[a-zA-Z0-9\-]+)-SEP([a-fA-F0-9]{12}),OU=CTG,O=Cisco Systems Inc\.$">
-    <description>Cisco / Linksys Router</description>
+    <description>Cisco / Linksys Router with serial number</description>
     <example host.mac="B07D47D33A1C" hw.product="CP-8851" cisco.serial_number="FCH1924AHCA">SERIALNUMBER=PID:CP-8851 SN:FCH1924AHCA,CN=CP-8851-SEPB07D47D33A1C,OU=CTG,O=Cisco Systems Inc.</example>
     <param pos="0" name="hw.device" value="IP Phone"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
@@ -193,7 +193,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^CN=HP Service Processor,OU=UDU Service Tools,O=Hewlett-Packard Development Company\\, L\.P\.\\ ,L=Fremont,ST=California,C=US$">
-    <description>HP iLO</description>
+    <description>HP iLO - HP Service Processor</description>
     <example>CN=HP Service Processor,OU=UDU Service Tools,O=Hewlett-Packard Development Company\, L.P.\ ,L=Fremont,ST=California,C=US</example>
     <param pos="0" name="hw.device" value="Lights Out Management"/>
     <param pos="0" name="hw.vendor" value="HP"/>
@@ -221,7 +221,7 @@
     <param pos="1" name="host.mac"/>
   </fingerprint>
   <fingerprint pattern="^CN=([A-Za-z0-9\_\-\.]+),OU=Hewlett Packard Enterprise Network Management Software \(SMH\),O=Hewlett Packard Enterprise,L=Houston,ST=Texas,C=US$">
-    <description>HP iLO</description>
+    <description>HP iLO - Enterprise Mgmt variant</description>
     <example>CN=bigsrv99,OU=Hewlett Packard Enterprise Network Management Software (SMH),O=Hewlett Packard Enterprise,L=Houston,ST=Texas,C=US</example>
     <param pos="0" name="hw.device" value="Lights Out Management"/>
     <param pos="0" name="hw.vendor" value="HP"/>
@@ -267,7 +267,7 @@
     <param pos="0" name="os.vendor" value="Avocent"/>
   </fingerprint>
   <fingerprint pattern="^CN=Avocent Mergepoint Unity,O=Avocent Mergepoint Unity,L=Huntsville,ST=Alabama,C=US$">
-    <description>Avocent KVM</description>
+    <description>Avocent Mergepoint KVM</description>
     <example>CN=Avocent Mergepoint Unity,O=Avocent Mergepoint Unity,L=Huntsville,ST=Alabama,C=US</example>
     <param pos="0" name="hw.device" value="KVM"/>
     <param pos="0" name="hw.vendor" value="Avocent"/>
@@ -277,9 +277,9 @@
     <param pos="0" name="os.product" value="Mergepoint"/>
   </fingerprint>
   <fingerprint pattern="^CN=HP Jetdirect [a-zA-Z0-9]+,OU=([a-fA-F0-9]{12})\+OU=([a-zA-Z0-9]+),O=Hewlett-Packard Co\.$">
-    <description>HP Jet Direct</description>
-    <example>CN=HP Jetdirect 38831831,OU=2C413883186A+OU=J8028E,O=Hewlett-Packard Co.</example>
-    <example>CN=HP Jetdirect FBFA31E7,OU=8851FBE33ABB+OU=J8016E,O=Hewlett-Packard Co.</example>
+    <description>HP Jet Direct - with host MAC and product</description>
+    <example host.mac="2C413883186A" hw.product="J8028E">CN=HP Jetdirect 38831831,OU=2C413883186A+OU=J8028E,O=Hewlett-Packard Co.</example>
+    <example os.product="J8016E">CN=HP Jetdirect FBFA31E7,OU=8851FBE33ABB+OU=J8016E,O=Hewlett-Packard Co.</example>
     <param pos="0" name="hw.device" value="Printer"/>
     <param pos="0" name="hw.vendor" value="HP"/>
     <param pos="0" name="hw.family" value="JetDirect"/>
@@ -451,7 +451,7 @@
     <param pos="0" name="hw.product" value="APIC"/>
   </fingerprint>
   <fingerprint pattern="^CN=APIC$">
-    <description>Cisco APIC</description>
+    <description>Cisco APIC - bare CN</description>
     <example>CN=APIC</example>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.product" value="APIC"/>
@@ -555,7 +555,7 @@
     <param pos="0" name="os.device" value="Appliance"/>
   </fingerprint>
   <fingerprint pattern="^CN=.*,OU=FortiManager,O=Fortinet,L=Sunnyvale,ST=California,C=US$">
-    <description>Fortinet FortiMail Appliance</description>
+    <description>Fortinet FortiManager Appliance</description>
     <example>CN=FMG-VM0000000000,OU=FortiManager,O=Fortinet,L=Sunnyvale,ST=California,C=US</example>
     <param pos="0" name="hw.vendor" value="Fortinet"/>
     <param pos="0" name="hw.device" value="Appliance"/>
@@ -587,7 +587,7 @@
     <param pos="1" name="host.mac"/>
   </fingerprint>
   <fingerprint pattern="^CN=unifi$">
-    <description>Ubiquiti Controller</description>
+    <description>Ubiquiti Controller - unifi bare</description>
     <example>CN=unifi</example>
     <param pos="0" name="hw.vendor" value="Ubiquiti"/>
     <param pos="0" name="hw.device" value="Wireless Controller"/>
@@ -596,7 +596,7 @@
     <param pos="0" name="os.device" value="Wireless Controller"/>
   </fingerprint>
   <fingerprint pattern="^CN=UniFi,OU=UniFi,O=ubnt\.com,L=San Jose,ST=CA,C=US$">
-    <description>Ubiquiti Controller</description>
+    <description>Ubiquiti Controller - unifi</description>
     <example>CN=UniFi,OU=UniFi,O=ubnt.com,L=San Jose,ST=CA,C=US</example>
     <param pos="0" name="hw.vendor" value="Ubiquiti"/>
     <param pos="0" name="hw.device" value="Wireless Controller"/>
@@ -755,7 +755,7 @@
     <param pos="0" name="os.family" value="Linux"/>
   </fingerprint>
   <fingerprint pattern="^CN=Canon (iR-[a-zA-Z0-9\.\-\_]+)$">
-    <description>Canon iR-ADV Printer</description>
+    <description>Canon iR-ADV Printer with product info</description>
     <example os.product="iR-ADV">CN=Canon iR-ADV</example>
     <param pos="0" name="hw.device" value="Printer"/>
     <param pos="0" name="hw.vendor" value="Canon"/>
@@ -814,7 +814,7 @@
     <param pos="1" name="hw.product"/>
   </fingerprint>
   <fingerprint pattern="^CN=([a-fA-F0-9]{12}),O=Polycom Inc\.$">
-    <description>NEC DT Series IP Phone</description>
+    <description>Polycom SoundPoint IP Phone</description>
     <example host.mac="64167F169981">CN=64167F169981,O=Polycom Inc.</example>
     <param pos="0" name="os.vendor" value="Polycom"/>
     <param pos="0" name="os.device" value="IP Phone"/>
@@ -878,7 +878,7 @@
     <param pos="0" name="os.device" value="WAP"/>
   </fingerprint>
   <fingerprint pattern="^CN=axis-([a-fA-F0-9]{12}),O=Axis Communications AB$">
-    <description>OpenWRT WAP</description>
+    <description>Axis Communications Web Cam</description>
     <example host.mac="accc8ea31abf">CN=axis-accc8ea31abf,O=Axis Communications AB</example>
     <param pos="0" name="hw.vendor" value="AXIS"/>
     <param pos="0" name="hw.device" value="Web Cam"/>
