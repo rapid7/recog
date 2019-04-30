@@ -141,17 +141,18 @@
     <param pos="0" name="service.product" value="CCProxy"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+  <!--
+  Cisco PIX sits between an internal SMTP server and the rest of the world.
+
+    Its MailGuard feature strips all information out of the 220 header except for the ' ' (space), '2' (digit two),
+    and '0' (digit zero) characters, replacing them with asterisks. While this effectively
+    hides the back-end SMTP server, it does tell us that they are running Cisco PIX firewall
+    (at least for SMTP, and possibly other services as well).
+
+    Search Cisco's documentation for "fixup protocol SMTP" for more information.
+  -->
   <fingerprint pattern="^[\*20 ]+$">
-    <description>
-         Cisco PIX firewall: PIX sits between an internal SMTP server and the rest of the world.
-
-         Its MailGuard feature strips all information out of the 220 header except for the ' ' (space), '2' (digit two),
-         and '0' (digit zero) characters, replacing them with asterisks. While this effectively
-         hides the back-end SMTP server, it does tell us that they are running Cisco PIX firewall
-         (at least for SMTP, and possibly other services as well).
-
-         Search Cisco's documentation for "fixup protocol SMTP" for more information.
-      </description>
+    <description>Cisco PIX firewall MailGuard banner stripping</description>
     <example os.product="PIX">***************************</example>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="PIX"/>

@@ -37,8 +37,8 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:ibm:lotus_domino:-"/>
   </fingerprint>
   <fingerprint pattern="^Lotus Notes POP3 server version Release ([^ ]+) ready on .*$">
-    <description>IBM Lotus Notes/Domino</description>
-    <example>Lotus Notes POP3 server version Release 8.5.1FP5 ready on foo/US.</example>
+    <description>IBM Lotus Notes/Domino - Release variant</description>
+    <example service.version="8.5.1FP5">Lotus Notes POP3 server version Release 8.5.1FP5 ready on foo/US.</example>
     <param pos="0" name="service.vendor" value="IBM"/>
     <param pos="0" name="service.family" value="Lotus Domino"/>
     <param pos="0" name="service.product" value="Lotus Domino"/>
@@ -171,16 +171,15 @@
   </fingerprint>
   <fingerprint pattern="^(\S+) Zimbra POP3 server ready\.?$">
     <description>VMware Zimbra POP</description>
-    <example>catfood.example.com Zimbra POP3 server ready</example>
-    <example>dogfood.example.com Zimbra POP3 server ready</example>
+    <example host.name="foo.bar">foo.bar Zimbra POP3 server ready</example>
     <param pos="0" name="service.vendor" value="VMware"/>
     <param pos="0" name="service.product" value="Zimbra"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:vmware:zimbra_desktop:-"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^(\S+) Zimbra (\S+) POP3 server ready\.?$">
-    <description>VMware Zimbra POP</description>
-    <example>example.com Zimbra 7.0.0_GA_3079 POP3 server ready</example>
+    <description>VMware Zimbra POP with version</description>
+    <example host.name="foo.bar">foo.bar Zimbra 7.0.0_GA_3079 POP3 server ready</example>
     <param pos="0" name="service.vendor" value="VMware"/>
     <param pos="0" name="service.product" value="Zimbra"/>
     <param pos="2" name="service.version"/>

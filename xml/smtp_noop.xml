@@ -11,18 +11,15 @@
 
   -->
   <fingerprint pattern="^220 OK.*$">
-    <description>
-         CheckPoint FireWall-1 returns code 220 for NOOP command (instead of 250)
-      </description>
+    <description>CheckPoint FireWall-1 returns code 220 for NOOP command (instead of 250)</description>
     <param pos="0" name="service.vendor" value="Check Point"/>
     <param pos="0" name="service.family" value="Check Point"/>
     <param pos="0" name="service.product" value="Firewall-1"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:checkpoint:firewall-1:-"/>
   </fingerprint>
   <fingerprint pattern="^250[ -]2.0.0 doing nothing$">
-    <description>
-         Example: 250 2.0.0 doing nothing
-      </description>
+    <description>Eudora IMS - noop variant</description>
+    <example>250 2.0.0 doing nothing</example>
     <param pos="0" name="service.vendor" value="Eudora"/>
     <param pos="0" name="service.family" value="Internet Mail Server"/>
     <param pos="0" name="service.product" value="Internet Mail Server"/>
@@ -32,9 +29,8 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os:-"/>
   </fingerprint>
   <fingerprint pattern="^250[ -]Why is there an NOOP instruction\?$">
-    <description>
-         250 Why is there an NOOP instruction?
-      </description>
+    <description>Alt-N MDaemon - noop variant</description>
+    <example>250 Why is there an NOOP instruction?</example>
     <param pos="0" name="service.vendor" value="Alt-N"/>
     <param pos="0" name="service.family" value="MDaemon"/>
     <param pos="0" name="service.product" value="MDaemon"/>

@@ -10,38 +10,29 @@
     of SMTP related fingerprint databases as described in 'smtp_banners.xml'.
   -->
   <fingerprint pattern="^214[ -]This is ArGoSoft Mail Server, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
-    <description>
-         ArgoSoft mail server HELP response
-         Example: 214-This is ArGoSoft Mail Server, Version 1.4 (1.4.0.3)
-      </description>
+    <description>ArgoSoft mail server HELP response with version</description>
+    <example service.version="1.4.0.3">214-This is ArGoSoft Mail Server, Version 1.4 (1.4.0.3)</example>
     <param pos="0" name="service.vendor" value="ArGoSoft"/>
     <param pos="0" name="service.family" value="Mail Server"/>
     <param pos="0" name="service.product" value="Mail Server"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^214[ -].*support@argosoft\.com *$">
-    <description>
-         ArgoSoft mail server HELP response
-         Example: 214-To report bug, send mail to support@argosoft.com
-      </description>
+    <description>ArgoSoft mail server HELP response</description>
+    <example>214-To report bug, send mail to support@argosoft.com</example>
     <param pos="0" name="service.vendor" value="ArGoSoft"/>
     <param pos="0" name="service.family" value="Mail Server"/>
     <param pos="0" name="service.product" value="Mail Server"/>
   </fingerprint>
   <fingerprint pattern="^500[ -]Syntax error, command &quot;XXXX&quot; unrecognized$">
-    <description>
-         Cisco PIX changes the command letters to 'X' before passing
-         them to the real SMTP server.
-      </description>
+    <description>Cisco PIX - changes the command letters to 'X' before passing them to the real SMTP server</description>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="PIX"/>
     <param pos="0" name="os.product" value="PIX"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:pix_firewall_software:-"/>
   </fingerprint>
   <fingerprint pattern="^500[ -]5.5.1 unrecognised command HELP$">
-    <description>
-         Eudora IMS uses the British spelling "unrecognised"
-      </description>
+    <description>Eudora IMS uses the British spelling "unrecognised"</description>
     <param pos="0" name="service.vendor" value="Eudora"/>
     <param pos="0" name="service.family" value="Internet Mail Server"/>
     <param pos="0" name="service.product" value="Internet Mail Server"/>
@@ -62,9 +53,7 @@
    in smtp_ehlo.xml ? -mrb
    -->
   <fingerprint pattern="^214[ -].* XEXCH50 *.*$">
-    <description>
-         Microsoft Exchange/IIS server
-      </description>
+    <description>Microsoft Exchange/IIS server</description>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="Exchange Server"/>
     <param pos="0" name="service.product" value="Exchange Server"/>
@@ -75,9 +64,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^214[ -]Help system currently inactive\.$">
-    <description>
-         214 Help system currently inactive.
-      </description>
+    <description>Alt-N MDaemon - 214 Help system currently inactive.</description>
     <param pos="0" name="service.vendor" value="Alt-N"/>
     <param pos="0" name="service.family" value="MDaemon"/>
     <param pos="0" name="service.product" value="MDaemon"/>
@@ -89,18 +76,14 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^214[ -].*This is MERAK ([^ ]+\.[^ ]+\.[^ ]+).*$">
-    <description>
-         Merak mail server http://www.icewarp.com/merakmail/ (runs on 2000/NT/9x)
-      </description>
+    <description> Merak mail server http://www.icewarp.com/merakmail/ (runs on 2000/NT/9x)</description>
     <param pos="0" name="service.vendor" value="Merak"/>
     <param pos="0" name="service.family" value="Mail Server"/>
     <param pos="0" name="service.product" value="Mail Server"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^214[ -].*This is Merak ([^ ]+\.[^ ]+\.[^ ]+).*$">
-    <description>
-         Merak mail server http://www.icewarp.com/merakmail/ (runs on 2000/NT/9x)
-      </description>
+    <description>Merak mail server http://www.icewarp.com/merakmail/ (runs on 2000/NT/9x)</description>
     <param pos="0" name="service.vendor" value="Merak"/>
     <param pos="0" name="service.family" value="Mail Server"/>
     <param pos="0" name="service.product" value="Mail Server"/>

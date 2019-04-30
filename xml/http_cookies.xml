@@ -77,14 +77,16 @@
     <param pos="0" name="service.family" value="PHP"/>
     <param pos="0" name="service.product" value="CakePHP"/>
   </fingerprint>
-  <fingerprint pattern="^(ARPT)=([A-Z]+)([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})[A-Z]+.*">
-    <description>Cisco 11000 Series Content Service Switch (CSS)
-      http://www.cisco.com/warp/public/117/AP_cookies.html
-
+  <!--
+  For the following two Cisco Content Service Switch fingerprints:
       The cookie value breaks down to [box-id][service-id][timeout-value]
       unfortunately, there's no separator so it's hard to tell what the
       actual break is between the pieces of data.
-      </description>
+
+      http://www.cisco.com/warp/public/117/AP_cookies.html
+  -->
+  <fingerprint pattern="^(ARPT)=([A-Z]+)([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})[A-Z]+.*">
+    <description>Cisco 11000 Series Content Service Switch (CSS)</description>
     <param pos="1" name="cookie"/>
     <param pos="2" name="host.id"/>
     <param pos="3" name="host.ip"/>
@@ -93,13 +95,7 @@
     <param pos="0" name="service.product" value="11000 Series Content Service Switch"/>
   </fingerprint>
   <fingerprint pattern="^(ARPT)=.*">
-    <description>Cisco 11000 Series Content Service Switch (CSS)
-      http://www.cisco.com/warp/public/117/AP_cookies.html
-
-      The cookie value breaks down to [box-id][service-id][timeout-value]
-      unfortunately, there's no separator so it's hard to tell what the
-      actual break is between the pieces of data.
-      </description>
+    <description>Cisco 11000 Series Content Service Switch (CSS) - catch all variant</description>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="Cisco"/>
     <param pos="0" name="service.family" value="Content Service Switch"/>
@@ -125,9 +121,7 @@
     <param pos="0" name="hw.cpe23" value="cpe:/h:cisco:adaptive_security_appliance:-"/>
   </fingerprint>
   <fingerprint pattern="^(st8id)=.*">
-    <description>Citrix Application Protection System, Enterprise
-      http://support.citrix.com/article/CTX109330
-      </description>
+    <description>Citrix Application Protection System, Enterprise - http://support.citrix.com/article/CTX109330</description>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="Citrix"/>
     <param pos="0" name="service.family" value="Application Protection System"/>
@@ -142,19 +136,17 @@
     <param pos="0" name="os.product" value="NetScaler"/>
   </fingerprint>
   <fingerprint pattern="^(EktGUID|ecm)=.*">
-    <description>Ektron CMS400.net
-      http://www.ektron.com/developers/cms400kb.cfm?id=2174
-      </description>
+    <description>Ektron CMS400.net - http://www.ektron.com/developers/cms400kb.cfm?id=2174</description>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="Ektron"/>
     <param pos="0" name="service.family" value="CMS400.NET"/>
     <param pos="0" name="service.product" value="CMS400.NET"/>
   </fingerprint>
   <fingerprint pattern="^(BIGipServer([^=]+))=.*">
-    <description>F5 BIG-IP LTM
+    <description>F5 BIG-IP LTM - Server variant
       http://www.f5.com/solutions/deployment/pdfs/peoplesoft-ltm-dg.pdf
       http://www.f5.com/solutions/deployment/pdfs/SAP_v94_dg.pdf
-      </description>
+    </description>
     <param pos="1" name="cookie"/>
     <param pos="2" name="loadbalancer.poolname"/>
     <param pos="0" name="service.vendor" value="F5"/>
@@ -166,7 +158,7 @@
     <description>F5 BIG-IP LTM
       http://www.f5.com/solutions/deployment/pdfs/peoplesoft-ltm-dg.pdf
       http://www.f5.com/solutions/deployment/pdfs/SAP_v94_dg.pdf
-      </description>
+    </description>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="F5"/>
     <param pos="0" name="service.family" value="BIG-IP"/>
@@ -174,9 +166,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:f5:big-ip_local_traffic_manager:-"/>
   </fingerprint>
   <fingerprint pattern="^(SERVERID)=([A-Za-z0-9\-_]+)">
-    <description>HAProxy
-      http://haproxy.1wt.eu/download/1.2/doc/architecture.txt
-      </description>
+    <description>HAProxy - http://haproxy.1wt.eu/download/1.2/doc/architecture.txt</description>
     <param pos="1" name="cookie"/>
     <param pos="2" name="host.name"/>
     <param pos="0" name="service.family" value="HAProxy"/>
@@ -185,7 +175,7 @@
   <fingerprint pattern="^(AMWEBJCT!([^!]+)!([^=]+))=.*">
     <description>IBM Tivoli Access Manager for e-business WebSEAL
       http://publib.boulder.ibm.com/infocenter/tivihelp/v2r1/index.jsp?topic=/com.ibm.itame.doc/am60_webseal_admin180.htm
-      </description>
+    </description>
     <param pos="1" name="cookie"/>
     <param pos="2" name="junction.name"/>
     <param pos="3" name="junction.cookie"/>
@@ -196,32 +186,27 @@
   <fingerprint pattern="^(PD-S-SESSION-ID|PD-H-SESSION-ID|PD_STATEFUL_[^=]+)=.*">
     <description>IBM Tivoli Access Manager for e-business WebSeal
       http://publib.boulder.ibm.com/infocenter/tivihelp/v2r1/index.jsp?topic=/com.ibm.itame.doc/am60_webseal_admin117.htm
-      </description>
+    </description>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="IBM"/>
     <param pos="0" name="service.family" value="Tivoli"/>
     <param pos="0" name="service.product" value="Tivoli Access Manager for e-business WebSEAL"/>
   </fingerprint>
   <fingerprint pattern="^(IBMCBR)=.*">
-    <description>IBM WebSphere Load Balancer
-      http://www-306.ibm.com/software/webservers/appserv/doc/v51/ec/infocenter/edge/LBguide.htm
-      </description>
+    <description>IBM WebSphere Load Balancer</description>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="IBM"/>
     <param pos="0" name="service.family" value="WebSphere"/>
     <param pos="0" name="service.product" value="WebSphere Load Balancer"/>
   </fingerprint>
   <fingerprint pattern="^(mbfcookie(?:\[lang\])?)=.*">
-    <description>Joom!Fish http://www.joomfish.net/
-      </description>
+    <description>Joom!Fish http://www.joomfish.net/</description>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.family" value="Joom!Fish"/>
     <param pos="0" name="service.product" value="Joom!Fish"/>
   </fingerprint>
   <fingerprint pattern="^(MSCSAuth|MSCSProfile)=.*">
-    <description>Microsoft Commerce Server
-      http://msdn2.microsoft.com/en-us/library/ms953828.aspx
-      </description>
+    <description>Microsoft Commerce Server - http://msdn2.microsoft.com/en-us/library/ms953828.aspx</description>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="Commerce Server"/>
@@ -231,9 +216,8 @@
   <fingerprint pattern="^(ASPSESSIONID[A-Z]+|ASP\.NET_SessionId|\.ASPXANONYMOUS)=.*">
     <description>Microsoft IIS (ASP.NET)
       http://msdn2.microsoft.com/en-us/library/ms953828.aspx
-      http://support.microsoft.com/kb/899918
       http://msdn2.microsoft.com/en-us/library/91ka2e6a.aspx
-      </description>
+    </description>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="IIS"/>
@@ -266,7 +250,7 @@
     <param pos="0" name="service.product" value="Webserver"/>
   </fingerprint>
   <fingerprint pattern="^(PHPSESSID|PHPSESSION)=.*">
-    <description>PHP http://www.php.net/ref.session</description>
+    <description>PHP - http://www.php.net/ref.session</description>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="PHP"/>
     <param pos="0" name="service.family" value="PHP"/>
@@ -305,8 +289,7 @@
    </fingerprint>
    -->
   <fingerprint pattern="^(NSES40Session)=.*">
-    <description>Netscape Enterprise Server (subsequently iPlanet Web Server,
-        Sun ONE Web Server, presently Sun Java System Web Server)</description>
+    <description>Netscape Enterprise Server (subsequently iPlanet Web Server, Sun ONE Web Server, presently Sun Java System Web Server)</description>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="Sun"/>
     <param pos="0" name="service.family" value="Java System Web Server"/>
@@ -315,8 +298,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:sun:java_system_web_server:4.0"/>
   </fingerprint>
   <fingerprint pattern="^(gx_session_id|JROUTE)=.*">
-    <description>Sun Java System Application Server (formerly iPlanet Application Server,
-         Sun ONE Application Server)</description>
+    <description>Sun Java System Application Server (formerly iPlanet Application Server, Sun ONE Application Server)</description>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="Sun"/>
     <param pos="0" name="service.family" value="Java System Application Server"/>
@@ -338,9 +320,7 @@
     <param pos="0" name="service.product" value="NetTracker"/>
   </fingerprint>
   <fingerprint pattern="^(__utm[a-z])=.*">
-    <description>Urchin Tracking Module
-      http://www.google.com/support/urchin45/bin/answer.py?answer=28307&amp;topic=7425
-      </description>
+    <description>Urchin Tracking Module - http://www.google.com/support/urchin45/bin/answer.py?answer=28307&amp;topic=7425</description>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="Google"/>
     <param pos="0" name="service.family" value="Urchin"/>
@@ -374,9 +354,7 @@
     <param pos="0" name="service.product" value="Zope"/>
   </fingerprint>
   <fingerprint pattern="^(portal)=([0-9]+\.[0-9]+\.[0-9]+).*">
-    <description>This is the default OracleAS Portal cookie name
-      http://download.oracle.com/docs/cd/B14099_19/portal.1014/b19305/cg_app_f.htm
-      </description>
+    <description>TOracleAS Portal default cookie name - http://download.oracle.com/docs/cd/B14099_19/portal.1014/b19305/cg_app_f.htm</description>
     <param pos="1" name="cookie"/>
     <param pos="2" name="service.version"/>
     <param pos="0" name="service.vendor" value="Oracle"/>
