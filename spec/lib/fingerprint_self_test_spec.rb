@@ -28,8 +28,17 @@ describe Recog::DB do
           expect(db.preference).to be_between(0.10, 0.90)
       end
 
+      fp_descriptions = []
       db.fingerprints.each_index do |i|
         fp = db.fingerprints[i]
+
+        it "doesn't have a duplicate description" do
+          if fp_descriptions.include?(fp.name)
+            fail "'#{fp.name}'s description is not unique"
+          else
+            fp_descriptions << fp.name
+          end
+        end
 
         context "#{fp.name}" do
           param_names = []
