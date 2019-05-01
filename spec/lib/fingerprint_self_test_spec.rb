@@ -136,7 +136,15 @@ describe Recog::DB do
             expect(fp.tests.length).to be <= 20
           end
 
+          fp_examples = []
           fp.tests.each do |example|
+            it "doesn't have a duplicate examples" do
+              if fp_examples.include?(example.content)
+                fail "'#{fp.name}' has duplicate example '#{example.content}'"
+              else
+                fp_examples << example.content
+              end
+            end
             it "Example '#{example.content}' matches this regex" do
               match = fp.match(example.content)
               expect(match).to_not be_nil, 'Regex did not match'
