@@ -10,10 +10,7 @@
     of SMTP related fingerprint databases as described in 'smtp_banners.xml'.
   -->
   <fingerprint pattern="^500[ -]Syntax error, command &quot;XXXX&quot; unrecognized$">
-    <description>
-         Cisco PIX changes the command letters to 'X' before passing
-         them to the real SMTP server.
-      </description>
+    <description>Cisco PIX - changes the command letters to 'X' before passing them to the real SMTP server</description>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="PIX"/>
     <param pos="0" name="os.product" value="PIX"/>
@@ -38,9 +35,7 @@
    </fingerprint>
    -->
   <fingerprint pattern="^221[ -]See ya in cyberspace$">
-    <description>
-         221 See ya in cyberspace
-      </description>
+    <description>221 See ya in cyberspace</description>
     <param pos="0" name="service.vendor" value="Alt-N"/>
     <param pos="0" name="service.family" value="MDaemon"/>
     <param pos="0" name="service.product" value="MDaemon"/>
