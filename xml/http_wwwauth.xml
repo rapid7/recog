@@ -198,7 +198,11 @@
     <param pos="0" name="hw.device" value="Broadband router"/>
     <param pos="1" name="host.mac"/>
   </fingerprint>
-  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;SpeedTouch., nonce=.[0-9A-Z]+:([0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}):\d+:\d+., qop=.auth&quot;$">
+  <!--
+  Really need some examples for the fingerprints below. The regex and params
+  imply that the nonce inlcudes the MAC address.
+  -->
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;SpeedTouch&quot;, nonce=&quot;[0-9A-Z]+:([0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}):\d+:\d+&quot;, qop=&quot;auth&quot;$">
     <description>Thomson SpeedTouch xDSL router - qop variant</description>
     <param pos="0" name="service.vendor" value="Thomson"/>
     <param pos="0" name="service.product" value="SpeedTouch"/>
@@ -212,7 +216,7 @@
     <param pos="0" name="hw.device" value="Broadband router"/>
     <param pos="1" name="host.mac"/>
   </fingerprint>
-  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;ST (\d+) R 5.x Telecom Italia., nonce=.[0-9A-Z]+:([0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}):\d+:\d+., qop=.auth&quot;$">
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;ST (\d+) R 5.x Telecom Italia&quot;, nonce=&quot;[0-9A-Z]+:([0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}):\d+:\d+&quot;, qop=&quot;auth&quot;$">
     <description>Thomson SpeedTouch xDSL router - Telecom Italia</description>
     <param pos="0" name="service.vendor" value="Thomson"/>
     <param pos="0" name="service.product" value="SpeedTouch"/>
