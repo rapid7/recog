@@ -443,12 +443,17 @@
     <description>Ignore Negotiate-only</description>
     <example>Negotiate</example>
   </fingerprint>
-  <fingerprint pattern="^(?:Basic|Digest) .*realm=&quot;(?:/|\.|null|/?index.html?)?&quot;">
+  <!-- 
+  Using a wildcard . instead of ['&quot;] in the following line will result in
+  this fingerprint matching examples from other fingerprints.
+  -->
+  <fingerprint pattern="^(?:Basic|Digest) .*realm=['&quot;](?:\/|\.|null|\/?index.html?)?['&quot;]">
     <description>Ignore null/empty/period/index.</description>
     <example>Basic realm="null"</example>
     <example>Basic realm="."</example>
     <example>Basic realm=""</example>
     <example>Basic realm="/"</example>
+    <example>Basic realm='/'</example>
     <example>Basic realm="index.html"</example>
   </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) .*realm=&quot;(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)&quot;.*$">
