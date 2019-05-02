@@ -18,7 +18,7 @@
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
-  <fingerprint pattern="^(?:Basic|Digest) realm=.level[ _]15[ _]or[ _]view[ _]access.$">
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;level[ _]15[ _]or[ _]view[ _]access&quot;$">
     <description>Cisco IOS 12.x - view access variant</description>
     <example>Basic realm="level_15 or view_access"</example>
     <example>Basic realm="level_15_or_view_access"</example>
@@ -36,7 +36,7 @@
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
-  <fingerprint pattern="^(?:Basic|Digest) realm=.level[ _]\d\d?[ _]access.$">
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;level[ _]\d\d?[ _]access&quot;$">
     <description>Cisco IOS 12.x</description>
     <example>Basic realm="level_15_access"</example>
     <example>Basic realm="level 15 access"</example>
@@ -59,7 +59,7 @@
     <example>Basic realm="Cisco_CCSP_CWMP_TCPCR"</example>
     <param pos="0" name="hw.vendor" value="Cisco"/>
   </fingerprint>
-  <fingerprint pattern="^(?:Basic|Digest) realm=.FW-1.      Reason: no user      Server .$">
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;FW-1.      Reason: no user      Server &quot;$">
     <description>Check Point FireWall-1</description>
     <example>Basic realm="FW-1.      Reason: no user      Server "</example>
     <param pos="0" name="service.vendor" value="Check Point"/>
@@ -183,7 +183,7 @@
     <param pos="0" name="hw.family" value="SpeedTouch"/>
     <param pos="0" name="hw.device" value="Broadband router"/>
   </fingerprint>
-  <fingerprint pattern="^(?:Basic|Digest) realm=.SpeedTouch \(([0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2})\).$">
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;SpeedTouch \(([0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2})\)&quot;$">
     <description>Thomson SpeedTouch xDSL router</description>
     <example host.mac="00-90-D0-F9-91-52">Basic realm="SpeedTouch (00-90-D0-F9-91-52)"</example>
     <param pos="0" name="service.vendor" value="Thomson"/>
@@ -198,7 +198,7 @@
     <param pos="0" name="hw.device" value="Broadband router"/>
     <param pos="1" name="host.mac"/>
   </fingerprint>
-  <fingerprint pattern="^(?:Basic|Digest) realm=.SpeedTouch., nonce=.[0-9A-Z]+:([0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}):\d+:\d+., qop=.auth.$">
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;SpeedTouch., nonce=.[0-9A-Z]+:([0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}):\d+:\d+., qop=.auth&quot;$">
     <description>Thomson SpeedTouch xDSL router - qop variant</description>
     <param pos="0" name="service.vendor" value="Thomson"/>
     <param pos="0" name="service.product" value="SpeedTouch"/>
@@ -212,7 +212,7 @@
     <param pos="0" name="hw.device" value="Broadband router"/>
     <param pos="1" name="host.mac"/>
   </fingerprint>
-  <fingerprint pattern="^(?:Basic|Digest) realm=.ST (\d+) R 5.x Telecom Italia., nonce=.[0-9A-Z]+:([0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}):\d+:\d+., qop=.auth.$">
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;ST (\d+) R 5.x Telecom Italia., nonce=.[0-9A-Z]+:([0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}):\d+:\d+., qop=.auth&quot;$">
     <description>Thomson SpeedTouch xDSL router - Telecom Italia</description>
     <param pos="0" name="service.vendor" value="Thomson"/>
     <param pos="0" name="service.product" value="SpeedTouch"/>
@@ -233,7 +233,7 @@
     <param pos="0" name="hw.vendor" value="Thomson"/>
     <param pos="0" name="hw.device" value="Broadband router"/>
   </fingerprint>
-  <fingerprint pattern="^(?:Basic|Digest) realm=.(?:SmartAX )?(MT\d+[^ ]*)(?: ADSL Router)?.$">
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;(?:SmartAX )?(MT\d+[^ ]*)(?: ADSL Router)?&quot;$">
     <description>Huawei xDSL routers</description>
     <example hw.product="MT882">Basic realm="SmartAX MT882"</example>
     <param pos="0" name="service.vendor" value="Huawei"/>
@@ -276,7 +276,7 @@
     <param pos="0" name="hw.device" value="WAP"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
-  <fingerprint pattern="^(?:Basic|Digest) realm=.(TD-[VW8][A-Z0-9]+)(?:| \d+\.\d+).$">
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;(TD-[VW8][A-Z0-9]+)(?:| \d+\.\d+)&quot;$">
     <description>TP-LINK SoHo Router - dash variant</description>
     <example>Basic realm="TD-W8901G"</example>
     <example>Basic realm="TD-8840T 2.0"</example>
@@ -285,7 +285,7 @@
     <param pos="0" name="os.device" value="Router"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="^(?:Basic|Digest) realm=.(TD8[A-Z0-9]+).$">
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;(TD8[A-Z0-9]+)&quot;$">
     <description>TP-LINK SoHo Router</description>
     <example>Basic realm="TD854W"</example>
     <example>Basic realm="TD811"</example>
@@ -295,7 +295,7 @@
     <param pos="0" name="os.device" value="Router"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
-  <fingerprint pattern="^(?:Basic|Digest) realm=.TP-LINK.*(?:Access Point|Extender|AP) ([A-Z0-9\-\+]+).*$">
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;TP-LINK.*(?:Access Point|Extender|AP) ([A-Z0-9\-\+]+)&quot;.*$">
     <description>TP-LINK SoHo Router - verbose variant</description>
     <example>Basic realm="TP-LINK Wireless N Access Point WA801N"</example>
     <example>Basic realm="TP-LINK Wireless Range Extender WA830RE"</example>
@@ -475,7 +475,7 @@
    Temporarily disable this version-less fingerprint because it overrode the
    one in http_servers.xml (see NEX-1255).
 
-   <fingerprint pattern="^(?:Basic|Digest) realm=.Lyris ListManager: enter email address and password.$">
+   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;Lyris ListManager: enter email address and password&quot;$">
       <description>Lyris ListManager</description>
       <example>Basic realm="Lyris ListManager: enter email address and password"</example>
       <param pos="0" name="service.vendor" value="Lyris"/>
