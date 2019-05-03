@@ -1077,12 +1077,15 @@
       TODO:
 
       Sun_WebServer/2.1
-     -->
-  <fingerprint pattern="^Jetty/(\d+\.[\d.]+)(?: \((.*)\))?$">
+  -->
+  <!-- Mort Bay Jetty 1.0 to 6.x  -->
+  <fingerprint pattern="^Jetty\/([1-6]\.[\w.]+)(?: \(([^)]*))?">
     <description>Mort Bay Jetty with info</description>
-    <example>Jetty/4.0.1 (SunOS 5.8 sparc)</example>
-    <example>Jetty/4.2.23 (SunOS/5.9 sparc java/1.4.2_04)</example>
-    <example>Jetty/5.1.10 (Linux/2.6.12 i386 java/1.5.0_05)</example>
+    <example service.version="4.0.1" jetty.info="SunOS 5.8 sparc">Jetty/4.0.1 (SunOS 5.8 sparc)</example>
+    <example service.version="4.2.23" jetty.info="SunOS/5.9 sparc java/1.4.2_04">Jetty/4.2.23 (SunOS/5.9 sparc java/1.4.2_04)</example>
+    <example service.version="4.2.x" jetty.info="VxWorks/WIND version 2.9 ppc java/1.1-rr-std-b12">Jetty/4.2.x (VxWorks/WIND version 2.9 ppc java/1.1-rr-std-b12)</example>
+    <example service.version="5.1.4" jetty.info="Windows Server 2008 R2/6.1 x86 java/1.5.0_22">Jetty/5.1.4 (Windows Server 2008 R2/6.1 x86 java/1.5.0_22</example>
+    <example service.version="5.1.10" jetty.info="Linux/2.6.12 i386 java/1.5.0_05">Jetty/5.1.10 (Linux/2.6.12 i386 java/1.5.0_05)</example>
     <param pos="0" name="service.vendor" value="Mort Bay"/>
     <param pos="0" name="service.product" value="Jetty"/>
     <param pos="0" name="service.family" value="Jetty"/>
@@ -1090,25 +1093,30 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:mortbay:jetty:{service.version}"/>
     <param pos="2" name="jetty.info"/>
   </fingerprint>
-  <!-- Catch-all for Jetty versions using the Jetty/version format. -->
-  <fingerprint pattern="^Jetty/(\S+) \(.*$">
-    <description>Jetty</description>
-    <example>Jetty/4.2.x (VxWorks/WIND version 2.9 ppc java/1.1-rr-std-b12)</example>
+  <fingerprint pattern="^Jetty\(([1-6]\S+)\)$">
+    <description>Mort Bay Jetty</description>
+    <example service.version="1.4.5">Jetty(1.4.5)</example>
+    <example service.version="6.1.12.rc2">Jetty(6.1.12.rc2)</example>
     <param pos="0" name="service.vendor" value="Mort Bay"/>
     <param pos="0" name="service.product" value="Jetty"/>
     <param pos="0" name="service.family" value="Jetty"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:mortbay:jetty:{service.version}"/>
   </fingerprint>
+  <!--
+    Jetty moved to Eclipse.org at version 7, CVEs after this version are
+    associated with Eclipse CPEs.
+  -->
   <fingerprint pattern="^Jetty\((\S+)\)$">
-    <description>Mort Bay Jetty</description>
-    <example>Jetty(6.1.7)</example>
-    <example>Jetty(9.4.z-SNAPSHOT)</example>
-    <param pos="0" name="service.vendor" value="Mort Bay"/>
+    <description>Eclipse Jetty</description>
+    <example service.version="7.6.9.v20130131">Jetty(7.6.9.v20130131)</example>
+    <example service.version="8.1.10.v20130312">Jetty(8.1.10.v20130312)</example>
+    <example service.version="9.4.z-SNAPSHOT">Jetty(9.4.z-SNAPSHOT)</example>
+    <param pos="0" name="service.vendor" value="Eclipse"/>
     <param pos="0" name="service.product" value="Jetty"/>
     <param pos="0" name="service.family" value="Jetty"/>
     <param pos="1" name="service.version"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:mortbay:jetty:{service.version}"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:eclipse:jetty:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?i)squid/(\d+\.[\w.\-\+]+)$">
     <description>Squid Web Proxy with a version</description>
