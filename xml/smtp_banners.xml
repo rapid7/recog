@@ -258,6 +258,22 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+  <fingerprint pattern="^(:?[^ ]+)? ?Microsoft ESMTP MAIL Service, Version: +(10.[\d.]+) +ready +(?:at +)?(.+)$">
+    <description>Microsoft IIS builtin SMTP service, or Microsoft Exchange Server (they are differentiated from each other in smtp-iis.clp) - Server 2016/2019 variant </description>
+    <example host.name="foo.bar" service.version="10.0.17763.1">foo.bar Microsoft ESMTP MAIL Service, Version: 10.0.17763.1 ready at  Sun, 19 May 2019 09:04:29 -0500</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="IIS"/>
+    <param pos="0" name="service.product" value="IIS"/>
+    <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:iis:10.0"/>
+    <param pos="1" name="host.name"/>
+    <param pos="3" name="system.time"/>
+    <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
+  </fingerprint>
   <fingerprint pattern="^(:?[^ ]+)? ?Microsoft ESMTP MAIL Service, Version: +(\d+\.\d+\.\d+\.\d+) +ready +(?:at +)?(.+)$">
     <description>Microsoft IIS builtin SMTP service, or Microsoft Exchange Server (they are differentiated from each other in smtp-iis.clp) - variant 2 </description>
     <example service.version="5.0.2195.5329"> Microsoft ESMTP MAIL Service, Version: 5.0.2195.5329 ready Thu, 30 Nov 2017 11:40:25 +0200</example>

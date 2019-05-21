@@ -225,8 +225,20 @@
     <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
   </fingerprint>
+  <fingerprint pattern="^Microsoft-IIS/10.0$">
+    <description>Microsoft IIS 10.0 runs on Windows Server 2016 and 2019</description>
+    <example>Microsoft-IIS/10.0</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.product" value="IIS"/>
+    <param pos="0" name="service.family" value="IIS"/>
+    <param pos="0" name="service.version" value="10.0"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:iis:10.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
+  </fingerprint>
   <fingerprint pattern="^Microsoft-IIS/([\d\.]+)$">
-    <description>Microsoft IIS new, unknown version</description>
+    <description>Microsoft IIS new, unknown Windows version</description>
     <example>Microsoft-IIS/9.0</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.product" value="IIS"/>
