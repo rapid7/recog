@@ -1359,12 +1359,11 @@ more text</example>
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="(?i)^(?:FTP[\- ])?(?:server|service)?(?:(?: is)? ready)?\.?$">
+  <fingerprint pattern="(?i)^FTP[\- ]+(?:server|service)?(?:(?: is)? ready)?\.?$">
     <description>Generic FTP fingerprint without a hostname</description>
     <example>FTP server is ready.</example>
     <example>FTP Server ready.</example>
     <example>FTP Server Ready</example>
-    <example>Server Ready</example>
     <example>FTP-Server</example>
     <example>FTP Server</example>
     <example>FTP service ready.</example>
