@@ -1165,6 +1165,32 @@
     <param pos="0" name="hw.device" value="Desktop"/>
   </fingerprint>
   <!-- iPad Pro - Reference for the following: https://www.theiphonewiki.com/ -->
+  <fingerprint pattern="^model=J32[01]x?AP$">
+    <description>iPad Pro (12.9-inch)</description>
+    <example>model=J320AP</example>
+    <example>model=J321xAP</example>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="iOS"/>
+    <param pos="0" name="os.product" value="iOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:iphone_os:-"/>
+    <param pos="0" name="hw.vendor" value="Apple"/>
+    <param pos="0" name="hw.family" value="iPad Pro"/>
+    <param pos="0" name="hw.product" value="iPad Pro (12.9-inch)"/>
+    <param pos="0" name="hw.device" value="Tablet"/>
+  </fingerprint>
+  <fingerprint pattern="^model=J31[78]x?AP$">
+    <description>iPad Pro (11-inch)</description>
+    <example>model=J317AP</example>
+    <example>model=J318xAP</example>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="iOS"/>
+    <param pos="0" name="os.product" value="iOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:iphone_os:-"/>
+    <param pos="0" name="hw.vendor" value="Apple"/>
+    <param pos="0" name="hw.family" value="iPad Pro"/>
+    <param pos="0" name="hw.product" value="iPad Pro (11-inch)"/>
+    <param pos="0" name="hw.device" value="Tablet"/>
+  </fingerprint>
   <fingerprint pattern="^model=J20[78]AP$">
     <description>iPad Pro (10.5-inch)</description>
     <example>model=J207AP</example>
@@ -1189,19 +1215,20 @@
     <param pos="0" name="hw.product" value="iPad Pro (9.7-inch)"/>
     <param pos="0" name="hw.device" value="Tablet"/>
   </fingerprint>
-  <fingerprint pattern="^model=J121AP$">
-    <description>iPad Pro (12.9-inch)</description>
-    <example>model=J121AP</example>
+  <!-- iPad -->
+  <fingerprint pattern="^model=J7[12]bAP$">
+    <description>iPad 6th generation)</description>
+    <example>model=J72bAP</example>
+    <example>model=J71bAP</example>
     <param pos="0" name="os.vendor" value="Apple"/>
     <param pos="0" name="os.family" value="iOS"/>
     <param pos="0" name="os.product" value="iOS"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:apple:iphone_os:-"/>
     <param pos="0" name="hw.vendor" value="Apple"/>
-    <param pos="0" name="hw.family" value="iPad Pro"/>
-    <param pos="0" name="hw.product" value="iPad Pro (12.9-inch)"/>
+    <param pos="0" name="hw.family" value="iPad"/>
+    <param pos="0" name="hw.product" value="iPad (6th generation)"/>
     <param pos="0" name="hw.device" value="Tablet"/>
   </fingerprint>
-  <!-- iPad -->
   <fingerprint pattern="^model=J71[ts]AP$">
     <description>iPad (5th generation)</description>
     <example>model=J71tAP</example>
@@ -1214,17 +1241,29 @@
     <param pos="0" name="hw.product" value="iPad (5th generation)"/>
     <param pos="0" name="hw.device" value="Tablet"/>
   </fingerprint>
+  <fingerprint pattern="^model=P10[123]AP$">
+    <description>iPad (4th generation)</description>
+    <example>model=P103AP</example>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="iOS"/>
+    <param pos="0" name="os.product" value="iOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:iphone_os:-"/>
+    <param pos="0" name="hw.vendor" value="Apple"/>
+    <param pos="0" name="hw.family" value="iPad"/>
+    <param pos="0" name="hw.product" value="iPad (4th generation)"/>
+    <param pos="0" name="hw.device" value="Tablet"/>
+  </fingerprint>  
   <!-- iPad Air -->
-  <fingerprint pattern="^model=J7[123]AP$">
-    <description>iPad Air</description>
-    <example>model=J72AP</example>
+  <fingerprint pattern="^model=J21[78]AP$">
+    <description>iPad Air (3rd generation)</description>
+    <example>model=J218AP</example>
     <param pos="0" name="os.vendor" value="Apple"/>
     <param pos="0" name="os.family" value="iOS"/>
     <param pos="0" name="os.product" value="iOS"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:apple:iphone_os:-"/>
     <param pos="0" name="hw.vendor" value="Apple"/>
     <param pos="0" name="hw.family" value="iPad Air"/>
-    <param pos="0" name="hw.product" value="iPad Air"/>
+    <param pos="0" name="hw.product" value="iPad Air (3rd generation)"/>
     <param pos="0" name="hw.device" value="Tablet"/>
   </fingerprint>
   <fingerprint pattern="^model=J8[12]AP$">
@@ -1237,6 +1276,18 @@
     <param pos="0" name="hw.vendor" value="Apple"/>
     <param pos="0" name="hw.family" value="iPad Air"/>
     <param pos="0" name="hw.product" value="iPad Air 2"/>
+    <param pos="0" name="hw.device" value="Tablet"/>
+  </fingerprint>  
+  <fingerprint pattern="^model=J7[123]AP$">
+    <description>iPad Air</description>
+    <example>model=J72AP</example>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="iOS"/>
+    <param pos="0" name="os.product" value="iOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:iphone_os:-"/>
+    <param pos="0" name="hw.vendor" value="Apple"/>
+    <param pos="0" name="hw.family" value="iPad Air"/>
+    <param pos="0" name="hw.product" value="iPad Air"/>
     <param pos="0" name="hw.device" value="Tablet"/>
   </fingerprint>
   <!-- iPad mini -->
