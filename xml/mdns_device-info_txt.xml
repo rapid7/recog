@@ -159,7 +159,7 @@
   <!-- AirPort Express -->
   <!-- TODO: Break this down into specific models and generations -->
   <fingerprint pattern="^model=AirPort4(?:,10[47])?$">
-    <description>AirPort</description>
+    <description>AirPort Express</description>
     <example>model=AirPort4</example>
     <example>model=AirPort4,104</example>
     <example>model=AirPort4,107</example>
@@ -175,7 +175,7 @@
   <!-- AirPort Extreme -->
   <!-- TODO: Break this down into specific models and generations -->
   <fingerprint pattern="^model=AirPort5?(?:,\d+)?$">
-    <description>AirPort</description>
+    <description>AirPort Extreme</description>
     <example>model=AirPort</example>
     <example>model=AirPort5</example>
     <example>model=AirPort5,104</example>
@@ -191,7 +191,7 @@
   </fingerprint>
   <!-- TimeCapsule aka AirPort 6 -->
   <!-- TODO: Break this down into specific models and generations -->
-    <fingerprint pattern="^model=(AirPort6|TimeCapsule).*$">
+    <fingerprint pattern="^model=(?:AirPort6|TimeCapsule).*$">
     <description>Time Capsule</description>
     <example>model=AirPort6</example>
     <example>model=AirPort6,106</example>
@@ -949,6 +949,73 @@
     <param pos="0" name="hw.family" value="iMac"/>
     <param pos="0" name="hw.product" value="Mac Pro (Mid 2006)"/>
     <param pos="0" name="hw.device" value="Desktop"/>
+  </fingerprint>
+  <!-- XServe - Reference for the following: https://en.wikipedia.org/wiki/Xserve -->
+  <fingerprint pattern="^model=Xserve3,1$">
+    <description>Xserve (Early 2009)</description>
+    <example>model=Xserve3,1</example>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS X"/>
+    <param pos="0" name="os.product" value="Mac OS X"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:-"/>
+    <param pos="0" name="hw.vendor" value="Apple"/>
+    <param pos="0" name="hw.family" value="Xserve"/>
+    <param pos="0" name="hw.product" value="Xserve (Early 2009)"/>
+  </fingerprint>
+  <fingerprint pattern="^model=Xserve2,1$">
+    <description>Xserve (Early 2008)</description>
+    <example>model=Xserve2,1</example>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS X"/>
+    <param pos="0" name="os.product" value="Mac OS X"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:-"/>
+    <param pos="0" name="hw.vendor" value="Apple"/>
+    <param pos="0" name="hw.family" value="Xserve"/>
+    <param pos="0" name="hw.product" value="Xserve (Early 2008)"/>
+  </fingerprint>
+  <fingerprint pattern="^model=Xserve1,1$">
+    <description>Xserve (Late 2006)</description>
+    <example>model=Xserve1,1</example>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS X"/>
+    <param pos="0" name="os.product" value="Mac OS X"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:-"/>
+    <param pos="0" name="hw.vendor" value="Apple"/>
+    <param pos="0" name="hw.family" value="Xserve"/>
+    <param pos="0" name="hw.product" value="Xserve (Late 2006)"/>
+  </fingerprint>
+  <fingerprint pattern="^model=RackMac3,1$">
+    <description>Xserve G5</description>
+    <example>model=RackMac3,1</example>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS X"/>
+    <param pos="0" name="os.product" value="Mac OS X"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:-"/>
+    <param pos="0" name="hw.vendor" value="Apple"/>
+    <param pos="0" name="hw.family" value="Xserve"/>
+    <param pos="0" name="hw.product" value="Xserve G5"/>
+  </fingerprint>
+  <fingerprint pattern="^model=RackMac1,2$">
+    <description>Xserve G4 (Slot Load)</description>
+    <example>model=RackMac1,2</example>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS X"/>
+    <param pos="0" name="os.product" value="Mac OS X"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:-"/>
+    <param pos="0" name="hw.vendor" value="Apple"/>
+    <param pos="0" name="hw.family" value="Xserve"/>
+    <param pos="0" name="hw.product" value="Xserve G4 (Slot Load)"/>
+  </fingerprint>
+  <fingerprint pattern="^model=RackMac1,1$">
+    <description>Xserve G4</description>
+    <example>model=RackMac1,1</example>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS X"/>
+    <param pos="0" name="os.product" value="Mac OS X"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:-"/>
+    <param pos="0" name="hw.vendor" value="Apple"/>
+    <param pos="0" name="hw.family" value="Xserve"/>
+    <param pos="0" name="hw.product" value="Xserve G4"/>
   </fingerprint>
   <!-- iMAC - Reference for the following: https://support.apple.com/en-us/HT201634 -->
   <fingerprint pattern="^model=iMac19,1$">
