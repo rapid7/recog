@@ -156,17 +156,56 @@
     <param pos="0" name="os.version" value="10.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.0"/>
   </fingerprint>
-  <!-- The entry below is very likely an AirPort Extreme but I can't find a reference. -->
-  <fingerprint pattern="^model=AirPort.*$">
+  <!-- AirPort Express -->
+  <!-- TODO: Break this down into specific models and generations -->
+  <fingerprint pattern="^model=AirPort4(?:,10[47])?$">
     <description>AirPort</description>
-    <example>model=AirPort5,114</example>
+    <example>model=AirPort4</example>
+    <example>model=AirPort4,104</example>
+    <example>model=AirPort4,107</example>
     <param pos="0" name="os.vendor" value="Apple"/>
     <param pos="0" name="os.family" value="AirPort"/>
     <param pos="0" name="os.product" value="AirPort Base Station Firmware"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:apple:airport_base_station_firmware:-"/>
     <param pos="0" name="hw.vendor" value="Apple"/>
     <param pos="0" name="hw.family" value="AirPort"/>
-    <param pos="0" name="hw.product" value="AirPort"/>
+    <param pos="0" name="hw.product" value="AirPort Express"/>
+    <param pos="0" name="hw.device" value="WAP"/>
+  </fingerprint>
+  <!-- AirPort Extreme -->
+  <!-- TODO: Break this down into specific models and generations -->
+  <fingerprint pattern="^model=AirPort5?(?:,\d+)?$">
+    <description>AirPort</description>
+    <example>model=AirPort</example>
+    <example>model=AirPort5</example>
+    <example>model=AirPort5,104</example>
+    <example>model=AirPort5,117</example>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="AirPort"/>
+    <param pos="0" name="os.product" value="AirPort Base Station Firmware"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:airport_base_station_firmware:-"/>
+    <param pos="0" name="hw.vendor" value="Apple"/>
+    <param pos="0" name="hw.family" value="AirPort"/>
+    <param pos="0" name="hw.product" value="AirPort Extreme"/>
+    <param pos="0" name="hw.device" value="WAP"/>
+  </fingerprint>
+  <!-- TimeCapsule aka AirPort 6 -->
+  <!-- TODO: Break this down into specific models and generations -->
+    <fingerprint pattern="^model=(AirPort6|TimeCapsule).*$">
+    <description>Time Capsule</description>
+    <example>model=AirPort6</example>
+    <example>model=AirPort6,106</example>
+    <example>model=TimeCapsule</example>
+    <example>model=TimeCapsule6</example>
+    <example>model=TimeCapsule6,109</example>
+    <example>model=TimeCapsule6,116</example>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Time Capsule"/>
+    <param pos="0" name="os.product" value="Time Capsule Firmware"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:time_capsule_firmware:-"/>
+    <param pos="0" name="hw.vendor" value="Apple"/>
+    <param pos="0" name="hw.family" value="Time Capsule"/>
+    <param pos="0" name="hw.product" value="Time Capsule"/>
     <param pos="0" name="hw.device" value="WAP"/>
   </fingerprint>
   <!-- MacBookPro - Reference for the following: https://support.apple.com/en-us/HT201300 -->
