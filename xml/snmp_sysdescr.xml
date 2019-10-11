@@ -5452,12 +5452,12 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               SonicWall
    =======================================================================-->
-  <fingerprint pattern="^SonicWALL (\S+)\s+(\d+).*?\(SonicOS \S+ (\d[^\)]+)\)\s*$">
+  <fingerprint pattern="^SonicWALL (\S+)\s*(\d+).*?\(SonicOS \S+ (\d[^\)]+)\)\s*$">
     <description>SonicWall - SonicOS Enhanced variant</description>
-    <example>SonicWALL NSA 220 (SonicOS Enhanced 5.8.1.2-20o)</example>
-    <example>SonicWALL TZ 215 wireless-N (SonicOS Enhanced 5.8.1.2-6o)</example>
+    <example hw.product="NSA" hw.model="220" os.version="5.8.1.2-20o">SonicWALL NSA 220 (SonicOS Enhanced 5.8.1.2-20o)</example>
+    <example hw.product="TZ" hw.model="215" os.version="5.8.1.2-6o">SonicWALL TZ 215 wireless-N (SonicOS Enhanced 5.8.1.2-6o)</example>
     <example>SonicWALL TZ190 Enhanced (SonicOS Enhanced 3.6.0.4-30e)</example>
-    <example>SonicWALL SuperMassive 9200 (SonicOS Enhanced 6.2.5.3-35n)</example>
+    <example hw.product="SuperMassive" hw.model="9200" os.version="6.2.5.3-35n">SonicWALL SuperMassive 9200 (SonicOS Enhanced 6.2.5.3-35n)</example>
     <param pos="0" name="os.vendor" value="SonicWall"/>
     <param pos="0" name="os.device" value="Firewall"/>
     <param pos="0" name="os.family" value="SonicOS"/>
