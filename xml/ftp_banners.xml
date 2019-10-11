@@ -651,11 +651,12 @@ more text</example>
     <param pos="0" name="hw.device" value="Printer"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
-  <fingerprint pattern="^(?:Tornado-)?VxWorks \((?:VxWorks)?([^\)]+)\) FTP server(?: ready)?$" flags="REG_ICASE">
+  <fingerprint pattern="^(?:Tornado-)?VxWorks \((?:VxWorks)?([^\)]+)\) FTP server(?: ready)?\.?$" flags="REG_ICASE">
     <description>VxWorks with version information</description>
     <example os.version="5.3.1">VxWorks (5.3.1) FTP server ready</example>
     <example os.version="5.5.1">VxWorks (VxWorks5.5.1) FTP server ready</example>
     <example os.version="5.5.1">Tornado-vxWorks (VxWorks5.5.1) FTP server</example>
+    <example os.version="5.4.2">VxWorks (5.4.2) FTP server ready.</example>
     <param pos="0" name="os.vendor" value="Wind River"/>
     <param pos="0" name="os.product" value="VxWorks"/>
     <param pos="1" name="os.version"/>
@@ -668,6 +669,32 @@ more text</example>
     <param pos="0" name="os.product" value="VxWorks"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:windriver:vxworks:-"/>
   </fingerprint>
+  <fingerprint pattern="^[\w\-\.]* FTP server \((?:VxWorks\s?)+([\d\.]+)\) ready.$" flags="REG_ICASE">
+    <description>VxWorks 6 with version information</description>
+    <example os.version="6.6">NanoDAC FTP server (VxWorks VxWorks 6.6) ready.</example>
+    <example os.version="6.4">BVS-MR-BSC2 FTP server (VxWorks 6.4) ready.</example>
+    <param pos="0" name="os.vendor" value="Wind River"/>
+    <param pos="0" name="os.product" value="VxWorks"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:windriver:vxworks:-{os.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^[\w&lt;&gt;]+\s*Tenor\sMultipath\sSwitch\sFTP\sserver\s\(Version VxWorks([\d\.]+)\) ready\.$" flags="REG_ICASE">
+    <description>VxWorks on Tenor MultiPath with version information</description>
+    <example os.version="5.4.2"><![CDATA[<38785ca0>  Tenor Multipath Switch FTP server (Version VxWorks5.4.2) ready.]]></example>
+    <param pos="0" name="os.vendor" value="Wind River"/>
+    <param pos="0" name="os.product" value="VxWorks"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:windriver:vxworks:-{os.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^VxWorks FTP server \(VxWorks ([\d\.]+) - Secure NetLinx version \([\d\.]+\)\) ready.$">
+    <description>VxWorks with Secure NetLinx</description>
+    <example os.version="5.3.1">VxWorks FTP server (VxWorks 5.3.1 - Secure NetLinx version (1.0)) ready.</example>
+    <param pos="0" name="os.vendor" value="Wind River"/>
+    <param pos="0" name="os.product" value="VxWorks"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:windriver:vxworks:-{os.version}"/>
+  </fingerprint>
+
   <fingerprint pattern="^ADC iScale$">
     <description>ADC iScale</description>
     <example>ADC iScale</example>
