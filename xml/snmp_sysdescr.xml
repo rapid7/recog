@@ -6218,42 +6218,42 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               XEROX
    =======================================================================-->
-  <fingerprint pattern="^Xerox Phaser (\d+)MFP;\sOS\s(\d+\.\d+\.\d+\.\d+).*$" certainty="1.0">
-    <description>Xerox Phaser 3000 MFP Series </description>
-    <example hw.version="3300" os.version="1.50.00.17">Xerox Phaser 3300MFP; OS 1.50.00.17   05-07-2013, Engine 1.05.44, NIC V4.03.01(P3300MFP), PCL5e 6.08.01 11-10-2009, PCL6 5.98  09-23-2009, PS3 V2.19.06 12-15-2010, SPL 5.24 03-27-2006, PDF V1.00.32 02-25-2006, IBM/EPSON 5.22 09-24-2009</example>
-    <example hw.version="3300" os.version="1.50.00.14">Xerox Phaser 3300MFP; OS 1.50.00.14   07-16-2009, Engine 1.05.44, NIC V4.02.06(P3300MFP) 07-16-2009, PCL5e 5.93 03-19-2009, PCL6 5.94  05-11-2009, PS3 V1.99.06 04-09-2009, SPL 5.24 03-27-2006, PDF V1.00.32 02-25-2006, IBM/EPSON 5.20 02-03-2009</example>
+  <fingerprint pattern="^Xerox Phaser ([^;]+);\sOS\s(\d+\.\d+\.\d+\.\d+).*$" certainty="1.0">
+    <description>Xerox Phaser 3000MFP Series </description>
+    <example hw.product="3300MFP" os.version="1.50.00.17">Xerox Phaser 3300MFP; OS 1.50.00.17   05-07-2013, Engine 1.05.44, NIC V4.03.01(P3300MFP), PCL5e 6.08.01 11-10-2009, PCL6 5.98  09-23-2009, PS3 V2.19.06 12-15-2010, SPL 5.24 03-27-2006, PDF V1.00.32 02-25-2006, IBM/EPSON 5.22 09-24-2009</example>
+    <example hw.product="3300MFP" os.version="1.50.00.14">Xerox Phaser 3300MFP; OS 1.50.00.14   07-16-2009, Engine 1.05.44, NIC V4.02.06(P3300MFP) 07-16-2009, PCL5e 5.93 03-19-2009, PCL6 5.94  05-11-2009, PS3 V1.99.06 04-09-2009, SPL 5.24 03-27-2006, PDF V1.00.32 02-25-2006, IBM/EPSON 5.20 02-03-2009</example>
     <param pos="0" name="os.vendor" value="Xerox"/>
     <param pos="0" name="hw.vendor" value="Xerox"/>
     <param pos="0" name="os.family" value="Phaser"/>
     <param pos="0" name="hw.family" value="Phaser"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="0" name="hw.device" value="Printer"/>
-    <param pos="1" name="hw.version"/>
+    <param pos="1" name="hw.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^Xerox WorkCentre (\d+).*?SS\s+(\d+\.\d+\.\d+\.\d+).*$" certainty="1.0">
+  <fingerprint pattern="^Xerox WorkCentre ([^;]+);\s+SS\s+(\d+\.\d+\.\d+\.\d+).*$" certainty="1.0">
     <description>Xerox WorkCentre 3345/3335 Printers</description>
-    <example hw.version="3335" os.version="60.004.00.000">Xerox WorkCentre 3335; SS 60.004.00.000, NC 4.00.50.73, UI V5.51.00.31.00_17030801, ME V0.00.39, CCOS 6.9.P</example>
-    <example hw.version="3345" os.version="60.001.01.000">Xerox WorkCentre 3345; SS 60.001.01.000, NC 4.00.50.46, UI V5.51.00.29.00_16052717, ME V0.00.37, CCOS 6.9.P</example>
+    <example hw.product="3335" os.version="60.004.00.000">Xerox WorkCentre 3335; SS 60.004.00.000, NC 4.00.50.73, UI V5.51.00.31.00_17030801, ME V0.00.39, CCOS 6.9.P</example>
+    <example hw.product="3345" os.version="60.001.01.000">Xerox WorkCentre 3345; SS 60.001.01.000, NC 4.00.50.46, UI V5.51.00.29.00_16052717, ME V0.00.37, CCOS 6.9.P</example>
     <param pos="0" name="os.vendor" value="Xerox"/>
     <param pos="0" name="os.family" value="WorkCentre"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="0" name="hw.vendor" value="Xerox"/>
     <param pos="0" name="hw.family" value="WorkCentre"/>
     <param pos="0" name="hw.device" value="Printer"/>
-    <param pos="1" name="hw.version"/>
+    <param pos="1" name="hw.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
-  <fingerprint pattern="^Xerox B(\d+).*?SS\s+(\d+\.\d+\.\d+\.\d+).*$" certainty="1.0">
+  <fingerprint pattern="^Xerox (B\d+) Multifunction Printer; SS\s+(\d+\.\d+\.\d+\.\d+).*$" certainty="1.0">
     <description>Xerox B series Multfunction Printer</description>
-    <example hw.version="1025" os.version="75.000.77.000">Xerox B1025 Multifunction Printer; SS 75.000.77.000, NC V4.00.50, UI V5.52.00.08.00_18032319, ME V0.00.25 03-20-2018, CCOS 6.9.P</example>
+    <example hw.product="B1025" os.version="75.000.77.000">Xerox B1025 Multifunction Printer; SS 75.000.77.000, NC V4.00.50, UI V5.52.00.08.00_18032319, ME V0.00.25 03-20-2018, CCOS 6.9.P</example>
     <param pos="0" name="os.vendor" value="Xerox"/>
     <param pos="0" name="os.family" value="B"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="0" name="hw.vendor" value="Xerox"/>
     <param pos="0" name="hw.family" value="B"/>
     <param pos="0" name="hw.device" value="Printer"/>
-    <param pos="1" name="hw.version"/>
+    <param pos="1" name="hw.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="^Xerox (Phaser [^;]+).*[, ]OS ([^;,]+).*$" certainty="1.0">
