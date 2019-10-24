@@ -265,16 +265,17 @@ example.com FTP server (Version:  Mac OS X Server) ready.</example>
     <param pos="0" name="service.product" value="ProFTPD"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:proftpd:proftpd:-"/>
   </fingerprint>
-  <fingerprint pattern="^ProFTPD Server \(.*\) \[(.+)\]$">
+  <fingerprint pattern="^ProFTPD Server \(.*\) \[([a-f\d.:]+)\]$">
     <description>ProFTPD with no version info, parenthetical form</description>
-    <example host.name="1.2.3.4">ProFTPD Server (ProFTPD) [1.2.3.4]</example>
-    <example host.name="1.2.3.4">ProFTPD Server (ProFTPD Default Installation) [1.2.3.4]</example>
-    <example host.name="1.2.3.4">ProFTPD Server (pair Networks, Inc FTP server) [1.2.3.4]</example>
+    <example host.ip="1.2.3.4">ProFTPD Server (ProFTPD) [1.2.3.4]</example>
+    <example host.ip="1.2.3.4">ProFTPD Server (ProFTPD Default Installation) [1.2.3.4]</example>
+    <example host.ip="1.2.3.4">ProFTPD Server (pair Networks, Inc FTP server) [1.2.3.4]</example>
+    <example host.ip="::ffff:192.168.1.1">ProFTPD Server (ProFTPD) [::ffff:192.168.1.1]</example>
     <param pos="0" name="service.family" value="ProFTPD"/>
     <param pos="0" name="service.vendor" value="ProFTPD Project"/>
     <param pos="0" name="service.product" value="ProFTPD"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:proftpd:proftpd:-"/>
-    <param pos="1" name="host.name"/>
+    <param pos="1" name="host.ip"/>
   </fingerprint>
   <fingerprint pattern="^ProFTPD Server$">
     <description>ProFTPD with no version info, short form</description>
