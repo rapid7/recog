@@ -247,15 +247,6 @@ example.com FTP server (Version:  Mac OS X Server) ready.</example>
     <param pos="2" name="proftpd.server.name"/>
     <param pos="3" name="host.name"/>
   </fingerprint>
-  <fingerprint pattern="^ProFTPD (\d+\.[^\s]+) Server (.+)$">
-    <description>ProFTPD with version info but no obvious OS info, take 2</description>
-    <example service.version="1.3.2d" host.name="localhost">ProFTPD 1.3.2d Server localhost</example>
-    <param pos="0" name="service.family" value="ProFTPD"/>
-    <param pos="0" name="service.vendor" value="ProFTPD Project"/>
-    <param pos="0" name="service.product" value="ProFTPD"/>
-    <param pos="1" name="service.version"/>
-    <param pos="2" name="host.name"/>
-  </fingerprint>
   <fingerprint pattern="^ProFTPD (\d+\.[^\s]+) Server ready\.$">
     <description>ProFTPD with only version info</description>
     <example service.version="1.3.0rc2">ProFTPD 1.3.0rc2 Server ready.</example>
@@ -322,6 +313,15 @@ example.com FTP server (Version:  Mac OS X Server) ready.</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:proftpd:proftpd:{service.version}"/>
     <param pos="2" name="proftpd.server.name"/>
+  </fingerprint>
+  <fingerprint pattern="^ProFTPD (\d+\.[^\s]+) Server ([\w.-]+)$">
+    <description>ProFTPD with version info but no obvious OS info, take 2</description>
+    <example service.version="1.3.2d" host.name="localhost">ProFTPD 1.3.2d Server localhost</example>
+    <param pos="0" name="service.family" value="ProFTPD"/>
+    <param pos="0" name="service.vendor" value="ProFTPD Project"/>
+    <param pos="0" name="service.product" value="ProFTPD"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^=\(&lt;\*&gt;\)=-\.:\. \(\( Welcome to Pure-FTPd ([\d.]+) \)\) \.:\.-=\(&lt;\*&gt;\)=-" flags="REG_MULTILINE">
     <description>Pure-FTPd versions &lt;= 1.0.13 (at least as far back as 1.0.11)</description>
