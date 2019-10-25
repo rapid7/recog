@@ -769,7 +769,6 @@ more text</example>
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:windriver:vxworks:-{os.version}"/>
   </fingerprint>
-
   <fingerprint pattern="^ADC iScale$">
     <description>ADC iScale</description>
     <example>ADC iScale</example>
@@ -1486,7 +1485,8 @@ more text</example>
     <param pos="0" name="os.product" value="Linux AMI"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
-  <!-- Idea is an ISP service, and not likely a product on its own. -->
+  <!-- Below are banners for FTP service providers, not necessarily
+       specific FTP servers-->
   <fingerprint pattern="^Idea FTP Server ([\d\.]+) \((.*)\) \[(.+)\]$">
     <description>Idea FTP Server</description>
     <example service.version="0.83.213" host.name="localhost" host.ip="1.2.3.4">Idea FTP Server 0.83.213 (localhost) [1.2.3.4]</example>
@@ -1496,5 +1496,17 @@ more text</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="host.name"/>
     <param pos="3" name="host.ip"/>
+  </fingerprint>
+  <fingerprint pattern="^Amazon Ftp$">
+    <description>Amazon FTP endpoint</description>
+    <example>Amazon Ftp</example>
+    <param pos="0" name="service.vendor" value="Amazon"/>
+    <param pos="0" name="service.product" value="FTP Server"/>
+  </fingerprint>
+  <fingerprint pattern="^Dreamhost FTP Server$">
+    <description>Dreamhost FTP endpoint</description>
+    <example>Dreamhost FTP Server</example>
+    <param pos="0" name="service.vendor" value="Dreamhost"/>
+    <param pos="0" name="service.product" value="FTP Server"/>
   </fingerprint>
 </fingerprints>
