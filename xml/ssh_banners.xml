@@ -1175,6 +1175,27 @@
     <param pos="0" name="service.vendor" value="libssh"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:libssh:libssh:{service.version}"/>
   </fingerprint>
+  <fingerprint pattern="^WeOnlyDo ([\d.]+)$">
+    <description>WeOnlyDo with version</description>
+    <example service.version="1.2.7">WeOnlyDo 1.2.7</example>
+    <example service.version="2.0.1">WeOnlyDo 2.0.1</example>
+    <example service.version="2.5.4">WeOnlyDo 2.5.4</example>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.family" value="WeOnlyDo"/>
+    <param pos="0" name="service.vendor" value="WeOnlyDo"/>
+    <param pos="0" name="service.product" value="WeOnlyDo SSH Server"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:weonlydo:weonlydo:{service.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^WeOnlyDo ([\d.]+) \(FIPS\)$">
+    <description>WeOnlyDo with version with FIPS mode enabled</description>
+    <example service.version="2.2.9">WeOnlyDo 2.2.9 (FIPS)</example>
+    <example service.version="2.4.3">WeOnlyDo 2.4.3 (FIPS)</example>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.family" value="WeOnlyDo"/>
+    <param pos="0" name="service.vendor" value="WeOnlyDo"/>
+    <param pos="0" name="service.product" value="WeOnlyDo SSH Server"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:weonlydo:weonlydo:{service.version}"/>
+  </fingerprint>
   <!--
 1.2.22j4rad
 2.40
