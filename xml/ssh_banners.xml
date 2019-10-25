@@ -644,6 +644,18 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="HipServ"/>
   </fingerprint>
+  <fingerprint pattern="^OpenSSH_for_Windows_([\d.]+)$">
+    <description>OpenSSH running on Windows</description>
+    <example service.version="7.7">OpenSSH_for_Windows_7.7</example>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="OpenBSD"/>
+    <param pos="0" name="service.family" value="OpenSSH"/>
+    <param pos="0" name="service.product" value="OpenSSH"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:openbsd:openssh:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+  </fingerprint>
   <fingerprint pattern="^OpenSSH_(.*) in DesktopAuthority (?:.*)$">
     <description>DesktopAuthority SSH</description>
     <example service.version="3.8">OpenSSH_3.8 in DesktopAuthority 7.1.091</example>
@@ -1129,17 +1141,18 @@
     <param pos="0" name="os.product" value="Tru64 Unix"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:hp:tru64:-"/>
   </fingerprint>
-  <fingerprint pattern="^(?:SSH-(\d\.\d)-)?ROSSSH$">
+  <fingerprint pattern="^ROSSSH$">
     <description>MikroTik RouterOS sshd</description>
     <example>ROSSSH</example>
-    <example service.version="2.0">SSH-2.0-ROSSSH</example>
-    <param pos="1" name="service.version"/>
     <param pos="0" name="os.vendor" value="MikroTik"/>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="0" name="os.family" value="RouterOS"/>
     <param pos="0" name="os.product" value="RouterOS"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:mikrotik:routeros:-"/>
   </fingerprint>
+  <!-- xlightftpd is an ftp server that also supports SFTP. The SFTP
+       server appears in ssh studies, thus this banner is here, and
+       not in ftp_banners.xml-->
   <fingerprint pattern="^xlightftpd_release_([\d.]+)$">
     <description>Xlight FTP Server</description>
     <example service.version="3.8.3.6.1">xlightftpd_release_3.8.3.6.1</example>
@@ -1161,6 +1174,27 @@
     <param pos="0" name="service.product" value="libssh"/>
     <param pos="0" name="service.vendor" value="libssh"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:libssh:libssh:{service.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^WeOnlyDo ([\d.]+)$">
+    <description>WeOnlyDo with version</description>
+    <example service.version="1.2.7">WeOnlyDo 1.2.7</example>
+    <example service.version="2.0.1">WeOnlyDo 2.0.1</example>
+    <example service.version="2.5.4">WeOnlyDo 2.5.4</example>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.family" value="WeOnlyDo"/>
+    <param pos="0" name="service.vendor" value="WeOnlyDo"/>
+    <param pos="0" name="service.product" value="WeOnlyDo SSH Server"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:weonlydo:weonlydo:{service.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^WeOnlyDo ([\d.]+) \(FIPS\)$">
+    <description>WeOnlyDo with version with FIPS mode enabled</description>
+    <example service.version="2.2.9">WeOnlyDo 2.2.9 (FIPS)</example>
+    <example service.version="2.4.3">WeOnlyDo 2.4.3 (FIPS)</example>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.family" value="WeOnlyDo"/>
+    <param pos="0" name="service.vendor" value="WeOnlyDo"/>
+    <param pos="0" name="service.product" value="WeOnlyDo SSH Server"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:weonlydo:weonlydo:{service.version}"/>
   </fingerprint>
   <!--
 1.2.22j4rad
