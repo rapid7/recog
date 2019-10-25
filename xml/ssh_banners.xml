@@ -644,6 +644,18 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="HipServ"/>
   </fingerprint>
+  <fingerprint pattern="^OpenSSH_for_Windows_([\d.]+)$">
+    <description>OpenSSH running on Windows</description>
+    <example service.version="7.7">OpenSSH_for_Windows_7.7</example>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="OpenBSD"/>
+    <param pos="0" name="service.family" value="OpenSSH"/>
+    <param pos="0" name="service.product" value="OpenSSH"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:openbsd:openssh:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+  </fingerprint>
   <fingerprint pattern="^OpenSSH_(.*) in DesktopAuthority (?:.*)$">
     <description>DesktopAuthority SSH</description>
     <example service.version="3.8">OpenSSH_3.8 in DesktopAuthority 7.1.091</example>
