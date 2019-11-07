@@ -18,9 +18,10 @@ Feature: Verify
     Then it should fail with:
       """
       WARN: 'Pure-FTPd' has no test cases
-      SUMMARY: Test completed with 1 successful, 1 warnings, and 0 failures
+      WARN: 'Pure-FTPd' is missing an example that checks for parameter 'pureftpd.config' messsage which is derived from a capture group
+      SUMMARY: Test completed with 1 successful, 2 warnings, and 0 failures
       """
-    And the exit status should be 1
+    And the exit status should be 2
 
   Scenario: Tests with warnings, warnings disabled
     When I run `recog_verify --no-warnings tests_with_warnings.xml`
@@ -40,5 +41,3 @@ Feature: Verify
       SUMMARY: Test completed with 0 successful, 0 warnings, and 4 failures
       """
     And the exit status should be 4
-
-
