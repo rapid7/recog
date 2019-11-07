@@ -1295,6 +1295,21 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:-"/>
   </fingerprint>
   <!-- Raspbian -->
+  <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Raspbian-5\+deb8u\d+)$">
+    <description>OpenSSH running on Raspbian (Debian 8 "Jessie" based)</description>
+    <example service.version="6.7p1" openssh.comment="Raspbian-5+deb8u1">OpenSSH_6.7p1 Raspbian-5+deb8u1</example>
+    <example service.version="6.7p1" openssh.comment="Raspbian-5+deb8u2">OpenSSH_6.7p1 Raspbian-5+deb8u2</example>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="openssh.comment"/>
+    <param pos="0" name="service.vendor" value="OpenBSD"/>
+    <param pos="0" name="service.family" value="OpenSSH"/>
+    <param pos="0" name="service.product" value="OpenSSH"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:openbsd:openssh:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Raspbian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="8.0"/>
+  </fingerprint>  
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Raspbian-\d\d?\+deb9u\d+)$">
     <description>OpenSSH running on Raspbian (Debian 9 "Stretch" based)</description>
     <example service.version="7.4p1" openssh.comment="Raspbian-10+deb9u1">OpenSSH_7.4p1 Raspbian-10+deb9u1</example>
@@ -1310,10 +1325,10 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="9.0"/>
   </fingerprint>
-  <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Raspbian-5\+deb8u\d+)$">
-    <description>OpenSSH running on Raspbian (Debian 8 "Jessie" based)</description>
-    <example service.version="6.7p1" openssh.comment="Raspbian-5+deb8u1">OpenSSH_6.7p1 Raspbian-5+deb8u1</example>
-    <example service.version="6.7p1" openssh.comment="Raspbian-5+deb8u2">OpenSSH_6.7p1 Raspbian-5+deb8u2</example>
+  <fingerprint pattern="^OpenSSH_(7\.9p1)\s+(Raspbian-(?:10|\d\d?\+deb10u\d+))$">
+    <description>OpenSSH running on Raspbian (Debian 10 "Buster" based)</description>
+    <example service.version="7.9p1" openssh.comment="Raspbian-10">OpenSSH_7.9p1 Raspbian-10</example>
+    <example service.version="7.9p1" openssh.comment="Raspbian-10+deb10u1">OpenSSH_7.9p1 Raspbian-10+deb10u1</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -1323,8 +1338,23 @@
     <param pos="0" name="os.vendor" value="Raspbian"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-    <param pos="0" name="os.version" value="8.0"/>
+    <param pos="0" name="os.version" value="10.0"/>
   </fingerprint>
+  <fingerprint pattern="^OpenSSH_(8\.1p1)\s+(Raspbian-(?:1|\d\d?\+deb11u\d+))$">
+    <description>OpenSSH running on Raspbian (Debian 11 "Bullseye" based)</description>
+    <example service.version="8.1p1" openssh.comment="Raspbian-1">OpenSSH_8.1p1 Raspbian-1</example>
+    <example service.version="8.1p1" openssh.comment="Raspbian-1+deb11u1">OpenSSH_8.1p1 Raspbian-1+deb11u1</example>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="openssh.comment"/>
+    <param pos="0" name="service.vendor" value="OpenBSD"/>
+    <param pos="0" name="service.family" value="OpenSSH"/>
+    <param pos="0" name="service.product" value="OpenSSH"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:openbsd:openssh:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Raspbian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="11.0"/>
+  </fingerprint>     
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Raspbian-\d\d?)$">
     <description>OpenSSH running on Raspbian (Debian, unknown release)</description>
     <example service.version="7.5p1" openssh.comment="Raspbian-10">OpenSSH_7.5p1 Raspbian-10</example>
