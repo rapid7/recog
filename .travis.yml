@@ -8,8 +8,8 @@ rvm:
   - '2.6.1'
   - 'jruby-9.1.9.0'
 matrix:
-  allow_failures:  
-    - 'jruby-9.1.9.0'
+  allow_failures:
+    - rvm: 'jruby-9.1.9.0'
 before_install:
   - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
   - rake --version
