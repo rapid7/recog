@@ -6,7 +6,9 @@ rvm:
   - '2.4.5'
   - '2.5.3'
   - '2.6.1'
-  - 'jruby-head'
+  - 'jruby-9.1.9.0'
+jdk:
+  - openjdk8
 matrix:
   allow_failures:
     - rvm: 'jruby-head'
@@ -20,7 +22,6 @@ env:
   global:
     - CI="travis"
     - JRUBY_OPTS="--server -J-Xms512m -J-Xmx2G"
-    - JAVA_OPTS="--add-opens java.base/sun.nio.ch=org.jruby.dist --add-opens java.base/java.io=org.jruby.dist --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.security.cert=ALL-UNNAMED --add-opens=java.base/java.util.zip=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.util.regex=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/javax.crypto=ALL-UNNAMED --add-opens=java.management/sun.management=ALL-UNNAMED"
 branches:
   only:
     - master
