@@ -1263,9 +1263,10 @@
     <param pos="0" name="os.version" value="9.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:9.0"/>
   </fingerprint>
-<fingerprint pattern="^OpenSSH_(7\.9p1) (Debian-10)$">
+  <fingerprint pattern="^OpenSSH_(7\.9p1) (Debian-10|Debian-\d\d?\+deb10u\d+)$">
     <description>OpenSSH running on Debian 10.x (buster)</description>
     <example service.version="7.9p1" openssh.comment="Debian-10">OpenSSH_7.9p1 Debian-10</example>
+    <example service.version="7.9p1" openssh.comment="Debian-10+deb10u6">OpenSSH_7.9p1 Debian-10+deb10u6</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -1278,6 +1279,22 @@
     <param pos="0" name="os.version" value="10.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:10.0"/>
   </fingerprint>
+  <fingerprint pattern="^OpenSSH_(8\.1p1) (Debian-1|Debian-\d\d?\+deb11u\d+)$">
+    <description>OpenSSH running on Debian 11.x (bullseye)</description>
+    <example service.version="8.1p1" openssh.comment="Debian-1">OpenSSH_8.1p1 Debian-1</example>
+    <example service.version="8.1p1" openssh.comment="Debian-1+deb11u1">OpenSSH_8.1p1 Debian-1+deb11u1</example>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="openssh.comment"/>
+    <param pos="0" name="service.vendor" value="OpenBSD"/>
+    <param pos="0" name="service.family" value="OpenSSH"/>
+    <param pos="0" name="service.product" value="OpenSSH"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:openbsd:openssh:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="11.0"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:11.0"/>
+  </fingerprint>  
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Debian-\d+(?:[~]?bpo[.]?\d+)?)$">
     <description>OpenSSH running on Debian (unknown release)</description>
     <example service.version="4.3p2" openssh.comment="Debian-5~bpo.1">OpenSSH_4.3p2 Debian-5~bpo.1</example>
