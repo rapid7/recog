@@ -24,7 +24,7 @@
   </fingerprint>
   <fingerprint pattern="^mpSSH_([\d\.]+)$">
     <description>HP Integrated Lights Out (iLO) usually bundled with HP servers</description>
-    <example>mpSSH_0.0.1</example>
+    <example service.version="0.0.1">mpSSH_0.0.1</example>
     <param pos="0" name="service.vendor" value="HP"/>
     <param pos="0" name="service.product" value="iLO"/>
     <param pos="0" name="service.family" value="iLO"/>
@@ -551,7 +551,7 @@
   <!-- Ubuntu -->
   <fingerprint pattern="^OpenSSH_(3\.8\.1p1) (Debian-11ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 4.10</description>
-    <example>OpenSSH_3.8.1p1 Debian-11ubuntu3</example>
+    <example service.version="3.8.1p1" openssh.comment="Debian-11ubuntu3">OpenSSH_3.8.1p1 Debian-11ubuntu3</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -566,7 +566,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(3\.9p1) (Debian-1ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 5.04</description>
-    <example>OpenSSH_3.9p1 Debian-1ubuntu2</example>
+    <example service.version="3.9p1" openssh.comment="Debian-1ubuntu2">OpenSSH_3.9p1 Debian-1ubuntu2</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -581,7 +581,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(4\.1p1) (Debian-7ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 5.10</description>
-    <example>OpenSSH_4.1p1 Debian-7ubuntu4</example>
+    <example service.version="4.1p1" openssh.comment="Debian-7ubuntu4">OpenSSH_4.1p1 Debian-7ubuntu4</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -596,7 +596,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(4\.2p1) (Debian-7ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 6.04</description>
-    <example>OpenSSH_4.2p1 Debian-7ubuntu3.1</example>
+    <example service.version="4.2p1" openssh.comment="Debian-7ubuntu3.1">OpenSSH_4.2p1 Debian-7ubuntu3.1</example>
     <example>OpenSSH_4.2p1 Debian-7ubuntu3.2</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
@@ -612,7 +612,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(4\.3p2) (Debian-8ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 7.04</description>
-    <example>OpenSSH_4.3p2 Debian-8ubuntu1.4</example>
+    <example service.version="4.3p2" openssh.comment="Debian-8ubuntu1.4">OpenSSH_4.3p2 Debian-8ubuntu1.4</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -627,7 +627,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(4\.6p1) (Debian-5ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 7.10</description>
-    <example>OpenSSH_4.6p1 Debian-5ubuntu0.2</example>
+    <example service.version="4.6p1" openssh.comment="Debian-5ubuntu0.2">OpenSSH_4.6p1 Debian-5ubuntu0.2</example>
     <example>OpenSSH_4.6p1 Debian-5ubuntu0.5</example>
     <example>OpenSSH_4.6p1 Debian-5ubuntu0.6</example>
     <example>OpenSSH_4.6p1 Debian-5ubuntu0</example>
@@ -661,7 +661,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(5\.1p1) (Debian-3ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 8.10</description>
-    <example>OpenSSH_5.1p1 Debian-3ubuntu1</example>
+    <example service.version="5.1p1" openssh.comment="Debian-3ubuntu1">OpenSSH_5.1p1 Debian-3ubuntu1</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -676,7 +676,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(5\.1p1) (Debian-5ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 9.04</description>
-    <example>OpenSSH_5.1p1 Debian-5ubuntu1</example>
+    <example service.version="5.1p1" openssh.comment="Debian-5ubuntu1">OpenSSH_5.1p1 Debian-5ubuntu1</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -691,7 +691,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(5\.1p1) (Debian-6ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 9.10</description>
-    <example>OpenSSH_5.1p1 Debian-6ubuntu2</example>
+    <example service.version="5.1p1" openssh.comment="Debian-6ubuntu2">OpenSSH_5.1p1 Debian-6ubuntu2</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -743,7 +743,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(5\.8p1) (Debian-1ubuntu\d(?:\.\d)?)$">
     <description>OpenSSH running on Ubuntu 11.04</description>
-    <example>OpenSSH_5.8p1 Debian-1ubuntu3</example>
+    <example service.version="5.8p1" openssh.comment="Debian-1ubuntu3">OpenSSH_5.8p1 Debian-1ubuntu3</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -758,7 +758,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(5\.8p1) (Debian-7ubuntu\d(?:\.\d)?)$">
     <description>OpenSSH running on Ubuntu 11.10</description>
-    <example>OpenSSH_5.8p1 Debian-7ubuntu1</example>
+    <example service.version="5.8p1" openssh.comment="Debian-7ubuntu1">OpenSSH_5.8p1 Debian-7ubuntu1</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -789,7 +789,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(6\.0p1) (Debian-3ubuntu\d(?:\.\d)?)$">
     <description>OpenSSH running on Ubuntu 12.10</description>
-    <example>OpenSSH_6.0p1 Debian-3ubuntu1</example>
+    <example service.version="6.0p1" openssh.comment="Debian-3ubuntu1">OpenSSH_6.0p1 Debian-3ubuntu1</example>
     <example>OpenSSH_6.0p1 Debian-3ubuntu1.2</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
@@ -805,7 +805,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(6\.1p1) (Debian-4)$">
     <description>OpenSSH running on Ubuntu 13.04</description>
-    <example>OpenSSH_6.1p1 Debian-4</example>
+    <example service.version="6.1p1" openssh.comment="Debian-4">OpenSSH_6.1p1 Debian-4</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -820,7 +820,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(6\.2p2) (Ubuntu-6unbuntu\d(?:\.\d)?)$">
     <description>OpenSSH running on Ubuntu 13.10</description>
-    <example>OpenSSH_6.2p2 Ubuntu-6unbuntu0.4</example>
+    <example service.version="6.2p2" openssh.comment="Ubuntu-6unbuntu0.4">OpenSSH_6.2p2 Ubuntu-6unbuntu0.4</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -863,7 +863,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(6\.6\.1p1) (Ubuntu-8)$">
     <description>OpenSSH running on Ubuntu 14.10</description>
-    <example>OpenSSH_6.6.1p1 Ubuntu-8</example>
+    <example service.version="6.6.1p1" openssh.comment="Ubuntu-8">OpenSSH_6.6.1p1 Ubuntu-8</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -893,7 +893,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(6\.9p1) (Ubuntu-2)$">
     <description>OpenSSH running on Ubuntu 15.10</description>
-    <example>OpenSSH_6.9p1 Ubuntu-2</example>
+    <example service.version="6.9p1" openssh.comment="Ubuntu-2">OpenSSH_6.9p1 Ubuntu-2</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -923,7 +923,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(7\.3p1) (Ubuntu-1)$">
     <description>OpenSSH running on Ubuntu 16.10</description>
-    <example service.version="7.3p1">OpenSSH_7.3p1 Ubuntu-1</example>
+    <example service.version="7.3p1" openssh.comment="Ubuntu-1">OpenSSH_7.3p1 Ubuntu-1</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -938,7 +938,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(7\.4p1) (Ubuntu-10)$">
     <description>OpenSSH running on Ubuntu 17.04</description>
-    <example service.version="7.4p1">OpenSSH_7.4p1 Ubuntu-10</example>
+    <example service.version="7.4p1" openssh.comment="Ubuntu-10">OpenSSH_7.4p1 Ubuntu-10</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -983,7 +983,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(7\.7p1) (Ubuntu-4)$">
     <description>OpenSSH running on Ubuntu 18.10</description>
-    <example>OpenSSH_7.7p1 Ubuntu-4</example>
+    <example service.version="7.7p1" openssh.comment="Ubuntu-4">OpenSSH_7.7p1 Ubuntu-4</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -998,7 +998,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(7\.9p1) (Ubuntu-10)$">
     <description>OpenSSH running on Ubuntu 19.04</description>
-    <example>OpenSSH_7.9p1 Ubuntu-10</example>
+    <example service.version="7.9p1" openssh.comment="Ubuntu-10">OpenSSH_7.9p1 Ubuntu-10</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
@@ -1013,7 +1013,7 @@
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(8\.0p1) (Ubuntu-6build1)$">
     <description>OpenSSH running on Ubuntu 19.10</description>
-    <example>OpenSSH_8.0p1 Ubuntu-6build1</example>
+    <example service.version="8.0p1" openssh.comment="Ubuntu-6build1">OpenSSH_8.0p1 Ubuntu-6build1</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
