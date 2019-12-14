@@ -71,10 +71,11 @@
     <param pos="2" name="hw.product"/>
     <param pos="1" name="host.mac"/>
   </fingerprint>
-  <fingerprint pattern="^SERIALNUMBER=PID:([^ ]+) SN:([^,]+),CN=(?:[a-zA-Z0-9\-]+)-SEP([a-fA-F0-9]{12}),OU=CTG,O=Cisco Systems Inc\.$">
-    <description>Cisco / Linksys Router with serial number</description>
+  <fingerprint pattern="^SERIALNUMBER=PID:([^ ]+) SN:([^,]+),CN=(?:[a-zA-Z0-9\-]+)-SEP([a-fA-F0-9]{12}),OU=[CV]TG,O=Cisco Systems Inc\.$">
+    <description>Cisco IP phone with serial number</description>
     <example host.mac="B07D47D33A1C" hw.product="CP-8851" cisco.serial_number="FCH1924AHCA">SERIALNUMBER=PID:CP-8851 SN:FCH1924AHCA,CN=CP-8851-SEPB07D47D33A1C,OU=CTG,O=Cisco Systems Inc.</example>
-    <param pos="0" name="hw.device" value="IP Phone"/>
+    <example host.mac="64D989000000" hw.product="CP-9951" cisco.serial_number="FCH15200000">SERIALNUMBER=PID:CP-9951 SN:FCH15200000,CN=CP-9951-SEP64D989000000,OU=VTG,O=Cisco Systems Inc.</example>
+    <param pos="0" name="hw.device" value="VoIP"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="cisco.serial_number"/>
@@ -805,18 +806,18 @@
     <description>NEC DT Series IP Phone</description>
     <example>CN=DT800 Series,O=NEC Corporation,ST=Tokyo,C=JP</example>
     <param pos="0" name="os.vendor" value="NEC"/>
-    <param pos="0" name="os.device" value="IP Phone"/>
+    <param pos="0" name="os.device" value="VoIP"/>
     <param pos="0" name="hw.vendor" value="NEC"/>
-    <param pos="0" name="hw.device" value="IP Phone"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
   <fingerprint pattern="^CN=([a-fA-F0-9]{12}),O=Polycom Inc\.$">
     <description>Polycom SoundPoint IP Phone</description>
     <example host.mac="64167F169981">CN=64167F169981,O=Polycom Inc.</example>
     <param pos="0" name="os.vendor" value="Polycom"/>
-    <param pos="0" name="os.device" value="IP Phone"/>
+    <param pos="0" name="os.device" value="VoIP"/>
     <param pos="0" name="hw.vendor" value="Polycom"/>
-    <param pos="0" name="hw.device" value="IP Phone"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
     <param pos="0" name="hw.product" value="SoundPoint"/>
     <param pos="1" name="host.mac"/>
   </fingerprint>
@@ -824,9 +825,9 @@
     <description>Siemens EN Software</description>
     <example>CN=EN Software Production &amp; Release,OU=Enterprise Networks,O=Siemens AG,L=Munich,ST=Germany,C=DE</example>
     <param pos="0" name="os.vendor" value="Siemens"/>
-    <param pos="0" name="os.device" value="IP Phone"/>
+    <param pos="0" name="os.device" value="VoIP"/>
     <param pos="0" name="hw.vendor" value="Siemens"/>
-    <param pos="0" name="hw.device" value="IP Phone"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
   </fingerprint>
   <fingerprint pattern="^CN=SecureConnect server,O=Quest,ST=CA,C=US$">
     <description>SecureConnect SSL VPN</description>
