@@ -131,6 +131,14 @@
     <param pos="0" name="os.device" value="Network Management Device"/>
     <param pos="0" name="os.product" value="NetScaler"/>
   </fingerprint>
+  <fingerprint pattern="^DSSignInURL=/">
+    <description>Pulse Secure VPN</description>
+    <example>DSSignInURL=/; path=/; secure</example>
+    <param pos="0" name="os.vendor" value="Pulse Secure"/>
+    <param pos="0" name="os.family" value="SSL VPN"/>
+    <param pos="0" name="os.device" value="SSL VPN"/>
+    <param pos="0" name="os.product" value="SSL VPN"/>
+  </fingerprint>
   <fingerprint pattern="^(EktGUID|ecm)=.*">
     <description>Ektron CMS400.net</description>
     <param pos="1" name="cookie"/>
