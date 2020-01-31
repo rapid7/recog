@@ -393,6 +393,15 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:exim:exim:{service.version}"/>
     <param pos="2" name="system.time"/>
   </fingerprint>
+  <fingerprint pattern="^ ?([^, ]+) Exim ESMTP Service ready$">
+    <description>Exim - with hostname </description>
+    <example host.name="foo.bar">foo.bar Exim ESMTP Service ready</example>
+    <param pos="0" name="service.vendor" value="exim"/>
+    <param pos="0" name="service.family" value="exim"/>
+    <param pos="0" name="service.product" value="exim"/>
+    <param pos="1" name="host.name"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:exim:exim:-"/>
+  </fingerprint>
   <fingerprint pattern="^([^ ]+) FTGate server ready .*$">
     <description>FTGate mail server, runs on Windows 9x/NT/2k (http://www.ftgate.com)</description>
     <example host.name="foo.bar">foo.bar FTGate server ready -attitude [C.o.r.E]</example>
@@ -1670,7 +1679,7 @@
   </fingerprint>
   <fingerprint pattern="^([^ ]+) ESMTP OpenSMTPD$">
     <description>OpenSMPTD</description>
-    <example>mail.example.com ESMTP OpenSMTPD</example>
+    <example host.name="foo.bar">foo.bar ESMTP OpenSMTPD</example>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
     <param pos="0" name="service.family" value="OpenSMTPD"/>
     <param pos="0" name="service.product" value="OpenSMTPD"/>

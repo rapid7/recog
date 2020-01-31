@@ -1,18 +1,21 @@
-Recog: A Recognition Framework
-=====
-
-Recog is a framework for identifying products, services, operating systems, and hardware by matching fingerprints against data returned from various network probes. Recog makes it simple to extract useful information from web server banners, snmp system description fields, and a whole lot more. Recog is open source, please see the [LICENSE](https://raw.githubusercontent.com/rapid7/recog/master/LICENSE) file for more information.
-
+# Recog: A Recognition Framework
 [![Gem Version](https://badge.fury.io/rb/recog.svg)](http://badge.fury.io/rb/recog)
 [![Build Status](https://travis-ci.org/rapid7/recog.svg?branch=master)](https://travis-ci.org/rapid7/recog)
 
+
+Recog is a framework for identifying products, services, operating systems, and hardware by matching fingerprints against data returned from various network probes. Recog makes it simple to extract useful information from web server banners, snmp system description fields, and a whole lot more.
+
+Recog is open source, please see the [LICENSE](https://raw.githubusercontent.com/rapid7/recog/master/LICENSE) file for more information.
+
 ## Installation
 
-Recog consists of both XML fingerprint files and an assortment of code, mostly in Ruby, that makes it easy to develop, test, and use the contained fingerprints. In order to use the included ruby code, a recent version of Ruby (2.1+) is required, along with Rubygems and the `bundler` gem. Once these dependencies are in place, use the following commands to grab the latest source code and install any additional dependencies.
+Recog consists of both XML fingerprint files and an assortment of code, mostly in Ruby, that makes it easy to develop, test, and use the contained fingerprints. In order to use the included ruby code, a recent version of Ruby (2.31+) is required, along with Rubygems and the `bundler` gem. Once these dependencies are in place, use the following commands to grab the latest source code and install any additional dependencies.
 
-    $ git clone git@github.com:rapid7/recog.git
-    $ cd recog
-    $ bundle install
+```shell
+$ git clone git@github.com:rapid7/recog.git
+$ cd recog
+$ bundle install
+```
 
 ## Maturity
 
@@ -24,7 +27,7 @@ The fingerprints within Recog are stored in XML files, each of which is designed
 
 A fingerprint file consists of an XML document like the following:
 
-```
+```xml
 <fingerprints matches="ssh.banner">
   <fingerprint pattern="^RomSShell_([\d\.]+)$">
     <description>Allegro RomSShell SSH</description>
@@ -36,15 +39,15 @@ A fingerprint file consists of an XML document like the following:
 </fingerprints>
 ```
 
-The first line should always consist of the XML version declaration. The first element should always be a `fingerpints` block with a `matches` attribute indicating what data this fingerprint file is supposed to match. The `matches` attribute is normally in the form of `protocol.field`.
+The first line should always consist of the XML version declaration. The first element should always be a `fingerprints` block with a `matches` attribute indicating what data this fingerprint file is supposed to match. The `matches` attribute is normally in the form of `protocol.field`.
 
 Inside of the `fingerprints` element there should be one or more `fingerprint` elements. Every `fingerprint` must contain a `pattern` attribute, which contains the regular expression to be used to match against the data.  An optional `flags` attribute can be specified to control how the regular expression is to be interpreted.  See [the Recog documentation for `FLAG_MAP`](http://www.rubydoc.info/gems/recog/Recog/Fingerprint/RegexpFactory#FLAG_MAP-constant) for more information.
 
 Inside of the fingerprint, a `description` element should contain a human-readable string describing this fingerprint.
 
-At least one `example` element should be present, however multiple `example` elements are preferred.  These elements are used as part of the test coverage present in rspec which validates that the provided data matches the specified regular expression.  Additionally, if the fingerprint is using the `param` elements to extract field values from the data (described next), you can add these expected extractions as attributes for the `example` elements.  In the example above, this:
+At least one `example` element should be present, however multiple `example` elements are preferred.  These elements are used as part of the test coverage present in `rspec` which validates that the provided data matches the specified regular expression.  Additionally, if the fingerprint is using the `param` elements to extract field values from the data (described next), you can add these expected extractions as attributes for the `example` elements.  In the example above, this:
 
-```
+```xml
 <example service.version="4.62">RomSShell_4.62</example>
 ```
 
@@ -54,7 +57,7 @@ The `param` elements contain a `pos` attribute, which indicates what capture fie
 
 The `example` string can be base64 encoded to permit the use of unprintable characters.  To signal this to Recog an `_encoding` attribute with the value of `base64` is added to the `example` element.  Based64 encoded text that is longer than 80 characters may be wrapped with newlines as shown below to aid in readability.
 
-````
+````xml
 <example _encoding="base64">
   dGllczGEAAAAlQQWMS4yLjg0MC4xMTM1NTYuMS40LjgwMAQuZGF0YS5yZW1vdmVkLjCEAAAAK
   AQdZG9tYWluQ29udHJvbGxlckZ1bmN0aW9uYWxpdHkxhAAAAAMEATc=
@@ -65,15 +68,15 @@ The `example` string can be base64 encoded to permit the use of unprintable char
 
 Once a fingerprint has been added, the `example` entries can be tested by executing `bin/recog_verify` against the fingerprint file:
 
-```
-    $ bin/recog_verify xml/ssh_banners.xml
+```shell
+$ bin/recog_verify xml/ssh_banners.xml
 ```
 
 Matches can be tested on the command-line in a similar fashion:
 
-```
-    $ echo 'OpenSSH_6.6p1 Ubuntu-2ubuntu1' | bin/recog_match xml/ssh_banners.xml -
-    MATCH: {"matched"=>"OpenSSH running on Ubuntu 14.04", "service.version"=>"6.6p1", "openssh.comment"=>"Ubuntu-2ubuntu1", "service.vendor"=>"OpenBSD", "service.family"=>"OpenSSH", "service.product"=>"OpenSSH", "os.vendor"=>"Ubuntu", "os.device"=>"General", "os.family"=>"Linux", "os.product"=>"Linux", "os.version"=>"14.04", "service.protocol"=>"ssh", "fingerprint_db"=>"ssh.banner", "data"=>"OpenSSH_6.6p1 Ubuntu-2ubuntu1"}
+```shell
+$ echo 'OpenSSH_6.6p1 Ubuntu-2ubuntu1' | bin/recog_match xml/ssh_banners.xml -
+MATCH: {"matched"=>"OpenSSH running on Ubuntu 14.04", "service.version"=>"6.6p1", "openssh.comment"=>"Ubuntu-2ubuntu1", "service.vendor"=>"OpenBSD", "service.family"=>"OpenSSH", "service.product"=>"OpenSSH", "os.vendor"=>"Ubuntu", "os.device"=>"General", "os.family"=>"Linux", "os.product"=>"Linux", "os.version"=>"14.04", "service.protocol"=>"ssh", "fingerprint_db"=>"ssh.banner", "data"=>"OpenSSH_6.6p1 Ubuntu-2ubuntu1"}
 ```
 
 ### Best Practices
