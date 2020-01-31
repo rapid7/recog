@@ -1668,4 +1668,14 @@
     <example>ESMTP READY</example>
     <param pos="1" name="host.name"/>
   </fingerprint>
+  <fingerprint pattern="^([^ ]+) ESMTP OpenSMTPD$">
+    <description>OpenSMPTD</description>
+    <example>mail.example.com ESMTP OpenSMTPD</example>
+    <param pos="0" name="service.vendor" value="OpenBSD"/>
+    <param pos="0" name="service.family" value="OpenSMTPD"/>
+    <param pos="0" name="service.product" value="OpenSMTPD"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:openbsd:openbsd:-"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:openbsd:opensmtpd:-"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
 </fingerprints>
