@@ -156,10 +156,13 @@ class Fingerprint
   # @yieldparam message [String] A human-readable string explaining the
   #   `status`
   def verify_tests(&block)
+
+    # look for the presence of test cases
     if tests.size == 0
       yield :warn, "'#{@name}' has no test cases"
     end
 
+    # make sure each test case passes
     tests.each do |test|
       result = match(test.content)
       if result.nil?
@@ -180,6 +183,49 @@ class Fingerprint
         end
       end
       yield status, message
+    end
+
+    # make sure there are capture groups for all params that use them
+    verify_tests_have_capture_groups(&block)
+  end
+
+  # For fingerprints that specify parameters that are defined by
+  # capture groups, ensure that each parameter has at least one test
+  # that defines an attribute to test for the correct capture of that
+  # parameter.
+  #
+  # @yieldparam status [Symbol] One of `:warn`, `:fail`, or `:success` to
+  #   indicate whether a test worked
+  # @yieldparam message [String] A human-readable string explaining the
+  #   `status`
+  def verify_tests_have_capture_groups(&block)
+    capture_group_used = {}
+    if !params.empty?
+      # get a list of parameters that are defined by capture groups
+      params.each do |param_name, pos_value|
+        pos, value = pos_value
+        if pos > 0 && value.to_s.empty?
+          capture_group_used[param_name] = false
+        end
+      end
+    end
+
+    # match up the fingerprint parameters with test attributes
+    tests.each do |test|
+      test.attributes.each do |k,v|
+        if capture_group_used.has_key?(k)
+          capture_group_used[k] = true
+        end
+      end
+    end
+
+    # alert on untested parameters
+    capture_group_used.each do |param_name, param_used|
+      if !param_used
+        message = "'#{@name}' is missing an example that checks for parameter '#{param_name}' " +
+                  "messsage which is derived from a capture group"
+        yield :warn, message
+      end
     end
   end
 

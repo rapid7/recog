@@ -1,0 +1,86 @@
+<fingerprints>
+
+  <fingerprint pattern="^[dD]ovecot (?:\((.*)\) )?(?:DA )?ready\.(?: &lt;.+@(.+)&gt;)?$">
+    <description>Dovecot Secure POP Server - no params</description>
+    <example>Dovecot ready.</example>
+  </fingerprint>
+
+  <fingerprint pattern="^[dD]ovecot (?:\((.*)\) )?(?:DA )?ready\.(?: &lt;.+@(.+)&gt;)?$">
+    <description>Dovecot Secure POP Server - no params defined by capture group</description>
+    <example>Dovecot ready.</example>
+    <param pos="0" name="service.family" value="Dovecot"/>
+    <param pos="0" name="service.product" value="Dovecot"/>
+  </fingerprint>
+
+  <fingerprint pattern="^[dD]ovecot (?:\((.*)\) )?(?:DA )?ready\.(?: &lt;.+@(.+)&gt;)?$">
+    <description>Dovecot Secure POP Server - no example</description>
+    <param pos="0" name="service.family" value="Dovecot"/>
+    <param pos="0" name="service.product" value="Dovecot"/>
+  </fingerprint>
+
+  <fingerprint pattern="^[dD]ovecot (?:\((.*)\) )?(?:DA )?ready\.(?: &lt;.+@(.+)&gt;)?$">
+    <description>Dovecot Secure POP Server - one parameter, one example</description>
+    <example host.name="domain">Dovecot ready. &lt;abc11.1.1234abcd.abdcabcdabcd@domain&gt;</example>
+    <param pos="0" name="service.family" value="Dovecot"/>
+    <param pos="0" name="service.product" value="Dovecot"/>
+    <param pos="2" name="host.name"/>
+  </fingerprint>
+
+  <fingerprint pattern="^[dD]ovecot (?:\((.*)\) )?(?:DA )?ready\.(?: &lt;.+@(.+)&gt;)?$">
+    <description>Dovecot Secure POP Server - two paremeters, one example</description>
+    <example host.name="domain" os.vendor="Ubuntu">Dovecot (Ubuntu) ready. &lt;abc11.1.1234abcd.abdcabcdabcd@domain&gt;</example>
+    <param pos="0" name="service.family" value="Dovecot"/>
+    <param pos="0" name="service.product" value="Dovecot"/>
+    <param pos="1" name="os.vendor"/>
+    <param pos="2" name="host.name"/>
+  </fingerprint>
+
+  <fingerprint pattern="^[dD]ovecot (?:\((.*)\) )?(?:DA )?ready\.(?: &lt;.+@(.+)&gt;)?$">
+    <description>Dovecot Secure POP Server - two parameters, two examples</description>
+    <example host.name="domain">Dovecot ready. &lt;abc11.1.1234abcd.abdcabcdabcd@domain&gt;</example>
+    <example os.vendor="Ubuntu">Dovecot (Ubuntu) ready.</example>
+    <param pos="0" name="service.family" value="Dovecot"/>
+    <param pos="0" name="service.product" value="Dovecot"/>
+    <param pos="1" name="os.vendor"/>
+    <param pos="2" name="host.name"/>
+  </fingerprint>
+
+  <fingerprint pattern="^[dD]ovecot (?:\((.*)\) )?(?:DA )?ready\.(?: &lt;.+@(.+)&gt;)?$">
+    <description>Dovecot Secure POP Server - two parameters, one example, one missing param</description>
+    <example host.name="domain">Dovecot ready. &lt;abc11.1.1234abcd.abdcabcdabcd@domain&gt;</example>
+    <param pos="0" name="service.family" value="Dovecot"/>
+    <param pos="0" name="service.product" value="Dovecot"/>
+    <param pos="1" name="os.vendor"/>
+    <param pos="2" name="host.name"/>
+  </fingerprint>
+
+  <fingerprint pattern="^[dD]ovecot (?:\((.*)\) )?(?:DA )?ready\.(?: &lt;.+@(.+)&gt;)?$">
+    <description>Dovecot Secure POP Server - two parameters, one example, two missing params</description>
+    <example>Dovecot ready. &lt;abc11.1.1234abcd.abdcabcdabcd@domain&gt;</example>
+    <param pos="0" name="service.family" value="Dovecot"/>
+    <param pos="0" name="service.product" value="Dovecot"/>
+    <param pos="1" name="os.vendor"/>
+    <param pos="2" name="host.name"/>
+  </fingerprint>
+
+  <fingerprint pattern="^[dD]ovecot (?:\((.*)\) )?(?:DA )?ready\.(?: &lt;.+@(.+)&gt;)?$">
+    <description>Dovecot Secure POP Server - two parameters, two examples, one missing param</description>
+    <example host.name="domain">Dovecot ready. &lt;abc11.1.1234abcd.abdcabcdabcd@domain&gt;</example>
+    <example>Dovecot (Ubuntu) ready.</example>
+    <param pos="0" name="service.family" value="Dovecot"/>
+    <param pos="0" name="service.product" value="Dovecot"/>
+    <param pos="1" name="os.vendor"/>
+    <param pos="2" name="host.name"/>
+  </fingerprint>
+
+  <fingerprint pattern="^[dD]ovecot (?:\((.*)\) )?(?:DA )?ready\.(?: &lt;.+@(.+)&gt;)?$">
+    <description>Dovecot Secure POP Server - two parameters, two examples, two missing params</description>
+    <example>Dovecot ready. &lt;abc11.1.1234abcd.abdcabcdabcd@domain&gt;</example>
+    <example>Dovecot (Ubuntu) ready.</example>
+    <param pos="0" name="service.family" value="Dovecot"/>
+    <param pos="0" name="service.product" value="Dovecot"/>
+    <param pos="1" name="os.vendor"/>
+    <param pos="2" name="host.name"/>
+  </fingerprint>
+
+</fingerprints>

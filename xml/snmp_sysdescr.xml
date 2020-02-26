@@ -881,7 +881,7 @@
     <example>ESP-8 MI V3.13</example>
     <example>ESP-8 MI V3.14b</example>
     <param pos="0" name="os.vendor" value="Avocent"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
@@ -1313,62 +1313,79 @@
   <!--======================================================================
                               CISCO
    =======================================================================-->
-  <fingerprint pattern="^(?:Cisco|TANDBERG) Codec SoftW: (.*\d+[\.\d+]+)(?:(?: )?Beta\d)? (?:\w* )?MCU: (?:Cisco|TANDBERG) (?:\w* )?(\d+MXP|[A-Z]+\d+) .*?">
+  <fingerprint pattern="^(?:Cisco|TANDBERG) Codec SoftW:\s+(\S+).*\s+MCU:\s+(?:Cisco TelePresence|TANDBERG)\s+(.*)\s+Date:">
     <description>Cisco TelePresence - verbose variant</description>
-    <example os.version="TC5.1.0.280662" hw.series="SX20">Cisco Codec SoftW: TC5.1.0.280662 MCU: Cisco TelePresence SX20 Date: 2012-02-14 S/N: FTT16070041 BootSW: Board: 101790-6 [28]</example>
-    <example os.version="TC4.2.0.259927" hw.series="MX200">TANDBERG Codec SoftW: TC4.2.0.259927 MCU: Cisco TelePresence MX200 Date: 2011-06-30 S/N: FTT1530000O BootSW: Board: 101770-4 [20]</example>
-    <example os.version="TC5.1.3.292001" hw.series="MX300">TANDBERG Codec SoftW: TC5.1.3.292001 MCU: Cisco TelePresence MX300 Date: 2012-06-21 S/N: FTT16030013 BootSW: Board: 101770-5 [22]</example>
-    <example os.version="TC5.1.0.279658" hw.series="SX20">Cisco Codec SoftW: TC5.1.0.279658Beta7 MCU: Cisco TelePresence SX20 Date: 2012-02-03 S/N: FTT1616005D BootSW: Board: 101790-6 [B0]</example>
-    <example os.version="TC6.0.0" hw.series="SX20">Cisco Codec SoftW: TC6.0.0 Beta7 MCU: Cisco TelePresence SX20 Date: 2012-09-17 S/N: FTT163100A3 BootSW: Board: 101790-6 [B0]</example>
-    <example os.version="TC4.2.0.255978" hw.series="MX200">TANDBERG Codec SoftW: TC4.2.0.255978Beta2 MCU: Cisco TelePresence MX200 Date: 2011-05-23 S/N: FTT1524000I BootSW: Board: 101770-4 [00]</example>
-    <example os.version="TCNC5.0.1.275220" hw.series="MX200">TANDBERG Codec SoftW: TCNC5.0.1.275220 MCU: Cisco TelePresence MX200 Date: 2011-12-19 S/N: FTT1615003S BootSW: Board: 101770-5 [22]</example>
-    <example os.version="TCNC5.1.0.280662" hw.series="SX20">Cisco Codec SoftW: TCNC5.1.0.280662 MCU: Cisco TelePresence SX20 Date: 2012-02-14 S/N: FTT161300A0 BootSW: Board: 101790-6 [A0]</example>
-    <example os.version="F8.1" hw.series="6000MXP">TANDBERG Codec SoftW: F8.1 PAL MCU: TANDBERG Profile 6000MXP Date: 2009-09-07 S/N: 25A46936 BootSW: Rev. 1.15, 2008-01-04 Board: 100670 rev. 07</example>
-    <example os.version="F9.1" hw.series="6000MXP">TANDBERG Codec SoftW: F9.1 NTSC MCU: TANDBERG 6000MXP PORTABLE Date: 2011-06-08 S/N: 25A07029 BootSW: Rev. 1.16, 2009-01-21 Board: 100670 rev. 07</example>
-    <example os.version="TC4.2.0.260857" hw.series="C40">TANDBERG Codec SoftW: TC4.2.0.260857 MCU: TANDBERG Codec C40 Date: 2011-07-11 S/N: B1AV02D00182 BootSW: Board: 101681-1 [04]</example>
-    <example os.version="TC4.2.1.265253" hw.series="EX60">TANDBERG Codec SoftW: TC4.2.1.265253 MCU: TANDBERG EX60 Date: 2011-09-06 S/N: A1AZ02E00212 BootSW: Board: 101620-6 [22]</example>
-    <example os.version="TE1.0.0.175435" hw.series="E20">TANDBERG Codec SoftW: TE1.0.0.175435 MCU: TANDBERG E20 Date: 2009-02-09 S/N: A1AA11B00658 BootSW: Board: 101390-6</example>
-    <param pos="0" name="os.certainty" value="0.85"/>
-    <param pos="0" name="os.vendor" value="Cisco"/>
-    <param pos="0" name="os.product" value="TelePresence"/>
-    <param pos="0" name="os.device" value="Codec"/>
+    <example os.version="TC5.1.0.280662" hw.product="SX20">Cisco Codec SoftW: TC5.1.0.280662 MCU: Cisco TelePresence SX20 Date: 2012-02-14 S/N: FTT16070041 BootSW: Board: 101790-6 [28]</example>
+    <example os.version="TC4.2.0.259927" hw.product="MX200">TANDBERG Codec SoftW: TC4.2.0.259927 MCU: Cisco TelePresence MX200 Date: 2011-06-30 S/N: FTT1530000O BootSW: Board: 101770-4 [20]</example>
+    <example os.version="TC5.1.3.292001" hw.product="MX300">TANDBERG Codec SoftW: TC5.1.3.292001 MCU: Cisco TelePresence MX300 Date: 2012-06-21 S/N: FTT16030013 BootSW: Board: 101770-5 [22]</example>
+    <example os.version="TC5.1.0.279658Beta7" hw.product="SX20">Cisco Codec SoftW: TC5.1.0.279658Beta7 MCU: Cisco TelePresence SX20 Date: 2012-02-03 S/N: FTT1616005D BootSW: Board: 101790-6 [B0]</example>
+    <example os.version="TC6.0.0" hw.product="SX20">Cisco Codec SoftW: TC6.0.0 Beta7 MCU: Cisco TelePresence SX20 Date: 2012-09-17 S/N: FTT163100A3 BootSW: Board: 101790-6 [B0]</example>
+    <example os.version="TC4.2.0.255978Beta2" hw.product="MX200">TANDBERG Codec SoftW: TC4.2.0.255978Beta2 MCU: Cisco TelePresence MX200 Date: 2011-05-23 S/N: FTT1524000I BootSW: Board: 101770-4 [00]</example>
+    <example os.version="TCNC5.0.1.275220" hw.product="MX200">TANDBERG Codec SoftW: TCNC5.0.1.275220 MCU: Cisco TelePresence MX200 Date: 2011-12-19 S/N: FTT1615003S BootSW: Board: 101770-5 [22]</example>
+    <example os.version="TCNC5.1.0.280662" hw.product="SX20">Cisco Codec SoftW: TCNC5.1.0.280662 MCU: Cisco TelePresence SX20 Date: 2012-02-14 S/N: FTT161300A0 BootSW: Board: 101790-6 [A0]</example>
+    <example os.version="F8.1" hw.product="Profile 6000MXP">TANDBERG Codec SoftW: F8.1 PAL MCU: TANDBERG Profile 6000MXP Date: 2009-09-07 S/N: 25A46936 BootSW: Rev. 1.15, 2008-01-04 Board: 100670 rev. 07</example>
+    <example os.version="F9.1" hw.product="6000MXP PORTABLE">TANDBERG Codec SoftW: F9.1 NTSC MCU: TANDBERG 6000MXP PORTABLE Date: 2011-06-08 S/N: 25A07029 BootSW: Rev. 1.16, 2009-01-21 Board: 100670 rev. 07</example>
+    <example os.version="TC4.2.0.260857" hw.product="Codec C40">TANDBERG Codec SoftW: TC4.2.0.260857 MCU: TANDBERG Codec C40 Date: 2011-07-11 S/N: B1AV02D00182 BootSW: Board: 101681-1 [04]</example>
+    <example os.version="TC4.2.1.265253" hw.product="EX60">TANDBERG Codec SoftW: TC4.2.1.265253 MCU: TANDBERG EX60 Date: 2011-09-06 S/N: A1AZ02E00212 BootSW: Board: 101620-6 [22]</example>
+    <example os.version="TE1.0.0.175435" hw.product="E20">TANDBERG Codec SoftW: TE1.0.0.175435 MCU: TANDBERG E20 Date: 2009-02-09 S/N: A1AA11B00658 BootSW: Board: 101390-6</example>
+    <param pos="0" name="os.vendor" value="Tandberg"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.device" value="Video Conferencing"/>
     <param pos="1" name="os.version"/>
-    <param pos="2" name="hw.series"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>    
+    <param pos="2" name="hw.product"/>
   </fingerprint>
-  <fingerprint pattern="^Cisco TelePresence (?:(?:HD )?MCU) ((?:MSE )?\d+)">
-    <description>Cisco TelePresence</description>
-    <example hw.series="4205">Cisco TelePresence MCU 4205</example>
-    <example hw.series="MSE 8420">Cisco TelePresence MCU MSE 8420</example>
-    <example hw.series="4520">Cisco TelePresence HD MCU 4520</example>
-    <param pos="0" name="os.certainty" value="0.85"/>
-    <param pos="0" name="os.vendor" value="Cisco"/>
-    <param pos="0" name="os.product" value="TelePresence"/>
-    <param pos="0" name="os.device" value="Bridge"/>
-    <param pos="1" name="hw.series"/>
+  <fingerprint pattern="^Cisco TelePresence ((?:HD )?MCU(?: MSE)? \d+)">
+    <description>Cisco TelePresence w/Model</description>
+    <example hw.product="MCU 4205">Cisco TelePresence MCU 4205</example>
+    <example hw.product="MCU MSE 8420">Cisco TelePresence MCU MSE 8420</example>
+    <example hw.product="HD MCU 4520">Cisco TelePresence HD MCU 4520</example>
+    <param pos="0" name="os.vendor" value="Tandberg"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.device" value="Video Conferencing"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>    
+    <param pos="1" name="hw.product"/>
   </fingerprint>
-  <fingerprint pattern="^Cisco TelePresence (Conductor|Supervisor)(?: (MSE \d+))?">
-    <description>Cisco TelePresence Conductor</description>
-    <example os.device="Conductor">Cisco TelePresence Conductor</example>
-    <example os.device="Supervisor" hw.series="MSE 8050">Cisco TelePresence Supervisor MSE 8050</example>
-    <param pos="0" name="os.certainty" value="0.85"/>
-    <param pos="0" name="os.vendor" value="Cisco"/>
-    <param pos="0" name="os.product" value="TelePresence"/>
-    <param pos="1" name="os.device"/>
-    <param pos="2" name="hw.series"/>
+  <fingerprint pattern="^Cisco TelePresence (?:Conductor|Supervisor)\s+((?:MCU )?(?:MSE )?\d+)">
+    <description>Cisco TelePresence Conductor/Supervisor w/Model</description>
+    <example hw.product="MSE 8050">Cisco TelePresence Supervisor MSE 8050</example>
+    <param pos="0" name="os.vendor" value="Tandberg"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.device" value="Video Conferencing"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>    
+    <param pos="1" name="hw.product"/>
   </fingerprint>
+  <fingerprint pattern="^Cisco TelePresence (?:Conductor|Supervisor)">
+    <description>Cisco TelePresence Conductor/Supervisor w/o Model</description>
+    <example>Cisco TelePresence Conductor</example>
+    <example>Cisco TelePresence Supervisor</example>
+    <param pos="0" name="os.vendor" value="Tandberg"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.device" value="Video Conferencing"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
+  </fingerprint>  
   <fingerprint pattern="^TANDBERG Codec$">
-    <description>Tandberg videoconferencing device</description>
+    <description>Tandberg Codec videoconferencing device</description>
     <example>TANDBERG Codec</example>
-    <param pos="0" name="os.vendor" value="Cisco"/>
-    <param pos="0" name="os.product" value="TelePresence"/>
-    <param pos="0" name="os.device" value="Codec"/>
+    <param pos="0" name="os.vendor" value="Tandberg"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.device" value="Video Conferencing"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
   </fingerprint>
-  <fingerprint pattern="^TANDBERG MPS-MCU$">
-    <description>Tandberg videoconferencing bridge</description>
-    <example>TANDBERG MPS-MCU</example>
-    <param pos="0" name="os.vendor" value="Cisco"/>
-    <param pos="0" name="os.product" value="MPS-MCU"/>
-    <param pos="0" name="os.device" value="VoIP"/>
+  <fingerprint pattern="^TANDBERG (MPS-MCU)$">
+    <description>Tandberg MPS-MCU</description>
+    <example hw.product="MPS-MCU">TANDBERG MPS-MCU</example>
+    <param pos="0" name="os.vendor" value="Tandberg"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.device" value="Video Conferencing"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
+    <param pos="1" name="hw.product"/>
   </fingerprint>
   <fingerprint pattern="^Cisco Adaptive Security Appliance Version (\d+\.\d+\(\d+\)\d*)">
     <description>Cisco Adaptive Security Appliance</description>
@@ -1572,7 +1589,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>ACOLA CoBox Snr 6818376 04.5b5 (010430)</example>
     <example>ACOLA CoBox Snr 784-208 V3.6</example>
     <param pos="0" name="os.vendor" value="aCola"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="0" name="os.product" value="CoBox"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
@@ -1585,7 +1602,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>CoBox for Recognition Systems, Snr  6925226 05.6 (040825)</example>
     <example>CoBox for Recognition Systems, Snr  7107590 04.5 (011218)</example>
     <param pos="0" name="os.vendor" value="Pronet"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="0" name="os.product" value="CoBox"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
@@ -1741,7 +1758,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>Digi Connect ES serie 800 SB Version 82002147_A 02/09/2009</example>
     <example>Digi One TS Version 82000747_N2 02/25/2005</example>
     <param pos="0" name="os.vendor" value="Digi"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
@@ -1749,7 +1766,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <description>Digi Serial PortServer II</description>
     <example>Digi International PortServer II v3.1.12 Jan 21 2003</example>
     <param pos="0" name="os.vendor" value="Digi"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
@@ -1757,7 +1774,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <description>Digi Connect Unknown</description>
     <example>Digi Connect Device, Version Unknown</example>
     <param pos="0" name="os.vendor" value="Digi"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
   <fingerprint pattern="^Digi (TransPort \S+) Ser#:\S+ Software Build Ver([^\.]+). .* MAC:(\S+)$">
@@ -1769,7 +1786,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>Digi TransPort WR44-HXA3-DE1-XX Ser#:176625 Software Build Ver5142. Nov 28 2011 11:33:21 SW ARM Bios Ver 6.45 v39 400MHz B512-M512-F80-O1,0 MAC:00042d02b1f1</example>
     <example>Digi TransPort WR44-HXA3-DE1-XX Ser#:182788 Software Build Ver5142. Nov 28 2011 11:33:21 SW ARM Bios Ver 6.45 v39 400MHz B512-M512-F80-O1,0 MAC:00042d02ca04</example>
     <param pos="0" name="os.vendor" value="Digi"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
     <param pos="3" name="host.mac"/>
@@ -3261,7 +3278,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>Lantronix LRS2 Version V1.3/4(980529)</example>
     <example>LANTRONIX ETS-16 Version V2.2/45(940822)</example>
     <param pos="0" name="os.vendor" value="Lantronix"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.family"/>
     <param pos="3" name="os.version"/>
@@ -3270,7 +3287,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <description>Lantronix terminal server - model only variant</description>
     <example>Lantronix EDS16PR</example>
     <param pos="0" name="os.vendor" value="Lantronix"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.family"/>
   </fingerprint>
@@ -3278,7 +3295,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <description>Lantronix modbus bridge</description>
     <example>Lantronix Inc. - Modbus Bridge</example>
     <param pos="0" name="os.vendor" value="Lantronix"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
   <fingerprint pattern="^Lantronix (U[TD]S\S*) (?:Snr )?(?:[\-\dA-Za-z]+\s+)?V?(\S+)(?: \d+\.\S+)?(?: \(.*\))?\s*$">
@@ -3289,7 +3306,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>Lantronix UDS V6.6.21.0RC3 (080919)</example>
     <param pos="0" name="os.vendor" value="Lantronix"/>
     <param pos="0" name="os.family" value="UDS"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
@@ -3298,7 +3315,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>Lantronix UDS</example>
     <param pos="0" name="os.vendor" value="Lantronix"/>
     <param pos="0" name="os.family" value="UDS"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
   <fingerprint pattern="^Lantronix (X[pP]ort \S+) V(\S+) \(.*\)\s*$">
@@ -3314,7 +3331,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>Lantronix Xport Pro V5.2.0.0R20 (07112097T8TOVI)</example>
     <param pos="0" name="os.vendor" value="Lantronix"/>
     <param pos="0" name="os.family" value="XPort"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
@@ -3323,7 +3340,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>Lantronix XPort AR</example>
     <param pos="0" name="os.vendor" value="Lantronix"/>
     <param pos="0" name="os.family" value="XPort"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
   <fingerprint pattern="^Lantronix (XPress \S+) V(\S+) \(.*\)\s*$">
@@ -3331,7 +3348,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>Lantronix XPress DR+ V6.1.0.1 (060404)</example>
     <param pos="0" name="os.vendor" value="Lantronix"/>
     <param pos="0" name="os.family" value="XPress"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
@@ -3350,7 +3367,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>Lantronix MatchPort b/g Pro V1.3.0.0R9 (07102327J7IUK5)</example>
     <param pos="0" name="os.vendor" value="Lantronix"/>
     <param pos="0" name="os.family" value="MatchPort"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
@@ -3364,7 +3381,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>Lantronix WiBox V6.7.0.0 (100118)</example>
     <param pos="0" name="os.vendor" value="Lantronix"/>
     <param pos="0" name="os.family" value="WiBox"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
@@ -3376,7 +3393,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>Lantronix SDS1101 V6.5.0.0 (070402)</example>
     <example>Lantronix SDS2101 V6.5.0.0 (070402)</example>
     <param pos="0" name="os.vendor" value="Lantronix"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.family"/>
     <param pos="3" name="os.version"/>
@@ -3387,7 +3404,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>Lantronix SLSLP 030001</example>
     <example>Lantronix SLSLP 030005</example>
     <param pos="0" name="os.vendor" value="Lantronix"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.family"/>
     <param pos="3" name="os.version"/>
@@ -3397,7 +3414,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>Lantronix NTS 0239032 04.4 (010817)</example>
     <example>Lantronix NTS 1145416 04.4 (010817)</example>
     <param pos="0" name="os.vendor" value="Lantronix"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.family"/>
     <param pos="3" name="os.version"/>
@@ -3406,7 +3423,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <description>Lantronix NTS - variant 1</description>
     <example>Lantronix NTS1536-076 V3.8</example>
     <param pos="0" name="os.vendor" value="Lantronix"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.family"/>
     <param pos="3" name="os.version"/>
@@ -5051,7 +5068,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>Rectifier Technologies Pacific WebCSU 169-412 V1.30</example>
     <param pos="0" name="os.vendor" value="Rectifier Technologies"/>
     <param pos="0" name="os.family" value="RTP Power Controller"/>
-    <param pos="0" name="os.device" value="Power Device"/>
+    <param pos="0" name="os.device" value="Power device"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
@@ -5060,7 +5077,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>Rectifier SNMP Server</example>
     <param pos="0" name="os.vendor" value="Rectifier Technologies"/>
     <param pos="0" name="os.family" value="RTP Power Controller"/>
-    <param pos="0" name="os.device" value="Power Device"/>
+    <param pos="0" name="os.device" value="Power device"/>
     <param pos="0" name="os.product" value="WebCSU"/>
   </fingerprint>
   <!--======================================================================
@@ -5452,16 +5469,18 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               SonicWall
    =======================================================================-->
-  <fingerprint pattern="^SonicWALL (.*?)\s+\(SonicOS \S+ (\d[^\)]+)\)\s*$">
+  <fingerprint pattern="^SonicWALL (\S+)\s*(\d+).*?\(SonicOS \S+ (\d[^\)]+)\)\s*$">
     <description>SonicWall - SonicOS Enhanced variant</description>
-    <example>SonicWALL NSA 220 (SonicOS Enhanced 5.8.1.2-20o)</example>
-    <example>SonicWALL TZ 215 wireless-N (SonicOS Enhanced 5.8.1.2-6o)</example>
+    <example hw.product="NSA" hw.model="220" os.version="5.8.1.2-20o">SonicWALL NSA 220 (SonicOS Enhanced 5.8.1.2-20o)</example>
+    <example hw.product="TZ" hw.model="215" os.version="5.8.1.2-6o">SonicWALL TZ 215 wireless-N (SonicOS Enhanced 5.8.1.2-6o)</example>
     <example>SonicWALL TZ190 Enhanced (SonicOS Enhanced 3.6.0.4-30e)</example>
+    <example hw.product="SuperMassive" hw.model="9200" os.version="6.2.5.3-35n">SonicWALL SuperMassive 9200 (SonicOS Enhanced 6.2.5.3-35n)</example>
     <param pos="0" name="os.vendor" value="SonicWall"/>
     <param pos="0" name="os.device" value="Firewall"/>
-    <param pos="0" name="os.family" value="SonicOS"/>
-    <param pos="1" name="os.product"/>
-    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.product" value="SonicOS"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="hw.model"/>
+    <param pos="3" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="^SonicWALL (.*?)\s+\(([^\)]+)\)\s*$">
     <description>SonicWall</description>
@@ -5475,7 +5494,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>SonicWALL I80X86 / 800 Mhz (PRO 2040 Standa)</example>
     <param pos="0" name="os.vendor" value="SonicWall"/>
     <param pos="0" name="os.device" value="Firewall"/>
-    <param pos="0" name="os.family" value="SonicOS"/>
+    <param pos="0" name="os.product" value="SonicOS"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="os.product"/>
   </fingerprint>
@@ -6216,6 +6235,44 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               XEROX
    =======================================================================-->
+  <fingerprint pattern="^Xerox Phaser ([^;]+);\sOS\s(\d+\.\d+\.\d+\.\d+).*$" certainty="1.0">
+    <description>Xerox Phaser 3000MFP Series </description>
+    <example hw.product="3300MFP" os.version="1.50.00.17">Xerox Phaser 3300MFP; OS 1.50.00.17   05-07-2013, Engine 1.05.44, NIC V4.03.01(P3300MFP), PCL5e 6.08.01 11-10-2009, PCL6 5.98  09-23-2009, PS3 V2.19.06 12-15-2010, SPL 5.24 03-27-2006, PDF V1.00.32 02-25-2006, IBM/EPSON 5.22 09-24-2009</example>
+    <example hw.product="3300MFP" os.version="1.50.00.14">Xerox Phaser 3300MFP; OS 1.50.00.14   07-16-2009, Engine 1.05.44, NIC V4.02.06(P3300MFP) 07-16-2009, PCL5e 5.93 03-19-2009, PCL6 5.94  05-11-2009, PS3 V1.99.06 04-09-2009, SPL 5.24 03-27-2006, PDF V1.00.32 02-25-2006, IBM/EPSON 5.20 02-03-2009</example>
+    <param pos="0" name="os.vendor" value="Xerox"/>
+    <param pos="0" name="hw.vendor" value="Xerox"/>
+    <param pos="0" name="os.family" value="Phaser"/>
+    <param pos="0" name="hw.family" value="Phaser"/>
+    <param pos="0" name="os.device" value="Printer"/>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Xerox WorkCentre ([^;]+);\s+SS\s+(\d+\.\d+\.\d+\.\d+).*$" certainty="1.0">
+    <description>Xerox WorkCentre 3345/3335 Printers</description>
+    <example hw.product="3335" os.version="60.004.00.000">Xerox WorkCentre 3335; SS 60.004.00.000, NC 4.00.50.73, UI V5.51.00.31.00_17030801, ME V0.00.39, CCOS 6.9.P</example>
+    <example hw.product="3345" os.version="60.001.01.000">Xerox WorkCentre 3345; SS 60.001.01.000, NC 4.00.50.46, UI V5.51.00.29.00_16052717, ME V0.00.37, CCOS 6.9.P</example>
+    <param pos="0" name="os.vendor" value="Xerox"/>
+    <param pos="0" name="os.family" value="WorkCentre"/>
+    <param pos="0" name="os.device" value="Printer"/>
+    <param pos="0" name="hw.vendor" value="Xerox"/>
+    <param pos="0" name="hw.family" value="WorkCentre"/>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Xerox (B\d+) Multifunction Printer; SS\s+(\d+\.\d+\.\d+\.\d+).*$" certainty="1.0">
+    <description>Xerox B series Multfunction Printer</description>
+    <example hw.product="B1025" os.version="75.000.77.000">Xerox B1025 Multifunction Printer; SS 75.000.77.000, NC V4.00.50, UI V5.52.00.08.00_18032319, ME V0.00.25 03-20-2018, CCOS 6.9.P</example>
+    <param pos="0" name="os.vendor" value="Xerox"/>
+    <param pos="0" name="os.family" value="Multifunction"/>
+    <param pos="0" name="os.device" value="Printer"/>
+    <param pos="0" name="hw.vendor" value="Xerox"/>
+    <param pos="0" name="hw.family" value="Multifunction"/>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
   <fingerprint pattern="^Xerox (Phaser [^;]+).*[, ]OS ([^;,]+).*$" certainty="1.0">
     <description>Xerox Phaser Laser Printer - OS variant</description>
     <example>Xerox Phaser 5500DN;PS G02.10,Net 22.42.11.22.2004,Eng 11.42.00,OS 4.46;SN RET570148</example>
@@ -6229,6 +6286,9 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="Xerox"/>
     <param pos="0" name="os.family" value="Phaser"/>
     <param pos="0" name="os.device" value="Printer"/>
+    <param pos="0" name="hw.vendor" value="Xerox"/>
+    <param pos="0" name="hw.family" value="Phaser"/>
+    <param pos="0" name="hw.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
@@ -6238,6 +6298,9 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="Xerox"/>
     <param pos="0" name="os.family" value="Phaser"/>
     <param pos="0" name="os.device" value="Printer"/>
+    <param pos="0" name="hw.vendor" value="Xerox"/>
+    <param pos="0" name="hw.family" value="Phaser"/>
+    <param pos="0" name="hw.device" value="Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
@@ -6249,6 +6312,9 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="Xerox"/>
     <param pos="0" name="os.family" value="Phaser"/>
     <param pos="0" name="os.device" value="Printer"/>
+    <param pos="0" name="hw.vendor" value="Xerox"/>
+    <param pos="0" name="hw.family" value="Phaser"/>
+    <param pos="0" name="hw.device" value="Printer"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
   <fingerprint pattern="^Xerox Document Centre Multi-function System.*$">
@@ -6260,6 +6326,9 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Document Centre"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="0" name="snmp.fpmib.oid.1" value="1.3.6.1.2.1.25.6.3.1.2.2"/>
+    <param pos="0" name="hw.vendor" value="Xerox"/>
+    <param pos="0" name="hw.family" value="Document Centre"/>
+    <param pos="0" name="hw.device" value="Printer"/>
   </fingerprint>
   <fingerprint pattern="^Xerox DocuPrint (\S+) Network Laser Printer - (\S+)$" certainty="1.0">
     <description>Xerox DocuPrint Laser Printer</description>
@@ -6282,6 +6351,9 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="WorkCentre Pro"/>
     <param pos="0" name="os.product" value="WorkCentre Pro"/>
     <param pos="0" name="os.device" value="Printer"/>
+    <param pos="0" name="hw.vendor" value="Xerox"/>
+    <param pos="0" name="hw.family" value="WorkCentre Pro"/>
+    <param pos="0" name="hw.device" value="Printer"/>
   </fingerprint>
   <fingerprint pattern="^Xerox (WorkCentre [^\s;]+).*$" certainty="1.0">
     <description>Xerox WorkCentre</description>
@@ -6291,6 +6363,9 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="WorkCentre"/>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Printer"/>
+    <param pos="0" name="hw.vendor" value="Xerox"/>
+    <param pos="0" name="hw.family" value="WorkCentre"/>
+    <param pos="0" name="hw.device" value="Printer"/>
   </fingerprint>
   <fingerprint pattern="^Xerox (\S+ [^\s;]+).*$" certainty="1.0">
     <description>Xerox Default</description>
@@ -6298,16 +6373,20 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>Xerox DocuTech 6115; DocuSP CP.4205.90</example>
     <example>Xerox DocuColor 250 with EFI Fiery Controller; SW1.1,Controller ROM1.231.15, IOT 8.26.0, FIN C16.25.0, IIT 11.56.1, IIT D12.3.2, ADF 11.8.0</example>
     <param pos="0" name="os.vendor" value="Xerox"/>
+    <param pos="0" name="hw.vendor" value="Xerox"/>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Printer"/>
+    <param pos="0" name="hw.device" value="Printer"/>
   </fingerprint>
   <fingerprint pattern="^XEROX (\d{4} WIDE FORMAT) PRINTER; ACCXES (\d+.\d+) \d+, IOT .*$" certainty="1.0">
     <description>Xerox Wide Format Printer</description>
     <example>XEROX 6204 WIDE FORMAT PRINTER; ACCXES 15.0 136, IOT 01.01.07</example>
     <param pos="0" name="os.vendor" value="Xerox"/>
+    <param pos="0" name="hw.vendor" value="Xerox"/>
     <param pos="0" name="os.family" value="Wide Format Printer"/>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="Printer"/>
+    <param pos="0" name="hw.device" value="Printer"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="^XEROX (WIDE FORMAT \d{4}) PRINTER; ACCXES (\d+.\d+) \d+, IOT .*$" certainty="1.0">
@@ -6315,9 +6394,12 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>XEROX WIDE FORMAT 6605 PRINTER; ACCXES 14.0 142, IOT 01.01.04XXXXXX</example>
     <example>XEROX WIDE FORMAT 6604 PRINTER; ACCXES 14.0 142, IOT 01.01.04XXXXXX</example>
     <param pos="0" name="os.vendor" value="Xerox"/>
+    <param pos="0" name="hw.vendor" value="Xerox"/>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.family" value="Wide Format Printer"/>
+    <param pos="0" name="hw.family" value="Wide Format Printer"/>
     <param pos="0" name="os.device" value="Printer"/>
+    <param pos="0" name="hw.device" value="Printer"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
   <!--======================================================================
@@ -6331,8 +6413,8 @@ Copyright (c) 1995-2005 by Cisco Systems
     <example>WVN720D.WVNET.EDU - WVN720D Xyplex hardware CSERV-20 00.02.00 Rom 4C0000 Xyplex software Terminal Server V6.1 </example>
     <example>Xyplex hardware CSERV-20 08.00.00 Rom 4A0000nXyplex software Terminal Server V6.0.1</example>
     <param pos="0" name="os.vendor" value="Xyplex"/>
-    <param pos="0" name="os.family" value="Terminal Server"/>
-    <param pos="0" name="os.device" value="Terminal Server"/>
+    <param pos="0" name="os.family" value="Device Server"/>
+    <param pos="0" name="os.device" value="Device Server"/>
     <param pos="1" name="os.product"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="os.version"/>

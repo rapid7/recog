@@ -722,4 +722,40 @@
     <param pos="1" name="service.version"/>
     <param pos="2" name="service.version.version"/>
   </fingerprint>
+  <fingerprint pattern="^CleanBrowsing v([^ ]+) - (.*)">
+    <description>CleanBrowsing DNS Server</description>
+    <example service.vendor="CleanBrowsing" service.family="CleanBrowsing" service.version="1.5a" service.node="dns-edge-usa-west-sunnyvale-p">CleanBrowsing v1.5a - dns-edge-usa-west-sunnyvale-p</example>
+    <example service.vendor="CleanBrowsing" service.family="CleanBrowsing" service.version="1.4a" service.node="dns-edge-usa-west-sunnyvale.cleanbrowsing.org">CleanBrowsing v1.4a - dns-edge-usa-west-sunnyvale.cleanbrowsing.org</example>
+    <param pos="0" name="service.vendor" value="CleanBrowsing"/>
+    <param pos="0" name="service.family" value="CleanBrowsing"/>
+    <param pos="0" name="service.product" value="DNS"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.node"/>
+  </fingerprint>
+  <fingerprint pattern="^dnsmasq-pi-hole-(.*)$">
+    <description>dnsmasq: pi-hole</description>
+    <example os.vendor="Pi-hole" service.vendor="Thekelleys" service.family="Dnsmasq" service.product="Dnsmasq" os.version="2.80" os.cpe23="cpe:/a:pi-hole:pi-hole:2.80" service.cpe23="cpe:/a:thekelleys:dnsmasq:-">dnsmasq-pi-hole-2.80</example>
+    <param pos="0" name="os.vendor" value="Pi-hole"/>
+    <param pos="0" name="service.vendor" value="Thekelleys"/>
+    <param pos="0" name="service.family" value="Dnsmasq"/>
+    <param pos="0" name="service.product" value="Dnsmasq"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/a:pi-hole:pi-hole:{os.version}"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:thekelleys:dnsmasq:-"/>
+  </fingerprint>
+  <fingerprint pattern="^Q9-[^\-]-(.*)$">
+    <description>Quad9 Resolver</description>
+    <example service.vendor="IBM" service.family="Quad9" service.product="DNS" service.version="6.0">Q9-P-6.0</example>
+    <param pos="0" name="service.vendor" value="IBM"/>
+    <param pos="0" name="service.family" value="Quad9"/>
+    <param pos="0" name="service.product" value="DNS"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^keweonDNS v\.(.*)$">
+    <description>Keweon DNS</description>
+    <example service.vendor="Keweon" service.product="DNS" service.version="9.63.7201">keweonDNS v.9.63.7201</example>
+    <param pos="0" name="service.vendor" value="Keweon"/>
+    <param pos="0" name="service.product" value="DNS"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
 </fingerprints>
