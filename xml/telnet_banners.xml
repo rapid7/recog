@@ -1521,4 +1521,56 @@
     <param pos="0" name="os.product" value="ProLiant"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
+  <fingerprint pattern="^Power Measurement Ltd. Meter ION ([[:alnum:]]+)">
+    <!-- Power Measurement Ltd. Meter ION 7330V271 ETH ETH7330V272
+         Serial#: PB-0204A058-11
+
+         login: -->
+    <description>Power Measurement ION Power Meter</description>
+    <example _encoding="base64" hw.vendor="Power Measurement Ltd." hw.family="ION" hw.version="7330V271">
+      UG93ZXIgTWVhc3VyZW1lbnQgTHRkLiBNZXRlciBJT04gNzMzMFYyNzEgRVRIIEVUSDczMzBWMjcyCg1TZ
+      XJpYWwjOiBQQi0wMjA0QTA1OC0xMQoNCg1sb2dpbjo=
+    </example>
+    <param pos="0" name="hw.vendor" value = "Power Measurement Ltd."/>
+    <param pos="0" name="hw.family" value = "ION"/>
+    <param pos="1" name="hw.version"/>
+  </fingerprint>
+  <fingerprint pattern="^GW25 v([[:digit:]\.]+) - Intelligent Power Meters GPRS Gateway[[:space:]]+Developed by Satelitech">
+    <!-- GW25 v1.2.1 - Intelligent Power Meters GPRS Gateway
+         Developed by Satelitech S.A for ESG Dilec
+         Enter password: -->
+    <description>Satelitech Power Meter</description>
+    <example _encoding="base64" hw.vendor="Satelitech" hw.family="GW25" hw.version="1.2.1">
+      R1cyNSB2MS4yLjEgLSBJbnRlbGxpZ2VudCBQb3dlciBNZXRlcnMgR1BSUyBHYXRld2F5Cg1EZXZlbG9wZ
+      WQgYnkgU2F0ZWxpdGVjaCBTLkEgZm9yIEVTRyBEaWxlYwoNRW50ZXIgcGFzc3dvcmQ6
+    </example>
+    <param pos="0" name="hw.vendor" value = "Satelitech"/>
+    <param pos="0" name="hw.family" value = "GW25"/>
+    <param pos="1" name="hw.version"/>
+  </fingerprint>
+  <fingerprint pattern="^RDK \(A Yocto Project based Distro\) ([^ ]+) Docsis-Gateway">
+    <!-- RDK (A Yocto Project based Distro) 2.0 Docsis-Gateway
+
+         Docsis-Gateway login: -->
+    <description>DOCSIS Cable Modem Running RDK</description>
+    <example _encoding="base64" hw.device="DOCSIS Cable Modem" os.vendor="Yocto" os.product="RDK" os.version="2.0">
+      UkRLIChBIFlvY3RvIFByb2plY3QgYmFzZWQgRGlzdHJvKSAyLjAgRG9jc2lzLUdhdGV3YXkNCg0NCg1Eb
+      2NzaXMtR2F0ZXdheSBsb2dpbjo=
+    </example>
+    <param pos="0" name="hw.device" value = "DOCSIS Cable Modem"/>
+    <param pos="0" name="os.vendor" value = "Yocto"/>
+    <param pos="0" name="os.product" value = "RDK"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^RICOH Maintenance Shell">
+    <description>a Ricoh device</description>
+    <!-- RICOH Maintenance Shell.   
+         User access verification.
+         login:-->
+    <example _encoding="base64">
+      UklDT0ggTWFpbnRlbmFuY2UgU2hlbGwuICAgCg1Vc2VyIGFjY2VzcyB2ZXJpZmljYXRpb24uCg1sb2dpbjo=
+    </example>
+    <param pos="0" name="os.vendor" value="Ricoh"/>
+    <param pos="0" name="os.device" value="Printer"/>
+  </fingerprint>
 </fingerprints>
