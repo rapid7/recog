@@ -12,7 +12,7 @@ class MatchReporter
   def report
     reset_counts
     yield self
-    summarize
+    summarize unless @options.quiet
   end
 
   def stop?

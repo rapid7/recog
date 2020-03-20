@@ -1,7 +1,7 @@
 require 'recog/match_reporter'
 
 describe Recog::MatchReporter do
-  let(:options) { double(detail: false) }
+  let(:options) { double(detail: false, quiet: false) }
   let(:formatter) { double('formatter').as_null_object }
   subject { Recog::MatchReporter.new(options, formatter) }
 
@@ -25,7 +25,7 @@ describe Recog::MatchReporter do
     end
 
     context "with detail" do
-      subject { Recog::MatchReporter.new(double(detail: true), formatter) }
+      subject { Recog::MatchReporter.new(double(detail: true, quiet: false), formatter) }
 
       it "prints the lines processed" do
         expect(formatter).to receive(:status_message).with("\nProcessed 1 lines")

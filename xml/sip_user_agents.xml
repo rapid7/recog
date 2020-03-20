@@ -1,79 +1,182 @@
-<?xml version="1.0"?>
-<!--
-SIP User Agent header values are matched against these patterns to fingerprint SIP devices.
--->
-
-<fingerprints matches="sip_header.user_agent">
-  
-	<!-- Cisco Devices -->
-
-   <fingerprint pattern="^Cisco-SIPGateway/IOS-([\d\.x]+)$">
-      <description>Cisco SIPGateway</description>
-      <example>Cisco-SIPGateway/IOS-12.x</example>
-      <param pos="0" name="os.vendor" value="Cisco"/>
-      <param pos="0" name="os.product" value="IOS"/>
-      <param pos="1" name="os.version"/>
-   </fingerprint>
-
-
-   <!-- AVM.DE Devices -->
-
-   <fingerprint pattern="^FRITZ!OS$">
-      <description>AVM FritzOS Device</description>
-      <example>FRITZ!OS</example>
-      <param pos="0" name="os.vendor" value="AVM"/>
-      <param pos="0" name="os.product" value="FRITZ!BOX"/>
-   </fingerprint>
-
-   <fingerprint pattern="^(?:AVM )?(FRITZ!Box .*) +(\d+\.\d+\.\d+)">
-      <description>AVM FritzBox</description>
-      <example>AVM FRITZ!Box Fon 06.03.13</example>
-      <example>AVM FRITZ!Box Fon 06.03.65 (Jun  7 2005)</example>
-      <example>AVM FRITZ!Box Fon 06.03.89 (3.01.03 tested by accredited T-Com test lab) (Oct 28 2005)</example>
-      <example>AVM FRITZ!Box Fon 5010 23.04.01 (Jan 25 2006)</example>
-      <example>AVM FRITZ!Box Fon 5010 Annex A 48.04.55 TAL (Mar 12 2008)</example>
-      <example>AVM FRITZ!Box Fon 5010 Annex A (ITA) 48.04.46 (Sep 14 2007)</example>
-      <example>AVM FRITZ!Box Fon 5012 (UI) 25.03.90 (3.01.03 tested by accredited T-Com test lab) (Oct 28 2005)</example>
-      <example>AVM FRITZ!Box Fon 5113 Annex A 83.04.69 (Dec  2 2008)</example>
-      <example>AVM FRITZ!Box Fon 5124 56.04.77 (Feb 14 2014)</example>
-      <example>AVM FRITZ!Box Fon 7170 Annex A.B ML Speedport W701V 58.04.67 (Dec 18 2008)</example>
-      <example>AVM FRITZ!Box 3272 126.05.50 (Feb 27 2013)</example>
-      <example>AVM FRITZ!Box 5050 (UI) 12.04.50 (Jan 30 2008)</example>
-      <example>AVM FRITZ!Box 6320 Cable 104.05.25 TAL (Jun  8 2012)</example>
-      <example>AVM FRITZ!Box 6320 v2 Cable 110.05.50 (Jan 31 2013)</example>
-      <example>AVM FRITZ!Box 6340 Cable (kbw) 115.05.50 (Jan 31 2013)</example>
-      <example>AVM FRITZ!Box 6810 LTE 108.05.50 (Feb 15 2013)</example>
-      <example>AVM FRITZ!Box 7170 Annex A 58.04.85 (Apr  4 2011)</example>
-      <example>AVM FRITZ!Box 7312 117.05.23 TAL (Jun  1 2012)</example>   
-      <example>AVM FRITZ!Box Fon WLAN 7150 by TemTec EDV-Service 29.04.67 TAL (Nov 21 2008)</example>
-      <example>AVM FRITZ!Box Fon WLAN 7170 28.04.43 (Sep 14 2007)</example>
-      <example>AVM FRITZ!Box WLAN 3270 v3 Edition Italia 125.05.23 (Jul  6 2012)</example>
-      <example>AVM FRITZ!Box WLAN 3270 v3 Edition Italia 125.05.52 (Feb  7 2014)</example>
-      <example>AVM FRITZ!Box Speedport W701V Annex A 58.04.82 (May 12 2010)</example>
-      <param pos="0" name="os.vendor" value="AVM"/>
-      <param pos="0" name="os.family" value="FRITZ!Box"/>
-      <param pos="1" name="os.product"/>
-      <param pos="2" name="os.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^(?:AVM )?(FRITZ!Fon .*) +(\d+\.\d+\.\d+)">
-      <description>AVM FritzFon</description>
-      <example>AVM FRITZ!Fon 7150 (fs) 38.04.56 (Mar 31 2008)</example>
-      <example>AVM FRITZ!Fon WLAN 7150 Annex A 58.04.84 (Apr  4 2011)</example>
-      <param pos="0" name="os.vendor" value="AVM"/>
-      <param pos="0" name="os.family" value="FRITZ!Fon"/>
-      <param pos="1" name="os.product"/>
-      <param pos="2" name="os.version"/>
-   </fingerprint>
-
-   <fingerprint pattern="^(?:AVM )?(Multibox .*) +(\d+\.\d+\.\d+)">
-      <description>AVM Multibox</description>
-      <example>AVM Multibox 7390 NGN 84.05.09 (Jan 13 2012)</example>
-      <param pos="0" name="os.vendor" value="AVM"/>
-      <param pos="0" name="os.family" value="Multibox"/>
-      <param pos="1" name="os.product"/>
-      <param pos="2" name="os.version"/>
-   </fingerprint>
-
-
+<?xml version="1.0" encoding="UTF-8"?>
+<fingerprints matches="sip_header.user_agent" protocol="sip" database_type="service">
+  <!--
+  SIP User Agent header values are matched against these patterns to fingerprint SIP devices.
+  -->
+  <!-- Axis devices -->
+  <fingerprint pattern="(?i)^AXIS (\S+) Network Video Door Station$">
+    <description>Axis Network Video Door stations, which have voice</description>
+    <example hw.product="A8105-E">AXIS A8105-E Network Video Door Station</example>
+    <param pos="0" name="hw.vendor" value="Axis"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.family" value="Network Video Door Station"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+  <fingerprint pattern="(?i)^AXIS (\S+) Network (?:Audio Bridge|(?:Cabinet|Horn) Speaker)$">
+    <description>Axis Network audio devices</description>
+    <example hw.product="C3003-E">AXIS C3003-E Network Horn Speaker</example>
+    <example hw.product="C8033">AXIS C8033 Network Audio Bridge</example>
+    <example hw.product="C1004-E">AXIS C1004-E Network Cabinet Speaker</example>
+    <param pos="0" name="hw.vendor" value="Axis"/>
+    <param pos="0" name="hw.family" value="Network Audio"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+  <!-- Cisco Devices -->
+  <fingerprint pattern="^Cisco-SIPGateway/IOS-([\d\.x]+)$">
+    <description>Cisco SIPGateway</description>
+    <example>Cisco-SIPGateway/IOS-12.x</example>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.product" value="IOS"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:{os.version}"/>
+  </fingerprint>
+  <!-- AVM.DE Devices -->
+  <fingerprint pattern="^FRITZ!OS$">
+    <description>AVM FritzOS Device</description>
+    <example>FRITZ!OS</example>
+    <param pos="0" name="os.vendor" value="AVM"/>
+    <param pos="0" name="os.product" value="FRITZ!BOX"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:AVM )?(FRITZ!Box .*) +(\d+\.\d+\.\d+)">
+    <description>AVM FritzBox</description>
+    <example>AVM FRITZ!Box Fon 06.03.13</example>
+    <example>AVM FRITZ!Box Fon 06.03.65 (Jun  7 2005)</example>
+    <example>AVM FRITZ!Box Fon 5010 Annex A (ITA) 48.04.46 (Sep 14 2007)</example>
+    <example>AVM FRITZ!Box Fon 5012 (UI) 25.03.90 (3.01.03 tested by accredited T-Com test lab) (Oct 28 2005)</example>
+    <example>AVM FRITZ!Box Fon 5113 Annex A 83.04.69 (Dec  2 2008)</example>
+    <example>AVM FRITZ!Box Fon 5124 56.04.77 (Feb 14 2014)</example>
+    <example>AVM FRITZ!Box Fon 7170 Annex A.B ML Speedport W701V 58.04.67 (Dec 18 2008)</example>
+    <example>AVM FRITZ!Box 3272 126.05.50 (Feb 27 2013)</example>
+    <example>AVM FRITZ!Box 7170 Annex A 58.04.85 (Apr  4 2011)</example>
+    <example>AVM FRITZ!Box 7312 117.05.23 TAL (Jun  1 2012)</example>
+    <example>AVM FRITZ!Box WLAN 3270 v3 Edition Italia 125.05.52 (Feb  7 2014)</example>
+    <example>AVM FRITZ!Box Speedport W701V Annex A 58.04.82 (May 12 2010)</example>
+    <param pos="0" name="os.vendor" value="AVM"/>
+    <param pos="0" name="os.family" value="FRITZ!Box"/>
+    <param pos="1" name="os.product"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:AVM )?(FRITZ!Fon .*) +(\d+\.\d+\.\d+)">
+    <description>AVM FritzFon</description>
+    <example>AVM FRITZ!Fon 7150 (fs) 38.04.56 (Mar 31 2008)</example>
+    <example>AVM FRITZ!Fon WLAN 7150 Annex A 58.04.84 (Apr  4 2011)</example>
+    <param pos="0" name="os.vendor" value="AVM"/>
+    <param pos="0" name="os.family" value="FRITZ!Fon"/>
+    <param pos="1" name="os.product"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:AVM )?(Multibox .*) +(\d+\.\d+\.\d+)">
+    <description>AVM Multibox</description>
+    <example>AVM Multibox 7390 NGN 84.05.09 (Jan 13 2012)</example>
+    <param pos="0" name="os.vendor" value="AVM"/>
+    <param pos="0" name="os.family" value="Multibox"/>
+    <param pos="1" name="os.product"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+  <!-- Huawei devices -->
+  <fingerprint pattern="(?i)^Huawei$">
+    <description>Huawei generic</description>
+    <example>Huawei</example>
+    <param pos="0" name="hw.vendor" value="Huawei"/>
+  </fingerprint>
+  <fingerprint pattern="(?i)^Huawei-HomeGateway/V(?:\d.*)$">
+    <description>Huawei Home Gateway</description>
+    <example>Huawei-HomeGateway/V100R001</example>
+    <param pos="0" name="hw.vendor" value="Huawei"/>
+    <param pos="0" name="hw.device" value="Broadband router"/>
+    <param pos="0" name="hw.product" value="Home Gateway"/>
+  </fingerprint>
+  <fingerprint pattern="(?i)^Huawei-EchoLife (HG.*)/V(?:\d.*)$">
+    <description>Huawei EchoLife Home Gateway</description>
+    <example hw.model="HG8121H">HUAWEI-EchoLife HG8121H/V3R018C00S110</example>
+    <param pos="0" name="hw.vendor" value="Huawei"/>
+    <param pos="0" name="hw.device" value="Broadband router"/>
+    <param pos="0" name="hw.product" value="EchoLife Home Gateway"/>
+    <param pos="1" name="hw.model"/>
+  </fingerprint>
+  <fingerprint pattern="(?i)^Huawei (SoftX\d+) (?:V\d.*)$">
+    <description>Huawei Softswitch</description>
+    <example hw.model="SoftX3000">Huawei SoftX3000 V300R010</example>
+    <param pos="0" name="hw.vendor" value="Huawei"/>
+    <param pos="0" name="hw.device" value="Telecom"/>
+    <param pos="0" name="hw.product" value="Softswitch"/>
+    <param pos="1" name="hw.model"/>
+  </fingerprint>
+  <fingerprint pattern="^Mitel-(\S+)-SIP-Phone ([\d\.]+) (.{12})$">
+    <description>Mitel SIP Phones</description>
+    <example hw.product="5320" hw.version="06.05.00.11" host.mac="010203040506">Mitel-5320-SIP-Phone 06.05.00.11 010203040506</example>
+    <param pos="0" name="hw.vendor" value="Mitel"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="hw.version"/>
+    <param pos="3" name="host.mac"/>
+  </fingerprint>
+  <fingerprint pattern="^Mitel Border GW/(\S+)$">
+    <description>Mitel SIP Gateway</description>
+    <example hw.version="4.0.0.9">Mitel Border GW/4.0.0.9</example>
+    <param pos="0" name="hw.vendor" value="Mitel"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="0" name="hw.product" value="Border GW"/>
+    <param pos="1" name="hw.version"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:Polycom/[\d\.]+ )?Polycom(SoundPoint|VVX|SoundStation)\S+_(\d+)-UA/([\d\.]+)(?:_(.{12}))?$">
+    <description>Polycom SoundPoint, SountdStation, VVX VoIP phones</description>
+    <example hw.version="5.8.0.13337" hw.family="VVX" hw.product="VVX 350">PolycomVVX-VVX_350-UA/5.8.0.13337</example>
+    <example hw.version="4.1.4.7430" hw.family="VVX" hw.product="VVX 400" host.mac="010203040506">PolycomVVX-VVX_400-UA/4.1.4.7430_010203040506</example>
+    <example hw.version="5.5.0.23866" hw.family="VVX" hw.product="VVX 501">Polycom/5.5.0.23866 PolycomVVX-VVX_501-UA/5.5.0.23866</example>
+    <example hw.version="4.0.7.2514" hw.family="SoundPoint" hw.product="SoundPoint 670">PolycomSoundPointIP-SPIP_670-UA/4.0.7.2514</example>
+    <example hw.version="4.0.8.1608" hw.family="SoundStation" hw.product="SoundStation 7000">PolycomSoundStationIP-SSIP_7000-UA/4.0.8.1608</example>
+    <param pos="0" name="hw.vendor" value="Polycom"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="1" name="hw.family"/>
+    <param pos="0" name="hw.product" value="{hw.family} {hw.model}"/>
+    <param pos="2" name="hw.model"/>
+    <param pos="3" name="hw.version"/>
+    <param pos="4" name="host.mac"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:Polycom/[\d\.]+ )?Polycom(?:RealPresenceTrio)-Trio_(\S+)-UA/([\d\.]+)(?:_(.{12}))?$">
+    <description>Polycom RealPresence Trio Phones</description>
+    <example hw.version="5.4.0.12197" hw.product="RealPresence Trio 8800">PolycomRealPresenceTrio-Trio_8800-UA/5.4.0.12197</example>
+    <example hw.version="5.7.2.3123" hw.product="RealPresence Trio Visual+">PolycomRealPresenceTrio-Trio_Visual+-UA/5.7.2.3123</example>
+    <example hw.version="5.4.3.2389" hw.product="RealPresence Trio 8800">Polycom/5.4.3.2389 PolycomRealPresenceTrio-Trio_8800-UA/5.4.3.2389</example>
+    <param pos="0" name="hw.vendor" value="Polycom"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="0" name="hw.family" value="RealPresence"/>
+    <param pos="0" name="hw.product" value="RealPresence Trio {hw.model}"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="2" name="hw.version"/>
+    <param pos="3" name="host.mac"/>
+  </fingerprint>
+  <fingerprint pattern="^Polycom ?HDX ?(\d+)(?: ?HD)?(?:/| \(Release - )([^\)]+)\)?">
+    <description>Polycom HDX Video Conferencing</description>
+    <example hw.model="9006" hw.product="HDX 9006" hw.version="3.0.6-37004">Polycom HDX 9006 (Release - 3.0.6-37004)</example>
+    <example hw.model="4000" hw.product="HDX 4000" hw.version="3.1.0">PolycomHDX4000/3.1.0</example>
+    <example hw.model="7000" hw.product="HDX 7000" hw.version="3.0.2.1-17007">Polycom HDX 7000 HD (Release - 3.0.2.1-17007)</example>
+    <example hw.model="8000" hw.product="HDX 8000" hw.version="3.1.7">PolycomHDX8000HD/3.1.7</example>
+    <param pos="0" name="hw.vendor" value="Polycom"/>
+    <param pos="0" name="hw.family" value="HDX"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
+    <param pos="0" name="hw.product" value="HDX {hw.model}"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="2" name="hw.version"/>
+  </fingerprint>
+  <fingerprint pattern="^PolycomRealPresenceGroup(\d+)/([\d\._]+)+$">
+    <description>Polycom RealPresence Group Video Conferencing</description>
+    <example hw.model="700" hw.product="RealPresence Group 700" hw.version="6.2.0">PolycomRealPresenceGroup700/6.2.0</example>
+    <param pos="0" name="hw.vendor" value="Polycom"/>
+    <param pos="0" name="hw.family" value="RealPresence Group"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
+    <param pos="0" name="hw.product" value="RealPresence Group {hw.model}"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="2" name="hw.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Nero SIPPS IP Phone Version ([\d\.]+)+$">
+    <description>Nero SIPPS IP Phone</description>
+    <example service.version="2.0.51.16">Nero SIPPS IP Phone Version 2.0.51.16</example>
+    <param pos="0" name="service.vendor" value="Nero"/>
+    <param pos="0" name="service.family" value="SIPPS"/>
+    <param pos="0" name="service.protocol" value="VoIP"/>
+    <param pos="0" name="service.product" value="SIPPS IP Phone"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
 </fingerprints>

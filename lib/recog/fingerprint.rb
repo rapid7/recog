@@ -3,6 +3,8 @@ module Recog
 # A fingerprint that can be {#match matched} against a particular kind of
 # fingerprintable data, e.g. an HTTP `Server` header
 class Fingerprint
+  require 'set'
+
   require 'recog/fingerprint/regexp_factory'
   require 'recog/fingerprint/test'
 
@@ -27,14 +29,28 @@ class Fingerprint
   attr_reader :tests
 
   # @param xml [Nokogiri::XML::Element]
-  def initialize(xml)
+  # @param match_key [String] See Recog::DB
+  # @param protocol [String] Protocol such as ftp, mssql, http, etc.
+  def initialize(xml, match_key=nil, protocol=nil)
+    @match_key = match_key
+    @protocol = protocol
     @name   = parse_description(xml)
     @regex  = create_regexp(xml)
     @params = {}
     @tests = []
 
+    @protocol.downcase! if @protocol
     parse_examples(xml)
     parse_params(xml)
+  end
+
+  def output_diag_data(message, data, exception)
+    STDERR.puts message
+    STDERR.puts exception.inspect
+    STDERR.puts "Length:   #{data.length}"
+    STDERR.puts "Encoding: #{data.encoding}"
+    STDERR.puts "Problematic data:\n#{data}"
+    STDERR.puts "Raw bytes:\n#{data.pretty_inspect}\n"
   end
 
   # Attempt to match the given string.
@@ -43,22 +59,93 @@ class Fingerprint
   # @return [Hash,nil] Keys will be host, service, and os attributes
   def match(match_string)
     # match_string.force_encoding('BINARY') if match_string
-    match_data = @regex.match(match_string)
+    begin
+      match_data = @regex.match(match_string)
+    rescue Encoding::CompatibilityError => e
+      begin
+        # Replace invalid UTF-8 characters with spaces, just as DAP does.
+        encoded_str = match_string.encode("UTF-8", :invalid => :replace, :undef => :replace, :replace => '')
+        match_data = @regex.match(encoded_str)
+      rescue Exception => e
+        output_diag_data('Exception while re-encoding match_string to UTF-8', match_string, e)
+      end
+    rescue Exception => e
+      output_diag_data('Exception while running regex against match_string', match_string, e)
+    end
     return if match_data.nil?
 
     result = { 'matched' => @name }
+    replacements = {}
     @params.each_pair do |k,v|
       pos = v[0]
       if pos == 0
         # A match offset of 0 means this param has a hardcoded value
         result[k] = v[1]
+        # if this value uses interpolation, note it for handling later
+        v[1].scan(/\{([^\s{}]+)\}/).flatten.each do |replacement|
+          replacements[k] ||= Set[]
+          replacements[k] << replacement
+        end
       else
         # A match offset other than 0 means the value should come from
         # the corresponding match result index
         result[k] = match_data[ pos ]
       end
     end
+
+    # Use the protocol specified in the XML database if there isn't one
+    # provided as part of this fingerprint.
+    if @protocol
+      unless result['service.protocol']
+        result['service.protocol'] = @protocol
+      end
+    end
+
+    result['fingerprint_db'] = @match_key if @match_key
+
+    # for everything identified as using interpolation, do so
+    replacements.each_pair do |replacement_k, replacement_vs|
+      replacement_vs.each do |replacement|
+        if result[replacement]
+          result[replacement_k] = result[replacement_k].gsub(/\{#{replacement}\}/, result[replacement])
+        else
+          # if the value uses an interpolated value that does not exist, in general this could be
+          # very bad, but over time we have allowed the use of regexes with
+          # optional captures that are then used for parts of the asserted
+          # fingerprints.  This is frequently done for optional version
+          # strings.  If the key in question is cpe23 and the interpolated
+          # value we are trying to replace is version related, use the CPE
+          # standard of '-' for the version, otherwise raise and exception as
+          # this code currently does not handle interpolation of undefined
+          # values in other cases.
+          if replacement_k =~ /\.cpe23$/ and replacement =~ /\.version$/
+            result[replacement_k] = result[replacement_k].gsub(/\{#{replacement}\}/, '-')
+          else
+            raise "Invalid use of nil interpolated non-version value #{replacement} in non-cpe23 fingerprint param #{replacement_k}"
+          end
+        end
+      end
+    end
+
     return result
+  end
+
+  # Ensure all the {#params} are valid
+  #
+  # @yieldparam status [Symbol] One of `:warn`, `:fail`, or `:success` to
+  #   indicate whether a param is valid
+  # @yieldparam message [String] A human-readable string explaining the
+  #   `status`
+  def verify_params(&block)
+    return if params.empty?
+    params.each do |param_name, pos_value|
+      pos, value = pos_value
+      if pos > 0 && !value.to_s.empty?
+        yield :fail, "'#{@name}'s #{param_name} is a non-zero pos but specifies a value of '#{value}'"
+      elsif pos == 0 && value.to_s.empty?
+        yield :fail, "'#{@name}'s #{param_name} is not a capture (pos=0) but doesn't specify a value"
+      end
+    end
   end
 
   # Ensure all the {#tests} actually match the fingerprint and return the
@@ -69,10 +156,13 @@ class Fingerprint
   # @yieldparam message [String] A human-readable string explaining the
   #   `status`
   def verify_tests(&block)
+
+    # look for the presence of test cases
     if tests.size == 0
       yield :warn, "'#{@name}' has no test cases"
     end
 
+    # make sure each test case passes
     tests.each do |test|
       result = match(test.content)
       if result.nil?
@@ -85,13 +175,57 @@ class Fingerprint
       # Ensure that all the attributes as provided by the example were parsed
       # out correctly and match the capture group values we expect.
       test.attributes.each do |k, v|
+        next if k == '_encoding'
         if !result.has_key?(k) || result[k] != v
-          message = "'#{@name}' failed to find expected capture group #{k} '#{v}'"
+          message = "'#{@name}' failed to find expected capture group #{k} '#{v}'. Result was #{result[k]}"
           status = :fail
           break
         end
       end
       yield status, message
+    end
+
+    # make sure there are capture groups for all params that use them
+    verify_tests_have_capture_groups(&block)
+  end
+
+  # For fingerprints that specify parameters that are defined by
+  # capture groups, ensure that each parameter has at least one test
+  # that defines an attribute to test for the correct capture of that
+  # parameter.
+  #
+  # @yieldparam status [Symbol] One of `:warn`, `:fail`, or `:success` to
+  #   indicate whether a test worked
+  # @yieldparam message [String] A human-readable string explaining the
+  #   `status`
+  def verify_tests_have_capture_groups(&block)
+    capture_group_used = {}
+    if !params.empty?
+      # get a list of parameters that are defined by capture groups
+      params.each do |param_name, pos_value|
+        pos, value = pos_value
+        if pos > 0 && value.to_s.empty?
+          capture_group_used[param_name] = false
+        end
+      end
+    end
+
+    # match up the fingerprint parameters with test attributes
+    tests.each do |test|
+      test.attributes.each do |k,v|
+        if capture_group_used.has_key?(k)
+          capture_group_used[k] = true
+        end
+      end
+    end
+
+    # alert on untested parameters
+    capture_group_used.each do |param_name, param_used|
+      if !param_used
+        message = "'#{@name}' is missing an example that checks for parameter '#{param_name}' " +
+                  "messsage which is derived from a capture group"
+        yield :warn, message
+      end
     end
   end
 

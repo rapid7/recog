@@ -1,10 +1,18 @@
 require 'recog/db'
 require 'regexp_parser'
+require 'nokogiri'
 
 describe Recog::DB do
+  let(:schema) { Nokogiri::XML::Schema(open(File.expand_path(File.join(%w(xml fingerprints.xsd))))) }
   Dir[File.expand_path File.join('xml', '*.xml')].each do |xml_file_name|
 
     describe "##{File.basename(xml_file_name)}" do
+
+      it "is valid XML" do
+        doc = Nokogiri::XML(open(xml_file_name))
+        errors = schema.validate(doc)
+        expect(errors).to be_empty, "#{xml_file_name} is invalid recog XML -- #{errors.inspect}"
+      end
 
       db = Recog::DB.new(xml_file_name)
 
@@ -13,12 +21,79 @@ describe Recog::DB do
         expect(db.match_key).not_to be_empty
       end
 
+      it "has valid 'preference' value" do
+          # Reserve values below 0.10 and above 0.90 for users
+          # See xml/fingerprints.xsd
+          expect(db.preference.class).to be ::Float
+          expect(db.preference).to be_between(0.10, 0.90)
+      end
+
+      fp_descriptions = []
       db.fingerprints.each_index do |i|
         fp = db.fingerprints[i]
 
+        it "doesn't have a duplicate description" do
+          if fp_descriptions.include?(fp.name)
+            fail "'#{fp.name}'s description is not unique"
+          else
+            fp_descriptions << fp.name
+          end
+        end
+
+        context "#{fp.name}" do
+          param_names = []
+          it "has consistent os.device and hw.device" do
+            if fp.params['os.device'] && fp.params['hw.device'] && (fp.params['os.device'] != fp.params['hw.device'])
+              fail "#{fp.name} has both hw.device and os.device but with differing values"
+            end
+          end
+          fp.params.each do |param_name, pos_value|
+            pos, value = pos_value
+            it "has valid looking fingerprint parameter names" do
+              unless param_name =~ /^(?:cookie|[^\.]+\..*)$/
+                fail "'#{param_name}' is invalid"
+              end
+            end
+
+            it "doesn't have param values for capture params" do
+              if pos > 0 && !value.to_s.empty?
+                fail "'#{fp.name}'s #{param_name} is a non-zero pos but specifies a value of '#{value}'"
+              end
+            end
+
+            it "has parameter values other than General, Server or Unknown, which are not helpful" do
+              if pos == 0 && value =~ /^(?i:general|server|unknown)$/
+                fail "'#{param_name}' has general/server/unknown value '#{value}'"
+              end
+            end
+
+            it "doesn't omit values for non-capture params" do
+              if pos == 0 && value.to_s.empty?
+                fail "'#{fp.name}'s #{param_name} is not a capture (pos=0) but doesn't specify a value"
+              end
+            end
+
+            it "doesn't have duplicate params" do
+              if param_names.include?(param_name)
+                fail "'#{fp.name}'s has duplicate #{param_name}"
+              else
+                param_names << param_name
+              end
+            end
+
+            it "uses interpolation correctly" do
+              if pos == 0 && /\{(?<interpolated>[^\s{}]+)\}/ =~ value
+                unless fp.params.key?(interpolated)
+                  fail "'#{fp.name}' uses interpolated value '#{interpolated}' that does not exist"
+                end
+              end
+            end
+          end
+        end
+
         context "#{fp.regex}" do
 
-          it "has a name" do
+          it "has a valid looking name" do
             expect(fp.name).not_to be_nil
             expect(fp.name).not_to be_empty
           end
@@ -38,7 +113,7 @@ describe Recog::DB do
               actual_capture_positions = []
               capture_number = 1
               Regexp::Scanner.scan(fp.regex).each do |token_parts|
-                if token_parts.first == :group  && ![:close, :passive].include?(token_parts[1])
+                if token_parts.first == :group  && ![:close, :passive, :options].include?(token_parts[1])
                   actual_capture_positions << capture_number
                   capture_number += 1
                 end
@@ -48,7 +123,7 @@ describe Recog::DB do
               actual_capture_positions = actual_capture_positions.sort.uniq
               expected_capture_positions = expected_capture_positions.sort.uniq
               expect(actual_capture_positions).to eq(expected_capture_positions),
-                "Regex didn't capture (#{actual_capture_positions}) exactly what fingerprint extracted (#{expected_capture_positions})"
+                "Regex has #{actual_capture_positions.size} capture groups, but the fingerprint expected #{expected_capture_positions.size} extractions."
             end
           end
 
@@ -57,12 +132,25 @@ describe Recog::DB do
           #  expect(fp.tests.length).not_to equal(0)
           # end
 
+          it "Has a reasonable number (<= 20) of test cases" do
+            expect(fp.tests.length).to be <= 20
+          end
+
+          fp_examples = []
           fp.tests.each do |example|
+            it "doesn't have a duplicate examples" do
+              if fp_examples.include?(example.content)
+                fail "'#{fp.name}' has duplicate example '#{example.content}'"
+              else
+                fp_examples << example.content
+              end
+            end
             it "Example '#{example.content}' matches this regex" do
               match = fp.match(example.content)
               expect(match).to_not be_nil, 'Regex did not match'
               # test any extractions specified in the example
               example.attributes.each_pair do |k,v|
+                next if k == '_encoding'
                 expect(match[k]).to eq(v), "Regex didn't extract expected value for fingerprint attribute #{k} -- got #{match[k]} instead of #{v}"
               end
             end

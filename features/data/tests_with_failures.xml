@@ -10,11 +10,11 @@
      <!-- Fail: doesn't match -->
      <example>This almost matches</example>
    </fingerprint>
-   <fingerprint pattern="^bar ([\d.]+)$">
+   <fingerprint pattern="^(\S+) ([\d.]+)$">
      <description>bar test</description>
      <!-- Fail: expected os.version doesn't match the capture group -->
      <example os.version="5.0" >bar 1.0</example>
-     <param pos="1" name="os.version" />
-     <param pos="0" name="os.name" value="Bar" />
+     <param pos="2" name="os.version" />
+     <param pos="1" name="os.name" value="Bar" />
    </fingerprint>
 </fingerprints>
