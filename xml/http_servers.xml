@@ -1453,6 +1453,13 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
+  <fingerprint pattern="^TargetWeb/[\d\.]+ \(TargetOS\)$">
+    <description>Mercurity Security TargetOS</description>
+    <example>TargetWeb/2011.0 (TargetOS)</example>
+    <param pos="0" name="hw.vendor" value="Mercury Security"/>
+    <param pos="0" name="hw.device" value="Access Controller"/>
+    <param pos="0" name="hw.product" value="EP-series"/>
+  </fingerprint>
   <fingerprint pattern="^Foundry Networks(?:/(\d+\.\d+))?$">
     <description>Foundry Networks device (though not sure which)</description>
     <param pos="0" name="service.vendor" value="Foundry"/>
@@ -1585,7 +1592,8 @@
     <param pos="0" name="service.product" value="HTTP"/>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="Adaptive Security Appliance"/>
-    <param pos="0" name="os.product" value="VPN"/>
+    <param pos="0" name="os.product" value="Adaptive Security Appliance"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:adaptive_security_appliance"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.family" value="Adaptive Security Appliance"/>
     <param pos="0" name="hw.product" value="Adaptive Security Appliance"/>
@@ -1742,7 +1750,7 @@
   <fingerprint pattern="^kHTTPd (\S+)" certainty="0.50">
     <description>TUX web server, an in-kernel Linux HTTP Accelerator</description>
     <example>kHTTPd 0.1.6</example>
-    <param pos="0" name="service.product" value="TUX web server"/>
+    <param pos="0" name="service.product" value="TUX Web Server"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="os.vendor" value="Linux"/>
     <param pos="0" name="os.family" value="Linux"/>
@@ -1755,6 +1763,15 @@
     <param pos="0" name="service.vendor" value="RealVNC Ltd."/>
     <param pos="0" name="service.product" value="RealVNC"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:realvnc:realvnc:-"/>
+  </fingerprint>
+  <fingerprint pattern="^SecureTransport (\d+[\d\.]+) \(build: (\d+)\)$">
+    <description>AxWay SecureTransport</description>
+    <example>SecureTransport 5.3.6 (build: 412)</example>
+    <param pos="0" name="service.vendor" value="Axway"/>
+    <param pos="0" name="service.product" value="SecureTransport"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:realvnc:realvnc:{service.version}"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="securetransport.build"/>
   </fingerprint>
   <fingerprint pattern="(Agranat|Conexant|(?:Globespan)?Virata)-EmWeb/(.*)$">
     <description>EmWeb variants</description>
@@ -1910,6 +1927,17 @@
     <param pos="0" name="service.product" value="Web Jetadmin"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:hp:web_jetadmin:{service.version}"/>
+  </fingerprint>
+  <fingerprint pattern="^KM-MFP-http/V([\d\.]+)$">
+    <description>Kyocera Printers</description>
+    <example service.version="0.0.1">KM-MFP-http/V0.0.1</example>
+    <param pos="0" name="os.vendor" value="Kycoera"/>
+    <param pos="0" name="os.device" value="Multifunction Device"/>
+    <param pos="0" name="hw.vendor" value="Kycoera"/>
+    <param pos="0" name="hw.device" value="Multifunction Device"/>
+    <param pos="0" name="service.vendor" value="Kyocera"/>
+    <param pos="0" name="service.product" value="KM-MFP-HTTP"/>
+    <param pos="1" name="service.version"/>
   </fingerprint>
   <fingerprint pattern="^Citrix Web PN Server$">
     <description>Citrix Web PN (Program Neighborhood) Server is an HTTP server used by Citrix products</description>
@@ -2930,6 +2958,33 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.device" value="WAP"/>
   </fingerprint>
+  <fingerprint pattern="^Linux/(\S+\-ami), UPnP/[\d\.]+, Portable SDK for UPnP devices/(\S+)$">
+    <description>AMI MegaRAC LOM UPnP</description>
+    <example>Linux/3.14.17-ami, UPnP/1.0, Portable SDK for UPnP devices/1.6.20</example>
+    <param pos="0" name="hw.device" value="Lights Out Management"/>
+    <param pos="0" name="hw.vendor" value="AMI"/>
+    <param pos="0" name="hw.family" value="MegaRAC"/>
+    <param pos="0" name="hw.product" value="MegaRAC"/>
+    <param pos="0" name="os.device" value="Lights Out Management"/>
+    <param pos="0" name="os.vendor" value="AMI"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
+    <param pos="0" name="service.product" value="libupnp"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Linux/(\S+\-axis[^,]+), UPnP/[\d\.]+, Portable SDK for UPnP devices/(\S+)$">
+    <description>Axis Network Camera</description>
+    <example>Linux/4.9.94-axis5, UPnP/1.0, Portable SDK for UPnP devices/1.6.22</example>
+    <param pos="0" name="hw.vendor" value="AXIS"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="os.vendor" value="AXIS"/>
+    <param pos="0" name="os.device" value="Web cam"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
+    <param pos="0" name="service.product" value="libupnp"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
   <fingerprint pattern="^Linux/(\S+), UPnP/[\d\.]+, Portable SDK for UPnP devices/(\S+)$">
     <description>Portable SDK for UPnP Server - Linux</description>
     <example>Linux/2.4.20-46.7asp, UPnP/1.0, Portable SDK for UPnP devices/1.6.17</example>
@@ -3020,6 +3075,14 @@
     <param pos="0" name="hw.device" value="Media Server"/>
     <param pos="1" name="hw.version"/>
   </fingerprint>
+  <fingerprint pattern="^Roku/(\S+) UPnP/\S+ Roku/\S+$">
+    <description>Roku with double versions</description>
+    <example hw.version="9.2.0">Roku/9.2.0 UPnP/1.0 Roku/9.2.0</example>
+    <param pos="0" name="hw.vendor" value="Roku"/>
+    <param pos="0" name="hw.product" value="Roku"/>
+    <param pos="0" name="hw.device" value="Media Server"/>
+    <param pos="1" name="hw.version"/>
+  </fingerprint>
   <fingerprint pattern="^Roku UPnP/\S+ MiniUPnPd/\S+$">
     <description>Roku without a version</description>
     <example>Roku UPnP/1.0 MiniUPnPd/1.4</example>
@@ -3064,5 +3127,69 @@
     <param pos="0" name="service.product" value="NetData"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-
+  <fingerprint pattern="^Solstice 2\.0+$">
+    <description>SolsticePod</description>
+    <example>Solstice 2.0</example>
+    <param pos="0" name="hw.vendor" value="Mersive"/>
+    <param pos="0" name="hw.device" value="Wireless Presenter"/>
+    <param pos="0" name="hw.product" value="SolsticePod"/>
+  </fingerprint>
+  <fingerprint pattern="^MLC ([^\/]+)/([\d\.]+)$">
+    <description>Extron MediaLink Controller HTTP Server</description>
+    <example extron.model="104 IP PLUS" hw.version="1.03">MLC 104 IP PLUS/1.03</example>
+    <param pos="0" name="hw.vendor" value="Extron"/>
+    <param pos="0" name="hw.device" value="Display Controller"/>
+    <param pos="0" name="hw.product" value="{extron.model} MediaLink Controller"/>
+    <param pos="0" name="os.vendor" value="Extron"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="1" name="extron.model"/>
+    <param pos="2" name="hw.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Jetty \(Bluecat Networks\)$">
+    <description>BlueCat Appliance</description>
+    <example>Jetty (Bluecat Networks)</example>
+    <param pos="0" name="hw.vendor" value="BlueCat"/>
+    <param pos="0" name="hw.device" value="Network Appliance"/>
+  </fingerprint>
+  <fingerprint pattern="^Crestron Webserver$">
+    <description>Crestron Video Conferencing</description>
+    <example>Crestron Webserver</example>
+    <param pos="0" name="hw.vendor" value="Crestron"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
+    <param pos="0" name="os.vendor" value="Crestron"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="Video Conferencing"/>
+  </fingerprint>
+  <fingerprint pattern="^OPNsense$">
+    <description>OPNsense Firewall</description>
+    <example>OPNsense</example>
+    <param pos="0" name="hw.vendor" value="OPNsense"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+    <param pos="0" name="hw.product" value="Firewall"/>
+    <param pos="0" name="os.vendor" value="OPNsense"/>
+    <param pos="0" name="os.product" value="FreeBSD"/>
+  </fingerprint>
+  <fingerprint pattern="^ELAN Controller$">
+    <description>ELAN Smart Home Controller</description>
+    <example>ELAN Controller</example>
+    <param pos="0" name="hw.vendor" value="ELAN"/>
+    <param pos="0" name="hw.device" value="Building Automation"/>
+    <param pos="0" name="hw.product" value="Home Controller"/>
+    <param pos="0" name="os.vendor" value="ELAN"/>
+    <param pos="0" name="os.family" value="Linux"/>
+  </fingerprint>
+  <fingerprint pattern="^STR_SettingServer$">
+    <description>Sony STR AV Receiver</description>
+    <example>STR_SettingServer</example>
+    <param pos="0" name="hw.vendor" value="Sony"/>
+    <param pos="0" name="hw.device" value="Media Server"/>
+    <param pos="0" name="hw.product" value="AV Receiver"/>
+  </fingerprint>
+  <fingerprint pattern="^MWS 0.01$">
+    <description>ANNKE IP Camera</description>
+    <example>MWS 0.01</example>
+    <param pos="0" name="hw.vendor" value="ANNKE"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.product" value="IP Camera"/>
+  </fingerprint>
 </fingerprints>

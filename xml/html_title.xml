@@ -62,6 +62,19 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^Sample Home Page for APACHEDFT Server$">
+    <description>IBM iSeries Apache Default Page</description>
+    <example>Sample Home Page for APACHEDFT Server</example>
+    <param pos="0" name="os.vendor" value="IBM"/>
+    <param pos="0" name="os.family" value="OS/400"/>
+    <param pos="0" name="os.product" value="OS/400"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:os_400:-"/>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="HTTPD"/>
+    <param pos="0" name="service.family" value="Apache"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^Apache Tomcat$">
     <description>Apache Tomcat with no version</description>
     <example>Apache Tomcat</example>
@@ -328,6 +341,14 @@
     <param pos="0" name="hw.vendor" value="Ubiquiti"/>
   </fingerprint>
 
+  <fingerprint pattern="^UniFi Security Gateway$">
+    <description>Ubiquiti Security Gateway</description>
+    <example>UniFi Security Gateway</example>
+    <param pos="0" name="hw.vendor" value="Ubiquiti"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.product" value="UniFi Security Gateway"/>
+  </fingerprint>
+
   <fingerprint pattern="^EdgeOS$">
     <description>Ubiquiti EdgeRouter/EdgeSwitch/etc</description>
     <example>EdgeOS</example>
@@ -350,11 +371,11 @@
   </fingerprint>
 
   <fingerprint pattern="^UniFi Video$">
-    <description>Various UniFi Video products by Ubiquiti Networks</description>
+    <description>Various UniFi Video web service</description>
     <example>UniFi Video</example>
-    <param pos="0" name="hw.vendor" value="Ubiquiti"/>
-    <param pos="0" name="hw.family" value="UniFi"/>
-    <param pos="0" name="hw.device" value="Web Cam"/>
+    <param pos="0" name="service.vendor" value="Ubiquiti"/>
+    <param pos="0" name="service.product" value="UniFi Video"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ubiquiti:unifi_video:-"/>
   </fingerprint>
 
   <fingerprint pattern="^UniFi NVR: Software Portal$">
@@ -552,14 +573,14 @@
     <description>Eltek Power Controller</description>
     <example>WebPower</example>
     <param pos="0" name="hw.vendor" value="Eltek"/>
-    <param pos="0" name="hw.device" value="Power Device"/>
+    <param pos="0" name="hw.device" value="Power device"/>
   </fingerprint>
 
   <fingerprint pattern="(Expert Power Control NET \d+x\d+) - (.*)$">
     <description>Gude Expert Power Control</description>
     <example host.name="Rack42" hw.product="Expert Power Control NET 2x6">Expert Power Control NET 2x6 - Rack42</example>
     <param pos="0" name="hw.vendor" value="Gude"/>
-    <param pos="0" name="hw.device" value="Power Device"/>
+    <param pos="0" name="hw.device" value="Power device"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="host.name"/>
   </fingerprint>
@@ -568,7 +589,7 @@
     <description>Sentry Switched CDU</description>
     <example>Sentry Switched CDU</example>
     <param pos="0" name="hw.vendor" value="ServerTech"/>
-    <param pos="0" name="hw.device" value="Power Device"/>
+    <param pos="0" name="hw.device" value="Power device"/>
     <param pos="0" name="hw.product" value="Sentry Switched CDU"/>
   </fingerprint>
 
@@ -576,7 +597,7 @@
     <description>Emerson Network Power Rack PDU Card</description>
     <example>Emerson Network Power Rack PDU Card</example>
     <param pos="0" name="hw.vendor" value="Emerson"/>
-    <param pos="0" name="hw.device" value="Power Device"/>
+    <param pos="0" name="hw.device" value="Power device"/>
     <param pos="0" name="hw.product" value="Rack PDU Card"/>
   </fingerprint>
 
@@ -587,7 +608,7 @@
     <example hw.vendor="Vertiv">Vertiv IntelliSlot Web Card</example>
     <example hw.vendor="Liebert">Liebert IntelliSlot Web Card</example>
     <param pos="1" name="hw.vendor"/>
-    <param pos="0" name="hw.device" value="Power Device"/>
+    <param pos="0" name="hw.device" value="Power device"/>
     <param pos="0" name="hw.product" value="IntelliSlot Web Card"/>
   </fingerprint>
 
@@ -595,7 +616,7 @@
     <description>ConnectUPS Web/SNMP Card</description>
     <example>ConnectUPS Web/SNMP Card</example>
     <param pos="0" name="hw.vendor" value="APC"/>
-    <param pos="0" name="hw.device" value="Power Device"/>
+    <param pos="0" name="hw.device" value="Power device"/>
     <param pos="0" name="hw.product" value="ConnectUPS Web Card"/>
   </fingerprint>
 
@@ -652,6 +673,20 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="NX-OS"/>
     <param pos="0" name="os.certainty" value="0.8"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cisco (?:IMC Login|Integrated Management Controller)">
+    <description>Cisco Integrated Management Controller</description>
+    <example>Cisco Integrated Management Controller</example>
+    <example>Cisco Integrated Management Controller Login</example>
+    <example>Cisco Integrated Management Controller WebUI</example>
+    <example>Cisco IMC Login Page</example>
+    <param pos="0" name="hw.device" value="Lights Out Management"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.product" value="IMC"/>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="IMC"/>
   </fingerprint>
 
   <fingerprint pattern="^HPE Virtual Connect Manager$">
@@ -895,7 +930,7 @@
     <description>Cisco IP Camera</description>
     <example>Cisco IP Camera</example>
     <param pos="0" name="hw.vendor" value="Cisco"/>
-    <param pos="0" name="hw.device" value="Web Cam"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
   </fingerprint>
 
   <fingerprint pattern="^Cisco TelePresence MCU">
@@ -939,6 +974,96 @@
     <param pos="1" name="os.version"/>
   </fingerprint>
 
+  <fingerprint pattern="^Stealthwatch Management Console$">
+    <description>Stealthwatch Management Console</description>
+    <example>Stealthwatch Management Console</example>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="Security Appliance"/>
+    <param pos="0" name="hw.product" value="Stealthwatch"/>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.device" value="Security Appliance"/>
+    <param pos="0" name="os.product" value="Stealthwatch"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cisco vManage$">
+    <description>Cisco vManage SD-WAN</description>
+    <example>Cisco vManage</example>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="SD-WAN Appliance"/>
+    <param pos="0" name="hw.product" value="vManage"/>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.device" value="SD-WAN Appliance"/>
+    <param pos="0" name="os.product" value="vManage"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Login - Cisco DNA Center$">
+    <description>Cisco DNA Center Appliance</description>
+    <example>Login - Cisco DNA Center</example>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="Network Management Device"/>
+    <param pos="0" name="hw.product" value="DNA Center"/>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.device" value="Network Management Device"/>
+    <param pos="0" name="os.product" value="DNA Center"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cisco (?:Enterprise )?NFVIS$">
+    <description>Cisco NFVIS</description>
+    <example>Cisco NFVIS</example>
+    <example>Cisco Enterprise NFVIS</example>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="Network Management Device"/>
+    <param pos="0" name="hw.product" value="NFVIS"/>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.device" value="Network Management Device"/>
+    <param pos="0" name="os.product" value="NFVIS"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cisco Systems Login$">
+    <description>Cisco WLC</description>
+    <example>Cisco Systems Login</example>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.device" value="Wireless Controller"/>
+    <param pos="0" name="os.product" value="Wireless Controller"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:wireless_lan_controller:-"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="Wireless Controller"/>
+    <param pos="0" name="hw.product" value="Wireless Controller"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Duo Access Gateway$">
+    <description>Duo Access Gateway</description>
+    <example>Duo Access Gateway</example>
+    <param pos="0" name="hw.vendor" value="Duo"/>
+    <param pos="0" name="hw.device" value="Security Appliance"/>
+    <param pos="0" name="hw.product" value="Access Gateway"/>
+    <param pos="0" name="os.vendor" value="Duo"/>
+    <param pos="0" name="os.device" value="Security Appliance"/>
+    <param pos="0" name="os.product" value="Access Gateway"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Login - Duo Network Gateway$">
+    <description>Duo Network Gateway</description>
+    <example>Login - Duo Network Gateway</example>
+    <param pos="0" name="hw.vendor" value="Duo"/>
+    <param pos="0" name="hw.device" value="Security Appliance"/>
+    <param pos="0" name="hw.product" value="Network Gateway"/>
+    <param pos="0" name="os.vendor" value="Duo"/>
+    <param pos="0" name="os.device" value="Security Appliance"/>
+    <param pos="0" name="os.product" value="Network Gateway"/>
+  </fingerprint>
+
+  <fingerprint pattern="^VBrick Rev">
+    <description>VBrick Rev</description>
+    <example>VBrick Rev</example>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
+    <param pos="0" name="hw.product" value="VBrick Rev"/>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.device" value="Video Conferencing"/>
+    <param pos="0" name="os.product" value="VBrick Rev"/>
+  </fingerprint>
+
   <fingerprint pattern="^(LinxVII-\S+) Remote Access$">
     <description>LinxVII-5S Data Terminal</description>
     <example hw.product="LinxVII-5S">LinxVII-5S Remote Access</example>
@@ -958,19 +1083,19 @@
     <description>Axis Communications Web Cam</description>
     <example>AXIS</example>
     <param pos="0" name="hw.vendor" value="AXIS"/>
-    <param pos="0" name="hw.device" value="Web Cam"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
     <param pos="0" name="os.vendor" value="AXIS"/>
-    <param pos="0" name="os.device" value="Web Cam"/>
     <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="Web cam"/>
   </fingerprint>
 
   <fingerprint pattern="^Hanwha Techwin$">
     <description>Hanwha Techwin IP Camera</description>
     <example>Hanwha Techwin</example>
     <param pos="0" name="hw.vendor" value="Hanwha Techwin"/>
-    <param pos="0" name="hw.device" value="Web Cam"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
     <param pos="0" name="os.vendor" value="Hanwha Techwin"/>
-    <param pos="0" name="os.device" value="Web Cam"/>
+    <param pos="0" name="os.device" value="Web cam"/>
     <param pos="0" name="os.family" value="Linux"/>
   </fingerprint>
 
@@ -979,10 +1104,10 @@
     <example hw.product="WV-NS202A">WV-NS202A Network Camera</example>
     <example hw.product="WV-NS954">WV-NS954 Network Camera</example>
     <param pos="0" name="hw.vendor" value="Panasonic"/>
-    <param pos="0" name="hw.device" value="Web Cam"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
     <param pos="1" name="hw.product"/>
     <param pos="0" name="os.vendor" value="Panasonic"/>
-    <param pos="0" name="os.device" value="Web Cam"/>
+    <param pos="0" name="os.device" value="Web cam"/>
     <param pos="0" name="os.family" value="Linux"/>
   </fingerprint>
 
@@ -1298,12 +1423,41 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:vmware:horizon:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^Welcome to VMware Site Recovery Manager$">
+    <description>VMware SRM</description>
+    <example>Welcome to VMware Site Recovery Manager</example>
+    <param pos="0" name="os.vendor" value="VMWare"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="hw.vendor" value="VMWare"/>
+    <param pos="0" name="hw.device" value="Appliance"/>
+    <param pos="0" name="hw.product" value="Site Recovery Manager"/>
+    <param pos="0" name="service.vendor" value="VMWare"/>
+    <param pos="0" name="service.product" value="Site Recovery Manager"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:vmware:site_recovery_manager:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^Graylog Web Interface$">
     <description>Graylog Web Interface</description>
     <example>Graylog Web Interface</example>
     <param pos="0" name="service.vendor" value="Graylog"/>
     <param pos="0" name="service.product" value="Graylog"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:graylog:graylog:-"/>
+  </fingerprint>
+
+ <fingerprint pattern="^Kibana$">
+    <description>Kibana Web Interface</description>
+    <example>Kibana</example>
+    <param pos="0" name="service.vendor" value="Kibana"/>
+    <param pos="0" name="service.product" value="Kibana"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:kibana:kibana:-"/>
+  </fingerprint>
+
+ <fingerprint pattern="^Grafana$">
+    <description>Grafana Web Interface</description>
+    <example>Grafana</example>
+    <param pos="0" name="service.vendor" value="Grafana"/>
+    <param pos="0" name="service.product" value="Grafana"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:grafana:grafana:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Symantec Endpoint Protection Manager$">
@@ -1336,6 +1490,141 @@
     <param pos="0" name="service.vendor" value="ManageEngine"/>
     <param pos="0" name="service.product" value="OpManager"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:manageengine:opmanager:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(ScanFront \d.+)Web Menu$">
+    <!-- no space between the product model and "Web Menu" in the title -->
+    <description>Canon ScanFront</description>
+    <example os.product="ScanFront 220" hw.product="ScanFront 220">ScanFront 220Web Menu</example>
+    <param pos="0" name="hw.device" value="Scanner"/>
+    <param pos="0" name="hw.vendor" value="Canon"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="os.device" value="Scanner"/>
+    <param pos="0" name="os.vendor" value="Canon"/>
+    <param pos="1" name="os.product"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CDVI Update$">
+    <description>CDVI Door Control System</description>
+    <example>CDVI Update</example>
+    <param pos="0" name="hw.vendor" value="CDVI"/>
+    <param pos="0" name="hw.device" value="Access Controller"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Liebert OpenComms Network Interface Card$">
+    <description>Liebert UPS</description>
+    <example>Liebert OpenComms Network Interface Card</example>
+    <param pos="0" name="hw.device" value="Power device"/>
+    <param pos="0" name="hw.vendor" value="Liebert"/>
+    <param pos="0" name="os.device" value="Power device"/>
+    <param pos="0" name="os.vendor" value="Liebert"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Excella Main Page$">
+    <description>MagTek Excella STX Check Scanner</description>
+    <example>Excella Main Page</example>
+    <param pos="0" name="hw.device" value="Check Scanner"/>
+    <param pos="0" name="hw.vendor" value="MagTek"/>
+    <param pos="0" name="hw.product" value="Excella"/>
+    <param pos="0" name="os.device" value="Check Scanner"/>
+    <param pos="0" name="os.vendor" value="MagTek"/>
+    <param pos="0" name="os.product" value="Excella"/>
+  </fingerprint>
+
+  <fingerprint pattern="^B426$">
+    <description>Bosch Security Systems Ethernet Module (Alarm Panel)</description>
+    <example>B426</example>
+    <param pos="0" name="hw.device" value="Alarm Panel"/>
+    <param pos="0" name="hw.vendor" value="Bosch"/>
+    <param pos="0" name="os.device" value="Alarm Panel"/>
+    <param pos="0" name="os.vendor" value="Bosch"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Citrix Login$">
+    <description>Citrix NetScaler</description>
+    <example>Citrix Login</example>
+    <param pos="0" name="os.vendor" value="Citrix"/>
+    <param pos="0" name="os.family" value="NetScaler"/>
+    <param pos="0" name="os.device" value="Network Management Device"/>
+    <param pos="0" name="os.product" value="NetScaler"/>
+  </fingerprint>
+
+  <fingerprint pattern="^HP (?:Color )?LaserJet ([^&amp;]+)&amp;">
+    <description>HP LaserJet</description>
+    <example hw.product="M1536dnf MFP">HP LaserJet M1536dnf MFP&amp;nbsp;&amp;nbsp;&amp;nbsp;1.1.1.1</example>
+    <param pos="0" name="hw.vendor" value="HP"/>
+    <param pos="0" name="hw.family" value="LaserJet"/>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Jamf Pro Login - Jamf Pro v(\S+)$">
+    <description>Jamf Pro</description>
+    <example service.version="10.14.0-t1563397490">Jamf Pro Login - Jamf Pro v10.14.0-t1563397490</example>
+    <param pos="0" name="service.vendor" value="JAMF"/>
+    <param pos="0" name="service.product" value="Pro"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:jamf:pro:-"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Keyper Systems Administration - Login$">
+    <description>Keyper Systems Administration - Login</description>
+    <example>Keyper Systems Administration - Login</example>
+    <param pos="0" name="hw.vendor" value="Keyper"/>
+    <param pos="0" name="hw.device" value="Access Control"/>
+    <param pos="0" name="hw.product" value="Key Management"/>
+  </fingerprint>
+
+  <fingerprint pattern="FireEye:\s*$">
+    <description>FireEye Investigation Analysis System Appliance</description>
+    <example>FireEye:</example>
+    <param pos="0" name="hw.vendor" value="FireEye"/>
+    <param pos="0" name="hw.product" value="IA Appliance"/>
+    <param pos="0" name="hw.device" value="Security Appliance"/>
+  </fingerprint>
+
+  <fingerprint pattern="^GigaVUE-OS$">
+    <description>Gigamon GigaVUE Appliance</description>
+    <example>GigaVUE-OS</example>
+    <param pos="0" name="hw.vendor" value="Gigamon"/>
+    <param pos="0" name="hw.device" value="Monitoring"/>
+    <param pos="0" name="hw.product" value="GigaVUE"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Pure Storage Login$">
+    <description>Pure Storage Appliance</description>
+    <example>Pure Storage Login</example>
+    <param pos="0" name="hw.vendor" value="Pure Storage"/>
+    <param pos="0" name="hw.device" value="NAS"/>
+    <param pos="0" name="hw.product" value="Appliance"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CRESTRON$">
+    <description>Crestron Video Conferencing</description>
+    <example>CRESTRON</example>
+    <param pos="0" name="hw.vendor" value="Crestron"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
+    <param pos="0" name="os.vendor" value="Crestron"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="Video Conferencing"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ELAN Viewer Installation$">
+    <description>ELAN Smart Home Controller</description>
+    <example>ELAN Viewer Installation</example>
+    <param pos="0" name="hw.vendor" value="ELAN"/>
+    <param pos="0" name="hw.device" value="Building Automation"/>
+    <param pos="0" name="hw.product" value="Home Controller"/>
+    <param pos="0" name="os.vendor" value="ELAN"/>
+    <param pos="0" name="os.family" value="Linux"/>
+  </fingerprint>
+
+  <fingerprint pattern="^iTach IP2IR Setup and Configuration$">
+    <description>iTach IP2IR</description>
+    <example>iTach IP2IR Setup and Configuration</example>
+    <param pos="0" name="hw.vendor" value="iTach"/>
+    <param pos="0" name="hw.device" value="Device"/>
+    <param pos="0" name="hw.product" value="IP2IR"/>
   </fingerprint>
 
 </fingerprints>

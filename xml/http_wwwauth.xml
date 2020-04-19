@@ -54,6 +54,17 @@
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
+  <fingerprint pattern="^Basic realm=&quot;(NetVanta [^&quot;]+)&quot;$" certainty="1.0">
+    <description>ADTRAN Netvanta Router</description>
+    <example hw.product="NetVanta 1238 PoE">Basic realm=&quot;NetVanta 1238 PoE&quot;</example>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="0" name="os.vendor" value="ADTRAN"/>
+    <param pos="0" name="os.family" value="NetVanta"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.vendor" value="ADTRAN"/>
+    <param pos="0" name="hw.family" value="NetVanta"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;Cisco_CCSP_CWMP_TCPCR&quot;.*$">
     <description>Generic Cisco CWMP/CPE equipment</description>
     <example>Basic realm="Cisco_CCSP_CWMP_TCPCR"</example>
@@ -447,7 +458,7 @@
     <description>Ignore Negotiate-only</description>
     <example>Negotiate</example>
   </fingerprint>
-  <!-- 
+  <!--
   Using a wildcard . instead of ['&quot;] in the following line will result in
   this fingerprint matching examples from other fingerprints.
   -->

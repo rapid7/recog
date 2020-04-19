@@ -989,7 +989,7 @@
     </example>
     <param pos="0" name="os.vendor" value="Flowpoint"/>
     <param pos="0" name="hw.device" value="Broadband router"/>
-    <param pos="0" name="hw.product" value="DSL router"/>
+    <param pos="0" name="hw.product" value="DSL Router"/>
     <param pos="1" name="hw.model"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
@@ -1071,6 +1071,9 @@
      gICAgICAgICAgICAgICAgICAgICAgICAgIApFbnRlciBBcHBsaWNhdGlvbiBOYW1lOg==
     </example>
     <param pos="0" name="os.vendor" value="IBM"/>
+    <param pos="0" name="os.family" value="OS/400"/>
+    <param pos="0" name="os.product" value="OS/400"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:os_400:-"/>
   </fingerprint>
   <fingerprint pattern="^This copy of the Ataman TCP Remote Logon Services">
     <description>Windows NT/2k/2k3 running Ataman telnet server</description>
@@ -1564,7 +1567,7 @@
   </fingerprint>
   <fingerprint pattern="^RICOH Maintenance Shell">
     <description>a Ricoh device</description>
-    <!-- RICOH Maintenance Shell.   
+    <!-- RICOH Maintenance Shell.
          User access verification.
          login:-->
     <example _encoding="base64">
@@ -1573,4 +1576,26 @@
     <param pos="0" name="os.vendor" value="Ricoh"/>
     <param pos="0" name="os.device" value="Printer"/>
   </fingerprint>
+
+<fingerprint pattern="Precise/RTCS v([\d\.]+) Telnet server">
+    <description>Liebert UPS</description>
+    <!-- Precise/RTCS v2.90.00 Telnet server
+         Service Port Manager Active
+
+        <Esc> Ends Session
+    -->
+    <example _encoding="base64" os.version="2.90.00">
+      UHJlY2lzZS9SVENTIHYyLjkwLjAwIFRlbG5ldCBzZXJ2ZXIKCgpTZXJ2aWNlIFBvcnQgTWFuYWdlciBBY3RpdmUKCjxFc2M+IEVuZHMgU2Vzc2lvbgoKroot
+    </example>
+    <param pos="0" name="hw.device" value="Power device"/>
+    <param pos="0" name="hw.vendor" value="Liebert"/>
+    <param pos="0" name="os.device" value="Power device"/>
+    <param pos="0" name="os.vendor" value="Liebert"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+
+
+
+
+
 </fingerprints>
