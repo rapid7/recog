@@ -113,7 +113,7 @@ describe Recog::DB do
               actual_capture_positions = []
               capture_number = 1
               Regexp::Scanner.scan(fp.regex).each do |token_parts|
-                if token_parts.first == :group  && ![:close, :passive, :options].include?(token_parts[1])
+                if token_parts.first == :group  && ![:close, :passive, :options, :options_switch].include?(token_parts[1])
                   actual_capture_positions << capture_number
                   capture_number += 1
                 end

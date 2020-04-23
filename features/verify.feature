@@ -1,4 +1,5 @@
 Feature: Verify
+  @no-clobber
   Scenario: No tests
     When I run `recog_verify no_tests.xml`
     Then it should pass with:
@@ -6,6 +7,7 @@ Feature: Verify
       SUMMARY: Test completed with 0 successful, 0 warnings, and 0 failures
       """
 
+  @no-clobber
   Scenario: Successful tests
     When I run `recog_verify successful_tests.xml`
     Then it should pass with:
@@ -13,6 +15,7 @@ Feature: Verify
       SUMMARY: Test completed with 4 successful, 0 warnings, and 0 failures
       """
 
+  @no-clobber
   Scenario: Tests with warnings, warnings enabled
     When I run `recog_verify tests_with_warnings.xml`
     Then it should fail with:
@@ -23,6 +26,7 @@ Feature: Verify
       """
     And the exit status should be 2
 
+  @no-clobber
   Scenario: Tests with warnings, warnings disabled
     When I run `recog_verify --no-warnings tests_with_warnings.xml`
     Then it should pass with:
@@ -30,6 +34,7 @@ Feature: Verify
       SUMMARY: Test completed with 1 successful, 0 warnings, and 0 failures
       """
 
+  @no-clobber
   Scenario: Tests with failures
     When I run `recog_verify tests_with_failures.xml`
     Then it should fail with:
