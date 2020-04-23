@@ -81,6 +81,13 @@
     <param pos="2" name="cisco.serial_number"/>
     <param pos="3" name="host.mac"/>
   </fingerprint>
+  <fingerprint pattern="^CN=SEP([a-fA-F0-9]{12}),O=TemporaryDefaultCertificate$">
+    <description>Cisco IP Phone without serial number</description>
+    <example host.mac="1C6A7AE57121">CN=SEP1C6A7AE57121,O=TemporaryDefaultCertificate</example>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="1" name="host.mac"/>
+  </fingerprint>
   <fingerprint pattern="^CN=Cambium WLAN AP,OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US$">
     <description>Cambium Networks WAP</description>
     <example>CN=Cambium WLAN AP,OU=Products,O=Cambium Networks Inc,L=San Jose,ST=CA,C=US</example>
@@ -244,9 +251,10 @@
     <param pos="0" name="os.family" value="ILOM"/>
     <param pos="0" name="os.product" value="ILOM"/>
   </fingerprint>
-  <fingerprint pattern="^CN=AMI,OU=Service Processors,O=American Megatrends Inc\.,L=Norcross,ST=Georgia,C=US$">
+  <fingerprint pattern="^CN=AMI,OU=Service Processors,O=American Megatrends Inc">
     <description>AMI MegaRAC LOM</description>
     <example>CN=AMI,OU=Service Processors,O=American Megatrends Inc.,L=Norcross,ST=Georgia,C=US</example>
+    <example>CN=AMI,OU=Service Processors,O=American Megatrends Inc,L=Atlanta,ST=Georgia,C=US</example>
     <param pos="0" name="hw.device" value="Lights Out Management"/>
     <param pos="0" name="hw.vendor" value="AMI"/>
     <param pos="0" name="hw.family" value="MegaRAC"/>
@@ -255,6 +263,29 @@
     <param pos="0" name="os.vendor" value="AMI"/>
     <param pos="0" name="os.family" value="MegaRAC"/>
     <param pos="0" name="os.product" value="MegaRAC"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=C-series CIMC,OU=PID:([^ ]+) SERIAL:([^,]+),O=Cisco">
+    <description>Cisco Integrated Management Controller</description>
+    <example cisco.serial_number="FCH18999AAA" cisco.imc_model="UCSC-C220-M3S">CN=C-series CIMC,OU=PID:UCSC-C220-M3S SERIAL:FCH18999AAA,O=Cisco Self Signed,L=San Jose,ST=California,C=US</example>
+    <param pos="0" name="hw.device" value="Lights Out Management"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.product" value="IMC"/>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="IMC"/>
+    <param pos="2" name="cisco.serial_number"/>
+    <param pos="1" name="cisco.imc_model"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=C220-(FCH[^,]+),OU=null,O=Cisco Systems Inc">
+    <description>Cisco Integrated Management Controller C220</description>
+    <example cisco.serial_number="FCH17999AAA">CN=C220-FCH17999AAA,OU=null,O=Cisco Systems Inc.,L=San Jose,ST=California,C=US</example>
+    <param pos="0" name="hw.device" value="Lights Out Management"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.product" value="IMC"/>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="IMC"/>
+    <param pos="1" name="cisco.serial_number"/>
   </fingerprint>
   <fingerprint pattern="^CN=avocent.com,OU=AESS,O=Avocent,L=Sunrise,ST=FL,C=US$">
     <description>Avocent KVM</description>
@@ -313,13 +344,55 @@
     <param pos="0" name="os.family" value="Linux"/>
   </fingerprint>
   <fingerprint pattern="^CN=ASA Temporary Self Signed Certificate$">
-    <description>Cisco ASA</description>
+    <description>Cisco ASA Temp Cert</description>
     <example>CN=ASA Temporary Self Signed Certificate</example>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.family" value="Adaptive Security Appliance"/>
+    <param pos="0" name="os.product" value="Adaptive Security Appliance"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:adaptive_security_appliance"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.family" value="Adaptive Security Appliance"/>
+    <param pos="0" name="hw.product" value="Adaptive Security Appliance"/>
     <param pos="0" name="hw.device" value="Firewall"/>
     <param pos="0" name="hw.cpe23" value="cpe:/h:cisco:adaptive_security_appliance:-"/>
-    <param pos="0" name="hw.vendor" value="Cisco"/>
-    <param pos="0" name="hw.product" value="Adaptive Security Appliance"/>
   </fingerprint>
+
+  <fingerprint pattern="^SERIALNUMBER=([a-zA-Z0-9]+),CN=DEVICE-vWLC,O=Cisco Virtual WLC$">
+    <description>Cisco vWLC</description>
+    <example cisco.serial_number="9C89M2088D1">SERIALNUMBER=9C89M2088D1,CN=DEVICE-vWLC,O=Cisco Virtual WLC</example>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.device" value="Wireless Controller"/>
+    <param pos="0" name="os.product" value="Virtual WLC"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:wireless_lan_controller:-"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="Wireless Controller"/>
+    <param pos="0" name="hw.product" value="Virtual WLC"/>
+    <param pos="1" name="cisco.serial_number"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=[a-zA-Z0-9\.\-\_]+,OU=DeviceSSL \(WebAdmin\),O=Cisco Systems Inc\.,C=US$">
+    <description>Cisco WLC</description>
+    <example>CN=169.254.1.1,OU=DeviceSSL (WebAdmin),O=Cisco Systems Inc.,C=US</example>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.device" value="Wireless Controller"/>
+    <param pos="0" name="os.product" value="Wireless Controller"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:wireless_lan_controller:-"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="Wireless Controller"/>
+    <param pos="0" name="hw.product" value="Wireless Controller"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=pca,OU=Cisco Prime Collaboration Manager,O=Cisco,L=San Jose,ST=California,C=US$">
+    <description>Cisco Primary Collaboration Manager</description>
+    <example>CN=pca,OU=Cisco Prime Collaboration Manager,O=Cisco,L=San Jose,ST=California,C=US</example>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.device" value="Network Management Device"/>
+    <param pos="0" name="os.product" value="Prime Collaboration Manager"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="Network Management Device"/>
+    <param pos="0" name="hw.product" value="Prime Collaboration Manager"/>
+  </fingerprint>
+
   <fingerprint pattern="^CN=synology\.com.*,O=Synology Inc\.,L=Taipei.*,C=TW$">
     <description>Synology NAS</description>
     <example>CN=synology.com,OU=FTP Team,O=Synology Inc.,L=Taipei,ST=Taiwan,C=TW</example>
@@ -385,6 +458,18 @@
     <param pos="0" name="os.device" value="Hypervisor"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
+  <fingerprint pattern="^CN.*,OU=SRM,O=VMware\\, Inc\.,L=Palo Alto,ST=California,C=US$">
+    <description>VMWare SRM</description>
+    <example>CN=SRM01,OU=SRM,O=VMware\, Inc.,L=Palo Alto,ST=California,C=US</example>
+    <param pos="0" name="os.vendor" value="VMWare"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="hw.vendor" value="VMWare"/>
+    <param pos="0" name="hw.device" value="Appliance"/>
+    <param pos="0" name="hw.product" value="Site Recovery Manager"/>
+    <param pos="0" name="service.vendor" value="VMWare"/>
+    <param pos="0" name="service.product" value="Site Recovery Manager"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:vmware:site_recovery_manager:-"/>
+  </fingerprint>
   <fingerprint pattern="^CN=IOS-Self-Signed-Certificate-">
     <description>Cisco IOS Default Certificate</description>
     <example>CN=IOS-Self-Signed-Certificate-4163115936</example>
@@ -441,6 +526,90 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="TelePresence"/>
     <param pos="0" name="os.device" value="Video Conferencing"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=MERCURY-([a-fA-F0-9]{12}),OU=Engineering,O=Crestron">
+    <description>Crestron Mercury</description>
+    <example host.mac="00107F1ABAA0">CN=MERCURY-00107F1ABAA0,OU=Engineering,O=Crestron Electronics\, Inc.,L=Rockleigh,ST=NJ,C=US</example>
+    <param pos="0" name="hw.vendor" value="Crestron"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
+    <param pos="0" name="hw.product" value="Mercury"/>
+    <param pos="0" name="os.vendor" value="Crestron"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="Video Conferencing"/>
+    <param pos="1" name="host.mac"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=(AM-\d+)-([a-fA-F0-9]{12}),OU=Engineering,O=Crestron">
+    <description>Crestron AirMedia</description>
+    <example hw.product="AM-200" host.mac="00107FB7B1E2">CN=AM-200-00107FB7B1E2,OU=Engineering,O=Crestron Electronics\, Inc.,L=Rockleigh,ST=NJ,C=US</example>
+    <param pos="0" name="hw.vendor" value="Crestron"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="os.vendor" value="Crestron"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="Video Conferencing"/>
+    <param pos="2" name="host.mac"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=Crestron,OU=Engineering,O=Crestron Electronics\\, Inc\.,L=Rockleigh,ST=NJ,C=US$">
+    <description>Crestron Video Conferencing</description>
+    <example>CN=Crestron,OU=Engineering,O=Crestron Electronics\, Inc.,L=Rockleigh,ST=NJ,C=US</example>
+    <param pos="0" name="hw.vendor" value="Crestron"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
+    <param pos="0" name="os.vendor" value="Crestron"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="Video Conferencing"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=ClickShare-\d+$">
+    <description>ClickShare Wireless Presenter</description>
+    <example>CN=ClickShare-4234234324</example>
+    <param pos="0" name="hw.vendor" value="Barco"/>
+    <param pos="0" name="hw.device" value="Wireless Presenter"/>
+    <param pos="0" name="hw.product" value="ClickShare"/>
+    <param pos="0" name="os.vendor" value="Barco"/>
+    <param pos="0" name="os.family" value="ClickShareOS"/>
+    <param pos="0" name="os.device" value="Wireless Presenter"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=Solstice,OU=Solstice,O=Mersive Technologies Inc,L=Denver,ST=CO,C=US$">
+    <description>SolsticePod</description>
+    <example>CN=Solstice,OU=Solstice,O=Mersive Technologies Inc,L=Denver,ST=CO,C=US</example>
+    <param pos="0" name="hw.vendor" value="Mersive"/>
+    <param pos="0" name="hw.device" value="Wireless Presenter"/>
+    <param pos="0" name="hw.product" value="SolsticePod"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=Controller,OU=FW,O=ExtronElectronics,ST=CA,C=US$">
+    <description>Extron MediaLink Controller</description>
+    <example>CN=Controller,OU=FW,O=ExtronElectronics,ST=CA,C=US</example>
+    <param pos="0" name="hw.vendor" value="Extron"/>
+    <param pos="0" name="hw.device" value="Display Controller"/>
+    <param pos="0" name="hw.product" value="MediaLink Controller"/>
+    <param pos="0" name="os.vendor" value="Extron"/>
+    <param pos="0" name="os.family" value="Linux"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=IPLP,OU=ControlSystems,O=ExtronElectronics,L=Anaheim,ST=CA,C=US$">
+    <description>Extron IPLP </description>
+    <example>CN=IPLP,OU=ControlSystems,O=ExtronElectronics,L=Anaheim,ST=CA,C=US</example>
+    <param pos="0" name="hw.vendor" value="Extron"/>
+    <param pos="0" name="hw.device" value="Display Controller"/>
+    <param pos="0" name="hw.product" value="IP Link Control Processor"/>
+    <param pos="0" name="os.vendor" value="Extron"/>
+    <param pos="0" name="os.family" value="Linux"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=TLP,OU=ControlSystems,O=ExtronElectronics,L=Anaheim,ST=CA,C=US$">
+    <description>Extron TLP </description>
+    <example>CN=TLP,OU=ControlSystems,O=ExtronElectronics,L=Anaheim,ST=CA,C=US</example>
+    <param pos="0" name="hw.vendor" value="Extron"/>
+    <param pos="0" name="hw.device" value="Display Controller"/>
+    <param pos="0" name="hw.product" value="TouchLink Control Panel"/>
+    <param pos="0" name="os.vendor" value="Extron"/>
+    <param pos="0" name="os.family" value="Linux"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=ShareLink-Pro-.*,OU=AVSystems,O=ExtronElectronics">
+    <description>Extron ShareLink Pro </description>
+    <example>CN=ShareLink-Pro-18-99-99.local.com,OU=AVSystems,O=ExtronElectronics,L=Anaheim,ST=CA,C=US</example>
+    <param pos="0" name="hw.vendor" value="Extron"/>
+    <param pos="0" name="hw.device" value="Display Controller"/>
+    <param pos="0" name="hw.product" value="ShareLink Pro"/>
+    <param pos="0" name="os.vendor" value="Extron"/>
+    <param pos="0" name="os.family" value="Linux"/>
   </fingerprint>
   <fingerprint pattern="^CN=VMM APIC,OU=VMM\d+,O=Cisco,L=San Jose,ST=CA,C=US$">
     <description>Cisco APIC</description>
@@ -602,6 +771,25 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.device" value="Wireless Controller"/>
   </fingerprint>
+  <fingerprint pattern="^CN=unifivideo-app$">
+    <description>UniFi Video App</description>
+    <example>CN=unifivideo-app</example>
+    <param pos="0" name="os.vendor" value="Ubiquiti"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="hw.vendor" value="Ubiquiti"/>
+    <param pos="0" name="hw.family" value="UniFi"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=camera\.ubnt\.dev,">
+    <description>UniFi Video Camera</description>
+    <example>CN=camera.ubnt.dev,OU=devint,O=Ubiquiti Networks Inc.,L=Taipei,C=TW</example>
+    <param pos="0" name="hw.vendor" value="Ubiquiti"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.product" value="Camera"/>
+    <param pos="0" name="os.vendor" value="Ubiquiti"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="Web cam"/>
+  </fingerprint>
   <fingerprint pattern="^CN=UBNT,OU=Technical Support,O=Ubiquiti Networks Inc\.,L=San Jose,ST=CA,C=US$">
     <description>Ubiquiti Controller</description>
     <example>CN=UBNT,OU=Technical Support,O=Ubiquiti Networks Inc.,L=San Jose,ST=CA,C=US</example>
@@ -641,16 +829,6 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.device" value="DVR"/>
   </fingerprint>
-  <fingerprint pattern="^CN=camera.ubnt.dev,OU=devint,O=Ubiquiti Networks Inc.,L=Taipei,C=TW$">
-    <description>Ubiquiti Video Camera</description>
-    <example>CN=camera.ubnt.dev,OU=devint,O=Ubiquiti Networks Inc.,L=Taipei,C=TW</example>
-    <param pos="0" name="hw.vendor" value="Ubiquiti"/>
-    <param pos="0" name="hw.device" value="Web Cam"/>
-    <param pos="0" name="hw.product" value="Camera"/>
-    <param pos="0" name="os.vendor" value="Ubiquiti"/>
-    <param pos="0" name="os.family" value="Linux"/>
-    <param pos="0" name="os.device" value="Web Cam"/>
-  </fingerprint>
   <fingerprint pattern="^CN=GreenWave Systems,OU=PKI,O=GreenWave Systems,L=Irvine,ST=California,C=US$">
     <description>Verizon / Greenwave FIOS Router</description>
     <example>CN=GreenWave Systems,OU=PKI,O=GreenWave Systems,L=Irvine,ST=California,C=US</example>
@@ -659,8 +837,15 @@
     <param pos="0" name="hw.product" value="Verizon FiOS Router"/>
   </fingerprint>
   <fingerprint pattern="^CN=PoliWall,OU=Bandura Labs,O=Bandura\\, LLC\.,L=Lake Saint Louis,ST=Missouri,C=US$">
-    <description>PoliWall Firewall</description>
+    <description>PoliWall Firewall Original</description>
     <example>CN=PoliWall,OU=Bandura Labs,O=Bandura\, LLC.,L=Lake Saint Louis,ST=Missouri,C=US</example>
+    <param pos="0" name="hw.vendor" value="Bandura Labs"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+    <param pos="0" name="hw.product" value="PoliWall"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=poliwall,OU=IT,O=Bandura,L=St\. Louis,ST=Missouri,C=US$">
+    <description>PoliWall Firewall Newer Cert</description>
+    <example>CN=poliwall,OU=IT,O=Bandura,L=St. Louis,ST=Missouri,C=US</example>
     <param pos="0" name="hw.vendor" value="Bandura Labs"/>
     <param pos="0" name="hw.device" value="Firewall"/>
     <param pos="0" name="hw.product" value="PoliWall"/>
@@ -674,6 +859,34 @@
     <param pos="0" name="hw.product" value="Firewall"/>
     <param pos="0" name="os.vendor" value="pfSense"/>
     <param pos="0" name="os.product" value="FreeBSD"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=Common Name \(eg\\, YOUR name\),OU=Organizational Unit Name \(eg\\, section\),O=CompanyName,L=Somecity,ST=Somewhere,C=US$">
+    <description>pfSense Firewall Default Certificate</description>
+    <example>CN=Common Name (eg\, YOUR name),OU=Organizational Unit Name (eg\, section),O=CompanyName,L=Somecity,ST=Somewhere,C=US</example>
+    <param pos="0" name="hw.vendor" value="pfSense"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+    <param pos="0" name="hw.product" value="Firewall"/>
+    <param pos="0" name="os.vendor" value="pfSense"/>
+    <param pos="0" name="os.product" value="FreeBSD"/>
+  </fingerprint>
+  <fingerprint pattern="^O=OPNsense,L=Middelharnis,ST=Zuid-Holland,C=NL$">
+    <description>OPNsense Firewall</description>
+    <example>O=OPNsense,L=Middelharnis,ST=Zuid-Holland,C=NL</example>
+    <param pos="0" name="hw.vendor" value="OPNsense"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+    <param pos="0" name="hw.product" value="Firewall"/>
+    <param pos="0" name="os.vendor" value="OPNsense"/>
+    <param pos="0" name="os.product" value="FreeBSD"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=NetVanta,O=ADTRAN\\, Inc\.,L=Huntsville,ST=AL,C=US$" certainty="0.9">
+    <description>ADTRAN Netvanta Router</description>
+    <example>CN=NetVanta,O=ADTRAN\, Inc.,L=Huntsville,ST=AL,C=US</example>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="0" name="os.vendor" value="ADTRAN"/>
+    <param pos="0" name="os.family" value="NetVanta"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.vendor" value="ADTRAN"/>
+    <param pos="0" name="hw.family" value="NetVanta"/>
   </fingerprint>
   <fingerprint pattern="^CN=SophosApplianceCertificate">
     <description>Sophos Appliance</description>
@@ -700,6 +913,13 @@
     <param pos="0" name="hw.device" value="Access Controller"/>
     <param pos="1" name="host.mac"/>
     <param pos="2" name="hw.product"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=Mercury Security EP-series,O=Mercury Security Corp\.,L=Long Beach,ST=CA,C=US$">
+    <description>Mercurity Security (now HID Global) No MAC</description>
+    <example>CN=Mercury Security EP-series,O=Mercury Security Corp.,L=Long Beach,ST=CA,C=US</example>
+    <param pos="0" name="hw.vendor" value="Mercury Security"/>
+    <param pos="0" name="hw.device" value="Access Controller"/>
+    <param pos="0" name="hw.product" value="EP-series"/>
   </fingerprint>
   <fingerprint pattern="^CN=securelogin.arubanetworks.com,">
     <description>Aruba Wireless Controller</description>
@@ -769,6 +989,26 @@
     <param pos="0" name="hw.vendor" value="Canon"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="0" name="os.vendor" value="Canon"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=ScanFront$">
+    <description>Canon ScanFront Simple</description>
+    <example>CN=ScanFront</example>
+    <param pos="0" name="hw.device" value="Scanner"/>
+    <param pos="0" name="hw.vendor" value="Canon"/>
+    <param pos="0" name="hw.product" value="ScanFront"/>
+    <param pos="0" name="os.device" value="Scanner"/>
+    <param pos="0" name="os.vendor" value="Canon"/>
+    <param pos="0" name="os.product" value="ScanFront"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=ScanFront,OU=IMS,O=CANON ELECTRONICS INC\.,L=Minato-ku,ST=Tokyo,C=JP$">
+    <description>Canon ScanFront Full</description>
+    <example>CN=ScanFront,OU=IMS,O=CANON ELECTRONICS INC.,L=Minato-ku,ST=Tokyo,C=JP</example>
+    <param pos="0" name="hw.device" value="Scanner"/>
+    <param pos="0" name="hw.vendor" value="Canon"/>
+    <param pos="0" name="hw.product" value="ScanFront"/>
+    <param pos="0" name="os.device" value="Scanner"/>
+    <param pos="0" name="os.vendor" value="Canon"/>
+    <param pos="0" name="os.product" value="ScanFront"/>
   </fingerprint>
   <fingerprint pattern="^CN=tnsappliance.*,O=Tenable Network Security\\, Inc\.,L=Columbia,ST=Maryland,C=US$">
     <description>Tenable Appliance</description>
@@ -879,11 +1119,22 @@
     <description>Axis Communications Web Cam</description>
     <example host.mac="accc8ea31abf">CN=axis-accc8ea31abf,O=Axis Communications AB</example>
     <param pos="0" name="hw.vendor" value="AXIS"/>
-    <param pos="0" name="hw.device" value="Web Cam"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
     <param pos="0" name="os.vendor" value="AXIS"/>
-    <param pos="0" name="os.device" value="Web Cam"/>
+    <param pos="0" name="os.device" value="Web cam"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="1" name="host.mac"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=([^,]+),OU=Nortek,O=ELAN,L=StuddardMD,ST=[^,]+,C=US$">
+    <description>ELAN Web Cam</description>
+    <example host.name="ServerRoom">CN=ServerRoom,OU=Nortek,O=ELAN,L=StuddardMD,ST=10000,C=US</example>
+    <param pos="0" name="hw.vendor" value="ELAN"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.product" value="HDIPCam"/>
+    <param pos="0" name="os.vendor" value="ELAN"/>
+    <param pos="0" name="os.device" value="Web cam"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^CN=Dell_OpenManage.*,OU=PG,O=Dell Inc\.,ST=Texas,C=US$">
     <description>Dell OpenManage</description>
@@ -956,5 +1207,62 @@
     <param pos="0" name="hw.product" value="Hue"/>
     <param pos="0" name="hw.device" value="Light Bulb"/>
     <param pos="1" name="host.mac_eui64"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=www\.ibm\.com,OU=IBM i Service,L=Rochester,ST=Minnesota,C=US$">
+    <description>IBM iSeries Service Console</description>
+    <example>CN=www.ibm.com,OU=IBM i Service,L=Rochester,ST=Minnesota,C=US</example>
+    <param pos="0" name="os.vendor" value="IBM"/>
+    <param pos="0" name="os.family" value="OS/400"/>
+    <param pos="0" name="os.product" value="OS/400"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:os_400:-"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=.*\.ip\.kaptivo\.live,">
+    <description>Kaptivo Whiteboard</description>
+    <example>CN=*.ip.kaptivo.live,OU=Domain Control Validated+OU=PositiveSSL Wildcard</example>
+    <param pos="0" name="hw.vendor" value="Kaptivo"/>
+    <param pos="0" name="hw.product" value="Whiteboard"/>
+    <param pos="0" name="hw.device" value="Whiteboard"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=.*,OU=Network Security Management,O=FireEye\\, Inc\.,L=Milpitas,ST=California,C=US$">
+    <description>FireEye Appliance</description>
+    <example>CN=noc-feye-ex2,OU=Network Security Management,O=FireEye\, Inc.,L=Milpitas,ST=California,C=US</example>
+    <param pos="0" name="hw.vendor" value="FireEye"/>
+    <param pos="0" name="hw.product" value="Appliance"/>
+    <param pos="0" name="hw.device" value="Security Appliance"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=.*,OU=IA,O=FireEye,L=Charlottesville,ST=Virginia,C=US$">
+    <description>FireEye Investigation Analysis System Appliance</description>
+    <example>CN=noc-feye-ia2,OU=IA,O=FireEye,L=Charlottesville,ST=Virginia,C=US</example>
+    <param pos="0" name="hw.vendor" value="FireEye"/>
+    <param pos="0" name="hw.product" value="IA Appliance"/>
+    <param pos="0" name="hw.device" value="Security Appliance"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=.*,OU=Gigamon Network Visibility Systems,O=Gigamon Inc\.,L=Santa Clara,ST=California,C=US$">
+    <description>Gigamon GigaVUE Appliance</description>
+    <example>CN=gvue01,OU=Gigamon Network Visibility Systems,O=Gigamon Inc.,L=Santa Clara,ST=California,C=US</example>
+    <param pos="0" name="hw.vendor" value="Gigamon"/>
+    <param pos="0" name="hw.device" value="Monitoring"/>
+    <param pos="0" name="hw.product" value="GigaVUE"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=.*,OU=Telliris,O=DAC Systems,L=Shelton,ST=Connecticut,C=US$">
+    <description>Telliris IVR</description>
+    <example>CN=Telliris-IVR,OU=Telliris,O=DAC Systems,L=Shelton,ST=Connecticut,C=US</example>
+    <param pos="0" name="hw.vendor" value="Telliris"/>
+    <param pos="0" name="hw.device" value="Voice Appliance"/>
+    <param pos="0" name="hw.product" value="IVR"/>
+  </fingerprint>
+ <fingerprint pattern="^CN=SLS,O=Lantronix,L=Irvine,ST=California,C=US$">
+    <description>Lantronix SLS terminal server</description>
+    <example>CN=SLS,O=Lantronix,L=Irvine,ST=California,C=US</example>
+    <param pos="0" name="hw.vendor" value="Lantronix"/>
+    <param pos="0" name="hw.device" value="Device Server"/>
+    <param pos="0" name="hw.product" value="SLS"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=Tintri Default Certificate,OU=Tintri Server Certificate,O=Tintri\\, Inc\.,L=Mountain View,ST=CA,C=US$">
+    <description>Tintri Storage Appliance</description>
+    <example>CN=Tintri Default Certificate,OU=Tintri Server Certificate,O=Tintri\, Inc.,L=Mountain View,ST=CA,C=US</example>
+    <param pos="0" name="hw.vendor" value="Tintro"/>
+    <param pos="0" name="hw.device" value="NAS"/>
+    <param pos="0" name="hw.product" value="Storage Appliance"/>
   </fingerprint>
 </fingerprints>

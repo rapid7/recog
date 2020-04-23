@@ -582,6 +582,9 @@ more text</example>
     <param pos="0" name="hw.device" value="Web cam"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="hw.version"/>
+    <param pos="0" name="os.vendor" value="AXIS"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="Web cam"/>
   </fingerprint>
   <fingerprint pattern="(?i)^AXIS (\S+) (?:(?:Mk II )?Video|IO Audio) (?:Encoder|Encoder Blade|Module|Server|Decoder) (\S+) .*">
     <description>Axis Audio/Video encoders/servers</description>
@@ -600,7 +603,7 @@ more text</example>
     <description>Axis Door Controllers</description>
     <example hw.product="A1001" hw.version="1.65.1.1">AXIS A1001 Network Door Controller 1.65.1.1 (2018) ready.</example>
     <param pos="0" name="hw.vendor" value="Axis"/>
-    <param pos="0" name="hw.device" value="Building Automation"/>
+    <param pos="0" name="hw.device" value="Access Controller"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="hw.version"/>
   </fingerprint>
@@ -724,6 +727,15 @@ more text</example>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="0" name="hw.vendor" value="Lexmark"/>
     <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+  <fingerprint pattern="^220 ECOSYS ([^\s]+) FTP server$">
+    <description>Kyocera Multifunction Device</description>
+    <example hw.product="P2135dn">220 ECOSYS P2135dn FTP server</example>
+    <param pos="0" name="os.vendor" value="Kyocera"/>
+    <param pos="0" name="os.device" value="Multifunction Device"/>
+    <param pos="0" name="hw.vendor" value="Kyocera"/>
+    <param pos="0" name="hw.device" value="Multifunction Device"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
   <fingerprint pattern="^(?:Tornado-)?VxWorks \((?:VxWorks)?([^\)]+)\) FTP server(?: ready)?\.?$" flags="REG_ICASE">
@@ -1121,6 +1133,17 @@ more text</example>
     <param pos="0" name="hw.device" value="Print server"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
+  <fingerprint pattern="^(ET(\S+)) Dell (\S+ Laser Printer) FTP Server">
+    <description>Dell Laser Printer</description>
+    <example host.name="ET0021B71A1111" host.mac="0021B71A1111" hw.product="2350dn Laser Printer">ET0021B71A1111 Dell 2350dn Laser Printer FTP Server NR.APS.N449 ready.</example>
+    <param pos="0" name="os.vendor" value="Dell"/>
+    <param pos="0" name="os.device" value="Printer"/>
+    <param pos="0" name="hw.vendor" value="Dell"/>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="host.mac"/>
+    <param pos="3" name="hw.product"/>
+  </fingerprint>
   <fingerprint pattern="^(\S+) FTP server \(Version \S+ \w+ \w+ \d{1,2} \d{1,2}:\d{1,2}:\d{1,2} [A-Z]+ (?:1|2)\d{3}\) ready\.?$">
     <description>Generic/unknown FTP Server found on HP-UX and AIX systems</description>
     <example host.name="host.example.com">host.example.com FTP server (Version 4.1 Sat Sep 7 14:31:53 CDT 2002) ready.</example>
@@ -1509,4 +1532,22 @@ more text</example>
     <param pos="0" name="service.vendor" value="Dreamhost"/>
     <param pos="0" name="service.product" value="FTP Server"/>
   </fingerprint>
+  <fingerprint pattern="^QTCP at ([a-zA-Z0-9\.\_\-]+)$">
+    <description>IBM iSeries FTP</description>
+    <example host.name="core.bank.local.">QTCP at core.bank.local.</example>
+    <param pos="0" name="os.vendor" value="IBM"/>
+    <param pos="0" name="os.family" value="OS/400"/>
+    <param pos="0" name="os.product" value="OS/400"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:os_400:-"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+  <fingerprint pattern="^HomeLogic FTP Server">
+    <description>ELAN Smart Home Controller</description>
+    <example>HomeLogic FTP Server Please Give User Name</example>
+    <param pos="0" name="hw.vendor" value="ELAN"/>
+    <param pos="0" name="hw.device" value="Building Automation"/>
+    <param pos="0" name="hw.product" value="Home Controller"/>
+    <param pos="0" name="os.vendor" value="ELAN"/>
+    <param pos="0" name="os.family" value="Linux"/>
+  </fingerprint>  
 </fingerprints>

@@ -1293,6 +1293,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="8.0"/>
+    <param pos="0" name="hw.product" value="Raspberry Pi"/>
   </fingerprint>
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Raspbian-\d\d?\+deb9u\d+)$">
     <description>OpenSSH running on Raspbian (Debian 9 "Stretch" based)</description>
@@ -1308,6 +1309,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="9.0"/>
+    <param pos="0" name="hw.product" value="Raspberry Pi"/>
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(7\.9p1)\s+(Raspbian-(?:10|\d\d?\+deb10u\d+))$">
     <description>OpenSSH running on Raspbian (Debian 10 "Buster" based)</description>
@@ -1323,6 +1325,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="10.0"/>
+    <param pos="0" name="hw.product" value="Raspberry Pi"/>
   </fingerprint>
   <fingerprint pattern="^OpenSSH_(8\.1p1)\s+(Raspbian-(?:1|\d\d?\+deb11u\d+))$">
     <description>OpenSSH running on Raspbian (Debian 11 "Bullseye" based)</description>
@@ -1338,6 +1341,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="11.0"/>
+    <param pos="0" name="hw.product" value="Raspberry Pi"/>
   </fingerprint>
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Raspbian-\d\d?)$">
     <description>OpenSSH running on Raspbian (Debian, unknown release)</description>
@@ -1352,6 +1356,7 @@
     <param pos="0" name="os.vendor" value="Raspbian"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="hw.product" value="Raspberry Pi"/>
   </fingerprint>
   <!-- Miscellaneous -->
   <fingerprint pattern="^OpenSSH_(.*)\+(CAN-[0-9]{4}-[0-9]{4})$">
@@ -1480,12 +1485,12 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:-"/>
   </fingerprint>
   <fingerprint pattern="^CISCO_WLC$">
-    <description>SSH banner from a Cisco Wireless LAN Controller (WLC)</description>
+    <description>SSH banner from a Cisco WLC (WLC)</description>
     <example>CISCO_WLC</example>
     <param pos="0" name="service.vendor" value="Cisco"/>
     <param pos="0" name="service.product" value="SSH"/>
     <param pos="0" name="os.vendor" value="Cisco"/>
-    <param pos="0" name="os.product" value="Wireless LAN Controller"/>
+    <param pos="0" name="os.product" value="Wireless Controller"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:wireless_lan_controller:-"/>
   </fingerprint>
   <fingerprint pattern="(?i)^Cleo (\S+)/(\S+) SSH FTP server$">
