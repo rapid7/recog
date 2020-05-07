@@ -745,10 +745,11 @@
 
     Reference: https://mariadb.org/explanation-on-mariadb-10-0/
   -->
-  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB-cll-lve$" flags="REG_ICASE">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB(-log)?-cll-lve$" flags="REG_ICASE">
     <description>MariaDB MariaDB on CloudLinux in a Lightweight Virtual Environment (LVE)</description>
     <example service.version="5.5.34">5.5.34-MariaDB-cll-lve</example>
     <example service.version="10.0.15">5.5.5-10.0.15-MariaDB-cll-lve</example>
+    <example service.version="10.2.23">5.5.5-10.2.23-MariaDB-log-cll-lve</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -931,8 +932,59 @@
     <param pos="0" name="os.version" value="16.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:13.10"/>
   </fingerprint>
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB-1~yakkety-(?:wsrep)?$" flags="REG_ICASE">
+    <description>MariaDB MariaDB on Ubntu 16.10 (Yakkety)</description>
+    <example service.version="10.0.28">5.5.5-10.0.28-MariaDB-1~yakkety-wsrep</example>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:mariadb:mariadb:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="16.10"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:13.10"/>
+  </fingerprint>
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB.+~wily(?:-log)?$" flags="REG_ICASE">
+    <description>MariaDB MariaDB on Ubuntu 15.10 (wily)</description>
+    <example service.version="10.3.22">5.5.5-10.3.22-MariaDB-1:10.3.22+maria~wily</example>
+    <example service.version="10.4.12">5.5.5-10.4.12-MariaDB-1:10.4.12+maria~wily-log</example>
+    <example service.version="10.1.11">5.5.5-10.1.11-MariaDB-1~wily-log</example>
+    <example service.version="10.1.16">5.5.5-10.1.16-MariaDB-1~wily</example>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:mariadb:mariadb:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="15.10"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:13.10"/>
+  </fingerprint>
+    <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB.+~vivid(?:-log)?$" flags="REG_ICASE">
+    <description>MariaDB</description>
+    <example service.version="10.0.24">5.5.5-10.0.24-MariaDB-1~vivid</example>
+    <example service.version="10.1.10">5.5.5-10.1.10-MariaDB-1~vivid-log</example>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:mariadb:mariadb:{service.version}"/>
+  </fingerprint>
+      <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB.+~vivid-wsrep(?:-log)?$" flags="REG_ICASE">
+    <description>MariaDB</description>
+    <example service.version="10.0.24">5.5.5-10.0.24-MariaDB-1~vivid-wsrep</example>
+    <example service.version="10.2.9">5.5.5-10.2.9-MariaDB-1~vivid-wsrep-log</example>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:mariadb:mariadb:{service.version}"/>
+  </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB.+~eoan(?:-log)?$" flags="REG_ICASE">
-    <description>MariaDB MariaDB on Ubntu 19.10 (Yakkety)</description>
+    <description>MariaDB MariaDB on Ubntu 19.10 (Eoan)</description>
     <example service.version="10.3.22">5.5.5-10.3.22-MariaDB-1:10.3.22+maria~eoan</example>
     <example service.version="10.4.12">5.5.5-10.4.12-MariaDB-1:10.4.12+maria~eoan-log</example>
     <param pos="1" name="service.version"/>
