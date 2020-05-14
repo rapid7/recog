@@ -964,7 +964,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:13.10"/>
   </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB.+~vivid(?:-log)?$" flags="REG_ICASE">
-    <description>MariaDB</description>
+    <description>MariaDB Vivid</description>
     <example service.version="10.0.24">5.5.5-10.0.24-MariaDB-1~vivid</example>
     <example service.version="10.1.10">5.5.5-10.1.10-MariaDB-1~vivid-log</example>
     <param pos="1" name="service.version"/>
@@ -1269,6 +1269,7 @@
     <example service.version="10.0.28">5.5.5-10.0.28-MariaDB-2+b1</example>
     <example service.version="10.1.29">5.5.5-10.1.29-MariaDB-6+b1</example>
     <example service.version="10.3.13">5.7.8-10.3.13-MariaDB-1</example>
+    <example service.version="5.5.60">5.5.60-MariaDB</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -1279,16 +1280,6 @@
     <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)MariaDB-\d{1,2}\:(\d{1,2}\.\d{1,2}\.\d{1,2})$" flags="REG_ICASE">
     <description>MariaDB alternate version format</description>
     <example service.version="10.3.13">5.7.8-MariaDB-1:10.3.13</example>
-    <param pos="1" name="service.version"/>
-    <param pos="0" name="service.vendor" value="MariaDB"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MariaDB"/>
-    <param pos="0" name="service.edition" value="Galera Cluster"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:mariadb:mariadb:{service.version}"/>
-  </fingerprint>
-  <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-f\d]{1,3})-MariaDB$" flags="REG_ICASE">
-    <description>Maria DB</description>
-    <example service.version="5.5.60">5.5.60-MariaDB</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -1383,7 +1374,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:mariadb:mariadb:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-Maria(?:DB)?[-\d]*(?:-debug)?(?:-ga)?(?:-beta)?(?:-mariadb)?[~\.\d]*(?:-log)?$" flags="REG_ICASE">
-    <description>MariaDB MariaDB</description>
+    <description>MariaDB Logging</description>
     <example service.version="5.1.39">5.1.39-maria-beta</example>
     <example service.version="5.3.5">5.3.5-MariaDB-ga-mariadb113-log</example>
     <example service.version="5.5.24">5.5.24-MariaDB-mariadb1~0.1</example>
@@ -1495,8 +1486,8 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:9.0"/>
   </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)(\d*\.\d*\.\d*)-MariaDB\S*deb\S*$" flags="REG_ICASE">
-   <example service.version="10.1.23">5.5.5-10.1.23-MariaDB-9+deb9u1</example>
-   <description>MariaDB runnin on Debian 9.1(Stretch)</description>
+    <description>MariaDB runnin on Debian 9.1(Stretch)</description>
+    <example service.version="10.1.23">5.5.5-10.1.23-MariaDB-9+deb9u1</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
