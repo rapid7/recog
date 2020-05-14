@@ -745,7 +745,7 @@
 
     Reference: https://mariadb.org/explanation-on-mariadb-10-0/
   -->
-  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB(-log)?-cll-lve$" flags="REG_ICASE">
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB(?:-log)?-cll-lve$" flags="REG_ICASE">
     <description>MariaDB on CloudLinux in a Lightweight Virtual Environment (LVE)</description>
     <example service.version="5.5.34">5.5.34-MariaDB-cll-lve</example>
     <example service.version="10.0.15">5.5.5-10.0.15-MariaDB-cll-lve</example>
@@ -1277,7 +1277,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:mariadb:mariadb:{service.version}"/>
   </fingerprint>
     <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)MariaDB-\d{1,2}\:(\d{1,2}\.\d{1,2}\.\d{1,2})$" flags="REG_ICASE">
-    <description>MariaDB</description>
+    <description>MariaDB alternate version format</description>
     <example service.version="10.3.13">5.7.8-MariaDB-1:10.3.13</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
@@ -1466,6 +1466,7 @@
     <param pos="0" name="service.product" value="MariaDB"/>
   </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)(\d*\.\d*\.\d*)-MariaDB.*-*~bionic?(?:-log)?$" flags="REG_ICASE">
+  	<description>Mariadb running on Ubuntu Bionic (18.04)</description>
 	<example service.version="10.2.17">5.5.5-10.2.17-MariaDB-1:10.2.17+maria~bionic</example>
 	<example service.version="10.2.14">5.5.5-10.2.14-MariaDB-1:10.2.14+maria~bionic-log</example>
 	<example service.version="10.1.40">5.5.5-10.1.40-MariaDB-1~bionic</example>
@@ -1474,6 +1475,10 @@
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:ubuntu_linux:18.04"/>
   </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)(\d*\.\d*\.\d*)-MariaDB.*~stretch(?:-log)?$" flags="REG_ICASE">
    <description>MariaDB runnin on Debian 9.0(Stretch)</description>
