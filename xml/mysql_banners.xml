@@ -919,7 +919,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:debian_linux:10.0"/>
   </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB.+~yakkety(?:-log)?$" flags="REG_ICASE">
-    <description>MariaDB MariaDB on Ubuntu 16.10 (Yakkety)</description>
+    <description>MariaDB MariaDB on Ubuntu 16.10 (Yakkety Yak)</description>
     <example service.version="10.1.26">5.5.5-10.1.26-MariaDB-1~yakkety</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
@@ -933,7 +933,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:16.10"/>
   </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB-1~yakkety-(?:wsrep)?$" flags="REG_ICASE">
-    <description>MariaDB MariaDB-wsrep on Ubuntu 16.10 (Yakkety)</description>
+    <description>MariaDB MariaDB-wsrep on Ubuntu 16.10 (Yakkety Yak)</description>
     <example service.version="10.0.28">5.5.5-10.0.28-MariaDB-1~yakkety-wsrep</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
@@ -972,9 +972,14 @@
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MariaDB"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:mariadb:mariadb:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="15.04"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:15.04"/>
   </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB.+~vivid-wsrep(?:-log)?$" flags="REG_ICASE">
-    <description>MariaDB MariaDB-wsrep</description>
+    <description>MariaDB MariaDB with Galera Cluster on Ubuntu 15.04 (Vivid Vervet)</description>
     <example service.version="10.0.24">5.5.5-10.0.24-MariaDB-1~vivid-wsrep</example>
     <example service.version="10.2.9">5.5.5-10.2.9-MariaDB-1~vivid-wsrep-log</example>
     <param pos="1" name="service.version"/>
@@ -982,6 +987,11 @@
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.edition" value="Galera Cluster"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:mariadb:mariadb:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="15.04"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:15.04"/>
   </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB.+~eoan(?:-log)?$" flags="REG_ICASE">
     <description>MariaDB MariaDB on Ubuntu 19.10 (Eoan)</description>
@@ -1129,7 +1139,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="8.0"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:debian_linux:8.0"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:8.0"/>
   </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB.+~xenial-wsrep(?:-log)?$" flags="REG_ICASE">
     <description>MariaDB MariaDB with Galera Cluster on Ubuntu 16.04 (Xenial Xerus)</description>
@@ -1193,7 +1203,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:10.04"/>
   </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB-\dubuntu\d(?:-log)?$" flags="REG_ICASE">
-    <description>MariaDB MariaDB running on a Ubuntu Host</description>
+    <description>MariaDB MariaDB on Ubuntu 10.04 (Lucid Lynx)</description>
     <example service.version="10.0.17">5.5.5-10.0.17-MariaDB-0ubuntu1</example>
     <example service.version="10.3.22">5.5.5-10.3.22-MariaDB-1ubuntu1-log</example>
     <param pos="1" name="service.version"/>
@@ -1255,8 +1265,8 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MariaDB Enterprise"/>
-    <param pos="0" name="service.edition" value="Galera Cluster"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="service.edition" value="Enterprise Edition"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:mariadb:mariadb:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4}(?:\-\d)?)-MariaDB(?:\-\d{1,2})?(?:\+\S{1,2})?$" flags="REG_ICASE">
@@ -1312,14 +1322,13 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:6.0"/>
   </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB.+~zesty(?:-log)?$" flags="REG_ICASE">
-    <description>MariaDB MariaDB with Galera Cluster on Ubuntu 17.04 (zesty)</description>
+    <description>MariaDB MariaDB on Ubuntu 17.04 (Zesty Zapus)</description>
     <example service.version="10.2.12">5.5.5-10.2.12-MariaDB-10.2.12+maria~zesty-log</example>
     <example service.version="10.3.22">5.5.5-10.3.22-MariaDB-10.2.12+maria~zesty</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MariaDB"/>
-    <param pos="0" name="service.edition" value="Galera Cluster"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:mariadb:mariadb:{service.version}"/>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.family" value="Linux"/>
@@ -1328,7 +1337,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:17.04"/>
   </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB.+~artful(?:-log)?$" flags="REG_ICASE">
-    <description>MariaDB MariaDB with Galera Cluster on Ubuntu 17.10 (artful)</description>
+    <description>MariaDB MariaDB with Galera Cluster on Ubuntu 17.10 (Artful Ardvark)</description>
     <example service.version="10.5.12">5.5.5-10.5.12-MariaDB-10.2.12+maria~artful-log</example>
     <example service.version="10.3.2">5.5.5-10.3.2-MariaDB-10.2.12+maria~artful</example>
     <param pos="1" name="service.version"/>
@@ -1466,7 +1475,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:18.04"/>
   </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)(\d*\.\d*\.\d*)-MariaDB.*~stretch(?:-log)?$" flags="REG_ICASE">
-   <description>MariaDB MariaDB running on Debian 9.0(Stretch)</description>
+   <description>MariaDB MariaDB running on Debian 9.0 (Stretch)</description>
    <example service.version="10.2.17">5.5.5-10.2.17-MariaDB-1:10.2.17+maria~stretch</example>
    <example service.version="10.2.25">5.5.5-10.2.25-MariaDB-10.2.25+maria~stretch-log</example>
    <example service.version="10.1.39">5.5.5-10.1.39-MariaDB-1~stretch</example>
@@ -1480,7 +1489,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:9.0"/>
   </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)(\d*\.\d*\.\d*)-MariaDB\S*deb\S*$" flags="REG_ICASE">
-    <description>MariaDB MariaDB running on Debian 9.1(Stretch)</description>
+    <description>MariaDB MariaDB running on Debian 9.1  f(Stretch)</description>
     <example service.version="10.1.23">5.5.5-10.1.23-MariaDB-9+deb9u1</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
