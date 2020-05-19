@@ -1082,20 +1082,6 @@
     <param pos="0" name="os.version" value="12.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:12.04"/>
   </fingerprint>
-  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB.+~lucid(?:-log)?$" flags="REG_ICASE">
-    <description>MariaDB MariaDB on Ubuntu 10.04 (Lucid Lynx)</description>
-    <example service.version="5.5.34">5.5.34-MariaDB-1~lucid-log</example>
-    <param pos="1" name="service.version"/>
-    <param pos="0" name="service.vendor" value="MariaDB"/>
-    <param pos="0" name="service.family" value="MySQL"/>
-    <param pos="0" name="service.product" value="MariaDB"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:mariadb:mariadb:{service.version}"/>
-    <param pos="0" name="os.vendor" value="Ubuntu"/>
-    <param pos="0" name="os.family" value="Linux"/>
-    <param pos="0" name="os.product" value="Linux"/>
-    <param pos="0" name="os.version" value="10.04"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:10.04"/>
-  </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB.+~hardy(?:-log)?$" flags="REG_ICASE">
     <description>MariaDB MariaDB on Ubuntu 8.04 LTS (Hardy Heron)</description>
     <example service.version="5.5.34">5.5.34-MariaDB-mariadb122~hardy-log</example>
@@ -1203,7 +1189,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:10.04"/>
   </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB-\dubuntu\d(?:-log)?$" flags="REG_ICASE">
-    <description>MariaDB MariaDB on Ubuntu 10.04 (Lucid Lynx)</description>
+    <description>MariaDB MariaDB on ubuntu 10.04 (Lucid Lynx)</description>
     <example service.version="10.0.17">5.5.5-10.0.17-MariaDB-0ubuntu1</example>
     <example service.version="10.3.22">5.5.5-10.3.22-MariaDB-1ubuntu1-log</example>
     <param pos="1" name="service.version"/>
@@ -1214,6 +1200,20 @@
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:10.04"/>
+  </fingerprint>
+    <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB.+~lucid(?:-log)?$" flags="REG_ICASE">
+    <description>MariaDB MariaDB on Ubuntu 10.04 (Lucid lynx)</description>
+    <example service.version="5.5.34">5.5.34-MariaDB-1~lucid-log</example>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:mariadb:mariadb:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="10.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:10.04"/>
   </fingerprint>
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB-\d\:.*\+maria\~focal$" flags="REG_ICASE">
