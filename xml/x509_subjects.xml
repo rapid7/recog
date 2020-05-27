@@ -189,8 +189,8 @@
     <param pos="0" name="hw.device" value="Lights Out Management"/>
     <param pos="0" name="hw.vendor" value="HP"/>
     <param pos="0" name="hw.family" value="iLO"/>
-    <param pos="0" name="hw.cpe23" value="cpe:/h:hp:integrated_lights_out:-"/>
     <param pos="0" name="hw.product" value="iLO"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:hp:integrated_lights_out:-"/>
     <param pos="0" name="os.device" value="Lights Out Management"/>
     <param pos="0" name="os.vendor" value="HP"/>
     <param pos="0" name="os.family" value="iLO"/>
@@ -203,8 +203,8 @@
     <param pos="0" name="hw.device" value="Lights Out Management"/>
     <param pos="0" name="hw.vendor" value="HP"/>
     <param pos="0" name="hw.family" value="iLO"/>
-    <param pos="0" name="hw.cpe23" value="cpe:/h:hp:integrated_lights_out:-"/>
     <param pos="0" name="hw.product" value="iLO"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:hp:integrated_lights_out:-"/>
     <param pos="0" name="os.device" value="Lights Out Management"/>
     <param pos="0" name="os.vendor" value="HP"/>
     <param pos="0" name="os.family" value="iLO"/>
@@ -217,8 +217,8 @@
     <param pos="0" name="hw.device" value="Lights Out Management"/>
     <param pos="0" name="hw.vendor" value="HP"/>
     <param pos="0" name="hw.family" value="iLO"/>
-    <param pos="0" name="hw.cpe23" value="cpe:/h:hp:integrated_lights_out:-"/>
     <param pos="0" name="hw.product" value="iLO"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:hp:integrated_lights_out:-"/>
     <param pos="0" name="os.device" value="Lights Out Management"/>
     <param pos="0" name="os.vendor" value="HP"/>
     <param pos="0" name="os.family" value="iLO"/>
@@ -231,8 +231,8 @@
     <param pos="0" name="hw.device" value="Lights Out Management"/>
     <param pos="0" name="hw.vendor" value="HP"/>
     <param pos="0" name="hw.family" value="iLO"/>
-    <param pos="0" name="hw.cpe23" value="cpe:/h:hp:integrated_lights_out:-"/>
     <param pos="0" name="hw.product" value="iLO"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:hp:integrated_lights_out:-"/>
     <param pos="0" name="os.device" value="Lights Out Management"/>
     <param pos="0" name="os.vendor" value="HP"/>
     <param pos="0" name="os.family" value="iLO"/>
@@ -349,39 +349,34 @@
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="Adaptive Security Appliance"/>
     <param pos="0" name="os.product" value="Adaptive Security Appliance"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:adaptive_security_appliance"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:adaptive_security_appliance:-"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.family" value="Adaptive Security Appliance"/>
     <param pos="0" name="hw.product" value="Adaptive Security Appliance"/>
     <param pos="0" name="hw.device" value="Firewall"/>
     <param pos="0" name="hw.cpe23" value="cpe:/h:cisco:adaptive_security_appliance:-"/>
   </fingerprint>
-
   <fingerprint pattern="^SERIALNUMBER=([a-zA-Z0-9]+),CN=DEVICE-vWLC,O=Cisco Virtual WLC$">
     <description>Cisco vWLC</description>
     <example cisco.serial_number="9C89M2088D1">SERIALNUMBER=9C89M2088D1,CN=DEVICE-vWLC,O=Cisco Virtual WLC</example>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.device" value="Wireless Controller"/>
-    <param pos="0" name="os.product" value="Virtual WLC"/>
+    <param pos="0" name="os.product" value="Wireless LAN Controller"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:wireless_lan_controller:-"/>
-    <param pos="0" name="hw.vendor" value="Cisco"/>
-    <param pos="0" name="hw.device" value="Wireless Controller"/>
-    <param pos="0" name="hw.product" value="Virtual WLC"/>
     <param pos="1" name="cisco.serial_number"/>
   </fingerprint>
-
   <fingerprint pattern="^CN=[a-zA-Z0-9\.\-\_]+,OU=DeviceSSL \(WebAdmin\),O=Cisco Systems Inc\.,C=US$">
     <description>Cisco WLC</description>
     <example>CN=169.254.1.1,OU=DeviceSSL (WebAdmin),O=Cisco Systems Inc.,C=US</example>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.device" value="Wireless Controller"/>
-    <param pos="0" name="os.product" value="Wireless Controller"/>
+    <param pos="0" name="os.product" value="Wireless LAN Controller"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:wireless_lan_controller:-"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.device" value="Wireless Controller"/>
-    <param pos="0" name="hw.product" value="Wireless Controller"/>
+    <param pos="0" name="hw.product" value="Wireless LAN Controller"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:cisco:wireless_lan_controller:-"/>
   </fingerprint>
-
   <fingerprint pattern="^CN=pca,OU=Cisco Prime Collaboration Manager,O=Cisco,L=San Jose,ST=California,C=US$">
     <description>Cisco Primary Collaboration Manager</description>
     <example>CN=pca,OU=Cisco Prime Collaboration Manager,O=Cisco,L=San Jose,ST=California,C=US</example>
@@ -392,7 +387,6 @@
     <param pos="0" name="hw.device" value="Network Management Device"/>
     <param pos="0" name="hw.product" value="Prime Collaboration Manager"/>
   </fingerprint>
-
   <fingerprint pattern="^CN=synology\.com.*,O=Synology Inc\.,L=Taipei.*,C=TW$">
     <description>Synology NAS</description>
     <example>CN=synology.com,OU=FTP Team,O=Synology Inc.,L=Taipei,ST=Taiwan,C=TW</example>
@@ -453,9 +447,9 @@
     <description>VMWare ESX</description>
     <example>CN=server99.,OU=VMware ESX Server Default Certificate,O=VMware\, Inc,L=Palo Alto,ST=California,C=US</example>
     <param pos="0" name="os.vendor" value="VMWare"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:vmware:esx:-"/>
     <param pos="0" name="os.product" value="ESX"/>
     <param pos="0" name="os.device" value="Hypervisor"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:vmware:esx:-"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^CN.*,OU=SRM,O=VMware\\, Inc\.,L=Palo Alto,ST=California,C=US$">
@@ -468,15 +462,14 @@
     <param pos="0" name="hw.product" value="Site Recovery Manager"/>
     <param pos="0" name="service.vendor" value="VMWare"/>
     <param pos="0" name="service.product" value="Site Recovery Manager"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:vmware:site_recovery_manager:-"/>
   </fingerprint>
   <fingerprint pattern="^CN=IOS-Self-Signed-Certificate-">
     <description>Cisco IOS Default Certificate</description>
     <example>CN=IOS-Self-Signed-Certificate-4163115936</example>
     <param pos="0" name="os.vendor" value="Cisco"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:-"/>
     <param pos="0" name="os.family" value="IOS"/>
     <param pos="0" name="os.product" value="IOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:-"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
@@ -496,9 +489,9 @@
     <description>Vizio SmartTV (Android) with Google Cast</description>
     <example chromecast.serial_number="9V039WC9" host.mac_local="FA8FCA697898">CN=9V039WC9 FA8FCA697898,OU=Cast TV (Vizio),O=Google Inc,L=Mountain View,ST=California,C=US</example>
     <param pos="0" name="os.vendor" value="Google"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:google:android:-"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Android"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:google:android:-"/>
     <param pos="0" name="hw.device" value="Smart TV"/>
     <param pos="0" name="hw.vendor" value="Vizio"/>
     <param pos="1" name="chromecast.serial_number"/>
@@ -691,10 +684,10 @@
     <param pos="0" name="hw.vendor" value="Fortinet"/>
     <param pos="0" name="hw.device" value="Firewall"/>
     <param pos="0" name="os.vendor" value="Fortinet"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:fortinet:fortios:-"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.device" value="Firewall"/>
     <param pos="0" name="os.product" value="FortiOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:fortinet:fortios:-"/>
     <param pos="1" name="fortinet.serial_number"/>
   </fingerprint>
   <fingerprint pattern="^CN=([A-Za-z0-9]+),O=Fortinet Ltd\.$">
@@ -703,10 +696,10 @@
     <param pos="0" name="hw.vendor" value="Fortinet"/>
     <param pos="0" name="hw.device" value="Firewall"/>
     <param pos="0" name="os.vendor" value="Fortinet"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:fortinet:fortios:-"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.device" value="Firewall"/>
     <param pos="0" name="os.product" value="FortiOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:fortinet:fortios:-"/>
     <param pos="1" name="fortinet.serial_number"/>
   </fingerprint>
   <fingerprint pattern="^CN=FortiMail,OU=FortiMail,O=Fortinet,L=Sunnyvale,ST=California,C=US$">
@@ -716,10 +709,10 @@
     <param pos="0" name="hw.device" value="Appliance"/>
     <param pos="0" name="hw.product" value="FortiMail"/>
     <param pos="0" name="os.vendor" value="Fortinet"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:fortinet:fortios:-"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="FortiOS"/>
     <param pos="0" name="os.device" value="Appliance"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:fortinet:fortios:-"/>
   </fingerprint>
   <fingerprint pattern="^CN=.*,OU=FortiManager,O=Fortinet,L=Sunnyvale,ST=California,C=US$">
     <description>Fortinet FortiManager Appliance</description>
@@ -728,10 +721,10 @@
     <param pos="0" name="hw.device" value="Appliance"/>
     <param pos="0" name="hw.product" value="FortiManager"/>
     <param pos="0" name="os.vendor" value="Fortinet"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:fortinet:fortios:-"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="FortiOS"/>
     <param pos="0" name="os.device" value="Appliance"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:fortinet:fortios:-"/>
   </fingerprint>
   <fingerprint pattern="^CN=CyberoamApplianceCertificate">
     <description>Cyberoam SSL VPN</description>
@@ -935,8 +928,8 @@
     <param pos="0" name="hw.vendor" value="WatchGuard"/>
     <param pos="0" name="hw.device" value="Firewall"/>
     <param pos="0" name="os.vendor" value="WatchGuard"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:watchguard:fireware:-"/>
     <param pos="0" name="os.product" value="Fireware"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:watchguard:fireware:-"/>
   </fingerprint>
   <fingerprint pattern="^CN=[0-9\.]+,OU=SSL-VPN,O=SonicWALL\\, Inc\.,L=Sunnyvale,ST=CA,C=US$">
     <description>SonicWALL Firewall</description>
@@ -1251,7 +1244,7 @@
     <param pos="0" name="hw.device" value="Voice Appliance"/>
     <param pos="0" name="hw.product" value="IVR"/>
   </fingerprint>
- <fingerprint pattern="^CN=SLS,O=Lantronix,L=Irvine,ST=California,C=US$">
+  <fingerprint pattern="^CN=SLS,O=Lantronix,L=Irvine,ST=California,C=US$">
     <description>Lantronix SLS terminal server</description>
     <example>CN=SLS,O=Lantronix,L=Irvine,ST=California,C=US</example>
     <param pos="0" name="hw.vendor" value="Lantronix"/>

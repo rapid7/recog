@@ -323,6 +323,7 @@ example.com FTP server (Version:  Mac OS X Server) ready.</example>
     <param pos="0" name="service.vendor" value="ProFTPD Project"/>
     <param pos="0" name="service.product" value="ProFTPD"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:proftpd:proftpd:{service.version}"/>
     <param pos="2" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^=\(&lt;\*&gt;\)=-\.:\. \(\( Welcome to Pure-FTPd ([\d.]+) \)\) \.:\.-=\(&lt;\*&gt;\)=-" flags="REG_MULTILINE">
@@ -763,15 +764,15 @@ more text</example>
     <param pos="0" name="os.vendor" value="Wind River"/>
     <param pos="0" name="os.product" value="VxWorks"/>
     <param pos="1" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:windriver:vxworks:-{os.version}"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:windriver:vxworks:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^[\w&lt;&gt;]+\s*Tenor Multipath Switch FTP server \(Version VxWorks([\d\.]+)\) ready\.$" flags="REG_ICASE">
     <description>VxWorks on Tenor MultiPath with version information</description>
-    <example os.version="5.4.2"><![CDATA[<38785ca0>  Tenor Multipath Switch FTP server (Version VxWorks5.4.2) ready.]]></example>
+    <example os.version="5.4.2">&lt;38785ca0&gt;  Tenor Multipath Switch FTP server (Version VxWorks5.4.2) ready.</example>
     <param pos="0" name="os.vendor" value="Wind River"/>
     <param pos="0" name="os.product" value="VxWorks"/>
     <param pos="1" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:windriver:vxworks:-{os.version}"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:windriver:vxworks:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^VxWorks FTP server \(VxWorks ([\d\.]+) - Secure NetLinx version \([\d\.]+\)\) ready.$">
     <description>VxWorks with Secure NetLinx</description>
@@ -779,7 +780,7 @@ more text</example>
     <param pos="0" name="os.vendor" value="Wind River"/>
     <param pos="0" name="os.product" value="VxWorks"/>
     <param pos="1" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:windriver:vxworks:-{os.version}"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:windriver:vxworks:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^ADC iScale$">
     <description>ADC iScale</description>
@@ -1549,5 +1550,5 @@ more text</example>
     <param pos="0" name="hw.product" value="Home Controller"/>
     <param pos="0" name="os.vendor" value="ELAN"/>
     <param pos="0" name="os.family" value="Linux"/>
-  </fingerprint>  
+  </fingerprint>
 </fingerprints>

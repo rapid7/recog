@@ -67,7 +67,7 @@ def update_cpes(xml_file, cpe_vp_map, r7_vp_map):
                 if not fp_type in params:
                     params[fp_type] = {}
                 if name in params[fp_type]:
-                    raise ValueError('Duplicated fingerprint named {} in {}'.format(name, fingerprint.attrib['pattern']))
+                    raise ValueError('Duplicated fingerprint named {} in fingerprint {} in file {}'.format(name, fingerprint.attrib['pattern'], xml_file))
                 params[fp_type][name] = param
 
 

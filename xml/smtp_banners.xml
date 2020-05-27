@@ -249,7 +249,7 @@
     <param pos="0" name="service.family" value="IIS"/>
     <param pos="0" name="service.product" value="IIS"/>
     <param pos="2" name="service.version"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:iis:10.0"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:iis:{service.version}"/>
     <param pos="1" name="host.name"/>
     <param pos="3" name="system.time"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
@@ -265,7 +265,7 @@
     <param pos="0" name="service.family" value="IIS"/>
     <param pos="0" name="service.product" value="IIS"/>
     <param pos="2" name="service.version"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:iis:10.0"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:iis:{service.version}"/>
     <param pos="1" name="host.name"/>
     <param pos="3" name="system.time"/>
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
@@ -399,8 +399,8 @@
     <param pos="0" name="service.vendor" value="exim"/>
     <param pos="0" name="service.family" value="exim"/>
     <param pos="0" name="service.product" value="exim"/>
-    <param pos="1" name="host.name"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:exim:exim:-"/>
+    <param pos="1" name="host.name"/>
   </fingerprint>
   <fingerprint pattern="^([^ ]+) FTGate server ready .*$">
     <description>FTGate mail server, runs on Windows 9x/NT/2k (http://www.ftgate.com)</description>
@@ -1683,7 +1683,6 @@
     <param pos="0" name="service.vendor" value="OpenBSD"/>
     <param pos="0" name="service.family" value="OpenSMTPD"/>
     <param pos="0" name="service.product" value="OpenSMTPD"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:openbsd:openbsd:-"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:openbsd:opensmtpd:-"/>
     <param pos="1" name="host.name"/>
   </fingerprint>

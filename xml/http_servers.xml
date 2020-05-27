@@ -235,7 +235,6 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:iis:10.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
   <fingerprint pattern="^Microsoft-IIS/([\d\.]+)$">
     <description>Microsoft IIS new, unknown Windows version</description>
@@ -700,6 +699,7 @@
     <param pos="0" name="service.vendor" value="OpenResty"/>
     <param pos="0" name="service.product" value="OpenResty"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:openresty:openresty:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^gunicorn\/([\d.]+)+$">
     <description>Gunicorn Gunicorn</description>
@@ -707,6 +707,7 @@
     <param pos="0" name="service.vendor" value="Gunicorn"/>
     <param pos="0" name="service.product" value="Gunicorn"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:gunicorn:gunicorn:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^Serv-U\/([\d.]+)$">
     <description>Serv-U HTTP interface</description>
@@ -920,6 +921,7 @@
     <param pos="0" name="os.family" value="OS/400"/>
     <param pos="0" name="os.product" value="OS/400"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:os_400:{os.version}"/>
   </fingerprint>
   <fingerprint pattern="^(?:IBM_HTTP_Server|IBM_HTTP_SERVER)/([\w.-]+)\s+Apache/([12][\d.]+)\s*(.*)$">
     <description>IBM HTTP Server</description>
@@ -1238,6 +1240,7 @@
     <param pos="0" name="service.product" value="WebSphere"/>
     <param pos="0" name="service.family" value="WebSphere"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ibm:websphere:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^Resin/(\S+)$">
     <description>Caucho Resin</description>
@@ -1593,7 +1596,7 @@
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="Adaptive Security Appliance"/>
     <param pos="0" name="os.product" value="Adaptive Security Appliance"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:adaptive_security_appliance"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:adaptive_security_appliance:-"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.family" value="Adaptive Security Appliance"/>
     <param pos="0" name="hw.product" value="Adaptive Security Appliance"/>
@@ -1630,7 +1633,6 @@
     <param pos="0" name="service.vendor" value="LANDesk"/>
     <param pos="0" name="service.product" value="Management Agent"/>
     <param pos="0" name="service.family" value="Management Agent"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:landesk:management_agent:-"/>
   </fingerprint>
   <fingerprint pattern="^EWS-NIC\d/(\S+)$">
     <description>Xerox Embedded Web Server (EWS)</description>
@@ -1685,11 +1687,12 @@
   <fingerprint pattern="^NS_(\d\.\d)$">
     <description>Citrix NetScaler</description>
     <example>NS_6.1</example>
-    <param pos="0" name="os.vendor" value="Citrix"/>
-    <param pos="0" name="os.family" value="NetScaler"/>
-    <param pos="0" name="os.device" value="Network Management Device"/>
-    <param pos="0" name="os.product" value="NetScaler"/>
-    <param pos="1" name="os.version"/>
+    <param pos="0" name="service.vendor" value="Citrix"/>
+    <param pos="0" name="service.family" value="NetScaler"/>
+    <param pos="0" name="service.device" value="Network Management Device"/>
+    <param pos="0" name="service.product" value="NetScaler"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:citrix:netscaler:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^Rumpus$">
     <description>Rumpus FTP Server, Web File Manager interface</description>
@@ -1769,8 +1772,8 @@
     <example>SecureTransport 5.3.6 (build: 412)</example>
     <param pos="0" name="service.vendor" value="Axway"/>
     <param pos="0" name="service.product" value="SecureTransport"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:realvnc:realvnc:{service.version}"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:axway:securetransport:{service.version}"/>
     <param pos="2" name="securetransport.build"/>
   </fingerprint>
   <fingerprint pattern="(Agranat|Conexant|(?:Globespan)?Virata)-EmWeb/(.*)$">
@@ -2006,6 +2009,7 @@
     <param pos="0" name="service.product" value="Aura Communication Manager"/>
     <param pos="0" name="service.family" value="Aura"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:avaya:aura_communication_manager:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^Rapid Logic/((?:\d+\.)*\d+)$">
     <description>Embedded web server by Rapid Logic, which was acquired by Wind River.</description>
@@ -2967,8 +2971,9 @@
     <param pos="0" name="hw.product" value="MegaRAC"/>
     <param pos="0" name="os.device" value="Lights Out Management"/>
     <param pos="0" name="os.vendor" value="AMI"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
     <param pos="0" name="service.product" value="libupnp"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
@@ -2980,6 +2985,7 @@
     <param pos="0" name="os.vendor" value="AXIS"/>
     <param pos="0" name="os.device" value="Web cam"/>
     <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
     <param pos="0" name="service.product" value="libupnp"/>
@@ -3126,6 +3132,7 @@
     <param pos="0" name="service.vendor" value="NetData"/>
     <param pos="0" name="service.product" value="NetData"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:netdata:netdata:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^Solstice 2\.0+$">
     <description>SolsticePod</description>

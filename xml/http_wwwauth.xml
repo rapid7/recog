@@ -56,7 +56,7 @@
   </fingerprint>
   <fingerprint pattern="^Basic realm=&quot;(NetVanta [^&quot;]+)&quot;$" certainty="1.0">
     <description>ADTRAN Netvanta Router</description>
-    <example hw.product="NetVanta 1238 PoE">Basic realm=&quot;NetVanta 1238 PoE&quot;</example>
+    <example hw.product="NetVanta 1238 PoE">Basic realm="NetVanta 1238 PoE"</example>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="0" name="os.vendor" value="ADTRAN"/>
     <param pos="0" name="os.family" value="NetVanta"/>
@@ -87,6 +87,7 @@
     <example>Basic realm="cPanel"</example>
     <param pos="0" name="service.vendor" value="cPanel"/>
     <param pos="0" name="service.product" value="cPanel"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cpanel:cpanel:-"/>
   </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;APC Management Card&quot;$">
     <description>APC device</description>

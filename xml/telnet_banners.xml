@@ -117,6 +117,7 @@
     <param pos="2" name="os.version.version"/>
     <param pos="3" name="os.edition"/>
     <param pos="4" name="os.build"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:dd-wrt:dd-wrt:{os.version}"/>
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
   <fingerprint pattern="^(?:\r|\n)*DD-WRT v(3.\d)-(r([\w]+)) ([\w-]+) \(c\) \d{4} NewMedia-NET GmbH(?:\r|\n)+Release: \d+\/\d+\/\d+(?:\r|\n)+.* login:\s*$">
@@ -133,6 +134,7 @@
     <param pos="2" name="os.version.version"/>
     <param pos="3" name="os.build"/>
     <param pos="4" name="os.edition"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:dd-wrt:dd-wrt:{os.version}"/>
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
   <fingerprint pattern="^(TD-\w+) [\d.]+ DSL Modem Router(?:\r|\n)+Authorization failed after trying \d+ times!!!\.(?:\r|\n)+Please login after \d+ seconds!\s*$">
@@ -1534,8 +1536,8 @@
       UG93ZXIgTWVhc3VyZW1lbnQgTHRkLiBNZXRlciBJT04gNzMzMFYyNzEgRVRIIEVUSDczMzBWMjcyCg1TZ
       XJpYWwjOiBQQi0wMjA0QTA1OC0xMQoNCg1sb2dpbjo=
     </example>
-    <param pos="0" name="hw.vendor" value = "Power Measurement Ltd."/>
-    <param pos="0" name="hw.family" value = "ION"/>
+    <param pos="0" name="hw.vendor" value="Power Measurement Ltd."/>
+    <param pos="0" name="hw.family" value="ION"/>
     <param pos="1" name="hw.version"/>
   </fingerprint>
   <fingerprint pattern="^GW25 v([[:digit:]\.]+) - Intelligent Power Meters GPRS Gateway[[:space:]]+Developed by Satelitech">
@@ -1547,8 +1549,8 @@
       R1cyNSB2MS4yLjEgLSBJbnRlbGxpZ2VudCBQb3dlciBNZXRlcnMgR1BSUyBHYXRld2F5Cg1EZXZlbG9wZ
       WQgYnkgU2F0ZWxpdGVjaCBTLkEgZm9yIEVTRyBEaWxlYwoNRW50ZXIgcGFzc3dvcmQ6
     </example>
-    <param pos="0" name="hw.vendor" value = "Satelitech"/>
-    <param pos="0" name="hw.family" value = "GW25"/>
+    <param pos="0" name="hw.vendor" value="Satelitech"/>
+    <param pos="0" name="hw.family" value="GW25"/>
     <param pos="1" name="hw.version"/>
   </fingerprint>
   <fingerprint pattern="^RDK \(A Yocto Project based Distro\) ([^ ]+) Docsis-Gateway">
@@ -1560,9 +1562,9 @@
       UkRLIChBIFlvY3RvIFByb2plY3QgYmFzZWQgRGlzdHJvKSAyLjAgRG9jc2lzLUdhdGV3YXkNCg0NCg1Eb
       2NzaXMtR2F0ZXdheSBsb2dpbjo=
     </example>
-    <param pos="0" name="hw.device" value = "DOCSIS Cable Modem"/>
-    <param pos="0" name="os.vendor" value = "Yocto"/>
-    <param pos="0" name="os.product" value = "RDK"/>
+    <param pos="0" name="hw.device" value="DOCSIS Cable Modem"/>
+    <param pos="0" name="os.vendor" value="Yocto"/>
+    <param pos="0" name="os.product" value="RDK"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="^RICOH Maintenance Shell">
@@ -1576,7 +1578,7 @@
     <param pos="0" name="os.vendor" value="Ricoh"/>
     <param pos="0" name="os.device" value="Printer"/>
   </fingerprint>
-<fingerprint pattern="Precise/RTCS v([\d\.]+) Telnet server">
+  <fingerprint pattern="Precise/RTCS v([\d\.]+) Telnet server">
     <description>Liebert UPS</description>
     <!-- Precise/RTCS v2.90.00 Telnet server
          Service Port Manager Active

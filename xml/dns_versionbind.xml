@@ -734,14 +734,12 @@
   </fingerprint>
   <fingerprint pattern="^dnsmasq-pi-hole-(.*)$">
     <description>dnsmasq: pi-hole</description>
-    <example os.vendor="Pi-hole" service.vendor="Thekelleys" service.family="Dnsmasq" service.product="Dnsmasq" os.version="2.80" os.cpe23="cpe:/a:pi-hole:pi-hole:2.80" service.cpe23="cpe:/a:thekelleys:dnsmasq:-">dnsmasq-pi-hole-2.80</example>
-    <param pos="0" name="os.vendor" value="Pi-hole"/>
-    <param pos="0" name="service.vendor" value="Thekelleys"/>
-    <param pos="0" name="service.family" value="Dnsmasq"/>
-    <param pos="0" name="service.product" value="Dnsmasq"/>
-    <param pos="1" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/a:pi-hole:pi-hole:{os.version}"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:thekelleys:dnsmasq:-"/>
+    <example service.version="2.80">dnsmasq-pi-hole-2.80</example>
+    <param pos="0" name="service.vendor" value="Pi-hole"/>
+    <param pos="0" name="service.family" value="Pi-hole"/>
+    <param pos="0" name="service.product" value="Pi-hole"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:pi-hole:pi-hole:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^Q9-[^\-]-(.*)$">
     <description>Quad9 Resolver</description>
