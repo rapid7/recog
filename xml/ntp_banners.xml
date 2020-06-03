@@ -318,19 +318,27 @@
     <param pos="0" name="os.certainty" value="0.9"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.10"/>
   </fingerprint>
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;FreeBSD/?(?:[^ ]+-NETSCALER-([^ ]+))&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="^.*version=&quot;ntpd ([^ p]+)(:?p[^ &quot;]+)?[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;FreeBSD/?(?:[^ ]+-NETSCALER-([^ ]+))&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Citrix Netscaler, which is based on FreeBSD</description>
-    <example>
+    <example service.version="4.2.6" service.version.version="p2@1.2194" os.arch="i386" os.version="9.3">
       version="ntpd 4.2.6p2@1.2194 Wed Nov 24 15:54:11 UTC 2010 (1)",
       processor="i386", system="FreeBSD/6.3-NETSCALER-9.3", leap=00, stratum=3,
     </example>
-    <param pos="0" name="service.family" value="NTP"/>
-    <param pos="0" name="service.product" value="NTP"/>
+    <example service.version="4.2.6" service.version.version="p3-a" os.arch="amd64" os.version="10.5">
+      version="ntpd 4.2.6p3-a (1)", processor="amd64", system="FreeBSD/8.4-NETSCALER-10.5",
+      leap=3, stratum=16, precision=-21, rootdelay=0.000, rootdisp=1264777.230,
+    </example>
     <param pos="1" name="service.version"/>
+    <param pos="2" name="service.version.version"/>
+    <param pos="0" name="service.vendor" value="NTP"/>
+    <param pos="0" name="service.product" value="NTP"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ntp:ntp:{service.version}:{service.version.version}"/>
     <param pos="0" name="os.vendor" value="Citrix"/>
+    <param pos="0" name="os.family" value="NetScaler"/>
+    <param pos="0" name="os.device" value="Network Management Device"/>
     <param pos="0" name="os.product" value="NetScaler"/>
-    <param pos="2" name="os.arch"/>
-    <param pos="3" name="os.version"/>
+    <param pos="3" name="os.arch"/>
+    <param pos="4" name="os.version"/>
   </fingerprint>
   <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;FreeBSD/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on FreeBSD</description>

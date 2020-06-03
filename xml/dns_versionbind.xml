@@ -154,7 +154,7 @@
     <param pos="0" name="os.product" value="Zentyal"/>
   </fingerprint>
   <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)-9\+deb8u[\w~\.]+-Debian$">
-    <description>ISC BIND: Debian Jessie</description>
+    <description>ISC BIND: Debian 8.0 (jessie)</description>
     <example service.version="9.9.5">9.9.5-9+deb8u11-Debian</example>
     <example service.version="9.9.5">9.9.5-9+deb8u6A~4.2.0.201702281603-Debian</example>
     <param pos="0" name="service.vendor" value="ISC"/>
@@ -169,7 +169,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:8.0"/>
   </fingerprint>
   <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)-9wheezy\w+-Debian$">
-    <description>ISC BIND: Debian Wheezy</description>
+    <description>ISC BIND: Debian 7.0 (wheezy)</description>
     <example service.version="9.9.5">9.9.5-9wheezy1-Debian</example>
     <param pos="0" name="service.vendor" value="ISC"/>
     <param pos="0" name="service.family" value="BIND"/>
@@ -403,7 +403,7 @@
   </fingerprint>
   <fingerprint pattern="^Nominum Vantio ([\d.]+) \(build (\d+)\)$">
     <description>Nominum Vantio CacheServe, with build</description>
-    <example service.version.version="114872">Nominum Vantio 5.4.5.1 (build 114872)</example>
+    <example service.version="5.4.5.1" service.version.version="114872">Nominum Vantio 5.4.5.1 (build 114872)</example>
     <param pos="0" name="service.vendor" value="Nominum"/>
     <param pos="0" name="service.family" value="Vantio"/>
     <param pos="0" name="service.product" value="CacheServe"/>
@@ -734,14 +734,12 @@
   </fingerprint>
   <fingerprint pattern="^dnsmasq-pi-hole-(.*)$">
     <description>dnsmasq: pi-hole</description>
-    <example os.vendor="Pi-hole" service.vendor="Thekelleys" service.family="Dnsmasq" service.product="Dnsmasq" os.version="2.80" os.cpe23="cpe:/a:pi-hole:pi-hole:2.80" service.cpe23="cpe:/a:thekelleys:dnsmasq:-">dnsmasq-pi-hole-2.80</example>
-    <param pos="0" name="os.vendor" value="Pi-hole"/>
-    <param pos="0" name="service.vendor" value="Thekelleys"/>
-    <param pos="0" name="service.family" value="Dnsmasq"/>
-    <param pos="0" name="service.product" value="Dnsmasq"/>
-    <param pos="1" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/a:pi-hole:pi-hole:{os.version}"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:thekelleys:dnsmasq:-"/>
+    <example service.version="2.80">dnsmasq-pi-hole-2.80</example>
+    <param pos="0" name="service.vendor" value="Pi-hole"/>
+    <param pos="0" name="service.family" value="Pi-hole"/>
+    <param pos="0" name="service.product" value="Pi-hole"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:pi-hole:pi-hole:{service.version}"/>
   </fingerprint>
   <fingerprint pattern="^Q9-[^\-]-(.*)$">
     <description>Quad9 Resolver</description>
