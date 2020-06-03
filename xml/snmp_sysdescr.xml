@@ -4358,15 +4358,16 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               Netscaler
    =======================================================================-->
-  <fingerprint pattern="^NetScaler ([^:]+): Build ([^,]+), Date: .*$">
+  <fingerprint pattern="^NetScaler NS([^:]+): Build ([^,]+), Date: .*$">
     <description>Netscaler Appliance</description>
-    <example>NetScaler NS10.0: Build 54.6.nc, Date: Apr 6 2012, 08:00:41 </example>
+    <example os.version="10.0" os.version.version="54.6.nc">NetScaler NS10.0: Build 54.6.nc, Date: Apr 6 2012, 08:00:41 </example>
     <example>NetScaler NS9.3: Build 57.5.nc, Date: Jun 27 2012, 19:37:56 </example>
     <param pos="0" name="os.vendor" value="Citrix"/>
     <param pos="0" name="os.family" value="Netscaler"/>
     <param pos="0" name="os.device" value="Network Management Device"/>
-    <param pos="1" name="os.product"/>
-    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.product" value="NetScaler"/>
+    <param pos="1" name="os.version"/>
+    <param pos="2" name="os.version.version"/>
   </fingerprint>
   <!--======================================================================
                               NORTEL
