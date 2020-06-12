@@ -17,12 +17,14 @@
     <param pos="0" name="service.product" value="exim"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:exim:exim:-"/>
   </fingerprint>
+
   <fingerprint pattern="^250[ -] *Debug set -NOT!$">
     <description>TIS FWTK and derivatives (other firewalls, like Gauntlet, are derived from TIS)</description>
     <param pos="0" name="service.vendor" value="TIS"/>
     <param pos="0" name="service.family" value="FWTK"/>
     <param pos="0" name="service.product" value="FWTK"/>
   </fingerprint>
+
   <fingerprint pattern="^500[ -]What\? I don't understand that\.$">
     <description>Alt-N MDaemon SMTP</description>
     <example>500 What? I don't understand that.</example>

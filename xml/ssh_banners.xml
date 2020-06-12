@@ -10,6 +10,7 @@
     <example>ArrayOS</example>
     <param pos="0" name="service.vendor" value="Array Networks"/>
   </fingerprint>
+
   <fingerprint pattern="^RomSShell_([\d\.]+)$">
     <description>Allegro RomSShell SSH</description>
     <example service.version="4.62">RomSShell_4.62</example>
@@ -17,11 +18,13 @@
     <param pos="0" name="service.product" value="RomSShell"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^DraySSH_\S+$">
     <description>DrayTek generic</description>
     <example>DraySSH_2.0</example>
     <param pos="0" name="hw.vendor" value="DrayTek"/>
   </fingerprint>
+
   <fingerprint pattern="^mpSSH_([\d\.]+)$">
     <description>HP Integrated Lights Out (iLO) usually bundled with HP servers</description>
     <example service.version="0.0.1">mpSSH_0.0.1</example>
@@ -36,6 +39,7 @@
     <param pos="0" name="os.family" value="iLO"/>
     <param pos="0" name="os.device" value="Lights Out Management"/>
   </fingerprint>
+
   <fingerprint pattern="^Serv-U_([\d\.]+)$">
     <description>Serv-U SSH</description>
     <example service.version="7.4.0.1">Serv-U_7.4.0.1</example>
@@ -43,6 +47,7 @@
     <param pos="0" name="service.product" value="Serv-U"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="WS_FTP-SSH_([\d\.]+)$">
     <description>WS_FTP Server with SSH</description>
     <example service.version="6.1.1">WS_FTP-SSH_6.1.1</example>
@@ -52,6 +57,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:ipswitch:ws_ftp:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="IPSSH[-_]([\d\.p]+).*$">
     <description>VxWorks with version information</description>
     <example os.version="6.9.0">IPSSH-6.9.0</example>
@@ -60,6 +66,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:windriver:vxworks:{os.version}"/>
   </fingerprint>
+
   <!-- FreeBSD -->
   <fingerprint pattern="^OpenSSH_(2\.3\.0) (green@FreeBSD.org 20010321)$">
     <description>OpenSSH running on FreeBSD 4.3</description>
@@ -76,6 +83,7 @@
     <param pos="0" name="os.version" value="4.3"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:4.3"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(2\.3\.0) (FreeBSD localisations 20010713)$">
     <description>OpenSSH running on FreeBSD 4.4</description>
     <example service.version="2.3.0" openssh.comment="FreeBSD localisations 20010713">OpenSSH_2.3.0 FreeBSD localisations 20010713</example>
@@ -91,6 +99,7 @@
     <param pos="0" name="os.version" value="4.4"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:4.4"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(2\.9) (FreeBSD localisations 20011202)$">
     <description>OpenSSH running on FreeBSD 4.5</description>
     <example service.version="2.9" openssh.comment="FreeBSD localisations 20011202">OpenSSH_2.9 FreeBSD localisations 20011202</example>
@@ -106,6 +115,7 @@
     <param pos="0" name="os.version" value="4.5"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:4.5"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(3\.4p1) (FreeBSD 20020702)$">
     <description>OpenSSH running on FreeBSD 4.6.2</description>
     <example service.version="3.4p1" openssh.comment="FreeBSD 20020702">OpenSSH_3.4p1 FreeBSD 20020702</example>
@@ -121,6 +131,7 @@
     <param pos="0" name="os.version" value="4.6.2"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:4.6.2"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(2\.9) (FreeBSD localisations 20020307)$">
     <description>OpenSSH running on FreeBSD 4.6</description>
     <example service.version="2.9" openssh.comment="FreeBSD localisations 20020307">OpenSSH_2.9 FreeBSD localisations 20020307</example>
@@ -136,6 +147,7 @@
     <param pos="0" name="os.version" value="4.6"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:4.6"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(3\.4p1) (FreeBSD-20020702)$">
     <description>OpenSSH running on FreeBSD 4.7</description>
     <example service.version="3.4p1" openssh.comment="FreeBSD-20020702">OpenSSH_3.4p1 FreeBSD-20020702</example>
@@ -151,6 +163,7 @@
     <param pos="0" name="os.version" value="4.7"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:4.7"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(3\.5p1) (FreeBSD-20030201)$">
     <description>OpenSSH running on FreeBSD 4.8</description>
     <example service.version="3.5p1" openssh.comment="FreeBSD-20030201">OpenSSH_3.5p1 FreeBSD-20030201</example>
@@ -166,6 +179,7 @@
     <param pos="0" name="os.version" value="4.8"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:4.8"/>
   </fingerprint>
+
   <!-- Multiple minor version match, assert the oldest version -->
   <fingerprint pattern="^OpenSSH_(3\.5p1) (FreeBSD-20030924)$">
     <description>OpenSSH running on FreeBSD 4.9/4.10 (sometimes 4.11)</description>
@@ -182,6 +196,7 @@
     <param pos="0" name="os.version" value="4.9"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:4.9"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(3\.5p1) (FreeBSD-20060930)$">
     <description>OpenSSH running on FreeBSD 4.11</description>
     <example service.version="3.5p1" openssh.comment="FreeBSD-20060930">OpenSSH_3.5p1 FreeBSD-20060930</example>
@@ -197,6 +212,7 @@
     <param pos="0" name="os.version" value="4.11"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:4.11"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(3\.5p1) (FreeBSD-20021029)$">
     <description>OpenSSH running on FreeBSD 5.0</description>
     <example service.version="3.5p1" openssh.comment="FreeBSD-20021029">OpenSSH_3.5p1 FreeBSD-20021029</example>
@@ -212,6 +228,7 @@
     <param pos="0" name="os.version" value="5.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:5.0"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(3\.6\.1p1) (FreeBSD-20030423)$">
     <description>OpenSSH running on FreeBSD 5.1</description>
     <example service.version="3.6.1p1" openssh.comment="FreeBSD-20030423">OpenSSH_3.6.1p1 FreeBSD-20030423</example>
@@ -227,6 +244,7 @@
     <param pos="0" name="os.version" value="5.1"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:5.1"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(3\.6\.1p1) (FreeBSD-20030924)$">
     <description>OpenSSH running on FreeBSD 5.2</description>
     <example service.version="3.6.1p1" openssh.comment="FreeBSD-20030924">OpenSSH_3.6.1p1 FreeBSD-20030924</example>
@@ -242,6 +260,7 @@
     <param pos="0" name="os.version" value="5.2"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:5.2"/>
   </fingerprint>
+
   <!-- Multiple minor version match, assert the oldest version -->
   <fingerprint pattern="^OpenSSH_(3\.8\.1p1) (FreeBSD-20040419)$">
     <description>OpenSSH running on FreeBSD 5.3/5.4</description>
@@ -258,6 +277,7 @@
     <param pos="0" name="os.version" value="5.3"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:5.3"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(3\.8\.1p1) (FreeBSD-20060123)$">
     <description>OpenSSH running on FreeBSD 5.5</description>
     <example service.version="3.8.1p1" openssh.comment="FreeBSD-20060123">OpenSSH_3.8.1p1 FreeBSD-20060123</example>
@@ -273,6 +293,7 @@
     <param pos="0" name="os.version" value="5.5"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:5.5"/>
   </fingerprint>
+
   <!-- Multiple minor version match, assert the oldest version -->
   <fingerprint pattern="^OpenSSH_(4\.2p1) (FreeBSD-20050903)$">
     <description>OpenSSH running on FreeBSD 6.0/6.1</description>
@@ -289,6 +310,7 @@
     <param pos="0" name="os.version" value="6.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:6.0"/>
   </fingerprint>
+
   <!-- Spans major versions, do not assert a version number -->
   <fingerprint pattern="^OpenSSH_(4\.5p1) (FreeBSD-20061110)$">
     <description>OpenSSH running on FreeBSD 6.2/6.3/6.4/7.0</description>
@@ -304,6 +326,7 @@
     <param pos="0" name="os.product" value="FreeBSD"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:-"/>
   </fingerprint>
+
   <!-- Multiple minor version match, assert the oldest version -->
   <fingerprint pattern="^OpenSSH_(5\.1p1) (FreeBSD-20080901)$">
     <description>OpenSSH running on FreeBSD 7.1/7.2/7.3/7.4</description>
@@ -320,6 +343,7 @@
     <param pos="0" name="os.version" value="7.1"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:7.1"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(5\.2p1) (FreeBSD-20090522)$">
     <description>OpenSSH running on FreeBSD 8.0</description>
     <example service.version="5.2p1" openssh.comment="FreeBSD-20090522">OpenSSH_5.2p1 FreeBSD-20090522</example>
@@ -335,6 +359,7 @@
     <param pos="0" name="os.version" value="8.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:8.0"/>
   </fingerprint>
+
   <!-- Multiple minor version match, assert the oldest version -->
   <fingerprint pattern="^OpenSSH_(5\.4p1) (FreeBSD-20100308)$">
     <description>OpenSSH running on FreeBSD 8.1/8.2</description>
@@ -351,6 +376,7 @@
     <param pos="0" name="os.version" value="8.1"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:8.1"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(5\.4p1_hpn13v11) (FreeBSD-20100308)$">
     <description>OpenSSH running on FreeBSD 8.3</description>
     <example service.version="5.4p1_hpn13v11" openssh.comment="FreeBSD-20100308">OpenSSH_5.4p1_hpn13v11 FreeBSD-20100308</example>
@@ -366,6 +392,7 @@
     <param pos="0" name="os.version" value="8.3"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:8.3"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(6\.1_hpn13v11) (FreeBSD-20120901)$">
     <description>OpenSSH running on FreeBSD 8.4</description>
     <example service.version="6.1_hpn13v11" openssh.comment="FreeBSD-20120901">OpenSSH_6.1_hpn13v11 FreeBSD-20120901</example>
@@ -381,6 +408,7 @@
     <param pos="0" name="os.version" value="8.4"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:8.4"/>
   </fingerprint>
+
   <!-- Multiple minor version match, assert the oldest version -->
   <fingerprint pattern="^OpenSSH_(5\.8p2_hpn13v11) (FreeBSD-20110503)$">
     <description>OpenSSH running on FreeBSD 9.0/9.1</description>
@@ -397,6 +425,7 @@
     <param pos="0" name="os.version" value="9.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:9.0"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(6\.2_hpn13v11) (FreeBSD-20130515)$">
     <description>OpenSSH running on FreeBSD 9.2</description>
     <example service.version="6.2_hpn13v11" openssh.comment="FreeBSD-20130515">OpenSSH_6.2_hpn13v11 FreeBSD-20130515</example>
@@ -412,6 +441,7 @@
     <param pos="0" name="os.version" value="9.2"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:9.2"/>
   </fingerprint>
+
   <!-- Spans major versions, do not assert a version number -->
   <fingerprint pattern="^OpenSSH_(6\.6\.1_hpn13v11) (FreeBSD-20140420)$">
     <description>OpenSSH running on FreeBSD 9.3/10.1/10.2</description>
@@ -427,6 +457,7 @@
     <param pos="0" name="os.product" value="FreeBSD"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:-"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(6\.4_hpn13v11) (FreeBSD-20131111)$">
     <description>OpenSSH running on FreeBSD 10.0</description>
     <example service.version="6.4_hpn13v11" openssh.comment="FreeBSD-20131111">OpenSSH_6.4_hpn13v11 FreeBSD-20131111</example>
@@ -442,6 +473,7 @@
     <param pos="0" name="os.version" value="10.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:10.0"/>
   </fingerprint>
+
   <!-- Spans major versions, do not assert a version number -->
   <fingerprint pattern="^OpenSSH_(7\.2) (FreeBSD-20160310)$">
     <description>OpenSSH running on FreeBSD 10.3/11.0</description>
@@ -457,6 +489,7 @@
     <param pos="0" name="os.product" value="FreeBSD"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:-"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(7\.3) (FreeBSD-20170902)$">
     <description>OpenSSH running on FreeBSD 10.4</description>
     <example service.version="7.3" openssh.comment="FreeBSD-20170902">OpenSSH_7.3 FreeBSD-20170902</example>
@@ -472,6 +505,7 @@
     <param pos="0" name="os.version" value="10.4"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:10.4"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(7\.2) (FreeBSD-20161230)$">
     <description>OpenSSH running on FreeBSD 11.1</description>
     <example service.version="7.2" openssh.comment="FreeBSD-20161230">OpenSSH_7.2 FreeBSD-20161230</example>
@@ -487,6 +521,7 @@
     <param pos="0" name="os.version" value="11.1"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:11.1"/>
   </fingerprint>
+
   <!-- Multiple minor version match, assert the oldest version -->
   <fingerprint pattern="^OpenSSH_(7\.5) (FreeBSD-20170903)$">
     <description>OpenSSH running on FreeBSD 11.2/11.3</description>
@@ -503,6 +538,7 @@
     <param pos="0" name="os.version" value="11.2"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:11.2"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(7\.8) (FreeBSD-20180909)$">
     <description>OpenSSH running on FreeBSD 12.0</description>
     <example service.version="7.8" openssh.comment="FreeBSD-20180909">OpenSSH_7.8 FreeBSD-20180909</example>
@@ -518,6 +554,7 @@
     <param pos="0" name="os.version" value="12.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:12.0"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(FreeBSD[ -].*)$">
     <description>OpenSSH running on FreeBSD</description>
     <example service.version="7.2" openssh.comment="FreeBSD-20160311">OpenSSH_7.2 FreeBSD-20160311</example>
@@ -532,6 +569,7 @@
     <param pos="0" name="os.product" value="FreeBSD"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:-"/>
   </fingerprint>
+
   <!-- NetBSD -->
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(NetBSD(?:_Secure_Shell)?[ -].*)$">
     <description>OpenSSH running on NetBSD</description>
@@ -548,6 +586,7 @@
     <param pos="0" name="os.product" value="NetBSD"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:netbsd:netbsd:-"/>
   </fingerprint>
+
   <!-- Ubuntu -->
   <fingerprint pattern="^OpenSSH_(3\.8\.1p1) (Debian-11ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 4.10</description>
@@ -564,6 +603,7 @@
     <param pos="0" name="os.version" value="4.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:4.10"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(3\.9p1) (Debian-1ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 5.04</description>
     <example service.version="3.9p1" openssh.comment="Debian-1ubuntu2">OpenSSH_3.9p1 Debian-1ubuntu2</example>
@@ -579,6 +619,7 @@
     <param pos="0" name="os.version" value="5.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:5.04"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(4\.1p1) (Debian-7ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 5.10</description>
     <example service.version="4.1p1" openssh.comment="Debian-7ubuntu4">OpenSSH_4.1p1 Debian-7ubuntu4</example>
@@ -594,6 +635,7 @@
     <param pos="0" name="os.version" value="5.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:5.10"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(4\.2p1) (Debian-7ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 6.04</description>
     <example service.version="4.2p1" openssh.comment="Debian-7ubuntu3.1">OpenSSH_4.2p1 Debian-7ubuntu3.1</example>
@@ -610,6 +652,7 @@
     <param pos="0" name="os.version" value="6.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:6.04"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(4\.3p2) (Debian-8ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 7.04</description>
     <example service.version="4.3p2" openssh.comment="Debian-8ubuntu1.4">OpenSSH_4.3p2 Debian-8ubuntu1.4</example>
@@ -625,6 +668,7 @@
     <param pos="0" name="os.version" value="7.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:7.04"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(4\.6p1) (Debian-5ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 7.10</description>
     <example service.version="4.6p1" openssh.comment="Debian-5ubuntu0.2">OpenSSH_4.6p1 Debian-5ubuntu0.2</example>
@@ -643,6 +687,7 @@
     <param pos="0" name="os.version" value="7.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:7.10"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(4\.7p1) (Debian-8ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 8.04</description>
     <example service.version="4.7p1" openssh.comment="Debian-8ubuntu1.2">OpenSSH_4.7p1 Debian-8ubuntu1.2</example>
@@ -659,6 +704,7 @@
     <param pos="0" name="os.version" value="8.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:8.04"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(5\.1p1) (Debian-3ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 8.10</description>
     <example service.version="5.1p1" openssh.comment="Debian-3ubuntu1">OpenSSH_5.1p1 Debian-3ubuntu1</example>
@@ -674,6 +720,7 @@
     <param pos="0" name="os.version" value="8.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:8.10"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(5\.1p1) (Debian-5ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 9.04</description>
     <example service.version="5.1p1" openssh.comment="Debian-5ubuntu1">OpenSSH_5.1p1 Debian-5ubuntu1</example>
@@ -689,6 +736,7 @@
     <param pos="0" name="os.version" value="9.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:9.04"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(5\.1p1) (Debian-6ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 9.10</description>
     <example service.version="5.1p1" openssh.comment="Debian-6ubuntu2">OpenSSH_5.1p1 Debian-6ubuntu2</example>
@@ -704,6 +752,7 @@
     <param pos="0" name="os.version" value="9.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:9.10"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(5\.3p1) (Debian-3ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 10.04 (lucid)</description>
     <example service.version="5.3p1" openssh.comment="Debian-3ubuntu3">OpenSSH_5.3p1 Debian-3ubuntu3</example>
@@ -724,6 +773,7 @@
     <param pos="0" name="os.version" value="10.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:10.04"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(5\.5p1) (Debian-4ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 10.10</description>
     <example service.version="5.5p1" openssh.comment="Debian-4ubuntu4">OpenSSH_5.5p1 Debian-4ubuntu4</example>
@@ -741,6 +791,7 @@
     <param pos="0" name="os.version" value="10.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:10.10"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(5\.8p1) (Debian-1ubuntu\d(?:\.\d)?)$">
     <description>OpenSSH running on Ubuntu 11.04</description>
     <example service.version="5.8p1" openssh.comment="Debian-1ubuntu3">OpenSSH_5.8p1 Debian-1ubuntu3</example>
@@ -756,6 +807,7 @@
     <param pos="0" name="os.version" value="11.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:11.04"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(5\.8p1) (Debian-7ubuntu\d(?:\.\d)?)$">
     <description>OpenSSH running on Ubuntu 11.10</description>
     <example service.version="5.8p1" openssh.comment="Debian-7ubuntu1">OpenSSH_5.8p1 Debian-7ubuntu1</example>
@@ -771,6 +823,7 @@
     <param pos="0" name="os.version" value="11.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:11.10"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(5\.9p1) (Debian-5ubuntu\d(?:\.\d)?)$">
     <description>OpenSSH running on Ubuntu 12.04</description>
     <example service.version="5.9p1" openssh.comment="Debian-5ubuntu1">OpenSSH_5.9p1 Debian-5ubuntu1</example>
@@ -787,6 +840,7 @@
     <param pos="0" name="os.version" value="12.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:12.04"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(6\.0p1) (Debian-3ubuntu\d(?:\.\d)?)$">
     <description>OpenSSH running on Ubuntu 12.10</description>
     <example service.version="6.0p1" openssh.comment="Debian-3ubuntu1">OpenSSH_6.0p1 Debian-3ubuntu1</example>
@@ -803,6 +857,7 @@
     <param pos="0" name="os.version" value="12.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:12.10"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(6\.1p1) (Debian-4)$">
     <description>OpenSSH running on Ubuntu 13.04</description>
     <example service.version="6.1p1" openssh.comment="Debian-4">OpenSSH_6.1p1 Debian-4</example>
@@ -818,6 +873,7 @@
     <param pos="0" name="os.version" value="13.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:13.04"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(6\.2p2) (Ubuntu-6unbuntu\d(?:\.\d)?)$">
     <description>OpenSSH running on Ubuntu 13.10</description>
     <example service.version="6.2p2" openssh.comment="Ubuntu-6unbuntu0.4">OpenSSH_6.2p2 Ubuntu-6unbuntu0.4</example>
@@ -833,6 +889,7 @@
     <param pos="0" name="os.version" value="13.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:13.10"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(\d+\.\d+(?:\.\d+)?(?:p\d+)?)[_|-](hpn\d+v\d+)$">
     <description>OpenSSH with HPN patches</description>
     <example service.version="6.1" openssh.comment="hpn13v11">OpenSSH_6.1_hpn13v11</example>
@@ -845,6 +902,7 @@
     <param pos="0" name="service.product" value="OpenSSH"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:openbsd:openssh:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(6\.6(?:\.\d)?p1) (Ubuntu-2ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 14.04</description>
     <example service.version="6.6p1" openssh.comment="Ubuntu-2ubuntu1">OpenSSH_6.6p1 Ubuntu-2ubuntu1</example>
@@ -861,6 +919,7 @@
     <param pos="0" name="os.version" value="14.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:14.04"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(6\.6\.1p1) (Ubuntu-8)$">
     <description>OpenSSH running on Ubuntu 14.10</description>
     <example service.version="6.6.1p1" openssh.comment="Ubuntu-8">OpenSSH_6.6.1p1 Ubuntu-8</example>
@@ -876,6 +935,7 @@
     <param pos="0" name="os.version" value="14.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:14.10"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(6\.7p1) (Ubuntu-5ubuntu\d(?:\.\d)?)$">
     <description>OpenSSH running on Ubuntu 15.04 (vivid)</description>
     <example service.version="6.7p1" openssh.comment="Ubuntu-5ubuntu1">OpenSSH_6.7p1 Ubuntu-5ubuntu1</example>
@@ -891,6 +951,7 @@
     <param pos="0" name="os.version" value="15.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:15.04"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(6\.9p1) (Ubuntu-2)$">
     <description>OpenSSH running on Ubuntu 15.10</description>
     <example service.version="6.9p1" openssh.comment="Ubuntu-2">OpenSSH_6.9p1 Ubuntu-2</example>
@@ -906,6 +967,7 @@
     <param pos="0" name="os.version" value="15.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:15.10"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(7\.2p2) (Ubuntu-4ubuntu\d(?:\.\d)?)$">
     <description>OpenSSH running on Ubuntu 16.04 (vivid)</description>
     <example service.version="7.2p2" openssh.comment="Ubuntu-4ubuntu2.7">OpenSSH_7.2p2 Ubuntu-4ubuntu2.7</example>
@@ -921,6 +983,7 @@
     <param pos="0" name="os.version" value="16.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:16.04"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(7\.3p1) (Ubuntu-1)$">
     <description>OpenSSH running on Ubuntu 16.10</description>
     <example service.version="7.3p1" openssh.comment="Ubuntu-1">OpenSSH_7.3p1 Ubuntu-1</example>
@@ -936,6 +999,7 @@
     <param pos="0" name="os.version" value="16.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:16.10"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(7\.4p1) (Ubuntu-10)$">
     <description>OpenSSH running on Ubuntu 17.04</description>
     <example service.version="7.4p1" openssh.comment="Ubuntu-10">OpenSSH_7.4p1 Ubuntu-10</example>
@@ -951,6 +1015,7 @@
     <param pos="0" name="os.version" value="17.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:17.04"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(7\.5p1) (Ubuntu-10ubuntu\d(?:\.\d)?)$">
     <description>OpenSSH running on Ubuntu 17.10</description>
     <example service.version="7.5p1" openssh.comment="Ubuntu-10ubuntu0.1">OpenSSH_7.5p1 Ubuntu-10ubuntu0.1</example>
@@ -966,6 +1031,7 @@
     <param pos="0" name="os.version" value="17.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:17.10"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(7\.6p1) (Ubuntu-4ubuntu\d(?:\.\d)?)$">
     <description>OpenSSH running on Ubuntu 18.04</description>
     <example service.version="7.6p1" openssh.comment="Ubuntu-4ubuntu0.3">OpenSSH_7.6p1 Ubuntu-4ubuntu0.3</example>
@@ -981,6 +1047,7 @@
     <param pos="0" name="os.version" value="18.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:18.04"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(7\.7p1) (Ubuntu-4)$">
     <description>OpenSSH running on Ubuntu 18.10</description>
     <example service.version="7.7p1" openssh.comment="Ubuntu-4">OpenSSH_7.7p1 Ubuntu-4</example>
@@ -996,6 +1063,7 @@
     <param pos="0" name="os.version" value="18.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:18.10"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(7\.9p1) (Ubuntu-10)$">
     <description>OpenSSH running on Ubuntu 19.04</description>
     <example service.version="7.9p1" openssh.comment="Ubuntu-10">OpenSSH_7.9p1 Ubuntu-10</example>
@@ -1011,6 +1079,7 @@
     <param pos="0" name="os.version" value="19.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:19.04"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(8\.0p1) (Ubuntu-6build1)$">
     <description>OpenSSH running on Ubuntu 19.10</description>
     <example service.version="8.0p1" openssh.comment="Ubuntu-6build1">OpenSSH_8.0p1 Ubuntu-6build1</example>
@@ -1026,6 +1095,7 @@
     <param pos="0" name="os.version" value="19.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:19.10"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Ubuntu-\d\d?)$">
     <description>OpenSSH running on Ubuntu (unknown release)</description>
     <example service.version="7.6p1" openssh.comment="Ubuntu-2">OpenSSH_7.6p1 Ubuntu-2</example>
@@ -1040,6 +1110,7 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:-"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+((?:Debian|Ubuntu).+ubuntu.*)$">
     <description>OpenSSH running on Ubuntu</description>
     <example service.version="7.2p3" openssh.comment="Ubuntu-4ubuntu2.2">OpenSSH_7.2p3 Ubuntu-4ubuntu2.2</example>
@@ -1055,6 +1126,7 @@
     <param pos="0" name="os.certainty" value="0.75"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:-"/>
   </fingerprint>
+
   <!-- Debian -->
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Debian.+woody.*)$">
     <description>OpenSSH running on Debian 3.0 (woody)</description>
@@ -1071,6 +1143,7 @@
     <param pos="0" name="os.version" value="3.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:3.0"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Debian.+sarge.*)$">
     <description>OpenSSH running on Debian 3.1 (sarge)</description>
     <example service.version="3.8.1p1" openssh.comment="Debian-8.sarge.4">OpenSSH_3.8.1p1 Debian-8.sarge.4</example>
@@ -1086,6 +1159,7 @@
     <param pos="0" name="os.version" value="3.1"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:3.1"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(4\.3p2) (Debian-9.*)$">
     <description>OpenSSH running on Debian 4.0 (etch)</description>
     <example service.version="4.3p2" openssh.comment="Debian-9">OpenSSH_4.3p2 Debian-9</example>
@@ -1102,6 +1176,7 @@
     <param pos="0" name="os.version" value="4.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:4.0"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(5\.1p1) (Debian-5)$">
     <description>OpenSSH running on Debian 5.0 (also 5.10)</description>
     <example service.version="5.1p1" openssh.comment="Debian-5">OpenSSH_5.1p1 Debian-5</example>
@@ -1117,6 +1192,7 @@
     <param pos="0" name="os.version" value="5.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:5.0"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Debian-\d+[+~]squeeze.*)$">
     <description>OpenSSH running on Debian 6.0 (squeeze)</description>
     <example service.version="5.5p1" openssh.comment="Debian-6+squeeze4">OpenSSH_5.5p1 Debian-6+squeeze4</example>
@@ -1134,6 +1210,7 @@
     <param pos="0" name="os.version" value="6.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:6.0"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(5\.5p1) (Debian-6)$">
     <description>OpenSSH running on Debian 6.0 (w/o squeeze in banner)</description>
     <example service.version="5.5p1" openssh.comment="Debian-6">OpenSSH_5.5p1 Debian-6</example>
@@ -1149,6 +1226,7 @@
     <param pos="0" name="os.version" value="6.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:6.0"/>
   </fingerprint>
+
   <!-- More specific than and should preceed the 7.0 match -->
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Debian-4\+deb7u2)$">
     <description>OpenSSH running on Debian 7.8 (wheezy)</description>
@@ -1165,6 +1243,7 @@
     <param pos="0" name="os.version" value="7.8"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:7.8"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Debian-4(?:\+deb7u\d+)?)$">
     <description>OpenSSH running on Debian 7.x (wheezy)</description>
     <example service.version="6.0p1" openssh.comment="Debian-4">OpenSSH_6.0p1 Debian-4</example>
@@ -1181,6 +1260,7 @@
     <param pos="0" name="os.version" value="7.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:7.0"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Debian-\d~bpo7\d?\+\d+)$">
     <description>OpenSSH backport running on Debian 7.x (wheezy)</description>
     <example service.version="6.6.1p1" openssh.comment="Debian-4~bpo70+1">OpenSSH_6.6.1p1 Debian-4~bpo70+1</example>
@@ -1197,6 +1277,7 @@
     <param pos="0" name="os.version" value="7.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:7.0"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Debian-5\+deb8u\d+.*)$">
     <description>OpenSSH running on Debian 8.x (jessie)</description>
     <example service.version="6.7p1" openssh.comment="Debian-5+deb8u2">OpenSSH_6.7p1 Debian-5+deb8u2</example>
@@ -1214,6 +1295,7 @@
     <param pos="0" name="os.version" value="8.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:8.0"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Debian-\d\d?\+deb9u\d+)$">
     <description>OpenSSH running on Debian 9.x (stretch)</description>
     <example service.version="7.4p1" openssh.comment="Debian-10+deb9u1">OpenSSH_7.4p1 Debian-10+deb9u1</example>
@@ -1230,6 +1312,7 @@
     <param pos="0" name="os.version" value="9.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:9.0"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(7\.9p1) (Debian-10|Debian-\d\d?\+deb10u\d+)$">
     <description>OpenSSH running on Debian 10.x (buster)</description>
     <example service.version="7.9p1" openssh.comment="Debian-10">OpenSSH_7.9p1 Debian-10</example>
@@ -1246,6 +1329,7 @@
     <param pos="0" name="os.version" value="10.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:10.0"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(8\.1p1) (Debian-1|Debian-\d\d?\+deb11u\d+)$">
     <description>OpenSSH running on Debian 11.x (bullseye)</description>
     <example service.version="8.1p1" openssh.comment="Debian-1">OpenSSH_8.1p1 Debian-1</example>
@@ -1262,6 +1346,7 @@
     <param pos="0" name="os.version" value="11.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:11.0"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Debian-\d+(?:[~]?bpo[.]?\d+)?)$">
     <description>OpenSSH running on Debian (unknown release)</description>
     <example service.version="4.3p2" openssh.comment="Debian-5~bpo.1">OpenSSH_4.3p2 Debian-5~bpo.1</example>
@@ -1278,6 +1363,7 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:-"/>
   </fingerprint>
+
   <!-- Raspbian -->
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Raspbian-5\+deb8u\d+)$">
     <description>OpenSSH running on Raspbian (Debian 8 "Jessie" based)</description>
@@ -1295,6 +1381,7 @@
     <param pos="0" name="os.version" value="8.0"/>
     <param pos="0" name="hw.product" value="Raspberry Pi"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Raspbian-\d\d?\+deb9u\d+)$">
     <description>OpenSSH running on Raspbian (Debian 9 "Stretch" based)</description>
     <example service.version="7.4p1" openssh.comment="Raspbian-10+deb9u1">OpenSSH_7.4p1 Raspbian-10+deb9u1</example>
@@ -1311,6 +1398,7 @@
     <param pos="0" name="os.version" value="9.0"/>
     <param pos="0" name="hw.product" value="Raspberry Pi"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(7\.9p1)\s+(Raspbian-(?:10|\d\d?\+deb10u\d+))$">
     <description>OpenSSH running on Raspbian (Debian 10 "Buster" based)</description>
     <example service.version="7.9p1" openssh.comment="Raspbian-10">OpenSSH_7.9p1 Raspbian-10</example>
@@ -1327,6 +1415,7 @@
     <param pos="0" name="os.version" value="10.0"/>
     <param pos="0" name="hw.product" value="Raspberry Pi"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(8\.1p1)\s+(Raspbian-(?:1|\d\d?\+deb11u\d+))$">
     <description>OpenSSH running on Raspbian (Debian 11 "Bullseye" based)</description>
     <example service.version="8.1p1" openssh.comment="Raspbian-1">OpenSSH_8.1p1 Raspbian-1</example>
@@ -1343,6 +1432,7 @@
     <param pos="0" name="os.version" value="11.0"/>
     <param pos="0" name="hw.product" value="Raspberry Pi"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Raspbian-\d\d?)$">
     <description>OpenSSH running on Raspbian (Debian, unknown release)</description>
     <example service.version="7.5p1" openssh.comment="Raspbian-10">OpenSSH_7.5p1 Raspbian-10</example>
@@ -1358,6 +1448,7 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="hw.product" value="Raspberry Pi"/>
   </fingerprint>
+
   <!-- Miscellaneous -->
   <fingerprint pattern="^OpenSSH_(.*)\+(CAN-[0-9]{4}-[0-9]{4})$">
     <description>OpenSSH with CVE patch, as seen in Mac OS X</description>
@@ -1373,6 +1464,7 @@
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:-"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(.*)_Mikrotik_v(.*)$">
     <description>OpenSSH on MikroTik</description>
     <example service.version="2.3.0" os.version="2.9">OpenSSH_2.3.0_Mikrotik_v2.9</example>
@@ -1388,6 +1480,7 @@
     <param pos="0" name="os.product" value="RouterOS"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:mikrotik:routeros:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(.*)-HipServ$">
     <description>OpenSSH on HipServ</description>
     <example service.version="4.3">OpenSSH_4.3-HipServ</example>
@@ -1401,6 +1494,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="HipServ"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_for_Windows_([\d.]+)$">
     <description>OpenSSH running on Windows</description>
     <example service.version="7.7">OpenSSH_for_Windows_7.7</example>
@@ -1414,6 +1508,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(.*) in DesktopAuthority (?:.*)$">
     <description>DesktopAuthority SSH</description>
     <example service.version="3.8">OpenSSH_3.8 in DesktopAuthority 7.1.091</example>
@@ -1427,6 +1522,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(\d+\.\d+(?:\.\d+)?(?:p\d+)?) ((?:PKIX\s+)?FIPS)$">
     <description>OpenSSH with a version and FIPS mode enabled</description>
     <example service.version="5.9" openssh.comment="FIPS">OpenSSH_5.9 FIPS</example>
@@ -1439,6 +1535,7 @@
     <param pos="0" name="service.product" value="OpenSSH"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:openbsd:openssh:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH_(\d+\.\d+(?:\.\d+)?(?:p\d+)?) *$">
     <description>OpenSSH with just a version, no comment by vendor</description>
     <example service.version="5.9p1">OpenSSH_5.9p1</example>
@@ -1451,6 +1548,7 @@
     <param pos="0" name="service.product" value="OpenSSH"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:openbsd:openssh:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenSSH$">
     <description>OpenSSH w/o version or comment</description>
     <example>OpenSSH</example>
@@ -1459,6 +1557,7 @@
     <param pos="0" name="service.product" value="OpenSSH"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:openbsd:openssh:-"/>
   </fingerprint>
+
   <!-- SSH-1.99-OpenSSH_4.3p2-4.cern-hpn-CERN-4.3p2-4.cern -->
   <!--<fingerprint pattern="^OpenSSH_?([^\s]*)\s*(.*)$">
       <description>Catch all for OpenSSH based SSH servers
@@ -1485,6 +1584,7 @@
     <param pos="0" name="os.certainty" value="0.8"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:-"/>
   </fingerprint>
+
   <fingerprint pattern="^CISCO_WLC$">
     <description>SSH banner from a Cisco WLC (WLC)</description>
     <example>CISCO_WLC</example>
@@ -1494,6 +1594,7 @@
     <param pos="0" name="os.product" value="Wireless LAN Controller"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:wireless_lan_controller:-"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Cleo (\S+)/(\S+) SSH FTP server$">
     <description>Cleo networks Harmony, VLProxy, VLTrader, others</description>
     <example service.product="Harmony" service.version="5.5.0.3">Cleo Harmony/5.5.0.3 SSH FTP server</example>
@@ -1502,6 +1603,7 @@
     <param pos="1" name="service.product"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Sun_SSH_(.*)$">
     <description>Sun SSH banner</description>
     <example service.version="1.1">Sun_SSH_1.1</example>
@@ -1513,6 +1615,7 @@
     <param pos="0" name="os.product" value="Solaris"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:-"/>
   </fingerprint>
+
   <fingerprint pattern="^SSH Protocol Compatible Server SCS (.*)$">
     <description>Netscreen with version</description>
     <param pos="1" name="service.version"/>
@@ -1525,6 +1628,7 @@
     <param pos="0" name="os.product" value="ScreenOS"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:juniper:screenos:-"/>
   </fingerprint>
+
   <fingerprint pattern="^NetScreen$">
     <description>Netscreen generic</description>
     <example>NetScreen</example>
@@ -1537,11 +1641,13 @@
     <param pos="0" name="os.product" value="ScreenOS"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:juniper:screenos:-"/>
   </fingerprint>
+
   <fingerprint pattern="^HUAWEI-(?:[\d\.]+)$">
     <description>Huawei generic</description>
     <example>HUAWEI-1.5</example>
     <param pos="0" name="hw.vendor" value="Huawei"/>
   </fingerprint>
+
   <fingerprint pattern="^HUAWEI-UMG(\d+)">
     <description>Huawei Universal Media Gateway</description>
     <example hw.model="8900">HUAWEI-UMG8900</example>
@@ -1550,6 +1656,7 @@
     <param pos="0" name="hw.device" value="Telecom"/>
     <param pos="1" name="hw.model"/>
   </fingerprint>
+
   <fingerprint pattern="^HUAWEI.VRP.([\d\.]+)$">
     <description>Huawei Versatile Routing Platform (VRP)</description>
     <example os.version="3.10" service.version="3.10">HUAWEI-VRP-3.10</example>
@@ -1564,6 +1671,7 @@
     <param pos="0" name="os.product" value="VRP"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
+
   <fingerprint pattern="^([\d.]+)[ _]sshlib:? (?i:GlobalScape)$">
     <description>GlobalScape SSH (which uses Bitvise sshlib)</description>
     <example service.component.version="1.36">1.36_sshlib GlobalSCAPE</example>
@@ -1581,6 +1689,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^([^\s]+) sshlib: WinSSHD (.*)$">
     <description>Bitvise WinSSHD (which uses Bitvise sshlib)</description>
     <example service.component.version="1.78" service.version="4.15a">1.78 sshlib: WinSSHD 4.15a</example>
@@ -1597,6 +1706,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^([^\s]+) FlowSsh: (?:Bitvise SSH Server \(WinSSHD\)|WinSSHD) ([\d\.]+):?.*$">
     <description>Bitvise WinSSHD (which uses Bitvise flowssh) with version</description>
     <example service.version="5.09" service.component.version="1.03">1.03 FlowSsh: WinSSHD 5.09</example>
@@ -1615,6 +1725,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^([^\s]+) FlowSsh: (?:Bitvise SSH Server \(WinSSHD\)|WinSSHD)(?: :.*)?$">
     <description>Bitvise WinSSHD (which uses Bitvise flowssh) without version</description>
     <example service.component.version="9.99">9.99 FlowSsh: Bitvise SSH Server (WinSSHD)</example>
@@ -1631,6 +1742,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^([^\s]+) sshlib: MOVEit DMZ SSH (.*)$">
     <description>MOVEit DMZ (which uses Bitvise sshlib)</description>
     <param pos="1" name="service.component.version"/>
@@ -1646,6 +1758,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^paramiko_([\d\.]+).*$">
     <description>Paramiko</description>
     <example service.version="2.1.3">paramiko_2.1.3 501 command not implemented ERROR</example>
@@ -1655,6 +1768,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:paramiko:paramiko:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Pragma SecureShell\s*(.*)$">
     <description>Pragma SecureShell</description>
     <param pos="1" name="service.version"/>
@@ -1666,6 +1780,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Pragma FortressSSH\s+([\d.]+)(?:\s+\[([\d.:]+)\])?$">
     <description>Pragma FortressSSH</description>
     <example service.version="5.0.9.2031">Pragma FortressSSH 5.0.9.2031</example>
@@ -1680,6 +1795,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^RebexSSH_([\d\.]+)$">
     <description>Rbex SSH</description>
     <example service.version="1.0.5.25508">RebexSSH_1.0.5.25508</example>
@@ -1687,12 +1803,14 @@
     <param pos="0" name="service.product" value="SSH"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^RGOS_\S+$">
     <description>Ruijie Networks SSH</description>
     <example>RGOS_SSH_1.0</example>
     <example>RGOS_PK3223</example>
     <param pos="0" name="hw.vendor" value="Ruijie"/>
   </fingerprint>
+
   <fingerprint pattern="^VShell_(?:Special_Edition_)?(\d+)_(\d+)_(\d+)_(\d+) VShell$">
     <description>VanDyke VShell - detailed variant</description>
     <example service.version="3" service.version.version="6" service.version.version.version="2" service.version.version.version.version="446">VShell_3_6_2_446 VShell</example>
@@ -1706,6 +1824,7 @@
     <param pos="0" name="service.product" value="VShell"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:vandyke:vshell:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^([\s]*)\s*VShell$">
     <description>VanDyke VShell</description>
     <param pos="1" name="service.version"/>
@@ -1714,6 +1833,7 @@
     <param pos="0" name="service.product" value="VShell"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:vandyke:vshell:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^WRQReflection(?i:F)orSecureIT_(.*)$">
     <description>Attachmate Reflection (formerly WRQ Reflection for Secure IT)</description>
     <example service.version="6.1 Build 21">WRQReflectionForSecureIT_6.1 Build 21</example>
@@ -1723,6 +1843,7 @@
     <param pos="0" name="service.family" value="Reflection"/>
     <param pos="0" name="service.product" value="Reflection"/>
   </fingerprint>
+
   <fingerprint pattern="^([^\s]*)\s*F-Secure SSH\s*(?:.*)$">
     <description>Attachmate Reflection (formerly F-Secure SSH)</description>
     <example service.version="3.2.3">3.2.3 F-Secure SSH Windows NT Server</example>
@@ -1731,6 +1852,7 @@
     <param pos="0" name="service.family" value="Reflection"/>
     <param pos="0" name="service.product" value="Reflection"/>
   </fingerprint>
+
   <fingerprint pattern="^([^\s]*)\s*SSH Tectia Server$">
     <description>SSH Communications Security Tectia Server - branded</description>
     <example service.version="6.4.12.353">6.4.12.353 SSH Tectia Server</example>
@@ -1739,6 +1861,7 @@
     <param pos="0" name="service.family" value="SSH Tectia Server"/>
     <param pos="0" name="service.product" value="SSH Tectia Server"/>
   </fingerprint>
+
   <fingerprint pattern="^([0-9\.]+) SSH Secure Shell(?: \(non-commercial\))?$">
     <description>SSH Communications Security Tectia Server</description>
     <example service.version="3.2.9.1">3.2.9.1 SSH Secure Shell (non-commercial)</example>
@@ -1749,6 +1872,7 @@
     <param pos="0" name="service.family" value="SSH Tectia Server"/>
     <param pos="0" name="service.product" value="SSH Tectia Server"/>
   </fingerprint>
+
   <fingerprint pattern="^([0-9\.]+) SSH Secure Shell Windows NT Server$">
     <description>Unknown Windows SSH server</description>
     <example service.version="4.0.3">4.0.3 SSH Secure Shell Windows NT Server</example>
@@ -1761,6 +1885,7 @@
     <param pos="0" name="service.family" value="SSH Tectia Server"/>
     <param pos="0" name="service.product" value="SSH Tectia Server"/>
   </fingerprint>
+
   <fingerprint pattern="^ARRIS_(.*)$">
     <description>ARRIS device (though not clear which) - www.arrisi.com</description>
     <example service.version="0.50">ARRIS_0.50</example>
@@ -1769,6 +1894,7 @@
     <param pos="0" name="service.product" value="ARRIS"/>
     <param pos="0" name="os.vendor" value="ARRIS"/>
   </fingerprint>
+
   <fingerprint pattern="^Mocana SSH\s?(?:([\d.]+))?$">
     <description>Mocana Embedded SSH</description>
     <example service.version="5.3.1">Mocana SSH 5.3.1</example>
@@ -1778,6 +1904,7 @@
     <param pos="0" name="service.family" value="Embedded SSH Server"/>
     <param pos="0" name="service.product" value="Embedded SSH Server"/>
   </fingerprint>
+
   <fingerprint pattern="^FreSSH\.(.*)$">
     <description>FreSSH</description>
     <example service.version="0.8">FreSSH.0.8</example>
@@ -1785,6 +1912,7 @@
     <param pos="0" name="service.family" value="FreSSH"/>
     <param pos="0" name="service.product" value="FreSSH"/>
   </fingerprint>
+
   <fingerprint pattern="^RomCliSecure_(.*)$">
     <description>RomCliSecure appears to be the Adtran NetVanta products</description>
     <example service.version="4.12">RomCliSecure_4.12</example>
@@ -1796,6 +1924,7 @@
     <param pos="0" name="os.family" value="NetVanta"/>
     <param pos="0" name="os.product" value="NetVanta"/>
   </fingerprint>
+
   <fingerprint pattern="^.*MultiNet.*$">
     <description>Process Software MultiNet is a suite of network apps for OpenVMS</description>
     <param pos="0" name="service.vendor" value="Process Software"/>
@@ -1806,12 +1935,14 @@
     <param pos="0" name="os.product" value="OpenVMS"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:hp:openvms:-"/>
   </fingerprint>
+
   <fingerprint pattern="^dropbear$">
     <description>Dropbear w/o version - http://matt.ucc.asn.au/dropbear/dropbear.html</description>
     <example>dropbear</example>
     <param pos="0" name="service.family" value="Dropbear"/>
     <param pos="0" name="service.product" value="Dropbear"/>
   </fingerprint>
+
   <fingerprint pattern="^dropbear_(.*)$">
     <description>Dropbear - http://matt.ucc.asn.au/dropbear/dropbear.html</description>
     <example service.version="2015.67">dropbear_2015.67</example>
@@ -1820,6 +1951,7 @@
     <param pos="0" name="service.family" value="Dropbear"/>
     <param pos="0" name="service.product" value="Dropbear"/>
   </fingerprint>
+
   <fingerprint pattern="^lancom$">
     <description>LANCOM Systems - http://www.lancom-systems.de/</description>
     <example>lancom</example>
@@ -1828,6 +1960,7 @@
     <param pos="0" name="service.product" value="SSH"/>
     <param pos="0" name="os.vendor" value="LANCOM Systems"/>
   </fingerprint>
+
   <fingerprint pattern="^0$">
     <description>MOVEit DMZ</description>
     <example>0</example>
@@ -1839,6 +1972,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Comware-(\d+\.?\d*\.?\d*)$">
     <description>SSH on H3C Comware</description>
     <example os.version="5.20.105">Comware-5.20.105</example>
@@ -1851,6 +1985,7 @@
     <param pos="0" name="os.family" value="Comware"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Data ONTAP SSH [\d\.]+$">
     <description>SSH NetApp appliances</description>
     <example>Data ONTAP SSH 1.0</example>
@@ -1859,6 +1994,7 @@
     <param pos="0" name="os.product" value="Data ONTAP"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:netapp:data_ontap:-"/>
   </fingerprint>
+
   <fingerprint pattern="^(\d\.\d+\.\d+) SSH Secure Shell OpenVMS V\d+\.\d+$">
     <description>SSH for OpenVMS</description>
     <example service.component.version="3.2.0">3.2.0 SSH Secure Shell OpenVMS V5.5</example>
@@ -1876,6 +2012,7 @@
     <param pos="0" name="os.certainty" value="0.75"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:hp:openvms:-"/>
   </fingerprint>
+
   <fingerprint pattern="^(\d\.\d+\.\d+) SSH (?:Secure Shell )?OpenVMS V\d\.\d VMS_sftp_version (\d)$">
     <description>SSH for OpenVMS sftp</description>
     <example service.component.version="3.2.0" service.version="3">3.2.0 SSH Secure Shell OpenVMS V5.5 VMS_sftp_version 3</example>
@@ -1892,6 +2029,7 @@
     <param pos="0" name="os.family" value="OpenVMS"/>
     <param pos="0" name="os.certainty" value="0.75"/>
   </fingerprint>
+
   <fingerprint pattern="^\S+ SSH Secure Shell Tru64 UNIX$">
     <description>Digital/Compaq/HP Tru64 Unix</description>
     <example>3.2.0 SSH Secure Shell Tru64 UNIX</example>
@@ -1900,6 +2038,7 @@
     <param pos="0" name="os.product" value="Tru64 Unix"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:hp:tru64:-"/>
   </fingerprint>
+
   <fingerprint pattern="^ROSSSH$">
     <description>MikroTik RouterOS sshd</description>
     <example>ROSSSH</example>
@@ -1909,6 +2048,7 @@
     <param pos="0" name="os.product" value="RouterOS"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:mikrotik:routeros:-"/>
   </fingerprint>
+
   <!-- xlightftpd is an ftp server that also supports SFTP. The SFTP
        server appears in ssh studies, thus this banner is here, and
        not in ftp_banners.xml-->
@@ -1924,6 +2064,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^libssh[-_]([\d.]+)$">
     <description>SSH server utilising libssh</description>
     <example service.version="0.6.0">libssh-0.6.0</example>
@@ -1934,6 +2075,7 @@
     <param pos="0" name="service.vendor" value="libssh"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:libssh:libssh:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^WeOnlyDo ([\d.]+)$">
     <description>WeOnlyDo with version</description>
     <example service.version="1.2.7">WeOnlyDo 1.2.7</example>
@@ -1944,6 +2086,7 @@
     <param pos="0" name="service.vendor" value="WeOnlyDo"/>
     <param pos="0" name="service.product" value="WeOnlyDo SSH Server"/>
   </fingerprint>
+
   <fingerprint pattern="^WeOnlyDo ([\d.]+) \(FIPS\)$">
     <description>WeOnlyDo with version with FIPS mode enabled</description>
     <example service.version="2.2.9">WeOnlyDo 2.2.9 (FIPS)</example>
@@ -1953,6 +2096,7 @@
     <param pos="0" name="service.vendor" value="WeOnlyDo"/>
     <param pos="0" name="service.product" value="WeOnlyDo SSH Server"/>
   </fingerprint>
+
   <!--
 1.2.22j4rad
 2.40
