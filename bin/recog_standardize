@@ -68,6 +68,7 @@ ARGV.each do |arg|
       f.params.each do |k,v|
         paramIndex, val = v
         next if paramIndex != 0
+        next if val.index("{") != -1
         case k
         when "os.vendor", "service.vendor", "service.component.vendor", "hw.vendor"
           if ! vendors[val]
