@@ -22,6 +22,15 @@ Fingerprints should use these identifiers whenever possible; if a different name
 
 `os_device.txt` defines known types of devices by function or purpose.
 
+
+### Hardware
+
+`hw_product.txt` defines known hardware product names.
+
+`hw_family.txt` defines known hardware product families.
+
+`hw_device.txt` defines known types of devices by function or purpose (overlaps with `os_device.txt`).
+
 ### Services
 
 `service_product.txt` defines known service product names.
