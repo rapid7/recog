@@ -153,9 +153,9 @@
   </fingerprint>
   <fingerprint pattern="^CN=(i?DRAC\d+) default certificate,OU=Remote Access Group,O=Dell Inc\.,L=Round Rock,ST=Texas,C=US$">
     <description>Dell iDRAC Remote Access Controller w/Version</description>
-    <example>CN=iDRAC7 default certificate,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
-    <example>CN=iDRAC6 default certificate,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
-    <example>CN=DRAC5 default certificate,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
+    <example hw.product="iDRAC7">CN=iDRAC7 default certificate,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
+    <example hw.product="iDRAC6">CN=iDRAC6 default certificate,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
+    <example hw.product="DRAC5">CN=DRAC5 default certificate,OU=Remote Access Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
     <param pos="0" name="hw.device" value="Lights Out Management"/>
     <param pos="0" name="hw.vendor" value="Dell"/>
     <param pos="1" name="hw.product"/>
@@ -473,16 +473,17 @@
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
-  <fingerprint pattern="^CN=([a-zA-Z0-9]{5,12}) ([a-zA-Z0-9]{12}),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US$">
+  <fingerprint pattern="^CN=([a-zA-Z0-9]{5,12}) ([a-zA-Z0-9]{12}),OU=(?:Cast|Google TV),O=Google Inc,L=Mountain View,ST=California,C=US$">
     <description>Google Chromecast</description>
     <example chromecast.serial_number="LVDZG5" host.mac_local="FA8FCA67413D">CN=LVDZG5 FA8FCA67413D,OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+    <example chromecast.serial_number="YRBLE" host.mac_local="FA8FCA7DE87D">CN=YRBLE FA8FCA7DE87D,OU=Google TV,O=Google Inc,L=Mountain View,ST=California,C=US</example>
     <param pos="0" name="os.vendor" value="Google"/>
     <param pos="0" name="os.product" value="ChromeOS"/>
     <param pos="0" name="hw.device" value="Media Server"/>
     <param pos="0" name="hw.vendor" value="Google"/>
     <param pos="0" name="hw.product" value="Chromecast"/>
     <param pos="1" name="chromecast.serial_number"/>
-    <!-- local administered mac address (clear bit 2 of first byte) -->
+    <!-- This is the hotspot-mode MAC address (clear bit 2) -->
     <param pos="2" name="host.mac_local"/>
   </fingerprint>
   <fingerprint pattern="^CN=([a-zA-Z0-9]{5,12}) ([a-zA-Z0-9]{12}),OU=Cast TV \(Vizio\),O=Google Inc,L=Mountain View,ST=California,C=US$">
@@ -495,7 +496,7 @@
     <param pos="0" name="hw.device" value="Smart TV"/>
     <param pos="0" name="hw.vendor" value="Vizio"/>
     <param pos="1" name="chromecast.serial_number"/>
-    <!-- local administered mac address (clear bit 2 of first byte) -->
+    <!-- This is the hotspot-mode MAC address (clear bit 2) -->
     <param pos="2" name="host.mac_local"/>
   </fingerprint>
   <fingerprint pattern="^CN=TANDBERG,OU=R&amp;D,O=TANDBERG ASA,L=Lysaker,ST=Askerhus,C=NO$">
@@ -609,12 +610,14 @@
     <example>CN=VMM APIC,OU=VMM15,O=Cisco,L=San Jose,ST=CA,C=US</example>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.product" value="APIC"/>
+    <param pos="0" name="hw.device" value="Network Appliance"/>
   </fingerprint>
   <fingerprint pattern="^CN=APIC$">
     <description>Cisco APIC - bare CN</description>
     <example>CN=APIC</example>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.product" value="APIC"/>
+    <param pos="0" name="hw.device" value="Network Appliance"/>
   </fingerprint>
   <fingerprint pattern="^CN=(iPX\d+),OU=I Project,O=Samsung Electronics,L=Suwon,ST=Gyeonggi-do,C=KR$">
     <description>Samsung Communication Manager</description>
@@ -1257,5 +1260,44 @@
     <param pos="0" name="hw.vendor" value="Tintro"/>
     <param pos="0" name="hw.device" value="NAS"/>
     <param pos="0" name="hw.product" value="Storage Appliance"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=axonius,O=Axonius\\, Inc,L=New York City,ST=New York,C=US$">
+    <description>Axonius Appliance</description>
+    <example>CN=axonius,O=Axonius\, Inc,L=New York City,ST=New York,C=US</example>
+    <param pos="0" name="hw.vendor" value="Axonius"/>
+    <param pos="0" name="hw.device" value="Security Appliance"/>
+    <param pos="0" name="hw.product" value="Asset Management"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=AVIGILON-CAMERA-([a-zA-Z0-9\.\-]+)-\d+,OU=Certification Manager,O=Avigilon Corporation,L=Vancouver,ST=British Columbia,C=CA$">
+    <description>Avigilon IP Camera</description>
+    <example hw.product="5.0-H3-DP1">CN=AVIGILON-CAMERA-5.0-H3-DP1-1242900,OU=Certification Manager,O=Avigilon Corporation,L=Vancouver,ST=British Columbia,C=CA</example>
+    <param pos="0" name="hw.vendor" value="Avigilon"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="os.vendor" value="Aviglon"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=TCAM,OU=Security,O=Truen,L=Seoul,ST=Seoul,C=KR$">
+    <description>Truen IP Camera (Often Rebranded)</description>
+    <example>CN=TCAM,OU=Security,O=Truen,L=Seoul,ST=Seoul,C=KR</example>
+    <param pos="0" name="hw.certainty" value="0.5"/>
+    <param pos="0" name="hw.vendor" value="Truen"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
+    <param pos="0" name="os.certainty" value="0.5"/>
+    <param pos="0" name="os.vendor" value="Truen"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+  </fingerprint>
+  <fingerprint pattern="^CN=device.wilibox.com,OU=R&amp;D,O=WILIBOX UAB,L=Kaunas,ST=-,C=LT$">
+    <description>LigoWave Outdoor AP</description>
+    <example>CN=device.wilibox.com,OU=R&amp;D,O=WILIBOX UAB,L=Kaunas,ST=-,C=LT</example>
+    <param pos="0" name="hw.certainty" value="0.50"/>
+    <param pos="0" name="hw.vendor" value="LigoWave"/>
+    <param pos="0" name="hw.device" value="WAP"/>
+    <param pos="0" name="os.certainty" value="0.5"/>
+    <param pos="0" name="os.vendor" value="LigoWave"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
 </fingerprints>

@@ -587,18 +587,30 @@ more text</example>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.device" value="Web cam"/>
   </fingerprint>
-  <fingerprint pattern="(?i)^AXIS (\S+) (?:(?:Mk II )?Video|IO Audio) (?:Encoder|Encoder Blade|Module|Server|Decoder) (\S+) .*">
-    <description>Axis Audio/Video encoders/servers</description>
+  <fingerprint pattern="(?i)^AXIS (\S+) (?:(?:Mk II )?Video) (?:Encoder|Encoder Blade|Module|Server|Decoder) (\S+) .*">
+    <description>Axis Video encoders/servers</description>
     <example hw.product="Q7406">AXIS Q7406 Video Encoder Blade 5.01 (Aug 01 2008) ready.</example>
     <example hw.product="241Q">AXIS 241Q Video Server 4.47.2 (Dec 11 2008) ready.</example>
     <example hw.version="5.07.2">AXIS P7701 Video Decoder 5.07.2 (Apr 20 2010) ready.</example>
     <example hw.product="Q7401" hw.version="5.01">AXIS Q7401 Video Encoder 5.01 (Aug 01 2008) ready.</example>
     <example hw.product="Q7401" hw.version="5.50.2_cst_412205_1">AXIS Q7401 Video Encoder 5.50.2_cst_412205_1 (2013)</example>
     <example hw.product="Q7424-R" hw.version="5.51.3.1">AXIS Q7424-R Mk II Video Encoder 5.51.3.1 (2016) ready.</example>
+    <param pos="0" name="hw.vendor" value="Axis"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="hw.version"/>
+    <param pos="0" name="hw.device" value="Video Encoder"/>
+    <param pos="0" name="os.vendor" value="AXIS"/>
+    <param pos="0" name="os.family" value="Linux"/>
+  </fingerprint>
+  <fingerprint pattern="(?i)^AXIS (\S+) (?:(?:Mk II )?IO Audio) (?:Encoder|Encoder Blade|Module|Server|Decoder) (\S+) .*">
+    <description>Axis Audio encoders/servers</description>
     <example hw.product="P8221" hw.version="5.10.2">AXIS P8221 IO Audio Module 5.10.2 (Nov 07 2011) ready.</example>
     <param pos="0" name="hw.vendor" value="Axis"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="hw.version"/>
+    <param pos="0" name="hw.device" value="Audio Encoder"/>
+    <param pos="0" name="os.vendor" value="AXIS"/>
+    <param pos="0" name="os.family" value="Linux"/>
   </fingerprint>
   <fingerprint pattern="(?i)^AXIS (\S+) Network Door Controller (\S+) .* ready\.?$">
     <description>Axis Door Controllers</description>
@@ -1550,5 +1562,16 @@ more text</example>
     <param pos="0" name="hw.product" value="Home Controller"/>
     <param pos="0" name="os.vendor" value="ELAN"/>
     <param pos="0" name="os.family" value="Linux"/>
+  </fingerprint>
+  <fingerprint pattern="^Welcome to Honeywell Printer (PM\d+)\S+?$">
+    <description>Honeywell Thermal Label Printer (Previously Intermec)</description>
+    <example hw.product="Thermal Label Printer PM43">Welcome to Honeywell Printer PM43c</example>
+    <param pos="0" name="hw.vendor" value="Honeywell"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="0" name="hw.product" value="Thermal Label Printer {hw.model}"/>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="0" name="os.vendor" value="Honeywell"/>
+    <param pos="0" name="os.product" value="Thermal Label Printer {hw.model}"/>
+    <param pos="0" name="os.device" value="Printer"/>
   </fingerprint>
 </fingerprints>

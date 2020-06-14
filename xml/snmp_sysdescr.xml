@@ -1638,7 +1638,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <description>Data Domain OS</description>
     <example>Data Domain OS 4.3.3.0-53506</example>
     <param pos="0" name="os.vendor" value="Data Domain"/>
-    <param pos="0" name="os.product" value="Data Domain OS"/>
+    <param pos="0" name="os.product" value="DD OS"/>
     <param pos="0" name="os.device" value="Storage"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
@@ -3079,7 +3079,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Print server"/>
   </fingerprint>
   <!--======================================================================
-                              INTERMEC
+                              INTERMEC (+ Honeywell Rebrand)
    =======================================================================-->
   <fingerprint pattern="^Intermec CX Terminal$">
     <description>Intermec Data Collection Terminal</description>
@@ -3087,6 +3087,29 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="Intermec"/>
     <param pos="0" name="os.product" value="CX Data Collection Terminal"/>
     <param pos="0" name="os.device" value="POS"/>
+  </fingerprint>
+  <fingerprint pattern="^Thermal Label Printer Intermec (\S+)$">
+    <description>Intermec Thermal Label Printer</description>
+    <example os.product="Thermal Label Printer PM43" hw.product="Thermal Label Printer PM43">Thermal Label Printer Intermec PM43</example>
+    <param pos="0" name="hw.vendor" value="Intermec"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="0" name="hw.product" value="Thermal Label Printer {hw.model}"/>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="0" name="os.vendor" value="Intermec"/>
+    <param pos="0" name="os.product" value="Thermal Label Printer {hw.model}"/>
+    <param pos="0" name="os.device" value="Printer"/>
+  </fingerprint>
+  <fingerprint pattern="^Honeywell (PM\d+);P([\d\.]+)$">
+    <description>Honeywell Thermal Label Printer (Previously Intermec)</description>
+    <example os.product="Thermal Label Printer PM43" hw.product="Thermal Label Printer PM43">Honeywell PM43;P10.14.014620</example>
+    <param pos="0" name="hw.vendor" value="Honeywell"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="2" name="hw.version"/>
+    <param pos="0" name="hw.product" value="Thermal Label Printer {hw.model}"/>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="0" name="os.vendor" value="Honeywell"/>
+    <param pos="0" name="os.product" value="Thermal Label Printer {hw.model}"/>
+    <param pos="0" name="os.device" value="Printer"/>
   </fingerprint>
   <!--======================================================================
                               Juniper
@@ -3627,6 +3650,24 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.device"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
+
+
+  <!--======================================================================
+                              LigoWave
+   =======================================================================-->
+
+  <fingerprint pattern="^DLB APC (\S+\s+\S+), v([\d.]+\d+)">
+    <description>LigoWave Outdoor AP</description>
+    <example hw.product="5M-90 V3" os.version="7.02">DLB APC 5M-90 V3, v7.02.rt3883.Deliberant.APC.en_US.53109.151202.0133</example>
+    <param pos="0" name="hw.vendor" value="LigoWave"/>
+    <param pos="0" name="hw.device" value="WAP"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="os.vendor" value="LigoWave"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+
   <!--======================================================================
                               LINUX
 

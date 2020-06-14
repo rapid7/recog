@@ -128,6 +128,7 @@
     <param pos="0" name="service.product" value="Hikvision Web Server"/>
     <param pos="0" name="os.vendor" value="Hikvision"/>
     <param pos="0" name="os.device" value="DVR"/>
+    <param pos="0" name="hw.vendor" value="Hikvision"/>
     <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;Merit LILIN Ent\. Co\., Ltd.&quot;.*$">
@@ -449,6 +450,24 @@
     <param pos="0" name="hw.family" value="ZXV"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
+  <fingerprint pattern="(?i)^(?:Basic|Digest)\s+realm=&quot;Siqura&quot;$">
+    <description>Siqura Video Encoder</description>
+    <example>Basic realm=&quot;Siqura&quot;</example>
+    <param pos="0" name="os.vendor" value="Siqura"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="hw.vendor" value="Siqura"/>
+    <param pos="0" name="hw.device" value="Video Encoder"/>
+  </fingerprint>
+  <fingerprint pattern="^Digest realm=&quot;(Orbit-351)&quot;">
+    <description>Steinsvik Orbit 351 IP Camera (Truen TCAM Rebrand)</description>
+    <example hw.product="Orbit-351">Digest realm=&quot;Orbit-351&quot;, nonce=&quot;0000040dY892418598785d2a2304a74adf22f6098f2792&quot;, stale=FALSE</example>
+	  <param pos="0" name="hw.vendor" value="Steinsvik"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="os.vendor" value="Steinsvik"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+  </fingerprint>
   <!-- a variety of headers we currently just ignore -->
   <fingerprint pattern="(?i)^NTLM$">
     <description>Ignore NTLM-only</description>
@@ -492,6 +511,7 @@
     <param pos="0" name="hw.product" value="Primergy"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
+
   <!--
    Temporarily disable this version-less fingerprint because it overrode the
    one in http_servers.xml (see NEX-1255).

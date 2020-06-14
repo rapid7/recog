@@ -10,6 +10,18 @@
 
   -->
   <!-- Chromecast and various devices that support the Cast protocol -->
+
+  <fingerprint pattern="^CN=Eureka Gen1 ICA,OU=Google TV,O=Google Inc,L=Mountain View,ST=California,C=US$">
+    <description>Google Chromecast Gen 1</description>
+    <example>CN=Eureka Gen1 ICA,OU=Google TV,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+    <param pos="0" name="os.vendor" value="Google"/>
+    <param pos="0" name="os.product" value="ChromeOS"/>
+    <param pos="0" name="hw.device" value="Media Server"/>
+    <param pos="0" name="hw.vendor" value="Google"/>
+    <param pos="0" name="hw.product" value="Chromecast"/>
+    <param pos="0" name="chromecast.generation" value="1"/>
+  </fingerprint>
+
   <fingerprint pattern="^CN=Chromecast ICA (\d+)\s*\(?([^,\)]*)\)?,OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US$">
     <description>Google Chromecast</description>
     <example chromecast.generation="3">CN=Chromecast ICA 3,OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>

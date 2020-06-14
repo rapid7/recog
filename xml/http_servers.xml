@@ -2227,6 +2227,7 @@
     <param pos="0" name="service.product" value="Hikvision Web Server"/>
     <param pos="0" name="os.vendor" value="Hikvision"/>
     <param pos="0" name="os.device" value="DVR"/>
+    <param pos="0" name="hw.vendor" value="Hikvision"/>
     <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
   <fingerprint pattern="^NET-DK[/ ](\d+\.\d+)$">
@@ -2966,6 +2967,31 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.device" value="WAP"/>
   </fingerprint>
+  <fingerprint pattern="^Linux/(\S+\_eureka_1), UPnP/[\d\.]+, Portable SDK for UPnP devices/(\S+)$">
+    <description>Siqura Video Encoder</description>
+    <example>Linux/2.6.37_eureka_1, UPnP/1.0, Portable SDK for UPnP devices/1.6.6</example>
+	  <param pos="0" name="hw.vendor" value="Siqura"/>
+    <param pos="0" name="hw.device" value="Video Encoder"/>
+    <param pos="0" name="os.vendor" value="Siqura"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="service.product" value="libupnp"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+  <fingerprint pattern="^Linux/(\S+\-Mozart-8G), UPnP/[\d\.]+, Portable SDK for UPnP devices/(\S+)$">
+    <description>Steinsvik Orbit IP Camera (Truen TCAM Rebrand)</description>
+    <example>Linux/2.6.28.9-Mozart-8G, UPnP/1.0, Portable SDK for UPnP devices/1.6.6</example>
+	  <param pos="0" name="hw.vendor" value="Steinsvik"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.product" value="Orbit IP Camera"/>
+    <param pos="0" name="os.vendor" value="Steinsvik"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="service.product" value="libupnp"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
   <fingerprint pattern="^Linux/(\S+\-ami), UPnP/[\d\.]+, Portable SDK for UPnP devices/(\S+)$">
     <description>AMI MegaRAC LOM UPnP</description>
     <example>Linux/3.14.17-ami, UPnP/1.0, Portable SDK for UPnP devices/1.6.20</example>
@@ -3195,6 +3221,14 @@
     <param pos="0" name="hw.vendor" value="Sony"/>
     <param pos="0" name="hw.device" value="Media Server"/>
     <param pos="0" name="hw.product" value="AV Receiver"/>
+  </fingerprint>
+  <fingerprint pattern="^AV_Receiver/([\d\.]+) \(([^\)]+)\)$">
+    <description>Yamaha AV Receiver</description>
+    <example hw.version="3.1" hw.product="RX-V675">AV_Receiver/3.1 (RX-V675)</example>
+    <param pos="0" name="hw.vendor" value="Yamaha"/>
+    <param pos="0" name="hw.device" value="AV Receiver"/>
+    <param pos="1" name="hw.version"/>
+    <param pos="2" name="hw.product"/>
   </fingerprint>
   <fingerprint pattern="^MWS 0.01$">
     <description>ANNKE IP Camera</description>
