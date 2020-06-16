@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="x509.issuer" protocol="x509">
   <!--
   This fingerprint set matches the Issuer field of x509 certificates. These x509
   certificates may be sourced from any SSL or TLS service. If a particular system
   has identical subject and issuer fields, the subject field should be preferred.
-
   The format of the Issuer field is built from the x509 distinguished names using
   a specific order. Please see the comments in x509_subjects.xml for details.
-
   -->
+
   <!-- Chromecast and various devices that support the Cast protocol -->
 
   <fingerprint pattern="^CN=Eureka Gen1 ICA,OU=Google TV,O=Google Inc,L=Mountain View,ST=California,C=US$">
@@ -100,6 +99,7 @@
   </fingerprint>
 
   <!-- End of Chromecast -->
+
   <fingerprint pattern="^CN=Yealink Equipment Issuing CA,OU=yealink\.com,O=Yealink Network Technology Co\.\\,Ltd.,L=Xiamen,ST=Fujian,C=CN$">
     <description>Yealink VoIP Phone</description>
     <example>CN=Yealink Equipment Issuing CA,OU=yealink.com,O=Yealink Network Technology Co.\,Ltd.,L=Xiamen,ST=Fujian,C=CN</example>
@@ -154,4 +154,5 @@
     <param pos="0" name="os.family" value="iLO"/>
     <param pos="0" name="os.product" value="iLO"/>
   </fingerprint>
+
 </fingerprints>

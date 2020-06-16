@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="pop3.banner" protocol="pop3" database_type="service" preference="0.90">
   <!--
   POP3 greeting messages (part of the banner after the status indicator +OK or -ERR) are
   matched against these patterns to fingerprint POP3 servers.
   -->
+
   <fingerprint pattern="^([^ ]+) +Cyrus POP3 v(\d+\.\d+.*)-OS X(?: Server)? ([\d\.]+).* server ready">
     <description>OSX Cyrus POP</description>
     <example host.domain="8.8.8.8" service.version="2.3.8" os.version="10.5">8.8.8.8 Cyrus POP3 v2.3.8-OS X Server 10.5: 9A562 server ready &lt;1999107648.1324502155@8.8.8.8&gt;</example>
@@ -309,66 +310,38 @@
 // +OK POP3 [158.122.12.70] v2003.83mdk server ready
 // +OK POP3 [161.58.53.189] 2006b.94 server ready
 // +OK POP3 [192.168.0.250] v2000.70rh server ready
-
 ; Lotus Domino - NOTE: POP versions do not map to Domino version
 // +OK Lotus Notes POP3 server version X2.0 ready <0015521D.86257321.0000081C.00000008@Atlas/AgileTek> on Atlas/AgileTek.
 ( call ?j_popPatterns add
 "^\\+OK Lotus Notes POP3 server version ([^ ]*) ready on ([^\\.]*)\\.$" )
 ( call ?j_popNames add "Lotus-Domino" )
-
 // +OK alquilerpc.com.mx POP3 Server (Version 1.020h) ready.
-
 // Ipswitch IMail
 // +OK X1 NT-POP3 Server geneseenet06 (IMail 8.22 45450-1)
-
 // +OK X1 POP3 Mail Server
-
 // +OK server POP3 server (DeskNow POP3 Server 1.0) ready
-
 // +OK <1185161310.3352@goto15028.com> [XMail 1.24 POP3 Server] service ready; Mon, 23 Jul 2007 11:28:30 +0800
-
 // +OK IdeaPop3Server v0.50 ready.
-
 // +OK qxztmail POP3 server (STD Ymailserver v1.8 POP3) ready
-
 // +OK blue.forest-green.lan POP3 server (JAMES POP3 Server 2.2.0) ready
-
 // +OK xxx CMailServer 5.2 POP3 Service Ready
-
 // +OK iac3 Solstice (tm) Internet Mail Server (tm) POP3 2.0 at Mon, 23 Jul 2007 20:08:02 -0500 (CDT)
-
 // +OK Gordano Messaging Suite POP3 server ready
 // +OK Gordano Messaging Suite POP3 server ready <13501095613509@hollandcanadaline.com>
-
 // +OK unitechna.lt Merak 8.9.1 POP3 Sun, 22 Jul 2007 23:16:25 +0300 <20070722231625@unitechna.lt>
-
-
 // +OK Cubic Circle's v1.31 1998/05/13 POP3 ready <0c9300004104a246@www.dvdld.co.za>
-
 // +OK Welcome to MailEnable POP3 Server
-
 // +OK GroupWise POP3 server ready
-
 // +OK POP3 AnalogX Proxy 4.14 (Release) ready.
-
 // +OK lojack.com.ar POP MDaemon 9.6.0 ready <MDAEMON-F200707232110.AA1001241MD4604@lojack.com.ar>
-
 // +OK DBMAIL pop3 server ready to rock <4393e6301f984e87ad7cdc766595c78f@mx>
-
 // +OK POP3 Welcome to vm-pop3d 1.1.6 <83532.1185400462@romeo.hostlab.nl>
-
 // +OK Solid POP3 server ready
-
 // +OK ArGoSoft Mail Server Pro for WinNT/2000/XP, Version 1.8 (1.8.8.9)
-
 // +OK POP3 titan [cppop 20.0] at [207.150.171.34]
-
 // +OK ModusMail POP3 Server-NOTF 4.2.425.4 Ready <42760712.1185328354.283@gbso.net>
-
 // +OK DPOP Version number supressed.
-
 // +OK XPOP3 0.0.1 server ready
-
 -ERR (Proxy) connect error:socket error:No route to host
 -ERR No permission
 -ERR sorry, POP server too busy right now.  Try again later.
@@ -520,6 +493,6 @@
 // apparently this is a P3Scan Proxy bug
 // http://lists.freebsd.org/pipermail/freebsd-ports/2004-May/012400.html
 Oops, that would loop!
-
 -->
+
 </fingerprints>

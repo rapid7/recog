@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="ssh.banner" protocol="ssh" database_type="service" preference="0.90">
   <!--
   SSH "software revision and comment" strings (official RFC nomenclature for the part of
   the identification string after "SSH-x.x-") are matched against these patterns to
   fingerprint SSH servers.
   -->
+
   <fingerprint pattern="^ArrayOS$">
     <description>Array Networks device</description>
     <example>ArrayOS</example>
@@ -68,6 +69,7 @@
   </fingerprint>
 
   <!-- FreeBSD -->
+
   <fingerprint pattern="^OpenSSH_(2\.3\.0) (green@FreeBSD.org 20010321)$">
     <description>OpenSSH running on FreeBSD 4.3</description>
     <example service.version="2.3.0" openssh.comment="green@FreeBSD.org 20010321">OpenSSH_2.3.0 green@FreeBSD.org 20010321</example>
@@ -181,6 +183,7 @@
   </fingerprint>
 
   <!-- Multiple minor version match, assert the oldest version -->
+
   <fingerprint pattern="^OpenSSH_(3\.5p1) (FreeBSD-20030924)$">
     <description>OpenSSH running on FreeBSD 4.9/4.10 (sometimes 4.11)</description>
     <example service.version="3.5p1" openssh.comment="FreeBSD-20030924">OpenSSH_3.5p1 FreeBSD-20030924</example>
@@ -262,6 +265,7 @@
   </fingerprint>
 
   <!-- Multiple minor version match, assert the oldest version -->
+
   <fingerprint pattern="^OpenSSH_(3\.8\.1p1) (FreeBSD-20040419)$">
     <description>OpenSSH running on FreeBSD 5.3/5.4</description>
     <example service.version="3.8.1p1" openssh.comment="FreeBSD-20040419">OpenSSH_3.8.1p1 FreeBSD-20040419</example>
@@ -295,6 +299,7 @@
   </fingerprint>
 
   <!-- Multiple minor version match, assert the oldest version -->
+
   <fingerprint pattern="^OpenSSH_(4\.2p1) (FreeBSD-20050903)$">
     <description>OpenSSH running on FreeBSD 6.0/6.1</description>
     <example service.version="4.2p1" openssh.comment="FreeBSD-20050903">OpenSSH_4.2p1 FreeBSD-20050903</example>
@@ -312,6 +317,7 @@
   </fingerprint>
 
   <!-- Spans major versions, do not assert a version number -->
+
   <fingerprint pattern="^OpenSSH_(4\.5p1) (FreeBSD-20061110)$">
     <description>OpenSSH running on FreeBSD 6.2/6.3/6.4/7.0</description>
     <example service.version="4.5p1" openssh.comment="FreeBSD-20061110">OpenSSH_4.5p1 FreeBSD-20061110</example>
@@ -328,6 +334,7 @@
   </fingerprint>
 
   <!-- Multiple minor version match, assert the oldest version -->
+
   <fingerprint pattern="^OpenSSH_(5\.1p1) (FreeBSD-20080901)$">
     <description>OpenSSH running on FreeBSD 7.1/7.2/7.3/7.4</description>
     <example service.version="5.1p1" openssh.comment="FreeBSD-20080901">OpenSSH_5.1p1 FreeBSD-20080901</example>
@@ -361,6 +368,7 @@
   </fingerprint>
 
   <!-- Multiple minor version match, assert the oldest version -->
+
   <fingerprint pattern="^OpenSSH_(5\.4p1) (FreeBSD-20100308)$">
     <description>OpenSSH running on FreeBSD 8.1/8.2</description>
     <example service.version="5.4p1" openssh.comment="FreeBSD-20100308">OpenSSH_5.4p1 FreeBSD-20100308</example>
@@ -410,6 +418,7 @@
   </fingerprint>
 
   <!-- Multiple minor version match, assert the oldest version -->
+
   <fingerprint pattern="^OpenSSH_(5\.8p2_hpn13v11) (FreeBSD-20110503)$">
     <description>OpenSSH running on FreeBSD 9.0/9.1</description>
     <example service.version="5.8p2_hpn13v11" openssh.comment="FreeBSD-20110503">OpenSSH_5.8p2_hpn13v11 FreeBSD-20110503</example>
@@ -443,6 +452,7 @@
   </fingerprint>
 
   <!-- Spans major versions, do not assert a version number -->
+
   <fingerprint pattern="^OpenSSH_(6\.6\.1_hpn13v11) (FreeBSD-20140420)$">
     <description>OpenSSH running on FreeBSD 9.3/10.1/10.2</description>
     <example service.version="6.6.1_hpn13v11" openssh.comment="FreeBSD-20140420">OpenSSH_6.6.1_hpn13v11 FreeBSD-20140420</example>
@@ -475,6 +485,7 @@
   </fingerprint>
 
   <!-- Spans major versions, do not assert a version number -->
+
   <fingerprint pattern="^OpenSSH_(7\.2) (FreeBSD-20160310)$">
     <description>OpenSSH running on FreeBSD 10.3/11.0</description>
     <example service.version="7.2" openssh.comment="FreeBSD-20160310">OpenSSH_7.2 FreeBSD-20160310</example>
@@ -523,6 +534,7 @@
   </fingerprint>
 
   <!-- Multiple minor version match, assert the oldest version -->
+
   <fingerprint pattern="^OpenSSH_(7\.5) (FreeBSD-20170903)$">
     <description>OpenSSH running on FreeBSD 11.2/11.3</description>
     <example service.version="7.5" openssh.comment="FreeBSD-20170903">OpenSSH_7.5 FreeBSD-20170903</example>
@@ -571,6 +583,7 @@
   </fingerprint>
 
   <!-- NetBSD -->
+
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(NetBSD(?:_Secure_Shell)?[ -].*)$">
     <description>OpenSSH running on NetBSD</description>
     <example service.version="7.2" openssh.comment="NetBSD-20100308">OpenSSH_7.2 NetBSD-20100308</example>
@@ -588,6 +601,7 @@
   </fingerprint>
 
   <!-- Ubuntu -->
+
   <fingerprint pattern="^OpenSSH_(3\.8\.1p1) (Debian-11ubuntu\d+(?:\.\d+)?)$">
     <description>OpenSSH running on Ubuntu 4.10</description>
     <example service.version="3.8.1p1" openssh.comment="Debian-11ubuntu3">OpenSSH_3.8.1p1 Debian-11ubuntu3</example>
@@ -1128,6 +1142,7 @@
   </fingerprint>
 
   <!-- Debian -->
+
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Debian.+woody.*)$">
     <description>OpenSSH running on Debian 3.0 (woody)</description>
     <example service.version="3.4p1" openssh.comment="Debian 1:3.4p1-1.woody.3">OpenSSH_3.4p1 Debian 1:3.4p1-1.woody.3</example>
@@ -1228,6 +1243,7 @@
   </fingerprint>
 
   <!-- More specific than and should preceed the 7.0 match -->
+
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Debian-4\+deb7u2)$">
     <description>OpenSSH running on Debian 7.8 (wheezy)</description>
     <example service.version="6.0p1" openssh.comment="Debian-4+deb7u2">OpenSSH_6.0p1 Debian-4+deb7u2</example>
@@ -1365,6 +1381,7 @@
   </fingerprint>
 
   <!-- Raspbian -->
+
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Raspbian-5\+deb8u\d+)$">
     <description>OpenSSH running on Raspbian (Debian 8 "Jessie" based)</description>
     <example service.version="6.7p1" openssh.comment="Raspbian-5+deb8u1">OpenSSH_6.7p1 Raspbian-5+deb8u1</example>
@@ -1450,6 +1467,7 @@
   </fingerprint>
 
   <!-- Miscellaneous -->
+
   <fingerprint pattern="^OpenSSH_(.*)\+(CAN-[0-9]{4}-[0-9]{4})$">
     <description>OpenSSH with CVE patch, as seen in Mac OS X</description>
     <example service.version="3.4p1" openssh.cvepatch="CAN-2004-0175">OpenSSH_3.4p1+CAN-2004-0175</example>
@@ -1559,6 +1577,7 @@
   </fingerprint>
 
   <!-- SSH-1.99-OpenSSH_4.3p2-4.cern-hpn-CERN-4.3p2-4.cern -->
+
   <!--<fingerprint pattern="^OpenSSH_?([^\s]*)\s*(.*)$">
       <description>Catch all for OpenSSH based SSH servers
       ******************** NOTE ********************
@@ -1571,8 +1590,12 @@
       <param pos="0" name="service.vendor" value="OpenBSD"/>
       <param pos="0" name="service.family" value="OpenSSH"/>
       <param pos="0" name="service.product" value="OpenSSH"/>
-   </fingerprint>-->
+   </fingerprint>
+
+-->
+
   <!-- TODO: Handle "vpn3" banners for Cisco 3000 VPN Concentrators (need example banners first) -->
+
   <fingerprint pattern="^Cisco-(.*)$">
     <description>Cisco SSH banner (could be IOS or PIX), The version always seems to be 1.25</description>
     <example service.version="1.25">Cisco-1.25</example>
@@ -2052,6 +2075,7 @@
   <!-- xlightftpd is an ftp server that also supports SFTP. The SFTP
        server appears in ssh studies, thus this banner is here, and
        not in ftp_banners.xml-->
+
   <fingerprint pattern="^xlightftpd_release_([\d.]+)$">
     <description>Xlight FTP Server</description>
     <example service.version="3.8.3.6.1">xlightftpd_release_3.8.3.6.1</example>
@@ -2105,8 +2129,10 @@ Server-VII
 9.9.1
 IPSSH-1.10.0
 -->
+
   <!--
 Possibly Nortel Passport
 SSH_2.1.1
 -->
+
 </fingerprints>

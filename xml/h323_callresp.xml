@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints protocol="h.323" database_type="service" preference="0.80">
   <!--
   Responses to H.323 call SETUP messages are matched against these patterns
   to fingerprint H.323 servers.
   -->
+
   <fingerprint pattern="^0x000b2d00\:(.*)\:.*?(\d*\.*\d*\.*\d*).*$" flags="REG_ICASE">
     <description>Sony H.323 Server</description>
     <param pos="0" name="service.vendor" value="Sony"/>
@@ -698,4 +699,5 @@
     <param pos="1" name="service.product"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
+
 </fingerprints>

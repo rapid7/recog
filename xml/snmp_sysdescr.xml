@@ -1,14 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="snmp.sys_description" protocol="snmp" database_type="service" preference="0.20">
   <!--
     $Id: snmp_sysdescr.xml,v 1.21 2008/08/21 00:31:58 mbevand Exp $
     SNMP fingerprint definitions. These are matched against the value of the
     'sysDescr' (OID 1.3.6.1.2.1.1.1) variable.
   -->
+
   <!--======================================================================
                               3COM
    =======================================================================-->
+
   <!-- Two fingerprints are required to capture the product correctly -->
+
   <fingerprint pattern="^3Com IntelliJack (\S+)$">
     <description>3Com Intellijack switch</description>
     <example>3Com IntelliJack NJ220</example>
@@ -453,12 +456,15 @@
          <example>3Com X5</example>
          <example>3Com X506</example>
    -->
+
   <!--======================================================================
                            Accelerated Technology
    =======================================================================-->
+
   <!-- This is an embedded SNMP stack but does not uniquely identify the OS
             http://www.acceleratedtechnology.com.tw/embedded/net_manage.html#snmp
    -->
+
   <fingerprint pattern="^Nucleus SNMP Agent$">
     <description>Nucleus SNMP Device</description>
     <example>Nucleus SNMP Agent</example>
@@ -469,6 +475,7 @@
   <!--======================================================================
                               ADTRAN
    =======================================================================-->
+
   <fingerprint pattern="(?i)^ADTRAN (MX\d+(?: \S+)?(?: \S+)?)$">
     <description>ADTRAN Multiplexer</description>
     <example>ADTRAN MX2820 Multiplexer</example>
@@ -582,6 +589,7 @@
   <!--======================================================================
                      Allen-Bradley / Rockwell Automation
    =======================================================================-->
+
   <fingerprint pattern="^Allen-Bradley (\S+ (?:PLC|SLC)\S+) Series (\S+) Revision (\S+) \S+ (\S+) \S+$">
     <description>Allen-Bradley PLC/SLC</description>
     <example>Allen-Bradley 1747-L551/C SLC-5/05 Series C Revision 11 1747_slc 3.46 13-Jan-06</example>
@@ -655,6 +663,7 @@
   <!--======================================================================
                               APC
    =======================================================================-->
+
   <fingerprint pattern="^APC - (\d+-port IP KVM) - version: V_(\S+) .*$">
     <description>APC KVM over IP</description>
     <example>APC - 16-port IP KVM - version: V_2.0.0-2 (Oct/17/06)</example>
@@ -703,9 +712,11 @@
          <example>APC Web/SNMP Management Card (MB:v3.8.6 PF:v3.3.3.3.3.3.3.3.3.3.3.3.3.3.3.3.0 0.01 0.05 1/172 32120 ttl=3 auth=1 99efb75516420a57b66244827228641770862f76 <<<</example>
          <example>APC Web/SNMP Management Card (MB:v3.9.2 PF:v3.3.3.3.3.3.3.3.3.3.3.3.3.3.3.3. 0.00 0.00 1/234 10024 ttl=3 auth=1 34e0382840ebb2f445a5a6b9ee7dbdcbc73e3ea4 <<<</example>
    -->
+
   <!--======================================================================
                               APPLE
    =======================================================================-->
+
   <fingerprint pattern="^Apple Base Station V([^\s]+) Compatible$">
     <description>Apple Airport base station</description>
     <example os.version="3.84">Apple Base Station V3.84 Compatible</example>
@@ -729,6 +740,7 @@
   <!--======================================================================
                               Asentria
    =======================================================================-->
+
   <fingerprint pattern="^SNMP-Link (\S+)$">
     <description>Asentria SNMP-Link</description>
     <example>SNMP-Link SL60</example>
@@ -750,6 +762,7 @@
   <!--======================================================================
                               AVAYA
    =======================================================================-->
+
   <fingerprint pattern="^MIB Module for 46xx IP Telephones$">
     <description>Avaya 46xx IP Telephone</description>
     <example>MIB Module for 46xx IP Telephones</example>
@@ -761,7 +774,6 @@
 
   <!--
    TODO: uncomment this entry when OID matching is implemented.
-
    <fingerprint pattern="^oid:1\.3\.6\.1\.4\.1\.6889\.2\.69\.1\.1\.2\.0=(.+)$">
       <description>Avaya 46xx IP Telephone</description>
       <example>MIB Module for 46xx IP Telephones</example>
@@ -769,7 +781,9 @@
       <param pos="0" name="os.device" value="VoIP"/>
       <param pos="1" name="os.product"/>
    </fingerprint>
+
    -->
+
   <fingerprint pattern="^DEFINITY ONE Release (\S+) Agent$">
     <description>Avaya Definity One media, voicemail, VoIP server</description>
     <example>DEFINITY ONE Release 3 Agent</example>
@@ -906,9 +920,11 @@
          <example>Avaya S8700 Server for Multiconnect Configurations</example>
          <example>Avaya SIP Enablement Services (SES)</example>
    -->
+
   <!--======================================================================
                               AVERY DENNISON
    =======================================================================-->
+
   <fingerprint pattern="^Monarch (?:M\d+ FW Ver \d+\.\d / )?(\d+) (?:Print|Network) Adapter.*$">
     <description>Avery Dennison Monarch barcode printers</description>
     <example>Monarch 7411 Print Adapter</example>
@@ -923,6 +939,7 @@
   <!--======================================================================
                               AVOCENT
    =======================================================================-->
+
   <fingerprint pattern="^(DSR\d+) (\S+)$">
     <description>Avocent DSR series KVM-over-IP</description>
     <example>DSR1010 03.00.01.00</example>
@@ -956,6 +973,7 @@
   <!--======================================================================
                               AXIS
    =======================================================================-->
+
   <fingerprint pattern="(?i)^AXIS (.*server).*(?:v|Version:\s*)([\d\.]+)">
     <description>AXIS Network Print Server</description>
     <example os.product="5470e Network Print Server" os.version="6.21">AXIS 5470e Network Print Server V6.21 Dec  5 2000</example>
@@ -975,6 +993,7 @@
   <!--======================================================================
                               BLUE COAT
    =======================================================================-->
+
   <fingerprint pattern="^Blue Coat (SG\S+)(?: Series)?,.*\s+SGOS ([^,]+), Release id:\s*(\S+).*$">
     <description>Blue Coat Proxy SG</description>
     <example os.product="SG400" os.version="5.2.4.8" os.version.version="35838">Blue Coat SG400 Series, Version: SGOS 5.2.4.8, Release id: 35838 Proxy Edition</example>
@@ -1012,6 +1031,7 @@
   <!--======================================================================
                               BROCADE
    =======================================================================-->
+
   <fingerprint pattern="^Fibre Channel Switch\.?$">
     <description>Brocade FabricOS switch</description>
     <example>Fibre Channel Switch.</example>
@@ -1062,6 +1082,7 @@
   <!--======================================================================
                               BROTHER
    =======================================================================-->
+
   <fingerprint pattern="^SP NC-[^,]+, Firmware Ver\.(\S+).*$">
     <description>Brother multifunction device</description>
     <example>SP NC-6300h, Firmware Ver.B  ,MID 5CS-157</example>
@@ -1100,6 +1121,7 @@
   <!--======================================================================
                            C&amp;D Technologies
    =======================================================================-->
+
   <fingerprint pattern="^C&amp;D Technologies SageNET (\S+) V(\S+)$">
     <description>C&amp;D Technologies SafeNET</description>
     <example>C&amp;D Technologies SageNET 169-414 V1.15</example>
@@ -1113,6 +1135,7 @@
   <!--======================================================================
                            Cableron / Enterasys
    =======================================================================-->
+
   <fingerprint pattern="^Cabletron(?: Systems(?:, Inc\.)?)? (\S+) Rev (\S+) .* ofc$">
     <description>Cabletron Switch</description>
     <example>Cabletron 2E42-27 Rev 04.09.08 08/25/99--02:09 ofc</example>
@@ -1208,6 +1231,7 @@
   <!--======================================================================
                               CANON
    =======================================================================-->
+
   <fingerprint pattern="^Canon (iR ?\S+(?: [A-Z0-9]\S+)?)(?: /P)?(?: EEPROM \S+)?$">
     <description>Canon iR multifunction device</description>
     <example>Canon iR C3220-C1 /P</example>
@@ -1272,6 +1296,7 @@
   </fingerprint>
 
   <!-- This is a catch-all for other Canon models that are less common -->
+
   <fingerprint pattern="(?i)^Canon(?: Inc\.)? (?:Color )?(?:Large Format )?(?:LASER CLASS )?(?:LASER SHOT )?(\S+(?: [A-Z0-9]\S+)?)(?: Series)?(?: \([^\)]+\))?(?: /P)?(?: EEPROM \S+)?$">
     <description>Canon printer</description>
     <example>Canon MF8170 /P</example>
@@ -1315,6 +1340,7 @@
   <!--======================================================================
                               CASTELLE
    =======================================================================-->
+
   <fingerprint pattern="^Castelle FaxPress Product$">
     <description>Castelle FaxPress</description>
     <param pos="0" name="os.vendor" value="Castelle"/>
@@ -1325,6 +1351,7 @@
   <!--======================================================================
                            Computer Associates
    =======================================================================-->
+
   <fingerprint pattern="^(?:Linux )?\s*SystemEDGE.*$">
     <description>CA SystemEDGE Management Agent</description>
     <example>Linux SystemEDGE Management Agent, Concord Communications, Inc.</example>
@@ -1339,6 +1366,7 @@
   <!--======================================================================
                               CERIDIAN
    =======================================================================-->
+
   <fingerprint pattern="^SpectraComm Manager \(SCM\)$">
     <description>SpectraComm Manager Card</description>
     <example>SpectraComm Manager (SCM)</example>
@@ -1350,6 +1378,7 @@
   <!--======================================================================
                               CHECK POINT
    =======================================================================-->
+
   <fingerprint pattern="^(?:IP\S+ rev\s*[^,]*,\s)?IPSO (\S+) (\S+)-(?:BUILD|GA|FCS)0?(\S+) (?:releng|root) (\S+).*i386$">
     <description>Check Point IPSO firewall</description>
     <example>IPSO hostname 4.1-BUILD022 releng 1515  11.15.2006-180244 i386</example>
@@ -1370,6 +1399,7 @@
   <!--======================================================================
                               Ciena
    =======================================================================-->
+
   <fingerprint pattern="^Ciena SNMP Agent$">
     <description>Ciena Optical</description>
     <example>Ciena SNMP Agent</example>
@@ -1418,6 +1448,7 @@
   <!--======================================================================
                               CISCO
    =======================================================================-->
+
   <fingerprint pattern="^(?:Cisco|TANDBERG) Codec SoftW:\s+(\S+).*\s+MCU:\s+(?:Cisco TelePresence|TANDBERG)\s+(.*)\s+Date:">
     <description>Cisco TelePresence - verbose variant</description>
     <example os.version="TC5.1.0.280662" hw.product="SX20">Cisco Codec SoftW: TC5.1.0.280662 MCU: Cisco TelePresence SX20 Date: 2012-02-14 S/N: FTT16070041 BootSW: Board: 101790-6 [28]</example>
@@ -1571,6 +1602,7 @@ Copyright (c) 1999-2004 by cisco Systems, Inc.</example>
   <fingerprint pattern="^Cisco (?:Internetwork Operating System|IOS) Software,? (?:\r|\n|.)+Version\s+([^,]+),">
     <description>Cisco IOS</description>
     <!-- Cisco Internetwork Operating System Software \r\nIOS (tm) C1700 Software (C1700-Y-M), Version 12.2(4)YB, EARLY DEPLOYMENT RELEASE SOFTWARE (fc1)\r\nSynched to technology version 12.2(6.8)T2\r\nTAC Support: http://www.cisco.com/tac\r\nCopyright (c) 1986-2002 by ci -->
+
     <example _encoding="base64">
       Q2lzY28gSW50ZXJuZXR3b3JrIE9wZXJhdGluZyBTeXN0ZW0gU29mdHdhcmUgDQpJT1MgKHRtK
       SBDMTcwMCBTb2Z0d2FyZSAoQzE3MDAtWS1NKSwgVmVyc2lvbiAxMi4yKDQpWUIsIEVBUkxZIE
@@ -1579,6 +1611,7 @@ Copyright (c) 1999-2004 by cisco Systems, Inc.</example>
       bS90YWMNCkNvcHlyaWdodCAoYykgMTk4Ni0yMDAyIGJ5IGNpCg==
     </example>
     <!-- Cisco Internetwork Operating System Software \r\nIOS (tm) C2600 Software (C2600-I-M), Version 12.0(3)T3,  RELEASE SOFTWARE (fc1)\r\nCopyright (c) 1986-1999 by cisco Systems, Inc\r\n\nCompiled Thu 15-Apr-99 15:41 by kpma -->
+
     <example _encoding="base64">
       Q2lzY28gSW50ZXJuZXR3b3JrIE9wZXJhdGluZyBTeXN0ZW0gU29mdHdhcmUgDQpJT1MgKHRtK
       SBDMjYwMCBTb2Z0d2FyZSAoQzI2MDAtSS1NKSwgVmVyc2lvbiAxMi4wKDMpVDMsICBSRUxFQV
@@ -1586,6 +1619,7 @@ Copyright (c) 1999-2004 by cisco Systems, Inc.</example>
       0ZW1zLCBJbmMNCgpDb21waWxlZCBUaHUgMTUtQXByLTk5IDE1OjQxIGJ5IGtwbWEK
     </example>
     <!-- Cisco IOS Software, C1700 Software (C1700-ADVSECURITYK9-M), Version 12.3(11)YZ2, RELEASE SOFTWARE (fc2)\r\nTechnical Support: http://www.cisco.com/techsupport\r\nCopyright (c) 1986-2007 by Cisco Systems, Inc\r\nCompiled Wed 08-Aug-07 19:22 by dchih -->
+
     <example _encoding="base64">
       Q2lzY28gSU9TIFNvZnR3YXJlLCBDMTcwMCBTb2Z0d2FyZSAoQzE3MDAtQURWU0VDVVJJVFlLO
       S1NKSwgVmVyc2lvbiAxMi4zKDExKVlaMiwgUkVMRUFTRSBTT0ZUV0FSRSAoZmMyKQ0KVGVjaG
@@ -1711,6 +1745,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                              Cobox
    =======================================================================-->
+
   <fingerprint pattern="^ACOLA CoBox Snr \S+ V?(\S+)(?: \(\d+\))?$">
     <description>aCola CoBox</description>
     <example>ACOLA CoBox Snr 238-204 V3.40</example>
@@ -1739,6 +1774,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                              Compuprint
    =======================================================================-->
+
   <fingerprint pattern="^(SP\d+)\s.*">
     <description>Compuprint SP series printers</description>
     <example>SP40       </example>
@@ -1750,6 +1786,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                              Compuware
    =======================================================================-->
+
   <fingerprint pattern="^Compuware AMD, ver. ndw.(\S+)$">
     <description>Compuware advanced monitoring device</description>
     <example>Compuware AMD, ver. ndw.11.0.731</example>
@@ -1762,6 +1799,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               DATA DOMAIN
    =======================================================================-->
+
   <fingerprint pattern="^Data Domain OS (\S+)$">
     <description>Data Domain OS</description>
     <example>Data Domain OS 4.3.3.0-53506</example>
@@ -1774,6 +1812,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               DATAMAX
    =======================================================================-->
+
   <fingerprint pattern="^Datamax Corporation I-Class (\S+) Ver:(\S+) .*$">
     <description>Datamax I-Class printer</description>
     <example>Datamax Corporation I-Class 4208 Ver:08.01 01/14/2004 PN:83-2297-08B</example>
@@ -1798,6 +1837,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               DELL
    =======================================================================-->
+
   <fingerprint pattern="^Dell Out-of-band SNMP Agent for Remote Access Controller$">
     <description>Dell Remote Access Controller</description>
     <example>Dell Out-of-band SNMP Agent for Remote Access Controller</example>
@@ -1896,6 +1936,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               Digi International
    =======================================================================-->
+
   <fingerprint pattern="^(?:Digi )?(?: International)?((?:ConnectPort|Connect|PortServer|One) .*?) Version (\S+) \d+/\d+\/\d+(?: \S+)?(?: \S+)?$">
     <description>Digi Serial Port Servers</description>
     <example>ConnectPort TS1 W RJ Version 82001772_B1 02/13/2008</example>
@@ -1952,6 +1993,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               D-LINK
    =======================================================================-->
+
   <fingerprint pattern="^D-link Corp\. Access Point$">
     <description>D-link WAP</description>
     <example>D-link Corp. Access Point</example>
@@ -1970,6 +2012,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               EATON
    =======================================================================-->
+
   <fingerprint pattern="^(Evolution(?: S )?(?:\s*\d+)?).*$">
     <description>Eaton Evolution UPS</description>
     <example>Evolution 1100</example>
@@ -1996,6 +2039,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               EMC
    =======================================================================-->
+
   <fingerprint pattern="^(?:Connectrix )?(DS[-_]\d\d\d\d\S)$">
     <description>EMC Connectrix SAN switch</description>
     <example>Connectrix DS_4100B</example>
@@ -2025,6 +2069,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               EMULEX
    =======================================================================-->
+
   <fingerprint pattern="^NetQue Version (\S+)$">
     <description>Emulex NetQue print server</description>
     <example>NetQue Version 4.0</example>
@@ -2038,7 +2083,9 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               EPSON
    =======================================================================-->
+
   <!-- Epson uses the 201207171045 / 02.23.00 version format, but the latter is more consistent -->
+
   <fingerprint pattern="^EPSON ([A-Z]\S+); Net ([^,]+),ESS (?:[^,]+),IOT (\S+)$">
     <description>Epson Printer - verbose variant</description>
     <example os.product="AL-C1750N" os.version="02.17.00" os.version.version="98.48">EPSON AL-C1750N; Net 98.48,ESS 201103111031,IOT 02.17.00</example>
@@ -2148,7 +2195,9 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               Extreme Networks
    =======================================================================-->
+
   <!-- Sneaky. The XOS uses both Zero and Oh depending on version -->
+
   <fingerprint pattern="Extreme(?:X[0O]S|Ware X[0O]S) (?:\S+ )?version (\S+) \S+ by \S+ on .*$">
     <description>Extreme Networks Switches</description>
     <example>ExtremeWare X0S version 11.2.0.15 v1120b15 by release-manager on Fri Apr 1 18:40:23 PST 2005</example>
@@ -2163,6 +2212,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               Foundry Networks
    =======================================================================-->
+
   <fingerprint pattern="^Foundry Networks, Inc\. ([^,]+), (?:IronWare|Iron Software) Version V?(\S+) Compiled .*$">
     <description>Foundry Networks IronWare Switches</description>
     <example>Foundry Networks, Inc. Backbone, IronWare Version 06.6.36T41 Compiled on Jul 20 2001 at 21:38:29 labeled as BIS06636</example>
@@ -2212,6 +2262,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               FreeBSD
    =======================================================================-->
+
   <fingerprint pattern="^FreeBSD \S+ ([\d\.]+-(?:STABLE|RELEASE)(?:-p\d+)?).*\s(\w+)$">
     <description>FreeBSD 10.0</description>
     <example os.version="10.0-RELEASE-p4" os.arch="amd64">FreeBSD freebsd-10-x64-ports-p 10.0-RELEASE-p4 FreeBSD 10.0-RELEASE-p4 #0: Tue Jun 3 13:14:57 UTC 2014 root@amd64-builder.daemonology.net:/usr/obj/usr/src/sys/GENERIC amd64</example>
@@ -2231,6 +2282,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               FUJI XEROX
    =======================================================================-->
+
   <fingerprint pattern="^FUJI XEROX ((?:Document Centre|DocuCentre-\S+) [^\s;]+).*$">
     <description>Xerox Document Centre Multi-function System - Fuji variant</description>
     <example>FUJI XEROX Document Centre C360;ESS 1.131.11,IOT 6.6.5,IIT 12.7.0,IIT D12.0.0,ADF 10.3.0,FAX 11.20.50</example>
@@ -2254,6 +2306,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                              GarrettCom
    =======================================================================-->
+
   <fingerprint pattern="^(DynaStar \d+)$">
     <description>Garrett DynaStar Industrial Router</description>
     <example>DynaStar 2000</example>
@@ -2266,6 +2319,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                              Gigamon
    =======================================================================-->
+
   <fingerprint pattern="^Linux (\S+) .*GigaVUE-H-Series ([\d\.]+) .* (\S+)$">
     <description>Gigamon GigaVUE HD</description>
     <example>Linux giga1-hd1-wax 2.6.34-GIGAMONuni-gvhd GigaVUE-H-Series 3.0.06 #1681 2013-11-06 07:42:52 ppc</example>
@@ -2294,6 +2348,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               HP / Compaq
    =======================================================================-->
+
   <fingerprint pattern="^IP-Console-Switch-(\S+) (\S+)$">
     <description>Compaq IP Console Switch</description>
     <example>IP-Console-Switch-1x1x16 03.00.01</example>
@@ -2473,6 +2528,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <fingerprint pattern="^H3C Comware Platform Software, Software Version ([\d\.]+) Release \d+[\r\n]+H3C (\S+)[\r\n]+Copyright">
     <description>H3C Comware, generic, pre-HP acquisition</description>
     <!-- H3C Comware Platform Software, Software Version 5.20 Release 2208\r\nH3C S5500-28C-EI\r\nCopyright (c) 2004-2010 Hangzhou H3C Tech. Co., Ltd. All rights reserved. -->
+
     <example _encoding="base64">
       SDNDIENvbXdhcmUgUGxhdGZvcm0gU29mdHdhcmUsIFNvZnR3YXJlIFZlcnNpb24gNS4yMCBSZ
       WxlYXNlIDIyMDgNCkgzQyBTNTUwMC0yOEMtRUkNCkNvcHlyaWdodCAoYykgMjAwNC0yMDEwIE
@@ -2973,6 +3029,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               HUAWEI
    =======================================================================-->
+
   <fingerprint pattern="^MAS 1\.0 \(Intel X86\) Copyright.*Huawei Technologies Co\., Ltd on Windows NT 5\.0$">
     <description>Huawei device on Windows 2000</description>
     <example>MAS 1.0 (Intel X86) Copyright (c) 1998-2006 Huawei Technologies Co., Ltd on Windows NT 5.0</example>
@@ -3005,6 +3062,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               IBM
    =======================================================================-->
+
   <fingerprint pattern="^IBM RISC System/6000 .* Base Operating System AIX [^:]+: 03\.02\..*$">
     <description>IBM AIX 3.2 on RS/6000</description>
     <example>IBM RISC System/6000 Machine Type: 0x0035 Processor id: 000018593500 The Base Operating System AIX version: 03.02.0000.0000 TCPIP Applications version: 03.02.0000.0000</example>
@@ -3324,6 +3382,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               INTEL
    =======================================================================-->
+
   <fingerprint pattern="^NetportExpress\(TM\) PRO/100 3-port Print Server$">
     <description>NetportExpress Print Server</description>
     <param pos="0" name="os.vendor" value="Intel"/>
@@ -3335,6 +3394,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               INTERMEC (+ Honeywell Rebrand)
    =======================================================================-->
+
   <fingerprint pattern="^Intermec CX Terminal$">
     <description>Intermec Data Collection Terminal</description>
     <example>Intermec CX Terminal</example>
@@ -3354,7 +3414,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Thermal Label Printer {hw.model}"/>
     <param pos="0" name="os.device" value="Printer"/>
   </fingerprint>
-  
+
   <fingerprint pattern="^Honeywell (PM\d+);P([\d\.]+)$">
     <description>Honeywell Thermal Label Printer (Previously Intermec)</description>
     <example os.product="Thermal Label Printer PM43" hw.product="Thermal Label Printer PM43">Honeywell PM43;P10.14.014620</example>
@@ -3371,6 +3431,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               Juniper
    =======================================================================-->
+
   <fingerprint pattern="^NetScreen-([\w]+) version ([\w.]+) \(SN: [\d]+, Firewall\+VPN\)$">
     <description>Juniper NetScreen ScreenOS Firewall</description>
     <example hw.model="5GT" os.version="6.2.0r4.0">NetScreen-5GT version 6.2.0r4.0 (SN: 0064082005002928, Firewall+VPN)</example>
@@ -3522,6 +3583,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               LANIER
    =======================================================================-->
+
   <fingerprint pattern="^LANIER (.*) ([0-9.]+) / LANIER.*$">
     <description>Lanier multifunction device</description>
     <example>LANIER LD145 2.40 / LANIER Network Printer C model / LANIER Network Scanner C model / LANIER Network Facsimile C model</example>
@@ -3537,6 +3599,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               LANTRONIX
    =======================================================================-->
+
   <fingerprint pattern="^Lantronix ((?:LPS|EPS|MPS)\S+) Version [VB]?([^/\(\s]+)[/\(\s]?.*$">
     <description>Lantronix print server</description>
     <example>Lantronix EPS2 Version V3.3/4(950530)</example>
@@ -3566,6 +3629,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   </fingerprint>
 
   <!-- These devices are all some form of device/terminal/serial/console server -->
+
   <fingerprint pattern="^(?i:Lantronix) ((MSS|SCS|LRS|ETS|EDS)\S+) (?:Version |[VB])?([^/\(\s]+)[/\(\s]?.*$">
     <description>Lantronix terminal server</description>
     <example>Lantronix MSS100 Version V3.6/9(030114)</example>
@@ -3742,6 +3806,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               LEXMARK
    =======================================================================-->
+
   <fingerprint pattern="^Lexmark C760 version ([\d.]+).*$">
     <description>Lexmark C760 Color Laser Printer</description>
     <param pos="0" name="os.certainty" value="1.0"/>
@@ -3882,6 +3947,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               KONICA MINOLTA
    =======================================================================-->
+
   <fingerprint pattern="^KONICA MINOLTA (?:bizhub )?(\S+)">
     <description>Konica Minolta bizhub multifunction device</description>
     <example>KONICA MINOLTA bizhub C252</example>
@@ -3899,6 +3965,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               KYOCERA/KYOCERA MITA
    =======================================================================-->
+
   <fingerprint pattern="^Fiery X3e 31C-M$">
     <description>Fiery X3e 31C-M embedded print controller</description>
     <example>Fiery X3e 31C-M</example>
@@ -3939,6 +4006,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               Lenel
    =======================================================================-->
+
   <fingerprint pattern="^(LNL-\d+) (.*) Firmware Version ([\d\.]+) Build \d+$">
     <description>Various Lenel hardware, typically door controllers, etc</description>
     <example hw.product="LNL-2210" os.device="Intelligent Single Door Controller" os.version="1.17.6">LNL-2210 Intelligent Single Door Controller Firmware Version 1.17.6 Build 359</example>
@@ -3949,7 +4017,6 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.device"/>
     <param pos="3" name="os.version"/>
   </fingerprint>
-
 
   <!--======================================================================
                               LigoWave
@@ -3969,10 +4036,10 @@ Copyright (c) 1995-2005 by Cisco Systems
 
   <!--======================================================================
                               LINUX
-
    Note that we try to be very exact with our Linux fingerprints,
    because you can tell a lot from the kernel version and/or build date.
    =======================================================================-->
+
   <fingerprint pattern="^Linux (\S+) (2\.4\.21-27.*EL(?:smp)?) .* (\S+)$">
     <description>Red Hat Enterprise Linux 3 Update 4</description>
     <example>Linux hostname 2.4.21-27.0.2.ELsmp #1 SMP Wed Jan 12 23:35:44 EST 2005 i686</example>
@@ -4186,6 +4253,7 @@ Copyright (c) 1995-2005 by Cisco Systems
       Note: The "hostname" is not really a hostname in this case, it is the MAC
       address.
    -->
+
   <fingerprint pattern="^Linux (?:SUNSP00144F\S+) (\S*).* (\S+)$">
     <description>Yellow Dog (Sun) Linux</description>
     <example os.arch="ppc" linux.kernel.version="2.4.22">Linux SUNSP00144F9E0508 2.4.22 #1 Sat Apr 21 11:28:21 PDT 2007 ppc</example>
@@ -4216,6 +4284,7 @@ Copyright (c) 1995-2005 by Cisco Systems
       Fall back to general matchers for Linux if we don't have a more
       specific pattern available.
    -->
+
   <fingerprint pattern="^Linux (.*?) ([0-9]+\.[0-9]+\.[0-9]+\S*).* (?:[0-9]{4}|[A-Z][A-Z][A-Z]{1,2}|\+[0-9]+|Local time.*(?:manual|zic|m\S*)) (\S+).*$">
     <description>Linux x86_64 Generic - hostname variant</description>
     <example os.arch="x86_64" os.version="2.6.9" linux.kernel.version="2.6.9" host.name="hostname">Linux hostname 2.6.9 #2 SMP Tue Jun 26 16:10:49 EDT 2012 x86_64</example>
@@ -4295,6 +4364,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               Mac OS X
    =======================================================================-->
+
   <fingerprint pattern="^Darwin (\S*) \S* Darwin Kernel Version 7.(\d+).\d+: .*RELEASE_\w* ?\s* (\S* ?\S*)$">
     <description>Mac OS X 10.3 (Panther)</description>
     <example host.name="host.example.com" os.arch="Power Macintosh" os.version.version="0">Darwin host.example.com 7.0.0 Darwin Kernel Version 7.0.0: Wed Sep 24 15:48:39 PDT 2003; root:xnu/xnu-517.obj~1/RELEASE_PPC Power Macintosh</example>
@@ -4410,9 +4480,11 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               MICROSOFT
    =======================================================================-->
+
   <!--
       These are baseline patterns that only use sysDesc. We use these if we are unable to fingerprint the sysObjectID.
    -->
+
   <fingerprint pattern="^Hardware: x86.*Software: Windows NT Version 4\.0.*$">
     <description>Windows NT 4 on x86</description>
     <example>Hardware: x86 Family 6 Model 8 Stepping 3 AT/AT COMPATIBLE  - Software: Windows NT Version 4.0  (Build Number: 1381 Uniprocessor Free )</example>
@@ -4661,6 +4733,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                              MRV Communications
    =======================================================================-->
+
   <fingerprint pattern="^LX Console Manager, s/w version=(\S+)$">
     <description>MRV LX console servers</description>
     <example>LX Console Manager, s/w version=5.3.9</example>
@@ -4673,6 +4746,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               MULTITECH
    =======================================================================-->
+
   <fingerprint pattern="^RASExpress Server Version (\S+)$">
     <description>MultiTech RASExpress remote access server</description>
     <example>RASExpress Server Version 5.63</example>
@@ -4685,6 +4759,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               Neoscale
    =======================================================================-->
+
   <fingerprint pattern="^Neoscale CryptoStore\(TM\) (\S+)$">
     <description>Neoscale CryptoStore</description>
     <example>Neoscale CryptoStore(TM) neoaht2</example>
@@ -4698,6 +4773,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               NETAPP
    =======================================================================-->
+
   <fingerprint pattern="^(?:NetApp|Data ONTAP) Release (\S+):? .*$">
     <description>NetApp filer</description>
     <example>Data ONTAP Release 7.2.3: Thu Jul  5 10:42:49 PDT 2007 (IBM)</example>
@@ -4715,6 +4791,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               NETBOTZ
    =======================================================================-->
+
   <fingerprint pattern="^NetBotz RackBotz (\S+) Appliance; FV: ([^,]+), HR: .*$">
     <description>NetBotz RackBotz monitoring device</description>
     <example>NetBotz RackBotz 400C Appliance; FV: A1_3_71_136-20021216P, HR: REV A13, MD: 11/04/2003; MC: TEX</example>
@@ -4729,7 +4806,9 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               NETOPIA
    =======================================================================-->
+
   <!-- Netopia products with a W in their model # are wireless devices -->
+
   <fingerprint pattern="^Netopia (\d{4}(?:W|NWG|NWG-ENT)) v(\S+)$">
     <description>Netopia Wireless ADSL Router</description>
     <example>Netopia 3347NWG v7.5.1r8</example>
@@ -4745,6 +4824,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   </fingerprint>
 
   <!-- a catch-all for all non-wireless Netopia router types -->
+
   <fingerprint pattern="^Netopia (\S+) v(\S+)$">
     <description>Netopia Router</description>
     <example>Netopia 2241N-VGx v7.7.0b4</example>
@@ -4760,6 +4840,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               Netscaler
    =======================================================================-->
+
   <fingerprint pattern="^NetScaler NS([^:]+): Build ([^,]+), Date: .*$">
     <description>Netscaler Appliance</description>
     <example os.version="10.0" os.version.version="54.6.nc">NetScaler NS10.0: Build 54.6.nc, Date: Apr 6 2012, 08:00:41 </example>
@@ -4775,6 +4856,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               NORTEL
    =======================================================================-->
+
   <fingerprint pattern="^Business Policy Switch 2000.* SW:v([\d.]+) .*$">
     <description>Nortel Business Policy Switch 2000</description>
     <example>Business Policy Switch 2000 HW:10 FW:3.6.0.1 SW:v3.1.6.02 ISVN:2</example>
@@ -4970,12 +5052,13 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               NOVELL
    =======================================================================-->
+
   <!--
       Novell Netware has two different version numbers. Luckily, Novell
       has provided us with a version decoder ring, located here:
-
           https://wiki.microfocus.com/index.php/Version_Decoder_Ring
    -->
+
   <fingerprint pattern="^Novell NetWare v3\.12.*8/12/93$">
     <description>Novell NetWare 3.12</description>
     <example>Novell NetWare v3.12 (100 user) 8/12/93</example>
@@ -5165,6 +5248,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                                 OCE
     ========================================================================-->
+
   <fingerprint pattern="^Oce (NC-\d+h), Firmware Ver.(\d+.\d+)\s+\(\d{1,2}.\d{1,2}.\d{1,2}\),.*$">
     <description>Oce NC Series of Print Servers</description>
     <example>Oce NC-6800h, Firmware Ver.1.01  (10.01.08),MID 8C5-D92,FID 2</example>
@@ -5306,6 +5390,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               NRG
    =======================================================================-->
+
   <fingerprint pattern="^NRG ((?:MP|SP )?\S+|DSm\d+) (?:V|v)?\.?(\S+).*$">
     <description>Ricoh NRG network multifunction device</description>
     <example hw.product="SP C312DN" os.version="1.03">NRG SP C312DN V1.03 / NRG Network Printer C model</example>
@@ -5347,9 +5432,11 @@ Copyright (c) 1995-2005 by Cisco Systems
          NRG MP C2500
          NRG MP C4500
    -->
+
   <!--======================================================================
                               Oki Data
    =======================================================================-->
+
   <fingerprint pattern="^OKI (\S+(?: \S+)?(?: \S+)?) Rev\. \S+ .*Print\s*Server.*$">
     <description>OKI Print Server - rev space variant</description>
     <example>OKI OkiLAN 6400e Rev. 10/100BASE Ethernet PrintServer: Attached to B6250 Rev.8.1: (C)2005 OKI DATA CORP</example>
@@ -5374,6 +5461,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               OVERLAND
    =======================================================================-->
+
   <fingerprint pattern="^Overland Neo Series$">
     <description>Overland NEO tape library</description>
     <example>Overland Neo Series</example>
@@ -5396,7 +5484,9 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               PALO ALTO
    =======================================================================-->
+
   <!-- Examples of PA-2000 are PA-2050 and PA-2020 -->
+
   <fingerprint pattern="^Palo Alto Networks (\S+) series firewall$">
     <description>Palo Alto firewall</description>
     <example>Palo Alto Networks PA-2000 series firewall</example>
@@ -5417,6 +5507,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               PANASONIC
    =======================================================================-->
+
   <fingerprint pattern="^(WJ-HD\d+) SWVer(\S+)$">
     <description>Panasonic digital disk recorder</description>
     <example>WJ-HD300 SWVer1.53</example>
@@ -5437,6 +5528,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               PARADYNE
    =======================================================================-->
+
   <fingerprint pattern="^PARADYNE T1 DSU/CSU; model: ([^;]+); S/W Release: ([^;]+); .*$">
     <description>Paradyne CSU/DSU</description>
     <example>PARADYNE T1 DSU/CSU; model: 3165-A4-210; S/W Release: 05.01.16; H/W CCA1: 3996-82C; Serial number: 5796841</example>
@@ -5508,6 +5600,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                             pfSense
    =======================================================================-->
+
   <fingerprint pattern="^pfSense\s(\S+)\s(\d+\.\d+(?:\.\d+)?)-RELEASE.*(FreeBSD)\s([\d\.]+-(?:STABLE|RELEASE)(?:-p\d+)?).*\s(\w+)$">
     <description>pfSense</description>
     <example service.vendor="FreeBSD" service.product="bsnmpd" service.component.vendor="pfSense" service.component.product="pfSense" service.component.version="2.3.4" os.vendor="FreeBSD" os.family="FreeBSD" os.product="FreeBSD" os.version="10.3-RELEASE-p19" os.arch="amd64" host.name="pfSense.localdomain">pfSense pfSense.localdomain 2.3.4-RELEASE pfSense FreeBSD 10.3-RELEASE-p19 amd64</example>
@@ -5539,9 +5632,11 @@ Copyright (c) 1995-2005 by Cisco Systems
          Paradyne RADSL; Model: 5446-A1-302; S/W Release: 02.04.07; H/W Revision: 1204-80A; Serial number: 4393325
          Paradyne RADSL; Model: 5446-A3-302; S/W Release: 02.05.07; H/W Revision: 3224-80E; Serial number: 5112081
    -->
+
   <!--======================================================================
                               Rectifier
    =======================================================================-->
+
   <fingerprint pattern="^Rectifier Technologies Pacific (WebCSU \S+) V(\S+)$">
     <description>Rectifier Technologies Pacific WebCSU - version variant</description>
     <example>Rectifier Technologies Pacific WebCSU 169-412 V1.15</example>
@@ -5566,8 +5661,11 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               RED HAT
    =======================================================================-->
+
   <!-- NOTE: eCos is NOT Linux, even though Red Hat contributed to it -->
+
   <!-- It seems some Ascend routers, like the WP3200 are based on eCos -->
+
   <fingerprint pattern="^ucd-snmp-.*/Red Hat eCos$">
     <description>eCos Embedded OS</description>
     <example>ucd-snmp-4.1.2/Red Hat eCos</example>
@@ -5580,6 +5678,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               Raritan
    =======================================================================-->
+
   <fingerprint pattern="^Raritan Computer Inc\. IPReach$">
     <description>Raritan Computer Inc. IPReach</description>
     <example>Raritan Computer Inc. IPReach</example>
@@ -5618,6 +5717,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               RedBack Networks
    =======================================================================-->
+
   <fingerprint pattern="^Red[bB]ack Networks AOS Release (\S+) .* Copyright.*$">
     <description>Redback networks AOS</description>
     <example>RedBack Networks AOS Release 3.1.6.18 PRODUCTION MAINTENANCE RELEASE Copyright (c) 1997-2001 by RedBack Networks, Inc. Compiled 2001-Oct-24 19:56:11 GMT by wheatley</example>
@@ -5650,6 +5750,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               RICOH
    =======================================================================-->
+
   <fingerprint pattern="^RICOH Aficio ((?:[MS]P )?\S+) ([0-9\.a-zA-Z]+) .*$">
     <description>Ricoh Aficio multifunction device</description>
     <example>RICOH Aficio 1022 5.20 / RICOH Network Printer C model / RICOH Network Facsimile C model</example>
@@ -5752,7 +5853,6 @@ Copyright (c) 1995-2005 by Cisco Systems
 
   <!--
       Currently unmatched fingerprints:
-
          RICOH FastEther8400e Rev.R1.05 10/100BASE Ethernet PrintServer: Attached to IPSiO SP C710 Rev.G1.01 : RICOH Company, Ltd.
          RICOH FastEther8400e Rev.R1.06 10/100BASE Ethernet PrintServer: Attached to IPSiO SP C710 Rev.G1.01 : RICOH Company, Ltd.
          RICOH FastEther8400e Rev.R1.06 10/100BASE Ethernet PrintServer: Attached to IPSiO SP C710 Rev.G1.04 : RICOH Company, Ltd.
@@ -5832,6 +5932,7 @@ Copyright (c) 1995-2005 by Cisco Systems
          SINDORICOH MF 4550_5550 version NR.APS.N311c kernel 2.6.18.5 All-N-1
          SINDORICOH MF 4550_5550 version NR2.APS.N016 kernel 2.6.18.5 All-N-1
    -->
+
   <fingerprint pattern="^Gestetner (\S+) (\S+) / Gestetner Network Printer.*$">
     <description>Gestetner Network Printer</description>
     <example>Gestetner C7640nD 1.01 / Gestetner Network Printer C model</example>
@@ -5844,6 +5945,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               IBM Printers
    =======================================================================-->
+
   <fingerprint pattern="(?i)^(?:IBM )?InfoPrint(?: Color)? (\S+)(?: MFP)? Version (\S+)">
     <description>IBM Infoprint Printer - verbose variant</description>
     <example>IBM Infoprint 1332 version 55.00.39 kernel 2.4.0-test6 All-N-1</example>
@@ -5884,6 +5986,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               MikroTik
    =======================================================================-->
+
   <fingerprint pattern="^RouterOS (RB.*)$">
     <description>Miktorik RouterOS - model variant</description>
     <example>RouterOS RB Crossroads</example>
@@ -5921,6 +6024,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                                     SAVIN
    =======================================================================-->
+
   <fingerprint pattern="(?i)^SAVIN (\S+)(?: / .*)?$">
     <description>Savin Printer</description>
     <example>SAVIN 2400WD</example>
@@ -5946,6 +6050,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                                     Samsung
    =======================================================================-->
+
   <fingerprint pattern="^Samsung(?: Samsung)? ([^;\s]+)(?: \d\S+)?(?: Series)?(?: Series)?;?\s*(?:OS )?V?([^\;\s]+)\s?.*?;.*Engine.*$">
     <description>Samsung Printer</description>
     <example>Samsung CLP-300; CLP300N_V1.01.02.01 11-15-2006;Engine 1.01.57;NIC V4.01.06(CLP-300) 11-03-2006;S/N XXXXXXXXXXXXXXXX</example>
@@ -5977,6 +6082,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               SonicWall
    =======================================================================-->
+
   <fingerprint pattern="^SonicWALL (\S+)\s*(\d+).*?\(SonicOS \S+ (\d[^\)]+)\)\s*$">
     <description>SonicWall - SonicOS Enhanced variant</description>
     <example hw.product="NSA" hw.model="220" os.version="5.8.1.2-20o">SonicWALL NSA 220 (SonicOS Enhanced 5.8.1.2-20o)</example>
@@ -6013,6 +6119,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               SCO
    =======================================================================-->
+
   <fingerprint pattern="^SCO TCP/IP Runtime Release \S+$">
     <description>SCO</description>
     <example>SCO TCP/IP Runtime Release 2.0.0</example>
@@ -6041,6 +6148,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               SHORETEL
    =======================================================================-->
+
   <fingerprint pattern="^ShoreGear (\S+)$">
     <description>Shoretel ShoreGear VoIP Switch</description>
     <example>ShoreGear 60/12</example>
@@ -6055,6 +6163,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               SGI
    =======================================================================-->
+
   <fingerprint pattern="^.* IRIX (?:version )?(\d+\S+).*$">
     <description>SGI IRIX</description>
     <example os.version="6.5">Silicon Graphics IRIS Indigo2  running IRIX version 6.5</example>
@@ -6092,6 +6201,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               SHARP
    =======================================================================-->
+
   <fingerprint pattern="^SHARP (AR-\S+)$">
     <description>Sharp AR Series multifunction device</description>
     <example>SHARP AR-M450</example>
@@ -6116,6 +6226,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               SIEMENS
    =======================================================================-->
+
   <fingerprint pattern="^SNMP agent for HiPath 3000.*V(\S+)$">
     <description>Siemens HiPath 3000 VoIP system</description>
     <example>SNMP agent for HiPath 3000 V3/V4</example>
@@ -6329,6 +6440,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               SOURCE TECHNOLOGIES
    =======================================================================-->
+
   <fingerprint pattern="^Source Technologies (ST-9\S+) version (\S+) kernel \S+">
     <description>Source Technologies ST9600 Series Secure Printer</description>
     <example>Source Technologies ST-9620 version NJ.APS.N254e kernel 2.6.18.5 All-N-1</example>
@@ -6345,6 +6457,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               SUN
    =======================================================================-->
+
   <fingerprint pattern="^SunOS (\S+) 5\.(1[1-9]) \S+ (\S+)$">
     <description>Oracle/Solaris 5.11 and upwards</description>
     <example host.name="sysname" os.version="11" os.arch="sun4u">SunOS sysname 5.11 Generic_118833-33 sun4u</example>
@@ -6385,6 +6498,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   </fingerprint>
 
   <!-- For Sun hardware/platform information, see http://docs.sun.com/source/817-6337/chapterHPG.html -->
+
   <fingerprint pattern="^Sun SNMP Agent, Sun-Blade-100$">
     <description>Sun SNMP agent on a Blade 100. Indicates Solaris 8 or higher</description>
     <example>Sun SNMP Agent, Sun-Blade-100</example>
@@ -6507,6 +6621,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   </fingerprint>
 
   <!-- This is definitely a Netra T1 -->
+
   <fingerprint pattern="^Sun SNMP Agent, UltraSPARC-IIi-cEngine$">
     <description>Sun SNMP agent on an UltraSPARC-IIi-cEngine</description>
     <example>Sun SNMP Agent, UltraSPARC-IIi-cEngine</example>
@@ -6674,6 +6789,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               SYMANTEC
    =======================================================================-->
+
   <fingerprint pattern="^Symantec (Gateway Security .*)$">
     <description>Symantec Gateway Security firewall</description>
     <example>Symantec Gateway Security 360</example>
@@ -6690,6 +6806,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               SYMBOL
    =======================================================================-->
+
   <fingerprint pattern="^Symbol Spectrum24 Ethernet Access Point$">
     <description>Symbol Access Point</description>
     <example>Symbol Spectrum24 Ethernet Access Point</example>
@@ -6725,6 +6842,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               TEKTRONIX
    =======================================================================-->
+
   <fingerprint pattern="^Tektronix, Inc\., Phaser (\S+), PhaserShare.* \(.*/([^/]+)\)$">
     <description>Tektronix Phaser printer</description>
     <example os.product="860N" os.version="3.38">Tektronix, Inc., Phaser 860N, PhaserShare Series B Network Interface, (14.44/13.34/14.46/3.38)</example>
@@ -6738,6 +6856,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                                     Troy
    =======================================================================-->
+
   <fingerprint pattern="^(?:\S+ )?PocketPro.*$">
     <description>Troy PocketPro Print Server</description>
     <example>PocketPro</example>
@@ -6754,6 +6873,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               TOSHIBA
    =======================================================================-->
+
   <fingerprint pattern="^TOSHIBA (e-STUDIO\S+)$">
     <description>Toshiba e-STUDIO Multifunction Device</description>
     <example>TOSHIBA e-STUDIO451c</example>
@@ -6767,6 +6887,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               UNISYS
    =======================================================================-->
+
   <fingerprint pattern="^Unisys (\S+) version (\S+) kernel .*$">
     <description>Unisys printer</description>
     <example>Unisys UDS544 version NS.NP.N219 kernel 2.6.6 All-N-1</example>
@@ -6787,6 +6908,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                              VMware
    =======================================================================-->
+
   <fingerprint pattern="^(VMware ESXi?) (\d\.\d+\.\d+) build-\d+ VMware, Inc\. (\S+)$">
     <description>VMware ESX/ESXi</description>
     <example os.product="VMware ESXi" os.version="5.1.0" os.arch="x86_64">VMware ESXi 5.1.0 build-1157734 VMware, Inc. x86_64</example>
@@ -6809,6 +6931,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               XEROX
    =======================================================================-->
+
   <fingerprint pattern="^Xerox Phaser ([^;]+);\sOS\s(\d+\.\d+\.\d+\.\d+).*$" certainty="1.0">
     <description>Xerox Phaser 3000MFP Series </description>
     <example hw.product="3300MFP" os.version="1.50.00.17">Xerox Phaser 3300MFP; OS 1.50.00.17   05-07-2013, Engine 1.05.44, NIC V4.03.01(P3300MFP), PCL5e 6.08.01 11-10-2009, PCL6 5.98  09-23-2009, PS3 V2.19.06 12-15-2010, SPL 5.24 03-27-2006, PDF V1.00.32 02-25-2006, IBM/EPSON 5.22 09-24-2009</example>
@@ -6992,6 +7115,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                                     Xyplex
    =======================================================================-->
+
   <fingerprint pattern="^.*Xyplex hardware (\S+) .*Xyplex software Terminal Server V(\S+)\s*$">
     <description>Xyplex Terminal Server</description>
     <example>- Netlink-Xyplex Xyplex hardware MX-1600 00.00.00 Rom 470000 Xyplex software Terminal Server V6.0S91 </example>
@@ -7019,6 +7143,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               ZEBRANET
    =======================================================================-->
+
   <fingerprint pattern="^ZebraNet PrintServer$">
     <description>ZebraNet PrintServer</description>
     <example>ZebraNet PrintServer</example>
@@ -7030,6 +7155,7 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               ZYXEL
    =======================================================================-->
+
   <fingerprint pattern="^Prestige 645$">
     <description>ZxXEL Prestige 645 ADSL router</description>
     <example>Prestige 645</example>
@@ -7085,4 +7211,5 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Prestige 650R-T3"/>
     <param pos="0" name="os.device" value="Broadband router"/>
   </fingerprint>
+
 </fingerprints>

@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="smtp.banner" protocol="smtp" database_type="service" preference="0.20">
   <!--
   SMTP greeting lines (part of the banner after the response code) are matched
   against these patterns (1 line at a time) to fingerprint SMTP servers.
-
   This is always done in addition to the patterns in other smtp_*.xml files.
   These XML files are used in this order:
     smtp_banners.xml
@@ -16,13 +15,12 @@
     smtp_turn.xml
     smtp_rset.xml
     smtp_quit.xml
-
   The system or service fingerprint with the highest certainty overwrites the others.
-
   'preference' notes: This value has been impacted by the poor quality of the 'Cisco PIX' match.
     Additionally, the 'preference' value for the other databases mentioned above has been set so
     as to implement their preference as described.
   -->
+
   <fingerprint pattern="^X1 NT-ESMTP Server ([^ ]+) \(IMail (\d+\.[^ ]+) EVAL \d+-\d+\)$">
     <description>IMail - EVAL version</description>
     <example service.version="6.06">X1 NT-ESMTP Server foo.bar (IMail 6.06 EVAL 11347-1)</example>
@@ -154,14 +152,13 @@
 
   <!--
   Cisco PIX sits between an internal SMTP server and the rest of the world.
-
     Its MailGuard feature strips all information out of the 220 header except for the ' ' (space), '2' (digit two),
     and '0' (digit zero) characters, replacing them with asterisks. While this effectively
     hides the back-end SMTP server, it does tell us that they are running Cisco PIX firewall
     (at least for SMTP, and possibly other services as well).
-
     Search Cisco's documentation for "fixup protocol SMTP" for more information.
   -->
+
   <fingerprint pattern="^[\*20 ]+$">
     <description>Cisco PIX firewall MailGuard banner stripping</description>
     <example os.product="PIX">***************************</example>
@@ -540,6 +537,7 @@
   </fingerprint>
 
   <!-- MailEnable has an odd, three version string. Not sure about the meaning the second and third version #s. -->
+
   <fingerprint pattern="^(?:(\S+) +)?ESMTP MailEnable Service, Version: (?:([\d.]+))?-[\d.]*-[\d.]* (?:ready|denied access) at (\d{2}/\d{2}/\d{2} \d{2}:\d{2}:\d{2})$">
     <description>MailEnable - Complex</description>
     <example host.name="foo.bar" service.version="1.8">foo.bar ESMTP MailEnable Service, Version: 1.8-- ready at 05/20/15 08:50:22</example>
@@ -723,6 +721,7 @@
   </fingerprint>
 
   <!-- example: 220 mail.db-list.com ESMTP MERAK 3.00.140; Tue, 24 Jul 2001 21:30:47 -0700 -->
+
   <fingerprint pattern="^([^ ]+) +E?SMTP (?i:MERAK) ([^ ]+\.[^ ]+\.[^ ]+); *(.+) *$">
     <description>Merak mail server - http://www.icewarp.com/merakmail/ (runs on 2000/NT/9x)</description>
     <example host.name="foo.bar" service.version="8.0.3">foo.bar SMTP Merak 8.0.3; Thu, 30 Nov 2017 20:01:41 +1000</example>
@@ -829,6 +828,7 @@
        named Domino until Dec 1996 w/ v 4.5. Seems to have started being
        called IBM Domino as of v9.0 on product and in banners.
   -->
+
   <fingerprint pattern="^ ?(?:([^ ]+))? *ESMTP Service \(Lotus Domino Release (\d+\.[\w.]+(?: FP\d+)?(?: HF\d+)?)(?: \(Intl\))?\) ready at (.+) *$">
     <description>Lotus Domino SMTP MTA</description>
     <example service.version="8.5">foo.bar  ESMTP Service (Lotus Domino Release 8.5) ready at Thu, 30 Nov 2017 17:01:45 +0800</example>
@@ -1510,6 +1510,7 @@
   </fingerprint>
 
   <!-- *Sendmail* fingerprints after this line had NO matches in 2017.11.30 Project Sonar data set-->
+
   <fingerprint pattern="^([^ ]+) Sendmail ([^;]+); ([^;\.]+)$">
     <description>Sendmail - unknown platform, variant 1</description>
     <param pos="0" name="service.family" value="Sendmail"/>
@@ -1588,6 +1589,7 @@
   </fingerprint>
 
   <!-- SonicWall makes hardware, virtual appliances, and Windows software. The banner doesn't indicate which. -->
+
   <fingerprint pattern="^(?i)([^ ]+) ESMTP SonicWALL \(([\d.]+)\)$">
     <description>SonicWall Email Security</description>
     <example host.name="foo.bar" service.version="9.0.5.2077">foo.bar ESMTP SonicWALL (9.0.5.2077)</example>
@@ -1822,4 +1824,5 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:openbsd:opensmtpd:-"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
+
 </fingerprints>

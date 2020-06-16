@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="sip_header.user_agent" protocol="sip" database_type="service">
   <!--
   SIP User Agent header values are matched against these patterns to fingerprint SIP devices.
   -->
+
   <!-- Axis devices -->
+
   <fingerprint pattern="(?i)^AXIS (\S+) Network Video Door Station$">
     <description>Axis Network Video Door stations, which have voice</description>
     <example hw.product="A8105-E">AXIS A8105-E Network Video Door Station</example>
@@ -28,6 +30,7 @@
   </fingerprint>
 
   <!-- Cisco Devices -->
+
   <fingerprint pattern="^Cisco-SIPGateway/IOS-([\d\.x]+)$">
     <description>Cisco SIPGateway</description>
     <example>Cisco-SIPGateway/IOS-12.x</example>
@@ -38,6 +41,7 @@
   </fingerprint>
 
   <!-- AVM.DE Devices -->
+
   <fingerprint pattern="^FRITZ!OS$">
     <description>AVM FritzOS Device</description>
     <example>FRITZ!OS</example>
@@ -85,6 +89,7 @@
   </fingerprint>
 
   <!-- Huawei devices -->
+
   <fingerprint pattern="(?i)^Huawei$">
     <description>Huawei generic</description>
     <example>Huawei</example>
@@ -239,4 +244,5 @@
     <param pos="2" name="hw.version"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
+
 </fingerprints>

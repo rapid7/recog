@@ -1,15 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="ldap.search_result" protocol="ldap" database_type="service" preference=".80">
   <!--
     Notes: Ruby will fail to build the RegExp if it contains \x84 which is a standard
           byte in ASN.1 Sequence length fields.
   -->
+
   <!--
     Samba - position prior to Windows entries due to regex. When testing new
     Samba fingerprints make sure you disable the matches for the version of
     Windows that Samba is eumlating or else the Windows fallback fingerprint for
     the given OS version may match.
   -->
+
   <fingerprint pattern="(?m:vendorName1.\x04.Samba.*domainControllerFunctionality1.{1,5}\x04\x014)">
     <description>Samba Active Directory Controller</description>
     <example _encoding="base64">
@@ -33,17 +35,16 @@
 
   <!--
     Windows Active Directory and Lightweight Directory Server (ADAM)
-
     domainControllerFunctionality reference:
       https://msdn.microsoft.com/en-us/library/cc223272.aspx
-
     supportedCapabilities reference (for Windows 2000)
       https://msdn.microsoft.com/en-us/library/cc223359.aspx
-
       1.2.840.113556.1.4.800  = Active Directory Controller
       1.2.840.113556.1.4.1851 = Lightweight Directory Server / ADAM
   -->
+
   <!-- Windows 2016 -->
+
   <fingerprint pattern="(?im:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x017)">
     <description>Active Directory Controller on Windows Server 2016</description>
     <example _encoding="base64">
@@ -86,6 +87,7 @@
   </fingerprint>
 
   <!-- Windows 2012 R2 -->
+
   <fingerprint pattern="(?im:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x016)">
     <description>Active Directory Controller on Windows Server 2012 R2</description>
     <example _encoding="base64">
@@ -128,6 +130,7 @@
   </fingerprint>
 
   <!-- Windows 2012 -->
+
   <fingerprint pattern="(?im:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x015)">
     <description>Active Directory Controller on Windows Server 2012</description>
     <example _encoding="base64">
@@ -170,6 +173,7 @@
   </fingerprint>
 
   <!-- Windows 2008 R2 -->
+
   <fingerprint pattern="(?im:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x014)">
     <description>Active Directory Controller on Windows Server 2008 R2</description>
     <example _encoding="base64">
@@ -204,6 +208,7 @@
     This generic match for domainControllerFunctionality =  4 will capture
     current Samba implementations.  Disable the fingerprint below when testing Samba
   -->
+
   <fingerprint pattern="(?im:domainControllerFunctionality1.{1,5}\x04\x014)">
     <description>Windows Server Server 2008 R2</description>
     <example _encoding="base64">
@@ -216,6 +221,7 @@
   </fingerprint>
 
   <!-- Windows 2008 -->
+
   <fingerprint pattern="(?im:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x013)">
     <description>Active Directory Controller on Windows Server 2008</description>
     <example _encoding="base64">
@@ -258,6 +264,7 @@
   </fingerprint>
 
   <!-- Windows 2003 -->
+
   <fingerprint pattern="(?im:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x012)">
     <description>Active Directory Controller on Windows Server 2003</description>
     <example _encoding="base64">
@@ -300,6 +307,7 @@
   </fingerprint>
 
   <!-- Win Server 2000 Service Pack 3 only has two matching supportedCapabilities OIDs, match them and look for explicit end-->
+
   <fingerprint pattern="(?im:supportedCapabilities1.{1,5}\x04\x161.2.840.113556.1.4.800\x04\x171.2.840.113556.1.4.17910.{1,5}\x04.(?:supportedControl|isSynchronized))">
     <description>Active Directory Controller on Windows Server 2000 SP 3</description>
     <example _encoding="base64">
@@ -321,6 +329,7 @@
   </fingerprint>
 
   <!-- Win Server 2000 RTM only has a single matching supportedCapabilities OID, match it and look for explicit end-->
+
   <fingerprint pattern="(?im:supportedCapabilities1.{1,5}\x04\x161.2.840.113556.1.4.8000.{1,5}\x04.isSynchronized1)">
     <description>Active Directory Controller on Windows Server 2000</description>
     <example _encoding="base64">
@@ -337,6 +346,7 @@
   </fingerprint>
 
   <!-- End of Microsoft Windows Section -->
+
   <fingerprint pattern="(?im:top\x04..penLDAProotDSE)">
     <description>OpenLDAP</description>
     <example _encoding="base64">
@@ -368,7 +378,9 @@
   </fingerprint>
 
   <!-- Fedora / 389 Project family -->
+
   <!--  http://directory.fedoraproject.org/docs/389ds/FAQ/history.html  -->
+
   <fingerprint pattern="(?i:vendorname1.\x04.Fedora Project0.\x04\rvendorversion1.\x04.Fedora-Directory/(\d\.\d[\w.]* B\d+\.\d+\.\d+))">
     <description>Fedora Project Fedora Directory Server</description>
     <example service.version="1.0.4 B2006.312.5450" _encoding="base64">
@@ -471,6 +483,7 @@
   </fingerprint>
 
   <!-- Attachmate Group (NetIQ) purchased Novell in 2011, and then merged w/ Micro Focus in 2014 -->
+
   <fingerprint pattern="(?im:vendorName1\x13\x04\x11NetIQ Corporation0.\x04\rvendorVersion.{4}LDAP Agent for NetIQ eDirectory (\d+\.\d+[\d.]* [\w ]*\([\d.]+\))0.\x04)">
     <description>NetIQ LDAP Agent for eDirectory</description>
     <example service.version="8.8 SP8 (20808.06)" _encoding="base64">
@@ -511,6 +524,7 @@
   </fingerprint>
 
   <!-- Various iterations of Sun, now Oracle, Directory Server -->
+
   <fingerprint pattern="(?i:vendorname1\x18\x04\x16Sun Microsystems, Inc.0.+\x04\rvendorversion1.{1,2}\x04.{1,2}Sun[- ]Java\(tm\)[- ]System[- ]Directory(?: Server)?/(\d\.\d+[\w.]*)0.{1,3}\x04)">
     <description>Sun Java(TM) System Directory Server</description>
     <example service.version="5.2_Patch_6" _encoding="base64">
@@ -581,6 +595,7 @@
   </fingerprint>
 
   <!-- Very old, rare, same family as above. Roll into those? -->
+
   <fingerprint pattern="(?i:vendorname1.\x04.Sun Microsystems, Inc.0.\x04\rvendorversion1.\x04.Sun-ONE-Directory/([\w.]+)0.\x04)">
     <description>Sun ONE Directory Server</description>
     <example service.version="5.2" _encoding="base64">
@@ -597,6 +612,7 @@
   </fingerprint>
 
   <!-- IBM [Tivoli | Security] Directory Server -->
+
   <fingerprint pattern="(?im:International Business Machines \(IBM\)0.*\x04\rvendorversion1.\x00\x00\x00.\x04.([\d.]+)0.\x00.*ibm-osregistrycontext1.\x00\x00\x00.\x04.OS400-SYS=)">
     <description>IBM Security Directory Server on OS/400 (IBM i)</description>
     <example service.version="5.2" _encoding="base64">
@@ -685,6 +701,7 @@
   </fingerprint>
 
   <!-- Unbound -->
+
   <fingerprint pattern="(?im:vendorName1.\x04.UnboundID Corp.0.\x04\rvendorVersion1.\x04.UnboundID Directory Server ([\d.]+)0\f)">
     <description>UnboundID Directory Server</description>
     <example service.version="5.1.5.2" _encoding="base64">
@@ -762,4 +779,5 @@
     <param pos="0" name="service.product" value="LDAP Server"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
 </fingerprints>

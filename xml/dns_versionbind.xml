@@ -1,22 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="dns.versionbind" protocol="dns" database_type="service" preference="0.750">
   <!--
     This fingerprint file matches the text string response from a DNS
     version.bind request.
-
     For example, the string 'dnsmasq-2.76-1-ubnt2' emitted by the command below:
-
     $ nslookup -type=txt -class=chaos VERSION.BIND <dns_server> | grep VERSION.BIND | cut -d\" -f2
     dnsmasq-2.76-1-ubnt2
-
   -->
+
   <!-- Red Hat package naming:
        https://fedoraproject.org/wiki/Packaging:DistTag
        https://fedoraproject.org/wiki/Packaging:Versioning
-
        Enterprise linux release dates:
        https://access.redhat.com/articles/3078
   -->
+
   <fingerprint pattern="^(9.[^-]+(?:-rpz\d?[+.]rl[\d.]+)?(?:-[SP]\d)?)-RedHat-[\d.]+[-.][\w.]+el([\d]+)_?(\d*)(?:.[\w.]+)?$">
     <description>ISC BIND: Red Hat Enterprise Linux</description>
     <example service.version="9.8.2rc1" os.version="6" os.version.version="9">9.8.2rc1-RedHat-9.8.2-0.62.rc1.el6_9.2</example>
@@ -43,6 +41,7 @@
     <description>ISC BIND: Fedora</description>
     <example service.version="9.10.4-P8">9.10.4-P8-RedHat-9.10.4-4.P8.fc25</example>
     <!-- The '-rl' in the example below indicates a rate limiting patch -->
+
     <example service.version="9.9.3-rl.13207.22-P2">9.9.3-rl.13207.22-P2-RedHat-9.9.3-5.P2.fc19</example>
     <example os.version="10">9.5.2-RedHat-9.5.2-1.fc10</example>
     <param pos="0" name="service.vendor" value="ISC"/>
@@ -234,6 +233,7 @@
     FP below might be overly specific, trying to avoid false positive when
     matching cross-service/protocol.
   -->
+
   <fingerprint pattern="^(?:BIND )?([89]\.[\d\.]+(?:[ab]\d+)?(?:-ESV(?:-R\d+)?)?(?:-[SPW][\d\.]+)?(?:-REL)?(?:-[W]\d+)?(?:rc\d)?)(?:-NOESW)?$">
     <description>ISC BIND: bare release number - ESV REL NOESW</description>
     <example service.version="9.7.0-P1">9.7.0-P1</example>
@@ -282,6 +282,7 @@
     <!-- Not including more info at this time as I'm not sure this doesn't
          run on products other than EdgeRouter.
     -->
+
   </fingerprint>
 
   <fingerprint pattern="^dnsmasq-(\d.[\w]+)-OpenDNS-\d$">
@@ -295,6 +296,7 @@
     <!-- Seems to correlate with OpenWRT and Netgear but I haven't been able
          to verify that it isn't used elsewhere.
     -->
+
   </fingerprint>
 
   <fingerprint pattern="^dnsmasq-?(?:UNKNOWN)?$">
@@ -405,6 +407,7 @@
        The matches below are *probably* Authoritative Server but we can't be
        sure.
   -->
+
   <fingerprint pattern="^Served by POWERDNS (\d\.[\d.]+) \$Id[^$]*\$$">
     <description>PowerDNS: Served by format with version</description>
     <example service.version="2.9.22">Served by POWERDNS 2.9.22 $Id: packethandler.cc 1321 2008-12-06 19:44:36Z ahu $</example>
@@ -539,19 +542,19 @@
        are assuming that the server version of the OS is what we are
        fingerprinting since installation of the DNS service on the workstation
        class OS would be unlikely and difficult if possible at all.
-
        DNS version response is disabled by default on modern Windows versions
        and the detail in the response is controlled via the EnableVersionQuery
        setting.
-
        The to enable version response on modern versions is:
        dnscmd /config /EnableVersionQuery 1
   -->
+
   <fingerprint pattern="^Microsoft DNS (10.0.\d+)(?: \(\w+\))?$">
     <description>Microsoft DNS on Windows 2016: GA</description>
     <!-- Windows 10 / 2016 moved towards a rolling release so capturing build
          is required unlike other Windows versions where we use a fixed string.
     -->
+
     <example service.version="10.0.14393" os.build="10.0.14393">Microsoft DNS 10.0.14393 (383900CE)</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="DNS"/>
@@ -730,6 +733,7 @@
   <fingerprint pattern="^Atlas Anchor ([\d\.]+)$">
     <description>Ripe ATLAS Anchor</description>
     <!-- https://atlas.ripe.net/docs/anchors/ -->
+
     <example service.version="0.1">Atlas Anchor 0.1</example>
     <param pos="0" name="service.vendor" value="RIPE"/>
     <param pos="0" name="service.family" value="Atlas Anchor"/>
@@ -819,4 +823,5 @@
     <param pos="0" name="service.product" value="DNS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
 </fingerprints>

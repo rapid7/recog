@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="http_header.cookie" protocol="http" database_type="service">
   <!--
   Set-Cookie HTTP header values are matched against these patterns to fingerprint HTTP
   servers.
   -->
+
   <fingerprint pattern="^(CFCLIENT_[^=]+|CFGLOBALS|CFID|CFTOKEN)=.*">
     <description>Adobe (Macromedia) ColdFusion uses various cookies</description>
     <param pos="1" name="cookie"/>
@@ -87,9 +88,9 @@
       The cookie value breaks down to [box-id][service-id][timeout-value]
       unfortunately, there's no separator so it's hard to tell what the
       actual break is between the pieces of data.
-
       http://www.cisco.com/warp/public/117/AP_cookies.html
   -->
+
   <fingerprint pattern="^(ARPT)=([A-Z]+)([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})[A-Z]+.*">
     <description>Cisco 11000 Series Content Service Switch (CSS)</description>
     <param pos="1" name="cookie"/>
@@ -324,7 +325,9 @@
       <param pos="0" name="service.family" value="???"/>
       <param pos="0" name="service.product" value="???"/>
    </fingerprint>
+
    -->
+
   <fingerprint pattern="^(NSES40Session)=.*">
     <description>Netscape Enterprise Server (subsequently iPlanet Web Server, Sun ONE Web Server, presently Sun Java System Web Server)</description>
     <param pos="1" name="cookie"/>
@@ -440,6 +443,7 @@
         a similar cookie name, you must ensure that it is located prior to
         these and this is enforced by rspec.
     -->
+
   <fingerprint pattern="(?i)^JSESSIONID(?:\.[^=]+)?=[^;]+;.*$">
     <description>Ignore simple JSESSIONID and related cookies</description>
     <example>JSESSIONID=6ooov35i4l3n36qtaf8csvg0;Path=/</example>
@@ -459,4 +463,5 @@
     <description>Ignore simple SID and related cookies</description>
     <example>sid=sfd10bf73-654458f687aa3c68b3874915f651e0ca;path=/;"</example>
   </fingerprint>
+
 </fingerprints>

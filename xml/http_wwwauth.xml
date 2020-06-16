@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="http_header.wwwauth" protocol="http" database_type="service" preference="0.85">
   <!-- HTTP WWW-Authenticate headers are matched against these patterns to fingerprint HTTP servers. -->
+
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;access&quot;$">
     <description>Cisco IOS 11.x</description>
     <example>Basic realm="access"</example>
@@ -133,6 +134,7 @@
   </fingerprint>
 
   <!-- Hikvision is OEMd by a number of DVR manufacturers -->
+
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;(?i:hikvision)&quot;.*$">
     <description>Web server found on DVR and webcam servers sourced from Hikvision</description>
     <example>Basic realm="hikvision"</example>
@@ -238,6 +240,7 @@
   Really need some examples for the fingerprints below. The regex and params
   imply that the nonce inlcudes the MAC address.
   -->
+
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;SpeedTouch&quot;, nonce=&quot;[0-9A-Z]+:([0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}-[0-9A-F]{2}):\d+:\d+&quot;, qop=&quot;auth&quot;$">
     <description>Thomson SpeedTouch xDSL router - qop variant</description>
     <param pos="0" name="service.vendor" value="Thomson"/>
@@ -425,6 +428,7 @@
   </fingerprint>
 
   <!-- HP ProCurve -->
+
   <fingerprint pattern="(?i)^(?:Basic|Digest) realm=&quot;(?:HP|ProCurve) (J[3]\d{3}A)&quot;$">
     <description>HP ProCurve Hubs</description>
     <example os.product="J3295A">Basic realm="HP J3295A"</example>
@@ -501,7 +505,7 @@
 
   <fingerprint pattern="(?i)^(?:Basic|Digest)\s+realm=&quot;Siqura&quot;$">
     <description>Siqura Video Encoder</description>
-    <example>Basic realm=&quot;Siqura&quot;</example>
+    <example>Basic realm="Siqura"</example>
     <param pos="0" name="os.vendor" value="Siqura"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="hw.vendor" value="Siqura"/>
@@ -510,8 +514,8 @@
 
   <fingerprint pattern="^Digest realm=&quot;(Orbit-351)&quot;">
     <description>Steinsvik Orbit 351 IP Camera (Truen TCAM Rebrand)</description>
-    <example hw.product="Orbit-351">Digest realm=&quot;Orbit-351&quot;, nonce=&quot;0000040dY892418598785d2a2304a74adf22f6098f2792&quot;, stale=FALSE</example>
-	  <param pos="0" name="hw.vendor" value="Steinsvik"/>
+    <example hw.product="Orbit-351">Digest realm="Orbit-351", nonce="0000040dY892418598785d2a2304a74adf22f6098f2792", stale=FALSE</example>
+    <param pos="0" name="hw.vendor" value="Steinsvik"/>
     <param pos="0" name="hw.device" value="Web cam"/>
     <param pos="1" name="hw.product"/>
     <param pos="0" name="os.vendor" value="Steinsvik"/>
@@ -520,6 +524,7 @@
   </fingerprint>
 
   <!-- a variety of headers we currently just ignore -->
+
   <fingerprint pattern="(?i)^NTLM$">
     <description>Ignore NTLM-only</description>
     <example>NTLM</example>
@@ -535,6 +540,7 @@
   Using a wildcard . instead of ['&quot;] in the following line will result in
   this fingerprint matching examples from other fingerprints.
   -->
+
   <fingerprint pattern="^(?:Basic|Digest) .*realm=['&quot;](?:\/|\.|null|\/?index.html?)?['&quot;]">
     <description>Ignore null/empty/period/index.</description>
     <example>Basic realm="null"</example>
@@ -571,14 +577,15 @@
   <!--
    Temporarily disable this version-less fingerprint because it overrode the
    one in http_servers.xml (see NEX-1255).
-
    <fingerprint pattern="^(?:Basic|Digest) realm=&quot;Lyris ListManager: enter email address and password&quot;$">
       <description>Lyris ListManager</description>
       <example>Basic realm="Lyris ListManager: enter email address and password"</example>
       <param pos="0" name="service.vendor" value="Lyris"/>
       <param pos="0" name="service.product" value="ListManager"/>
    </fingerprint>
+
    -->
+
   <!--
 Basic realm= StarVoice
 Basic realm="802.11g Remote-Motion CCD Network Camera"
@@ -666,7 +673,9 @@ Digest realm="HiPER", domain="222.66.99.209", qop="auth", nonce="aa81b6584c4716f
 Digest realm="i3micro VRG", nonce="1186428394", qop="auth", algorithm=MD5
 Digest realm="WatchGuard SOHO  Configuration",qop="auth",nonce="7c8e98007db668881687bd538e6e8581"
 -->
+
   <!-- This is in various PHP coding examples, but is not a reliable FP source:
      Basic realm="User Login"
   -->
+
 </fingerprints>

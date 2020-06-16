@@ -1,16 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="x509.subject" protocol="x509">
   <!--
   This fingerprint set matches the Subject field of x509 certificates. These x509
   certificates may be sourced from any SSL or TLS service. If a particular system
   has identical subject and issuer fields, the subject field should be preferred.
-
   The format of the Subject field is built from the x509 distinguished names using
   a specific order. This order matches the Go implementation at the URL:
     https://golang.org/src/crypto/x509/pkix/pkix.go#203
-
   The ToRDNSequence() function builds the string in reverse order:
-
         func (n Name) ToRDNSequence() (ret RDNSequence) {
             ret = n.appendRDNs(ret, n.Country, oidCountry)
             ret = n.appendRDNs(ret, n.Province, oidProvince)
@@ -28,13 +25,10 @@
             for _, atv := range n.ExtraNames {
                 ret = append(ret, []AttributeTypeAndValue{atv})
             }
-
             return ret
         }
-
     All names are separated by commas and any commas inside a name are escaped with a
     single backslash character. See RFC 2253 for additional details on formatting.
-
     Practically, most Subjects start with the Common Name (CN=) and then step through
     Organization Unit (OU), Organization (O), and then some level of location, but
     typically Locality (L) and Country (C). Names are guaranteed to be listed in
@@ -42,10 +36,9 @@
     Subjects may start with a Serial Number (SERIALNUMBER=) or even Extra Names, but
     these are somewhat rare. Keep this name order in mind when working on these
     fingerprints.
-
     The same constraints also apply to the x509 Issuers (x509_issuers.xml).
-
   -->
+
   <fingerprint pattern="^CN=([0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}),OU=([^,]+),O=Araknis Networks \(TM\),L=Charlotte,C=US$">
     <description>Araknis Networks Router</description>
     <example host.mac="d4:6a:91:7a:a3:c4" hw.product="AN-300-RT-4L2W">CN=d4:6a:91:7a:a3:c4,OU=AN-300-RT-4L2W,O=Araknis Networks (TM),L=Charlotte,C=US</example>
@@ -525,6 +518,7 @@
     <param pos="0" name="hw.product" value="Chromecast"/>
     <param pos="1" name="chromecast.serial_number"/>
     <!-- This is the hotspot-mode MAC address (clear bit 2) -->
+
     <param pos="2" name="host.mac_local"/>
   </fingerprint>
 
@@ -539,6 +533,7 @@
     <param pos="0" name="hw.vendor" value="Vizio"/>
     <param pos="1" name="chromecast.serial_number"/>
     <!-- This is the hotspot-mode MAC address (clear bit 2) -->
+
     <param pos="2" name="host.mac_local"/>
   </fingerprint>
 
@@ -1388,6 +1383,7 @@
     <param pos="0" name="hw.device" value="NAS"/>
     <param pos="0" name="hw.product" value="Storage Appliance"/>
   </fingerprint>
+
   <fingerprint pattern="^CN=axonius,O=Axonius\\, Inc,L=New York City,ST=New York,C=US$">
     <description>Axonius Appliance</description>
     <example>CN=axonius,O=Axonius\, Inc,L=New York City,ST=New York,C=US</example>
@@ -1395,6 +1391,7 @@
     <param pos="0" name="hw.device" value="Security Appliance"/>
     <param pos="0" name="hw.product" value="Asset Management"/>
   </fingerprint>
+
   <fingerprint pattern="^CN=AVIGILON-CAMERA-([a-zA-Z0-9\.\-]+)-\d+,OU=Certification Manager,O=Avigilon Corporation,L=Vancouver,ST=British Columbia,C=CA$">
     <description>Avigilon IP Camera</description>
     <example hw.product="5.0-H3-DP1">CN=AVIGILON-CAMERA-5.0-H3-DP1-1242900,OU=Certification Manager,O=Avigilon Corporation,L=Vancouver,ST=British Columbia,C=CA</example>
@@ -1405,6 +1402,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
+
   <fingerprint pattern="^CN=TCAM,OU=Security,O=Truen,L=Seoul,ST=Seoul,C=KR$">
     <description>Truen IP Camera (Often Rebranded)</description>
     <example>CN=TCAM,OU=Security,O=Truen,L=Seoul,ST=Seoul,C=KR</example>
@@ -1416,6 +1414,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
+
   <fingerprint pattern="^CN=device.wilibox.com,OU=R&amp;D,O=WILIBOX UAB,L=Kaunas,ST=-,C=LT$">
     <description>LigoWave Outdoor AP</description>
     <example>CN=device.wilibox.com,OU=R&amp;D,O=WILIBOX UAB,L=Kaunas,ST=-,C=LT</example>
@@ -1427,4 +1426,5 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
+
 </fingerprints>
