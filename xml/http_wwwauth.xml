@@ -190,16 +190,6 @@
     <param pos="0" name="service.vendor" value="Kubernetes"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;NETGEAR (Orbi(?:-(?:micro|mini))?)&quot;.*$">
-    <description>Netgear Orbi</description>
-    <example hw.product="Orbi">Basic realm="NETGEAR Orbi"</example>
-    <example hw.product="Orbi-micro">Basic realm="NETGEAR Orbi-micro"</example>
-    <param pos="0" name="hw.vendor" value="Netgear"/>
-    <param pos="0" name="hw.device" value="WAP"/>
-    <param pos="0" name="hw.family" value="Orbi"/>
-    <param pos="1" name="hw.product"/>
-  </fingerprint>
-
   <fingerprint pattern="(?i)^(?:Basic|Digest) realm=&quot;RUIJIE(?:-CPE)?&quot;.*$">
     <description>Ruijie Networks generic</description>
     <example>Digest realm="RUIJIE-CPE"</example>
@@ -523,6 +513,59 @@
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
 
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;NETGEAR (Orbi(?:-(?:micro|mini))?)&quot;.*$">
+    <description>Netgear Orbi</description>
+    <example hw.product="Orbi">Basic realm=&quot;NETGEAR Orbi&quot;</example>
+    <example hw.product="Orbi-micro">Basic realm=&quot;NETGEAR Orbi-micro&quot;</example>
+    <example hw.product="Orbi-mini">Basic realm=&quot;NETGEAR Orbi-mini&quot;</example>
+    <param pos="0" name="hw.vendor" value="Netgear"/>
+    <param pos="0" name="hw.device" value="WAP"/>
+    <param pos="0" name="hw.family" value="Orbi"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+
+  <fingerprint pattern="(?:Basic|Digest) realm=&quot;NETGEAR ([a-zA-Z0-9\-\+]+)\s*&quot;.*$">
+    <description>Netgear Routers</description>
+    <example hw.product="DG834">Basic realm=&quot;NETGEAR DG834  &quot;</example>
+    <example hw.product="C7000v2">Basic realm=&quot;NETGEAR C7000v2&quot;</example>
+    <example hw.product="R7000P">Basic realm=&quot;NETGEAR R7000P&quot;</example>
+    <param pos="0" name="hw.vendor" value="Netgear"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+
+  <!-- Fallback to the most generic Netgear match -->
+
+  <fingerprint pattern="(?:Basic|Digest) realm=&quot;Netgear&quot;.*$">
+    <description>Netgear Unspecified Router</description>
+    <example>Basic realm=&quot;Netgear&quot;</example>
+    <param pos="0" name="hw.vendor" value="Netgear"/>
+    <param pos="0" name="hw.device" value="Router"/>
+  </fingerprint>
+
+  <!-- This fingerprint is suspect, as it's missing the Basic/Digest qualifier -->
+
+  <fingerprint pattern="^(?:NETGEAR|NetGear) Router ([a-zA-Z0-9\-\+]+)$">
+    <description>Netgear Routers w/o Authentication Type</description>
+    <example hw.product="WNR2000v4">NETGEAR Router WNR2000v4</example>
+    <example hw.product="R6100">NETGEAR Router R6100</example>
+    <param pos="0" name="hw.vendor" value="Netgear"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;[iI]RMC(?:@(IRMC[0-9a-fA-F]{6}))?&quot;.*$">
+    <description>Fujitsu Siemens Primergy with BMC RemoteView on an iRMC card</description>
+    <example host.name="IRMCA0EC88">Digest realm="iRMC@IRMCA0EC88", qop="auth", nonce="d569ace4-00029040", opaque="29040", stale="FALSE"</example>
+    <param pos="0" name="service.vendor" value="Fujitsu Siemens"/>
+    <param pos="0" name="service.product" value="RemoteView"/>
+    <param pos="0" name="service.family" value="RemoteView"/>
+    <param pos="0" name="hw.vendor" value="Fujitsu Siemens"/>
+    <param pos="0" name="hw.family" value="Primergy"/>
+    <param pos="0" name="hw.product" value="Primergy"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+
   <!-- a variety of headers we currently just ignore -->
 
   <fingerprint pattern="(?i)^NTLM$">
@@ -560,18 +603,6 @@
   <fingerprint pattern="^(?:Basic|Digest) .*realm=&quot;config&quot;.*$">
     <description>Ignore generic 'config' realms</description>
     <example>Digest realm="config", nonce="1155041914", algorithm="MD5", qop="auth"</example>
-  </fingerprint>
-
-  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;[iI]RMC(?:@(IRMC[0-9a-fA-F]{6}))?&quot;.*$">
-    <description>Fujitsu Siemens Primergy with BMC RemoteView on an iRMC card</description>
-    <example host.name="IRMCA0EC88">Digest realm="iRMC@IRMCA0EC88", qop="auth", nonce="d569ace4-00029040", opaque="29040", stale="FALSE"</example>
-    <param pos="0" name="service.vendor" value="Fujitsu Siemens"/>
-    <param pos="0" name="service.product" value="RemoteView"/>
-    <param pos="0" name="service.family" value="RemoteView"/>
-    <param pos="0" name="hw.vendor" value="Fujitsu Siemens"/>
-    <param pos="0" name="hw.family" value="Primergy"/>
-    <param pos="0" name="hw.product" value="Primergy"/>
-    <param pos="1" name="host.name"/>
   </fingerprint>
 
   <!--
@@ -633,7 +664,6 @@ Basic realm="Login to Vigor 3300"
 Basic realm="Login"
 Basic realm="MR314"
 Basic realm="NetComm NB1300"
-Basic realm="NETGEAR DG834  "
 Basic realm="NetLinx"
 Basic realm="Netopia-2000"
 Basic realm="Netopia-3000"
