@@ -5,7 +5,7 @@ require 'optparse'
 require 'ostruct'
 require 'recog'
 
-# Cleanup trailing whitespace an
+# Cleanup trailing whitespace around fingerprints
 Dir[ File.expand_path(File.join(File.dirname(__FILE__), "..", "xml")) + "/*.xml" ].each do |f|
     data = File.read(f).
         gsub(/\s+$/, '').                           # Trailing whitespace and empty lines
