@@ -82,6 +82,6 @@ The `example` string can be base64 encoded to permit the use of unprintable char
 
 The users and maintainers of Recog would greatly appreciate any contributions
 you can make to the project. For guidelines and instructions please see
-[CONTRIBUTING.MD](CONTRIBUTING.MD)
+[CONTRIBUTING.MD](CONTRIBUTING.md)
 
 [^back to top](#recog-a-recognition-framework)
