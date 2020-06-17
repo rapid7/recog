@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="rtsp_header.server" protocol="rtsp" database_type="service" preference="0.85">
   <fingerprint pattern="^Flussonic \(http:\/\/www.flussonic.com\/\) ([\d\.]+)$">
     <description>Flussonic Media Server</description>
@@ -81,4 +81,16 @@
     <param pos="0" name="hw.device" value="SIP Gateway"/>
     <param pos="0" name="hw.product" value="MediaSense"/>
   </fingerprint>
+
+  <fingerprint pattern="^AvigilonOnvifNvt/(\d+\.\S+)">
+    <description>Avigilon IP Camera</description>
+    <example os.version="2.6.0.130">AvigilonOnvifNvt/2.6.0.130</example>
+    <param pos="0" name="hw.vendor" value="Avigilon"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
+    <param pos="0" name="os.vendor" value="Avigilon"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+
 </fingerprints>

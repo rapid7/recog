@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints protocol="smtp" database_type="service" preference="0.16">
   <!--
   SMTP response lines to the EXPN command are matched against these patterns
   (1 line at a time) to fingerprint SMTP servers.
-
   See comment at the top of smtp_banners.xml for additional info.
-
   'preference' note: This value has been set so as to implement the ordering
     of SMTP related fingerprint databases as described in 'smtp_banners.xml'.
   -->
+
   <fingerprint pattern="^500[ -]Syntax error, command &quot;XXXX.*&quot; unrecognized$">
     <description>Cisco PIX - changes the command letters to 'X' before passing them to the real SMTP server - expn variant</description>
     <param pos="0" name="os.vendor" value="Cisco"/>
@@ -43,6 +42,7 @@
   </fingerprint>
 
   <!-- VM SMTP server doesn't like brackets in EXPN commands... -->
+
   <fingerprint pattern="^501[ -]Syntax Error\. Only ListId or Userid allowed as argument to this command *$">
     <description>IBM VM SMTP</description>
     <param pos="0" name="service.vendor" value="IBM"/>
@@ -87,4 +87,5 @@
     <param pos="0" name="service.family" value="SLMail"/>
     <param pos="0" name="service.product" value="SLMail"/>
   </fingerprint>
+
 </fingerprints>

@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="apache_os" database_type="util.os" preference="0.10">
   <!--
   When an HTTP server is fingerprinted as Apache, a 2nd analysis pass is done
   on the server headers HTTPProtocolHelper.SERVER_HEADERS: they are matched
   against the following patterns to extract OS information.
   -->
+
   <fingerprint pattern=".*\(iSeries\).*">
     <description>IBM i5/OS iSeries (OS/400)</description>
     <param pos="0" name="os.vendor" value="IBM"/>
@@ -307,4 +308,5 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
+
 </fingerprints>

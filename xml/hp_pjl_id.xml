@@ -1,17 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints protocol="pjl" database_type="service" preference="0.10">
   <!--
   For printers running the PJL protocol (usually on 9100/tcp), their type can be requested
   by the INFO ID command. The printer types (strings surrounded by double quotes) are
   matched against these patterns to fingerprint the printer.
-
   'preference' notes: The value has been explicitly set to 0.10 due to the very loose
   regex that is used here.
   -->
+
   <!--
    LaserJet and Designjet are registered trademarks of HP. Therefore matching for the keywords
    is sufficient for asserting all relevant information
    -->
+
   <fingerprint pattern="(?i)laserjet (.*)(?: series)?">
     <description>HP JetDirect Printer</description>
     <example>HP LaserJet 4100 Series</example>
@@ -63,6 +64,7 @@
   </fingerprint>
 
   <!-- Assert the product range as a product fingerprint. -->
+
   <fingerprint pattern="^(iR ?\S+)">
     <description>Canon iR multifunction device</description>
     <example>iR 3180C EUR</example>
@@ -190,6 +192,7 @@
 
   <!-- IGI is Imagistics International, which was acquired by Oce.
         I can't find MX-MBX3 or any variant online. -->
+
   <fingerprint pattern="(?i)^OceIGI MX-\S+">
     <description>Oce-acquired IGI printer</description>
     <example>OceIGI MX-NBX3 02-Jul-07 14:47</example>
@@ -199,6 +202,7 @@
 
   <!-- im3510/4510 is actually a range of model numbers, but asserting a range
         of models as a product is preferableto asserting nothing. -->
+
   <fingerprint pattern="(?i)^Imagistics (im\S+) (.+)">
     <description>Oce IM series multifunction device</description>
     <example>Imagistics im3510/4510 02-Aug-04 10:56</example>
@@ -211,6 +215,7 @@
   </fingerprint>
 
   <!-- C610 is a series; there are several models with suffixes n, dn, dtn, cdn -->
+
   <fingerprint pattern="^OKI (C\d+)\S*$">
     <description>Okidata color printer</description>
     <example>OKI C610</example>
@@ -243,6 +248,7 @@
 
   <!-- NRG was acquired by Ricoh; classify NRG printers as such.
          Be consistent with snmp_sysdescr.xml. -->
+
   <fingerprint pattern="(?i)^NRG ([MS]P \S+)$">
     <description>Ricoh NRG printer</description>
     <example>NRG MP 171</example>
@@ -260,6 +266,7 @@
 
   <!-- Gestetner == NRG, and was acquired by Ricoh.
          Assert the range of products as os.product. -->
+
   <fingerprint pattern="(?i)^Gestetner (MP\S+/DSc\S+)$">
     <description>Ricoh Gestetner multifunction device</description>
     <example>Gestetner MPC2500/DSc525</example>
@@ -320,6 +327,7 @@
   </fingerprint>
 
   <!-- Consistent with snmp_sysdescr.xml -->
+
   <fingerprint pattern="^TOSHIBA (e-STUDIO\S+)(?:\s+.*)?" certainty="0.9">
     <description>Toshiba e-STUDIO multifunction device</description>
     <example>TOSHIBA e-STUDIO350 V468Z 20061013</example>
@@ -334,14 +342,13 @@
 
   <!-- TODO:
         Xerox AccXES devices are documented to return:
-
         "<printer name> <release #>"
         <FF>
-
         In the above, <printer name> is the official product name of the
         AccXES printer, and <release #> corresponds to a software release
         number.
      -->
+
   <fingerprint pattern="^(?:ID=)?Xerox (Phaser \S+)$" certainty="0.9">
     <description>Xerox Phaser Printer</description>
     <example>Xerox Phaser 6180MFP-D</example>
@@ -389,4 +396,5 @@
     <param pos="0" name="os.device" value="Print server"/>
     <param pos="1" name="os.product"/>
   </fingerprint>
+
 </fingerprints>

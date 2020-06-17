@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="smb.native_os" protocol="smb" database_type="util.os">
   <!--
     SMB fingerprints obtained from the Native OS field of SMB negotations
   -->
+
   <fingerprint pattern="^(Windows NT \d\.\d+)$">
     <description>Windows NT</description>
     <example os.product="Windows NT 4.0">Windows NT 4.0</example>
@@ -132,6 +133,7 @@
   </fingerprint>
 
   <!-- Note that 2008 SP1 is technically "2008 Gold" according to Microsoft -->
+
   <fingerprint pattern="^Windows Server 2008$">
     <description>Windows Server 2008 without a build</description>
     <example>Windows Server 2008</example>
@@ -178,6 +180,7 @@
   </fingerprint>
 
   <!-- TODO: Need an example string -->
+
   <fingerprint pattern="^Windows \(R\) Storage Server 2008 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
     <description>Windows Server 2008 Storage (SP)</description>
     <param pos="0" name="os.certainty" value="1.0"/>
@@ -190,6 +193,7 @@
   </fingerprint>
 
   <!-- TODO: Need an example string -->
+
   <fingerprint pattern="^Windows \(R\) Storage Server 2008 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
     <description>Windows Web Server 2008 Storage</description>
     <param pos="0" name="os.certainty" value="1.0"/>
@@ -213,6 +217,7 @@
   </fingerprint>
 
   <!-- TODO: Need an example string -->
+
   <fingerprint pattern="^Windows Server 2008 HPC Edition (\d+)$">
     <description>Windows Web Server 2008 HPC</description>
     <example>Windows Server 2008 HPC Edition 7600</example>
@@ -225,6 +230,7 @@
   </fingerprint>
 
   <!-- 2008 R2 -->
+
   <fingerprint pattern="^Windows Server 2008 R2 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)(?:, v\.\d+)?$">
     <description>Windows Server 2008 R2</description>
     <example>Windows Server 2008 R2 Enterprise 7601 Service Pack 1</example>
@@ -378,7 +384,9 @@
   </fingerprint>
 
   <!-- Windows 2012 R2 matches go first to simplify the regular expressions -->
+
   <!-- TODO: Need an example string -->
+
   <fingerprint pattern="^Windows Server 2012 R2 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
     <description>Windows Server 2012 R2 (SP)</description>
     <param pos="0" name="os.certainty" value="1.0"/>
@@ -402,6 +410,7 @@
   </fingerprint>
 
   <!-- TODO: Need an example string -->
+
   <fingerprint pattern="^Windows Server 2012 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
     <description>Windows Server 2012 (SP)</description>
     <param pos="0" name="os.certainty" value="1.0"/>
@@ -448,6 +457,7 @@
   </fingerprint>
 
   <!-- Windows 10 Preview -->
+
   <fingerprint pattern="^Windows 10 (\w+|\w+ \w+|\w+ \w+ \w+) Insider Preview (\d+)$">
     <description>Windows 10 Enterprise Insider Preview</description>
     <example os.build="10130" os.edition="Enterprise">Windows 10 Enterprise Insider Preview 10130</example>
@@ -528,6 +538,7 @@
   </fingerprint>
 
   <!-- VisionFS -->
+
   <fingerprint pattern="^(?:ax|i3|m8|mp|pa|pp|rs|sp)ai(\d{4})">
     <description>AIX</description>
     <example service.version="9876">axai9876</example>
@@ -725,4 +736,5 @@
     <param pos="0" name="service.vendor" value="Samba"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:samba:samba:-"/>
   </fingerprint>
+
 </fingerprints>

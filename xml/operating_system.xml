@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="operating_system.name" database_type="util.os" preference="0.80">
   <!--
     Patterns for common names of various operating systems.
   -->
+
   <!-- Windows begin -->
+
   <fingerprint pattern="^(?i:(?:Microsoft )?(Windows (?:[a-z]+\s[a-z]+\s|[a-z]+\s)?Server (?:\d{4} R2|\d{4}))(?:,\s|\s)?([a-z]+)?(?: Evaluation)?(?: Edition)?(?:\s|\swith(?:out)? Hyper-V\s)?(SP\d|SP \d|Service Pack \d)?)$">
     <description>Windows Server 2003 and later</description>
     <example os.product="Windows Compute Cluster Server 2003">Windows Compute Cluster Server 2003</example>
@@ -143,7 +145,9 @@
   </fingerprint>
 
   <!-- Windows end -->
+
   <!-- Liunx begin -->
+
   <fingerprint pattern="^(?i:Alpine Linux\s?(?:v)?(\d+?(?:\.\d+?)*?(?:\src\d+?)?)?)$">
     <description>Alpine Linux</description>
     <example os.version="3.4.0">Alpine Linux v3.4.0</example>
@@ -155,6 +159,7 @@
   </fingerprint>
 
   <!-- Arch uses rolling releases where the version name just the date of an ISO release. -->
+
   <fingerprint pattern="^(?i:Arch Linux\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>Arch Linux</description>
     <example os.version="2016.04.01">Arch Linux 2016.04.01</example>
@@ -165,6 +170,7 @@
   </fingerprint>
 
   <!-- Red Hat Enterprise Linux derivative -->
+
   <fingerprint pattern="^(?i:Amazon Linux(?: AMI)?\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>Amazon Linux AMI</description>
     <example os.version="5.11">Amazon Linux AMI 5.11</example>
@@ -177,6 +183,7 @@
   </fingerprint>
 
   <!-- Red Hat Enterprise Linux derivative -->
+
   <fingerprint pattern="^(?i:CentOS(?: Linux)?(?: [a-z]+)?\s?(\d+?(?:\.\d+?)*?)?)(?:\s.*?)?$">
     <description>Centos Linux</description>
     <example os.version="5.11">Centos Linux 5.11</example>
@@ -216,6 +223,7 @@
   </fingerprint>
 
   <!-- Gentoo currently uses rolling releases with no version, but older versions were typically based on the year of release. -->
+
   <fingerprint pattern="^(?i:Gentoo(?: Linux)\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>Gentoo Linux</description>
     <example>Gentoo Linux</example>
@@ -227,6 +235,7 @@
   </fingerprint>
 
   <!-- Kali switched to rolling release in January 2016. -->
+
   <fingerprint pattern="^(?i:Kali(?: Linux)?\s?(\d+?(?:\.\d+?)+?(?:[a-z])?|\d+?)?)$">
     <description>Kali Linux</description>
     <example os.version="1.0.0">Kali Linux 1.0.0</example>
@@ -240,6 +249,7 @@
   </fingerprint>
 
   <!-- Ubuntu derivative -->
+
   <fingerprint pattern="^(?i:Kubuntu(?: Linux)?\s(\d+?(?:\.\d+?)*?)?\s?(LTS)?)$">
     <description>Kubuntu Linux</description>
     <example os.version="12.04.4">Kubuntu 12.04.4 LTS</example>
@@ -253,6 +263,7 @@
   </fingerprint>
 
   <!-- Red Hat Enterprise Linux derivative -->
+
   <fingerprint pattern="^(?i:Oracle(?: Enterprise)? Linux\s?(?:Server\s?)?(\d+?(?:\.\d+?)*?)?)$">
     <description>Oracle Enterprise Linux</description>
     <example os.version="5.11">Oracle Enterprise Linux 5.11</example>
@@ -290,6 +301,7 @@
   </fingerprint>
 
   <!-- Red Hat Enterprise Linux derivative -->
+
   <fingerprint pattern="^(?i:Scientific(?: Linux)?\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>Scientific Linux</description>
     <example os.version="5.11">Scientific Linux 5.11</example>
@@ -358,6 +370,7 @@
   </fingerprint>
 
   <!-- Ubuntu derivative -->
+
   <fingerprint pattern="^(?i:Xubuntu(?: Linux)?\s(\d+?(?:\.\d+?)*?)?\s?(LTS)?)$">
     <description>Xubuntu Linux</description>
     <example os.version="12.04.4">Xubuntu 12.04.4 LTS</example>
@@ -374,7 +387,7 @@
     <description>Photon Linux</description>
     <example>VMWare Photon Linux</example>
     <example os.version="1.0">VMWare Photon 1.0</example>
-    <param pos="0" name="os.vendor" value="VMWare"/>
+    <param pos="0" name="os.vendor" value="VMware"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Photon Linux"/>
     <param pos="1" name="os.version"/>
@@ -382,6 +395,7 @@
   </fingerprint>
 
   <!-- Vendor-based distribution catch-call -->
+
   <fingerprint pattern="^(?i:(.*)\sLinux?\s(.*))$">
     <description>Vendor-based Linux catch-all</description>
     <example os.vendor="Aurox" os.version="10.2">Aurox Linux 10.2</example>
@@ -393,6 +407,7 @@
   </fingerprint>
 
   <!-- Linux catch-all goes at the bottom-->
+
   <fingerprint pattern="^(?i:.*Linux?\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>Linux catch-all</description>
     <example os.version="2.42.6">Linux 2.42.6</example>
@@ -405,8 +420,11 @@
   </fingerprint>
 
   <!-- Linux end -->
+
   <!-- Mac begin -->
+
   <!-- Match Mac OS Classic first due to weak matching on Mac OS X -->
+
   <fingerprint pattern="^(?i:(?:Apple )?Mac OS ([7-9](?:\.\d+?)*?))$">
     <description>Mac OS 9</description>
     <example os.version="9">Mac OS 9</example>
@@ -551,6 +569,7 @@
   </fingerprint>
 
   <!-- This can also match Cisco IOS if the vendor name is not present. -->
+
   <fingerprint pattern="^(?i:(?:Apple )?iOS\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>Apple iOS for iPhone and iPad</description>
     <example os.version="7.1.2">iOS 7.1.2</example>
@@ -565,7 +584,9 @@
   </fingerprint>
 
   <!-- Mac end -->
+
   <!-- BSD begin -->
+
   <fingerprint pattern="^(?i:(.*?BSD)\s?(\d+?(?:\.\d+?)*?(?:[\-\/_ ]?\w+?)?(?:-[a-z]\d+?)?)?)$">
     <description>Many BSD family OSes</description>
     <example os.version="10.3-RELEASE" os.product="FreeBSD">FreeBSD 10.3-RELEASE</example>
@@ -580,7 +601,9 @@
   </fingerprint>
 
   <!-- BSD end -->
+
   <!-- Other Unix-likes begin -->
+
   <fingerprint pattern="^(?i:(?:Oracle|Sun)?\s?OpenSolaris\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>OpenSolaris</description>
     <example os.version="2009.06">OpenSolaris 2009.06</example>
@@ -663,7 +686,9 @@
   </fingerprint>
 
   <!-- Other Unix-likes end -->
+
   <!-- Network equipment begin -->
+
   <fingerprint pattern="^(?i:(?:Juniper\s?)?(Junos|Junos OS|ScreenOS)\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>Juniper</description>
     <example>Junos</example>
@@ -675,6 +700,7 @@
   </fingerprint>
 
   <!-- This needs to be improved if it's not how one would generally present a Cisco OS version. -->
+
   <fingerprint pattern="^(?i:(?:Cisco\s?)?(ASA|Adaptive Security Appliance|IOS|IOS-XE|IOS-XR|NX-OS|PIX-OS|SAN-OS)\s?(?:Version (\S+))?)$">
     <description>Cisco</description>
     <example>Cisco ASA</example>
@@ -686,4 +712,5 @@
   </fingerprint>
 
   <!-- Network equipment end -->
+
 </fingerprints>

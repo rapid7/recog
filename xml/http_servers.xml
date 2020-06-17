@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="http_header.server" protocol="http" database_type="service" preference="0.90">
   <!-- HTTP Server headers are matched against these patterns to fingerprint HTTP servers. -->
+
   <fingerprint pattern="(?i)^AirTunes/([\d\.]+)$">
     <description>Apple AirTunes/AirPlay, more generally RTSP used by a variety of wireless a/v products</description>
     <example service.version="220.68">AirTunes/220.68</example>
@@ -405,9 +406,10 @@
     <param pos="0" name="service.product" value="JBoss EAP"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:redhat:jboss_enterprise_application_platform:{service.version}"/>
-    <param pos="0" name="service.component.vendor" value="RedHat"/>
+    <param pos="0" name="service.component.vendor" value="Red Hat"/>
     <param pos="0" name="service.component.product" value="JBossWeb"/>
     <param pos="2" name="service.component.version"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:redhat:jboss_web_framework_kit:{service.component.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^Servlet\/[\d\.]+; JBossAS-(.*)$">
@@ -485,6 +487,7 @@
   </fingerprint>
 
   <!-- TODO: Capture ZendServer version in fingerprint -->
+
   <fingerprint pattern="^PHP/(\S+)\s+ZendServer/\S+$">
     <description>PHP with ZendServer</description>
     <example service.component.version="5.3.14">PHP/5.3.14 ZendServer/5.0</example>
@@ -523,6 +526,7 @@
   </fingerprint>
 
   <!-- TODO: this needs to be improved -->
+
   <fingerprint pattern="^Oracle-Application-Server-\d+[ig](?:[ /]([\d.]+) (?:\(.*\)|Oracle-HTTP-Server\s*(.*)))?$">
     <description>Oracle Application Server 10g (powered by Apache)</description>
     <example>Oracle-Application-Server-11g</example>
@@ -1057,6 +1061,7 @@
   <!--
    Netscape/Sun's Application Server
    -->
+
   <fingerprint pattern="^Sun[ -]Java[ -]System[ /]Application[ -]Server( \d\.[\d_]+)?$">
     <description>Sun Java System Application Server (formerly iPlanet Application Server, Sun ONE Application Server)</description>
     <example>Sun-Java-System/Application-Server</example>
@@ -1095,6 +1100,7 @@
   <!--
    Netscape/Sun's Web Server
    -->
+
   <fingerprint pattern="^Netscape-Enterprise/(\d+\.[\w\s.]+)$">
     <description>Netscape Enterprise Server (subsequently iPlanet Web Server, Sun ONE Web Server, presently Sun Java System Web Server)</description>
     <example>Netscape-Enterprise/3.5.1</example>
@@ -1120,16 +1126,16 @@
   <!--
    Netscape/Sun's Web Proxy Server
    -->
+
   <!--
    Header seen on admin port 8081 (not regular proxy port 8080) of Sun Java
    System Web Proxy Server 3.6 Service Pack 4 running on Windows:
-
    Server: Netscape-Administrator/3.54
-
    However this header might be used by Web Server too, so it might be
    impossible to differentiate Web Server from Web Proxy Server. Also note how
    there seems to be no relation between 3.54 and "3.6 Service Pack 4".
    -->
+
   <fingerprint pattern="^iPlanet-Web-Proxy-Server/(.*)$">
     <description>iPlanet WebProxy Server (subsequently Sun ONE WebProxy Server, presently Sun Java System Web Proxy Server)</description>
     <example>iPlanet-Web-Proxy-Server/3.6</example>
@@ -1189,10 +1195,11 @@
 
   <!--
       TODO:
-
       Sun_WebServer/2.1
   -->
+
   <!-- Mort Bay Jetty 1.0 to 6.x  -->
+
   <fingerprint pattern="^Jetty\/([1-6]\.[\w.]+)(?: \(([^)]*))?">
     <description>Mort Bay Jetty with info</description>
     <example service.version="4.0.1" jetty.info="SunOS 5.8 sparc">Jetty/4.0.1 (SunOS 5.8 sparc)</example>
@@ -1223,6 +1230,7 @@
     Jetty moved to Eclipse.org at version 7, CVEs after this version are
     associated with Eclipse CPEs.
   -->
+
   <fingerprint pattern="^Jetty\((\S+)\)$">
     <description>Eclipse Jetty</description>
     <example service.version="7.6.9.v20130131">Jetty(7.6.9.v20130131)</example>
@@ -1495,10 +1503,10 @@
 
   <!--
       TODO
-
          "Powered by PowerBSD - Apache"
          "SSE(Apache)"
      -->
+
   <fingerprint pattern="^SAP J2EE Engine/(\d+\.\d+)$">
     <description>SAP NetWeaver Web AS (Application Server)</description>
     <param pos="0" name="service.vendor" value="SAP"/>
@@ -1519,23 +1527,23 @@
     <description>SonicWALL SSL-VPN device</description>
     <example>SonicWALL SSLVPN Web Server</example>
     <example>SonicWALL SSL-VPN Web Server</example>
-    <param pos="0" name="service.vendor" value="SonicWALL"/>
+    <param pos="0" name="service.vendor" value="SonicWall"/>
     <param pos="0" name="service.product" value="SSL-VPN"/>
     <param pos="0" name="service.family" value="SSL-VPN"/>
-    <param pos="0" name="os.vendor" value="SonicWALL"/>
+    <param pos="0" name="os.vendor" value="SonicWall"/>
     <param pos="0" name="os.device" value="VPN"/>
     <param pos="0" name="os.family" value="SSL-VPN"/>
     <param pos="1" name="os.product"/>
-    <param pos="0" name="hw.vendor" value="SonicWALL"/>
+    <param pos="0" name="hw.vendor" value="SonicWall"/>
     <param pos="0" name="hw.device" value="VPN"/>
   </fingerprint>
 
   <fingerprint pattern="^SonicWALL$">
     <description>SonicWALL device</description>
     <example>SonicWALL</example>
-    <param pos="0" name="service.vendor" value="SonicWALL"/>
+    <param pos="0" name="service.vendor" value="SonicWall"/>
     <param pos="0" name="service.product" value="HTTP"/>
-    <param pos="0" name="os.vendor" value="SonicWALL"/>
+    <param pos="0" name="os.vendor" value="SonicWall"/>
   </fingerprint>
 
   <fingerprint pattern="^NetCache appliance \(NetApp/+(\d+\.\d+[\w.]+)\)$">
@@ -1593,7 +1601,7 @@
     <description>Mercurity Security TargetOS</description>
     <example>TargetWeb/2011.0 (TargetOS)</example>
     <param pos="0" name="hw.vendor" value="Mercury Security"/>
-    <param pos="0" name="hw.device" value="Access Controller"/>
+    <param pos="0" name="hw.device" value="Access Control"/>
     <param pos="0" name="hw.product" value="EP-series"/>
   </fingerprint>
 
@@ -1998,20 +2006,17 @@
   <!-- 4D WebSTAR was aquired by Kerio but it seems that both
         Kerio and 4D have branched the product. The 4D banners
         use the new version scheme (just 2004 it would appear):
-
            4D_WebStar_D/2004
-
         whereas Kerio banners are:
-
            4D_WebSTAR_S/5.3.2 (MacOS X)
            4D_WebStar_D/7.8
            4D_WebSTAR_S/5.4.1 (MacOS X)
-
            WebSTAR/4.4 ID/72547
            WebSTAR/4.5(SSL) ID/82535
            WebSTAR NetCloak
            WebSTAR/4.5(SSL) ID/85282
      -->
+
   <!--
    <fingerprint pattern="^4D_WebSTAR_S/2004$">
       <description>4D 4th Dimension 2004</description>
@@ -2022,6 +2027,7 @@
       <param pos="0" name="os.family" value="Windows"/>
       <param pos="0" name="os.product" value="Windows"/>
    </fingerprint>
+
    <fingerprint pattern="^4D_WebSTAR_S/5.3.2 \(MacOS X\)$">
       <description>Kerio WebSTAR</description>
       <param pos="0" name="service.vendor" value="Kerio"/>
@@ -2032,7 +2038,9 @@
       <param pos="0" name="os.family" value="Windows"/>
       <param pos="0" name="os.product" value="Windows"/>
    </fingerprint>
+
    -->
+
   <fingerprint pattern="^SentinelProtectionServer/((?:\d+\.)*\d+)$">
     <description>Sentinel Protection Server - Embedded httpd in SafeNet's memory key dongles</description>
     <example service.version="7.1">SentinelProtectionServer/7.1</example>
@@ -2114,9 +2122,9 @@
   <fingerprint pattern="^KM-MFP-http/V([\d\.]+)$">
     <description>Kyocera Printers</description>
     <example service.version="0.0.1">KM-MFP-http/V0.0.1</example>
-    <param pos="0" name="os.vendor" value="Kycoera"/>
+    <param pos="0" name="os.vendor" value="Kyocera"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
-    <param pos="0" name="hw.vendor" value="Kycoera"/>
+    <param pos="0" name="hw.vendor" value="Kyocera"/>
     <param pos="0" name="hw.device" value="Multifunction Device"/>
     <param pos="0" name="service.vendor" value="Kyocera"/>
     <param pos="0" name="service.product" value="KM-MFP-HTTP"/>
@@ -2145,6 +2153,7 @@
        off to (E)Mbedthis. Version 3.0 released in October 2012 appears to be
        the first version to fully be Mbedthis software.
   -->
+
   <fingerprint pattern="^GoAhead-(?:Webs|http)$">
     <description>GoAhead-Webs - no version</description>
     <example>GoAhead-Webs</example>
@@ -2164,6 +2173,7 @@
   </fingerprint>
 
   <!-- MBedthis changed its name/branding to Embedthis-->
+
   <fingerprint pattern="^Mbedthis-App[Ww]eb/([\d.]+)$">
     <description>Mbedthis Appweb</description>
     <example service.version="2.4.0">Mbedthis-Appweb/2.4.0</example>
@@ -2379,6 +2389,7 @@
   <!-- NOTE: '$ProjectRevision: {some version string} $' has been seen in a
        variety of products including printers, PDUs, etc.
   -->
+
   <fingerprint pattern="^\$ProjectRevision: 4.0.2.38 \$$">
     <description>This banner is seen on some HP LaserJet printers.</description>
     <example>$ProjectRevision: 4.0.2.38 $</example>
@@ -2414,6 +2425,7 @@
   </fingerprint>
 
   <!-- HiSilicon is OEMd by a number of DVR manufacturers -->
+
   <fingerprint pattern="^Cross Web Server$">
     <description>Web server found on DVR and webcam servers sourced from HiSilicon</description>
     <example>Cross Web Server</example>
@@ -2425,6 +2437,7 @@
   </fingerprint>
 
   <!-- Hikvision is OEMd by a number of DVR manufacturers -->
+
   <fingerprint pattern="^(?:Hikvision|DNVRS|DVRDVS)-Webs$">
     <description>Web server found on DVR and webcam servers sourced from Hikvision</description>
     <example>Hikvision-Webs</example>
@@ -2434,6 +2447,7 @@
     <param pos="0" name="service.product" value="Hikvision Web Server"/>
     <param pos="0" name="os.vendor" value="Hikvision"/>
     <param pos="0" name="os.device" value="DVR"/>
+    <param pos="0" name="hw.vendor" value="Hikvision"/>
     <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
 
@@ -2464,7 +2478,9 @@
       <example></example>
       <description>A blank banner; assert nothing.</description>
    </fingerprint>
+
    -->
+
   <fingerprint pattern="^(?:(?:\d+.){3}\d+):\d{1,4}$">
     <description>A banner consisting of an IP address and port -- assert nothing.</description>
     <example>192.168.0.4:9999</example>
@@ -2481,6 +2497,7 @@
   </fingerprint>
 
   <!-- Service provider equipment (CDNs, etc) -->
+
   <fingerprint pattern="^AkamaiGHost$">
     <description>Akamai Global Host</description>
     <example>AkamaiGHost</example>
@@ -2569,6 +2586,7 @@
   </fingerprint>
 
   <!-- Apple QuickTime streaming server -->
+
   <fingerprint pattern="^QTSS\/([\d\.]+) \(Build\/[\d\.]+; Platform\/MacOSX; Release\/Panther">
     <description>QTSS on OS X 10.3</description>
     <example service.version="5.0">QTSS/5.0 (Build/452; Platform/MacOSX; Release/Panther; )</example>
@@ -2688,6 +2706,7 @@
   </fingerprint>
 
   <!-- Tridium previously had a product with the 'Niagra' spelling -->
+
   <fingerprint pattern="^Niagara Web Server\/([\d.]+)$">
     <description>Tridium Niagara AX Framework</description>
     <example service.version="3.8.111">Niagara Web Server/3.8.111</example>
@@ -3045,8 +3064,8 @@
   <fingerprint pattern="(?i)^SmoothWall Express/(\S+) UPnP/\S+ miniupnpd/(\S+)$">
     <description>Smoothwall Express UPnP Server</description>
     <example os.version="3.0" service.version="1.0">SmoothWall Express/3.0 UPnP/1.0 miniupnpd/1.0</example>
-    <param pos="0" name="os.vendor" value="Smoothwall"/>
-    <param pos="0" name="os.product" value="Smoothwall"/>
+    <param pos="0" name="os.vendor" value="SmoothWall"/>
+    <param pos="0" name="os.product" value="SmoothWall"/>
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:smoothwall:smoothwall:{os.version}"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
@@ -3242,13 +3261,40 @@
     <example>ipos/7.0 UPnP/1.0 TL-WR741N/1.0/2.0</example>
     <example>ipos/7.0 UPnP/1.0 TL-WR740N/1.0/2.0</example>
     <example>ipos/7.0 UPnP/1.0 TL-WR941N/2.0</example>
-    <param pos="0" name="service.vendor" value="TP-Link"/>
+    <param pos="0" name="service.vendor" value="TP-LINK"/>
     <param pos="2" name="service.product"/>
     <param pos="3" name="service.version"/>
-    <param pos="0" name="os.vendor" value="TP-Link"/>
+    <param pos="0" name="os.vendor" value="TP-LINK"/>
     <param pos="0" name="os.product" value="ipOS"/>
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.device" value="WAP"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Linux/(\S+\_eureka_1), UPnP/[\d\.]+, Portable SDK for UPnP devices/(\S+)$">
+    <description>Siqura Video Encoder</description>
+    <example>Linux/2.6.37_eureka_1, UPnP/1.0, Portable SDK for UPnP devices/1.6.6</example>
+    <param pos="0" name="hw.vendor" value="Siqura"/>
+    <param pos="0" name="hw.device" value="Video Encoder"/>
+    <param pos="0" name="os.vendor" value="Siqura"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="service.product" value="libupnp"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Linux/(\S+\-Mozart-8G), UPnP/[\d\.]+, Portable SDK for UPnP devices/(\S+)$">
+    <description>Steinsvik Orbit IP Camera (Truen TCAM Rebrand)</description>
+    <example>Linux/2.6.28.9-Mozart-8G, UPnP/1.0, Portable SDK for UPnP devices/1.6.6</example>
+    <param pos="0" name="hw.vendor" value="Steinsvik"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.product" value="Orbit IP Camera"/>
+    <param pos="0" name="os.vendor" value="Steinsvik"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="service.product" value="libupnp"/>
+    <param pos="2" name="service.version"/>
   </fingerprint>
 
   <fingerprint pattern="^Linux/(\S+\-ami), UPnP/[\d\.]+, Portable SDK for UPnP devices/(\S+)$">
@@ -3503,6 +3549,15 @@
     <param pos="0" name="hw.product" value="AV Receiver"/>
   </fingerprint>
 
+  <fingerprint pattern="^AV_Receiver/([\d\.]+) \(([^\)]+)\)$">
+    <description>Yamaha AV Receiver</description>
+    <example hw.version="3.1" hw.product="RX-V675">AV_Receiver/3.1 (RX-V675)</example>
+    <param pos="0" name="hw.vendor" value="Yamaha"/>
+    <param pos="0" name="hw.device" value="AV Receiver"/>
+    <param pos="1" name="hw.version"/>
+    <param pos="2" name="hw.product"/>
+  </fingerprint>
+
   <fingerprint pattern="^MWS 0.01$">
     <description>ANNKE IP Camera</description>
     <example>MWS 0.01</example>
@@ -3510,4 +3565,5 @@
     <param pos="0" name="hw.device" value="Web cam"/>
     <param pos="0" name="hw.product" value="IP Camera"/>
   </fingerprint>
+
 </fingerprints>

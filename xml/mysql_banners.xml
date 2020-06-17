@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="mysql.banners" protocol="mysql" database_type="service" preference="0.75">
   <!--
       Upon successful connection to an MySQL/derivative TCP endpoint, provided
@@ -11,6 +11,7 @@
       the TCP payload and the fingerprints below are used to match and extract
       from this version.
   -->
+
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}(?:[.-]\d{1,2})?(?:[.-]\d{1})?)(?:-m\d{1,2})?(?:-rc)?(?:-alpha)?(?:-beta)?(?:-gamma)?(?:-?max)?(?:-rs)?(?:-modified)?(?:-debug)?(?:-log)?$" flags="REG_ICASE">
     <description>Oracle MySQL (common)</description>
     <example service.version="4.1.20">4.1.20</example>
@@ -380,6 +381,7 @@
   </fingerprint>
 
   <!-- FIXFIX -->
+
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-f\d]{1,3})-Debian_\d~?bpo\.?\d" flags="REG_ICASE">
     <description>Oracle MySQL Backport on Debian</description>
     <example service.version="5.0.22">5.0.22-Debian_2bpo1</example>
@@ -600,7 +602,9 @@
   </fingerprint>
 
   <!-- Linux only - http://www.percona.com/services/mysql-support/supported-platforms -->
+
   <!-- Build list - http://www.percona.com/doc/percona-server/5.1/release-notes/release-notes_index.html -->
+
   <fingerprint pattern="^(\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-?rel\d\d\.\d)(?:-log)?" flags="REG_ICASE">
     <description>Percona Server (MySQL fork) match w/ 'rel'</description>
     <example service.version="5.1.57-rel12.8">5.1.57-rel12.8</example>
@@ -848,21 +852,17 @@
   <!--
     MariaDB Fingerprinting note: MariaDB uses version numbers in the same range
     as MySQL all the way through the 5.5.x family.  Banners look like this:
-
     5.5.34-MariaDB-cll-lve
     5.5.31-MariaDB-1~squeeze-log
-
     After 5.5.x they jumped to 10.x.x.  Banners for the 10.x.x family will have
     MySQL version that the code is based off of first, and then the MariaDB
     version number will follow:
-
     5.5.5-10.0.15-MariaDB-cll-lve
     5.5.5-10.0.15-MariaDB-1~squeeze-log
-
     In the banners above, 10.0.15 is the accurate version number.
-
     Reference: https://mariadb.org/explanation-on-mariadb-10-0/
   -->
+
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB(?:-log)?-cll-lve$" flags="REG_ICASE">
     <description>MariaDB MariaDB on CloudLinux in a Lightweight Virtual Environment (LVE)</description>
     <example service.version="5.5.34">5.5.34-MariaDB-cll-lve</example>
@@ -1838,4 +1838,5 @@
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:-"/>
   </fingerprint>
+
 </fingerprints>

@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="smb.native_lm" protocol="smb" database_type="service">
   <!--
     SMB fingerprints obtained from the Native LM (LAN manager) field of SMB
     negotations
   -->
+
   <!-- Mac OS X -->
+
   <fingerprint pattern="^Samba (3\.0\.28a-apple)$">
     <description>Samba on OS X 10.6</description>
     <example service.version="3.0.28a-apple">Samba 3.0.28a-apple</example>
@@ -34,6 +36,7 @@
   </fingerprint>
 
   <!-- TODO: Detect vendor, distribution, and package versions -->
+
   <fingerprint pattern="^Samba (\d\.\d+.\d+\w*)">
     <description>Samba</description>
     <example>Samba 3.0.24</example>
@@ -63,4 +66,5 @@
     <param pos="0" name="os.product" value="RouterOS"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:mikrotik:routeros:-"/>
   </fingerprint>
+
 </fingerprints>

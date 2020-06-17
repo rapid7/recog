@@ -1,18 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="apache_modules" database_type="service" preference="0.90">
   <!--
        When an HTTP server is fingerprinted as apache, the "server" string
        (taken from the Server header, among other locations) may advertise the
        Apache version, OS and modules in use by Apache in space separated list, such as:
-
        Apache/1.3.37 (Unix) FrontPage/5.0.2.2623 mod_ssl/2.8.28 OpenSSL/0.9.7e-p1
-
        In this example, the Apache instance is running (at least) the modules
        FrontPage, mod_ssl and OpenSSL.
-
        This fingerprint file is meant to be used to fingerprint each of the
        modules individually after splitting the module string on whitespace.
   -->
+
   <fingerprint pattern="^(Ben-SSL|Communique|DAV|FrontPage|JRun|LibreSSL|NSS|mpm-itk|OpenSSL|Perl|PHP\d?|proxy_html|Python|Resin|Ruby|SVN|Tomcat)/(\S+)$">
     <description>Language-specific apache modules with a version</description>
     <example service.component.product="PHP" service.component.version="7.0.30">PHP/7.0.30</example>
@@ -2196,4 +2194,5 @@
     <param pos="0" name="service.component.product" value="Phusion Passenger"/>
     <param pos="1" name="service.component.version"/>
   </fingerprint>
+
 </fingerprints>

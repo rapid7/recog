@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="sip_header.server" protocol="sip" database_type="service">
   <!--
   SIP Server header values are matched against these patterns to fingerprint SIP devices.
   -->
+
   <!-- Cisco/Tandberg Products -->
+
   <fingerprint pattern="^Cisco-SIPGateway/IOS-(\S+)\.x$">
     <description>Cisco IOS SIP Gateway w/ Vague Version</description>
     <example os.version="12">Cisco-SIPGateway/IOS-12.x</example>
@@ -154,6 +156,7 @@
   </fingerprint>
 
   <!-- Various -->
+
   <fingerprint pattern="EnGenius_Router$">
     <description>EnGenius DuraFon IP Phone</description>
     <example>EnGenius_Router</example>
@@ -251,10 +254,10 @@
     <example hw.product="MP-124" os.version="6.00A.034.003">Audiocodes-Sip-Gateway-MP-124 FXS/v.6.00A.034.003</example>
     <example hw.product="MP-124" os.version="6.60A.342.003">MP-124 FXS/v.6.60A.342.003</example>
     <example hw.product="MP-114" os.version="6.60A.241.010">MP-114 FXS_FXO/v.6.60A.241.010</example>
-    <param pos="0" name="os.vendor" value="Audiocodes"/>
+    <param pos="0" name="os.vendor" value="AudioCodes"/>
     <param pos="0" name="os.family" value="SIP Gateway"/>
     <param pos="2" name="os.version"/>
-    <param pos="0" name="hw.vendor" value="Audiocodes"/>
+    <param pos="0" name="hw.vendor" value="AudioCodes"/>
     <param pos="0" name="hw.family" value="SIP Gateway"/>
     <param pos="0" name="hw.device" value="SIP Gateway"/>
     <param pos="1" name="hw.product"/>
@@ -322,6 +325,7 @@
   </fingerprint>
 
   <!-- This match covers multiple product families and should be split up further -->
+
   <fingerprint pattern="^Algo-([^/]+)/(.*)$">
     <description>Algo SIP Device</description>
     <example hw.product="8186" os.version="1.7">Algo-8186/1.7</example>
@@ -346,4 +350,5 @@
     <param pos="0" name="hw.device" value="SIP Gateway"/>
     <param pos="0" name="hw.product" value="SIParator Firewall"/>
   </fingerprint>
+
 </fingerprints>

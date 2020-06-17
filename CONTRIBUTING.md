@@ -137,6 +137,24 @@ MATCH: {"matched"=>"OpenSSH running on Ubuntu 14.04", "service.version"=>"6.6p1"
 
 [^back to top](#contributing-to-recog)
 
+
+### Standardizing Vendors, Products, and Services
+
+Given the number of fingerprints in Recog, it can be common for specific products, vendors, or services to be identified with different spellings and casing.
+To limit the creep of slightly-different-names, the `bin/recog_standardize` script can be used to extract all identifiers and merge them into the known lists.
+
+To get started, run the `recog_standardize` tool:
+```shell
+ruby bin/recog_standardize
+```
+
+Review any new additions to the text files under `identifiers/`. If any of these names are close to an existing name, update the offending fingerprint to use
+the existing name instead. Once the fingerprints are fixed, removed the "extra" names from the identifiers files, and run the tool again.
+
+
+[^back to top](#contributing-to-recog)
+
+
 ### Updating CPEs
 
 There exists some automation to update the CPEs that might be asserted with
@@ -147,32 +165,33 @@ First, setup a python3 venv:
 
   ```bash
   python3 -m venv venv
-  source venv/bin/activate
+  source venv/{bin,Scripts}/activate
   pip install -r requirements.txt
   ```
 
 Download the latest CPE 2.3 dictionary:
 
 ```bash
-wget https://nvd.nist.gov/feeds/xml/cpe/dictionary/official-cpe-dictionary_v2.3.xml.gz
+curl -o official-cpe-dictionary_v2.3.xml.gz https://nvd.nist.gov/feeds/xml/cpe/dictionary/official-cpe-dictionary_v2.3.xml.gz && \
 gunzip official-cpe-dictionary_v2.3.xml.gz
 ```
 
-Run the CPE automation against every XML file, using GNU `parallel` to speed things up:
+Run the CPE automation against every XML file:
 
 ```bash
-ls xml/*.xml | parallel --gnu "./update_cpes.py {} official-cpe-dictionary_v2.3.xml cpe-remap.yaml && xmllint --format --noblanks {} | sed  ':a;N;$ba;s|</fingerprint>\n  <|</fingerprint>\n\n  <|g;P;D' > {}.bak &&  mv {}.bak {} || echo {}" 2> errors.txt
+# Update the CPEs (sequentially)
+ls xml/*.xml | xargs -i python update_cpes.py {} official-cpe-dictionary_v2.3.xml cpe-remap.yaml 2>>errors.txt
 ```
 
-**WARNING:** Users of macOS will need to install `gnu-sed` via `brew` and use
-`gsed` instead of `sed`.
-
+You may want to use GNU `parallel` to speed things up:
 ```bash
-# Install gnu-sed
-brew install gnu-sed
+# Update the CPEs (with GNU Parallel)
+ls xml/*.xml | parallel --gnu "python update_cpes.py {} official-cpe-dictionary_v2.3.xml cpe-remap.yaml"  2>>errors.txt
+```
 
-# Update the CPEs
-ls xml/*.xml | parallel --gnu "./update_cpes.py {} official-cpe-dictionary_v2.3.xml cpe-remap.yaml && xmllint --format --noblanks {} | gsed  ':a;N;$ba;s|</fingerprint>\n  <|</fingerprint>\n\n  <|g;P;D' > {}.bak &&  mv {}.bak {} || echo {}" 2> errors.txt
+Clean up the whitespace across all fingerprints:
+```bash
+ruby bin/recog_cleanup
 ```
 
 Any mismatched fingerprints will be listed in `errors.txt` for eventual

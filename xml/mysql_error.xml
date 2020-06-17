@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="mysql.error" protocol="mysql" database_type="service" preference=".80">
   <!--
       Upon successful connection to a MySQL/derivative TCP endpoint, if the
@@ -8,23 +8,21 @@
       reasons), the first packet received will contain an error message that is
       used to inform the client of this failure prior to forcibly disconnecting
       the client:
-
       $  mysql -u root -h mysql.example.com
       ERROR 1130 (HY000): Host '192.168.0.100' is not allowed to connect to this MySQL server
-
       This free-form field starts at the 7th byte and ends at the end of the TCP
       payload.  The fingerprints below are used to match and extract from this
       field.
-
       More details on the various error codes can be found here:
       http://dev.mysql.com/doc/refman/5.5/en/error-messages-server.html
-
       The values for the various error messages below can be found in
       sql/share/errmsg-utf8.txt from the MySQL source, for example
       http://osxr.org/mysql/source/sql/share/errmsg-utf8.txt or
       https://github.com/twitter/mysql/blob/master/sql/share/errmsg-utf8.txt
   -->
+
   <!-- ER_HOST_NOT_PRIVILEGED -->
+
   <fingerprint pattern="^Stroj '[^']+' nemá povoleno se k tomuto MySQL serveru připojit$">
     <description>Oracle MySQL error ER_HOST_NOT_PRIVILEGED (cze)</description>
     <example>Stroj '10.10.10.10' nemá povoleno se k tomuto MySQL serveru připojit</example>
@@ -198,6 +196,7 @@
   </fingerprint>
 
   <!-- ER_HOST_IS_BLOCKED -->
+
   <fingerprint pattern="Stroj '[^']+' je zablokován kvůli mnoha chybám při připojování. Odblokujete použitím 'mysqladmin flush-hosts'">
     <description>Oracle MySQL error ER_HOST_IS_BLOCKED (cze)</description>
     <example>Stroj '10.10.10.10' je zablokován kvůli mnoha chybám při připojování. Odblokujete použitím 'mysqladmin flush-hosts'</example>
@@ -370,6 +369,7 @@
   </fingerprint>
 
   <!-- ER_CANT_CREATE_THREAD -->
+
   <fingerprint pattern="Nemohu vytvořit nový thread \(errno -?\d+\). Pokud je ještě nějaká volná paměť, podívejte se do manuálu na část o chybách specifických pro jednotlivé operační systémy">
     <description>Oracle MySQL error ER_CANT_CREATE_THREAD (cze)</description>
     <example>Nemohu vytvořit nový thread (errno 4). Pokud je ještě nějaká volná paměť, podívejte se do manuálu na část o chybách specifických pro jednotlivé operační systémy</example>
@@ -533,6 +533,7 @@
   </fingerprint>
 
   <!-- ER_CON_COUNT_ERROR -->
+
   <fingerprint pattern="Příliš mnoho spojení">
     <description>Oracle MySQL error ER_CON_COUNT_ERROR (cze)</description>
     <example>Příliš mnoho spojení</example>
@@ -741,6 +742,7 @@
   </fingerprint>
 
   <!-- ER_BAD_HOST_ERROR -->
+
   <fingerprint pattern="Nemohu zjistit jméno stroje pro Vaši adresu">
     <description>Oracle MySQL error ER_BAD_HOST_ERROR (cze)</description>
     <example>Nemohu zjistit jméno stroje pro Vaši adresu</example>
@@ -972,4 +974,5 @@
     <param pos="0" name="service.family" value="MySQL"/>
     <param pos="0" name="service.product" value="MySQL Proxy"/>
   </fingerprint>
+
 </fingerprints>

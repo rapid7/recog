@@ -1,15 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="snmp.sys_object_id" protocol="snmp" database_type="service">
   <!--
     SNMP fingerprint definitions for SysObjectIDs. These are matched against the value of the
     'sysObjectID' (OID 1.3.6.1.2.1.1.2) variable.
   -->
+
   <!--======================================================================
                               MICROSOFT
    =======================================================================-->
+
   <!--
       These are baseline patterns that map to sysObjectID with their associated sysDescr.
    -->
+
   <fingerprint pattern="^1\.3\.6\.1\.4\.1\.311\.1\.1\.3\.1\.[23] Hardware: x86.*Software: Windows NT Version 4\.0.*$">
     <description>Windows NT 4 on x86</description>
     <example>1.3.6.1.4.1.311.1.1.3.1.2 Hardware: x86 Family 6 Model 8 Stepping 3 AT/AT COMPATIBLE  - Software: Windows NT Version 4.0  (Build Number: 1381 Uniprocessor Free )</example>
@@ -282,6 +285,7 @@
   </fingerprint>
 
   <!-- Various OIDs for Net-SNMP agents which are OS specific -->
+
   <fingerprint pattern="^1\.3\.6\.1\.4\.1\.8072\.3\.2\.1$">
     <description>Net-SNMP on hpux9</description>
     <example>1.3.6.1.4.1.8072.3.2.1</example>
@@ -467,4 +471,5 @@
     <param pos="0" name="service.product" value="SNMP Agent"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:net-snmp:net-snmp:-"/>
   </fingerprint>
+
 </fingerprints>

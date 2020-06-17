@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="ntp.readvar" protocol="ntp" database_type="service" preference="0.80">
   <!--
   NTP "banners", taken from a readvar response
   -->
+
   <fingerprint pattern="^.*version=Domain Time II (\S+),hostname=([^,]+),.*system=Win2003.*,processor=(\S+)" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>Greyware Automation Products, Inc. Domain Time II on Windows Server 2003</description>
     <example service.version="5.1.b.20100331R" os.arch="x64" host.name="blah">
@@ -33,7 +34,7 @@
     <param pos="2" name="host.name"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
-    <param pos="0" name="os.product" value="Windows 2008 R2"/>
+    <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
     <param pos="3" name="os.arch"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-"/>
   </fingerprint>
@@ -1302,4 +1303,5 @@
     <param pos="0" name="service.product" value="NTP"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
 </fingerprints>

@@ -54,8 +54,12 @@ os_arch = load_identifiers(File.join(bdir, "os_architecture.txt"))
 os_prod = load_identifiers(File.join(bdir, "os_product.txt"))
 os_family = load_identifiers(File.join(bdir, "os_family.txt"))
 os_device = load_identifiers(File.join(bdir, "os_device.txt"))
+hw_prod = load_identifiers(File.join(bdir, "hw_product.txt"))
+hw_family = load_identifiers(File.join(bdir, "hw_family.txt"))
+hw_device = load_identifiers(File.join(bdir, "hw_device.txt"))
 svc_prod = load_identifiers(File.join(bdir, "service_product.txt"))
 svc_family = load_identifiers(File.join(bdir, "service_family.txt"))
+
 
 ARGV.each do |arg|
   Dir.glob(arg).each do |file|
@@ -64,21 +68,22 @@ ARGV.each do |arg|
       f.params.each do |k,v|
         paramIndex, val = v
         next if paramIndex != 0
+        next if val.index("{") != -1
         case k
         when "os.vendor", "service.vendor", "service.component.vendor", "hw.vendor"
           if ! vendors[val]
             puts "VENDOR MISSING: #{val}"
             vendors[val] = true
           end
-        when "os.product"
-          if ! os_prod[val]
-            puts "OS PRODUCT MISSING: #{val}"
-            os_prod[val] = true
-          end
         when "os.arch"
           if ! os_arch[val]
             puts "OS ARCH MISSING: #{val}"
             os_arch[val] = true
+          end          
+        when "os.product"
+          if ! os_prod[val]
+            puts "OS PRODUCT MISSING: #{val}"
+            os_prod[val] = true
           end
         when "os.family"
           if ! os_family[val]
@@ -90,6 +95,21 @@ ARGV.each do |arg|
             puts "OS DEVICE MISSING: #{val}"
             os_device[val] = true
           end
+        when "hw.product"
+          if ! hw_prod[val]
+            puts "HW PRODUCT MISSING: #{val}"
+            hw_prod[val] = true
+          end
+        when "hw.family"
+          if ! hw_family[val]
+            puts "HW FAMILY MISSING: #{val}"
+            hw_family[val] = true
+          end
+        when "hw.device"
+          if ! hw_device[val]
+            puts "HW DEVICE MISSING: #{val}"
+            hw_device[val] = true
+          end          
         when "service.product"
           if ! svc_prod[val]
             puts "SERVICE PRODUCT MISSING: #{val}"
@@ -114,5 +134,8 @@ write_identifiers(os_arch, File.join(bdir, "os_architecture.txt"))
 write_identifiers(os_prod, File.join(bdir, "os_product.txt"))
 write_identifiers(os_family, File.join(bdir, "os_family.txt"))
 write_identifiers(os_device, File.join(bdir, "os_device.txt"))
+write_identifiers(hw_prod, File.join(bdir, "hw_product.txt"))
+write_identifiers(hw_family, File.join(bdir, "hw_family.txt"))
+write_identifiers(hw_device, File.join(bdir, "hw_device.txt"))
 write_identifiers(svc_prod, File.join(bdir, "service_product.txt"))
 write_identifiers(svc_family, File.join(bdir, "service_family.txt"))

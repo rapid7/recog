@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints protocol="smtp" database_type="service" preference="0.18">
   <!--
   SMTP response lines to the HELP command are matched against these patterns
   (1 line at a time) to fingerprint SMTP servers.
-
   See comment at the top of smtp_banners.xml for additional info.
-
   'preference' note: This value has been set so as to implement the ordering
     of SMTP related fingerprint databases as described in 'smtp_banners.xml'.
   -->
+
   <fingerprint pattern="^214[ -]This is ArGoSoft Mail Server, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
     <description>ArgoSoft mail server HELP response with version</description>
     <example service.version="1.4.0.3">214-This is ArGoSoft Mail Server, Version 1.4 (1.4.0.3)</example>
@@ -57,6 +56,7 @@
    Shouldn't we ignore XEXCH50 for the same reasons than described in the XEXCH50 regex
    in smtp_ehlo.xml ? -mrb
    -->
+
   <fingerprint pattern="^214[ -].* XEXCH50 *.*$">
     <description>Microsoft Exchange/IIS server</description>
     <param pos="0" name="service.vendor" value="Microsoft"/>
@@ -172,4 +172,5 @@
     <param pos="0" name="service.family" value="ZMailer"/>
     <param pos="0" name="service.product" value="ZMailer"/>
   </fingerprint>
+
 </fingerprints>

@@ -1,15 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="x509.issuer" protocol="x509">
   <!--
   This fingerprint set matches the Issuer field of x509 certificates. These x509
   certificates may be sourced from any SSL or TLS service. If a particular system
   has identical subject and issuer fields, the subject field should be preferred.
-
   The format of the Issuer field is built from the x509 distinguished names using
   a specific order. Please see the comments in x509_subjects.xml for details.
-
   -->
+
   <!-- Chromecast and various devices that support the Cast protocol -->
+
+  <fingerprint pattern="^CN=Eureka Gen1 ICA,OU=Google TV,O=Google Inc,L=Mountain View,ST=California,C=US$">
+    <description>Google Chromecast Gen 1</description>
+    <example>CN=Eureka Gen1 ICA,OU=Google TV,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+    <param pos="0" name="os.vendor" value="Google"/>
+    <param pos="0" name="os.product" value="ChromeOS"/>
+    <param pos="0" name="hw.device" value="Media Server"/>
+    <param pos="0" name="hw.vendor" value="Google"/>
+    <param pos="0" name="hw.product" value="Chromecast"/>
+    <param pos="0" name="chromecast.generation" value="1"/>
+  </fingerprint>
+
   <fingerprint pattern="^CN=Chromecast ICA (\d+)\s*\(?([^,\)]*)\)?,OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US$">
     <description>Google Chromecast</description>
     <example chromecast.generation="3">CN=Chromecast ICA 3,OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
@@ -88,6 +99,7 @@
   </fingerprint>
 
   <!-- End of Chromecast -->
+
   <fingerprint pattern="^CN=Yealink Equipment Issuing CA,OU=yealink\.com,O=Yealink Network Technology Co\.\\,Ltd.,L=Xiamen,ST=Fujian,C=CN$">
     <description>Yealink VoIP Phone</description>
     <example>CN=Yealink Equipment Issuing CA,OU=yealink.com,O=Yealink Network Technology Co.\,Ltd.,L=Xiamen,ST=Fujian,C=CN</example>
@@ -116,7 +128,7 @@
   <fingerprint pattern="^O=VMware Installer$">
     <description>VMWare ESXi w/Installer</description>
     <example>O=VMware Installer</example>
-    <param pos="0" name="os.vendor" value="VMWare"/>
+    <param pos="0" name="os.vendor" value="VMware"/>
     <param pos="0" name="os.product" value="ESXi"/>
     <param pos="0" name="os.device" value="Hypervisor"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:vmware:esxi:-"/>
@@ -125,7 +137,7 @@
   <fingerprint pattern="^CN=CA,OU=VMware Engineering,O=vCenter,ST=California,C=US$">
     <description>VMWare vCenter</description>
     <example>CN=CA,OU=VMware Engineering,O=vCenter,ST=California,C=US</example>
-    <param pos="0" name="service.vendor" value="VMWare"/>
+    <param pos="0" name="service.vendor" value="VMware"/>
     <param pos="0" name="service.product" value="vCenter"/>
   </fingerprint>
 
@@ -142,4 +154,5 @@
     <param pos="0" name="os.family" value="iLO"/>
     <param pos="0" name="os.product" value="iLO"/>
   </fingerprint>
+
 </fingerprints>

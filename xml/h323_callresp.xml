@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints protocol="h.323" database_type="service" preference="0.80">
   <!--
   Responses to H.323 call SETUP messages are matched against these patterns
   to fingerprint H.323 servers.
   -->
+
   <fingerprint pattern="^0x000b2d00\:(.*)\:.*?(\d*\.*\d*\.*\d*).*$" flags="REG_ICASE">
     <description>Sony H.323 Server</description>
     <param pos="0" name="service.vendor" value="Sony"/>
@@ -13,14 +14,14 @@
 
   <fingerprint pattern="^0x0400004[23]\:(.*)\:.*?(\d*\.*\d*\.*\d*).*$" flags="REG_ICASE">
     <description>Deutsche Telekom AG H.323 Server</description>
-    <param pos="0" name="service.vendor" value="Deutsche Telekom AG"/>
+    <param pos="0" name="service.vendor" value="Deutsche Telekom"/>
     <param pos="1" name="service.product"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
 
   <fingerprint pattern="^0x04000082\:(.*)\:.*?(\d*\.*\d*\.*\d*).*$" flags="REG_ICASE">
     <description>Siemens AG H.323 Server</description>
-    <param pos="0" name="service.vendor" value="Siemens AG"/>
+    <param pos="0" name="service.vendor" value="Siemens"/>
     <param pos="1" name="service.product"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
@@ -217,7 +218,7 @@
 
   <fingerprint pattern="^0xb4004d00\:(.*)\:.*?(\d*\.*\d*\.*\d*).*$" flags="REG_ICASE">
     <description>Madge Networks H.323 Server</description>
-    <param pos="0" name="service.vendor" value="Madge Networks"/>
+    <param pos="0" name="service.vendor" value="Madge"/>
     <param pos="1" name="service.product"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
@@ -315,7 +316,7 @@
 
   <fingerprint pattern="^0xb500000b\:(.*)\:.*?(\d*\.*\d*\.*\d*).*$" flags="REG_ICASE">
     <description>3Com Corporation H.323 Server</description>
-    <param pos="0" name="service.vendor" value="3Com Corporation"/>
+    <param pos="0" name="service.vendor" value="3Com"/>
     <param pos="1" name="service.product"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
@@ -378,7 +379,7 @@
 
   <fingerprint pattern="^0xb5000014\:(.*)\:.*?(\d*\.*\d*\.*\d*).*$" flags="REG_ICASE">
     <description>Ascend Communications, Inc. H.323 Server</description>
-    <param pos="0" name="service.vendor" value="Ascend Communications, Inc."/>
+    <param pos="0" name="service.vendor" value="Ascend"/>
     <param pos="1" name="service.product"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
@@ -518,7 +519,7 @@
 
   <fingerprint pattern="^0xb5000028\:(.*)\:.*?(\d*\.*\d*\.*\d*).*$" flags="REG_ICASE">
     <description>AudioCodes, Inc. H.323 Server</description>
-    <param pos="0" name="service.vendor" value="AudioCodes, Inc."/>
+    <param pos="0" name="service.vendor" value="AudioCodes"/>
     <param pos="1" name="service.product"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
@@ -539,7 +540,7 @@
 
   <fingerprint pattern="^0xb5000247\:(.*)\:.*?(\d*\.*\d*\.*\d*).*$" flags="REG_ICASE">
     <description>Lucent Technologies H.323 Server</description>
-    <param pos="0" name="service.vendor" value="Lucent Technologies"/>
+    <param pos="0" name="service.vendor" value="Lucent"/>
     <param pos="1" name="service.product"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
@@ -659,7 +660,7 @@
 
   <fingerprint pattern="^0xb500(?:4c54|600d)\:(.*)\:.*?(\d*\.*\d*\.*\d*).*$" flags="REG_ICASE">
     <description>Lucent Technologies H.323 Server - variant 1</description>
-    <param pos="0" name="service.vendor" value="Lucent Technologies"/>
+    <param pos="0" name="service.vendor" value="Lucent"/>
     <param pos="1" name="service.product"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
@@ -673,14 +674,14 @@
 
   <fingerprint pattern="^0xb5004e54\:(.*)\:.*?(\d*\.*\d*\.*\d*).*$" flags="REG_ICASE">
     <description>Nortel Networks H.323 Server</description>
-    <param pos="0" name="service.vendor" value="Nortel Networks"/>
+    <param pos="0" name="service.vendor" value="Nortel"/>
     <param pos="1" name="service.product"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
 
   <fingerprint pattern="^0xb5005243\:(.*)\:.*?(\d*\.*\d*\.*\d*).*$" flags="REG_ICASE">
     <description>Siemens Business Communication Systems H.323 Server</description>
-    <param pos="0" name="service.vendor" value="Siemens Business Communication Systems"/>
+    <param pos="0" name="service.vendor" value="Siemens"/>
     <param pos="1" name="service.product"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
@@ -698,4 +699,5 @@
     <param pos="1" name="service.product"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
+
 </fingerprints>
