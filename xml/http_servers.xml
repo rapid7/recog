@@ -2390,11 +2390,13 @@
        variety of products including printers, PDUs, etc.
   -->
 
-  <fingerprint pattern="^\$ProjectRevision: \d.\d(.\d+)* \$$">
+  <fingerprint pattern="^\$ProjectRevision: \d(\.\d+)+ \$$">
     <description>This banner is used to fingerprint devices for Ripple20</description>
     <example>$ProjectRevision: 4.0.2.38 $</example>
-    <param pos="0" name="os.vendor" value="Treck"/>
-    <param pos="0" name="os.family" value="TCP/IP"/>
+    <example>$ProjectRevision: 4.2 $</example>
+    <example>$ProjectRevision: 6.0.1.5 $</example>
+    <param pos="0" name="software.vendor" value="Treck"/>
+    <param pos="0" name="software.product" value="TCP/IP"/>
   </fingerprint>
 
   <fingerprint pattern="^WEBrick/([\d\.]+) .*$">
