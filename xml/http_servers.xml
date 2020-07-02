@@ -2390,13 +2390,14 @@
        variety of products including printers, PDUs, etc.
   -->
 
-  <fingerprint pattern="^\$ProjectRevision: [\d\.]+ \$$">
+  <fingerprint pattern="^\$ProjectRevision: ([\d\.]+) \$$">
     <description>This banner is used to see if devices have Treck TCP/IP</description>
     <example>$ProjectRevision: 4.0.2.38 $</example>
     <example>$ProjectRevision: 4.2 $</example>
     <example>$ProjectRevision: 6.0.1.5 $</example>
     <param pos="0" name="software.vendor" value="Treck"/>
     <param pos="0" name="software.product" value="TCP/IP"/>
+    <param pos="1" name="software.version"/>
   </fingerprint>
 
   <fingerprint pattern="^WEBrick/([\d\.]+) .*$">
