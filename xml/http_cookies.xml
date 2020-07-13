@@ -138,7 +138,7 @@
     <param pos="0" name="service.product" value="Application Protection System, Enterprise"/>
   </fingerprint>
 
-  <fingerprint pattern="^NSC_(?:AAAC|CERT|DLGE|EPAC|TASS|TEMP|TMA[APS]|PERS)=.*">
+  <fingerprint pattern="^NSC_(?:AAAC|BASEURL|CERT|DLGE|EPAC|TASS|TEMP|TMA[APS]|PERS|USER)=.*">
     <description>Citrix NetScaler</description>
     <example>NSC_AAAC=xyz;</example>
     <example>NSC_TEMP=xyz;</example>
@@ -170,8 +170,9 @@
     <param pos="0" name="service.product" value="CMS400.NET"/>
   </fingerprint>
 
-  <fingerprint pattern="^(BIGipServer([^=]+))=.*">
+  <fingerprint pattern="(?i)^(BIGipServer([^=]+))=.*">
     <description>F5 BIG-IP LTM - Server variant</description>
+    <example loadbalancer.poolname="CustomerRP">BigIpServerCustomerRP=5a; path=/; domain=.foo.bar; secure; HttpOnly</example>
     <param pos="1" name="cookie"/>
     <param pos="2" name="loadbalancer.poolname"/>
     <param pos="0" name="service.vendor" value="F5"/>
