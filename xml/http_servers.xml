@@ -1656,6 +1656,24 @@
     <param pos="0" name="service.component.cpe23" value="cpe:/a:sap:netweaver_application_server:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^SAP Internet Graphics Server$">
+    <description>SAP Internet Graphics Server</description>
+    <example>SAP Internet Graphics Server</example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="Internet Graphics Server"/>
+    <param pos="0" name="service.component.vendor" value="SAP"/>
+    <param pos="0" name="service.component.product" value="NetWeaver Application Server"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:sap:netweaver_application_server:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^SAP Message Server, release ([\d.]+) \(LNK\)$">
+    <description>SAP Message Server</description>
+    <example service.version="753">SAP Message Server, release 753 (LNK)</example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="SAP Message Server"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
   <fingerprint pattern="^SQLAnywhere/([\d.]+)$">
     <description>SAP SQLAnywhere</description>
     <example service.version="16.0.0.2207">SQLAnywhere/16.0.0.2207</example>
