@@ -141,6 +141,24 @@
     <param pos="0" name="hw.product" value="Firewall-1"/>
   </fingerprint>
 
+  <fingerprint pattern="^CPWS$">
+    <description>Check Point Firewall NG - short version</description>
+    <example>CPWS</example>
+    <param pos="0" name="service.vendor" value="Check Point"/>
+    <param pos="0" name="service.product" value="Firewall-1"/>
+    <param pos="0" name="service.family" value="Firewall-1"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:checkpoint:firewall-1:-"/>
+    <param pos="0" name="os.vendor" value="Check Point"/>
+    <param pos="0" name="os.device" value="Firewall"/>
+    <param pos="0" name="os.family" value="Firewall-1"/>
+    <param pos="0" name="os.product" value="GAiA OS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:checkpoint:gaia_os:-"/>
+    <param pos="0" name="hw.vendor" value="Check Point"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+    <param pos="0" name="hw.family" value="Firewall-1"/>
+    <param pos="0" name="hw.product" value="Firewall-1"/>
+  </fingerprint>
+
   <fingerprint pattern="^Microsoft-IIS/([1234]\.0)$">
     <description>Microsoft IIS 1.0 - 4.0 runs on Windows NT 4.0</description>
     <example>Microsoft-IIS/4.0</example>
@@ -1569,9 +1587,41 @@
     <description>SAP NetWeaver Web AS (Application Server)</description>
     <example service.version="7.01">SAP J2EE Engine/7.01</example>
     <param pos="0" name="service.vendor" value="SAP"/>
-    <param pos="0" name="service.product" value="NetWeaver Web AS"/>
+    <param pos="0" name="service.product" value="NetWeaver Application Server"/>
     <param pos="0" name="service.family" value="NetWeaver"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_application_server:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^SAP NetWeaver Application Server ([\d.]+) / AS Java ([\d.]+)$">
+    <description>SAP NetWeaver Application Server Java</description>
+    <example service.version="7.22" service.component.version="7.30">SAP NetWeaver Application Server 7.22 / AS Java 7.30</example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="NetWeaver Application Server Java"/>
+    <param pos="0" name="service.family" value="NetWeaver"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_application_server_java:{service.version}"/>
+    <param pos="2" name="service.component.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^SAP NetWeaver Application Server ([\d.]+) / ICM ([\d.]+)$">
+    <description>SAP NetWeaver Application Server - Internet Communication Manager</description>
+    <example service.version="7.21" service.component.version="7.21">SAP NetWeaver Application Server 7.21 / ICM 7.21</example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="NetWeaver Internet Communication Manager"/>
+    <param pos="0" name="service.family" value="NetWeaver"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.component.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^SAP NetWeaver Application Server / ABAP ([\d.]+)$">
+    <description>SAP NetWeaver Application Server - Advanced Business Application Programming</description>
+    <example service.version="731">SAP NetWeaver Application Server / ABAP 731</example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="NetWeaver AS ABAP"/>
+    <param pos="0" name="service.family" value="NetWeaver"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_as_abap:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^SQLAnywhere/([\d.]+)$">
@@ -3722,6 +3772,48 @@
     <param pos="0" name="service.vendor" value="Couchbase"/>
     <param pos="0" name="service.product" value="Couchbase Server"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:couchbase:couchbase_server:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Kestrel$">
+    <description>Kestrel web server implementation in ASP.NET core</description>
+    <example>Kestrel</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.product" value="Kestrel web server"/>
+  </fingerprint>
+
+  <fingerprint pattern="^stgw/([\d.]+)_([\d.]+)$">
+    <description>Tencent Secure Tencent Gateway</description>
+    <example service.version="1.3.12.9" service.component.version="1.13.5">stgw/1.3.12.9_1.13.5</example>
+    <param pos="0" name="service.vendor" value="Tencent"/>
+    <param pos="0" name="service.product" value="Secure Tencent Gateway"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.component.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^axhttpd/([\d.]+)$">
+    <description>axTLS Project axTLS web server</description>
+    <example service.version="1.5.3">axhttpd/1.5.3</example>
+    <param pos="0" name="service.vendor" value="axTLS Project"/>
+    <param pos="0" name="service.product" value="axTLS"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:axtls_project:axtls:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^tinyproxy/([\d.]+)$">
+    <description>TinyProxy Project tinyproxy</description>
+    <example service.version="1.8.2">tinyproxy/1.8.2</example>
+    <param pos="0" name="service.vendor" value="Tinyproxy Project"/>
+    <param pos="0" name="service.product" value="Tinyproxy"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:tinyproxy_project:tinyproxy:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Xfinity Broadband Router Server$">
+    <description>Comcast Xfinity Broadband Router Server</description>
+    <example>Xfinity Broadband Router Server</example>
+    <param pos="0" name="hw.vendor" value="Comcast"/>
+    <param pos="0" name="hw.product" value="Xfinity Broadband Router"/>
+    <param pos="0" name="hw.device" value="Broadband router"/>
   </fingerprint>
 
 </fingerprints>
