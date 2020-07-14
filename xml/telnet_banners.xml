@@ -1845,4 +1845,79 @@
     <param pos="1" name="os.version"/>
   </fingerprint>
 
+  <fingerprint pattern="Telnet Administration (?:\r|\n)+   SAP J2EE Engine v([\d.]+)(?:\r|\n)+">
+    <description>SAP NetWeaver Application Server Java telnet service</description>
+    <!-- ***********************************************
+         **********************************************
+         ****###*******####*****#######**************
+         **##***##****##**##****##****##************
+         ***##*******##****##***##****##**********
+         *****##*****########***######***********
+         ******##****##****##***##*************
+         **##***##**##******##**##************
+         ****###****##******##**##**********
+         **********************************
+         ********************************
+         Telnet Administration
+         SAP J2EE Engine v7.00
+      Login:
+    -->
+
+    <example _encoding="base64" service.version="7.00">
+      KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiogCiAgICoqKi
+      oqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiogCiAgICoqKiojIyMq
+      KioqKioqIyMjIyoqKioqIyMjIyMjIyoqKioqKioqKioqKioqIAogICAqKiMjKioqIyMqKioqIy
+      MqKiMjKioqKiMjKioqKiMjKioqKioqKioqKioqIAogICAqKiojIyoqKioqKiojIyoqKiojIyoq
+      KiMjKioqKiMjKioqKioqKioqKiAKICAgKioqKiojIyoqKioqIyMjIyMjIyMqKiojIyMjIyMqKi
+      oqKioqKioqKiAKICAgKioqKioqIyMqKioqIyMqKioqIyMqKiojIyoqKioqKioqKioqKiogCiAg
+      ICoqIyMqKiojIyoqIyMqKioqKiojIyoqIyMqKioqKioqKioqKiogCiAgICoqKiojIyMqKioqIy
+      MqKioqKiojIyoqIyMqKioqKioqKioqIAogICAqKioqKioqKioqKioqKioqKioqKioqKioqKioq
+      KioqKioqIAogICAqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiAKCiAgIFRlbG5ldC
+      BBZG1pbmlzdHJhdGlvbiAKICAgU0FQIEoyRUUgRW5naW5lIHY3LjAwCgoKCkxvZ2luOgo=
+    </example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="NetWeaver Application Server Java"/>
+    <param pos="0" name="service.family" value="NetWeaver"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_application_server_java:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="Telnet Administration (?:\r|\n)+   SAP Java EE Application Server v([\d.]+)(?:\r|\n)+">
+    <description>SAP NetWeaver Application Server Java telnet service - newer variant</description>
+    <!-- ***********************************************
+         **********************************************
+         ****###*******####*****#######**************
+         **##***##****##**##****##****##************
+         ***##*******##****##***##****##**********
+         *****##*****########***######***********
+         ******##****##****##***##*************
+         **##***##**##******##**##************
+         ****###****##******##**##**********
+         **********************************
+         ********************************
+         Telnet Administration
+         SAP Java EE Application Server v7.50
+      User name:
+    -->
+
+    <example _encoding="base64" service.version="7.50">
+      KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiogCiAgICoqKi
+      oqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiogCiAgICoqKiojIyMq
+      KioqKioqIyMjIyoqKioqIyMjIyMjIyoqKioqKioqKioqKioqIAogICAqKiMjKioqIyMqKioqIy
+      MqKiMjKioqKiMjKioqKiMjKioqKioqKioqKioqIAogICAqKiojIyoqKioqKiojIyoqKiojIyoq
+      KiMjKioqKiMjKioqKioqKioqKiAKICAgKioqKiojIyoqKioqIyMjIyMjIyMqKiojIyMjIyMqKi
+      oqKioqKioqKiAKICAgKioqKioqIyMqKioqIyMqKioqIyMqKiojIyoqKioqKioqKioqKiogCiAg
+      ICoqIyMqKiojIyoqIyMqKioqKiojIyoqIyMqKioqKioqKioqKiogCiAgICoqKiojIyMqKioqIy
+      MqKioqKiojIyoqIyMqKioqKioqKioqIAogICAqKioqKioqKioqKioqKioqKioqKioqKioqKioq
+      KioqKioqIAogICAqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiAKCiAgIFRlbG5ldC
+      BBZG1pbmlzdHJhdGlvbiAKICAgU0FQIEphdmEgRUUgQXBwbGljYXRpb24gU2VydmVyIHY3LjUw
+      CgoKVXNlciBuYW1lOgo=
+    </example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="NetWeaver Application Server Java"/>
+    <param pos="0" name="service.family" value="NetWeaver"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_application_server_java:{service.version}"/>
+  </fingerprint>
+
 </fingerprints>
