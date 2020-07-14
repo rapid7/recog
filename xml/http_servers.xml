@@ -1584,13 +1584,13 @@
      -->
 
   <fingerprint pattern="^SAP J2EE Engine/(\d+\.\d+)$">
-    <description>SAP NetWeaver Web AS (Application Server)</description>
+    <description>SAP NetWeaver Application Server Java - short version</description>
     <example service.version="7.01">SAP J2EE Engine/7.01</example>
     <param pos="0" name="service.vendor" value="SAP"/>
-    <param pos="0" name="service.product" value="NetWeaver Application Server"/>
+    <param pos="0" name="service.product" value="NetWeaver Application Server Java"/>
     <param pos="0" name="service.family" value="NetWeaver"/>
     <param pos="1" name="service.version"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_application_server:{service.version}"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_application_server_java:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^SAP NetWeaver Application Server$">
@@ -1604,15 +1604,16 @@
 
   <fingerprint pattern="^SAP NetWeaver Application Server ([\d.]+) / AS Java ([\d.]+)$">
     <description>SAP NetWeaver Application Server Java</description>
-    <example service.version="7.22" service.component.version="7.30">SAP NetWeaver Application Server 7.22 / AS Java 7.30</example>
+    <example service.version="7.30" service.component.version="7.22">SAP NetWeaver Application Server 7.22 / AS Java 7.30</example>
     <param pos="0" name="service.vendor" value="SAP"/>
     <param pos="0" name="service.product" value="NetWeaver Application Server Java"/>
     <param pos="0" name="service.family" value="NetWeaver"/>
-    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_application_server_java:{service.version}"/>
     <param pos="0" name="service.component.vendor" value="SAP"/>
-    <param pos="0" name="service.component.product" value="AS Java"/>
-    <param pos="2" name="service.component.version"/>
+    <param pos="0" name="service.component.product" value="NetWeaver Application Server"/>
+    <param pos="1" name="service.component.version"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:sap:netweaver_application_server:{service.component.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^SAP NetWeaver Application Server ([\d.]+) / ICM ([\d.]+)$">
@@ -1621,10 +1622,11 @@
     <param pos="0" name="service.vendor" value="SAP"/>
     <param pos="0" name="service.product" value="NetWeaver Internet Communication Manager"/>
     <param pos="0" name="service.family" value="NetWeaver"/>
-    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.version"/>
     <param pos="0" name="service.component.vendor" value="SAP"/>
-    <param pos="0" name="service.component.product" value="AS Java"/>
-    <param pos="2" name="service.component.version"/>
+    <param pos="0" name="service.component.product" value="NetWeaver Application Server"/>
+    <param pos="1" name="service.component.version"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:sap:netweaver_application_server:{service.component.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^SAP NetWeaver Application Server \(ICM\)$">
@@ -1633,6 +1635,9 @@
     <param pos="0" name="service.vendor" value="SAP"/>
     <param pos="0" name="service.product" value="NetWeaver Internet Communication Manager"/>
     <param pos="0" name="service.family" value="NetWeaver"/>
+    <param pos="0" name="service.component.vendor" value="SAP"/>
+    <param pos="0" name="service.component.product" value="NetWeaver Application Server"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:sap:netweaver_application_server:-"/>
   </fingerprint>
 
   <fingerprint pattern="^SAP NetWeaver Application Server / ABAP ([\d.]+)$">
@@ -1643,6 +1648,9 @@
     <param pos="0" name="service.family" value="NetWeaver"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_as_abap:{service.version}"/>
+    <param pos="0" name="service.component.vendor" value="SAP"/>
+    <param pos="0" name="service.component.product" value="NetWeaver Application Server"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:sap:netweaver_application_server:-"/>
   </fingerprint>
 
   <fingerprint pattern="^SQLAnywhere/([\d.]+)$">
