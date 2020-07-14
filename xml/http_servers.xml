@@ -1593,6 +1593,15 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_application_server:{service.version}"/>
   </fingerprint>
 
+  <fingerprint pattern="^SAP NetWeaver Application Server$">
+    <description>SAP NetWeaver Application Server without version</description>
+    <example>SAP NetWeaver Application Server</example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="NetWeaver Application Server"/>
+    <param pos="0" name="service.family" value="NetWeaver"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_application_server:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^SAP NetWeaver Application Server ([\d.]+) / AS Java ([\d.]+)$">
     <description>SAP NetWeaver Application Server Java</description>
     <example service.version="7.22" service.component.version="7.30">SAP NetWeaver Application Server 7.22 / AS Java 7.30</example>
@@ -1612,6 +1621,14 @@
     <param pos="0" name="service.family" value="NetWeaver"/>
     <param pos="1" name="service.version"/>
     <param pos="2" name="service.component.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^SAP NetWeaver Application Server \(ICM\)$">
+    <description>SAP NetWeaver Application Server - Internet Communication Manager without version</description>
+    <example>SAP NetWeaver Application Server (ICM)</example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="NetWeaver Internet Communication Manager"/>
+    <param pos="0" name="service.family" value="NetWeaver"/>
   </fingerprint>
 
   <fingerprint pattern="^SAP NetWeaver Application Server / ABAP ([\d.]+)$">
