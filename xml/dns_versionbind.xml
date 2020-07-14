@@ -8,6 +8,32 @@
     dnsmasq-2.76-1-ubnt2
   -->
 
+  <!--
+  The following 'assert nothing' block is intended to handle banners so simple
+  that they cannot be attributed to a product or vendor. They are at the
+  beginning of the file as a performance tweak given how frequenty they occur.
+  -->
+
+  <fingerprint pattern="^none$">
+    <description>bare 'none' -- assert nothing.</description>
+    <example>none</example>
+  </fingerprint>
+
+  <fingerprint pattern="(?i)^unknown$">
+    <description>bare 'unknown' -- assert nothing.</description>
+    <example>unknown</example>
+  </fingerprint>
+
+  <fingerprint pattern="^no version$">
+    <description>bare 'no version' -- assert nothing.</description>
+    <example>no version</example>
+  </fingerprint>
+
+  <fingerprint pattern="^$">
+    <description>empty string -- assert nothing.</description>
+    <example/>
+  </fingerprint>
+
   <!-- Red Hat package naming:
        https://fedoraproject.org/wiki/Packaging:DistTag
        https://fedoraproject.org/wiki/Packaging:Versioning
@@ -376,13 +402,14 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:powerdns:authoritative_server:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^PowerDNS Authoritative Server (\d\.[\w.]+(?:-rc\d)?(?:-alpha\d)?(?:-beta\d)?) \(built [\w\s:]+ by [\w]+\@[\w.-:-]*\)$">
+  <fingerprint pattern="^PowerDNS Authoritative Server (\d\.[\w.]+(?:-rc\d)?(?:-alpha\d)?(?:-beta\d)?[^ ]*) \(built [\w\s:]+ by [\w]+\@[\w.-:-]*\)$">
     <description>PowerDNS Authoritative Server: format 2</description>
     <example service.version="4.0.4">PowerDNS Authoritative Server 4.0.4 (built Jul 26 2017 15:04:27 by root@FreeBSD:11:amd64-default-job-03)</example>
     <example service.version="4.0.0-rc2">PowerDNS Authoritative Server 4.0.0-rc2 (built Jul  4 2016 15:44:39 by root@foo-bar.baz)</example>
     <example service.version="4.0.0-alpha2">PowerDNS Authoritative Server 4.0.0-alpha2 (built Feb 01 2016 00:12:05 by buildbot@baz)</example>
     <example service.version="4.0.0-beta1">PowerDNS Authoritative Server 4.0.0-beta1 (built Feb 01 2016 00:00:00 by buildbot@baz)</example>
     <example service.version="0.0.g56d692a">PowerDNS Authoritative Server 0.0.g56d692a (built Feb 25 2017 13:10:19 by root@foo-bar.baz)</example>
+    <example service.version="4.2.0-rc2.995.master.g8cc411dc4">PowerDNS Authoritative Server 4.2.0-rc2.995.master.g8cc411dc4 (built Nov  6 2019 11:48:12 by root@foo-bar.baz)</example>
     <param pos="0" name="service.vendor" value="PowerDNS"/>
     <param pos="0" name="service.family" value="PowerDNS"/>
     <param pos="0" name="service.product" value="Authoritative Server"/>
@@ -625,6 +652,21 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^Microsoft DNS 6.0.6003(?: \(\w+\))?$">
+    <description>Microsoft DNS on Windows 2008 Service Pack 2 - Preview Rollup KB4489887 and later</description>
+    <example>Microsoft DNS 6.0.6003 (1773501D)</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="DNS"/>
+    <param pos="0" name="service.product" value="DNS"/>
+    <param pos="0" name="service.version" value="6.0.6003"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows Server 2008"/>
+    <param pos="0" name="os.version" value="Service Pack 2"/>
+    <param pos="0" name="os.build" value="6.0.6003"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:Service Pack 2"/>
+  </fingerprint>
+
   <fingerprint pattern="^Microsoft DNS 6.0.6002(?: \(\w+\))?$">
     <description>Microsoft DNS on Windows 2008 Service Pack 2</description>
     <example>Microsoft DNS 6.0.6002 (17724D35)</example>
@@ -788,8 +830,8 @@
 
   <fingerprint pattern="^CleanBrowsing v([^ ]+) - (.*)">
     <description>CleanBrowsing DNS Server</description>
-    <example service.vendor="CleanBrowsing" service.family="CleanBrowsing" service.version="1.5a" service.node="dns-edge-usa-west-sunnyvale-p">CleanBrowsing v1.5a - dns-edge-usa-west-sunnyvale-p</example>
-    <example service.vendor="CleanBrowsing" service.family="CleanBrowsing" service.version="1.4a" service.node="dns-edge-usa-west-sunnyvale.cleanbrowsing.org">CleanBrowsing v1.4a - dns-edge-usa-west-sunnyvale.cleanbrowsing.org</example>
+    <example service.version="1.5a" service.node="dns-edge-usa-west-sunnyvale-p">CleanBrowsing v1.5a - dns-edge-usa-west-sunnyvale-p</example>
+    <example service.version="1.4a" service.node="dns-edge-usa-west-sunnyvale.cleanbrowsing.org">CleanBrowsing v1.4a - dns-edge-usa-west-sunnyvale.cleanbrowsing.org</example>
     <param pos="0" name="service.vendor" value="CleanBrowsing"/>
     <param pos="0" name="service.family" value="CleanBrowsing"/>
     <param pos="0" name="service.product" value="DNS"/>
@@ -809,7 +851,7 @@
 
   <fingerprint pattern="^Q9-[^\-]-(.*)$">
     <description>Quad9 Resolver</description>
-    <example service.vendor="IBM" service.family="Quad9" service.product="DNS" service.version="6.0">Q9-P-6.0</example>
+    <example service.version="6.0">Q9-P-6.0</example>
     <param pos="0" name="service.vendor" value="IBM"/>
     <param pos="0" name="service.family" value="Quad9"/>
     <param pos="0" name="service.product" value="DNS"/>
@@ -818,9 +860,17 @@
 
   <fingerprint pattern="^keweonDNS v\.(.*)$">
     <description>Keweon DNS</description>
-    <example service.vendor="Keweon" service.product="DNS" service.version="9.63.7201">keweonDNS v.9.63.7201</example>
+    <example service.version="9.63.7201">keweonDNS v.9.63.7201</example>
     <param pos="0" name="service.vendor" value="Keweon"/>
     <param pos="0" name="service.product" value="DNS"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Version: recursive-main/(\d+)$">
+    <description>Akamai AnswerX DNS server</description>
+    <example service.version="22386077">Version: recursive-main/22386077</example>
+    <param pos="0" name="service.vendor" value="Akamai"/>
+    <param pos="0" name="service.product" value="AnswerX"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
 
