@@ -197,6 +197,21 @@
     <param pos="0" name="os.product" value="Zentyal"/>
   </fingerprint>
 
+  <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)(?:-[\d\.]+)?\+deb10[\w~\.]+-Debian$">
+    <description>ISC BIND: Debian 10.0 (buster)</description>
+    <example service.version="9.11.5-P4">9.11.5-P4-5.1+deb10u1-Debian</example>
+    <param pos="0" name="service.vendor" value="ISC"/>
+    <param pos="0" name="service.family" value="BIND"/>
+    <param pos="0" name="service.product" value="BIND"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:isc:bind:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="10.0"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:10.0"/>
+  </fingerprint>
+
   <fingerprint pattern="^(9.[^-]+(?:-[SP]\d)?)-9\+deb8u[\w~\.]+-Debian$">
     <description>ISC BIND: Debian 8.0 (jessie)</description>
     <example service.version="9.9.5">9.9.5-9+deb8u11-Debian</example>
@@ -520,6 +535,20 @@
     <param pos="0" name="service.product" value="unbound"/>
   </fingerprint>
 
+  <fingerprint pattern="^(?:BIND )?(9.[^-]+(?:-[SP]\d)?)(?:-[\d\.]+)?\+deb10u\d+-Raspbian$">
+    <description>ISC BIND: Raspbian based on Debian Buster</description>
+    <example service.version="9.11.5-P4">9.11.5-P4-5.1+deb10u1-Raspbian</example>
+    <param pos="0" name="service.vendor" value="ISC"/>
+    <param pos="0" name="service.family" value="BIND"/>
+    <param pos="0" name="service.product" value="BIND"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:isc:bind:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Raspbian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="10.0"/>
+  </fingerprint>
+
   <fingerprint pattern="^(?:BIND )?(9.[^-]+(?:-[SP]\d)?)-9\+deb8u\d+-Raspbian$">
     <description>ISC BIND: Raspbian based on Debian Jessie</description>
     <example service.version="9.9.5">9.9.5-9+deb8u7-Raspbian</example>
@@ -660,6 +689,19 @@
     <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
     <param pos="0" name="os.build" value="6.1.7600"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-"/>
+  </fingerprint>
+
+  <!-- This value is a spoofed value. There isn't a publicly available version
+       of Windows with build 6.0.6100 and this explicit string is used in an
+       example of how to change your version on BIND. We tested servers reporting
+       this string and NONE of them were Windows DNS.
+       This fingerprint serves to prevent someone who doesn't know from creating
+       one and stops further pattern matching efforts.
+  -->
+
+  <fingerprint pattern="^Microsoft DNS 6.0.6100 \(2AEF76E\)$">
+    <description>SPOOFED - Microsoft DNS on Windows 2008 SP something</description>
+    <example>Microsoft DNS 6.0.6100 (2AEF76E)</example>
   </fingerprint>
 
   <fingerprint pattern="^Microsoft DNS 6.0.6003(?: \(\w+\))?$">
