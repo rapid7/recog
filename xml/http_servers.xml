@@ -793,6 +793,7 @@
     <param pos="0" name="service.vendor" value="LiteSpeed Technologies"/>
     <param pos="0" name="service.product" value="LiteSpeed Web Server"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:litespeedtech:litespeed_web_server:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^IdeaWebServer\/v?([\d.]+)$">
@@ -1355,9 +1356,11 @@
   <fingerprint pattern="^thttpd/(\d\.[\w.]+)-MX\s*.*$">
     <description>thttpd with SSL support</description>
     <example>thttpd/2.19-MX Jan 24 2006</example>
+    <param pos="0" name="service.vendor" value="ACME"/>
     <param pos="0" name="service.product" value="thttpd"/>
     <param pos="0" name="service.family" value="thttpd"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:acme:thttpd:{service.version}"/>
     <param pos="0" name="thttpd.mx-patch" value="enabled"/>
   </fingerprint>
 
@@ -2351,9 +2354,10 @@
   <fingerprint pattern="^GoAhead-(?:Webs|http)$">
     <description>GoAhead-Webs - no version</description>
     <example>GoAhead-Webs</example>
-    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.vendor" value="EmbedThis"/>
     <param pos="0" name="service.product" value="GoAhead Webserver"/>
     <param pos="0" name="service.family" value="GoAhead Webserver"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:embedthis:goahead:-"/>
   </fingerprint>
 
   <fingerprint pattern="(?i)^GoAhead(?:-Webs|-http)?\/([\d.]+)(?: PeerSec-MatrixSSL\/[\d.]+-OPEN)?$">
@@ -2784,8 +2788,10 @@
   <fingerprint pattern="^gSOAP/([\d\.]+)$">
     <description>gSOAP</description>
     <example service.version="2.7">gSOAP/2.7</example>
+    <param pos="0" name="service.vendor" value="Genivia"/>
     <param pos="0" name="service.product" value="gSOAP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:genivia:gsoap:{service.version}"/>
   </fingerprint>
 
   <!-- Apple QuickTime streaming server -->
