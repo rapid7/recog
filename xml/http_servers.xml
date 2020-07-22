@@ -828,8 +828,9 @@
     <example service.version="15.1.6.31">Serv-U/15.1.6.31</example>
     <param pos="0" name="service.vendor" value="SolarWinds"/>
     <param pos="0" name="service.family" value="Serv-U"/>
-    <param pos="0" name="service.product" value="FTP Server"/>
+    <param pos="0" name="service.product" value="Serv-U FTP Server"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:solarwinds:serv-u_ftp_server:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^Wing FTP Server/([\d.]+)\([^)]*\)$">
@@ -1151,18 +1152,29 @@
   <fingerprint pattern="^Sun GlassFish Enterprise Server v(\S+)$">
     <description>Glassfish with version information</description>
     <example service.version="2.1">Sun GlassFish Enterprise Server v2.1</example>
-    <param pos="0" name="service.vendor" value="Sun"/>
+    <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.product" value="GlassFish Server"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:oracle:glassfish_server:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^GlassFish Server Open Source Edition\s+(\S+)$">
     <description>Glassfish Open Source Edition with version information</description>
     <example service.version="4.1.2">GlassFish Server Open Source Edition  4.1.2</example>
     <example service.version="3.1.2.2">GlassFish Server Open Source Edition 3.1.2.2</example>
-    <param pos="0" name="service.vendor" value="Sun"/>
+    <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.product" value="GlassFish Server"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:oracle:glassfish_server:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Oracle GlassFish Server ([\d.]+)$">
+    <description>Oracle GlassFish Server</description>
+    <example service.version="3.1.2.14">Oracle GlassFish Server 3.1.2.14</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="GlassFish Server"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:oracle:glassfish_server:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^GlassFish$">
@@ -1367,9 +1379,11 @@
     <example>Lighttpd</example>
     <example service.version="1.4.16">lighttpd/1.4.16</example>
     <example>lighttpd/1.3.7 (Mar 23 2007/16:00:15)</example>
+    <param pos="0" name="service.vendor" value="lighttpd"/>
     <param pos="0" name="service.product" value="lighttpd"/>
     <param pos="0" name="service.family" value="lighttpd"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:lighttpd:lighttpd:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^nginx$">
@@ -1591,6 +1605,18 @@
     <param pos="0" name="service.family" value="NetWeaver"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_application_server_java:{service.version}"/>
+    <param pos="0" name="service.component.vendor" value="SAP"/>
+    <param pos="0" name="service.component.product" value="NetWeaver Application Server"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:sap:netweaver_application_server:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^SAP J2EE Engine$">
+    <description>SAP NetWeaver Application Server Java - without version</description>
+    <example>SAP J2EE Engine</example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="NetWeaver Application Server Java"/>
+    <param pos="0" name="service.family" value="NetWeaver"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_application_server_java:-"/>
     <param pos="0" name="service.component.vendor" value="SAP"/>
     <param pos="0" name="service.component.product" value="NetWeaver Application Server"/>
     <param pos="0" name="service.component.cpe23" value="cpe:/a:sap:netweaver_application_server:-"/>
@@ -2430,10 +2456,11 @@
     <description>A small HTTP server</description>
     <example>mini_httpd/1.14 23jun2000</example>
     <example>mini_httpd/1 23jun2000</example>
-    <param pos="0" name="service.vendor" value="ACME Laboratories"/>
+    <param pos="0" name="service.vendor" value="ACME"/>
     <param pos="0" name="service.product" value="mini_httpd"/>
     <param pos="0" name="service.family" value="mini_httpd"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:acme:mini_httpd:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^thin ((?:\d+\.)*\d+) codename .+$">
@@ -2594,8 +2621,10 @@
     <example service.version="0.93.15">Boa/0.93.15 (with Intersil Extensions)</example>
     <example service.version="0.92p">Boa/0.92p OS-9 Version</example>
     <example service.version="0.93.15">Boa/0.93.15</example>
+    <param pos="0" name="service.vendor" value="Boa"/>
     <param pos="0" name="service.product" value="Boa"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:boa:boa:{service.version}"/>
   </fingerprint>
 
   <!-- HiSilicon is OEMd by a number of DVR manufacturers -->
@@ -3868,6 +3897,17 @@
     <param pos="0" name="hw.vendor" value="Comcast"/>
     <param pos="0" name="hw.product" value="Xfinity Broadband Router"/>
     <param pos="0" name="hw.device" value="Broadband router"/>
+  </fingerprint>
+
+  <fingerprint pattern="^IX Series IX21\d\d \(magellan-sec\) Software, Version ([^, ]+), (?:MAINTENANCE )?RELEASE SOFTWARE$">
+    <description>NEC Univerge Router - enterprise class with VPN, UTM, etc</description>
+    <example>IX Series IX2106 (magellan-sec) Software, Version 10.2.20, RELEASE SOFTWARE</example>
+    <example>IX Series IX2105 (magellan-sec) Software, Version 9.6.12A, MAINTENANCE RELEASE SOFTWARE</example>
+    <param pos="0" name="hw.vendor" value="NEC"/>
+    <param pos="0" name="hw.product" value="Univerge"/>
+    <param pos="1" name="hw.version"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:nec:univerge:{hw.version}"/>
   </fingerprint>
 
 </fingerprints>
