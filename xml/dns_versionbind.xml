@@ -516,6 +516,7 @@
     <param pos="0" name="service.family" value="NSD"/>
     <param pos="0" name="service.product" value="dnsd"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:nlnetlabs:name_server_daemon:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^unbound ([\d.]+)$">
@@ -525,6 +526,7 @@
     <param pos="0" name="service.family" value="Unbound"/>
     <param pos="0" name="service.product" value="unbound"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:nlnetlabs:unbound:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^(?i:unbound)$">
@@ -533,6 +535,7 @@
     <param pos="0" name="service.vendor" value="NLnet Labs"/>
     <param pos="0" name="service.family" value="Unbound"/>
     <param pos="0" name="service.product" value="unbound"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:nlnetlabs:unbound:-"/>
   </fingerprint>
 
   <fingerprint pattern="^(?:BIND )?(9.[^-]+(?:-[SP]\d)?)(?:-[\d\.]+)?\+deb10u\d+-Raspbian$">
@@ -583,8 +586,9 @@
     <example service.version="2.5.0-dev">Knot DNS 2.5.0-dev</example>
     <param pos="0" name="service.vendor" value="cz.nic"/>
     <param pos="0" name="service.family" value="Knot"/>
-    <param pos="0" name="service.product" value="DNS"/>
+    <param pos="0" name="service.product" value="Knot DNS"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:knot-dns:knot_dns:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^UltraDNS Resolver$">
@@ -754,7 +758,8 @@
     <example>DNSServer</example>
     <param pos="0" name="service.vendor" value="Synology"/>
     <param pos="0" name="service.family" value="DSM"/>
-    <param pos="0" name="service.product" value="DNS"/>
+    <param pos="0" name="service.product" value="DNS Server"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:synology:dns_server:-"/>
     <param pos="0" name="os.device" value="NAS"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="DSM"/>
@@ -855,9 +860,10 @@
   <fingerprint pattern="^gdnsd$">
     <description>gdnsd</description>
     <example>gdnsd</example>
-    <param pos="0" name="service.vendor" value="Brandon Black"/>
+    <param pos="0" name="service.vendor" value="gdnsd"/>
     <param pos="0" name="service.family" value="gdnsd"/>
     <param pos="0" name="service.product" value="gdnsd"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:gdnsd:gdnsd:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Hi: [\w\.: =]+\d{4}$">
