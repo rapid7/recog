@@ -360,6 +360,7 @@ example.com FTP server (Version:  Mac OS X Server) ready.</example>
     <example service.version="1.0.11">=(&lt;*&gt;)=-.:. (( Welcome to Pure-FTPd 1.0.11 )) .:.-=(&lt;*&gt;)=-</example>
     <example service.version="1.0.11">=(&lt;*&gt;)=-.:. (( Welcome to Pure-FTPd 1.0.11 )) .:.-=(&lt;*&gt;)=-&#13;
 more stuff</example>
+    <param pos="0" name="service.fvendor" value="PureFTPd"/>
     <param pos="0" name="service.family" value="Pure-FTPd"/>
     <param pos="0" name="service.product" value="Pure-FTPd"/>
     <param pos="1" name="service.version"/>
@@ -374,16 +375,20 @@ more stuff</example>
     <example>--------- Welcome to Pure-FTPd [privsep] [TLS] ----------&#13;
 more text</example>
     <param pos="1" name="pureftpd.config"/>
+    <param pos="0" name="service.vendor" value="PureFTPd"/>
     <param pos="0" name="service.family" value="Pure-FTPd"/>
     <param pos="0" name="service.product" value="Pure-FTPd"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:pureftpd:pure-ftpd:-"/>
   </fingerprint>
 
   <fingerprint pattern="^(?:Welcome to )?Pure-FTPd\.?$">
     <description>Basic Pure-FTPd banner, no version</description>
     <example>Welcome to Pure-FTPd</example>
     <example>Pure-FTPd.</example>
+    <param pos="0" name="service.vendor" value="PureFTPd"/>
     <param pos="0" name="service.family" value="Pure-FTPd"/>
     <param pos="0" name="service.product" value="Pure-FTPd"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:pureftpd:pure-ftpd:-"/>
   </fingerprint>
 
   <fingerprint pattern="^=\(.\*.\)=-\.:\. \(\( Welcome to PureFTPd (\d+\..+) \)\) \.:\.-=\(.\*.\)=-" flags="REG_MULTILINE">
@@ -391,24 +396,54 @@ more text</example>
     <example service.version="1.1.0">=(&lt;*&gt;)=-.:. (( Welcome to PureFTPd 1.1.0 )) .:.-=(&lt;*&gt;)=-</example>
     <example service.version="1.1.0">=(&lt;*&gt;)=-.:. (( Welcome to PureFTPd 1.1.0 )) .:.-=(&lt;*&gt;)=-&#13;
 more text</example>
+    <param pos="0" name="service.vendor" value="PureFTPd"/>
     <param pos="0" name="service.family" value="Pure-FTPd"/>
     <param pos="0" name="service.product" value="Pure-FTPd"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:pureftpd:pure-ftpd:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^Serv-U FTP[ -]Server v(\d+\.\S+)(?: for WinSock)? ready\.*$">
-    <description>Serv-U (only runs on Windows)</description>
+  <!-- CPEs for Serv-U 15.x and above changed to SolarWinds -->
+
+  <fingerprint pattern="^Serv-U FTP Server v(15\.\S+) ready\.\.\.$">
+    <description>SolarWinds Serv-U with version </description>
+    <example service.version="15.1.3.25">Serv-U FTP Server v15.1.3.25 ready...</example>
+    <param pos="0" name="service.vendor" value="SolarWinds"/>
+    <param pos="0" name="service.product" value="Serv-U FTP Server"/>
+    <param pos="0" name="service.family" value="Serv-U"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:solarwinds:serv-u_ftp_server:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Serv-U FTP[ -]Server v(\d+\.\S+) for WinSock ready\.*$">
+    <description>Serv-U Serv-U with version on Windows</description>
     <example service.version="2.5n">Serv-U FTP-Server v2.5n for WinSock ready...</example>
     <example service.version="6.0">Serv-U FTP Server v6.0 for WinSock ready</example>
-    <example service.version="7.2">Serv-U FTP Server v7.2 ready...</example>
-    <param pos="0" name="service.vendor" value="Rhino Software"/>
+    <param pos="0" name="service.vendor" value="Serv-U"/>
     <param pos="0" name="service.product" value="Serv-U"/>
     <param pos="0" name="service.family" value="Serv-U"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:serv-u:serv-u:{service.version}"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Serv-U FTP[ -]Server v(\d+\.\S+) ready\.*$">
+    <description>Serv-U Serv-U with version </description>
+    <example service.version="7.2">Serv-U FTP Server v7.2 ready...</example>
+    <example service.version="14.0">Serv-U FTP Server v14.0 ready...</example>
+    <param pos="0" name="service.vendor" value="Serv-U"/>
+    <param pos="0" name="service.product" value="Serv-U"/>
+    <param pos="0" name="service.family" value="Serv-U"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:serv-u:serv-u:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Welcom to Serv-U FTP Server$">
+    <description>Common FTP banner modification to look like Serv-U -- assert nothing.</description>
+    <example>Welcom to Serv-U FTP Server</example>
   </fingerprint>
 
   <fingerprint pattern="^zFTPServer v?(\S+), .*ready\.$" flags="REG_ICASE">
@@ -427,23 +462,28 @@ more text</example>
     <description>vsFTPd (Very Secure FTP Daemon)</description>
     <example service.version="1.1.3">(vsFTPd 1.1.3) host</example>
     <example service.version="2.0.5">(vsFTPd 2.0.5)</example>
+    <param pos="0" name="service.vendor" value="vsFTPd Project"/>
     <param pos="0" name="service.family" value="vsFTPd"/>
     <param pos="0" name="service.product" value="vsFTPd"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:vsftpd_project:vsftpd:{service.version}"/>
     <param pos="2" name="host.name"/>
   </fingerprint>
 
   <fingerprint pattern="^ready, dude \(vsFTPd (\d+\..+): beat me, break me\)$">
     <description>vsFTPd (Very Secure FTP Daemon) - break me variant</description>
     <example service.version="1.1.0">ready, dude (vsFTPd 1.1.0: beat me, break me)</example>
+    <param pos="0" name="service.vendor" value="vsFTPd Project"/>
     <param pos="0" name="service.family" value="vsFTPd"/>
     <param pos="0" name="service.product" value="vsFTPd"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:vsftpd_project:vsftpd:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^vsFTPd ([\d.]+\+ \(ext\.3\)) ready\.\.\.$">
     <description>vsFTPd (Very Secure FTP Daemon) extended build (vsftpd.devnet.ru)</description>
     <example service.version="2.0.4+ (ext.3)">vsFTPd 2.0.4+ (ext.3) ready...</example>
+    <param pos="0" name="service.vendor" value="vsFTPd Project"/>
     <param pos="0" name="service.family" value="vsFTPd"/>
     <param pos="0" name="service.product" value="vsFTPd Extended"/>
     <param pos="1" name="service.version"/>
@@ -453,8 +493,10 @@ more text</example>
     <description>vsFTPd (Very Secure FTP Daemon) error message</description>
     <example>OOPS: vsftpd: root is not mounted.</example>
     <example>OOPS: cannot read user list file:/etc/vsftpd.user_list</example>
+    <param pos="0" name="service.vendor" value="vsFTPd Project"/>
     <param pos="0" name="service.family" value="vsFTPd"/>
     <param pos="0" name="service.product" value="vsFTPd"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:vsftpd_project:vsftpd:-"/>
   </fingerprint>
 
   <fingerprint pattern="^FileZilla Server(?: version)? (?:v)?(\d\.[\w.]+(?: beta)?).*$">
@@ -463,9 +505,14 @@ more text</example>
     <example service.version="0.9.13a beta">FileZilla Server version 0.9.13a beta</example>
     <example service.version="0.9.54 beta">FileZilla Server 0.9.54 beta</example>
     <example service.version="0.9.33 beta">FileZilla Server v0.9.33 beta</example>
+    <param pos="0" name="service.vendor" value="Filezilla-Project"/>
     <param pos="0" name="service.family" value="FileZilla FTP Server"/>
     <param pos="0" name="service.product" value="FileZilla FTP Server"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
 
   <fingerprint pattern="^\s*APC FTP server ready\.$">
