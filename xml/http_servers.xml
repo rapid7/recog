@@ -3494,6 +3494,30 @@
     <param pos="0" name="os.device" value="Router"/>
   </fingerprint>
 
+  <fingerprint pattern="Linux, WEBACCESS/1.0, (DIR-\d+\w*) Ver (\S+)$">
+    <description>D-Link DIR-XXX Router - WEBACCESS variant</description>
+    <example hw.product="DIR-850L">Linux, WEBACCESS/1.0, DIR-850L Ver 1.09</example>
+    <example os.version="1.14WW">Linux, WEBACCESS/1.0, DIR-850L Ver 1.14WW</example>
+    <example os.version="1.04">Linux, WEBACCESS/1.0, DIR-645 Ver 1.04</example>
+    <param pos="0" name="hw.vendor" value="D-Link"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="os.vendor" value="D-Link"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.device" value="Router"/>
+  </fingerprint>
+
+  <fingerprint pattern="Linux, HTTP/1.1, (DIR-\d+\w*) Ver (\S+)$">
+    <description>D-Link DIR-XXX Router - HTTP variant</description>
+    <example hw.product="DIR-815">Linux, HTTP/1.1, DIR-815 Ver 1.04</example>
+    <param pos="0" name="hw.vendor" value="D-Link"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="os.vendor" value="D-Link"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.device" value="Router"/>
+  </fingerprint>
+
   <fingerprint pattern="^TBS/R2 UPnP/[\d\.]+ MiniUPnPd/[\d\.]+$">
     <description>D-Link generic</description>
     <example>TBS/R2 UPnP/1.0 MiniUPnPd/1.2</example>
