@@ -2457,7 +2457,7 @@
   </fingerprint>
 
   <fingerprint pattern="^mini_httpd/((?:\d+\.)*\d+) \S*$">
-    <description>A small HTTP server</description>
+    <description>ACME mini_httpd with version and date</description>
     <example>mini_httpd/1.14 23jun2000</example>
     <example>mini_httpd/1 23jun2000</example>
     <param pos="0" name="service.vendor" value="ACME"/>
@@ -3940,7 +3940,7 @@
 
   <fingerprint pattern="^IX Series IX21\d\d \(magellan-sec\) Software, Version ([^, ]+), (?:MAINTENANCE )?RELEASE SOFTWARE$">
     <description>NEC Univerge Router - enterprise class with VPN, UTM, etc</description>
-    <example>IX Series IX2106 (magellan-sec) Software, Version 10.2.20, RELEASE SOFTWARE</example>
+    <example hw.version="10.2.20">IX Series IX2106 (magellan-sec) Software, Version 10.2.20, RELEASE SOFTWARE</example>
     <example>IX Series IX2105 (magellan-sec) Software, Version 9.6.12A, MAINTENANCE RELEASE SOFTWARE</example>
     <param pos="0" name="hw.vendor" value="NEC"/>
     <param pos="0" name="hw.product" value="Univerge"/>
@@ -3975,6 +3975,20 @@
     <param pos="0" name="service.vendor" value="Facebook"/>
     <param pos="0" name="service.product" value="Proxygen"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:facebook:proxygen:-"/>
+  </fingerprint>
+
+  <!-- This is a version of ACME mini_httpd where the value 'mini_httpd' has been
+      replaced with a UUID in the Server header AND body of the response. It
+      is likely vendor or product specific.
+  -->
+
+  <fingerprint pattern="^[a-f\d]{8}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{12}$">
+    <description>ACME mini_httpd with randomized Server header</description>
+    <example>a74b7cd4-4a4e-4115-7a48-1c7ebb4ae45b</example>
+    <example>ffdf3c58-82cb-eabe-c83c-d677aa6891a2</example>
+    <param pos="0" name="service.vendor" value="ACME"/>
+    <param pos="0" name="service.product" value="mini_httpd"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:acme:mini_httpd:-"/>
   </fingerprint>
 
 </fingerprints>

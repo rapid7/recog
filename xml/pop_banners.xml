@@ -180,11 +180,53 @@
 
   <fingerprint pattern="^[dD]ovecot (?:DA )?ready\.(?: &lt;.+@(.+)&gt;)?$">
     <description>Dovecot Secure POP Server</description>
+    <example>Dovecot ready.</example>
+    <example>Dovecot DA ready.</example>
+    <example host.name="foo.bar.baz">Dovecot ready. &lt;fea.13865d.5f06b0a4.DuIvzQI4DAGR9MurahIGJw==@foo.bar.baz&gt;</example>
     <param pos="0" name="service.vendor" value="Dovecot"/>
     <param pos="0" name="service.family" value="Dovecot"/>
     <param pos="0" name="service.product" value="Dovecot"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:dovecot:dovecot:-"/>
     <param pos="1" name="host.name"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Dovecot \(Ubuntu\) ready\.$">
+    <description>Dovecot Secure POP Server - Ubuntu variant</description>
+    <example>Dovecot (Ubuntu) ready.</example>
+    <param pos="0" name="service.vendor" value="Dovecot"/>
+    <param pos="0" name="service.family" value="Dovecot"/>
+    <param pos="0" name="service.product" value="Dovecot"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:dovecot:dovecot:-"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Dovecot \(Debian\) ready\.$">
+    <description>Dovecot Secure POP Server - Debian variant</description>
+    <example>Dovecot (Debian) ready.</example>
+    <param pos="0" name="service.vendor" value="Dovecot"/>
+    <param pos="0" name="service.family" value="Dovecot"/>
+    <param pos="0" name="service.product" value="Dovecot"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:dovecot:dovecot:-"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Dovecot \(Raspbian\) ready\.$">
+    <description>Dovecot Secure POP Server - Raspbian variant</description>
+    <example>Dovecot (Raspbian) ready.</example>
+    <param pos="0" name="service.vendor" value="Dovecot"/>
+    <param pos="0" name="service.family" value="Dovecot"/>
+    <param pos="0" name="service.product" value="Dovecot"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:dovecot:dovecot:-"/>
+    <param pos="0" name="os.vendor" value="Raspbian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="hw.product" value="Raspberry Pi"/>
   </fingerprint>
 
   <fingerprint pattern="^(\S+) Zimbra POP3 server ready\.?$">
@@ -303,6 +345,19 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
+  <fingerprint pattern="^Welcome to MailEnable POP3 Server$">
+    <description>MailEnable POP3</description>
+    <example>Welcome to MailEnable POP3 Server</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
+    <param pos="0" name="service.vendor" value="MailEnable"/>
+    <param pos="0" name="service.family" value="Mail Server"/>
+    <param pos="0" name="service.product" value="MailEnable"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:mailenable:mailenable:-"/>
+  </fingerprint>
+
   <!--
 ; Mandrake 8.1 - uses UW IMAP
 ; +OK POP3 mandrake81-f540k v2000.70mdk server ready
@@ -332,7 +387,6 @@
 // +OK Gordano Messaging Suite POP3 server ready <13501095613509@hollandcanadaline.com>
 // +OK unitechna.lt Merak 8.9.1 POP3 Sun, 22 Jul 2007 23:16:25 +0300 <20070722231625@unitechna.lt>
 // +OK Cubic Circle's v1.31 1998/05/13 POP3 ready <0c9300004104a246@www.dvdld.co.za>
-// +OK Welcome to MailEnable POP3 Server
 // +OK GroupWise POP3 server ready
 // +OK POP3 AnalogX Proxy 4.14 (Release) ready.
 // +OK lojack.com.ar POP MDaemon 9.6.0 ready <MDAEMON-F200707232110.AA1001241MD4604@lojack.com.ar>
@@ -473,7 +527,6 @@
 +OK studiovisuals.com POP3 Server (Version 1.020h) ready.
 +OK themeekermall.com POP3 Server (Version 1.020h) ready.
 +OK unitechna.lt Merak 8.9.1 POP3 Sun, 22 Jul 2007 23:16:25 +0300 <20070722231625@unitechna.lt>
-+OK Welcome to MailEnable POP3 Server
 +OK X1 NT-POP3 Server 2436681011.monstercommercesites.com (IMail 7.15 560907-1)
 +OK X1 NT-POP3 Server Calvin-Serv (IMail 8.22 1107-1)
 +OK X1 NT-POP3 Server chealsea.com.cn (IMail 8.15 16990-1)
