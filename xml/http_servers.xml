@@ -3509,7 +3509,19 @@
 
   <fingerprint pattern="Linux, HTTP/1.1, (DIR-\d+\w*) Ver (\S+)$">
     <description>D-Link DIR-XXX Router - HTTP variant</description>
-    <example hw.product="DIR-815">Linux, HTTP/1.1, DIR-815 Ver 1.04</example>
+    <example hw.product="DIR-815" os.version="1.04">Linux, HTTP/1.1, DIR-815 Ver 1.04</example>
+    <param pos="0" name="hw.vendor" value="D-Link"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="os.vendor" value="D-Link"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.device" value="Router"/>
+  </fingerprint>
+
+  <fingerprint pattern="Linux, WEBACCESS/1.0, (DSL-\d+\w*) Ver (\S+)$">
+    <description>D-Link DSL-XXX Router - WEBACCESS variant</description>
+    <example hw.product="DSL-2890AL" os.version="AU_1.02.10">Linux, WEBACCESS/1.0, DSL-2890AL Ver AU_1.02.10</example>
+    <example hw.product="DSL-2890AL" os.version="1.01">Linux, WEBACCESS/1.0, DSL-2890AL Ver 1.01</example>
     <param pos="0" name="hw.vendor" value="D-Link"/>
     <param pos="1" name="hw.product"/>
     <param pos="0" name="hw.device" value="Router"/>
