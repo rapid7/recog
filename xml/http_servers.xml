@@ -3524,6 +3524,15 @@
     <param pos="0" name="hw.vendor" value="D-Link"/>
   </fingerprint>
 
+  <fingerprint pattern="^alphapd/(\d\.[\d.]+)$">
+    <description>D-Link alphapd - likely DCS series cameras</description>
+    <example service.version="2.1.8">alphapd/2.1.8</example>
+    <param pos="0" name="hw.vendor" value="D-Link"/>
+    <param pos="0" name="service.vendor" value="D-Link"/>
+    <param pos="0" name="service.product" value="alphapd"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
   <fingerprint pattern="^ipos/([\d\.]+) UPnP/[\d\.]+ (TL-\w+)/(\S+)$">
     <description>TP-Link WAP UPnP Server</description>
     <example>ipos/7.0 UPnP/1.0 TL-WR841N/6.0/7.0</example>
@@ -3938,6 +3947,34 @@
     <param pos="1" name="hw.version"/>
     <param pos="0" name="hw.device" value="Router"/>
     <param pos="0" name="hw.cpe23" value="cpe:/h:nec:univerge:{hw.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Caddy$">
+    <description>CaddyServer Caddy - golang based httpd</description>
+    <example>Caddy</example>
+    <param pos="0" name="service.vendor" value="CaddyServer"/>
+    <param pos="0" name="service.product" value="Caddy"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:caddyserver:caddy:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^MoxaHttp/(\d\.\d)$">
+    <description>Moxa devices - service used on multiple families of devices</description>
+    <example service.version="2.3">MoxaHttp/2.3</example>
+    <example>MoxaHttp/2.2</example>
+    <example>MoxaHttp/1.0</example>
+    <param pos="0" name="service.vendor" value="Moxa"/>
+    <param pos="0" name="service.product" value="httpd"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="hw.vendor" value="Moxa"/>
+    <param pos="0" name="os.vendor" value="Moxa"/>
+  </fingerprint>
+
+  <fingerprint pattern="^proxygen-bolt$">
+    <description>Facebook Proxygen httpd software</description>
+    <example>proxygen-bolt</example>
+    <param pos="0" name="service.vendor" value="Facebook"/>
+    <param pos="0" name="service.product" value="Proxygen"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:facebook:proxygen:-"/>
   </fingerprint>
 
 </fingerprints>

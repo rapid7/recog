@@ -2,6 +2,26 @@
 <fingerprints matches="html_title" database_type="service" preference="0.90">
   <!-- HTML Title elements found in HTTP response bodies are matched against these patterns to fingerprint HTTP servers. -->
 
+  <fingerprint pattern="^301 Moved Permanently$">
+    <description>301 Moved Permanently - generic -- assert nothing.</description>
+    <example>301 Moved Permanently</example>
+  </fingerprint>
+
+  <fingerprint pattern="^400 Bad Request$">
+    <description>400 Bad Request - generic -- assert nothing.</description>
+    <example>400 Bad Request</example>
+  </fingerprint>
+
+  <fingerprint pattern="^401 Unauthorized$">
+    <description>401 Unauthorized - generic -- assert nothing.</description>
+    <example>401 Unauthorized</example>
+  </fingerprint>
+
+  <fingerprint pattern="^404 Not Found$">
+    <description>404 Not Found - generic -- assert nothing.</description>
+    <example>404 Not Found</example>
+  </fingerprint>
+
   <fingerprint pattern="^Index of /">
     <description>Apache HTTPD indexes</description>
     <example>Index of /</example>
