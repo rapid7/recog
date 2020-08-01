@@ -1363,20 +1363,11 @@ more text</example>
     <param pos="0" name="os.cpe23" value="cpe:/o:mikrotik:routeros:{os.version}"/>
   </fingerprint>
 
- <fingerprint pattern="^.* FTP server \(MikroTik (\d\.[\w\.]+)\) ready\.?$">
+  <fingerprint pattern="^.* FTP server \(MikroTik (\d\.[\w\.]+)\) ready\.?$">
     <description>MikroTik with description</description>
     <example os.version="6.43.16">Super Thing_Place-  FTP server (MikroTik 6.43.16) ready</example>
     <example os.version="6.43.16beta2">Super Thing_Place-  FTP server (MikroTik 6.43.16beta2) ready</example>
     <example os.version="6.43.16rc56">Super Thing_Place-  FTP server (MikroTik 6.43.16rc56) ready</example>
-    <param pos="0" name="os.vendor" value="MikroTik"/>
-    <param pos="0" name="os.product" value="RouterOS"/>
-    <param pos="1" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:mikrotik:routeros:{os.version}"/>
-  </fingerprint>
-
-  <fingerprint pattern="^MikroTik FTP server \(MikroTik ([\w.]+)\) ready\.?$">
-    <description>MikroTik w/o hostname</description>
-    <example os.version="6.0rc14">MikroTik FTP server (MikroTik 6.0rc14) ready</example>
     <param pos="0" name="os.vendor" value="MikroTik"/>
     <param pos="0" name="os.product" value="RouterOS"/>
     <param pos="1" name="os.version"/>
