@@ -66,7 +66,7 @@
     <param pos="0" name="hw.vendor" value="Cisco"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\r|\n)*MikroTik v([\w.]+)(?: \(\w+\))?(?:\r|\n)+Login:\s*$">
+  <fingerprint pattern="^(?:\r|\n)*MikroTik v([\w.]+)(?: \([\w-]+\))?(?:\r|\n)+Login:\s*$">
     <description>MikroTik RouterOS</description>
     <!-- MikroTik v5.2\r\nLogin: -->
 
@@ -80,6 +80,9 @@
     <!-- MikroTik v6.36rc12 (testing)\r\nLogin: -->
 
     <example _encoding="base64" os.version="6.36rc12">TWlrcm9UaWsgdjYuMzZyYzEyICh0ZXN0aW5nKQ0KTG9naW46Cg==</example>
+    <!-- MikroTik v6.42.9 (long-term)\r\nLogin: -->
+
+    <example _encoding="base64" os.version="6.42.9">TWlrcm9UaWsgdjYuNDIuOSAobG9uZy10ZXJtKQ0KTG9naW46Cg==</example>
     <param pos="0" name="os.vendor" value="MikroTik"/>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="0" name="os.product" value="RouterOS"/>
@@ -162,6 +165,28 @@
     <param pos="3" name="os.build"/>
     <param pos="4" name="os.edition"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:dd-wrt:dd-wrt:{os.version}"/>
+    <param pos="0" name="hw.device" value="Router"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(?:\r|\n)*DD-WRT v(3.\d)-(r([\w]+)) ([\w-]+) \(c\) \d{4} NewMedia-NET GmbH(?:\r|\n)+Release: \d+\/\d+\/\d+(?:\r|\n)+Board: (\S+) ([^\n\r]+)(?:\r|\n)+.* login:\s*$">
+    <description>DD-WRT - 3.0 family - with hardward product</description>
+    <!-- DD-WRT v3.0-r40559 std (c) 2019 NewMedia-NET GmbH\r\nRelease: 08/06/19\r\nBoard: Linksys WRT3200ACM\r\n\r\nDD-WRT login: -->
+
+    <example _encoding="base64" os.version="3.0" os.version.version="r40559" os.edition="std" os.build="40559" hw.vendor="Linksys" hw.product="WRT3200ACM">
+      REQtV1JUIHYzLjAtcjQwNTU5IHN0ZCAoYykgMjAxOSBOZXdNZWRpYS1ORVQgR21iSA0KUmVsZ
+      WFzZTogMDgvMDYvMTkNCkJvYXJkOiBMaW5rc3lzIFdSVDMyMDBBQ00NCg0KREQtV1JUIGxvZ2
+      luOgo=
+    </example>
+    <param pos="0" name="os.vendor" value="DD-WRT"/>
+    <param pos="0" name="os.product" value="DD-WRT"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="1" name="os.version"/>
+    <param pos="2" name="os.version.version"/>
+    <param pos="3" name="os.build"/>
+    <param pos="4" name="os.edition"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:dd-wrt:dd-wrt:{os.version}"/>
+    <param pos="5" name="hw.vendor"/>
+    <param pos="6" name="hw.product"/>
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
 
@@ -906,6 +931,7 @@
     <param pos="1" name="hw.product"/>
     <param pos="2" name="host.mac"/>
     <param pos="3" name="host.id"/>
+    <param pos="0" name="os.vendor" value="Moxa"/>
     <param pos="4" name="os.version"/>
     <param pos="5" name="os.version.version"/>
   </fingerprint>
@@ -928,8 +954,22 @@
     <param pos="1" name="hw.product"/>
     <param pos="2" name="host.mac"/>
     <param pos="3" name="host.id"/>
+    <param pos="0" name="os.vendor" value="Moxa"/>
     <param pos="4" name="os.version"/>
     <param pos="5" name="os.version.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(?:\r|\n|\x00|-)*Model name\s+: NPort (5[\w-]+)(?:\r|\n|\x00)+Please keyin your username:">
+    <description>Moxa NPort Device Server - 5xxx Series - Model only</description>
+    <!-- Model name       : NPort 5110A\r\n\r\nPlease keyin your username: -->
+
+    <example _encoding="base64" hw.product="5110A">TW9kZWwgbmFtZSAgICAgICA6IE5Q
+      b3J0IDUxMTBBDQoNClBsZWFzZSBrZXlpbiB5b3VyIHVzZXJuYW1lOgo=
+    </example>
+    <param pos="0" name="hw.vendor" value="Moxa"/>
+    <param pos="0" name="hw.family" value="NPort"/>
+    <param pos="0" name="hw.device" value="Device Server"/>
+    <param pos="1" name="hw.product"/>
   </fingerprint>
 
   <fingerprint pattern="^Model name\s+: MGate (MB3[\w-]+)(?:\r|\n|\x00|)+MAC address\s+: ([\w:]+)(?:\r|\n|\x00)+Serial No.\s+: (\d+)(?:\r|\n|\x00)+Firmware version : ([\d.]+) Build (\d+)(?:\r|\n|\x00)+">
@@ -948,11 +988,12 @@
     <param pos="1" name="hw.product"/>
     <param pos="2" name="host.mac"/>
     <param pos="3" name="host.id"/>
+    <param pos="0" name="os.vendor" value="Moxa"/>
     <param pos="4" name="os.version"/>
     <param pos="5" name="os.version.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^Model name\s+: (NE[\w-]+)(?:\r|\n|\x00)+MAC address\s+: ([\w:]+)(?:\r|\n|\x00)+Serial No.\s+: (\d+)(?:\r|\n|\x00)+Firmware version\s+: ([\d.]+) Build (\d+)(?:\r|\n|\x00)+">
+  <fingerprint pattern="^Model name\s+: (NE[\w-]+)(?:\r|\n|\x00)+MAC address\s+: ([\w:]+)(?:\r|\n|\x00)+Serial No.\s+: (\d+)(?:\r|\n|\x00)+Firmware version\s+: ([\d.]+)(?: Build (\d+)(?:\r|\n|\x00)+)?">
     <description>Moxa NE Series Embedded device server</description>
     <!-- Model name       : NE-4110S\r\u0000\nMAC address      : 00:90:E8:AA:AA:AA\r\u0000\nSerial No        : 3616\r\u0000\nFirmware version : 4.1 Build 07061517\r\u0000\n\r\u0000\nPlease keyin your password: -->
 
@@ -961,14 +1002,72 @@
       kU4OkFBOkFBOkFBDQAKU2VyaWFsIE5vICAgICAgICA6IDM2MTYNAApGaXJtd2FyZSB2ZXJzaW
       9uIDogNC4xIEJ1aWxkIDA3MDYxNTE3DQAKDQAKUGxlYXNlIGtleWluIHlvdXIgcGFzc3dvcmQ6
     </example>
+    <!-- Model name       : NE-4110S\r\nMAC address      : 00:90:E8:AA:AA:AA\r\nSerial No        : 000\r\nFirmware version : 1.5.2\r\n\r\nPlease keyin your password: -->
+
+    <example _encoding="base64" hw.product="NE-4110S" host.mac="00:90:E8:AA:AA:AA" host.id="000" os.version="1.5.2">
+      TW9kZWwgbmFtZSAgICAgICA6IE5FLTQxMTBTDQpNQUMgYWRkcmVzcyAgICAgIDogMDA6OTA6RTg6QUE6QUE6QUENClNlcmlhbCBObyAgICAgICAgOiAwMDANCkZpcm13YXJlIHZlcnNpb24gOiAxLjUuMg0KDQpQbGVhc2Uga2V5aW4geW91ciBwYXNzd29yZDoK
+      </example>
     <param pos="0" name="hw.vendor" value="Moxa"/>
     <param pos="0" name="hw.family" value="NE"/>
     <param pos="0" name="hw.device" value="Device Server"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="host.mac"/>
     <param pos="3" name="host.id"/>
+    <param pos="0" name="os.vendor" value="Moxa"/>
     <param pos="4" name="os.version"/>
     <param pos="5" name="os.version.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Model name\s+: (MiiNePort [\w-]+)(?:\r|\n|\x00)+Serial No.\s+: (\d+)(?:\r|\n|\x00)+Device name\s+: [\w:-_\&amp;]+(?:\r|\n|\x00)+Firmware version\s+: ([\d.]+) Build (\d+)(?:\r|\n|\x00)+Ethernet MAC address: ([\w:]+)(?:\r|\n|\x00)+">
+    <description>Moxa MiiNePort Series Embedded device server</description>
+    <!-- Model name          : MiiNePort E2\r\nSerial No.          : 9999\r\nDevice name         : MiiNePort_E2_4064\r\nFirmware version    : 1.3.36 Build 15031615\r\nEthernet MAC address: 00:90:E8:5A:92:FF\r\n\r\nPlease keyin your password: -->
+
+    <example _encoding="base64" hw.product="MiiNePort E2" host.mac="00:90:E8:5A:92:FF" host.id="9999" os.version="1.3.36" os.version.version="15031615">
+      TW9kZWwgbmFtZSAgICAgICAgICA6IE1paU5lUG9ydCBFMg0KU2VyaWFsIE5vLiAgICAgICAgI
+      CA6IDk5OTkNCkRldmljZSBuYW1lICAgICAgICAgOiBNaWlOZVBvcnRfRTJfNDA2NA0KRmlybX
+      dhcmUgdmVyc2lvbiAgICA6IDEuMy4zNiBCdWlsZCAxNTAzMTYxNQ0KRXRoZXJuZXQgTUFDIGF
+      kZHJlc3M6IDAwOjkwOkU4OjVBOjkyOkZGDQoNClBsZWFzZSBrZXlpbiB5b3VyIHBhc3N3b3Jk
+      Ogo=
+    </example>
+    <param pos="0" name="hw.vendor" value="Moxa"/>
+    <param pos="0" name="hw.family" value="MiiNePort"/>
+    <param pos="0" name="hw.device" value="Device Server"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="host.id"/>
+    <param pos="0" name="os.vendor" value="Moxa"/>
+    <param pos="3" name="os.version"/>
+    <param pos="4" name="os.version.version"/>
+    <param pos="5" name="host.mac"/>
+  </fingerprint>
+
+  <!-- The following is very specific in order to express CPE values -->
+
+  <fingerprint pattern="^EDR-G903 login:">
+    <description>Moxa EDR Secure Routers - EDR-G903</description>
+    <example>EDR-G903 login:</example>
+    <param pos="0" name="hw.vendor" value="Moxa"/>
+    <param pos="0" name="hw.family" value="EDR"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.product" value="EDR-G903"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:moxa:edr-g903:-"/>
+    <param pos="0" name="os.vendor" value="Moxa"/>
+    <param pos="0" name="os.family" value="EDR"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="0" name="os.product" value="EDR G903 Firmware"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:moxa:edr_g903_firmware:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^EDR-G902 login:">
+    <description>Moxa EDR Secure Routers - EDR-G902</description>
+    <example>EDR-G902 login:</example>
+    <param pos="0" name="hw.vendor" value="Moxa"/>
+    <param pos="0" name="hw.family" value="EDR"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.product" value="EDR-G902"/>
+    <param pos="0" name="os.vendor" value="Moxa"/>
+    <param pos="0" name="os.family" value="EDR"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="0" name="os.product" value="EDR G902 Firmware"/>
   </fingerprint>
 
   <fingerprint pattern="^Red Hat Linux release ([^\\s]+)\\s*.*$">
@@ -1370,7 +1469,7 @@
     <description>System HP-UX</description>
     <!-- HP-UX ctout B.11.11 U 9000/800 (tc)\nlogin: -->
 
-    <example _encoding="base64" host.name="ctout" os.version="11.11" hw.series="9000/800" hw.model="(tc)">
+    <example _encoding="base64" host.name="ctout" os.version="11.11" hw.series="9000/800" hw.model="(tc)" hw.version="U">
       SFAtVVggY3RvdXQgQi4xMS4xMSBVIDkwMDAvODAwICh0YykKCmxvZ2luOiA=
     </example>
     <param pos="0" name="os.vendor" value="HP"/>
@@ -1800,14 +1899,20 @@
     <param pos="1" name="hw.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^RDK \(A Yocto Project based Distro\) ([^ ]+) Docsis-Gateway">
+  <fingerprint pattern="^RDK \(A Yocto Project based Distro\) ([^ ]+) (?:Docsis-Gateway|Business)">
+    <description>DOCSIS Cable Modem Running RDK</description>
     <!-- RDK (A Yocto Project based Distro) 2.0 Docsis-Gateway
          Docsis-Gateway login: -->
 
-    <description>DOCSIS Cable Modem Running RDK</description>
     <example _encoding="base64" hw.device="DOCSIS Cable Modem" os.vendor="Yocto" os.product="RDK" os.version="2.0">
-      UkRLIChBIFlvY3RvIFByb2plY3QgYmFzZWQgRGlzdHJvKSAyLjAgRG9jc2lzLUdhdGV3YXkNCg0NCg1Eb
-      2NzaXMtR2F0ZXdheSBsb2dpbjo=
+      UkRLIChBIFlvY3RvIFByb2plY3QgYmFzZWQgRGlzdHJvKSAyLjAgRG9jc2lzLUdhdGV3YXkNC
+      g0NCg1Eb2NzaXMtR2F0ZXdheSBsb2dpbjo=
+    </example>
+    <!-- RDK (A Yocto Project based Distro) 2.0 Business\r\n\r\r\n\rBusiness login: -->
+
+    <example _encoding="base64" hw.device="DOCSIS Cable Modem" os.vendor="Yocto" os.product="RDK" os.version="2.0">
+      UkRLIChBIFlvY3RvIFByb2plY3QgYmFzZWQgRGlzdHJvKSAyLjAgQnVzaW5lc3MNCg0NCg1Cd
+      XNpbmVzcyBsb2dpbjoK
     </example>
     <param pos="0" name="hw.device" value="DOCSIS Cable Modem"/>
     <param pos="0" name="os.vendor" value="Yocto"/>
@@ -1843,6 +1948,40 @@
     <param pos="0" name="os.device" value="Power device"/>
     <param pos="0" name="os.vendor" value="Liebert"/>
     <param pos="1" name="os.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^KeeneticOS version ([\w.-]+), copyright">
+    <description>Keentic KeeneticOS</description>
+    <!-- KeeneticOS version 3.04.C.6.0-0, copyright (c) 2010-2020 Keenetic Ltd.\r\n\r\nLogin: -->
+
+    <example _encoding="base64" os.version="3.04.C.6.0-0">
+      S2VlbmV0aWNPUyB2ZXJzaW9uIDMuMDQuQy42LjAtMCwgY29weXJpZ2h0IChjKSAyMDEwLTIwM
+      jAgS2VlbmV0aWMgTHRkLg0KDQpMb2dpbjoK
+    </example>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.vendor" value="Keenetic"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="0" name="os.vendor" value="Keenetic"/>
+    <param pos="0" name="os.product" value="KeeneticOS"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^\**(?:\r|\n)+\* Copyright \(c\) \d\d\d\d-\d\d\d\d New H3C Technologies Co., Ltd. All rights reserved.\*(?:\r|\n)+\* Without the owner's prior written consent,\s+\*(?:\r|\n)+\* no decompiling or reverse-engineering shall be allowed.\s+\*(?:\r|\n)+\*+(?:\r|\n)+login:\s*$">
+    <description>Generic H3C Technologies banner</description>
+    <!-- ******************************************************************************\r\n* Copyright (c) 2004-2017 New H3C Technologies Co., Ltd. All rights reserved.*\r\n* Without the owner's prior written consent,                                 *\r\n* no decompiling or reverse-engineering shall be allowed.                    *\r\n******************************************************************************\r\n\r\nlogin: -->
+
+    <example _encoding="base64">
+      KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqK
+      ioqKioqKioqKioqKioqKioqKioqKioqDQoqIENvcHlyaWdodCAoYykgMjAwNC0yMDE3IE5ldy
+      BIM0MgVGVjaG5vbG9naWVzIENvLiwgTHRkLiBBbGwgcmlnaHRzIHJlc2VydmVkLioNCiogV2l
+      0aG91dCB0aGUgb3duZXIncyBwcmlvciB3cml0dGVuIGNvbnNlbnQsICAgICAgICAgICAgICAg
+      ICAgICAgICAgICAgICAgICAgKg0KKiBubyBkZWNvbXBpbGluZyBvciByZXZlcnNlLWVuZ2luZ
+      WVyaW5nIHNoYWxsIGJlIGFsbG93ZWQuICAgICAgICAgICAgICAgICAgICAqDQoqKioqKioqKi
+      oqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKio
+      qKioqKioqKioqKioqKioNCg0KbG9naW46Cg==
+    </example>
+    <param pos="0" name="hw.vendor" value="H3C"/>
+    <param pos="0" name="os.vendor" value="H3C"/>
   </fingerprint>
 
   <fingerprint pattern="Telnet Administration (?:\r|\n)+   SAP J2EE Engine v([\d.]+)(?:\r|\n)+">

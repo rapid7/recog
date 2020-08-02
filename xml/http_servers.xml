@@ -2457,7 +2457,7 @@
   </fingerprint>
 
   <fingerprint pattern="^mini_httpd/((?:\d+\.)*\d+) \S*$">
-    <description>A small HTTP server</description>
+    <description>ACME mini_httpd with version and date</description>
     <example>mini_httpd/1.14 23jun2000</example>
     <example>mini_httpd/1 23jun2000</example>
     <param pos="0" name="service.vendor" value="ACME"/>
@@ -3494,10 +3494,55 @@
     <param pos="0" name="os.device" value="Router"/>
   </fingerprint>
 
+  <fingerprint pattern="Linux, WEBACCESS/1.0, (DIR-\d+\w*) Ver (\S+)$">
+    <description>D-Link DIR-XXX Router - WEBACCESS variant</description>
+    <example hw.product="DIR-850L">Linux, WEBACCESS/1.0, DIR-850L Ver 1.09</example>
+    <example os.version="1.14WW">Linux, WEBACCESS/1.0, DIR-850L Ver 1.14WW</example>
+    <example os.version="1.04">Linux, WEBACCESS/1.0, DIR-645 Ver 1.04</example>
+    <param pos="0" name="hw.vendor" value="D-Link"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="os.vendor" value="D-Link"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.device" value="Router"/>
+  </fingerprint>
+
+  <fingerprint pattern="Linux, HTTP/1.1, (DIR-\d+\w*) Ver (\S+)$">
+    <description>D-Link DIR-XXX Router - HTTP variant</description>
+    <example hw.product="DIR-815" os.version="1.04">Linux, HTTP/1.1, DIR-815 Ver 1.04</example>
+    <param pos="0" name="hw.vendor" value="D-Link"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="os.vendor" value="D-Link"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.device" value="Router"/>
+  </fingerprint>
+
+  <fingerprint pattern="Linux, WEBACCESS/1.0, (DSL-\d+\w*) Ver (\S+)$">
+    <description>D-Link DSL-XXX Router - WEBACCESS variant</description>
+    <example hw.product="DSL-2890AL" os.version="AU_1.02.10">Linux, WEBACCESS/1.0, DSL-2890AL Ver AU_1.02.10</example>
+    <example hw.product="DSL-2890AL" os.version="1.01">Linux, WEBACCESS/1.0, DSL-2890AL Ver 1.01</example>
+    <param pos="0" name="hw.vendor" value="D-Link"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="os.vendor" value="D-Link"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.device" value="Router"/>
+  </fingerprint>
+
   <fingerprint pattern="^TBS/R2 UPnP/[\d\.]+ MiniUPnPd/[\d\.]+$">
     <description>D-Link generic</description>
     <example>TBS/R2 UPnP/1.0 MiniUPnPd/1.2</example>
     <param pos="0" name="hw.vendor" value="D-Link"/>
+  </fingerprint>
+
+  <fingerprint pattern="^alphapd/(\d\.[\d.]+)$">
+    <description>D-Link alphapd - likely DCS series cameras</description>
+    <example service.version="2.1.8">alphapd/2.1.8</example>
+    <param pos="0" name="hw.vendor" value="D-Link"/>
+    <param pos="0" name="service.vendor" value="D-Link"/>
+    <param pos="0" name="service.product" value="alphapd"/>
+    <param pos="1" name="service.version"/>
   </fingerprint>
 
   <fingerprint pattern="^ipos/([\d\.]+) UPnP/[\d\.]+ (TL-\w+)/(\S+)$">
@@ -3907,13 +3952,56 @@
 
   <fingerprint pattern="^IX Series IX21\d\d \(magellan-sec\) Software, Version ([^, ]+), (?:MAINTENANCE )?RELEASE SOFTWARE$">
     <description>NEC Univerge Router - enterprise class with VPN, UTM, etc</description>
-    <example>IX Series IX2106 (magellan-sec) Software, Version 10.2.20, RELEASE SOFTWARE</example>
+    <example hw.version="10.2.20">IX Series IX2106 (magellan-sec) Software, Version 10.2.20, RELEASE SOFTWARE</example>
     <example>IX Series IX2105 (magellan-sec) Software, Version 9.6.12A, MAINTENANCE RELEASE SOFTWARE</example>
     <param pos="0" name="hw.vendor" value="NEC"/>
     <param pos="0" name="hw.product" value="Univerge"/>
     <param pos="1" name="hw.version"/>
     <param pos="0" name="hw.device" value="Router"/>
     <param pos="0" name="hw.cpe23" value="cpe:/h:nec:univerge:{hw.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Caddy$">
+    <description>CaddyServer Caddy - golang based httpd</description>
+    <example>Caddy</example>
+    <param pos="0" name="service.vendor" value="CaddyServer"/>
+    <param pos="0" name="service.product" value="Caddy"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:caddyserver:caddy:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^MoxaHttp/(\d\.\d)$">
+    <description>Moxa devices - service used on multiple families of devices</description>
+    <example service.version="2.3">MoxaHttp/2.3</example>
+    <example>MoxaHttp/2.2</example>
+    <example>MoxaHttp/1.0</example>
+    <param pos="0" name="service.vendor" value="Moxa"/>
+    <param pos="0" name="service.product" value="httpd"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="hw.vendor" value="Moxa"/>
+    <param pos="0" name="os.vendor" value="Moxa"/>
+  </fingerprint>
+
+  <fingerprint pattern="^proxygen-bolt$">
+    <description>Facebook Proxygen httpd software</description>
+    <example>proxygen-bolt</example>
+    <param pos="0" name="service.vendor" value="Facebook"/>
+    <param pos="0" name="service.product" value="Proxygen"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:facebook:proxygen:-"/>
+  </fingerprint>
+
+  <!-- This is a version of ACME mini_httpd where the value 'mini_httpd' has been
+      replaced with a UUID in the Server header AND body of the response. It
+      is likely vendor or product specific.
+  -->
+
+  <fingerprint pattern="^[a-f\d]{7,8}-[a-f\d]{3,4}-[a-f\d]{3,4}-[a-f\d]{3,4}-[a-f\d]{10,12}$">
+    <description>ACME mini_httpd with randomized Server header</description>
+    <example>a74b7cd4-4a4e-4115-7a48-1c7ebb4ae45b</example>
+    <example>f09f73f0-cac6-422-3660-32ac658c5ae7</example>
+    <example>f24ddd9c-e2a6-23c-ec95-4563173bbe</example>
+    <param pos="0" name="service.vendor" value="ACME"/>
+    <param pos="0" name="service.product" value="mini_httpd"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:acme:mini_httpd:-"/>
   </fingerprint>
 
 </fingerprints>
