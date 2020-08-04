@@ -2148,12 +2148,44 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^RealVNC/(?:\S+)$">
-    <description>RealVNC built-in webserver</description>
-    <example>RealVNC/4.0</example>
+  <fingerprint pattern="^VNC Server (Enterprise|Personal) Edition/(?:E|P)([\d.]+) \(r([\d.]+)\)$">
+    <description>RealVNC built-in webserver - Enterprise edition</description>
+    <example service.version="4.5.1" service.version.version="27892">VNC Server Enterprise Edition/E4.5.1 (r27892)</example>
+    <example service.edition="Personal">VNC Server Personal Edition/P4.5.3 (r39012)</example>
     <param pos="0" name="service.vendor" value="RealVNC Ltd."/>
     <param pos="0" name="service.product" value="RealVNC"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:realvnc:realvnc:-"/>
+    <param pos="1" name="service.edition"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="service.version.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:realvnc:realvnc:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^RealVNC/E([\d.]+)$">
+    <description>RealVNC built-in webserver - Enterprise edition, short variant</description>
+    <example service.version="4">RealVNC/E4</example>
+    <param pos="0" name="service.vendor" value="RealVNC Ltd."/>
+    <param pos="0" name="service.product" value="RealVNC"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.version.version" value="Enterprise"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:realvnc:realvnc:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^RealVNC/([\d.]+)$">
+    <description>RealVNC built-in webserver</description>
+    <example service.version="4.0">RealVNC/4.0</example>
+    <param pos="0" name="service.vendor" value="RealVNC Ltd."/>
+    <param pos="0" name="service.product" value="RealVNC"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:realvnc:realvnc:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^TigerVNC/([\d.]+)$">
+    <description>TigerVNC built-in webserver</description>
+    <example service.version="4.0">TigerVNC/4.0</example>
+    <param pos="0" name="service.vendor" value="TigerVNC"/>
+    <param pos="0" name="service.product" value="TigerVNC"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:tigervnc:tigervnc:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^SecureTransport (\d+[\d\.]+) \(build: (\d+)\)$">
