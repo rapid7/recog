@@ -1724,7 +1724,7 @@
     <param pos="0" name="hw.device" value="VPN"/>
   </fingerprint>
 
-  <fingerprint pattern="^SonicWALL (SSL-?VPN(?: (?:\d+))?) Web Server\.?$">
+  <fingerprint pattern="^SonicWALL SSL-?VPN Web Server$">
     <description>SonicWALL SSL-VPN device</description>
     <example>SonicWALL SSLVPN Web Server</example>
     <example>SonicWALL SSL-VPN Web Server</example>
@@ -1734,7 +1734,8 @@
     <param pos="0" name="os.vendor" value="SonicWall"/>
     <param pos="0" name="os.device" value="VPN"/>
     <param pos="0" name="os.family" value="SSL-VPN"/>
-    <param pos="1" name="os.product"/>
+    <param pos="0" name="os.product" value="SonicOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sonicwall:sonicos:-"/>
     <param pos="0" name="hw.vendor" value="SonicWall"/>
     <param pos="0" name="hw.device" value="VPN"/>
   </fingerprint>
@@ -1745,6 +1746,12 @@
     <param pos="0" name="service.vendor" value="SonicWall"/>
     <param pos="0" name="service.product" value="HTTP"/>
     <param pos="0" name="os.vendor" value="SonicWall"/>
+    <param pos="0" name="os.device" value="VPN"/>
+    <param pos="0" name="os.family" value="SSL-VPN"/>
+    <param pos="0" name="os.product" value="SonicOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sonicwall:sonicos:-"/>
+    <param pos="0" name="hw.vendor" value="SonicWall"/>
+    <param pos="0" name="hw.device" value="VPN"/>
   </fingerprint>
 
   <fingerprint pattern="^NetCache appliance \(NetApp/+(\d+\.\d+[\w.]+)\)$">
@@ -1959,6 +1966,26 @@
     <param pos="0" name="hw.product" value="Adaptive Security Appliance"/>
     <param pos="0" name="hw.device" value="Firewall"/>
     <param pos="0" name="hw.cpe23" value="cpe:/h:cisco:adaptive_security_appliance:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CE_E$">
+    <description>Cisco Expressway-E (Edge)</description>
+    <example>CE_E</example>
+    <param pos="0" name="service.vendor" value="Cisco"/>
+    <param pos="0" name="service.product" value="Expressway"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cisco:expressway:-"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CE_C$">
+    <description>Cisco Expressway-C (Core)</description>
+    <example>CE_E</example>
+    <param pos="0" name="service.vendor" value="Cisco"/>
+    <param pos="0" name="service.product" value="Expressway"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cisco:expressway:-"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
   </fingerprint>
 
   <fingerprint pattern="^CradlepointHTTPService/([\d\.]+)$">
