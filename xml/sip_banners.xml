@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="sip_header.server" protocol="sip" database_type="service">
   <!--
   SIP Server header values are matched against these patterns to fingerprint SIP devices.
   -->
 
   <!-- Cisco/Tandberg Products -->
-  
+
   <fingerprint pattern="^Cisco-SIPGateway/IOS-(\S+)\.x$">
     <description>Cisco IOS SIP Gateway w/ Vague Version</description>
     <example os.version="12">Cisco-SIPGateway/IOS-12.x</example>
     <param pos="0" name="service.vendor" value="Cisco"/>
     <param pos="0" name="service.family" value="IOS"/>
     <param pos="0" name="service.product" value="IOS"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:cisco:ios:{os.version}"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cisco:ios:-"/>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="IOS"/>
     <param pos="0" name="os.product" value="IOS"/>
@@ -30,11 +30,11 @@
     <example os.version="15.2.3.T">Cisco-SIPGateway/IOS-15.2.3.T</example>
     <example os.version="15.4.3.S5">Cisco-SIPGateway/IOS-15.4.3.S5</example>
     <example os.version="15.6.3.M0a">Cisco-SIPGateway/IOS-15.6.3.M0a</example>
-    <example os.version="16.3.6">Cisco-SIPGateway/IOS-16.3.6</example>    
+    <example os.version="16.3.6">Cisco-SIPGateway/IOS-16.3.6</example>
     <param pos="0" name="service.vendor" value="Cisco"/>
     <param pos="0" name="service.family" value="IOS"/>
     <param pos="0" name="service.product" value="IOS"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:cisco:ios:{os.version}"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cisco:ios:-"/>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="IOS"/>
     <param pos="0" name="os.product" value="IOS"/>
@@ -130,7 +130,6 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="tandberg.model"/>
     <param pos="2" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:telepresence:{os.version}"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.family" value="TelePresence"/>
     <param pos="0" name="hw.device" value="Video Conferencing"/>
@@ -144,13 +143,12 @@
     <example os.version="X8.2.1" hw.product="TANDBERG/4130">TANDBERG/4130 (X8.2.1)</example>
     <example os.version="XC2.2.1-b2bua-1.0" hw.product="TANDBERG/4353" tandberg.model="4353">TANDBERG/4353 (XC2.2.1-b2bua-1.0)</example>
     <example os.version="TC5.1.4.295090" hw.product="TANDBERG/516" tandberg.model="516">TANDBERG/516 (TC5.1.4.295090)</example>
-    <example os.version="TCNC5.1.4.295090" hw.product="TANDBERG/517" tandberg.model="517">TANDBERG/517 (TCNC5.1.4.295090)</example>    
+    <example os.version="TCNC5.1.4.295090" hw.product="TANDBERG/517" tandberg.model="517">TANDBERG/517 (TCNC5.1.4.295090)</example>
     <param pos="0" name="os.vendor" value="Tandberg"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="2" name="tandberg.model"/>
     <param pos="3" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:telepresence:{os.version}"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.family" value="TelePresence"/>
     <param pos="0" name="hw.device" value="Video Conferencing"/>
@@ -256,10 +254,10 @@
     <example hw.product="MP-124" os.version="6.00A.034.003">Audiocodes-Sip-Gateway-MP-124 FXS/v.6.00A.034.003</example>
     <example hw.product="MP-124" os.version="6.60A.342.003">MP-124 FXS/v.6.60A.342.003</example>
     <example hw.product="MP-114" os.version="6.60A.241.010">MP-114 FXS_FXO/v.6.60A.241.010</example>
-    <param pos="0" name="os.vendor" value="Audiocodes"/>
+    <param pos="0" name="os.vendor" value="AudioCodes"/>
     <param pos="0" name="os.family" value="SIP Gateway"/>
     <param pos="2" name="os.version"/>
-    <param pos="0" name="hw.vendor" value="Audiocodes"/>
+    <param pos="0" name="hw.vendor" value="AudioCodes"/>
     <param pos="0" name="hw.family" value="SIP Gateway"/>
     <param pos="0" name="hw.device" value="SIP Gateway"/>
     <param pos="1" name="hw.product"/>
@@ -296,7 +294,6 @@
     <param pos="0" name="service.family" value="PBX"/>
     <param pos="0" name="service.product" value="PBX"/>
     <param pos="1" name="service.version"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:asterisk:asterisk:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^Asterisk PBX$">
@@ -305,7 +302,6 @@
     <param pos="0" name="service.vendor" value="Asterisk"/>
     <param pos="0" name="service.family" value="PBX"/>
     <param pos="0" name="service.product" value="PBX"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:asterisk:asterisk:-"/>
   </fingerprint>
 
   <fingerprint pattern="^FPBX-(\S+)$">
@@ -316,7 +312,6 @@
     <param pos="0" name="service.family" value="PBX"/>
     <param pos="0" name="service.product" value="PBX"/>
     <param pos="1" name="service.version"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:freepbx:freepbx:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^kamailio \((\S+) \((.*)\)\)$">
@@ -327,10 +322,10 @@
     <param pos="0" name="service.product" value="SIP Server"/>
     <param pos="1" name="service.version"/>
     <param pos="2" name="kamailio.platform"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:kamailio:kamailio:{service.version}"/>
   </fingerprint>
 
   <!-- This match covers multiple product families and should be split up further -->
+
   <fingerprint pattern="^Algo-([^/]+)/(.*)$">
     <description>Algo SIP Device</description>
     <example hw.product="8186" os.version="1.7">Algo-8186/1.7</example>

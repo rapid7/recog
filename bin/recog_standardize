@@ -1,0 +1,142 @@
+#!/usr/bin/env ruby
+
+$:.unshift(File.expand_path(File.join(File.dirname(__FILE__), "..", "lib")))
+require 'optparse'
+require 'ostruct'
+require 'recog'
+
+def load_identifiers(path)
+  res = {}
+  File.readlines(path).map{|line| line.strip}.each do |ident|
+    res[ident] = true
+  end
+  return res
+end
+
+def write_identifiers(vals, path)
+  res = []
+  vals.each_pair do |k,v|
+    res = res.push(k)
+  end
+  res = res.map{|x| x.strip}.select{|x| x.length > 0}.sort.uniq
+  File.write(path, res.join("\n") + "\n")
+end
+
+bdir = File.expand_path(File.join(File.dirname(__FILE__), "..", "identifiers"))
+
+options = OpenStruct.new(write: false)
+option_parser = OptionParser.new do |opts|
+  opts.banner = "Usage: #{$0} [options] XML_FINGERPRINT_FILE1 ..."
+  opts.separator "Verifies that each fingerprint asserts known identifiers."
+  opts.separator ""
+  opts.separator "Options"
+
+  opts.on("-w", "--write") do
+      options.write = true
+  end
+
+  opts.on("-h", "--help", "Show this message.") do
+    puts opts
+    exit
+  end
+end
+option_parser.parse!(ARGV)
+
+if ARGV.empty?
+  $stderr.puts 'Missing XML fingerprint files'
+  puts option_parser
+  exit(1)
+end
+
+# Load the unique identifiers
+vendors = load_identifiers(File.join(bdir, "vendor.txt"))
+os_arch = load_identifiers(File.join(bdir, "os_architecture.txt"))
+os_prod = load_identifiers(File.join(bdir, "os_product.txt"))
+os_family = load_identifiers(File.join(bdir, "os_family.txt"))
+os_device = load_identifiers(File.join(bdir, "os_device.txt"))
+hw_prod = load_identifiers(File.join(bdir, "hw_product.txt"))
+hw_family = load_identifiers(File.join(bdir, "hw_family.txt"))
+hw_device = load_identifiers(File.join(bdir, "hw_device.txt"))
+svc_prod = load_identifiers(File.join(bdir, "service_product.txt"))
+svc_family = load_identifiers(File.join(bdir, "service_family.txt"))
+
+
+ARGV.each do |arg|
+  Dir.glob(arg).each do |file|
+    ndb = Recog::DB.new(file)
+    ndb.fingerprints.each do |f|
+      f.params.each do |k,v|
+        paramIndex, val = v
+        next if paramIndex != 0
+        next if val.index("{") != -1
+        next if val.strip == ""
+        case k
+        when "os.vendor", "service.vendor", "service.component.vendor", "hw.vendor"
+          if ! vendors[val]
+            puts "VENDOR MISSING: #{val}"
+            vendors[val] = true
+          end
+        when "os.arch"
+          if ! os_arch[val]
+            puts "OS ARCH MISSING: #{val}"
+            os_arch[val] = true
+          end          
+        when "os.product"
+          if ! os_prod[val]
+            puts "OS PRODUCT MISSING: #{val}"
+            os_prod[val] = true
+          end
+        when "os.family"
+          if ! os_family[val]
+            puts "OS FAMILY MISSING: #{val}"
+            os_family[val] = true
+          end
+        when "os.device"
+          if ! os_device[val]
+            puts "OS DEVICE MISSING: #{val}"
+            os_device[val] = true
+          end
+        when "hw.product"
+          if ! hw_prod[val]
+            puts "HW PRODUCT MISSING: #{val}"
+            hw_prod[val] = true
+          end
+        when "hw.family"
+          if ! hw_family[val]
+            puts "HW FAMILY MISSING: #{val}"
+            hw_family[val] = true
+          end
+        when "hw.device"
+          if ! hw_device[val]
+            puts "HW DEVICE MISSING: #{val}"
+            hw_device[val] = true
+          end          
+        when "service.product"
+          if ! svc_prod[val]
+            puts "SERVICE PRODUCT MISSING: #{val}"
+            svc_prod[val] = true
+          end            
+        when "service.family"
+          if ! svc_family[val]
+            puts "SERVICE FAMILY MISSING: #{val}"
+            svc_family[val] = true
+          end          
+        end
+      end
+    end
+  end
+end
+
+exit if ! options.write
+
+# Write back the unique identifiers
+write_identifiers(vendors, File.join(bdir, "vendor.txt"))
+write_identifiers(os_arch, File.join(bdir, "os_architecture.txt"))
+write_identifiers(os_prod, File.join(bdir, "os_product.txt"))
+write_identifiers(os_family, File.join(bdir, "os_family.txt"))
+write_identifiers(os_device, File.join(bdir, "os_device.txt"))
+write_identifiers(hw_prod, File.join(bdir, "hw_product.txt"))
+write_identifiers(hw_family, File.join(bdir, "hw_family.txt"))
+write_identifiers(hw_device, File.join(bdir, "hw_device.txt"))
+write_identifiers(svc_prod, File.join(bdir, "service_product.txt"))
+write_identifiers(svc_family, File.join(bdir, "service_family.txt"))

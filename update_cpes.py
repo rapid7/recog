@@ -24,6 +24,7 @@ def parse_cpe_vp_map(file):
                 vp_map[cpe_type] = {}
             if not vendor in vp_map[cpe_type]:
                 vp_map[cpe_type][vendor] = set()
+            product = product.replace('%2f', '/')
             vp_map[cpe_type][vendor].add(product)
         else:
             logging.error("Unexpected CPE %s", cpe_name)
@@ -67,7 +68,7 @@ def update_cpes(xml_file, cpe_vp_map, r7_vp_map):
                 if not fp_type in params:
                     params[fp_type] = {}
                 if name in params[fp_type]:
-                    raise ValueError('Duplicated fingerprint named {} in {}'.format(name, fingerprint.attrib['pattern']))
+                    raise ValueError('Duplicated fingerprint named {} in fingerprint {} in file {}'.format(name, fingerprint.attrib['pattern'], xml_file))
                 params[fp_type][name] = param
 
 
@@ -160,6 +161,8 @@ def update_cpes(xml_file, cpe_vp_map, r7_vp_map):
                         continue
 
                 # building the CPE string
+                # Last minute escaping of '/'
+                product = product.replace('/', '\/')
                 cpe_value = 'cpe:/{}:{}:{}'.format(cpe_type, vendor, product)
 
                 if version:

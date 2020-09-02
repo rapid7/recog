@@ -26,7 +26,7 @@ describe Recog::Fingerprint::RegexpFactory do
     subject { described_class.build_options(flags) }
 
     let(:flags) { [ ] }
-    it { is_expected.to be_a(Fixnum) }
+    it { is_expected.to be_a(Integer) }
 
     context 'without any explicit flags' do
       let(:flags) { [ ] }

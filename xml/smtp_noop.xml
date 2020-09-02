@@ -1,15 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints protocol="smtp" database_type="service" preference="0.17">
   <!--
   SMTP response lines to the NOOP command are matched against these patterns
   (1 line at a time) to fingerprint SMTP servers.
-
   See comment at the top of smtp_banners.xml for additional info.
-
   'preference' note: This value has been set so as to implement the ordering
     of SMTP related fingerprint databases as described in 'smtp_banners.xml'.
-
   -->
+
   <fingerprint pattern="^220 OK.*$">
     <description>CheckPoint FireWall-1 returns code 220 for NOOP command (instead of 250)</description>
     <param pos="0" name="service.vendor" value="Check Point"/>
@@ -17,6 +15,7 @@
     <param pos="0" name="service.product" value="Firewall-1"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:checkpoint:firewall-1:-"/>
   </fingerprint>
+
   <fingerprint pattern="^250[ -]2.0.0 doing nothing$">
     <description>Eudora IMS - noop variant</description>
     <example>250 2.0.0 doing nothing</example>
@@ -28,6 +27,7 @@
     <param pos="0" name="os.product" value="Mac OS"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os:-"/>
   </fingerprint>
+
   <fingerprint pattern="^250[ -]Why is there an NOOP instruction\?$">
     <description>Alt-N MDaemon - noop variant</description>
     <example>250 Why is there an NOOP instruction?</example>
@@ -41,4 +41,5 @@
     <param pos="0" name="os.arch" value="x86"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
 </fingerprints>

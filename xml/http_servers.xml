@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="http_header.server" protocol="http" database_type="service" preference="0.90">
   <!-- HTTP Server headers are matched against these patterns to fingerprint HTTP servers. -->
+
   <fingerprint pattern="(?i)^AirTunes/([\d\.]+)$">
     <description>Apple AirTunes/AirPlay, more generally RTSP used by a variety of wireless a/v products</description>
     <example service.version="220.68">AirTunes/220.68</example>
@@ -9,6 +10,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="hw.device" value="Media Server"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^cpsrvd(?:/([\d\.]+))?$">
     <description>cPanel Service Daemon</description>
     <example service.version="11.44.3.0">cpsrvd/11.44.3.0</example>
@@ -17,16 +19,21 @@
     <param pos="0" name="service.product" value="cPanel Service Daemon"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
+  <!-- CentOS Web Panel is not part of the CentOS project and runs on CentOS,
+       RedHat, and CloudLinux.
+  -->
+
   <fingerprint pattern="(?i)^cwpsrv$">
     <description>CentOS Web Panel</description>
     <example>cwpsrv</example>
-    <param pos="0" name="service.vendor" value="CentOS"/>
+    <param pos="0" name="service.vendor" value="CentOS WebPanel"/>
     <param pos="0" name="service.product" value="CentOS Web Panel"/>
-    <param pos="0" name="os.vendor" value="CentOS"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:centos-webpanel:centos_web_panel:-"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:centos:centos:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Stronghold/(\d\.\d) Apache/([012][\d.]*)\s*(.*)$">
     <description>Red Hat Stronghold Enterprise Apache</description>
     <example service.version="1.3.19" service.cpe23="cpe:/a:apache:http_server:1.3.19" service.component.cpe23="cpe:/a:redhat:stronghold:3.0">Stronghold/3.0 Apache/1.3.19 RedHat/3014c</example>
@@ -47,6 +54,7 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:redhat:linux:-"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Apache/\d$">
     <description>Apache returning only its major version number</description>
     <example>Apache/1</example>
@@ -56,6 +64,17 @@
     <param pos="0" name="service.family" value="Apache"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:-"/>
   </fingerprint>
+
+  <fingerprint pattern="^Apache ([\d.]+)$">
+    <description>Apache returning just version number</description>
+    <example service.version="1.3.29">Apache 1.3.29</example>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="HTTPD"/>
+    <param pos="0" name="service.family" value="Apache"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:{service.version}"/>
+  </fingerprint>
+
   <fingerprint pattern="(?i)^Apache$">
     <description>Apache returning no version information</description>
     <example>Apache</example>
@@ -65,6 +84,7 @@
     <param pos="0" name="service.family" value="Apache"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:-"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Apache(?:-AdvancedExtranetServer)?(?:/([012][\d.]*)\s*(.*))?$">
     <description>Apache</description>
     <example>Apache-AdvancedExtranetServer/2.0.44 (Mandrake Linux/11mdk) mod_perl/1.99_08 Perl/v5.8.0 mod_ssl/2.0.44 OpenSSL/0.9.7a PHP/4.3.1 mod_jk2/2.0.0</example>
@@ -90,6 +110,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:{service.version}"/>
     <param pos="2" name="apache.info"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^CouchDB/([\.\d]+) .*$">
     <description>Apache CouchDB</description>
     <example service.version="2.1.1">CouchDB/2.1.1 (Erlang OTP/20)</example>
@@ -98,11 +119,13 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:apache:couchdb:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^support@arraynetworks.net$">
     <description>Array Networks device</description>
     <example>support@arraynetworks.net</example>
     <param pos="0" name="service.vendor" value="Array Networks"/>
   </fingerprint>
+
   <fingerprint pattern="^Check Point SVN foundation$">
     <description>Check Point Firewall NG</description>
     <example>Check Point SVN foundation</example>
@@ -120,6 +143,25 @@
     <param pos="0" name="hw.family" value="Firewall-1"/>
     <param pos="0" name="hw.product" value="Firewall-1"/>
   </fingerprint>
+
+  <fingerprint pattern="^CPWS$">
+    <description>Check Point Firewall NG - short version</description>
+    <example>CPWS</example>
+    <param pos="0" name="service.vendor" value="Check Point"/>
+    <param pos="0" name="service.product" value="Firewall-1"/>
+    <param pos="0" name="service.family" value="Firewall-1"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:checkpoint:firewall-1:-"/>
+    <param pos="0" name="os.vendor" value="Check Point"/>
+    <param pos="0" name="os.device" value="Firewall"/>
+    <param pos="0" name="os.family" value="Firewall-1"/>
+    <param pos="0" name="os.product" value="GAiA OS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:checkpoint:gaia_os:-"/>
+    <param pos="0" name="hw.vendor" value="Check Point"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+    <param pos="0" name="hw.family" value="Firewall-1"/>
+    <param pos="0" name="hw.product" value="Firewall-1"/>
+  </fingerprint>
+
   <fingerprint pattern="^Microsoft-IIS/([1234]\.0)$">
     <description>Microsoft IIS 1.0 - 4.0 runs on Windows NT 4.0</description>
     <example>Microsoft-IIS/4.0</example>
@@ -134,6 +176,7 @@
     <param pos="0" name="os.version" value="4.0"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_nt:4.0"/>
   </fingerprint>
+
   <fingerprint pattern="^Microsoft-IIS/5.0$">
     <description>Microsoft IIS 5.0 runs on Windows 2000</description>
     <example>Microsoft-IIS/5.0</example>
@@ -147,6 +190,7 @@
     <param pos="0" name="os.product" value="Windows 2000"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_2000:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Microsoft-IIS/5.1$">
     <description>Microsoft IIS 5.1 runs on Windows XP</description>
     <example>Microsoft-IIS/5.1</example>
@@ -160,6 +204,7 @@
     <param pos="0" name="os.product" value="Windows XP"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_xp:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Microsoft-IIS/6.0$">
     <description>Microsoft IIS 6.0 runs on Windows Server 2003 (and Windows XP x64)</description>
     <example>Microsoft-IIS/6.0</example>
@@ -173,6 +218,7 @@
     <param pos="0" name="os.product" value="Windows Server 2003"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Microsoft-IIS/7.0$">
     <description>Microsoft IIS 7.0 runs on Windows Server 2008 (and Windows Vista)</description>
     <example>Microsoft-IIS/7.0</example>
@@ -186,6 +232,7 @@
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Microsoft-IIS/7.5$">
     <description>Microsoft IIS 7.5 runs on Windows Server 2008 R2 (and Windows 7)</description>
     <example>Microsoft-IIS/7.5</example>
@@ -199,6 +246,7 @@
     <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Microsoft-IIS/8.0$">
     <description>Microsoft IIS 8.0 runs on Windows Server 2012 (and Windows 8)</description>
     <example>Microsoft-IIS/8.0</example>
@@ -212,6 +260,7 @@
     <param pos="0" name="os.product" value="Windows Server 2012"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Microsoft-IIS/8.5$">
     <description>Microsoft IIS 8.5 runs on Windows Server 2012 R2 (and Windows 8.1)</description>
     <example>Microsoft-IIS/8.5</example>
@@ -225,6 +274,7 @@
     <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Microsoft-IIS/10.0$">
     <description>Microsoft IIS 10.0 runs on Windows Server 2016 and 2019</description>
     <example>Microsoft-IIS/10.0</example>
@@ -235,8 +285,8 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:iis:10.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Microsoft-IIS/([\d\.]+)$">
     <description>Microsoft IIS new, unknown Windows version</description>
     <example>Microsoft-IIS/9.0</example>
@@ -246,6 +296,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:iis:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Microsoft-IIS$">
     <description>Microsoft IIS, no version information</description>
     <example>Microsoft-IIS</example>
@@ -256,6 +307,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
   </fingerprint>
+
   <fingerprint pattern="^MS .NET Remoting, MS .NET CLR (\d+\.\d+\.\d+\.\d+)$">
     <description>Microsoft .NET Remoting and Common Language Runtime (CLR)</description>
     <example>MS .NET Remoting, MS .NET CLR 2.0.50727.42</example>
@@ -271,6 +323,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Microsoft-WinCE/(\d\.\d+)$">
     <description>Windows CE embedded devices, including HP iPAQ, Palm Treo, Motorola phones, and many more</description>
     <example os.version="4.10">Microsoft-WinCE/4.10</example>
@@ -287,6 +340,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_ce:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Microsoft-PWS/(\d\.\d+)$">
     <description>Microsoft Personal Web Server runs on Windows 9x, ME, etc.</description>
     <example>Microsoft-PWS/4.0</example>
@@ -300,6 +354,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Microsoft-PWS-95/(\d\.\d+)$">
     <description>Microsoft Personal Web Server for Windows 95</description>
     <example>Microsoft-PWS-95/4.0</example>
@@ -313,6 +368,7 @@
     <param pos="0" name="os.product" value="Windows 95"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_95:-"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^mt-daapd(?:/(.+))?$">
     <description>Firefly Media Server</description>
     <example service.version="0.2.4.1">mt-daapd/0.2.4.1</example>
@@ -321,6 +377,7 @@
     <param pos="0" name="service.product" value="Media Server"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Apache[ -]Coyote/(\d\.\d)$">
     <description>HTTP connector for Apache Tomcat to run as a standalone HTTP server - Coyote variant</description>
     <example>Apache-Coyote/1.1</example>
@@ -334,6 +391,7 @@
     <param pos="0" name="service.component.family" value="Coyote"/>
     <param pos="1" name="service.component.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Apache Tomcat$">
     <description>HTTP connector for Apache Tomcat with no version</description>
     <example>Apache Tomcat</example>
@@ -342,6 +400,7 @@
     <param pos="0" name="service.family" value="Tomcat"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:apache:tomcat:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Servlet [\d\.]+; JBoss-(\S+) \(build: .*\)/Tomcat-(\S+)$">
     <description>JBoss with embedded Tomcat</description>
     <example service.version="4.0.4.GA" service.component.version="5.5">Servlet 2.4; JBoss-4.0.4.GA (build: CVSTag=JBoss_4_0_4_GA date=200605151000)/Tomcat-5.5</example>
@@ -355,6 +414,7 @@
     <param pos="2" name="service.component.version"/>
     <param pos="0" name="service.component.cpe23" value="cpe:/a:apache:tomcat:{service.component.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Servlet [\d\.]+; Tomcat-(\S+)/JBoss-(\S+) \(build: .*\)$">
     <description>JBoss with embedded Tomcat - Tomcat build variant</description>
     <example service.version="4.0.1sp1" service.component.version="5.0.28">Servlet 2.4; Tomcat-5.0.28/JBoss-4.0.1sp1 (build: CVSTag=JBoss_4_0_1_SP1 date=200502160314)</example>
@@ -368,6 +428,7 @@
     <param pos="1" name="service.component.version"/>
     <param pos="0" name="service.component.cpe23" value="cpe:/a:apache:tomcat:{service.component.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Servlet [\d\.]+; JBoss-([\S]+)(?: \(build.*)?/JBossWeb-(\S+)$">
     <description>JBoss with JBossweb</description>
     <example service.version="4.2.3.GA" service.component.version="2.0">Servlet 2.4; JBoss-4.2.3.GA (build: SVNTag=JBoss_4_2_3_GA date=200807181439)/JBossWeb-2.0</example>
@@ -376,10 +437,12 @@
     <param pos="0" name="service.product" value="JBoss EAP"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:redhat:jboss_enterprise_application_platform:{service.version}"/>
-    <param pos="0" name="service.component.vendor" value="RedHat"/>
+    <param pos="0" name="service.component.vendor" value="Red Hat"/>
     <param pos="0" name="service.component.product" value="JBossWeb"/>
     <param pos="2" name="service.component.version"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:redhat:jboss_web_framework_kit:{service.component.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Servlet\/[\d\.]+; JBossAS-(.*)$">
     <description>JBoss AS</description>
     <example service.version="6">Servlet/3.0; JBossAS-6</example>
@@ -388,6 +451,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:redhat:jboss_wildfly_application_server:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^JBoss-EAP\/(\d+)$">
     <description>JBoss EAP</description>
     <example service.version="7">JBoss-EAP/7</example>
@@ -397,6 +461,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:redhat:jboss_enterprise_application_platform:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Apache Tomcat/(\d\.[\d.]+)(?:-LE-jdk14)? \(HTTP/1.1 Connector\)$">
     <description>HTTP connector for Apache Tomcat to run as a standalone HTTP server - Apache variant</description>
     <example service.version="4.0.6">Apache Tomcat/4.0.6 (HTTP/1.1 Connector)</example>
@@ -411,6 +476,7 @@
     <param pos="0" name="service.component.family" value="Apache Tomcat HTTP Connector"/>
     <param pos="0" name="service.component.product" value="Apache Tomcat HTTP Connector"/>
   </fingerprint>
+
   <fingerprint pattern="^Tomcat Web Server/(\d\.[\dA-Z.]+)(?: Final)?(?:\s\(([^\)]+)\))?$">
     <description>HTTP connector for Apache Tomcat to run as a standalone HTTP server</description>
     <example>Tomcat Web Server/3.2.2 (JSP 1.1; Servlet 2.2; Java 1.3.1; Windows 2000 5.0 x86; java.vendor=Sun Microsystems Inc.)</example>
@@ -424,15 +490,18 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:apache:tomcat:{service.version}"/>
     <param pos="2" name="tomcat.info"/>
   </fingerprint>
-  <fingerprint pattern="^Tomcat/(\S+)$">
-    <description>Apache tomcat with minimal version information</description>
-    <example>Tomcat/2.1</example>
+
+  <fingerprint pattern="^(?:Apache )?Tomcat/([\d.]+)$">
+    <description>Apache Tomcat with version information</description>
+    <example service.version="2.1">Tomcat/2.1</example>
+    <example service.version="9.0.5">Apache Tomcat/9.0.5</example>
     <param pos="0" name="service.vendor" value="Apache"/>
     <param pos="0" name="service.product" value="Tomcat"/>
     <param pos="0" name="service.family" value="Tomcat"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:apache:tomcat:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^PDR-M800/1.0$">
     <description>Merit LILIN PDR M800</description>
     <example>PDR-M800/1.0</example>
@@ -440,6 +509,7 @@
     <param pos="0" name="hw.product" value="PDR M800"/>
     <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
+
   <fingerprint pattern="^PHP/(\S+)$">
     <description>PHP</description>
     <example service.component.version="4.4.2-1build1">PHP/4.4.2-1build1</example>
@@ -447,13 +517,16 @@
     <param pos="0" name="service.component.product" value="PHP"/>
     <param pos="1" name="service.component.version"/>
   </fingerprint>
+
   <!-- TODO: Capture ZendServer version in fingerprint -->
+
   <fingerprint pattern="^PHP/(\S+)\s+ZendServer/\S+$">
     <description>PHP with ZendServer</description>
     <example service.component.version="5.3.14">PHP/5.3.14 ZendServer/5.0</example>
     <param pos="0" name="service.component.product" value="PHP"/>
     <param pos="1" name="service.component.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Oracle Application Server Containers for J2EE 10g \(([\d.]+)\)$">
     <description>Oracle Application Server Containers for J2EE 10g</description>
     <example>Oracle Application Server Containers for J2EE 10g (9.0.4.0.0)</example>
@@ -462,6 +535,7 @@
     <param pos="0" name="service.family" value="Oracle"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Oracle Containers for J2EE$">
     <description>Oracle Application Server Containers for J2EE</description>
     <example>Oracle Containers for J2EE</example>
@@ -469,6 +543,7 @@
     <param pos="0" name="service.product" value="Oracle Application Server Containers"/>
     <param pos="0" name="service.family" value="Oracle"/>
   </fingerprint>
+
   <fingerprint pattern="^Oracle Application Server/10g \(([\d.]+)\) Apache/([12][\d.]+)\s*(.*)$">
     <description>Oracle Application Server 10g with Apache info (powered by Apache)</description>
     <example>Oracle Application Server/10g (10.1.2) Apache/1.3.34 (Unix) mod_perl/1.29 mod_jk/1.2.14 OracleAS-Web-Cache-10g/10.1.2.0.2 (N;ecid=119642322340,0)</example>
@@ -481,7 +556,9 @@
     <param pos="0" name="apache.variant" value="Oracle"/>
     <param pos="1" name="apache.variant.version"/>
   </fingerprint>
+
   <!-- TODO: this needs to be improved -->
+
   <fingerprint pattern="^Oracle-Application-Server-\d+[ig](?:[ /]([\d.]+) (?:\(.*\)|Oracle-HTTP-Server\s*(.*)))?$">
     <description>Oracle Application Server 10g (powered by Apache)</description>
     <example>Oracle-Application-Server-11g</example>
@@ -498,6 +575,7 @@
     <param pos="0" name="apache.variant" value="Oracle"/>
     <param pos="1" name="apache.variant.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Oracle9iAS/([\d.]+) Oracle HTTP Server\s*(.*)$">
     <description>Oracle 9i Application Server</description>
     <example>Oracle9iAS/9.0.2.3.0 Oracle HTTP Server Oracle9iAS-Web-Cache/9.0.2.3.0 (N)</example>
@@ -510,6 +588,7 @@
     <param pos="0" name="apache.variant" value="Oracle"/>
     <param pos="1" name="apache.variant.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Oracle HTTP Server Powered by Apache/([12][\d.]*)\s*(.*)$">
     <description>Oracle HTTP Server (powered by Apache) - version string variant</description>
     <example>Oracle HTTP Server Powered by Apache/1.3.12 (Unix) ApacheJServ/1.1 mod_ssl/2.6.4 OpenSSL/0.9.5a</example>
@@ -523,6 +602,7 @@
     <param pos="2" name="apache.info"/>
     <param pos="0" name="apache.variant" value="Oracle"/>
   </fingerprint>
+
   <fingerprint pattern="^Oracle HTTP Server Powered by Apache$">
     <description>Oracle HTTP Server (powered by Apache)</description>
     <example>Oracle HTTP Server Powered by Apache</example>
@@ -532,6 +612,25 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:-"/>
     <param pos="0" name="apache.variant" value="Oracle"/>
   </fingerprint>
+
+  <fingerprint pattern="^Oracle-Web-Cache-11g/([\d.]+) \(N;ecid=[^)]+\)$">
+    <description>Oracle Web Cache</description>
+    <example service.version="11.1.1.9.0">Oracle-Web-Cache-11g/11.1.1.9.0 (N;ecid=93620137613024,0:1)</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="Web Cache"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:oracle:web_cache:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^OracleAS-Web-Cache-10g/([\d.]+).*">
+    <description>Oracle Application Server Web Cache</description>
+    <example service.version="10.1.2.3.0">OracleAS-Web-Cache-10g/10.1.2.3.0</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="Application Server Web Cache"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:oracle:application_server_web_cache:{service.version}"/>
+  </fingerprint>
+
   <fingerprint pattern="^HP Apache-based Web Server/([012][\d.]*)\s*\(Unix\)\s*(.*)$">
     <description>Apache running on HP-UX</description>
     <example>HP Apache-based Web Server/1.3.26 (Unix) mod_ssl/2.8.9 OpenSSL/0.9.6c</example>
@@ -548,6 +647,7 @@
     <param pos="0" name="os.product" value="HP-UX"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:hp:hp-ux:-"/>
   </fingerprint>
+
   <fingerprint pattern="^CompaqHTTPServer/([0-9.]*)(?: HP System Management Homepage(?:/.*)?)?$">
     <description>HP/Compaq HTTP Server</description>
     <example>CompaqHTTPServer/9.9 HP System Management Homepage/2.1.5.146</example>
@@ -560,6 +660,7 @@
     <param pos="0" name="service.family" value="Compaq HTTP Server"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^HPSMH$">
     <description>HP System Management Homepage (SMH)</description>
     <example>HPSMH</example>
@@ -567,6 +668,7 @@
     <param pos="0" name="service.family" value="SMH"/>
     <param pos="0" name="service.product" value="SMH"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^eHTTP[/ ]v?(\d+\.\d+)">
     <description>HTTP Server present on seemingly only HP ProCurve network devices</description>
     <example service.version="1.1">EHTTP/1.1</example>
@@ -579,6 +681,7 @@
     <param pos="0" name="os.family" value="ProCurve"/>
     <param pos="0" name="os.certainty" value="0.75"/>
   </fingerprint>
+
   <fingerprint pattern="^(?:BBC \d+\.\d+\.\d+\.?\d*; )?(?:com.hp.openview.)?[c|C]oda (\d+\.\d+\.\d+\.?\d*)$">
     <description>HP Openview Coda (Communications Daemon)</description>
     <example service.component.version="0.0.1">com.hp.openview.Coda 0.0.1</example>
@@ -593,6 +696,7 @@
     <param pos="0" name="service.component.product" value="CODA"/>
     <param pos="1" name="service.component.version"/>
   </fingerprint>
+
   <fingerprint pattern="^BBC \d+\.\d+\.\d+\.?\d*; ovbbcrcp (\d+\.\d+\.\d+\.?\d*)$">
     <description>OpenView Reverse Channel Proxy (RCP)</description>
     <example service.component.version="11.00.044">BBC 11.00.044; ovbbcrcp 11.00.044</example>
@@ -605,6 +709,7 @@
     <param pos="0" name="service.component.product" value="Reverse Channel Proxy"/>
     <param pos="1" name="service.component.version"/>
   </fingerprint>
+
   <fingerprint pattern="^(?:BBC \d+\.\d+\.\d+\.?\d*; )?com.hp.openview.bbc.LLBServer (\d+\.\d+\.\d+\.?\d*)$">
     <description>HP Openview LLBServer (Local Location Broker)</description>
     <example service.component.version="2.6.8.1">com.hp.openview.bbc.LLBServer 2.6.8.1</example>
@@ -618,6 +723,7 @@
     <param pos="0" name="service.component.product" value="LLBServer"/>
     <param pos="1" name="service.component.version"/>
   </fingerprint>
+
   <fingerprint pattern="^BBC \d+\.\d+\.\d+; ovbbccb (\d+\.\d+\.\d+)$">
     <description>OpenView Communication Broker (ovbbccb)</description>
     <example service.component.version="06.00.083">BBC 06.00.083; ovbbccb 06.00.083</example>
@@ -631,6 +737,7 @@
     <param pos="0" name="service.component.product" value="Communication Broker"/>
     <param pos="1" name="service.component.version"/>
   </fingerprint>
+
   <fingerprint pattern="^BBC \d+\.\d+\.\d+; ovbbccb unknown version$">
     <description>OpenView Communication Broker (ovbbccb) with no version</description>
     <example>BBC 11.13.007; ovbbccb unknown version</example>
@@ -642,6 +749,7 @@
     <param pos="0" name="service.component.family" value="OpenView"/>
     <param pos="0" name="service.component.product" value="Communication Broker"/>
   </fingerprint>
+
   <fingerprint pattern="^UOS$">
     <description>HTTP Server that appears unique to Managment Console on HP TippingPoint IPS Devices</description>
     <example>UOS</example>
@@ -655,6 +763,7 @@
     <param pos="0" name="hw.family" value="TippingPoint"/>
     <param pos="0" name="hw.device" value="IPS"/>
   </fingerprint>
+
   <fingerprint pattern="^uc-httpd[ \/]([\d.]+)$">
     <description>Xiongmai Tech uc-httpd</description>
     <example service.version="1.0.0">uc-httpd 1.0.0</example>
@@ -663,6 +772,7 @@
     <param pos="0" name="service.product" value="uc-httpd"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^micro_httpd$">
     <description>ACME micro_httpd</description>
     <example>micro_httpd</example>
@@ -670,6 +780,7 @@
     <param pos="0" name="service.product" value="micro_httpd"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:acme:micro_httpd:-"/>
   </fingerprint>
+
   <fingerprint pattern="^mini_httpd$">
     <description>ACME mini_httpd</description>
     <example>mini_httpd</example>
@@ -677,6 +788,7 @@
     <param pos="0" name="service.product" value="mini_httpd"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:acme:mini_httpd:-"/>
   </fingerprint>
+
   <fingerprint pattern="^LiteSpeed\/?(:?[\d.]+)?(?: \S+)?">
     <description>LiteSpeed</description>
     <example>LiteSpeed</example>
@@ -684,7 +796,9 @@
     <param pos="0" name="service.vendor" value="LiteSpeed Technologies"/>
     <param pos="0" name="service.product" value="LiteSpeed Web Server"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:litespeedtech:litespeed_web_server:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^IdeaWebServer\/v?([\d.]+)$">
     <description>Idea Web Server</description>
     <example service.version="0.83.74">IdeaWebServer/0.83.74</example>
@@ -693,6 +807,7 @@
     <param pos="0" name="service.product" value="Idea Web Server"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^openresty\/?(:?[\d.]+)?$">
     <description>OpenResty OpenResty</description>
     <example>openresty</example>
@@ -700,22 +815,47 @@
     <param pos="0" name="service.vendor" value="OpenResty"/>
     <param pos="0" name="service.product" value="OpenResty"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:openresty:openresty:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^gunicorn\/([\d.]+)+$">
     <description>Gunicorn Gunicorn</description>
     <example service.version="19.7.1">gunicorn/19.7.1</example>
     <param pos="0" name="service.vendor" value="Gunicorn"/>
     <param pos="0" name="service.product" value="Gunicorn"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:gunicorn:gunicorn:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Serv-U\/([\d.]+)$">
     <description>Serv-U HTTP interface</description>
     <example service.version="15.1.6.31">Serv-U/15.1.6.31</example>
     <param pos="0" name="service.vendor" value="SolarWinds"/>
     <param pos="0" name="service.family" value="Serv-U"/>
-    <param pos="0" name="service.product" value="FTP Server"/>
+    <param pos="0" name="service.product" value="Serv-U FTP Server"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:solarwinds:serv-u_ftp_server:{service.version}"/>
   </fingerprint>
+
+  <fingerprint pattern="^Wing FTP Server/([\d.]+)\([^)]*\)$">
+    <description>Wing FTP HTTP interface - with version</description>
+    <example service.version="3.6.0">Wing FTP Server/3.6.0(customer name here)</example>
+    <param pos="0" name="service.vendor" value="WFTPServer"/>
+    <param pos="0" name="service.family" value="Wing FTP"/>
+    <param pos="0" name="service.product" value="Wing FTP Server"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:wftpserver:wing_ftp_server:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Wing FTP Server\([^)]*\)$">
+    <description>Wing FTP HTTP interface - no version</description>
+    <example>Wing FTP Server(customer name here)</example>
+    <param pos="0" name="service.vendor" value="WFTPServer"/>
+    <param pos="0" name="service.family" value="Wing FTP"/>
+    <param pos="0" name="service.product" value="Wing FTP Server"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:wftpserver:wing_ftp_server:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^(?i)Linux UPnP/1.0 Sonos/([\d\.\-a-z]+) \((BR\d+)\)$">
     <description>Sonos Bridge/ZoneBridge</description>
     <example hw.model="BR100" hw.version="47.2-59120">Linux UPnP/1.0 Sonos/47.2-59120 (BR100)</example>
@@ -726,6 +866,7 @@
     <param pos="2" name="hw.model"/>
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
+
   <fingerprint pattern="^(?i)Linux UPnP/1.0 Sonos/([\d\.\-a-z]+) \(ANVIL\)$">
     <description>Sonos Subwoofer Speaker</description>
     <example>Linux UPnP/1.0 Sonos/31.3-22220 (ANVIL)</example>
@@ -735,6 +876,7 @@
     <param pos="1" name="hw.version"/>
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Linux UPnP/1.0 Sonos/([\d\.\-a-z]+) \(ZP(S?\d+)\)$">
     <description>Sonos PLAY/ZonePlayer wireless speaker</description>
     <example hw.model="S1" hw.version="39.2-47040c">Linux UPnP/1.0 Sonos/39.2-47040c (ZPS1)</example>
@@ -747,6 +889,7 @@
     <param pos="2" name="hw.model"/>
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Linux UPnP/1.0 Sonos/([\d\.\-a-z]+) \(WD(\d+)\)$">
     <description>Sonos Wireless Dock</description>
     <example hw.model="100" hw.version="36.4-41270">Linux UPnP/1.0 Sonos/36.4-41270 (WD100)</example>
@@ -757,6 +900,7 @@
     <param pos="2" name="hw.model"/>
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
+
   <fingerprint pattern="^Varnish(?:[- ]Cache)?$">
     <description>Varnish Cache</description>
     <example>Varnish</example>
@@ -766,6 +910,7 @@
     <param pos="0" name="service.product" value="Varnish"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:varnish-cache:varnish:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Tengine\/?(:?[\d.]+)?$">
     <description>Tengine</description>
     <example>Tengine</example>
@@ -775,6 +920,7 @@
     <param pos="0" name="service.product" value="Tengine"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Mikrotik HttpProxy$">
     <description>MikroTik RouterOS - Proxy service</description>
     <example>Mikrotik HttpProxy</example>
@@ -787,6 +933,7 @@
     <param pos="0" name="hw.vendor" value="MikroTik"/>
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
+
   <fingerprint pattern="^Helix Server Version ([0-9.]*) \(win32\) \(RealServer compatible\)$">
     <description>RealMedia Helix Server - Windows</description>
     <example>Helix Server Version 9.0.4.960 (win32) (RealServer compatible)</example>
@@ -799,6 +946,7 @@
     <param pos="0" name="service.family" value="Helix Server"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Helix Server Version ([0-9.]*) \(linux-\S+\) \(RealServer compatible\)$">
     <description>RealMedia Helix Server - Linux</description>
     <example>Helix Server Version 9.0.4.960 (linux-2.2-libc6-i586-server) (RealServer compatible)</example>
@@ -809,6 +957,7 @@
     <param pos="0" name="service.family" value="Helix Server"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^ReeCam IP Camera$">
     <description>Shenzhen ReeCam cameras</description>
     <example>ReeCam IP Camera</example>
@@ -816,12 +965,14 @@
     <param pos="0" name="hw.product" value="ReeCam"/>
     <param pos="0" name="hw.device" value="Web cam"/>
   </fingerprint>
+
   <fingerprint pattern="^Netwave IP Camera$">
     <description>Netwave cameras</description>
     <example>Netwave IP Camera</example>
     <param pos="0" name="hw.vendor" value="Netwave"/>
     <param pos="0" name="hw.device" value="Web cam"/>
   </fingerprint>
+
   <fingerprint pattern="^Cougar/([0-9.]*)$">
     <description>Windows Media Services (older versions)</description>
     <example>Cougar/9.01.01.3841</example>
@@ -834,6 +985,7 @@
     <param pos="0" name="service.family" value="Windows Media Services"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^WMServer/([0-9.]*)$">
     <description>Windows Media Services (newer versions)</description>
     <example>WMServer/9.1.1.3841</example>
@@ -846,6 +998,7 @@
     <param pos="0" name="service.family" value="Windows Media Services"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Microsoft-HTTPAPI/(?:[0-9\.]*)$">
     <description>Generic Microsoft HTTP service</description>
     <example>Microsoft-HTTPAPI/2.0</example>
@@ -854,6 +1007,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^(?:(?:Cube|(?:Mini )?Dome|Day/Night|PAN/?Tilt|POE|IR|HD|H.264|Surveillance|With|Wired|Wireless(?: N)?|Network|Internet|(?:IP(?:[\s_-])?)?Cameras?[\s_]*\d*) ?){1,5}?(?: Login)?$">
     <description>Generic IP Cameras</description>
     <example>camera</example>
@@ -861,6 +1015,7 @@
     <example>Mini Dome IP Camera</example>
     <param pos="0" name="hw.device" value="Web cam"/>
   </fingerprint>
+
   <fingerprint pattern="^ASP.NET$">
     <description>Something written in ASP.NET</description>
     <example>ASP.NET</example>
@@ -870,6 +1025,7 @@
     <param pos="0" name="os.certainty" value="0.6"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^[Xx]itami$">
     <description>Xitami web server</description>
     <example>Xitami</example>
@@ -877,6 +1033,7 @@
     <param pos="0" name="service.product" value="HTTP"/>
     <param pos="0" name="service.family" value="Webserver"/>
   </fingerprint>
+
   <fingerprint pattern="^VCS-VIDOS-NVR$">
     <description>Bosch VCS VIDOS-NVR network video recorder</description>
     <example>VCS-VIDOS-NVR</example>
@@ -886,12 +1043,14 @@
     <param pos="0" name="hw.vendor" value="Bosch"/>
     <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
+
   <fingerprint pattern="^FUHO-DVR$">
     <description>FUHO Surveillance/DVR</description>
     <example>FUHO-DVR</example>
     <param pos="0" name="hw.vendor" value="FUHO"/>
     <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
+
   <fingerprint pattern="^HeiTel GmbH Web Server \[\S+\]$">
     <description>HeiTel Digital Video Recorder</description>
     <example>HeiTel GmbH Web Server [V1.15/V1.14/V1.3]</example>
@@ -901,6 +1060,7 @@
     <param pos="0" name="hw.vendor" value="HeiTel"/>
     <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
+
   <fingerprint pattern="^MiniServ/([0-9.]*)$">
     <description>mini_httpd</description>
     <example>MiniServ/0.01</example>
@@ -908,6 +1068,7 @@
     <param pos="0" name="service.family" value="WebServer"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^IBM HTTP Server/(V\d+R\d+M\d+)$">
     <description>IBM HTTP server running on AS/400</description>
     <example>IBM HTTP Server/V5R3M0</example>
@@ -920,7 +1081,9 @@
     <param pos="0" name="os.family" value="OS/400"/>
     <param pos="0" name="os.product" value="OS/400"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:os_400:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^(?:IBM_HTTP_Server|IBM_HTTP_SERVER)/([\w.-]+)\s+Apache/([12][\d.]+)\s*(.*)$">
     <description>IBM HTTP Server</description>
     <example>IBM_HTTP_SERVER/1.3.19.2  Apache/1.3.20 (Win32)</example>
@@ -942,6 +1105,7 @@
     <param pos="0" name="apache.variant" value="IBM"/>
     <param pos="1" name="apache.variant.version"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^(?:IBM_HTTP_SERVER|IBM-HTTP-SERVER)/(\S+)(?: \(\S+\))?$">
     <description>IBM HTTP Server with hardly useful version info</description>
     <example>IBM-HTTP-Server/1.0</example>
@@ -953,6 +1117,7 @@
     <param pos="0" name="apache.variant" value="IBM"/>
     <param pos="1" name="apache.variant.version"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^(?:IBM_HTTP_SERVER|IBM-HTTP-SERVER)$">
     <description>IBM HTTP Server with no version info</description>
     <example>IBM_HTTP_SERVER</example>
@@ -963,9 +1128,11 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:-"/>
     <param pos="0" name="apache.variant" value="IBM"/>
   </fingerprint>
+
   <!--
    Netscape/Sun's Application Server
    -->
+
   <fingerprint pattern="^Sun[ -]Java[ -]System[ /]Application[ -]Server( \d\.[\d_]+)?$">
     <description>Sun Java System Application Server (formerly iPlanet Application Server, Sun ONE Application Server)</description>
     <example>Sun-Java-System/Application-Server</example>
@@ -975,6 +1142,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:sun:java_system_application_server:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Sun[ -]Java[ -]System[ /]Application[ -]Server Platform Edition (\d\.[\d_]+)?$">
     <description>Sun Java System Application Server Platform Edition(formerly iPlanet Application Server, Sun ONE Application Server)</description>
     <example>Sun Java System Application Server Platform Edition 9.0</example>
@@ -984,22 +1152,46 @@
     <param pos="0" name="service.product" value="Java System Application Server Platform Edition"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Sun GlassFish Enterprise Server v(\S+)$">
     <description>Glassfish with version information</description>
-    <example>Sun GlassFish Enterprise Server v2.1</example>
-    <param pos="0" name="service.vendor" value="Sun"/>
-    <param pos="0" name="service.product" value="GlassFish"/>
+    <example service.version="2.1">Sun GlassFish Enterprise Server v2.1</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="GlassFish Server"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:oracle:glassfish_server:{service.version}"/>
   </fingerprint>
+
+  <fingerprint pattern="^GlassFish Server Open Source Edition\s+(\S+)$">
+    <description>Glassfish Open Source Edition with version information</description>
+    <example service.version="4.1.2">GlassFish Server Open Source Edition  4.1.2</example>
+    <example service.version="3.1.2.2">GlassFish Server Open Source Edition 3.1.2.2</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="GlassFish Server"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:oracle:glassfish_server:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Oracle GlassFish Server ([\d.]+)$">
+    <description>Oracle GlassFish Server</description>
+    <example service.version="3.1.2.14">Oracle GlassFish Server 3.1.2.14</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="GlassFish Server"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:oracle:glassfish_server:{service.version}"/>
+  </fingerprint>
+
   <fingerprint pattern="^GlassFish$">
     <description>Glassfish without version information</description>
     <example>GlassFish</example>
     <param pos="0" name="service.vendor" value="Sun"/>
-    <param pos="0" name="service.product" value="GlassFish"/>
+    <param pos="0" name="service.product" value="GlassFish Server"/>
   </fingerprint>
+
   <!--
    Netscape/Sun's Web Server
    -->
+
   <fingerprint pattern="^Netscape-Enterprise/(\d+\.[\w\s.]+)$">
     <description>Netscape Enterprise Server (subsequently iPlanet Web Server, Sun ONE Web Server, presently Sun Java System Web Server)</description>
     <example>Netscape-Enterprise/3.5.1</example>
@@ -1011,6 +1203,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:sun:java_system_web_server:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^(?:Sun-Java-System-Web-Server|Sun-ONE-Web-Server)/(?:\d\.[\d_]+)$">
     <description>Sun Java System Web Server (formerly Netscape Enterprise Server, iPlanet Web Server and Sun ONE Web Server)</description>
     <example>Sun-Java-System-Web-Server/7.0</example>
@@ -1020,19 +1213,20 @@
     <param pos="0" name="service.product" value="Java System Web Server"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:sun:java_system_web_server:-"/>
   </fingerprint>
+
   <!--
    Netscape/Sun's Web Proxy Server
    -->
+
   <!--
    Header seen on admin port 8081 (not regular proxy port 8080) of Sun Java
    System Web Proxy Server 3.6 Service Pack 4 running on Windows:
-
    Server: Netscape-Administrator/3.54
-
    However this header might be used by Web Server too, so it might be
    impossible to differentiate Web Server from Web Proxy Server. Also note how
    there seems to be no relation between 3.54 and "3.6 Service Pack 4".
    -->
+
   <fingerprint pattern="^iPlanet-Web-Proxy-Server/(.*)$">
     <description>iPlanet WebProxy Server (subsequently Sun ONE WebProxy Server, presently Sun Java System Web Proxy Server)</description>
     <example>iPlanet-Web-Proxy-Server/3.6</example>
@@ -1043,6 +1237,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:sun:java_system_web_proxy_server:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Sun-ONE-Web-Proxy-Server/(.*)$">
     <description>Sun ONE WebProxy Server (formerly iPlanet WebProxy Server, presently Sun Java System Web Proxy Server)</description>
     <example service.version="3.6-SP4">Sun-ONE-Web-Proxy-Server/3.6-SP4</example>
@@ -1052,6 +1247,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:sun:java_system_web_proxy_server:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Sun-Java-System-Web-Proxy-Server/(\d\.[\d.]+)$">
     <description>Sun Java System Web Proxy Server (formerly iPlanet WebProxy Server, Sun ONE WebProxy Server)</description>
     <example>Sun-Java-System-Web-Proxy-Server/4.0.2</example>
@@ -1062,6 +1258,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:sun:java_system_web_proxy_server:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Sun-ILOM-Web-Server/(?:\d\.[\d._]+)$">
     <description>Sun Integrated Lights Out Manager (ILOM) usually bundled with Sun Fire servers</description>
     <example>Sun-ILOM-Web-Server/1.0</example>
@@ -1071,6 +1268,7 @@
     <param pos="0" name="hw.vendor" value="Sun"/>
     <param pos="0" name="hw.family" value="Sun Fire"/>
   </fingerprint>
+
   <fingerprint pattern="^HP-iLO-Server/(?:[\S]+)">
     <description>HP Integrated Lights Out Manager (iLO).  Version in the Server header (found on in iLO4) is the firmware version and is not currently used.</description>
     <example>HP-iLO-Server/1.30</example>
@@ -1085,12 +1283,14 @@
     <param pos="0" name="os.family" value="iLO"/>
     <param pos="0" name="os.device" value="Lights Out Management"/>
   </fingerprint>
+
   <!--
       TODO:
-
       Sun_WebServer/2.1
   -->
+
   <!-- Mort Bay Jetty 1.0 to 6.x  -->
+
   <fingerprint pattern="^Jetty\/([1-6]\.[\w.]+)(?: \(([^)]*))?">
     <description>Mort Bay Jetty with info</description>
     <example service.version="4.0.1" jetty.info="SunOS 5.8 sparc">Jetty/4.0.1 (SunOS 5.8 sparc)</example>
@@ -1105,6 +1305,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:mortbay:jetty:{service.version}"/>
     <param pos="2" name="jetty.info"/>
   </fingerprint>
+
   <fingerprint pattern="^Jetty\(([1-6]\S+)\)$">
     <description>Mort Bay Jetty</description>
     <example service.version="1.4.5">Jetty(1.4.5)</example>
@@ -1115,10 +1316,12 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:mortbay:jetty:{service.version}"/>
   </fingerprint>
+
   <!--
     Jetty moved to Eclipse.org at version 7, CVEs after this version are
     associated with Eclipse CPEs.
   -->
+
   <fingerprint pattern="^Jetty\((\S+)\)$">
     <description>Eclipse Jetty</description>
     <example service.version="7.6.9.v20130131">Jetty(7.6.9.v20130131)</example>
@@ -1130,6 +1333,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:eclipse:jetty:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^(?i)squid/(\d+\.[\w.\-\+]+)$">
     <description>Squid Web Proxy with a version</description>
     <example service.version="2.3.STABLE1">Squid/2.3.STABLE1</example>
@@ -1141,6 +1345,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:squid-cache:squid:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^(?i)squid$">
     <description>Squid Web Proxy without a version</description>
     <example>Squid</example>
@@ -1150,14 +1355,18 @@
     <param pos="0" name="service.family" value="Squid"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:squid-cache:squid:-"/>
   </fingerprint>
+
   <fingerprint pattern="^thttpd/(\d\.[\w.]+)-MX\s*.*$">
     <description>thttpd with SSL support</description>
     <example>thttpd/2.19-MX Jan 24 2006</example>
+    <param pos="0" name="service.vendor" value="ACME"/>
     <param pos="0" name="service.product" value="thttpd"/>
     <param pos="0" name="service.family" value="thttpd"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:acme:thttpd:{service.version}"/>
     <param pos="0" name="thttpd.mx-patch" value="enabled"/>
   </fingerprint>
+
   <fingerprint pattern="^thttpd(?:/(\d\.[\w.]+)\s*.*)?$">
     <description>thttpd</description>
     <example>thttpd</example>
@@ -1169,15 +1378,20 @@
     <param pos="0" name="service.family" value="thttpd"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="^lighttpd(?:/(\d[\d.]+))?.*$">
+
+  <fingerprint pattern="(?i)^lighttpd(?:/(\d[\d.]+))?.*$">
     <description>Lighttpd</description>
     <example>lighttpd</example>
+    <example>Lighttpd</example>
     <example service.version="1.4.16">lighttpd/1.4.16</example>
     <example>lighttpd/1.3.7 (Mar 23 2007/16:00:15)</example>
+    <param pos="0" name="service.vendor" value="lighttpd"/>
     <param pos="0" name="service.product" value="lighttpd"/>
     <param pos="0" name="service.family" value="lighttpd"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:lighttpd:lighttpd:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^nginx$">
     <description>nginx without version info</description>
     <example>nginx</example>
@@ -1186,6 +1400,7 @@
     <param pos="0" name="service.vendor" value="nginx"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:nginx:nginx:-"/>
   </fingerprint>
+
   <fingerprint pattern="^nginx\/?(:?[\d.]+)?">
     <description>nginx with version info and/or mods</description>
     <example service.version="0.8.53">nginx/0.8.53 + Phusion Passenger 3.0.0 (mod_rails/mod_rack)</example>
@@ -1198,6 +1413,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:nginx:nginx:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Lotus(?:-Domino)?(?:/|/0|/Release)?$">
     <description>IBM Lotus Notes/Domino with no useful version info</description>
     <example>Lotus</example>
@@ -1209,6 +1425,7 @@
     <param pos="0" name="service.family" value="Lotus Domino"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:ibm:lotus_domino:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Lotus(?:-Domino)?/(?:Release-?)?([4-7][\d.]+)\s*(?:.*)$">
     <description>IBM Lotus Notes/Domino with version info</description>
     <example>Lotus-Domino/5.0.8</example>
@@ -1219,6 +1436,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:ibm:lotus_domino:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^WebLogic (?:WebLogic )?Server (\d+\.\d+(?:\s+SP\d+)?)\s+.*$">
     <description>BEA WebLogic</description>
     <example service.version="8.1 SP3">WebLogic Server 8.1 SP3 Tue Jun 29 23:11:19 PDT 2004 404973</example>
@@ -1230,6 +1448,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:bea:weblogic_server:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^WebSphere Application Server/(\d+\.\d+)$">
     <description>IBM WebSphere</description>
     <example service.version="5.0">WebSphere Application Server/5.0</example>
@@ -1238,7 +1457,9 @@
     <param pos="0" name="service.product" value="WebSphere"/>
     <param pos="0" name="service.family" value="WebSphere"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ibm:websphere:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Resin/(\S+)$">
     <description>Caucho Resin</description>
     <example>Resin/2.1.13</example>
@@ -1250,6 +1471,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:caucho:resin:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Ipswitch-IMail/(\d\.\d+)$">
     <description>Ipswitch IMail Server</description>
     <example>Ipswitch-IMail/5.08</example>
@@ -1265,6 +1487,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Abyss/(\d\.[\d.]+)-X1-Win32 AbyssLib/(?:\d\.[\d.]+)$">
     <description>Aprelium Technologies Abyss Web Server X1 (free personal edition) on Windows</description>
     <example>Abyss/2.0.0.20-X1-Win32 AbyssLib/2.0.0.20</example>
@@ -1278,6 +1501,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Abyss/(\d\.[\d.]+)-X2-Win32 AbyssLib/(?:\d\.[\d.]+)$">
     <description>Aprelium Technologies Abyss Web Server X2 (licensed professional edition) on Windows</description>
     <param pos="0" name="service.vendor" value="Aprelium Technologies"/>
@@ -1289,6 +1513,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Microsoft (Commerce Server\s*(?:2002|2007)?, (?:Enterprise|Standard|Evaluation|Developer) Edition)$">
     <description>Microsoft Commerce Server</description>
     <param pos="0" name="service.vendor" value="Microsoft"/>
@@ -1299,6 +1524,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^NetWare-Enterprise-Web-Server/(\d+\.\d+)$">
     <description>NetWare Enterprise Web Server (runs on NetWare 5.1)</description>
     <param pos="0" name="service.vendor" value="Novell"/>
@@ -1313,6 +1539,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^NetWare HTTP Stack$">
     <description>NetWare HTTP stack (runs on 6.0 and 6.5)</description>
     <param pos="0" name="service.vendor" value="Novell"/>
@@ -1323,6 +1550,7 @@
     <param pos="0" name="os.product" value="NetWare"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Novell-HTTP-Server/3.1R1$">
     <description>NetWare HTTP Server (runs on NetWare 4.11)</description>
     <param pos="0" name="service.vendor" value="Novell"/>
@@ -1336,6 +1564,7 @@
     <param pos="0" name="os.version" value="4.11"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:4.11"/>
   </fingerprint>
+
   <fingerprint pattern="^Novell-HTTP-Server/2.51R1$">
     <description>NetWare HTTP Server (runs on NetWare 4.1)</description>
     <param pos="0" name="service.vendor" value="Novell"/>
@@ -1349,6 +1578,7 @@
     <param pos="0" name="os.version" value="4.1"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:novell:netware:4.1"/>
   </fingerprint>
+
   <fingerprint pattern="^Netscape-FastTrack/(\d+\.[\w\s.]+)$">
     <description>Netscape FastTrack Server</description>
     <param pos="0" name="service.vendor" value="Netscape"/>
@@ -1357,6 +1587,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:netscape:fasttrack_server:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Netscape-Commerce/(\d+\.[\w\s.]+)$">
     <description>Netscape Commerce Server</description>
     <param pos="0" name="service.vendor" value="Netscape"/>
@@ -1365,47 +1596,164 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:netscape:commerce_server:{service.version}"/>
   </fingerprint>
+
   <!--
       TODO
-
          "Powered by PowerBSD - Apache"
          "SSE(Apache)"
      -->
+
   <fingerprint pattern="^SAP J2EE Engine/(\d+\.\d+)$">
-    <description>SAP NetWeaver Web AS (Application Server)</description>
+    <description>SAP NetWeaver Application Server Java - short version</description>
+    <example service.version="7.01">SAP J2EE Engine/7.01</example>
     <param pos="0" name="service.vendor" value="SAP"/>
-    <param pos="0" name="service.product" value="NetWeaver Web AS"/>
+    <param pos="0" name="service.product" value="NetWeaver Application Server Java"/>
     <param pos="0" name="service.family" value="NetWeaver"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_application_server_java:{service.version}"/>
+    <param pos="0" name="service.component.vendor" value="SAP"/>
+    <param pos="0" name="service.component.product" value="NetWeaver Application Server"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:sap:netweaver_application_server:-"/>
   </fingerprint>
+
+  <fingerprint pattern="^SAP J2EE Engine$">
+    <description>SAP NetWeaver Application Server Java - without version</description>
+    <example>SAP J2EE Engine</example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="NetWeaver Application Server Java"/>
+    <param pos="0" name="service.family" value="NetWeaver"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_application_server_java:-"/>
+    <param pos="0" name="service.component.vendor" value="SAP"/>
+    <param pos="0" name="service.component.product" value="NetWeaver Application Server"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:sap:netweaver_application_server:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^SAP NetWeaver Application Server$">
+    <description>SAP NetWeaver Application Server without version</description>
+    <example>SAP NetWeaver Application Server</example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="NetWeaver Application Server"/>
+    <param pos="0" name="service.family" value="NetWeaver"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_application_server:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^SAP NetWeaver Application Server ([\d.]+) / AS Java ([\d.]+)$">
+    <description>SAP NetWeaver Application Server Java</description>
+    <example service.version="7.30" service.component.version="7.22">SAP NetWeaver Application Server 7.22 / AS Java 7.30</example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="NetWeaver Application Server Java"/>
+    <param pos="0" name="service.family" value="NetWeaver"/>
+    <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_application_server_java:{service.version}"/>
+    <param pos="0" name="service.component.vendor" value="SAP"/>
+    <param pos="0" name="service.component.product" value="NetWeaver Application Server"/>
+    <param pos="1" name="service.component.version"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:sap:netweaver_application_server:{service.component.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^SAP NetWeaver Application Server ([\d.]+) / ICM ([\d.]+)$">
+    <description>SAP NetWeaver Application Server - Internet Communication Manager</description>
+    <example service.version="7.21" service.component.version="7.21">SAP NetWeaver Application Server 7.21 / ICM 7.21</example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="NetWeaver Internet Communication Manager"/>
+    <param pos="0" name="service.family" value="NetWeaver"/>
+    <param pos="2" name="service.version"/>
+    <param pos="0" name="service.component.vendor" value="SAP"/>
+    <param pos="0" name="service.component.product" value="NetWeaver Application Server"/>
+    <param pos="1" name="service.component.version"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:sap:netweaver_application_server:{service.component.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^SAP NetWeaver Application Server \(ICM\)$">
+    <description>SAP NetWeaver Application Server - Internet Communication Manager without version</description>
+    <example>SAP NetWeaver Application Server (ICM)</example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="NetWeaver Internet Communication Manager"/>
+    <param pos="0" name="service.family" value="NetWeaver"/>
+    <param pos="0" name="service.component.vendor" value="SAP"/>
+    <param pos="0" name="service.component.product" value="NetWeaver Application Server"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:sap:netweaver_application_server:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^SAP NetWeaver Application Server / ABAP ([\d.]+)$">
+    <description>SAP NetWeaver Application Server - Advanced Business Application Programming</description>
+    <example service.version="731">SAP NetWeaver Application Server / ABAP 731</example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="NetWeaver AS ABAP"/>
+    <param pos="0" name="service.family" value="NetWeaver"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_as_abap:{service.version}"/>
+    <param pos="0" name="service.component.vendor" value="SAP"/>
+    <param pos="0" name="service.component.product" value="NetWeaver Application Server"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:sap:netweaver_application_server:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^SAP Internet Graphics Server$">
+    <description>SAP Internet Graphics Server</description>
+    <example>SAP Internet Graphics Server</example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="Internet Graphics Server"/>
+    <param pos="0" name="service.component.vendor" value="SAP"/>
+    <param pos="0" name="service.component.product" value="NetWeaver Application Server"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:sap:netweaver_application_server:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^SAP Message Server, release ([\d.]+) \(LNK\)$">
+    <description>SAP Message Server</description>
+    <example service.version="753">SAP Message Server, release 753 (LNK)</example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="SAP Message Server"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^SQLAnywhere/([\d.]+)$">
+    <description>SAP SQLAnywhere</description>
+    <example service.version="16.0.0.2207">SQLAnywhere/16.0.0.2207</example>
+    <param pos="0" name="service.vendor" value="SAP"/>
+    <param pos="0" name="service.product" value="SQL Anywhere"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sap:sql_anywhere:{service.version}"/>
+  </fingerprint>
+
   <fingerprint pattern="^OpenVPN-AS$">
     <description>OpenVPN Access Server</description>
     <example>OpenVPN-AS</example>
     <param pos="0" name="service.vendor" value="OpenVPN"/>
-    <param pos="0" name="service.product" value="Access Server"/>
+    <param pos="0" name="service.product" value="OpenVPN Access Server"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:openvpn:openvpn_access_server:-"/>
     <param pos="0" name="hw.device" value="VPN"/>
   </fingerprint>
-  <fingerprint pattern="^SonicWALL (SSL-?VPN(?: (?:\d+))?) Web Server\.?$">
+
+  <fingerprint pattern="^SonicWALL SSL-?VPN Web Server$">
     <description>SonicWALL SSL-VPN device</description>
     <example>SonicWALL SSLVPN Web Server</example>
     <example>SonicWALL SSL-VPN Web Server</example>
-    <param pos="0" name="service.vendor" value="SonicWALL"/>
+    <param pos="0" name="service.vendor" value="SonicWall"/>
     <param pos="0" name="service.product" value="SSL-VPN"/>
     <param pos="0" name="service.family" value="SSL-VPN"/>
-    <param pos="0" name="os.vendor" value="SonicWALL"/>
+    <param pos="0" name="os.vendor" value="SonicWall"/>
     <param pos="0" name="os.device" value="VPN"/>
     <param pos="0" name="os.family" value="SSL-VPN"/>
-    <param pos="1" name="os.product"/>
-    <param pos="0" name="hw.vendor" value="SonicWALL"/>
+    <param pos="0" name="os.product" value="SonicOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sonicwall:sonicos:-"/>
+    <param pos="0" name="hw.vendor" value="SonicWall"/>
     <param pos="0" name="hw.device" value="VPN"/>
   </fingerprint>
+
   <fingerprint pattern="^SonicWALL$">
     <description>SonicWALL device</description>
     <example>SonicWALL</example>
-    <param pos="0" name="service.vendor" value="SonicWALL"/>
+    <param pos="0" name="service.vendor" value="SonicWall"/>
     <param pos="0" name="service.product" value="HTTP"/>
-    <param pos="0" name="os.vendor" value="SonicWALL"/>
+    <param pos="0" name="os.vendor" value="SonicWall"/>
+    <param pos="0" name="os.device" value="VPN"/>
+    <param pos="0" name="os.family" value="SSL-VPN"/>
+    <param pos="0" name="os.product" value="SonicOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sonicwall:sonicos:-"/>
+    <param pos="0" name="hw.vendor" value="SonicWall"/>
+    <param pos="0" name="hw.device" value="VPN"/>
   </fingerprint>
+
   <fingerprint pattern="^NetCache appliance \(NetApp/+(\d+\.\d+[\w.]+)\)$">
     <description>NetCache appliance (product line formerly owned by Network Appliances, now owned by Blue Coat Systems).</description>
     <example service.version="5.3.1R3">NetCache appliance (NetApp/5.3.1R3)</example>
@@ -1423,6 +1771,7 @@
     <param pos="0" name="os.family" value="NetCache"/>
     <param pos="0" name="os.product" value="NetCache"/>
   </fingerprint>
+
   <fingerprint pattern="^NetApp/+(.*)$">
     <description>NetApp file servers</description>
     <example>NetApp/7.3.4P1</example>
@@ -1436,6 +1785,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:netapp:data_ontap:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^BlueCoat-Security-Appliance$">
     <description>Blue Coat security appliance</description>
     <example>BlueCoat-Security-Appliance</example>
@@ -1444,6 +1794,7 @@
     <param pos="0" name="os.family" value="Blue Coat"/>
     <param pos="0" name="os.product" value="Appliance"/>
   </fingerprint>
+
   <fingerprint pattern="^(?:BigIP|BIG-IP)$">
     <description>F5 BIG-IP</description>
     <param pos="0" name="service.vendor" value="F5"/>
@@ -1453,6 +1804,15 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
+
+  <fingerprint pattern="^TargetWeb/[\d\.]+ \(TargetOS\)$">
+    <description>Mercurity Security TargetOS</description>
+    <example>TargetWeb/2011.0 (TargetOS)</example>
+    <param pos="0" name="hw.vendor" value="Mercury Security"/>
+    <param pos="0" name="hw.device" value="Access Control"/>
+    <param pos="0" name="hw.product" value="EP-series"/>
+  </fingerprint>
+
   <fingerprint pattern="^Foundry Networks(?:/(\d+\.\d+))?$">
     <description>Foundry Networks device (though not sure which)</description>
     <param pos="0" name="service.vendor" value="Foundry"/>
@@ -1460,6 +1820,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="os.vendor" value="Foundry"/>
   </fingerprint>
+
   <fingerprint pattern="^HP-Chai(?:Server|SOE)/(\d+\.\d+)$">
     <description>HP Printer running the Chai embedded web server</description>
     <example>HP-ChaiServer/2.2</example>
@@ -1477,6 +1838,11 @@
     <param pos="0" name="hw.product" value="JetDirect"/>
     <param pos="0" name="hw.device" value="Printer"/>
   </fingerprint>
+
+  <!-- This section needs to be reworked to extract module / version to make
+       this information useful and mappable to CPE
+  -->
+
   <fingerprint pattern="^HP HTTP Server; (?:Hewlett-Packard )?HP ((\S+) \S+)">
     <description>HP Printer</description>
     <example os.product="Photosmart C309a" os.family="Photosmart">HP HTTP Server; HP Photosmart C309a series - CC335A; Serial Number: abc123; Vader Built:Wed Apr 15, 2009 11:40:58AM {abc123, ASIC id 0x00280004}</example>
@@ -1494,6 +1860,7 @@
     <param pos="0" name="hw.product" value="JetDirect"/>
     <param pos="0" name="hw.device" value="Printer"/>
   </fingerprint>
+
   <fingerprint pattern="^HTTP/1\.0$">
     <description>Old HP printers identify themselves as "HTTP/1.0"</description>
     <param pos="0" name="service.vendor" value="HP"/>
@@ -1508,6 +1875,7 @@
     <param pos="0" name="hw.product" value="JetDirect"/>
     <param pos="0" name="hw.device" value="Printer"/>
   </fingerprint>
+
   <fingerprint pattern="^(?:Allegro-Software-)?RomPager/\s*(\S+)">
     <description>Embedded HTTP server used by many vendors and device
       types, including APC, 3Com, Andover Controls, Cisco VoIP, D-Link,
@@ -1522,6 +1890,7 @@
     <param pos="0" name="service.product" value="RomPager"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^YAMAHA-RT$">
     <description>Yamaha RT series routers</description>
     <param pos="0" name="service.vendor" value="Yamaha"/>
@@ -1534,6 +1903,7 @@
     <param pos="0" name="hw.vendor" value="Yamaha"/>
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
+
   <fingerprint pattern="^(?:Canon Http|CANON HTTP) Server (?:Ver)?(?:\d+\.\d+)$">
     <description>Canon Multifunction Printer/Copiers</description>
     <param pos="0" name="service.vendor" value="Canon"/>
@@ -1542,6 +1912,7 @@
     <param pos="0" name="hw.vendor" value="Canon"/>
     <param pos="0" name="hw.device" value="Multifunction Device"/>
   </fingerprint>
+
   <fingerprint pattern=".*Linksys.*">
     <description>Linksys Wireless Access Point</description>
     <param pos="0" name="os.vendor" value="Linksys"/>
@@ -1549,6 +1920,7 @@
     <param pos="0" name="hw.vendor" value="Linksys"/>
     <param pos="0" name="hw.device" value="WAP"/>
   </fingerprint>
+
   <fingerprint pattern="^cisco-IOS$">
     <description>Cisco IOS</description>
     <example>cisco-IOS</example>
@@ -1563,6 +1935,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:-"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
   </fingerprint>
+
   <fingerprint pattern="^cisco-IOS/([^\s]+) HTTP-server/.*$">
     <description>Cisco IOS with version information</description>
     <example>cisco-IOS/12.1 HTTP-server/1.0(1)</example>
@@ -1577,6 +1950,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:{os.version}"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
   </fingerprint>
+
   <fingerprint pattern="^Cisco AWARE (.*)$">
     <description>Cisco ASA</description>
     <example>Cisco AWARE 2.0</example>
@@ -1585,13 +1959,35 @@
     <param pos="0" name="service.product" value="HTTP"/>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="Adaptive Security Appliance"/>
-    <param pos="0" name="os.product" value="VPN"/>
+    <param pos="0" name="os.product" value="Adaptive Security Appliance"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:adaptive_security_appliance:-"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.family" value="Adaptive Security Appliance"/>
     <param pos="0" name="hw.product" value="Adaptive Security Appliance"/>
     <param pos="0" name="hw.device" value="Firewall"/>
     <param pos="0" name="hw.cpe23" value="cpe:/h:cisco:adaptive_security_appliance:-"/>
   </fingerprint>
+
+  <fingerprint pattern="^CE_E$">
+    <description>Cisco Expressway-E (Edge)</description>
+    <example>CE_E</example>
+    <param pos="0" name="service.vendor" value="Cisco"/>
+    <param pos="0" name="service.product" value="Expressway"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cisco:expressway:-"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CE_C$">
+    <description>Cisco Expressway-C (Core)</description>
+    <example>CE_C</example>
+    <param pos="0" name="service.vendor" value="Cisco"/>
+    <param pos="0" name="service.product" value="Expressway"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cisco:expressway:-"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+  </fingerprint>
+
   <fingerprint pattern="^CradlepointHTTPService/([\d\.]+)$">
     <description>Cradlepoint HTTP service</description>
     <example service.version="1.0.0">CradlepointHTTPService/1.0.0</example>
@@ -1599,6 +1995,7 @@
     <param pos="0" name="service.vendor" value="Cradlepoint"/>
     <param pos="0" name="service.product" value="HTTP"/>
   </fingerprint>
+
   <fingerprint pattern="^DesktopAuthority/(.*)$">
     <description>ScriptLogic DesktopAuthority</description>
     <param pos="1" name="service.version"/>
@@ -1610,6 +2007,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Agent-ListenServer-HttpSvr/.*$">
     <description>McAfee ePolicy Orchestrator</description>
     <param pos="0" name="service.vendor" value="McAfee"/>
@@ -1617,13 +2015,14 @@
     <param pos="0" name="service.family" value="ePolicy Orchestrator"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:mcafee:epolicy_orchestrator:-"/>
   </fingerprint>
+
   <fingerprint pattern="^LANDesk Management Agent/.*$">
     <description>LANDesk Management Agent</description>
     <param pos="0" name="service.vendor" value="LANDesk"/>
     <param pos="0" name="service.product" value="Management Agent"/>
     <param pos="0" name="service.family" value="Management Agent"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:landesk:management_agent:-"/>
   </fingerprint>
+
   <fingerprint pattern="^EWS-NIC\d/(\S+)$">
     <description>Xerox Embedded Web Server (EWS)</description>
     <example service.version="6.31">EWS-NIC3/6.31</example>
@@ -1638,6 +2037,7 @@
     <param pos="0" name="hw.vendor" value="Xerox"/>
     <param pos="0" name="hw.device" value="Printer"/>
   </fingerprint>
+
   <fingerprint pattern="^Adaptec ASM (\S+)$">
     <description>Adaptec - Adaptec Storage Manager (runs on Windows Only)</description>
     <param pos="0" name="service.vendor" value="Adaptec"/>
@@ -1649,6 +2049,7 @@
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
+
   <fingerprint pattern="^JRun Web Server$">
     <description>Macromedia (formerly Allaire) JRun</description>
     <param pos="0" name="service.vendor" value="Macromedia"/>
@@ -1656,6 +2057,7 @@
     <param pos="0" name="service.product" value="JRun"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:macromedia:jrun:-"/>
   </fingerprint>
+
   <fingerprint pattern="^(?:Raptor )?Simple, Secure Web Server ([\d.]+)$">
     <description>Symantec Raptor Firewall</description>
     <example>Simple, Secure Web Server 1.1</example>
@@ -1666,6 +2068,7 @@
     <param pos="0" name="os.product" value="Raptor"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
+
   <fingerprint pattern="^IPG(\d+)$">
     <description>Systech Internet Payment Gateway</description>
     <example hw.model="8000">IPG8000</example>
@@ -1674,15 +2077,30 @@
     <param pos="0" name="hw.product" value="Internet Payment Gateway"/>
     <param pos="1" name="hw.model"/>
   </fingerprint>
+
   <fingerprint pattern="^NS_(\d\.\d)$">
     <description>Citrix NetScaler</description>
-    <example>NS_6.1</example>
+    <example service.version="6.1">NS_6.1</example>
     <param pos="0" name="os.vendor" value="Citrix"/>
     <param pos="0" name="os.family" value="NetScaler"/>
     <param pos="0" name="os.device" value="Network Management Device"/>
     <param pos="0" name="os.product" value="NetScaler"/>
-    <param pos="1" name="os.version"/>
+    <param pos="0" name="service.vendor" value="Citrix"/>
+    <param pos="0" name="service.family" value="NetScaler"/>
+    <param pos="0" name="service.device" value="Network Management Device"/>
+    <param pos="0" name="service.product" value="NetScaler"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:citrix:netscaler:{service.version}"/>
   </fingerprint>
+
+  <fingerprint pattern="^Citrix-([\d.]+) \'[^']*\'$">
+    <description>Citrix STUN server</description>
+    <example service.version="3.2.5.9">Citrix-3.2.5.9 'Marshal West'</example>
+    <param pos="0" name="service.vendor" value="Citrix"/>
+    <param pos="0" name="service.product" value="STUN Server"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
   <fingerprint pattern="^Rumpus$">
     <description>Rumpus FTP Server, Web File Manager interface</description>
     <example>Rumpus</example>
@@ -1691,6 +2109,7 @@
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:-"/>
   </fingerprint>
+
   <fingerprint pattern="^servermgrd$">
     <description>Mac OS X Server administrative daemon</description>
     <example>servermgrd</example>
@@ -1699,6 +2118,7 @@
     <param pos="0" name="os.product" value="Mac OS X"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:-"/>
   </fingerprint>
+
   <fingerprint pattern="^(RMC Webserver|RAC_ONE_HTTP) (\d\.\d)$">
     <description>Dell Remote Access Controller</description>
     <param pos="0" name="os.vendor" value="Dell"/>
@@ -1709,6 +2129,7 @@
     <param pos="1" name="service.product"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Xerox_MicroServer/Xerox11$">
     <description>Xerox Document Centre</description>
     <param pos="0" name="os.vendor" value="Xerox"/>
@@ -1720,6 +2141,7 @@
     <param pos="0" name="hw.product" value="Document Centre"/>
     <param pos="0" name="hw.device" value="Printer"/>
   </fingerprint>
+
   <fingerprint pattern="^TSM_HTTP/\d\.\d$">
     <description>IBM Tivoli Storage Manager</description>
     <param pos="0" name="service.vendor" value="IBM"/>
@@ -1727,11 +2149,13 @@
     <param pos="0" name="service.product" value="Tivoli Storage Manager"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:ibm:tivoli_storage_manager:-"/>
   </fingerprint>
+
   <fingerprint pattern="^D-Link MiniAVServer$">
     <description>D-Link embedded web server for web cams</description>
     <param pos="0" name="os.vendor" value="D-Link"/>
     <param pos="0" name="os.device" value="Web cam"/>
   </fingerprint>
+
   <fingerprint pattern="^ListManagerWeb/(\S+) .*$">
     <description>Lyris ListManager</description>
     <example>ListManagerWeb/8.8a (based on Tcl-Webserver/3.4.2)</example>
@@ -1739,23 +2163,68 @@
     <param pos="0" name="service.product" value="ListManager"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^kHTTPd (\S+)" certainty="0.50">
     <description>TUX web server, an in-kernel Linux HTTP Accelerator</description>
     <example>kHTTPd 0.1.6</example>
-    <param pos="0" name="service.product" value="TUX web server"/>
+    <param pos="0" name="service.product" value="TUX Web Server"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="os.vendor" value="Linux"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:-"/>
   </fingerprint>
-  <fingerprint pattern="^RealVNC/(?:\S+)$">
-    <description>RealVNC built-in webserver</description>
-    <example>RealVNC/4.0</example>
+
+  <fingerprint pattern="^VNC Server (Enterprise|Personal) Edition/(?:E|P)([\d.]+) \(r([\d.]+)\)$">
+    <description>RealVNC built-in webserver - Enterprise edition</description>
+    <example service.version="4.5.1" service.version.version="27892">VNC Server Enterprise Edition/E4.5.1 (r27892)</example>
+    <example service.edition="Personal">VNC Server Personal Edition/P4.5.3 (r39012)</example>
     <param pos="0" name="service.vendor" value="RealVNC Ltd."/>
     <param pos="0" name="service.product" value="RealVNC"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:realvnc:realvnc:-"/>
+    <param pos="1" name="service.edition"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="service.version.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:realvnc:realvnc:{service.version}"/>
   </fingerprint>
+
+  <fingerprint pattern="^RealVNC/E([\d.]+)$">
+    <description>RealVNC built-in webserver - Enterprise edition, short variant</description>
+    <example service.version="4">RealVNC/E4</example>
+    <param pos="0" name="service.vendor" value="RealVNC Ltd."/>
+    <param pos="0" name="service.product" value="RealVNC"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.version.version" value="Enterprise"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:realvnc:realvnc:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^RealVNC/([\d.]+)$">
+    <description>RealVNC built-in webserver</description>
+    <example service.version="4.0">RealVNC/4.0</example>
+    <param pos="0" name="service.vendor" value="RealVNC Ltd."/>
+    <param pos="0" name="service.product" value="RealVNC"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:realvnc:realvnc:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^TigerVNC/([\d.]+)$">
+    <description>TigerVNC built-in webserver</description>
+    <example service.version="4.0">TigerVNC/4.0</example>
+    <param pos="0" name="service.vendor" value="TigerVNC"/>
+    <param pos="0" name="service.product" value="TigerVNC"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:tigervnc:tigervnc:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^SecureTransport (\d+[\d\.]+) \(build: (\d+)\)$">
+    <description>AxWay SecureTransport</description>
+    <example>SecureTransport 5.3.6 (build: 412)</example>
+    <param pos="0" name="service.vendor" value="Axway"/>
+    <param pos="0" name="service.product" value="SecureTransport"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:axway:securetransport:{service.version}"/>
+    <param pos="2" name="securetransport.build"/>
+  </fingerprint>
+
   <fingerprint pattern="(Agranat|Conexant|(?:Globespan)?Virata)-EmWeb/(.*)$">
     <description>EmWeb variants</description>
     <example>Agranat-EmWeb/R4_01</example>
@@ -1779,6 +2248,7 @@
     <param pos="0" name="service.product" value="EmWeb"/>
     <param pos="2" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^NSC/\S+ \(JVM\)$">
     <description>Rapid7 NSC</description>
     <example>NSC/0.6.4 (JVM)</example>
@@ -1786,6 +2256,7 @@
     <param pos="0" name="service.product" value="Nexpose"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:rapid7:nexpose:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Security Console$">
     <description>Rapid7 Nexpose Security Console</description>
     <example>Security Console</example>
@@ -1793,6 +2264,7 @@
     <param pos="0" name="service.product" value="Nexpose"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:rapid7:nexpose:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Polycom SoundPoint IP Telephone HTTPd$">
     <description>Polycom Soundpoint IP Telephone</description>
     <example>Polycom SoundPoint IP Telephone HTTPd</example>
@@ -1802,23 +2274,21 @@
     <param pos="0" name="hw.family" value="SoundPoint"/>
     <param pos="0" name="hw.device" value="VoIP"/>
   </fingerprint>
+
   <!-- 4D WebSTAR was aquired by Kerio but it seems that both
         Kerio and 4D have branched the product. The 4D banners
         use the new version scheme (just 2004 it would appear):
-
            4D_WebStar_D/2004
-
         whereas Kerio banners are:
-
            4D_WebSTAR_S/5.3.2 (MacOS X)
            4D_WebStar_D/7.8
            4D_WebSTAR_S/5.4.1 (MacOS X)
-
            WebSTAR/4.4 ID/72547
            WebSTAR/4.5(SSL) ID/82535
            WebSTAR NetCloak
            WebSTAR/4.5(SSL) ID/85282
      -->
+
   <!--
    <fingerprint pattern="^4D_WebSTAR_S/2004$">
       <description>4D 4th Dimension 2004</description>
@@ -1829,6 +2299,7 @@
       <param pos="0" name="os.family" value="Windows"/>
       <param pos="0" name="os.product" value="Windows"/>
    </fingerprint>
+
    <fingerprint pattern="^4D_WebSTAR_S/5.3.2 \(MacOS X\)$">
       <description>Kerio WebSTAR</description>
       <param pos="0" name="service.vendor" value="Kerio"/>
@@ -1839,7 +2310,9 @@
       <param pos="0" name="os.family" value="Windows"/>
       <param pos="0" name="os.product" value="Windows"/>
    </fingerprint>
+
    -->
+
   <fingerprint pattern="^SentinelProtectionServer/((?:\d+\.)*\d+)$">
     <description>Sentinel Protection Server - Embedded httpd in SafeNet's memory key dongles</description>
     <example service.version="7.1">SentinelProtectionServer/7.1</example>
@@ -1851,6 +2324,7 @@
     <param pos="0" name="service.family" value="Sentinel"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^SentinelKeysServer/((?:\d+\.)*\d+)$">
     <description>Sentinel Key Server - Embedded httpd in SafeNet's memory key dongles</description>
     <example service.version="1.3.1">SentinelKeysServer/1.3.1</example>
@@ -1861,6 +2335,7 @@
     <param pos="0" name="service.family" value="Sentinel"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^CherryPy/((?:\d+\.)*\d+)$">
     <description>Web server component of CherryPy web application framework.</description>
     <example>CherryPy/3.1.2</example>
@@ -1871,6 +2346,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:cherrypy:cherrypy:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^TornadoServer/((?:\d+\.)*\d+)$">
     <description>Tornado Python web framework and asynchronous networking library.</description>
     <example>TornadoServer/4.0.2</example>
@@ -1880,16 +2356,18 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:tornadoweb:tornado:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^SimpleHTTP/((?:\d+\.)*\d+)\s*Python/((?:\d+\.)*\d+)$">
     <description>SimpleHTTPRequestHandler Python class is a simple HTTP request handler.</description>
-    <example>SimpleHTTP/0.6 Python/2.7.6</example>
-    <example>SimpleHTTP/0.6 Python/3.4.0</example>
+    <example service.version="0.6">SimpleHTTP/0.6 Python/2.7.6</example>
+    <example python.version="3.4.0">SimpleHTTP/0.6 Python/3.4.0</example>
     <param pos="0" name="service.vendor" value="Python Software Foundation"/>
     <param pos="0" name="service.product" value="SimpleHTTP"/>
     <param pos="0" name="service.family" value="Python"/>
     <param pos="1" name="service.version"/>
     <param pos="2" name="python.version"/>
   </fingerprint>
+
   <fingerprint pattern="^HP Web Jetadmin/((?:\d+\.)*\d+)\s*(.*)$">
     <description>Apache variant for web access to HP printers.</description>
     <example>HP Web Jetadmin/2.0.50 (Win32) mod_auth_sspi/1.0.1 mod_ssl/2.0.50 OpenSSL/0.9.6m</example>
@@ -1902,6 +2380,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:{service.version}"/>
     <param pos="2" name="apache.info"/>
   </fingerprint>
+
   <fingerprint pattern="^HP Web Jetadmin ([\d\.]+)(?: \([^\)]+\))?$">
     <description>HP printers, perhaps Apache, but we can't say for sure</description>
     <example service.version="10.3.85669">HP Web Jetadmin 10.3.85669</example>
@@ -1911,6 +2390,19 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:hp:web_jetadmin:{service.version}"/>
   </fingerprint>
+
+  <fingerprint pattern="^KM-MFP-http/V([\d\.]+)$">
+    <description>Kyocera Printers</description>
+    <example service.version="0.0.1">KM-MFP-http/V0.0.1</example>
+    <param pos="0" name="os.vendor" value="Kyocera"/>
+    <param pos="0" name="os.device" value="Multifunction Device"/>
+    <param pos="0" name="hw.vendor" value="Kyocera"/>
+    <param pos="0" name="hw.device" value="Multifunction Device"/>
+    <param pos="0" name="service.vendor" value="Kyocera"/>
+    <param pos="0" name="service.product" value="KM-MFP-HTTP"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
   <fingerprint pattern="^Citrix Web PN Server$">
     <description>Citrix Web PN (Program Neighborhood) Server is an HTTP server used by Citrix products</description>
     <example>Citrix Web PN Server</example>
@@ -1918,6 +2410,7 @@
     <param pos="0" name="service.product" value="Web PN Server"/>
     <param pos="0" name="service.family" value="Web PN Server"/>
   </fingerprint>
+
   <fingerprint pattern="^Lotus Expeditor Web Container/((?:\d+\.)*\d+)$">
     <description>Expeditor is a framework used by IBM in many products in the Lotus brand, such as Sametime and Notes.</description>
     <example>Lotus Expeditor Web Container/6.1</example>
@@ -1927,27 +2420,34 @@
     <param pos="0" name="service.family" value="Lotus Expeditor"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <!-- GoAhead software was acquired by Oracle in 2011. They later handed this
        off to (E)Mbedthis. Version 3.0 released in October 2012 appears to be
        the first version to fully be Mbedthis software.
   -->
+
   <fingerprint pattern="^GoAhead-(?:Webs|http)$">
     <description>GoAhead-Webs - no version</description>
     <example>GoAhead-Webs</example>
-    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.vendor" value="EmbedThis"/>
     <param pos="0" name="service.product" value="GoAhead Webserver"/>
     <param pos="0" name="service.family" value="GoAhead Webserver"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:embedthis:goahead:-"/>
   </fingerprint>
-  <fingerprint pattern="^GoAhead-(?:Webs|http)\/([\d.]+)(?: PeerSec-MatrixSSL\/[\d.]+-OPEN)?$">
+
+  <fingerprint pattern="(?i)^GoAhead(?:-Webs|-http)?\/([\d.]+)(?: PeerSec-MatrixSSL\/[\d.]+-OPEN)?$">
     <description>GoAhead-Webs - version</description>
     <example service.version="2.5.0">GoAhead-Webs/2.5.0 PeerSec-MatrixSSL/3.4.2-OPEN</example>
+    <example service.version="2.5.0">Goahead/2.5.0 PeerSec-MatrixSSL/3.2.1-OPEN</example>
     <example>GoAhead-Webs/2.5.0</example>
     <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.product" value="GoAhead Webserver"/>
     <param pos="0" name="service.family" value="GoAhead Webserver"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <!-- MBedthis changed its name/branding to Embedthis-->
+
   <fingerprint pattern="^Mbedthis-App[Ww]eb/([\d.]+)$">
     <description>Mbedthis Appweb</description>
     <example service.version="2.4.0">Mbedthis-Appweb/2.4.0</example>
@@ -1959,6 +2459,7 @@
     <param pos="0" name="service.family" value="Appweb"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Embedthis-(?:Appweb|http)\/?(:?[\d.]+)?$">
     <description>Embedthis AppWeb</description>
     <example service.version="3.2.3">Embedthis-Appweb/3.2.3</example>
@@ -1970,6 +2471,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:embedthis:appweb:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Avaya CMBE/((?:\d+\.)*\d+)$">
     <description>Web server for Avaya Aura Communication Manager Branch, a SIP-based communications platform.</description>
     <example>Avaya CMBE/2.0.0</example>
@@ -1978,7 +2480,9 @@
     <param pos="0" name="service.product" value="Aura Communication Manager"/>
     <param pos="0" name="service.family" value="Aura"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:avaya:aura_communication_manager:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Rapid Logic/((?:\d+\.)*\d+)$">
     <description>Embedded web server by Rapid Logic, which was acquired by Wind River.</description>
     <example service.version="1.1">Rapid Logic/1.1</example>
@@ -1987,6 +2491,7 @@
     <param pos="0" name="service.product" value="Rapid Logic"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^WindRiver-WebServer/((?:\d+\.)*\d+)$">
     <description>Wind River HTTP server</description>
     <example service.version="4.4">WindRiver-WebServer/4.4</example>
@@ -1994,14 +2499,16 @@
     <param pos="0" name="service.product" value="WebServer"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Sophos Email Appliance$">
-    <description>Embedded web server for a rack-mounted email appliance that blocks spam and malware.</description>
+    <description>Sophos - Embedded web server for a rack-mounted email appliance that blocks spam and malware.</description>
     <example>Sophos Email Appliance</example>
     <param pos="0" name="service.vendor" value="Sophos"/>
     <param pos="0" name="service.product" value="Email Appliance"/>
     <param pos="0" name="os.vendor" value="Sophos"/>
     <param pos="0" name="os.product" value="Email Appliance"/>
   </fingerprint>
+
   <fingerprint pattern="^CUPS\/((?:\d\.)+\d+)(?:\s*IPP\/\d+\.\d+)?$">
     <description>Server for the CUPS web interface.</description>
     <example service.version="1.1">CUPS/1.1</example>
@@ -2012,6 +2519,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:apple:cups:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^TwistedWeb/([\d.rc]+)$">
     <description>Twisted Matrix Labs - TwistedWeb</description>
     <example>TwistedWeb/2.5.0</example>
@@ -2022,23 +2530,27 @@
     <param pos="0" name="service.family" value="Twisted Web"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^mini_httpd/((?:\d+\.)*\d+) \S*$">
-    <description>A small HTTP server</description>
+    <description>ACME mini_httpd with version and date</description>
     <example>mini_httpd/1.14 23jun2000</example>
     <example>mini_httpd/1 23jun2000</example>
-    <param pos="0" name="service.vendor" value="ACME Laboratories"/>
+    <param pos="0" name="service.vendor" value="ACME"/>
     <param pos="0" name="service.product" value="mini_httpd"/>
     <param pos="0" name="service.family" value="mini_httpd"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:acme:mini_httpd:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^thin ((?:\d+\.)*\d+) codename .+$">
-    <description>A Ruby-based web server.</description>
-    <example>thin 1.2.4 codename Flaming Astroboy</example>
+    <description>Marc-André Cournoyer's thin webserver</description>
+    <example service.version="1.2.4">thin 1.2.4 codename Flaming Astroboy</example>
     <example>thin 1 codename Flaming Astroboy</example>
     <param pos="0" name="service.product" value="Thin"/>
     <param pos="0" name="service.family" value="Thin"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Avocent DSView \d+/((?:\d+\.)*\d+)$">
     <description>Web server interface for controlling data centers.</description>
     <example>Avocent DSView 3/3.7.0.71</example>
@@ -2049,14 +2561,18 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:avocent:dsview:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Mongrel ((?:\d+\.)*\d+)$">
     <description>Ruby-based web server and HTTP library.</description>
-    <example>Mongrel 1.1.5</example>
+    <example service.version="1.1.5">Mongrel 1.1.5</example>
     <example>Mongrel 1</example>
+    <param pos="0" name="service.vendor" value="Zed Shaw"/>
     <param pos="0" name="service.product" value="Mongrel"/>
     <param pos="0" name="service.family" value="Mongrel"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:zed_shaw:mongrel:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Microplex emHTTPD/((?:\d+\.)*\d+)$">
     <description>Embedded web server used by Microplex.</description>
     <example>Microplex emHTTPD/1.0</example>
@@ -2069,6 +2585,7 @@
     <param pos="0" name="os.vendor" value="Microplex"/>
     <param pos="0" name="os.device" value="Print server"/>
   </fingerprint>
+
   <fingerprint pattern="^UPS_Server/((?:\d+\.)*\d+)$">
     <description>An embedded web server used for UPS management; primarily by Eaton, but also by APC.</description>
     <example>UPS_Server/1.0</example>
@@ -2080,6 +2597,7 @@
     <param pos="0" name="os.vendor" value="Eaton"/>
     <param pos="0" name="os.device" value="UPS"/>
   </fingerprint>
+
   <fingerprint pattern="^JC-HTTPD/((?:\d+\.)*\d+)$">
     <description>An embedded web server, used notably by Oki and Kyocera in printers.</description>
     <example>JC-HTTPD/1.11.14</example>
@@ -2088,23 +2606,27 @@
     <param pos="0" name="service.family" value="JC-HTTPD"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^JC-SHTTPD/((?:\d+\.)*\d+)$">
     <description>An embedded web server.</description>
-    <example>JC-SHTTPD/1.17.20</example>
+    <example service.version="1.17.20">JC-SHTTPD/1.17.20</example>
     <example>JC-SHTTPD/1</example>
     <param pos="0" name="service.product" value="JC-SHTTPD"/>
     <param pos="0" name="service.family" value="JC-SHTTPD"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
-  <fingerprint pattern="^Oracle XML DB/Oracle\S+ Enterprise Edition Release ((?:\d+\.)*\d+) - Production$">
+
+  <fingerprint pattern="^Oracle XML DB/Oracle\S+ (?:Enterprise Edition )?Release ((?:\d+\.)*\d+) - Production$">
     <description>Web server providing web services for Oracle's XML DB - with version string</description>
-    <example>Oracle XML DB/Oracle9i Enterprise Edition Release 9.2.0.1.0 - Production</example>
+    <example service.version="9.2.0.1.0">Oracle XML DB/Oracle9i Enterprise Edition Release 9.2.0.1.0 - Production</example>
     <example>Oracle XML DB/Oracle9i Enterprise Edition Release 9 - Production</example>
+    <example service.version="9.2.0.1.0">Oracle XML DB/Oracle9i Release 9.2.0.1.0 - Production</example>
     <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.product" value="XML DB"/>
     <param pos="0" name="service.family" value="Oracle"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Oracle XML DB/Oracle Database$">
     <description>Web server providing web services for Oracle's XML DB</description>
     <example>Oracle XML DB/Oracle Database</example>
@@ -2112,6 +2634,7 @@
     <param pos="0" name="service.product" value="XML DB"/>
     <param pos="0" name="service.family" value="Oracle"/>
   </fingerprint>
+
   <fingerprint pattern="^sfcHttpd$">
     <description>Server for HTTP interface to sfcb, a lightweight CIM server</description>
     <example>sfcHttpd</example>
@@ -2119,6 +2642,7 @@
     <param pos="0" name="service.product" value="sfcb"/>
     <param pos="0" name="service.family" value="sfcb"/>
   </fingerprint>
+
   <fingerprint pattern="^PanWeb Server/ -">
     <description>HTTP and HTTPS server found on Palo Alto Networks devices</description>
     <example>PanWeb Server/ -</example>
@@ -2129,6 +2653,7 @@
     <param pos="0" name="os.device" value="Firewall"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:paloaltonetworks:pan-os:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Ews/((?:\d+\.)*\d+)$">
     <description>IBM Network Printer Manager.</description>
     <example>Ews/0.1</example>
@@ -2138,29 +2663,41 @@
     <param pos="0" name="service.family" value="Network Printer Manager"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <!-- NOTE: '$ProjectRevision: {some version string} $' has been seen in a
        variety of products including printers, PDUs, etc.
   -->
-  <fingerprint pattern="^\$ProjectRevision: 4.0.2.38 \$$">
-    <description>This banner is seen on some HP LaserJet printers.</description>
+
+  <fingerprint pattern="^\$ProjectRevision:[\s\w:]* ([\d\.]+) \$$">
+    <description>This banner is used to see if devices have Treck TCP/IP</description>
     <example>$ProjectRevision: 4.0.2.38 $</example>
-    <param pos="0" name="os.vendor" value="HP"/>
-    <param pos="0" name="os.device" value="Printer"/>
-    <param pos="0" name="os.family" value="LaserJet"/>
+    <example>$ProjectRevision: 4.2 $</example>
+    <example>$ProjectRevision: 6.0.1.5 $</example>
+    <example>$ProjectRevision: Last Checkpoint: 4.2.2.13 $</example>
+    <param pos="0" name="service.vendor" value="Treck"/>
+    <param pos="0" name="service.product" value="TCP/IP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:treck:tcp\/ip:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^WEBrick/([\d\.]+) .*$">
     <description>WEBrick default setup</description>
-    <example>WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)</example>
-    <param pos="0" name="service.vendor" value="Ruby"/>
+    <example service.version="1.3.1">WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)</example>
+    <param pos="0" name="service.vendor" value="Ruby-Lang"/>
     <param pos="0" name="service.product" value="WEBrick"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ruby-lang:webrick:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Aspen/(\S+)">
     <description>Aspen web server</description>
     <example service.version="0.8">Aspen/0.8</example>
+    <param pos="0" name="service.vendor" value="Aspen"/>
     <param pos="0" name="service.product" value="Aspen"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:aspen:aspen:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Boa/([\d\.]+\S*)">
     <description>Boa web server</description>
     <example service.version="0.94.14rc21">Boa/0.94.14rc21</example>
@@ -2168,10 +2705,14 @@
     <example service.version="0.93.15">Boa/0.93.15 (with Intersil Extensions)</example>
     <example service.version="0.92p">Boa/0.92p OS-9 Version</example>
     <example service.version="0.93.15">Boa/0.93.15</example>
+    <param pos="0" name="service.vendor" value="Boa"/>
     <param pos="0" name="service.product" value="Boa"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:boa:boa:{service.version}"/>
   </fingerprint>
+
   <!-- HiSilicon is OEMd by a number of DVR manufacturers -->
+
   <fingerprint pattern="^Cross Web Server$">
     <description>Web server found on DVR and webcam servers sourced from HiSilicon</description>
     <example>Cross Web Server</example>
@@ -2181,7 +2722,9 @@
     <param pos="0" name="os.device" value="DVR"/>
     <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
+
   <!-- Hikvision is OEMd by a number of DVR manufacturers -->
+
   <fingerprint pattern="^(?:Hikvision|DNVRS|DVRDVS)-Webs$">
     <description>Web server found on DVR and webcam servers sourced from Hikvision</description>
     <example>Hikvision-Webs</example>
@@ -2191,8 +2734,10 @@
     <param pos="0" name="service.product" value="Hikvision Web Server"/>
     <param pos="0" name="os.vendor" value="Hikvision"/>
     <param pos="0" name="os.device" value="DVR"/>
+    <param pos="0" name="hw.vendor" value="Hikvision"/>
     <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
+
   <fingerprint pattern="^NET-DK[/ ](\d+\.\d+)$">
     <description>Web server found on ARRIS cable modems</description>
     <example>NET-DK/1.0</example>
@@ -2205,12 +2750,14 @@
     <param pos="0" name="hw.vendor" value="ARRIS"/>
     <param pos="0" name="hw.device" value="Cable Modem"/>
   </fingerprint>
+
   <fingerprint pattern="^2wire Gateway$">
     <description>Web server found on some Arris/2wire devices</description>
     <example>2wire Gateway</example>
     <param pos="0" name="service.vendor" value="ARRIS"/>
     <param pos="0" name="service.product" value="2wire"/>
   </fingerprint>
+
   <!-- junit says,
      "Example pattern '' from http_servers.xml didn't match pattern '^$'"
      Figure out if we have a way to support matching empty strings later.
@@ -2218,20 +2765,26 @@
       <example></example>
       <description>A blank banner; assert nothing.</description>
    </fingerprint>
+
    -->
+
   <fingerprint pattern="^(?:(?:\d+.){3}\d+):\d{1,4}$">
     <description>A banner consisting of an IP address and port -- assert nothing.</description>
     <example>192.168.0.4:9999</example>
   </fingerprint>
+
   <fingerprint pattern="^Web-Server/(?:\d+\.+\d+)$">
     <description>Obfuscated web server -- assert nothing.</description>
     <example>Web-Server/3.0</example>
   </fingerprint>
+
   <fingerprint pattern="^httpd$">
     <description>httpd - generic -- assert nothing.</description>
     <example>httpd</example>
   </fingerprint>
+
   <!-- Service provider equipment (CDNs, etc) -->
+
   <fingerprint pattern="^AkamaiGHost$">
     <description>Akamai Global Host</description>
     <example>AkamaiGHost</example>
@@ -2240,6 +2793,7 @@
     <param pos="0" name="os.vendor" value="Akamai"/>
     <param pos="0" name="os.device" value="Web proxy"/>
   </fingerprint>
+
   <fingerprint pattern="^gws$">
     <description>Google Web Services</description>
     <example>gws</example>
@@ -2247,6 +2801,7 @@
     <param pos="0" name="service.product" value="Google Web Services"/>
     <param pos="0" name="service.family" value="Google Web Server"/>
   </fingerprint>
+
   <fingerprint pattern="^GFE/((?:\d+\.)*\d+)$">
     <description>Google Front End for apps running on Google services.</description>
     <example>GFE/1.3</example>
@@ -2256,6 +2811,7 @@
     <param pos="0" name="service.family" value="Google Web Server"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^CloudFront$">
     <description>Amazon CloudFront web load balancer endpoint</description>
     <example>CloudFront</example>
@@ -2263,30 +2819,35 @@
     <param pos="0" name="service.product" value="CloudFront Load Balancer"/>
     <param pos="0" name="service.family" value="CloudFront"/>
   </fingerprint>
+
   <fingerprint pattern="^Amazon-Cloud-Drive$">
     <description>Amazon Cloud Drive / Drive</description>
     <example>Amazon-Cloud-Drive</example>
     <param pos="0" name="service.vendor" value="Amazon"/>
     <param pos="0" name="service.product" value="Drive"/>
   </fingerprint>
+
   <fingerprint pattern="^AmazonS3$">
     <description>Amazon S3 (Simple Cloud Storage Service)</description>
     <example>AmazonS3</example>
     <param pos="0" name="service.vendor" value="Amazon"/>
     <param pos="0" name="service.product" value="S3"/>
   </fingerprint>
+
   <fingerprint pattern="^Amazon SimpleDB$">
     <description>Amazon SimpleDB / Simple Database Service</description>
     <example>Amazon SimpleDB</example>
     <param pos="0" name="service.vendor" value="Amazon"/>
     <param pos="0" name="service.product" value="SimpleDB"/>
   </fingerprint>
+
   <fingerprint pattern="^AmazonSnowball$">
     <description>Amazon Snowball</description>
     <example>AmazonSnowball</example>
     <param pos="0" name="service.vendor" value="Amazon"/>
     <param pos="0" name="service.product" value="Snowball"/>
   </fingerprint>
+
   <fingerprint pattern="^awselb/([\d.rc]+)$">
     <description>Amazon Elastic Load Balancing</description>
     <example service.version="2.0">awselb/2.0</example>
@@ -2294,6 +2855,7 @@
     <param pos="0" name="service.family" value="Elastic Load Balancing"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^cloudflare(?:-nginx)?$">
     <description>CloudFlare web load balancer endpoint</description>
     <example>cloudflare-nginx</example>
@@ -2302,13 +2864,18 @@
     <param pos="0" name="service.product" value="CloudFlare Load Balancer"/>
     <param pos="0" name="service.family" value="CloudFlare"/>
   </fingerprint>
+
   <fingerprint pattern="^gSOAP/([\d\.]+)$">
     <description>gSOAP</description>
     <example service.version="2.7">gSOAP/2.7</example>
+    <param pos="0" name="service.vendor" value="Genivia"/>
     <param pos="0" name="service.product" value="gSOAP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:genivia:gsoap:{service.version}"/>
   </fingerprint>
+
   <!-- Apple QuickTime streaming server -->
+
   <fingerprint pattern="^QTSS\/([\d\.]+) \(Build\/[\d\.]+; Platform\/MacOSX; Release\/Panther">
     <description>QTSS on OS X 10.3</description>
     <example service.version="5.0">QTSS/5.0 (Build/452; Platform/MacOSX; Release/Panther; )</example>
@@ -2321,6 +2888,7 @@
     <param pos="0" name="service.product" value="QTSS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^QTSS\/([\d\.]+) \(Build\/[\d\.]+; Platform\/MacOSX; Release\/Mac OS X">
     <description>QTSS OS X</description>
     <example service.version="6.1.0">QTSS/6.1.0 (Build/532; Platform/MacOSX; Release/Mac OS X Server; )</example>
@@ -2331,13 +2899,25 @@
     <param pos="0" name="service.product" value="QTSS"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^SEPM$">
     <description>Symantec Endpoint Protection Manager</description>
     <example>SEPM</example>
     <param pos="0" name="service.vendor" value="Symantec"/>
-    <param pos="0" name="service.product" value="Symantec Endpoint Protection Manager"/>
-    <param pos="0" name="service.family" value="Symantec Endpoint Protection Manager"/>
+    <param pos="0" name="service.product" value="Endpoint Protection Manager"/>
+    <param pos="0" name="service.family" value="Endpoint Protection Manager"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:symantec:endpoint_protection_manager:-"/>
   </fingerprint>
+
+  <fingerprint pattern="^Symantec Endpoint Protection Manager$">
+    <description>Symantec Endpoint Protection Manager - long variant</description>
+    <example>Symantec Endpoint Protection Manager</example>
+    <param pos="0" name="service.vendor" value="Symantec"/>
+    <param pos="0" name="service.product" value="Endpoint Protection Manager"/>
+    <param pos="0" name="service.family" value="Endpoint Protection Manager"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:symantec:endpoint_protection_manager:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^Intel\(R\) Active Management Technology\s(\d+\.\d+\.\d+\.\d+|\d+\.\d+\.\d+|\d+\.\d+)">
     <description>Intel(R) Active Management Technology (AMT) with a version</description>
     <example service.version="7.1.86">Intel(R) Active Management Technology 7.1.86</example>
@@ -2346,6 +2926,7 @@
     <param pos="0" name="service.family" value="Intel(R) Active Management Technology"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^(?:AMT|Intel\(R\) Active Management Technology)$">
     <description>Intel(R) Active Management Technology (AMT) without a version</description>
     <example>AMT</example>
@@ -2354,6 +2935,7 @@
     <param pos="0" name="service.product" value="Intel(R) Active Management Technology"/>
     <param pos="0" name="service.family" value="Intel(R) Active Management Technology"/>
   </fingerprint>
+
   <fingerprint pattern="^Intel\(R\) Standard Manageability\s(\d+\.\d+\.\d+\.\d+|\d+\.\d+\.\d+|\d+\.\d+)">
     <description>Intel(R) Standard Manageability</description>
     <example service.version="5.0.50">Intel(R) Standard Manageability 5.0.50</example>
@@ -2363,20 +2945,24 @@
     <param pos="0" name="service.family" value="Intel(R) Active Management Technology"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Sunny WebBox$">
     <description>Sunny WebBox</description>
     <example>Sunny WebBox</example>
-    <param pos="0" name="service.vendor" value="SMA Solar Technology Ag"/>
+    <param pos="0" name="service.vendor" value="SMA"/>
     <param pos="0" name="service.family" value="Sunny"/>
-    <param pos="0" name="service.product" value="WebBox"/>
+    <param pos="0" name="service.product" value="Sunny WebBox"/>
+    <param pos="0" name="hw.vendor" value="SMA"/>
     <param pos="0" name="hw.family" value="Sunny"/>
-    <param pos="0" name="hw.product" value="WebBox"/>
+    <param pos="0" name="hw.product" value="Sunny WebBox"/>
     <param pos="0" name="hw.device" value="Power device"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:sma:sunny_webbox:-"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows CE"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_ce:-"/>
   </fingerprint>
+
   <fingerprint pattern="^EnergyICT RTU \d+-\w+-\d+$">
     <description>EnergyICT RTU</description>
     <example>EnergyICT RTU 101-F25CE1-1524</example>
@@ -2384,6 +2970,7 @@
     <param pos="0" name="hw.product" value="RTU"/>
     <param pos="0" name="hw.device" value="Power device"/>
   </fingerprint>
+
   <fingerprint pattern="^AV-TECH AV787 Video Web Server$">
     <description>AV-TECH AVC787 Video Web Server</description>
     <example>AV-TECH AV787 Video Web Server</example>
@@ -2394,11 +2981,13 @@
     <param pos="0" name="hw.product" value="AVC787"/>
     <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
+
   <fingerprint pattern="^Splunkd$">
     <description>Splunk HTTP server used in the web interface, forwarders, indexers and more</description>
     <example>Splunkd</example>
     <param pos="0" name="service.vendor" value="Splunk"/>
   </fingerprint>
+
   <fingerprint pattern="^tivo-httpd-\S+$">
     <description>Tivo DVR</description>
     <example>tivo-httpd-1:20.7.4.RC35-D18-6:D18</example>
@@ -2406,6 +2995,7 @@
     <param pos="0" name="hw.family" value="DVR"/>
     <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
+
   <fingerprint pattern="^OpenTV/([\d\.]+)$">
     <description>OpenTV</description>
     <example os.version="5.40">OpenTV/5.40</example>
@@ -2415,7 +3005,28 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
+
+  <fingerprint pattern="^kong/([\d.]+)$">
+    <description>Kong Gateway</description>
+    <example service.version="1.2.1">kong/1.2.1</example>
+    <param pos="0" name="service.vendor" value="Kong"/>
+    <param pos="0" name="service.family" value="Gateway"/>
+    <param pos="0" name="service.product" value="Gateway"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^kong/([\d.-]+)-enterprise-edition$">
+    <description>Kong Gateway - Enterprise Edition</description>
+    <example service.version="0.30">kong/0.30-enterprise-edition</example>
+    <example service.version="0.35-1">kong/0.35-1-enterprise-edition</example>
+    <param pos="0" name="service.vendor" value="Kong"/>
+    <param pos="0" name="service.family" value="Gateway"/>
+    <param pos="0" name="service.product" value="Gateway"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
   <!-- Tridium previously had a product with the 'Niagra' spelling -->
+
   <fingerprint pattern="^Niagara Web Server\/([\d.]+)$">
     <description>Tridium Niagara AX Framework</description>
     <example service.version="3.8.111">Niagara Web Server/3.8.111</example>
@@ -2424,6 +3035,7 @@
     <param pos="0" name="service.product" value="Niagara AX"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Microsoft WinCE Fidelix v([\d.]+)$">
     <description>Fidelix Industrial Control Web Server</description>
     <example service.version="11.50.29">Microsoft WinCE Fidelix v11.50.29</example>
@@ -2438,12 +3050,14 @@
     <param pos="0" name="hw.vendor" value="Fidelix"/>
     <param pos="0" name="hw.device" value="Industrial Control"/>
   </fingerprint>
+
   <fingerprint pattern="^chainpoint-node$">
     <description>Chainpoint Node</description>
     <example>chainpoint-node</example>
     <param pos="0" name="service.vendor" value="Chainpoint"/>
     <param pos="0" name="service.product" value="Node"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^(.*) UPnP/[\d\.]+\s+AVM FRITZ!(.*) ([\d\.]+)$">
     <description>AVM FRITZ! devices of various types</description>
     <example host.name="some thing" os.product="WLAN Repeater 1750E" os.version="134.07.01">some thing UPnP/1.0 AVM FRITZ!WLAN Repeater 1750E 134.07.01</example>
@@ -2453,71 +3067,89 @@
     <param pos="3" name="os.version"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Linux/(\S+) UPnP/[\d\.]+ miniupnpd/([\d\.]+)$">
     <description>Linux MiniUPnPd UPnP Server</description>
-    <example>Linux/Cross_compiled UPnP/1.0 miniupnpd/1.0</example>
+    <example service.version="1.0">Linux/Cross_compiled UPnP/1.0 miniupnpd/1.0</example>
     <example>Linux/2.6.29.6-217.2.3.fc11.i686.PAE UPnP/1.0 miniupnpd/1.0</example>
     <example>Linux/2.4.21 UPnP/1.0 miniupnpd/1.0</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Tomato UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>Tomato UPnP Server</description>
-    <example>Tomato UPnP/1.0 MiniUPnPd/1.2</example>
-    <example>Tomato UPnP/1.0 MiniUPnPd/1.4</example>
-    <param pos="0" name="service.vendor" value="Tomato"/>
+    <example service.version="1.2">Tomato UPnP/1.0 MiniUPnPd/1.2</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
   </fingerprint>
-  <fingerprint pattern="(?i)^(RT-\w+) UPnP/\S+ MiniUPnPd/(\S+)$">
+
+  <fingerprint pattern="(?i)^(RT-\w+) UPnP/\S+ MiniUPnPd/([\d.]+)$">
     <description>Asus WAP UPnP Server</description>
-    <example>RT-G32 UPnP/1.0 MiniUPnPd/1.2</example>
+    <example service.version="1.2">RT-G32 UPnP/1.0 MiniUPnPd/1.2</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Asus"/>
     <param pos="1" name="os.product"/>
     <param pos="0" name="os.device" value="WAP"/>
   </fingerprint>
-  <fingerprint pattern="(?i)^DrayTek/Vigor(\S+) UPnP/\S+ miniupnpd/(\S+)$">
+
+  <fingerprint pattern="(?i)^DrayTek/Vigor(\S+) UPnP/\S+ miniupnpd/([\d.]+)$">
     <description>DrayTek Vigor router UPnP Server</description>
-    <example hw.model="2130">DrayTek/Vigor2130 UPnP/1.0 miniupnpd/1.0</example>
+    <example service.version="1.0" hw.model="2130">DrayTek/Vigor2130 UPnP/1.0 miniupnpd/1.0</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="hw.vendor" value="DrayTek"/>
     <param pos="0" name="hw.product" value="Vigor"/>
     <param pos="1" name="hw.model"/>
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)Linux UPnP/\d\.\d Huawei-ATP-IGD$">
     <description>Huawei Echolife / Home Gateway (and possibly other) devices with UPnP</description>
     <example>Linux UPnP/1.0 Huawei-ATP-IGD</example>
     <param pos="0" name="hw.vendor" value="Huawei"/>
     <param pos="0" name="hw.device" value="Broadband router"/>
   </fingerprint>
-  <fingerprint pattern="(?i)^OpenWRT/kamikaze UPnP/\S+ MiniUPnPd/(\S+)$">
+
+  <fingerprint pattern="(?i)^OpenWRT/kamikaze UPnP/\S+ MiniUPnPd/([\d.]+)$">
     <description>OpenWRT Kamikaze WAP UPnP Server</description>
-    <example>OpenWRT/kamikaze UPnP/1.0 MiniUPnPd/1.5</example>
-    <example>OpenWRT/kamikaze UPnP/1.0 MiniUPnPd/1.2</example>
-    <example>OpenWRT/kamikaze UPnP/1.0 MiniUPnPd/1.4</example>
+    <example service.version="1.5">OpenWRT/kamikaze UPnP/1.0 MiniUPnPd/1.5</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Linux"/>
     <param pos="0" name="os.family" value="OpenWRT"/>
     <param pos="0" name="os.product" value="Kamikaze"/>
     <param pos="0" name="os.device" value="WAP"/>
   </fingerprint>
-  <fingerprint pattern="(?i)^Netgear/\S+ UPnP/\S+ miniupnpd/(\S+)$">
+
+  <fingerprint pattern="(?i)^Netgear/\S+ UPnP/\S+ miniupnpd/([\d.]+)$">
     <description>Netgear DG834G or WNDR3300 WAP UPnP Server</description>
-    <example>Netgear/1.0 UPnP/1.0 miniupnpd/1.0</example>
+    <example service.version="1.0">Netgear/1.0 UPnP/1.0 miniupnpd/1.0</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Netgear"/>
     <param pos="0" name="os.device" value="WAP"/>
+    <param pos="0" name="hw.vendor" value="Netgear"/>
+    <param pos="0" name="hw.device" value="WAP"/>
   </fingerprint>
+
   <fingerprint pattern="^[^/]+/(\S+) DLNADOC/\S+ UPnP/\S+ MiniDLNA/(\S+)$">
     <description>DLNADOC UPnP Server</description>
     <example>Debian/4.0r8 DLNADOC/1.50 UPnP/1.0 MiniDLNA/1.0</example>
@@ -2530,224 +3162,288 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Debian\/(\S+) UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on a Debian variant</description>
     <example os.version="wheezy/sid" service.version="1.8">Debian/wheezy/sid UPnP/1.1 MiniUPnPd/1.8</example>
     <example os.version="4.0" service.version="1.0">Debian/4.0 UPnP/1.0 miniupnpd/1.0</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Debian"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.certainty" value="0.5"/>
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Fedora(?:Core)?\/(\S+) UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on a Fedora variant</description>
     <example os.version="10" service.version="1.4">Fedora/10 UPnP/1.0 MiniUPnPd/1.4</example>
     <example os.version="8" service.version="1.0">Fedora/8 UPnP/1.0 miniupnpd/1.0</example>
     <example os.version="6" service.version="1.0">FedoraCore/6 UPnP/1.0 miniupnpd/1.0</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.vendor" value="Red Hat"/>
     <param pos="0" name="os.product" value="Fedora Core Linux"/>
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:redhat:fedora_core:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Ubuntu\/([\d\.]+) UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu variant</description>
     <example os.version="10.04" service.version="1.0">Ubuntu/10.04 UPnP/1.0 miniupnpd/1.0</example>
     <example os.version="10.10" service.version="1.0">Ubuntu/10.10 UPnP/1.0 miniupnpd/1.0</example>
     <example os.version="7.10" service.version="1.0">Ubuntu/7.10 UPnP/1.0 miniupnpd/1.0</example>
     <example os.version="9.04" service.version="1.0">Ubuntu/9.04 UPnP/1.0 miniupnpd/1.0</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Ubuntu\/bionic UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu bionic/18.04</description>
     <example os.version="18.04" service.version="1.4">Ubuntu/bionic UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="18.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:18.04"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Ubuntu\/yakkety UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu yakkety/16.10</description>
     <example os.version="16.10" service.version="1.4">Ubuntu/yakkety UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="16.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:16.10"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Ubuntu\/xenial UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu xenial/16.04</description>
     <example os.version="16.04" service.version="1.4">Ubuntu/xenial UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="16.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:16.04"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Ubuntu\/utopic UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu utopic/14.10</description>
     <example os.version="14.10" service.version="1.4">Ubuntu/utopic UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="14.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:14.10"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Ubuntu\/trusty UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu trusty/14.04</description>
     <example os.version="14.04" service.version="1.4">Ubuntu/trusty UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="14.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:14.04"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Ubuntu\/saucy UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu saucy/13.10</description>
     <example os.version="13.10" service.version="1.4">Ubuntu/saucy UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="13.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:13.10"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Ubuntu\/raring UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu raring/13.04</description>
     <example os.version="13.04" service.version="1.4">Ubuntu/raring UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="13.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:13.04"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Ubuntu\/quantal UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu quantal/12.10</description>
     <example os.version="12.10" service.version="1.4">Ubuntu/quantal UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="12.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:12.10"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Ubuntu\/precise UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu precise/12.04</description>
     <example os.version="12.04" service.version="1.4">Ubuntu/precise UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="12.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:12.04"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Ubuntu\/oneiric UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu oneiric/11.10</description>
     <example os.version="11.10" service.version="1.4">Ubuntu/oneiric UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="11.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:11.10"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Ubuntu\/natty UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu natty/11.04</description>
     <example os.version="11.04" service.version="1.4">Ubuntu/natty UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="11.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:11.04"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Ubuntu\/maverick UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu maverick/10.10</description>
     <example os.version="10.10" service.version="1.4">Ubuntu/maverick UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="10.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:10.10"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Ubuntu\/lucid UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu lucid/10.04</description>
     <example os.version="10.04" service.version="1.4">Ubuntu/lucid UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="10.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:10.04"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Ubuntu\/karmic UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu karmic/9.10</description>
     <example os.version="9.10" service.version="1.4">Ubuntu/karmic UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="9.10"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:9.10"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Ubuntu\/jaunty UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu jaunty/9.04</description>
     <example os.version="9.04" service.version="1.4">Ubuntu/jaunty UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="9.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:9.04"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Ubuntu\/hardy UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>miniupnpd on an Ubuntu hardy/8.04</description>
     <example os.version="8.04" service.version="1.4">Ubuntu/hardy UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="0" name="os.version" value="8.04"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:8.04"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^Linux Mips (\S+) UPnP/\S+ MiniUPnPd/(\S+)$">
     <description>Linux MIPS UPnP Server</description>
     <example>Linux Mips 2.4.20 UPnP/1.0 MiniUPnPd/1.2</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
     <param pos="0" name="os.vendor" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^SmoothWall Express/(\S+) UPnP/\S+ miniupnpd/(\S+)$">
     <description>Smoothwall Express UPnP Server</description>
     <example os.version="3.0" service.version="1.0">SmoothWall Express/3.0 UPnP/1.0 miniupnpd/1.0</example>
-    <param pos="0" name="os.vendor" value="Smoothwall"/>
-    <param pos="0" name="os.product" value="Smoothwall"/>
+    <param pos="0" name="os.vendor" value="SmoothWall"/>
+    <param pos="0" name="os.product" value="SmoothWall"/>
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:smoothwall:smoothwall:{os.version}"/>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^(\S+) \d+/Service Pack \d+, UPnP/[\d\.]+, TVersity Media Server$">
     <description>TVersity Media Server UPnP Server with Service Pack</description>
     <example>5.2.3790 2/Service Pack 1, UPnP/1.0, TVersity Media Server</example>
@@ -2756,6 +3452,7 @@
     <param pos="0" name="service.product" value="Media Server"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^(\S+) 2/, UPnP/\S+, TVersity Media Server$">
     <description>TVersity Media Server UPnP Server</description>
     <example>6.2.8400 2/, UPnP/1.0, TVersity Media Server</example>
@@ -2766,6 +3463,7 @@
     <param pos="0" name="service.product" value="Media Server"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^LINUX/([\d\.]+) UPnP/[\d\.]+ BRCM400/([\d\.]+)$">
     <description>Belkin/Linksys BRCM400 Wireless Router UPnP Server</description>
     <example>LINUX/2.4 UPnP/1.0 BRCM400/1.0</example>
@@ -2777,6 +3475,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.device" value="Router"/>
   </fingerprint>
+
   <fingerprint pattern="^Linux-(\S+), UPnP/[\d\.]+, PMS/([\d\.]+)$">
     <description>PlayStation3 Media Server UPnP Server - linux</description>
     <example>Linux-amd64-2.6.18-238.9.1.el5, UPnP/1.0, PMS/1.52.1</example>
@@ -2789,6 +3488,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Windows_XP-(\S+), UPnP/[\d\.]+, PMS/([\d\.]+)$">
     <description>PlayStation3 Media Server UPnP Server - Windows XP</description>
     <example>Windows_XP-amd64-5.2, UPnP/1.0, PMS/1.54.0</example>
@@ -2801,27 +3501,16 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_xp:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Windows_7-x86-(\S+), UPnP/[\d\.]+, PMS/([\d\.]+)$">
     <description>PlayStation3 Media Server UPnP Server - Windows 7 x86</description>
-    <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.20</example>
+    <example service.version="1.20">Windows_7-x86-6.1, UPnP/1.0, PMS/1.20</example>
     <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.22.0</example>
-    <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.25.1</example>
-    <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.51.0</example>
     <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.20.412</example>
     <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.71.0</example>
     <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.20.409</example>
     <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.72.0</example>
     <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.10.51</example>
-    <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.40.0</example>
-    <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.53.0</example>
-    <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.52.0</example>
-    <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.50.1</example>
-    <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.30.1</example>
-    <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.50.0</example>
-    <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.54.0</example>
-    <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.52.1</example>
-    <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.60.0</example>
-    <example>Windows_7-x86-6.1, UPnP/1.0, PMS/1.70.1</example>
     <param pos="0" name="service.vendor" value="Sony"/>
     <param pos="0" name="service.product" value="PMS"/>
     <param pos="2" name="service.version"/>
@@ -2830,6 +3519,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_7:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Windows_7-x86_64-(\S+), UPnP/[\d\.]+, PMS/([\d\.]+)$">
     <description>PlayStation3 Media Server UPnP Server - Windows 7 x86_64</description>
     <param pos="0" name="service.vendor" value="Sony"/>
@@ -2840,6 +3530,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_7:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Microsoft-Windows/6.2 UPnP/(?:\S+) UPnP-Device-Host/(?:\S+)$">
     <description>Windows 8 or Windows Server 2012 with unknown UPnP components</description>
     <param pos="0" name="os.vendor" value="Microsoft"/>
@@ -2847,6 +3538,7 @@
     <param pos="0" name="os.certainty" value="0.65"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_8:-"/>
   </fingerprint>
+
   <fingerprint pattern="^Mac_OS_X-x86_64-(\S+), UPnP/[\d\.]+, PMS/([\d\.]+)$">
     <description>PlayStation3 Media Server UPnP Server - macOS x86_64</description>
     <example>Mac_OS_X-x86_64-10.5.8, UPnP/1.0, PMS/1.20</example>
@@ -2858,6 +3550,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Linux/(\S+), UPnP/\S+, Free UPnP Entertainment Service/ReadyNAS$">
     <description>Free UPnP Entertainment Service UPnP Server - Linux on ReadyNAS</description>
     <param pos="0" name="service.product" value="FUPPES"/>
@@ -2870,6 +3563,7 @@
     <param pos="0" name="hw.family" value="ReadyNAS"/>
     <param pos="0" name="hw.product" value="ReadyNAS"/>
   </fingerprint>
+
   <fingerprint pattern="^Linux/(\S+), UPnP/\S+, Free UPnP Entertainment Service/$">
     <description>Free UPnP Entertainment Service UPnP Server - Linux</description>
     <param pos="0" name="service.product" value="FUPPES"/>
@@ -2878,6 +3572,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^FreeBSD/(\S+), UPnP/\S+, Free UPnP Entertainment Service/$">
     <description>Free UPnP Entertainment Service UPnP Server - FreeBSD</description>
     <param pos="0" name="service.product" value="FUPPES"/>
@@ -2886,6 +3581,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^ipOS/([\d\.]+) UPnP/[\d\.]+ ipUPnP/([\d\.]+)$">
     <description>D-Link WAP Dynamic DNS UPnP Server</description>
     <param pos="0" name="service.vendor" value="D-Link"/>
@@ -2896,6 +3592,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.device" value="WAP"/>
   </fingerprint>
+
   <fingerprint pattern="^ipOS/([\d\.]+) UPnP/[\d\.]+ ipGENADevice/([\d\.]+)$">
     <description>D-Link DGL-4300 Gaming Router UPnP Server</description>
     <param pos="0" name="service.vendor" value="D-Link"/>
@@ -2906,11 +3603,74 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.device" value="Router"/>
   </fingerprint>
-  <fingerprint pattern="^TBS/R2 UPnP/[\d\.]+ MiniUPnPd/[\d\.]+$">
-    <description>D-Link generic</description>
-    <example>TBS/R2 UPnP/1.0 MiniUPnPd/1.2</example>
+
+  <fingerprint pattern="Linux, STUNNEL/1.0, (DIR-8\d+\w*) Ver (\S+)$">
+    <description>D-Link DIR-8XX Router</description>
+    <example hw.product="DIR-850L">Linux, STUNNEL/1.0, DIR-850L Ver 1.09</example>
+    <example os.version="2.00W">Linux, STUNNEL/1.0, DIR-820LW Ver 2.00W</example>
     <param pos="0" name="hw.vendor" value="D-Link"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="os.vendor" value="D-Link"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.device" value="Router"/>
   </fingerprint>
+
+  <fingerprint pattern="Linux, WEBACCESS/1.0, (DIR-\d+\w*) Ver (\S+)$">
+    <description>D-Link DIR-XXX Router - WEBACCESS variant</description>
+    <example hw.product="DIR-850L">Linux, WEBACCESS/1.0, DIR-850L Ver 1.09</example>
+    <example os.version="1.14WW">Linux, WEBACCESS/1.0, DIR-850L Ver 1.14WW</example>
+    <example os.version="1.04">Linux, WEBACCESS/1.0, DIR-645 Ver 1.04</example>
+    <param pos="0" name="hw.vendor" value="D-Link"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="os.vendor" value="D-Link"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.device" value="Router"/>
+  </fingerprint>
+
+  <fingerprint pattern="Linux, HTTP/1.1, (DIR-\d+\w*) Ver (\S+)$">
+    <description>D-Link DIR-XXX Router - HTTP variant</description>
+    <example hw.product="DIR-815" os.version="1.04">Linux, HTTP/1.1, DIR-815 Ver 1.04</example>
+    <param pos="0" name="hw.vendor" value="D-Link"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="os.vendor" value="D-Link"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.device" value="Router"/>
+  </fingerprint>
+
+  <fingerprint pattern="Linux, WEBACCESS/1.0, (DSL-\d+\w*) Ver (\S+)$">
+    <description>D-Link DSL-XXX Router - WEBACCESS variant</description>
+    <example hw.product="DSL-2890AL" os.version="AU_1.02.10">Linux, WEBACCESS/1.0, DSL-2890AL Ver AU_1.02.10</example>
+    <example hw.product="DSL-2890AL" os.version="1.01">Linux, WEBACCESS/1.0, DSL-2890AL Ver 1.01</example>
+    <param pos="0" name="hw.vendor" value="D-Link"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="os.vendor" value="D-Link"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.device" value="Router"/>
+  </fingerprint>
+
+  <fingerprint pattern="^TBS/R2 UPnP/[\d\.]+ MiniUPnPd/([\d\.]+)$">
+    <description>D-Link generic</description>
+    <example service.version="1.2">TBS/R2 UPnP/1.0 MiniUPnPd/1.2</example>
+    <param pos="0" name="hw.vendor" value="D-Link"/>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^alphapd/(\d\.[\d.]+)$">
+    <description>D-Link alphapd - likely DCS series cameras</description>
+    <example service.version="2.1.8">alphapd/2.1.8</example>
+    <param pos="0" name="hw.vendor" value="D-Link"/>
+    <param pos="0" name="service.vendor" value="D-Link"/>
+    <param pos="0" name="service.product" value="alphapd"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
   <fingerprint pattern="^ipos/([\d\.]+) UPnP/[\d\.]+ (TL-\w+)/(\S+)$">
     <description>TP-Link WAP UPnP Server</description>
     <example>ipos/7.0 UPnP/1.0 TL-WR841N/6.0/7.0</example>
@@ -2922,14 +3682,72 @@
     <example>ipos/7.0 UPnP/1.0 TL-WR741N/1.0/2.0</example>
     <example>ipos/7.0 UPnP/1.0 TL-WR740N/1.0/2.0</example>
     <example>ipos/7.0 UPnP/1.0 TL-WR941N/2.0</example>
-    <param pos="0" name="service.vendor" value="TP-Link"/>
+    <param pos="0" name="service.vendor" value="TP-LINK"/>
     <param pos="2" name="service.product"/>
     <param pos="3" name="service.version"/>
-    <param pos="0" name="os.vendor" value="TP-Link"/>
+    <param pos="0" name="os.vendor" value="TP-LINK"/>
     <param pos="0" name="os.product" value="ipOS"/>
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.device" value="WAP"/>
   </fingerprint>
+
+  <fingerprint pattern="^Linux/(\S+\_eureka_1), UPnP/[\d\.]+, Portable SDK for UPnP devices/(\S+)$">
+    <description>Siqura Video Encoder</description>
+    <example>Linux/2.6.37_eureka_1, UPnP/1.0, Portable SDK for UPnP devices/1.6.6</example>
+    <param pos="0" name="hw.vendor" value="Siqura"/>
+    <param pos="0" name="hw.device" value="Video Encoder"/>
+    <param pos="0" name="os.vendor" value="Siqura"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="service.product" value="libupnp"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Linux/(\S+\-Mozart-8G), UPnP/[\d\.]+, Portable SDK for UPnP devices/(\S+)$">
+    <description>Steinsvik Orbit IP Camera (Truen TCAM Rebrand)</description>
+    <example>Linux/2.6.28.9-Mozart-8G, UPnP/1.0, Portable SDK for UPnP devices/1.6.6</example>
+    <param pos="0" name="hw.vendor" value="Steinsvik"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.product" value="Orbit IP Camera"/>
+    <param pos="0" name="os.vendor" value="Steinsvik"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="service.product" value="libupnp"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Linux/(\S+\-ami), UPnP/[\d\.]+, Portable SDK for UPnP devices/(\S+)$">
+    <description>AMI MegaRAC LOM UPnP</description>
+    <example>Linux/3.14.17-ami, UPnP/1.0, Portable SDK for UPnP devices/1.6.20</example>
+    <param pos="0" name="hw.device" value="Lights Out Management"/>
+    <param pos="0" name="hw.vendor" value="AMI"/>
+    <param pos="0" name="hw.family" value="MegaRAC"/>
+    <param pos="0" name="hw.product" value="MegaRAC"/>
+    <param pos="0" name="os.device" value="Lights Out Management"/>
+    <param pos="0" name="os.vendor" value="AMI"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="service.product" value="libupnp"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Linux/(\S+\-axis[^,]+), UPnP/[\d\.]+, Portable SDK for UPnP devices/(\S+)$">
+    <description>Axis Network Camera</description>
+    <example>Linux/4.9.94-axis5, UPnP/1.0, Portable SDK for UPnP devices/1.6.22</example>
+    <param pos="0" name="hw.vendor" value="AXIS"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="os.vendor" value="AXIS"/>
+    <param pos="0" name="os.device" value="Web cam"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="service.product" value="libupnp"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+
   <fingerprint pattern="^Linux/(\S+), UPnP/[\d\.]+, Portable SDK for UPnP devices/(\S+)$">
     <description>Portable SDK for UPnP Server - Linux</description>
     <example>Linux/2.4.20-46.7asp, UPnP/1.0, Portable SDK for UPnP devices/1.6.17</example>
@@ -2956,6 +3774,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Linux/(\S+) UPnP/[\d\.]+ DLNADOC/[\d\.]+ Portable SDK for UPnP devices/(\S+)$">
     <description>DLNADOC Portable SDK for UPnP Server - Linux DNLADOC variant</description>
     <example>Linux/3.0.8 UPnP/1.0 DLNADOC/1.50 Portable SDK for UPnP devices/1.6.6</example>
@@ -2967,6 +3786,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Linux/(\S+), UPnP/[\d\.]+, Intel SDK for UPnP devices ?/(\S+)$">
     <description>Intel SDK for UPnP Server with verbose banner</description>
     <example>Linux/2.6.10_dev-malta-mips2_fp_le, UPnP/1.0, Intel SDK for UPnP devices /1.2</example>
@@ -2978,12 +3798,14 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Linux, UPnP/[\d\.]+, Intel SDK for UPnP devices ?/(\S+)$">
     <description>Intel SDK for UPnP Server</description>
     <example>Linux, UPnP/1.0, Intel SDK for UPnP devices /1.2</example>
     <param pos="0" name="service.product" value="libupnp"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="^Darwin/(\S+), UPnP/\S+, Portable SDK for UPnP devices/(\S+)$">
     <description>Portable SDK for UPnP Server - macOS</description>
     <example service.version="1.6.6" os.version="10.2.0">Darwin/10.2.0, UPnP/1.0, Portable SDK for UPnP devices/1.6.6</example>
@@ -2994,6 +3816,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Loxone Miniserver (.*) UPnP/1.0$">
     <description>Loxone Miniserver Smart Home</description>
     <example host.name="some name">Loxone Miniserver some name UPnP/1.0</example>
@@ -3002,6 +3825,7 @@
     <param pos="0" name="hw.device" value="Building Automation"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
+
   <fingerprint pattern="^RouterOS/(\S+)UPnP/1.0 MikroTik UPnP/1.0$">
     <description>MikroTik RouterOS</description>
     <example os.version="6.43">RouterOS/6.43UPnP/1.0 MikroTik UPnP/1.0</example>
@@ -3012,6 +3836,7 @@
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:mikrotik:routeros:{os.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Roku UPnP/\S+ Roku/(\S+)$">
     <description>Roku with a version</description>
     <example hw.version="8.1.6">Roku UPnP/1.0 Roku/8.1.6</example>
@@ -3020,13 +3845,28 @@
     <param pos="0" name="hw.device" value="Media Server"/>
     <param pos="1" name="hw.version"/>
   </fingerprint>
-  <fingerprint pattern="^Roku UPnP/\S+ MiniUPnPd/\S+$">
-    <description>Roku without a version</description>
-    <example>Roku UPnP/1.0 MiniUPnPd/1.4</example>
+
+  <fingerprint pattern="^Roku/(\S+) UPnP/\S+ Roku/\S+$">
+    <description>Roku with double versions</description>
+    <example hw.version="9.2.0">Roku/9.2.0 UPnP/1.0 Roku/9.2.0</example>
     <param pos="0" name="hw.vendor" value="Roku"/>
     <param pos="0" name="hw.product" value="Roku"/>
     <param pos="0" name="hw.device" value="Media Server"/>
+    <param pos="1" name="hw.version"/>
   </fingerprint>
+
+  <fingerprint pattern="^Roku UPnP/\S+ MiniUPnPd/([\d\.]+)$">
+    <description>Roku without a version</description>
+    <example service.version="1.4">Roku UPnP/1.0 MiniUPnPd/1.4</example>
+    <param pos="0" name="hw.vendor" value="Roku"/>
+    <param pos="0" name="hw.product" value="Roku"/>
+    <param pos="0" name="hw.device" value="Media Server"/>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnp:{service.version}"/>
+  </fingerprint>
+
   <fingerprint pattern="^UPnP/\S+, DLNADOC/\S+, Platinum/(\S+)$">
     <description>Xbox Media Center UPnP Server</description>
     <example>UPnP/1.0, DLNADOC/1.50, Platinum/0.5.1</example>
@@ -3037,6 +3877,7 @@
     <param pos="0" name="service.product" value="XBMC"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
   <fingerprint pattern="Synology/DSM/(\d+\.\d+\.\d+\.\d+)$">
     <description>Synology DiskStation NAS with IP</description>
     <example host.ip="192.168.1.100">Synology/DSM/192.168.1.100</example>
@@ -3049,6 +3890,7 @@
     <param pos="0" name="os.vendor" value="Synology"/>
     <param pos="1" name="host.ip"/>
   </fingerprint>
+
   <fingerprint pattern="Synology/DSM/(\S+)$">
     <description>Synology DiskStation NAS with hostname</description>
     <example host.name="stuff">Synology/DSM/stuff</example>
@@ -3057,12 +3899,284 @@
     <param pos="0" name="hw.device" value="NAS"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
+
   <fingerprint pattern="^NetData Embedded HTTP Server v([a-zA-Z0-9\-\.]+)$">
     <description>NetData Embedded HTTP Server</description>
     <example service.version="1.16.1-146-g2f5e36ef">NetData Embedded HTTP Server v1.16.1-146-g2f5e36ef</example>
     <param pos="0" name="service.vendor" value="NetData"/>
     <param pos="0" name="service.product" value="NetData"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:netdata:netdata:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Solstice 2\.0+$">
+    <description>SolsticePod</description>
+    <example>Solstice 2.0</example>
+    <param pos="0" name="hw.vendor" value="Mersive"/>
+    <param pos="0" name="hw.device" value="Wireless Presenter"/>
+    <param pos="0" name="hw.product" value="SolsticePod"/>
+  </fingerprint>
+
+  <fingerprint pattern="^MLC ([^\/]+)/([\d\.]+)$">
+    <description>Extron MediaLink Controller HTTP Server</description>
+    <example extron.model="104 IP PLUS" hw.version="1.03">MLC 104 IP PLUS/1.03</example>
+    <param pos="0" name="hw.vendor" value="Extron"/>
+    <param pos="0" name="hw.device" value="Display Controller"/>
+    <param pos="0" name="hw.product" value="{extron.model} MediaLink Controller"/>
+    <param pos="0" name="os.vendor" value="Extron"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="1" name="extron.model"/>
+    <param pos="2" name="hw.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Jetty \(Bluecat Networks\)$">
+    <description>BlueCat Appliance</description>
+    <example>Jetty (Bluecat Networks)</example>
+    <param pos="0" name="hw.vendor" value="BlueCat"/>
+    <param pos="0" name="hw.device" value="Network Appliance"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Crestron Webserver$">
+    <description>Crestron Video Conferencing</description>
+    <example>Crestron Webserver</example>
+    <param pos="0" name="hw.vendor" value="Crestron"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
+    <param pos="0" name="os.vendor" value="Crestron"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="Video Conferencing"/>
+  </fingerprint>
+
+  <fingerprint pattern="^OPNsense$">
+    <description>OPNsense Firewall</description>
+    <example>OPNsense</example>
+    <param pos="0" name="hw.vendor" value="OPNsense"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+    <param pos="0" name="hw.product" value="Firewall"/>
+    <param pos="0" name="os.vendor" value="OPNsense"/>
+    <param pos="0" name="os.product" value="FreeBSD"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ELAN Controller$">
+    <description>ELAN Smart Home Controller</description>
+    <example>ELAN Controller</example>
+    <param pos="0" name="hw.vendor" value="ELAN"/>
+    <param pos="0" name="hw.device" value="Building Automation"/>
+    <param pos="0" name="hw.product" value="Home Controller"/>
+    <param pos="0" name="os.vendor" value="ELAN"/>
+    <param pos="0" name="os.family" value="Linux"/>
+  </fingerprint>
+
+  <fingerprint pattern="^STR_SettingServer$">
+    <description>Sony STR AV Receiver</description>
+    <example>STR_SettingServer</example>
+    <param pos="0" name="hw.vendor" value="Sony"/>
+    <param pos="0" name="hw.device" value="Media Server"/>
+    <param pos="0" name="hw.product" value="AV Receiver"/>
+  </fingerprint>
+
+  <fingerprint pattern="^AV_Receiver/([\d\.]+) \(([^\)]+)\)$">
+    <description>Yamaha AV Receiver</description>
+    <example hw.version="3.1" hw.product="RX-V675">AV_Receiver/3.1 (RX-V675)</example>
+    <param pos="0" name="hw.vendor" value="Yamaha"/>
+    <param pos="0" name="hw.device" value="AV Receiver"/>
+    <param pos="1" name="hw.version"/>
+    <param pos="2" name="hw.product"/>
+  </fingerprint>
+
+  <fingerprint pattern="^MWS 0.01$">
+    <description>ANNKE IP Camera</description>
+    <example>MWS 0.01</example>
+    <param pos="0" name="hw.vendor" value="ANNKE"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.product" value="IP Camera"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Icecast (\S+)$">
+    <description>Icecast Streaming Media server</description>
+    <example service.version="2.4.3">Icecast 2.4.3</example>
+    <example service.version="2.4.0-kh13">Icecast 2.4.0-kh13</example>
+    <param pos="0" name="service.vendor" value="Xiph"/>
+    <param pos="0" name="service.product" value="Icecast"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:xiph:icecast:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Couchbase Sync Gateway/([\d.]+) CE$">
+    <description>Couchbase Sync Gateway Community Edition</description>
+    <example service.version="2.5.0">Couchbase Sync Gateway/2.5.0 CE</example>
+    <param pos="0" name="service.vendor" value="Couchbase"/>
+    <param pos="0" name="service.product" value="Sync Gateway"/>
+    <param pos="0" name="service.edition" value="Community Edition"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:couchbase:sync_gateway:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Couchbase Sync Gateway/([\d.]+) EE$">
+    <description>Couchbase Sync Gateway Enterprise Edition</description>
+    <example service.version="2.7.1">Couchbase Sync Gateway/2.7.1 EE</example>
+    <param pos="0" name="service.vendor" value="Couchbase"/>
+    <param pos="0" name="service.product" value="Sync Gateway"/>
+    <param pos="0" name="service.edition" value="Enterprise Edition"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:couchbase:sync_gateway:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Couchbase Sync Gateway/([\d.]+)$">
+    <description>Couchbase Sync Gateway</description>
+    <example service.version="1.3.0">Couchbase Sync Gateway/1.3.0</example>
+    <param pos="0" name="service.vendor" value="Couchbase"/>
+    <param pos="0" name="service.product" value="Sync Gateway"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:couchbase:sync_gateway:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Couchbase Server$">
+    <description>Couchbase Server without version</description>
+    <example>Couchbase Server</example>
+    <param pos="0" name="service.vendor" value="Couchbase"/>
+    <param pos="0" name="service.product" value="Couchbase Server"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:couchbase:couchbase_server:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Kestrel$">
+    <description>Kestrel web server implementation in ASP.NET core</description>
+    <example>Kestrel</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.product" value="Kestrel web server"/>
+  </fingerprint>
+
+  <fingerprint pattern="^stgw/([\d.]+)_([\d.]+)$">
+    <description>Tencent Secure Tencent Gateway</description>
+    <example service.version="1.3.12.9" service.component.version="1.13.5">stgw/1.3.12.9_1.13.5</example>
+    <param pos="0" name="service.vendor" value="Tencent"/>
+    <param pos="0" name="service.product" value="Secure Tencent Gateway"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.component.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^axhttpd/([\d.]+)$">
+    <description>axTLS Project axTLS web server</description>
+    <example service.version="1.5.3">axhttpd/1.5.3</example>
+    <param pos="0" name="service.vendor" value="axTLS Project"/>
+    <param pos="0" name="service.product" value="axTLS"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:axtls_project:axtls:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^tinyproxy/([\d.]+)$">
+    <description>TinyProxy Project tinyproxy</description>
+    <example service.version="1.8.2">tinyproxy/1.8.2</example>
+    <param pos="0" name="service.vendor" value="Tinyproxy Project"/>
+    <param pos="0" name="service.product" value="Tinyproxy"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:tinyproxy_project:tinyproxy:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Xfinity Broadband Router Server$">
+    <description>Comcast Xfinity Broadband Router Server</description>
+    <example>Xfinity Broadband Router Server</example>
+    <param pos="0" name="hw.vendor" value="Comcast"/>
+    <param pos="0" name="hw.product" value="Xfinity Broadband Router"/>
+    <param pos="0" name="hw.device" value="Broadband router"/>
+  </fingerprint>
+
+  <fingerprint pattern="^IX Series IX21\d\d \(magellan-sec\) Software, Version ([^, ]+), (?:MAINTENANCE )?RELEASE SOFTWARE$">
+    <description>NEC Univerge Router - enterprise class with VPN, UTM, etc</description>
+    <example hw.version="10.2.20">IX Series IX2106 (magellan-sec) Software, Version 10.2.20, RELEASE SOFTWARE</example>
+    <example>IX Series IX2105 (magellan-sec) Software, Version 9.6.12A, MAINTENANCE RELEASE SOFTWARE</example>
+    <param pos="0" name="hw.vendor" value="NEC"/>
+    <param pos="0" name="hw.product" value="Univerge"/>
+    <param pos="1" name="hw.version"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:nec:univerge:{hw.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Caddy$">
+    <description>CaddyServer Caddy - golang based httpd</description>
+    <example>Caddy</example>
+    <param pos="0" name="service.vendor" value="CaddyServer"/>
+    <param pos="0" name="service.product" value="Caddy"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:caddyserver:caddy:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^MoxaHttp/(\d\.\d)$">
+    <description>Moxa devices - service used on multiple families of devices</description>
+    <example service.version="2.3">MoxaHttp/2.3</example>
+    <example>MoxaHttp/2.2</example>
+    <example>MoxaHttp/1.0</example>
+    <param pos="0" name="service.vendor" value="Moxa"/>
+    <param pos="0" name="service.product" value="httpd"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="hw.vendor" value="Moxa"/>
+    <param pos="0" name="os.vendor" value="Moxa"/>
+  </fingerprint>
+
+  <fingerprint pattern="^proxygen-bolt$">
+    <description>Facebook Proxygen httpd software</description>
+    <example>proxygen-bolt</example>
+    <param pos="0" name="service.vendor" value="Facebook"/>
+    <param pos="0" name="service.product" value="Proxygen"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:facebook:proxygen:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Kerio Connect ([\d.]+)(?: patch (\d))?$">
+    <description>GFI Kerio Connect</description>
+    <example service.version="8.2.2">Kerio Connect 8.2.2</example>
+    <example service.version="9.2.12" service.version.version="1">Kerio Connect 9.2.12 patch 1</example>
+    <param pos="0" name="service.vendor" value="GFI"/>
+    <param pos="0" name="service.product" value="Kerio Connect"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.version.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Kerio Control Embedded Web Server$">
+    <description>GFI Kerio Control - embedded web server</description>
+    <example>Kerio Control Embedded Web Server</example>
+    <param pos="0" name="service.vendor" value="GFI"/>
+    <param pos="0" name="service.product" value="Kerio Control"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:gfi:kerio_control:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Mongoose/([\d.]+)$">
+    <description>Cesanta Mongoose embedded web server / networking library</description>
+    <example service.version="6.7.1">Mongoose/6.7.1</example>
+    <param pos="0" name="service.vendor" value="Cesanta"/>
+    <param pos="0" name="service.product" value="Mongoose"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cesanta:mongoose:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^kangle/([\d.]+)$">
+    <description>Bangteng Kangle web server</description>
+    <example service.version="3.5.21.9">kangle/3.5.21.9</example>
+    <param pos="0" name="service.vendor" value="Bangteng"/>
+    <param pos="0" name="service.product" value="Kangle"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Werkzeug/([\d.]+) Python/([\d.]+)$">
+    <description>PalletsProjects Werkzeug web server</description>
+    <example service.version="0.14.1" python.version="3.6.9">Werkzeug/0.14.1 Python/3.6.9</example>
+    <param pos="0" name="service.vendor" value="PalletsProjects"/>
+    <param pos="0" name="service.product" value="Werkzeug"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:palletsprojects:werkzeug:{service.version}"/>
+    <param pos="2" name="python.version"/>
+  </fingerprint>
+
+  <!-- This is a version of ACME mini_httpd where the value 'mini_httpd' has been
+      replaced with a UUID in the Server header AND body of the response. It
+      is likely vendor or product specific.
+  -->
+
+  <fingerprint pattern="^[a-f\d]{7,8}-[a-f\d]{3,4}-[a-f\d]{3,4}-[a-f\d]{3,4}-[a-f\d]{10,12}$">
+    <description>ACME mini_httpd with randomized Server header</description>
+    <example>a74b7cd4-4a4e-4115-7a48-1c7ebb4ae45b</example>
+    <example>f09f73f0-cac6-422-3660-32ac658c5ae7</example>
+    <example>f24ddd9c-e2a6-23c-ec95-4563173bbe</example>
+    <param pos="0" name="service.vendor" value="ACME"/>
+    <param pos="0" name="service.product" value="mini_httpd"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:acme:mini_httpd:-"/>
   </fingerprint>
 
 </fingerprints>

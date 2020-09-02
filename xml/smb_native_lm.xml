@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="smb.native_lm" protocol="smb" database_type="service">
   <!--
     SMB fingerprints obtained from the Native LM (LAN manager) field of SMB
     negotations
   -->
+
   <!-- Mac OS X -->
+
   <fingerprint pattern="^Samba (3\.0\.28a-apple)$">
     <description>Samba on OS X 10.6</description>
     <example service.version="3.0.28a-apple">Samba 3.0.28a-apple</example>
@@ -18,6 +20,7 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:samba:samba:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Samba (3\.0\.25b-apple)$">
     <description>Samba on OS X 10.5</description>
     <example service.version="3.0.25b-apple">Samba 3.0.25b-apple</example>
@@ -31,7 +34,9 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:samba:samba:{service.version}"/>
   </fingerprint>
+
   <!-- TODO: Detect vendor, distribution, and package versions -->
+
   <fingerprint pattern="^Samba (\d\.\d+.\d+\w*)">
     <description>Samba</description>
     <example>Samba 3.0.24</example>
@@ -45,11 +50,13 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:samba:samba:{service.version}"/>
   </fingerprint>
+
   <fingerprint pattern="^Netreon LANMAN 1.0$">
     <description>Netreon SAN software</description>
     <example>Netreon LANMAN 1.0</example>
     <param pos="0" name="service.vendor" value="Netreon"/>
   </fingerprint>
+
   <fingerprint pattern="(?i)^MikrotikSMB$">
     <description>Mikrotik</description>
     <example>MikrotikSMB</example>
@@ -59,4 +66,5 @@
     <param pos="0" name="os.product" value="RouterOS"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:mikrotik:routeros:-"/>
   </fingerprint>
+
 </fingerprints>

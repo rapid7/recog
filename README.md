@@ -1,4 +1,5 @@
 # Recog: A Recognition Framework
+
 [![Gem Version](https://badge.fury.io/rb/recog.svg)](http://badge.fury.io/rb/recog)
 [![Build Status](https://travis-ci.org/rapid7/recog.svg?branch=master)](https://travis-ci.org/rapid7/recog)
 
@@ -6,6 +7,13 @@
 Recog is a framework for identifying products, services, operating systems, and hardware by matching fingerprints against data returned from various network probes. Recog makes it simple to extract useful information from web server banners, snmp system description fields, and a whole lot more.
 
 Recog is open source, please see the [LICENSE](https://raw.githubusercontent.com/rapid7/recog/master/LICENSE) file for more information.
+
+## Table of Contents
+
+1. [Installation](#installation)
+1. [Maturity](#maturity)
+1. [Fingerprints](#fingerprints)
+1. [Contributing](#contributing)
 
 ## Installation
 
@@ -17,9 +25,13 @@ $ cd recog
 $ bundle install
 ```
 
+[^back to top](#recog-a-recognition-framework)
+
 ## Maturity
 
 Please note that while the XML fingerprints themselves are quite stable and well-tested, the Ruby codebase in Recog is still fairly new and subject to change quickly. Please contact us (research[at]rapid7.com) before leveraging the Recog code within any production projects.
+
+[^back to top](#recog-a-recognition-framework)
 
 ## Fingerprints
 
@@ -64,22 +76,12 @@ The `example` string can be base64 encoded to permit the use of unprintable char
 </example>
 ````
 
-### Testing
+[^back to top](#recog-a-recognition-framework)
 
-Once a fingerprint has been added, the `example` entries can be tested by executing `bin/recog_verify` against the fingerprint file:
+## Contributing
 
-```shell
-$ bin/recog_verify xml/ssh_banners.xml
-```
+The users and maintainers of Recog would greatly appreciate any contributions
+you can make to the project. For guidelines and instructions please see
+[CONTRIBUTING.MD](CONTRIBUTING.md)
 
-Matches can be tested on the command-line in a similar fashion:
-
-```shell
-$ echo 'OpenSSH_6.6p1 Ubuntu-2ubuntu1' | bin/recog_match xml/ssh_banners.xml -
-MATCH: {"matched"=>"OpenSSH running on Ubuntu 14.04", "service.version"=>"6.6p1", "openssh.comment"=>"Ubuntu-2ubuntu1", "service.vendor"=>"OpenBSD", "service.family"=>"OpenSSH", "service.product"=>"OpenSSH", "os.vendor"=>"Ubuntu", "os.device"=>"General", "os.family"=>"Linux", "os.product"=>"Linux", "os.version"=>"14.04", "service.protocol"=>"ssh", "fingerprint_db"=>"ssh.banner", "data"=>"OpenSSH_6.6p1 Ubuntu-2ubuntu1"}
-```
-
-### Best Practices
-
-* Create a single fingerprint for each product as long as the pattern remains clear and readable. If that is not possible, the pattern should be logically decomposed into additional fingerprints.
-* Create regular expressions that allow for flexible version number matching. This ensures greater probability of matching a product. For example, all known public releases of a product report either `major.minor` or `major.minor.build` format version numbers. If the fingerprint strictly matches this version number format, it would fail to match a modified build of the product that reports only a `major` version number format.
+[^back to top](#recog-a-recognition-framework)
