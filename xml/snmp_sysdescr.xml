@@ -6314,70 +6314,80 @@ Copyright (c) 1995-2005 by Cisco Systems
 
   <fingerprint pattern="^Siemens, SIMATIC HMI, ([^,]+),.*FW:\s*V([^,]+).*$">
     <description>Siemens HMI - firmware variant</description>
-    <example>Siemens, SIMATIC HMI, KTP1000 Basic PN, 6AV6 647-0AF11-3AX0, HW: 1, FW: V01.06.00, Revision: 1</example>
-    <example>Siemens, SIMATIC HMI, KTP600 Basic Mono PN, 6AV6647-0AB11-3AX0, HW:1, FW:V01.06.00</example>
+    <example hw.product="KTP1000 Basic PN">Siemens, SIMATIC HMI, KTP1000 Basic PN, 6AV6 647-0AF11-3AX0, HW: 1, FW: V01.06.00, Revision: 1</example>
+    <example hw.version="01.06.00">Siemens, SIMATIC HMI, KTP600 Basic Mono PN, 6AV6647-0AB11-3AX0, HW:1, FW:V01.06.00</example>
     <example>Siemens, SIMATIC HMI, KTP600 Basic color PN, 6AV6 647-0AD11-3AX0, HW:1, FW:V11.00.02.00</example>
-    <param pos="0" name="os.vendor" value="Siemens"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.device" value="HMI Controller"/>
-    <param pos="0" name="hw.device" value="Simatic HMI"/>
     <param pos="0" name="os.family" value="Windows"/>
-    <param pos="0" name="os.version" value="CE"/>
+    <param pos="0" name="os.product" value="Windows CE"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_ce:-"/>
+    <param pos="0" name="hw.vendor" value="Siemens"/>
+    <param pos="0" name="hw.family" value="Simatic HMI"/>
+    <param pos="0" name="hw.device" value="HMI Controller"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="hw.version"/>
   </fingerprint>
 
   <fingerprint pattern="^Siemens, SIMATIC HMI, ([^,]+),.*SW:\s*V\s*(\d+ \d+ \d+).*$">
     <description>Siemens HMI</description>
-    <example>Siemens, SIMATIC HMI, MP177, 6AV6 642-0EA01-3AX0, HW: 0, SW: V 1 0 0</example>
-    <example>Siemens, SIMATIC HMI, TP177B, 6AV6 642-0BD01-3AX0, HW: 0, SW: V 1 0 2</example>
+    <example hw.product="MP177">Siemens, SIMATIC HMI, MP177, 6AV6 642-0EA01-3AX0, HW: 0, SW: V 1 0 0</example>
+    <example hw.version="1 0 2">Siemens, SIMATIC HMI, TP177B, 6AV6 642-0BD01-3AX0, HW: 0, SW: V 1 0 2</example>
     <example>Siemens, SIMATIC HMI, XP277, 6AV6 643-0CB01-1AX0, HW: 0, SW: V 1 1 2</example>
     <example>Siemens, SIMATIC HMI, unknown, 6AV2 124-0GC01-0AX0, HW: 0, SW: V 11 0 2</example>
     <example>Siemens, SIMATIC HMI, unknown, 6AV2 124-0JC01-0AX0, HW: 0, SW: V 11 0 0</example>
-    <param pos="0" name="os.vendor" value="Siemens"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.device" value="HMI Controller"/>
-    <param pos="0" name="hw.device" value="Simatic HMI"/>
     <param pos="0" name="os.family" value="Windows"/>
-    <param pos="0" name="os.version" value="CE"/>
+    <param pos="0" name="os.product" value="Windows CE"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_ce:-"/>
+    <param pos="0" name="hw.vendor" value="Siemens"/>
+    <param pos="0" name="hw.family" value="Simatic HMI"/>
+    <param pos="0" name="hw.device" value="HMI Controller"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="hw.version"/>
   </fingerprint>
 
   <fingerprint pattern="^Siemens, SIMATIC NET, ([^,]+),.*FW:\s*(?:Version )?V?([^,]+).*$">
     <description>Siemens NET - verbose variant</description>
-    <example os.product="CP 343-1 Advanced" os.version="1.2.3">Siemens, SIMATIC NET, CP 343-1 Advanced, 6GK7 343-1GX30-0XE0, HW: Version 3, FW: Version V1.2.3, VPB9502953</example>
-    <example os.product="CP 343-1 Lean" os.version="2.6.0">Siemens, SIMATIC NET, CP 343-1 Lean, 6GK7 343-1CX10-0XE0, HW: Version 6, FW: Version V2.6.0, VPC3513639</example>
-    <example os.product="CP 343-1" os.version="2.2.20">Siemens, SIMATIC NET, CP 343-1, 6GK7 343-1EX30-0XE0, HW: Version 3, FW: Version V2.2.20, VPXN545808</example>
-    <example os.product="SCALANCE X204-2" os.version="4.01">Siemens, SIMATIC NET, SCALANCE X204-2, 6GK5 204-2BB10-2AA3, HW: 4, FW: V4.01</example>
-    <example os.product="Scalance S612" os.version="T03.00.00.00_25.00.00.01">Siemens, SIMATIC NET, Scalance S612, 6GK56120BA102AA3, HW: Version 6, FW: Version T03.00.00.00_25.00.00.01, VPB9542952</example>
-    <param pos="0" name="os.vendor" value="Siemens"/>
-    <param pos="0" name="os.device" value="Monitoring"/>
+    <example hw.product="CP 343-1 Advanced" hw.version="1.2.3">Siemens, SIMATIC NET, CP 343-1 Advanced, 6GK7 343-1GX30-0XE0, HW: Version 3, FW: Version V1.2.3, VPB9502953</example>
+    <example hw.product="CP 343-1 Lean" hw.version="2.6.0">Siemens, SIMATIC NET, CP 343-1 Lean, 6GK7 343-1CX10-0XE0, HW: Version 6, FW: Version V2.6.0, VPC3513639</example>
+    <example hw.product="CP 343-1" hw.version="2.2.20">Siemens, SIMATIC NET, CP 343-1, 6GK7 343-1EX30-0XE0, HW: Version 3, FW: Version V2.2.20, VPXN545808</example>
+    <example hw.product="SCALANCE X204-2" hw.version="4.01">Siemens, SIMATIC NET, SCALANCE X204-2, 6GK5 204-2BB10-2AA3, HW: 4, FW: V4.01</example>
+    <example hw.product="Scalance S612" hw.version="T03.00.00.00_25.00.00.01">Siemens, SIMATIC NET, Scalance S612, 6GK56120BA102AA3, HW: Version 6, FW: Version T03.00.00.00_25.00.00.01, VPB9542952</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
-    <param pos="0" name="os.version" value="7"/>
+    <param pos="0" name="os.product" value="Windows 7"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_7:-"/>
+    <param pos="0" name="hw.vendor" value="Siemens"/>
     <param pos="0" name="hw.family" value="Simatic NET"/>
+    <param pos="0" name="hw.device" value="Monitoring"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="hw.version"/>
   </fingerprint>
 
   <fingerprint pattern="^Siemens, SIMATIC NET (\S+) FW V (\S+)$">
     <description>Siemens NET</description>
-    <example>Siemens, SIMATIC NET CP1613 FW V 06.33</example>
-    <param pos="0" name="os.vendor" value="Siemens"/>
-    <param pos="0" name="os.device" value="Monitoring"/>
+    <example hw.product="CP1613" hw.version="06.33">Siemens, SIMATIC NET CP1613 FW V 06.33</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
-    <param pos="0" name="os.version" value="7"/>
+    <param pos="0" name="os.product" value="Windows 7"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_7:-"/>
+    <param pos="0" name="hw.vendor" value="Siemens"/>
     <param pos="0" name="hw.family" value="Simatic NET"/>
+    <param pos="0" name="hw.device" value="Monitoring"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="hw.version"/>
   </fingerprint>
 
   <fingerprint pattern="^Siemens, SIMATIC S7, ([^,]+), .*?FW: (?:Version )?V?\.?([^,]+).*$">
     <description>Siemens S7</description>
-    <example os.product="CPU-1200" os.version="2.0.2">Siemens, SIMATIC S7, CPU-1200, 6ES7 211-1BD30-0XB0, HW: 1, FW: V.2.0.2, SZVX8YU9000553</example>
-    <example os.product="CPU315-2 PN/DP" os.version="2.5.0">Siemens, SIMATIC S7, CPU315-2 PN/DP, 6ES7 315-2EH13-0AB0 , HW: 3, FW: V2.5.0, S C-V4P07826200</example>
-    <example os.product="IM151-8" os.version="3.2.3">Siemens, SIMATIC S7, IM151-8, 6ES7 151-8AB01-0AB0 , HW: 2, FW: V3.2.3, S C-B3UC78192011</example>
-    <param pos="0" name="os.vendor" value="Siemens"/>
-    <param pos="0" name="os.device" value="Monitoring"/>
+    <example hw.product="CPU-1200" hw.version="2.0.2">Siemens, SIMATIC S7, CPU-1200, 6ES7 211-1BD30-0XB0, HW: 1, FW: V.2.0.2, SZVX8YU9000553</example>
+    <example hw.product="CPU315-2 PN/DP" hw.version="2.5.0">Siemens, SIMATIC S7, CPU315-2 PN/DP, 6ES7 315-2EH13-0AB0 , HW: 3, FW: V2.5.0, S C-V4P07826200</example>
+    <example hw.product="IM151-8" hw.version="3.2.3">Siemens, SIMATIC S7, IM151-8, 6ES7 151-8AB01-0AB0 , HW: 2, FW: V3.2.3, S C-B3UC78192011</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="hw.vendor" value="Siemens"/>
     <param pos="0" name="hw.family" value="Simatic S7"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="hw.version"/>
@@ -6385,12 +6395,12 @@ Copyright (c) 1995-2005 by Cisco Systems
 
   <fingerprint pattern="^Siemens, SIMATIC S7, ([^,]+), .*?, V\.([^,]+).*$">
     <description>Siemens S7 - variant 1</description>
-    <example>Siemens, SIMATIC S7, CPU-1200, 6ES7 212-1BD30-0XB0 SZVA1YU6008610 , 1, V.1.0.1, SZVA1YU6008610</example>
-    <example>Siemens, SIMATIC S7, CPU-1200, 6ES7 212-1HD30-0XB0 SZVA3YU7002312 , 1, V.1.0.1, SZVA3YU7002312</example>
+    <example hw.product="CPU-1200">Siemens, SIMATIC S7, CPU-1200, 6ES7 212-1BD30-0XB0 SZVA1YU6008610 , 1, V.1.0.1, SZVA1YU6008610</example>
+    <example hw.version="1.0.1">Siemens, SIMATIC S7, CPU-1200, 6ES7 212-1HD30-0XB0 SZVA3YU7002312 , 1, V.1.0.1, SZVA3YU7002312</example>
     <example>Siemens, SIMATIC S7, CPU-1200, 6ES7 214-1BE30-0XB0 SZVA2YYY007305 , 1, V.1.0.2, SZVA2YYY007305</example>
-    <param pos="0" name="os.vendor" value="Siemens"/>
-    <param pos="0" name="os.device" value="Monitoring"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="hw.vendor" value="Siemens"/>
     <param pos="0" name="hw.family" value="Simatic S7"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="hw.version"/>
@@ -6398,22 +6408,24 @@ Copyright (c) 1995-2005 by Cisco Systems
 
   <fingerprint pattern="^Siemens, SIMATIC, (\S+)$">
     <description>Siemens S7 - model only variant</description>
-    <example>Siemens, SIMATIC, S7-300</example>
-    <param pos="0" name="os.vendor" value="Siemens"/>
-    <param pos="0" name="os.device" value="Monitoring"/>
+    <example hw.product="S7-300">Siemens, SIMATIC, S7-300</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="hw.vendor" value="Siemens"/>
     <param pos="0" name="hw.family" value="Simatic S7"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
   <fingerprint pattern="^Siemens, SINUMERIK, solution line ([^,]+),.*?FW:V([^,]+).*$">
     <description>Siemens Sinumerik Solution Line</description>
-    <example>Siemens, SINUMERIK, solution line PCU50, , HW:1, FW:V00.00.00,</example>
-    <example>Siemens, SINUMERIK, solution line PCU50.3B-P 1GB XP, 6FC5210-0DF33-2AB0, HW:A, FW:V00.00.00, ST-BN2040231</example>
-    <param pos="0" name="os.vendor" value="Siemens"/>
+    <example hw.product="PCU50">Siemens, SINUMERIK, solution line PCU50, , HW:1, FW:V00.00.00,</example>
+    <example hw.version="00.00.00">Siemens, SINUMERIK, solution line PCU50.3B-P 1GB XP, 6FC5210-0DF33-2AB0, HW:A, FW:V00.00.00, ST-BN2040231</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.device" value="Monitoring"/>
     <param pos="0" name="os.family" value="Windows"/>
-    <param pos="0" name="os.version" value="10"/>
+    <param pos="0" name="os.product" value="Windows 10"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_10:-"/>
+    <param pos="0" name="hw.vendor" value="Siemens"/>
     <param pos="0" name="hw.family" value="Simatic Sinumerik"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="hw.version"/>
