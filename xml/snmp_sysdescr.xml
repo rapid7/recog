@@ -6914,17 +6914,68 @@ Copyright (c) 1995-2005 by Cisco Systems
                               UBIQUITI
    =======================================================================-->
 
-  <fingerprint pattern="^UAP-([^\s]+) ([0-9][.a-zA-Z0-9]+)$">
+  <fingerprint pattern="^(UAP-[^\s]+) ([0-9][.a-zA-Z0-9\-]+)$">
     <description>Ubiquiti Wireless UAP</description>
     <example hw.product="UAP-AC-Mesh-Pro" hw.version="4.3.20.11298">UAP-AC-Mesh-Pro 4.3.20.11298</example>
     <param pos="0" name="hw.vendor" value="Ubiquiti"/>
     <param pos="0" name="hw.device" value="WAP"/>
     <param pos="1" name="hw.product"/>
-    <param pos="1" name="hw.version"/>
+    <param pos="2" name="hw.version"/>
     <param pos="0" name="os.vendor" value="Ubiquiti"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.device" value="WAP"/>
   </fingerprint>
+
+  <fingerprint pattern="^(EdgeSwitch [^,]+), ([0-9][.a-zA-Z0-9\-]+), Linux ([0-9][.a-zA-Z0-9\-]+)">
+    <description>Ubiquiti EdgeSwitch w/Version and Linux version</description>
+    <example hw.product="EdgeSwitch 48-Port Lite" hw.version="1.8.1.5145168" os.version="3.6.5-1b505fb7">EdgeSwitch 48-Port Lite, 1.8.1.5145168, Linux 3.6.5-1b505fb7, 1.1.0.5102011</example>
+    <param pos="0" name="hw.vendor" value="Ubiquiti"/>
+    <param pos="0" name="hw.device" value="Switch"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="hw.version"/>
+    <param pos="0" name="os.vendor" value="Ubiquiti"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="Switch"/>
+    <param pos="3" name="os.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(USW GigaBit Ethernet Switch), firmware v?([0-9][.a-zA-Z0-9\-]+)$">
+    <description>Ubiquiti GigaBit Ethernet Switch w/Version</description>
+    <example hw.product="USW GigaBit Ethernet Switch" hw.version="5.34.0.12180">USW GigaBit Ethernet Switch, firmware 5.34.0.12180</example>
+    <example hw.product="USW GigaBit Ethernet Switch" hw.version="4.3.20.1129">USW GigaBit Ethernet Switch, firmware v4.3.20.1129</example>
+    <param pos="0" name="hw.vendor" value="Ubiquiti"/>
+    <param pos="0" name="hw.device" value="Switch"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="hw.version"/>
+    <param pos="0" name="os.vendor" value="Ubiquiti"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="Switch"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(USW-[^\s]+), ([0-9][.a-zA-Z0-9\-]+), Linux ([0-9][.a-zA-Z0-9\-]+)$">
+    <description>Ubiquiti Switch w/Version and Linux version</description>
+    <example hw.product="USW-8P-60" hw.version="4.3.20.11298" os.version="3.6.5">USW-8P-60, 4.3.20.11298, Linux 3.6.5</example>
+    <param pos="0" name="hw.vendor" value="Ubiquiti"/>
+    <param pos="0" name="hw.device" value="Switch"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="hw.version"/>
+    <param pos="0" name="os.vendor" value="Ubiquiti"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="Switch"/>
+    <param pos="3" name="os.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(USW-[^\s]+), ([0-9][.a-zA-Z0-9\-]+)$">
+    <description>Ubiquiti Switch w/Version (no Linux version)</description>
+    <example hw.product="USW-5-Flex" hw.version="4.0.80.10875">USW-5-Flex, 4.0.80.10875</example>
+    <param pos="0" name="hw.vendor" value="Ubiquiti"/>
+    <param pos="0" name="hw.device" value="Switch"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="hw.version"/>
+    <param pos="0" name="os.vendor" value="Ubiquiti"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="Switch"/>
+  </fingerprint> 
 
   <!--======================================================================
                               UNISYS
