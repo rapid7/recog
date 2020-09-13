@@ -286,6 +286,18 @@
     <param pos="0" name="hw.product" value="SIP Gateway"/>
   </fingerprint>
 
+  <fingerprint pattern="^PBX-IP Media Gateway/([\d.]+)$">
+    <description>Dialogic Media Gateway w Version</description>
+    <example os.version="2.1">PBX-IP Media Gateway/2.1</example>
+    <param pos="0" name="os.vendor" value="Dialogic"/>
+    <param pos="0" name="os.family" value="SIP Gateway"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="hw.vendor" value="Dialogic"/>
+    <param pos="0" name="hw.family" value="SIP Gateway"/>
+    <param pos="0" name="hw.device" value="SIP Gateway"/>
+    <param pos="0" name="hw.product" value="Media Gateway"/>
+  </fingerprint>
+
   <fingerprint pattern="^Asterisk PBX (\S+)$">
     <description>Asterisk PBX w/ Version</description>
     <example service.version="13.18.0-6.7.1.1.rl.1538157944.1c65507">Asterisk PBX 13.18.0-6.7.1.1.rl.1538157944.1c65507</example>

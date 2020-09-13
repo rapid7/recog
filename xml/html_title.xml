@@ -2713,4 +2713,77 @@
     <param pos="0" name="os.product" value="SSL-VPN"/>
   </fingerprint>
 
+  <fingerprint pattern="^Sony Network Camera$">
+    <description>Sony Network Camera</description>
+    <example>Sony Network Camera</example>
+    <param pos="0" name="hw.vendor" value="Sony"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.product" value="Network Camera"/>
+  </fingerprint>
+
+  <fingerprint pattern="Lifesize&amp;reg;$">
+    <description>Lifesize TelePresence</description>
+    <example>Lifesize&amp;reg;</example>
+    <example>400 - Bad Request	Lifesize&amp;reg;</example>
+    <param pos="0" name="hw.vendor" value="Lifesize"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
+    <param pos="0" name="hw.product" value="TelePresence"/>
+    <param pos="0" name="os.vendor" value="Lifesize"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="TelePresence"/>
+    <param pos="0" name="os.device" value="Video Conferencing"/>
+  </fingerprint>
+
+  <fingerprint pattern="^AT&amp;amp;T VPN Gateway$">
+    <description>ATT VPN Gateway</description>
+    <example>AT&amp;amp;T VPN Gateway</example>
+    <param pos="0" name="hw.vendor" value="ATT"/>
+    <param pos="0" name="hw.device" value="VPN"/>
+    <param pos="0" name="hw.product" value="VPN Gateway"/>
+  </fingerprint>
+
+  <fingerprint pattern="^AT&amp;amp;T U\d+: '([^']+)'$">
+    <description>ATT VPN Gateway w Hostname</description>
+    <example host.name="Austin-Boston">AT&amp;amp;T U115: 'Austin-Boston'</example>
+    <param pos="0" name="hw.vendor" value="ATT"/>
+    <param pos="0" name="hw.device" value="VPN"/>
+    <param pos="0" name="hw.product" value="VPN Gateway"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(?:Symantec Encryption Verified Directory|Symantec Encryption Server.*)$">
+    <description>Symantec PGP Key Management Server</description>
+    <example>Symantec Encryption Verified Directory</example>
+    <example>Symantec Encryption Server - Page Not Found</example>
+    <example>Symantec Encryption Server - Login</example>
+    <param pos="0" name="hw.vendor" value="Symantec"/>
+    <param pos="0" name="hw.device" value="Security Appliance"/>
+    <param pos="0" name="hw.product" value="Key Management Server"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Riverbed Technology, Inc\.$">
+    <description>Riverbed Steelhead Appliance</description>
+    <example>Riverbed Technology, Inc.</example>
+    <param pos="0" name="hw.vendor" value="Riverbed"/>
+    <param pos="0" name="hw.device" value="Security Appliance"/>
+    <param pos="0" name="hw.product" value="Steelhead"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ClearPass - Aruba Networks$">
+    <description>ClearPass Policy Manager Appliance</description>
+    <example>ClearPass - Aruba Networks</example>
+    <param pos="0" name="hw.vendor" value="Aruba"/>
+    <param pos="0" name="hw.device" value="Network Appliance"/>
+    <param pos="0" name="hw.product" value="ClearPass Policy Manager"/>
+  </fingerprint>
+
+  <fingerprint pattern="^MSTR Collab Server$">
+    <description>MicroStrategy Collaboration Server</description>
+    <example>MSTR Collab Server</example>
+    <param pos="0" name="service.vendor" value="MicroStrategy"/>
+    <param pos="0" name="service.product" value="Collaboration Server"/>
+    <param pos="0" name="service.certainty" value="0.5"/>
+  </fingerprint>
+
+
 </fingerprints>
