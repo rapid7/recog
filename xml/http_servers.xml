@@ -4168,6 +4168,15 @@
     <param pos="2" name="python.version"/>
   </fingerprint>
 
+  <fingerprint pattern="^Grandstream (GXP[^\s]+) ([\d\.]+)$">
+    <description>Grandstream IP Phone</description>
+    <example hw.product="GXP2020" hw.version="1.2.5.3">Grandstream GXP2020 1.2.5.3</example>
+    <param pos="0" name="hw.vendor" value="Grandstream"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="2" name="hw.version"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+
   <!-- This is a version of ACME mini_httpd where the value 'mini_httpd' has been
       replaced with a UUID in the Server header AND body of the response. It
       is likely vendor or product specific.
