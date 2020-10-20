@@ -6099,6 +6099,19 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:sonicwall:sonicos:{os.version}"/>
   </fingerprint>
 
+
+  <fingerprint pattern="^SonicWALL (\S+).*?\(SonicOS \S+ ((?:\d\.)+\d+-\d+[a-zA-Z]).*\)">
+    <description>SonicWall - SonicOS Enhanced variant without hardware model</description>
+    <example hw.product="SOHO" os.version="5.9.1.4-4o">SonicWALL SOHO (SonicOS Enhanced 5.9.1.4-4o)</example>
+    <example hw.product="SOHO" os.version="6.2.5.1-26n">SonicWALL SOHO wireless-N (SonicOS Enhanced 6.2.5.1-26n--HF175723-2n)</example>
+    <param pos="0" name="os.vendor" value="SonicWall"/>
+    <param pos="0" name="os.device" value="Firewall"/>
+    <param pos="0" name="os.product" value="SonicOS"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sonicwall:sonicos:{os.version}"/>
+  </fingerprint>
+
   <fingerprint pattern="^SonicWALL (.*?)\s+\(([^\)]+)\)\s*$">
     <description>SonicWall</description>
     <example>SonicWALL StrongARM / 233 Mhz (PRO 200)</example>
