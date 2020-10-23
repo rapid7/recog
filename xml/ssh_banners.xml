@@ -1136,6 +1136,22 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:20.04"/>
   </fingerprint>
 
+  <fingerprint pattern="^OpenSSH_(8\.3p1) (Ubuntu-1\S*)$">
+    <description>OpenSSH running on Ubuntu 20.10</description>
+    <example service.version="8.3p1" openssh.comment="Ubuntu-1">OpenSSH_8.3p1 Ubuntu-1</example>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="openssh.comment"/>
+    <param pos="0" name="service.vendor" value="OpenBSD"/>
+    <param pos="0" name="service.family" value="OpenSSH"/>
+    <param pos="0" name="service.product" value="OpenSSH"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:openbsd:openssh:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="20.10"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:20.10"/>
+  </fingerprint>
+
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Ubuntu-\d\d?)$">
     <description>OpenSSH running on Ubuntu (unknown release)</description>
     <example service.version="7.6p1" openssh.comment="Ubuntu-2">OpenSSH_7.6p1 Ubuntu-2</example>
