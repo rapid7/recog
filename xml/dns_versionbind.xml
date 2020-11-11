@@ -761,6 +761,18 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:Service Pack 1"/>
   </fingerprint>
 
+  <fingerprint pattern="^Microsoft DNS (\d\.\d+\.\d+) \(([^)]+)\)$">
+    <description>Microsoft DNS generic version banner</description>
+    <example service.version.version="17714726">Microsoft DNS 5.2.3790 (ECE135D)</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="DNS"/>
+    <param pos="0" name="service.product" value="DNS"/>
+    <param pos="1" name="service.version"/>
+    <param pos="1" name="service.version.version"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+  </fingerprint>
+
   <fingerprint pattern="^DNSServer$">
     <description>Synology DNS service</description>
     <example>DNSServer</example>
