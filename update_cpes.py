@@ -9,7 +9,7 @@ from lxml import etree
 
 def parse_r7_remapping(file):
     with open(file) as remap_file:
-        return yaml.load(remap_file)["mappings"]
+        return yaml.safe_load(remap_file)["mappings"]
 
 def parse_cpe_vp_map(file):
     vp_map = {} # cpe_type -> vendor -> products
