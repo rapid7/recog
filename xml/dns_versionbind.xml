@@ -761,9 +761,24 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:Service Pack 1"/>
   </fingerprint>
 
-  <fingerprint pattern="^Microsoft DNS (\d+\.\d+\.\d+)(?: \(([^)]+)\))?$">
-    <description>Microsoft DNS generic version banner</description>
-    <example service.version.version="ECE135D" service.version="5.2.3790">Microsoft DNS 5.2.3790 (ECE135D)</example>
+  <fingerprint pattern="^Microsoft DNS 5.2.3790(?: \(([^)]+)\))?$">
+    <description>Microsoft DNS on Windows 2003</description>
+    <example service.version.version="ECE135D">Microsoft DNS 5.2.3790 (ECE135D)</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="DNS"/>
+    <param pos="0" name="service.product" value="DNS"/>
+    <param pos="0" name="service.version" value="5.2.3790"/>
+    <param pos="1" name="service.version.version"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows Server 2003"/>
+    <param pos="0" name="os.build" value="5.2.3790"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Microsoft DNS (5.0.\d+)(?: \(([^)]+)\))?$">
+    <description>Microsoft DNS on Windows 2000</description>
+    <example service.version="5.0.14393" os.build="5.0.14393" service.version.version="383900CE">Microsoft DNS 5.0.14393 (383900CE)</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="DNS"/>
     <param pos="0" name="service.product" value="DNS"/>
@@ -771,6 +786,9 @@
     <param pos="2" name="service.version.version"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows Server 2000"/>
+    <param pos="1" name="os.build"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2000:-"/>
   </fingerprint>
 
   <fingerprint pattern="^DNSServer$">
