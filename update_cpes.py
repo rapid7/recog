@@ -63,9 +63,9 @@ def lookup_cpe(vendor, product, cpe_type, cpe_table, remap):
 
     Lookup priority:
     1. Original vendor / product
-    1. Original vendor / remap product
-    2. Remap vendor / original product
-    3. Remap vendor / remap product
+    2. Original vendor / remap product
+    3. Remap vendor / original product
+    4. Remap vendor / remap product
 
     Args:
         vendor (str):  vendor name
