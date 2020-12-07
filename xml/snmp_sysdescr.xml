@@ -1080,7 +1080,7 @@
   </fingerprint>
 
   <fingerprint pattern="^Brocade VDX Switch, BR-(\S+), Network Operating System Software Version (\S+)\.$">
-    <description>Brocade Network Operating System</description>
+    <description>Brocade VDX Switch</description>
     <example os.product="VDX6740" os.version="7.0.2b">Brocade VDX Switch, BR-VDX6740, Network Operating System Software Version 7.0.2b.</example>
     <param pos="0" name="os.vendor" value="Brocade"/>
     <param pos="0" name="os.device" value="Switch"/>
@@ -1089,8 +1089,19 @@
     <param pos="2" name="os.version"/>
   </fingerprint>
 
+  <fingerprint pattern="^([^,]+), (VDX\S+), Network Operating System Software Version (\S+)\.$">
+    <description>Brocade VDX Switch w/Hostname</description>
+    <example host.name="core02" os.product="VDX6740T-1G" os.version="7.0.1b">core02, VDX6740T-1G, Network Operating System Software Version 7.0.1b.</example>
+    <param pos="0" name="os.vendor" value="Brocade"/>
+    <param pos="0" name="os.device" value="Switch"/>
+    <param pos="0" name="os.family" value="NetworkOS"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="os.product"/>
+    <param pos="3" name="os.version"/>
+  </fingerprint>
+
   <fingerprint pattern="^([^,]+), BR-(\S+), Network Operating System Software Version (\S+)\.$">
-    <description>Brocade Network Operating System w/Hostname</description>
+    <description>Brocade VDX Switch w/Hostname and BR prefix</description>
     <example host.name="core01" os.product="VDX6740" os.version="7.0.2b">core01, BR-VDX6740, Network Operating System Software Version 7.0.2b.</example>
     <param pos="0" name="os.vendor" value="Brocade"/>
     <param pos="0" name="os.device" value="Switch"/>
