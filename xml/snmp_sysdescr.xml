@@ -1079,6 +1079,27 @@
     <param pos="2" name="os.version"/>
   </fingerprint>
 
+  <fingerprint pattern="^Brocade VDX Switch, BR-(\S+), Network Operating System Software Version (\S+)\.$">
+    <description>Brocade Network Operating System</description>
+    <example os.product="VDX6740" os.version="7.0.2b">Brocade VDX Switch, BR-VDX6740, Network Operating System Software Version 7.0.2b.</example>
+    <param pos="0" name="os.vendor" value="Brocade"/>
+    <param pos="0" name="os.device" value="Switch"/>
+    <param pos="0" name="os.family" value="NetworkOS"/>
+    <param pos="1" name="os.product"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^([^,]+), BR-(\S+), Network Operating System Software Version (\S+)\.$">
+    <description>Brocade Network Operating System w/Hostname</description>
+    <example host.name="core01" os.product="VDX6740" os.version="7.0.2b">core01, BR-VDX6740, Network Operating System Software Version 7.0.2b.</example>
+    <param pos="0" name="os.vendor" value="Brocade"/>
+    <param pos="0" name="os.device" value="Switch"/>
+    <param pos="0" name="os.family" value="NetworkOS"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="os.product"/>
+    <param pos="3" name="os.version"/>
+  </fingerprint>
+
   <!--======================================================================
                               BROTHER
    =======================================================================-->
@@ -1794,6 +1815,20 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.family" value="Vantage"/>
     <param pos="0" name="os.product" value="AMD"/>
     <param pos="1" name="os.version"/>
+  </fingerprint>
+
+  <!--======================================================================
+                                Cumulus
+   =======================================================================-->
+
+  <fingerprint pattern="^Cumulus Linux (\S+) \(Linux Kernel ([^\)]+)\)">
+    <description>Cumulus Linux</description>
+    <example os.version="3.7.2" os.version.version="4.1.33-1+cl3u17">Cumulus Linux 3.7.2 (Linux Kernel 4.1.33-1+cl3u17)</example>
+    <param pos="0" name="os.vendor" value="Cumulus"/>
+    <param pos="0" name="os.device" value="Switch"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+    <param pos="2" name="os.version.version"/>    
   </fingerprint>
 
   <!--======================================================================
