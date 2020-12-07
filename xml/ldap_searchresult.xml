@@ -382,7 +382,7 @@
   <!--  http://directory.fedoraproject.org/docs/389ds/FAQ/history.html  -->
 
   <fingerprint pattern="(?i:vendorname1.\x04.Fedora Project0.\x04\rvendorversion1.\x04.Fedora-Directory/(\d\.\d[\w.]* B\d+\.\d+\.\d+))">
-    <description>Fedora Project Fedora Directory Server</description>
+    <description>Fedora Project 389 Directory Server - Old Fedora branding</description>
     <example service.version="1.0.4 B2006.312.5450" _encoding="base64">
       dmVuZG9yTmFtZTEQBA5GZWRvcmEgUHJvamVjdDA3BA12ZW5kb3JWZXJzaW9uMSYEJEZlZG9yY
       S1EaXJlY3RvcnkvMS4wLjQgQjIwMDYuMzEyLjU0NTA=
@@ -391,20 +391,22 @@
       dmVuZG9yTmFtZTEQBA5GZWRvcmEgUHJvamVjdDA4BA12ZW5kb3JWZXJzaW9uMScEJUZlZG9yY
       S1EaXJlY3RvcnkvMS4wLjQgQjIwMDcuMzA0LjExMzgw
     </example>
-    <param pos="0" name="service.vendor" value="Red Hat"/>
-    <param pos="0" name="service.product" value="Fedora Directory Server"/>
+    <param pos="0" name="service.vendor" value="Fedora Project"/>
+    <param pos="0" name="service.product" value="389 Directory Server"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:fedoraproject:389_directory_server:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="(?i:vendorname1.\x04.389 Project0.\x04\rvendorversion1.\x04.389-Directory/(\d\.\d[\w.]* B\d+\.\d+\.\d+))">
-    <description>389 Project 389 Directory Server</description>
+    <description>Fedora Project 389 Directory Server</description>
     <example service.version="1.2.11.25 B2013.325.19510" _encoding="base64">
       dmVuZG9yTmFtZTENBAszODkgUHJvamVjdDA5BA12ZW5kb3JWZXJzaW9uMSgEJjM4OS1EaXJlY
       3RvcnkvMS4yLjExLjI1IEIyMDEzLjMyNS4xOTUxMA==
     </example>
-    <param pos="0" name="service.vendor" value="389 Project"/>
+    <param pos="0" name="service.vendor" value="Fedora Project"/>
     <param pos="0" name="service.product" value="389 Directory Server"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:fedoraproject:389_directory_server:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="(?im:vendorName1.\x04.CentOS0.\x04\rvendorVersion1.\x04.CentOS-Directory/(\d\.\d[\w.]* B\d+\.\d+\.\d+).\x04\v)">
@@ -441,8 +443,9 @@
       XJzaW9uMSgEJk5ldHNjYXBlLURpcmVjdG9yeS82LjExIEIyMDAyLjI4MS4wODUzMC8ECw==
     </example>
     <param pos="0" name="service.vendor" value="Netscape"/>
-    <param pos="0" name="service.product" value="Netscape Directory Server"/>
+    <param pos="0" name="service.product" value="Directory Server"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:netscape:directory_server:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="(?im:IBM Lotus Software0.\x04\rvendorversion1.\x04.Release (\d+\.\d+[\w .]*)0.\x04.dominomajminversion)">

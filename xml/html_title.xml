@@ -2063,6 +2063,7 @@
     <param pos="0" name="os.vendor" value="Data Domain"/>
     <param pos="0" name="os.product" value="DD OS"/>
     <param pos="0" name="os.device" value="Storage"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:dell:emc_data_domain_os:-"/>
     <param pos="0" name="hw.vendor" value="Data Domain"/>
     <param pos="0" name="hw.product" value="DD OS"/>
     <param pos="0" name="hw.device" value="Storage"/>
@@ -2245,6 +2246,7 @@
     <example>TwonkyMedia server media browser</example>
     <param pos="0" name="service.vendor" value="Lynx Technology"/>
     <param pos="0" name="service.product" value="Twonky Media Server"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:lynxtechnology:twonky_server:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Spiceworks(?: Server Busy| Help Desk)?$">
@@ -2349,6 +2351,9 @@
     <description>OpenMediaVault</description>
     <example host.name="raspberrypi">openmediavault control panel - raspberrypi</example>
     <example host.name="raspberrypi">OpenMediaVault web administration interface - raspberrypi</example>
+    <param pos="0" name="service.vendor" value="OpenMediaVault"/>
+    <param pos="0" name="service.product" value="OpenMediaVault"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:openmediavault:openmediavault:-"/>
     <param pos="0" name="os.vendor" value="OpenMediaVault"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="OpenMediaVault"/>
@@ -2395,6 +2400,7 @@
     <param pos="0" name="service.vendor" value="CrushFTP"/>
     <param pos="0" name="service.product" value="CrushFTP Web Interface"/>
     <param pos="0" name="service.certainty" value="0.5"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:crushftp:crushftp:-"/>
   </fingerprint>
 
   <fingerprint pattern="^OpenEdge Explorer$">
@@ -2402,6 +2408,7 @@
     <example>OpenEdge Explorer</example>
     <param pos="0" name="service.vendor" value="Progress"/>
     <param pos="0" name="service.product" value="OpenEdge Explorer"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:progress:openedge:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Consul by HashiCorp$">
@@ -2447,7 +2454,8 @@
     <example>Swagger UI</example>
     <example>Swagger Editor</example>
     <param pos="0" name="service.vendor" value="Swagger"/>
-    <param pos="0" name="service.product" value="UI"/>
+    <param pos="0" name="service.product" value="Swagger UI"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:smartbear:swagger_ui:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Emby$">
@@ -2520,7 +2528,9 @@
     <description>Metasploit Pro (and Community Edition Web UI)</description>
     <example>Metasploit</example>
     <param pos="0" name="service.vendor" value="Rapid7"/>
-    <param pos="0" name="service.product" value="Metasploit Pro"/>
+    <param pos="0" name="service.product" value="Metasploit"/>
+    <param pos="0" name="service.edition" value="Pro"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:rapid7:metasploit:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Makito X Decoder$">
@@ -2564,6 +2574,7 @@
     <param pos="0" name="service.vendor" value="ownCloud"/>
     <param pos="0" name="service.product" value="ownCloud Server"/>
     <param pos="0" name="service.certainty" value="0.5"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:owncloud:owncloud:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Octopus Deploy$">
@@ -2593,8 +2604,9 @@
     <example>TurnKey Moodle</example>
     <example>New Site</example>
     <param pos="0" name="service.vendor" value="Moodle"/>
-    <param pos="0" name="service.product" value="Moodle CMS"/>
+    <param pos="0" name="service.product" value="Moodle"/>
     <param pos="0" name="service.certainty" value="0.5"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:moodle:moodle:-"/>
   </fingerprint>
 
   <fingerprint pattern="^ArchiveTeam Warrior$">
@@ -2647,6 +2659,7 @@
     <example>Kodi</example>
     <param pos="0" name="service.vendor" value="Kodi"/>
     <param pos="0" name="service.product" value="Media Server"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:kodi:kodi:-"/>
   </fingerprint>
 
   <fingerprint pattern="^(?:Drupal|TurnKey Drupal\d+|Select an installation profile)$">
@@ -2657,6 +2670,7 @@
     <example>Select an installation profile</example>
     <param pos="0" name="service.vendor" value="Drupal"/>
     <param pos="0" name="service.product" value="CMS"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:drupal:drupal:-"/>
   </fingerprint>
 
   <fingerprint pattern="^LibreNMS$">
@@ -2712,10 +2726,13 @@
   <fingerprint pattern="^Pulse Connect Secure - SSL">
     <description>Pulse Secure VPN</description>
     <example>Pulse Connect Secure - SSL</example>
+    <param pos="0" name="service.vendor" value="Pulse Secure"/>
+    <param pos="0" name="service.product" value="Pulse Connect Secure"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:pulsesecure:pulse_connect_secure:-"/>
     <param pos="0" name="os.vendor" value="Pulse Secure"/>
     <param pos="0" name="os.family" value="SSL-VPN"/>
     <param pos="0" name="os.device" value="SSL-VPN"/>
-    <param pos="0" name="os.product" value="SSL-VPN"/>
+    <param pos="0" name="os.product" value="Pulse Connect Secure"/>
   </fingerprint>
 
 </fingerprints>

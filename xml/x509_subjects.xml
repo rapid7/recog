@@ -658,6 +658,9 @@
   <fingerprint pattern="^CN=VMM APIC,OU=VMM\d+,O=Cisco,L=San Jose,ST=CA,C=US$">
     <description>Cisco APIC</description>
     <example>CN=VMM APIC,OU=VMM15,O=Cisco,L=San Jose,ST=CA,C=US</example>
+    <param pos="0" name="service.vendor" value="Cisco"/>
+    <param pos="0" name="service.product" value="APIC"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cisco:application_policy_infrastructure_controller:-"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.product" value="APIC"/>
     <param pos="0" name="hw.device" value="Network Appliance"/>
@@ -666,6 +669,9 @@
   <fingerprint pattern="^CN=APIC$">
     <description>Cisco APIC - bare CN</description>
     <example>CN=APIC</example>
+    <param pos="0" name="service.vendor" value="Cisco"/>
+    <param pos="0" name="service.product" value="APIC"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cisco:application_policy_infrastructure_controller:-"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.product" value="APIC"/>
     <param pos="0" name="hw.device" value="Network Appliance"/>
@@ -1200,6 +1206,7 @@
     <example>CN=VMware default certificate,OU=vCenterServer_2013.09.26_220623,O=VMware\, Inc.</example>
     <param pos="0" name="service.vendor" value="VMware"/>
     <param pos="0" name="service.product" value="vCenter"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:vmware:vcenter_server:-"/>
   </fingerprint>
 
   <fingerprint pattern="^CN=selfappliance,OU=Engineering,O=Symplified,L=Boulder,ST=Colorado,C=US$">
