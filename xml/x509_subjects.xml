@@ -168,6 +168,14 @@
     <param pos="0" name="os.product" value="iDRAC Linux"/>
   </fingerprint>
 
+  <fingerprint pattern="^CN=opensnort\.example.com,O=Sourcefire,emailaddress=support@sourcefire.com">
+    <description>Sourcefire Snort HTTPS console w/Service tag</description>
+    <example>CN=opensnort.example.com,O=Sourcefire,emailaddress=support@sourcefire.com</example>
+    <param pos="0" name="service.vendor" value="SOURCEFIRE"/>
+    <param pos="1" name="service.family" value="SNORT"/>
+    <param pos="0" name="service.product" value="SNORT"/>
+  </fingerprint>
+
   <fingerprint pattern="^CN=iDRAC default certificate,OU=Server Firmware Group,O=Dell Inc\.,L=Round Rock,ST=Texas,C=US$">
     <description>Dell iDRAC Remote Access Controller Default Certificate</description>
     <example>CN=iDRAC default certificate,OU=Server Firmware Group,O=Dell Inc.,L=Round Rock,ST=Texas,C=US</example>
@@ -472,6 +480,14 @@
     <example>CN=VMware,OU=VMware,L=Palo Alto,C=US</example>
     <param pos="0" name="service.vendor" value="VMware"/>
     <param pos="0" name="service.product" value="vmauthd"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=localhost,OU=Support,O=Palo Alto Networks$">
+    <description>Palo Alto Networks</description>
+    <example>CN=localhost,OU=Support,O=Palo Alto Networks</example>
+    <param pos="0" name="os.vendor" value="PALO_ALTO"/>
+    <param pos="0" name="os.product" value="PALO_ALTO_FIREWALL"/>
+    <param pos="0" name="os.device" value="FIREWALL"/>
   </fingerprint>
 
   <fingerprint pattern="^CN=([a-zA-Z0-9\.\-\_]+),OU=VMware ESX Server Default Certificate,O=VMware\\, Inc,L=Palo Alto,ST=California,C=US$">
