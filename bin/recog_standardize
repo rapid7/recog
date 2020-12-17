@@ -111,7 +111,7 @@ ARGV.each do |arg|
             puts "HW DEVICE MISSING: #{val}"
             hw_device[val] = true
           end          
-        when "service.product"
+        when "service.product", "service.component.product"
           if ! svc_prod[val]
             puts "SERVICE PRODUCT MISSING: #{val}"
             svc_prod[val] = true
