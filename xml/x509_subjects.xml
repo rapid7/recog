@@ -168,11 +168,11 @@
     <param pos="0" name="os.product" value="iDRAC Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="^CN=opensnort\.example.com,O=Sourcefire,emailaddress=support@sourcefire.com">
+  <fingerprint pattern="^emailAddress=support@sourcefire\.com,CN=opensnort\.example\.com,O=Sourcefire">
     <description>Sourcefire Snort HTTPS console</description>
-    <example>CN=opensnort.example.com,O=Sourcefire,emailaddress=support@sourcefire.com</example>
+    <example>emailAddress=support@sourcefire.com,CN=opensnort.example.com,O=Sourcefire</example>
     <param pos="0" name="service.vendor" value="Snort"/>
-    <param pos="1" name="service.family" value="Snort"/>
+    <param pos="0" name="service.family" value="Snort"/>
     <param pos="0" name="service.product" value="Snort"/>
   </fingerprint>
 
@@ -482,17 +482,19 @@
     <param pos="0" name="service.product" value="vmauthd"/>
   </fingerprint>
 
-  <fingerprint pattern="^CN=localhost,OU=Support,O=Palo Alto Networks$">
-    <description>Palo Alto Networks</description>
-    <example>CN=localhost,OU=Support,O=Palo Alto Networks</example>
-    <param pos="0" name="os.vendor" value="Palo Alto Networks"/>
-    <param pos="0" name="os.product" value="PANOS"/>
-    <param pos="0" name="os.device" value="Firewall"/>
-  </fingerprint>
-
   <fingerprint pattern="^CN=([a-zA-Z0-9\.\-\_]+),OU=VMware ESX Server Default Certificate,O=VMware\\, Inc,L=Palo Alto,ST=California,C=US$">
     <description>VMWare ESX</description>
     <example>CN=server99.,OU=VMware ESX Server Default Certificate,O=VMware\, Inc,L=Palo Alto,ST=California,C=US</example>
+    <param pos="0" name="os.vendor" value="VMware"/>
+    <param pos="0" name="os.product" value="ESX"/>
+    <param pos="0" name="os.device" value="Hypervisor"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:vmware:esx:-"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=([a-zA-Z0-9\.\-\_]+),OU=VMware ESX Server Certificate,O=VMware\\, Inc,L=Palo Alto,ST=California,C=US$">
+    <description>VMWare ESX</description>
+    <example>CN=server99.,OU=VMware ESX Server Certificate,O=VMware\, Inc,L=Palo Alto,ST=California,C=US</example>
     <param pos="0" name="os.vendor" value="VMware"/>
     <param pos="0" name="os.product" value="ESX"/>
     <param pos="0" name="os.device" value="Hypervisor"/>
@@ -1203,6 +1205,16 @@
   <fingerprint pattern="^CN=[a-fA-F0-9]+,O=Palo Alto Networks,L=Santa Clara,ST=CA,C=US$">
     <description>Palo Alto Firewall</description>
     <example>CN=d9fc2294968367a3a8ad1acd4c816c78444e6ea4d69869b40cc9751951fd3693,O=Palo Alto Networks,L=Santa Clara,ST=CA,C=US</example>
+    <param pos="0" name="hw.vendor" value="Palo Alto Networks"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+    <param pos="0" name="os.vendor" value="Palo Alto Networks"/>
+    <param pos="0" name="os.product" value="PANOS"/>
+    <param pos="0" name="os.device" value="Firewall"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=localhost,OU=Support,O=Palo Alto Networks">
+    <description>Palo Alto Networks</description>
+    <example>CN=localhost,OU=Support,O=Palo Alto Networks</example>
     <param pos="0" name="hw.vendor" value="Palo Alto Networks"/>
     <param pos="0" name="hw.device" value="Firewall"/>
     <param pos="0" name="os.vendor" value="Palo Alto Networks"/>
