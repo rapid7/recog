@@ -263,44 +263,6 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^Windows Server 2019 (\w+|\w+ \w+|\w+ \w+ \w+)(?: Evaluation)? (\d+)$">
-    <description>Windows Server 2019 with a build, without service pack</description>
-    <example os.build="17763" os.edition="Standard">Windows Server 2019 Standard 17763</example>
-    <example os.build="17763" os.edition="Standard">Windows Server 2019 Standard Evaluation 17763</example>
-    <example os.build="17763" os.edition="Datacenter">Windows Server 2019 Datacenter 17763</example>
-    <example os.build="17763" os.edition="Essentials">Windows Server 2019 Essentials 17763</example>
-    <param pos="0" name="os.certainty" value="1.0"/>
-    <param pos="0" name="os.vendor" value="Microsoft"/>
-    <param pos="0" name="os.product" value="Windows Server 2019"/>
-    <param pos="1" name="os.edition"/>
-    <param pos="2" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2019:-"/>
-  </fingerprint>
-
-  <fingerprint pattern="^Windows Server 2016(?: Technical Preview \d+)? (\w+|\w+ \w+|\w+ \w+ \w+)(?: Evaluation)? (\d+)$">
-    <description>Windows Server 2016 with a build, without service pack</description>
-    <example os.edition="Datacenter" os.build="14393">Windows Server 2016 Datacenter 14393</example>
-    <example os.edition="Standard" os.build="14393">Windows Server 2016 Standard Evaluation 14393</example>
-    <example os.edition="Essentials" os.build="10586">Windows Server 2016 Technical Preview 4 Essentials 10586</example>
-    <param pos="0" name="os.certainty" value="1.0"/>
-    <param pos="0" name="os.vendor" value="Microsoft"/>
-    <param pos="0" name="os.product" value="Windows Server 2016"/>
-    <param pos="1" name="os.edition"/>
-    <param pos="2" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2016:-"/>
-  </fingerprint>
-
-  <fingerprint pattern="^Windows Storage Server 2016 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
-    <description>Windows Server 2016 Storage</description>
-    <example os.build="14393">Windows Storage Server 2016 Standard 14393</example>
-    <param pos="0" name="os.certainty" value="1.0"/>
-    <param pos="0" name="os.vendor" value="Microsoft"/>
-    <param pos="0" name="os.product" value="Windows Server 2016"/>
-    <param pos="0" name="os.edition" value="Storage"/>
-    <param pos="1" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2016:-"/>
-  </fingerprint>
-
   <fingerprint pattern="^Windows Web Server 2008 R2 (\d+) (Service Pack \d+)$">
     <description>Windows Server 2008 R2 Web</description>
     <example os.version="Service Pack 1">Windows Web Server 2008 R2 7601 Service Pack 1</example>
@@ -334,6 +296,81 @@
     <param pos="1" name="os.build"/>
     <param pos="2" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:{os.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Hyper-V Server 7601 Service Pack 1$">
+    <description>Windows Server 2008 R2 Hyper-V</description>
+    <example os.build="17763">Hyper-V Server 7601 Service Pack 1</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
+    <param pos="0" name="os.edition" value="Hyper-V"/>
+    <param pos="0" name="os.build" value="7601"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-"/>
+  </fingerprint>
+
+  <!-- Windows 2019 -->
+
+  <fingerprint pattern="^Windows Server 2019 (\w+|\w+ \w+|\w+ \w+ \w+)(?: Evaluation)? (\d+)$">
+    <description>Windows Server 2019 with a build, without service pack</description>
+    <example os.build="17763" os.edition="Standard">Windows Server 2019 Standard 17763</example>
+    <example os.build="17763" os.edition="Standard">Windows Server 2019 Standard Evaluation 17763</example>
+    <example os.build="17763" os.edition="Datacenter">Windows Server 2019 Datacenter 17763</example>
+    <example os.build="17763" os.edition="Essentials">Windows Server 2019 Essentials 17763</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2019"/>
+    <param pos="1" name="os.edition"/>
+    <param pos="2" name="os.build"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2019:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Hyper-V Server 2019  (\d+)$">
+    <description>Windows Server 2019 Hyper-V</description>
+    <example os.build="17763">Hyper-V Server 2019  17763</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2019"/>
+    <param pos="0" name="os.edition" value="Hyper-V"/>
+    <param pos="1" name="os.build"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2019:-"/>
+  </fingerprint>
+
+  <!-- Windows 2016 -->
+
+  <fingerprint pattern="^Windows Server 2016(?: Technical Preview \d+)? (\w+|\w+ \w+|\w+ \w+ \w+)(?: Evaluation)? (\d+)$">
+    <description>Windows Server 2016 with a build, without service pack</description>
+    <example os.edition="Datacenter" os.build="14393">Windows Server 2016 Datacenter 14393</example>
+    <example os.edition="Standard" os.build="14393">Windows Server 2016 Standard Evaluation 14393</example>
+    <example os.edition="Essentials" os.build="10586">Windows Server 2016 Technical Preview 4 Essentials 10586</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2016"/>
+    <param pos="1" name="os.edition"/>
+    <param pos="2" name="os.build"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2016:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Windows Storage Server 2016 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
+    <description>Windows Server 2016 Storage</description>
+    <example os.build="14393">Windows Storage Server 2016 Standard 14393</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2016"/>
+    <param pos="0" name="os.edition" value="Storage"/>
+    <param pos="1" name="os.build"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2016:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Hyper-V Server 2016 (\d+)$">
+    <description>Windows Server 2016 Hyper-V</description>
+    <example os.build="14393">Hyper-V Server 2016 14393</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2016"/>
+    <param pos="0" name="os.edition" value="Hyper-V"/>
+    <param pos="1" name="os.build"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2016:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Vista \(TM\) (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
@@ -441,6 +478,17 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^Hyper-V Server 2012 R2 (\d+)$">
+    <description>Windows Server 2012 R2 Hyper-V</description>
+    <example os.build="9600">Hyper-V Server 2012 R2 9600</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
+    <param pos="0" name="os.edition" value="Hyper-V"/>
+    <param pos="1" name="os.build"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
+  </fingerprint>
+
   <!-- Windows 2012 -->
 
   <fingerprint pattern="^Windows Server 2012 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
@@ -463,6 +511,29 @@
     <param pos="0" name="os.product" value="Windows Server 2012"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Windows Storage Server 2012 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
+    <description>Windows Server 2012 Storage</description>
+    <example os.build="9200" os.edition="Standard">Windows Storage Server 2012 Standard 9200</example>
+    <example os.build="9200" os.edition="Workgroup">Windows Storage Server 2012 Workgroup 9200</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2012"/>
+    <param pos="1" name="os.edition"/>
+    <param pos="2" name="os.build"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Hyper-V Server 2012 (\d+)$">
+    <description>Windows Server 2012 Hyper-V</description>
+    <example os.build="9200">Hyper-V Server 2012 9200</example>
+    <param pos="0" name="os.certainty" value="1.0"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.product" value="Windows Server 2012"/>
+    <param pos="0" name="os.edition" value="Hyper-V"/>
+    <param pos="1" name="os.build"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
   </fingerprint>
 
