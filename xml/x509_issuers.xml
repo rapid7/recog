@@ -14,7 +14,8 @@
     <description>Google Chromecast Gen 1</description>
     <example>CN=Eureka Gen1 ICA,OU=Google TV,O=Google Inc,L=Mountain View,ST=California,C=US</example>
     <param pos="0" name="os.vendor" value="Google"/>
-    <param pos="0" name="os.product" value="ChromeOS"/>
+    <param pos="0" name="os.product" value="Chrome OS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:google:chrome_os:-"/>
     <param pos="0" name="hw.device" value="Media Server"/>
     <param pos="0" name="hw.vendor" value="Google"/>
     <param pos="0" name="hw.product" value="Chromecast"/>
@@ -32,7 +33,8 @@
     <example chromecast.generation="11" chromecast.capabilities="Video Assist">CN=Chromecast ICA 11 (Video Assist),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
     <example chromecast.generation="12">CN=Chromecast ICA 12,OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
     <param pos="0" name="os.vendor" value="Google"/>
-    <param pos="0" name="os.product" value="ChromeOS"/>
+    <param pos="0" name="os.product" value="Chrome OS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:google:chrome_os:-"/>
     <param pos="0" name="hw.device" value="Media Server"/>
     <param pos="0" name="hw.vendor" value="Google"/>
     <param pos="0" name="hw.product" value="Chromecast"/>
@@ -113,7 +115,7 @@
   <fingerprint pattern="^CN=[a-zA-Z0-9]+,OU=Internally Generated Certificate,O=American Power Conversion Corp,L=Default Locality,ST=Default State,C=US$">
     <description>APC UPS</description>
     <example>CN=ZA1117619249,OU=Internally Generated Certificate,O=American Power Conversion Corp,L=Default Locality,ST=Default State,C=US</example>
-    <param pos="0" name="hw.device" value="Power device"/>
+    <param pos="0" name="hw.device" value="Power Device"/>
     <param pos="0" name="hw.vendor" value="APC"/>
   </fingerprint>
 
@@ -126,7 +128,7 @@
   </fingerprint>
 
   <fingerprint pattern="^O=VMware Installer$">
-    <description>VMWare ESXi w/Installer</description>
+    <description>VMware ESXi w/Installer</description>
     <example>O=VMware Installer</example>
     <param pos="0" name="os.vendor" value="VMware"/>
     <param pos="0" name="os.product" value="ESXi"/>
@@ -135,10 +137,11 @@
   </fingerprint>
 
   <fingerprint pattern="^CN=CA,OU=VMware Engineering,O=vCenter,ST=California,C=US$">
-    <description>VMWare vCenter</description>
+    <description>VMware vCenter</description>
     <example>CN=CA,OU=VMware Engineering,O=vCenter,ST=California,C=US</example>
     <param pos="0" name="service.vendor" value="VMware"/>
     <param pos="0" name="service.product" value="vCenter"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:vmware:vcenter_server:-"/>
   </fingerprint>
 
   <fingerprint pattern="^CN=Default Issuer \(Do not trust\),OU=ISS,O=Hewlett Packard Enterprise,L=Houston,ST=Texas,C=US$">

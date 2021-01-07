@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 
-import yaml
 import logging
 import re
 import sys
 
+import yaml
 from lxml import etree
 
 def parse_r7_remapping(file):
     with open(file) as remap_file:
-        return yaml.load(remap_file)["mappings"]
+        return yaml.safe_load(remap_file)["mappings"]
 
 def parse_cpe_vp_map(file):
     vp_map = {} # cpe_type -> vendor -> products
@@ -20,9 +20,9 @@ def parse_cpe_vp_map(file):
         cpe_match = re.match('^cpe:/([aho]):([^:]+):([^:]+)', cpe_name)
         if cpe_match:
             cpe_type, vendor, product = cpe_match.group(1, 2, 3)
-            if not cpe_type in vp_map:
+            if cpe_type not in vp_map:
                 vp_map[cpe_type] = {}
-            if not vendor in vp_map[cpe_type]:
+            if vendor not in vp_map[cpe_type]:
                 vp_map[cpe_type][vendor] = set()
             product = product.replace('%2f', '/')
             vp_map[cpe_type][vendor].add(product)
@@ -34,18 +34,94 @@ def parse_cpe_vp_map(file):
 def main():
     if len(sys.argv) != 4:
         logging.critical("Expecting exactly 3 arguments; recog XML file, CPE 2.3 XML dictionary, JSON remapping, got %s", (len(sys.argv) - 1))
-        exit(1)
+        sys.exit(1)
 
     cpe_vp_map = parse_cpe_vp_map(sys.argv[2])
     if not cpe_vp_map:
         logging.critical("No CPE vendor => product mappings read from CPE 2.3 XML dictionary %s", sys.argv[2])
-        exit(1)
+        sys.exit(1)
 
     r7_vp_map = parse_r7_remapping(sys.argv[3])
     if not r7_vp_map:
         logging.warning("No Rapid7 vendor/product => CPE mapping read from %s", sys.argv[3])
 
     update_cpes(sys.argv[1], cpe_vp_map, r7_vp_map)
+
+def lookup_cpe(vendor, product, cpe_type, cpe_table, remap):
+    """Identify the correct vendor and product values for a CPE
+
+    This function attempts to determine the correct CPE using vendor and product
+    values supplied by the caller as well as a remapping dictionary for mapping
+    these values to more correct values used by NIST.
+
+    For example, the remapping might tell us that a value of 'alpine' for the
+    vendor string should be 'aplinelinux' instead, or for product 'solaris'
+    should be 'sunos'.
+
+    This function should only emit values seen in the official NIST CPE list
+    which is provided to it in cpe_table.
+
+    Lookup priority:
+    1. Original vendor / product
+    2. Original vendor / remap product
+    3. Remap vendor / original product
+    4. Remap vendor / remap product
+
+    Args:
+        vendor (str):  vendor name
+        product (str): product name
+        cpe_type (str): CPE type - o, a, h, etc.
+        cpe_table (dict): dict containing the official NIST CPE data
+        remap (dict): dict containing the remapping values
+    Returns:
+        success, vendor, product
+    """
+
+    if (
+        vendor in cpe_table[cpe_type]
+        and product in cpe_table[cpe_type][vendor]
+    ):
+        # Hot path, success with original values
+        return True, vendor, product
+
+    # Everything else depends on a remap of some sort.
+    # get the remappings for this one vendor string.
+    vendor_remap = remap.get(vendor, None)
+
+    if vendor_remap:
+        # If we have product remappings, work that angle next
+        possible_product = None
+        if (
+            vendor_remap.get('products', None)
+            and product in vendor_remap['products']
+        ):
+            possible_product = vendor_remap['products'][product]
+
+        if (vendor in cpe_table[cpe_type]
+            and possible_product
+            and possible_product in cpe_table[cpe_type][vendor]):
+            # Found original vendor, remap product
+            return True, vendor, possible_product
+
+        # Start working the process to find a match with a remapped vendor name
+        if vendor_remap.get('vendor', None):
+            new_vendor = vendor_remap['vendor']
+
+            if new_vendor in cpe_table[cpe_type]:
+
+                if product in cpe_table[cpe_type][new_vendor]:
+                    # Found remap vendor, original product
+                    return True, new_vendor, product
+
+                if possible_product and possible_product in cpe_table[cpe_type][new_vendor]:
+                    # Found remap vendor, remap product
+                    return True, new_vendor, possible_product
+
+
+    logging.error("Product %s from vendor %s invalid for CPE %s and no mapping",
+                  product, vendor, cpe_type)
+    return False, None, None
+
 
 def update_cpes(xml_file, cpe_vp_map, r7_vp_map):
     parser = etree.XMLParser(remove_comments=False, remove_blank_text=True)
@@ -121,44 +197,16 @@ def update_cpes(xml_file, cpe_vp_map, r7_vp_map):
                 if (vendor.startswith('{') and vendor.endswith('}')) or (product.startswith('{') and product.endswith('}')):
                     continue
 
-                remapped_vendor = False
-                og_vendor = vendor
-                if not vendor in cpe_vp_map[cpe_type]:
-                    if vendor in r7_vp_map:
-                        vendor = r7_vp_map[vendor]['vendor']
-                        remapped_vendor = True
-                        if not vendor in cpe_vp_map[cpe_type]:
-                            logging.error("Remapped vendor %s (remapped from %s) invalid for CPE %s (product %s)", vendor, og_vendor, cpe_type, product)
-                            continue
-                    else:
-                        logging.error("Vendor %s invalid for CPE %s and no remapping (product %s)", vendor, cpe_type, product)
-                        continue
+                success, vendor, product = lookup_cpe(vendor, product, cpe_type, cpe_vp_map, r7_vp_map)
+                if not success:
+                    continue
 
-
-                # if the product as specified is not found in the CPE dictionary for this vendor
-                if not product in cpe_vp_map[cpe_type][vendor]:
-                    # if this vendor has a remapping from R7
-                    if og_vendor in r7_vp_map and 'products' in r7_vp_map[og_vendor]:
-                        # if this product has a remapping for this vendor from R7
-                        if product in r7_vp_map[og_vendor]['products']:
-                            og_product = product
-                            product = r7_vp_map[og_vendor]['products'][product]
-                            # ensure that the remapped product is valid for the given vendor in CPE
-                            if not product in cpe_vp_map[cpe_type][vendor]:
-                                logging.error("Remapped product %s (remapped from %s) from vendor %s invalid for CPE %s", product, og_product, vendor, cpe_type)
-                                continue
-                        else:
-                            if remapped_vendor:
-                                logging.error("Product %s from vendor %s (remapped from %s) invalid for CPE %s and no mapping", product, vendor, og_vendor, cpe_type)
-                            else:
-                                logging.error("Product %s from vendor %s invalid for CPE %s and no mapping", product, vendor, cpe_type)
-                            continue
-                    else:
-                        if remapped_vendor:
-                            logging.error("Vendor %s (remapped from %s) is valid for CPE %s but product %s not valid and no mapping", vendor, og_vendor, cpe_type, product)
-                        else:
-                            logging.error("Vendor %s is valid for CPE %s but product %s not valid and no mapping", vendor, cpe_type, product)
-                        continue
+                # Sanity check the value to ensure that no invalid values will
+                # slip in due to logic or mapping bugs.
+                # If it's not in the official NIST list then log it and kick it out
+                if product not in cpe_vp_map[cpe_type][vendor]:
+                    logging.error("Invalid CPE type %s created for vendor %s and product %s. This may be due to an invalid mapping.", cpe_type, vendor, product)
+                    continue
 
                 # building the CPE string
                 # Last minute escaping of '/'
@@ -185,5 +233,5 @@ def update_cpes(xml_file, cpe_vp_map, r7_vp_map):
         xml_out.write(etree.tostring(root, pretty_print=True, xml_declaration=True, encoding=doc.docinfo.encoding))
 
 if __name__ == '__main__':
-    try: exit(main())
+    try: sys.exit(main())
     except KeyboardInterrupt: pass

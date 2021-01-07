@@ -285,6 +285,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:iis:10.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.certainty" value="0.5"/>
   </fingerprint>
 
   <fingerprint pattern="^Microsoft-IIS/([\d\.]+)$">
@@ -440,7 +441,7 @@
     <param pos="0" name="service.component.vendor" value="Red Hat"/>
     <param pos="0" name="service.component.product" value="JBossWeb"/>
     <param pos="2" name="service.component.version"/>
-    <param pos="0" name="service.component.cpe23" value="cpe:/a:redhat:jboss_web_framework_kit:{service.component.version}"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:redhat:jbossweb:{service.component.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^Servlet\/[\d\.]+; JBossAS-(.*)$">
@@ -963,14 +964,14 @@
     <example>ReeCam IP Camera</example>
     <param pos="0" name="hw.vendor" value="Shenzhen Reecam Tech. Ltd."/>
     <param pos="0" name="hw.product" value="ReeCam"/>
-    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
   </fingerprint>
 
   <fingerprint pattern="^Netwave IP Camera$">
     <description>Netwave cameras</description>
     <example>Netwave IP Camera</example>
     <param pos="0" name="hw.vendor" value="Netwave"/>
-    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
   </fingerprint>
 
   <fingerprint pattern="^Cougar/([0-9.]*)$">
@@ -1013,7 +1014,7 @@
     <example>camera</example>
     <example>IPCamera Login</example>
     <example>Mini Dome IP Camera</example>
-    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
   </fingerprint>
 
   <fingerprint pattern="^ASP.NET$">
@@ -1496,6 +1497,7 @@
     <param pos="0" name="service.product" value="Abyss Web Server X1"/>
     <param pos="0" name="service.family" value="Abyss Web Server"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:aprelium:abyss_web_server_x1:{service.version}"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
@@ -1508,6 +1510,7 @@
     <param pos="0" name="service.product" value="Abyss Web Server X1"/>
     <param pos="0" name="service.family" value="Abyss Web Server"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:aprelium:abyss_web_server_x1:{service.version}"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
@@ -1693,6 +1696,7 @@
     <example>SAP Internet Graphics Server</example>
     <param pos="0" name="service.vendor" value="SAP"/>
     <param pos="0" name="service.product" value="Internet Graphics Server"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sap:internet_graphics_server:-"/>
     <param pos="0" name="service.component.vendor" value="SAP"/>
     <param pos="0" name="service.component.product" value="NetWeaver Application Server"/>
     <param pos="0" name="service.component.cpe23" value="cpe:/a:sap:netweaver_application_server:-"/>
@@ -1767,7 +1771,7 @@
     <param pos="0" name="service.product" value="NetCache"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="os.vendor" value="Blue Coat"/>
-    <param pos="0" name="os.device" value="Web proxy"/>
+    <param pos="0" name="os.device" value="Web Proxy"/>
     <param pos="0" name="os.family" value="NetCache"/>
     <param pos="0" name="os.product" value="NetCache"/>
   </fingerprint>
@@ -1781,7 +1785,7 @@
     <param pos="0" name="os.vendor" value="NetApp"/>
     <param pos="0" name="os.family" value="Data ONTAP"/>
     <param pos="0" name="os.product" value="Data ONTAP"/>
-    <param pos="0" name="os.device" value="File server"/>
+    <param pos="0" name="os.device" value="File Server"/>
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:netapp:data_ontap:{os.version}"/>
   </fingerprint>
@@ -1790,7 +1794,7 @@
     <description>Blue Coat security appliance</description>
     <example>BlueCoat-Security-Appliance</example>
     <param pos="0" name="os.vendor" value="Blue Coat"/>
-    <param pos="0" name="os.device" value="Web proxy"/>
+    <param pos="0" name="os.device" value="Web Proxy"/>
     <param pos="0" name="os.family" value="Blue Coat"/>
     <param pos="0" name="os.product" value="Appliance"/>
   </fingerprint>
@@ -2153,7 +2157,7 @@
   <fingerprint pattern="^D-Link MiniAVServer$">
     <description>D-Link embedded web server for web cams</description>
     <param pos="0" name="os.vendor" value="D-Link"/>
-    <param pos="0" name="os.device" value="Web cam"/>
+    <param pos="0" name="os.device" value="IP Camera"/>
   </fingerprint>
 
   <fingerprint pattern="^ListManagerWeb/(\S+) .*$">
@@ -2583,7 +2587,7 @@
     <param pos="0" name="service.family" value="emHTTPD"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="os.vendor" value="Microplex"/>
-    <param pos="0" name="os.device" value="Print server"/>
+    <param pos="0" name="os.device" value="Print Server"/>
   </fingerprint>
 
   <fingerprint pattern="^UPS_Server/((?:\d+\.)*\d+)$">
@@ -2791,7 +2795,7 @@
     <param pos="0" name="service.vendor" value="Akamai"/>
     <param pos="0" name="service.product" value="GHost"/>
     <param pos="0" name="os.vendor" value="Akamai"/>
-    <param pos="0" name="os.device" value="Web proxy"/>
+    <param pos="0" name="os.device" value="Web Proxy"/>
   </fingerprint>
 
   <fingerprint pattern="^gws$">
@@ -2925,6 +2929,7 @@
     <param pos="0" name="service.product" value="Intel(R) Active Management Technology"/>
     <param pos="0" name="service.family" value="Intel(R) Active Management Technology"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:intel:active_management_technology:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^(?:AMT|Intel\(R\) Active Management Technology)$">
@@ -2934,6 +2939,7 @@
     <param pos="0" name="service.vendor" value="Intel"/>
     <param pos="0" name="service.product" value="Intel(R) Active Management Technology"/>
     <param pos="0" name="service.family" value="Intel(R) Active Management Technology"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:intel:active_management_technology:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Intel\(R\) Standard Manageability\s(\d+\.\d+\.\d+\.\d+|\d+\.\d+\.\d+|\d+\.\d+)">
@@ -2944,6 +2950,7 @@
     <param pos="0" name="service.product" value="Intel(R) Standard Manageability"/>
     <param pos="0" name="service.family" value="Intel(R) Active Management Technology"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:intel:standard_manageability:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^Sunny WebBox$">
@@ -2955,7 +2962,7 @@
     <param pos="0" name="hw.vendor" value="SMA"/>
     <param pos="0" name="hw.family" value="Sunny"/>
     <param pos="0" name="hw.product" value="Sunny WebBox"/>
-    <param pos="0" name="hw.device" value="Power device"/>
+    <param pos="0" name="hw.device" value="Power Device"/>
     <param pos="0" name="hw.cpe23" value="cpe:/h:sma:sunny_webbox:-"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
@@ -2968,7 +2975,7 @@
     <example>EnergyICT RTU 101-F25CE1-1524</example>
     <param pos="0" name="hw.family" value="Honeywell"/>
     <param pos="0" name="hw.product" value="RTU"/>
-    <param pos="0" name="hw.device" value="Power device"/>
+    <param pos="0" name="hw.device" value="Power Device"/>
   </fingerprint>
 
   <fingerprint pattern="^AV-TECH AV787 Video Web Server$">
@@ -3121,7 +3128,7 @@
     <description>Huawei Echolife / Home Gateway (and possibly other) devices with UPnP</description>
     <example>Linux UPnP/1.0 Huawei-ATP-IGD</example>
     <param pos="0" name="hw.vendor" value="Huawei"/>
-    <param pos="0" name="hw.device" value="Broadband router"/>
+    <param pos="0" name="hw.device" value="Broadband Router"/>
   </fingerprint>
 
   <fingerprint pattern="(?i)^OpenWRT/kamikaze UPnP/\S+ MiniUPnPd/([\d.]+)$">
@@ -3708,7 +3715,7 @@
     <description>Steinsvik Orbit IP Camera (Truen TCAM Rebrand)</description>
     <example>Linux/2.6.28.9-Mozart-8G, UPnP/1.0, Portable SDK for UPnP devices/1.6.6</example>
     <param pos="0" name="hw.vendor" value="Steinsvik"/>
-    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
     <param pos="0" name="hw.product" value="Orbit IP Camera"/>
     <param pos="0" name="os.vendor" value="Steinsvik"/>
     <param pos="0" name="os.family" value="Linux"/>
@@ -3738,9 +3745,9 @@
     <description>Axis Network Camera</description>
     <example>Linux/4.9.94-axis5, UPnP/1.0, Portable SDK for UPnP devices/1.6.22</example>
     <param pos="0" name="hw.vendor" value="AXIS"/>
-    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
     <param pos="0" name="os.vendor" value="AXIS"/>
-    <param pos="0" name="os.device" value="Web cam"/>
+    <param pos="0" name="os.device" value="IP Camera"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
@@ -3987,7 +3994,7 @@
     <description>ANNKE IP Camera</description>
     <example>MWS 0.01</example>
     <param pos="0" name="hw.vendor" value="ANNKE"/>
-    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
     <param pos="0" name="hw.product" value="IP Camera"/>
   </fingerprint>
 
@@ -4077,7 +4084,7 @@
     <example>Xfinity Broadband Router Server</example>
     <param pos="0" name="hw.vendor" value="Comcast"/>
     <param pos="0" name="hw.product" value="Xfinity Broadband Router"/>
-    <param pos="0" name="hw.device" value="Broadband router"/>
+    <param pos="0" name="hw.device" value="Broadband Router"/>
   </fingerprint>
 
   <fingerprint pattern="^IX Series IX21\d\d \(magellan-sec\) Software, Version ([^, ]+), (?:MAINTENANCE )?RELEASE SOFTWARE$">
