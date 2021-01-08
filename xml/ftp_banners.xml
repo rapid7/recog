@@ -522,9 +522,9 @@ more text</example>
     <param pos="0" name="service.vendor" value="APC"/>
     <param pos="0" name="service.product" value="FTP"/>
     <param pos="0" name="os.vendor" value="APC"/>
-    <param pos="0" name="os.device" value="Power device"/>
+    <param pos="0" name="os.device" value="Power Device"/>
     <param pos="0" name="hw.vendor" value="APC"/>
-    <param pos="0" name="hw.device" value="Power device"/>
+    <param pos="0" name="hw.device" value="Power Device"/>
   </fingerprint>
 
   <fingerprint pattern="^(\S+) Network Management Card AOS v(\d+\..+) FTP server ready\.$">
@@ -537,11 +537,11 @@ more text</example>
     <param pos="0" name="service.family" value="AOS"/>
     <param pos="2" name="service.version"/>
     <param pos="0" name="os.vendor" value="APC"/>
-    <param pos="0" name="os.device" value="Power device"/>
+    <param pos="0" name="os.device" value="Power Device"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
     <param pos="0" name="hw.vendor" value="APC"/>
-    <param pos="0" name="hw.device" value="Power device"/>
+    <param pos="0" name="hw.device" value="Power Device"/>
   </fingerprint>
 
   <fingerprint pattern="^(\S+) FTP server \(EMC-SNAS: ([^\)]+)\)(?: \S+)?$">
@@ -560,6 +560,7 @@ more text</example>
     <param pos="0" name="hw.vendor" value="EMC"/>
     <param pos="0" name="hw.device" value="Storage"/>
     <param pos="0" name="hw.product" value="Celerra"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:emc:celerra_network_attached_storage:-"/>
   </fingerprint>
 
   <fingerprint pattern="^JD FTP Server Ready.*$">
@@ -603,7 +604,7 @@ more text</example>
     <param pos="0" name="service.vendor" value="Blue Coat"/>
     <param pos="0" name="service.product" value="Proxy"/>
     <param pos="0" name="os.vendor" value="Blue Coat"/>
-    <param pos="0" name="os.device" value="Web proxy"/>
+    <param pos="0" name="os.device" value="Web Proxy"/>
   </fingerprint>
 
   <fingerprint pattern="^---freeFTPd 1.0---warFTPd 1.65---$">
@@ -634,7 +635,7 @@ more text</example>
     <param pos="0" name="os.vendor" value="IBM"/>
     <param pos="0" name="os.product" value="4690"/>
     <param pos="0" name="os.family" value="4690"/>
-    <param pos="0" name="os.device" value="Point of sale"/>
+    <param pos="0" name="os.device" value="Point of Sale"/>
   </fingerprint>
 
   <fingerprint pattern="^([^ ]+) NcFTPd Server \(licensed copy\) ready\.$">
@@ -651,7 +652,7 @@ more text</example>
     <example>hostname DCS-2100 FTP server ready.</example>
     <param pos="0" name="os.vendor" value="D-Link"/>
     <param pos="0" name="os.product" value="DCS-2100"/>
-    <param pos="0" name="os.device" value="Web cam"/>
+    <param pos="0" name="os.device" value="IP Camera"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
 
@@ -682,12 +683,12 @@ more text</example>
     <example hw.product="233D" hw.version="4.48.4">AXIS 233D Network Dome Camera 4.48.4 (Mar 23 2010) ready.</example>
     <example hw.product="P1346" hw.version="5.50beta3">AXIS P1346 Network Camera 5.50beta3 (2014) ready</example>
     <param pos="0" name="hw.vendor" value="Axis"/>
-    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="hw.version"/>
     <param pos="0" name="os.vendor" value="AXIS"/>
     <param pos="0" name="os.family" value="Linux"/>
-    <param pos="0" name="os.device" value="Web cam"/>
+    <param pos="0" name="os.device" value="IP Camera"/>
   </fingerprint>
 
   <fingerprint pattern="(?i)^AXIS (\S+) (?:(?:Mk II )?Video) (?:Encoder|Encoder Blade|Module|Server|Decoder) (\S+) .*">
@@ -732,7 +733,7 @@ more text</example>
     <example hw.product="560">AXIS 560 FTP Network Print Server V6.00 Jul 7 1999 ready.</example>
     <example hw.version="6.30.beta2">AXIS 5470e FTP Network Print Server V6.30.beta2 Sep 25 2002 ready.</example>
     <param pos="0" name="hw.vendor" value="Axis"/>
-    <param pos="0" name="hw.device" value="Print server"/>
+    <param pos="0" name="hw.device" value="Print Server"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="hw.version"/>
   </fingerprint>
@@ -986,7 +987,7 @@ more text</example>
     <example hw.product="10/100 +IPDS" os.version="1.0">LinkCom Xpress 10/100 +IPDS FTP version 1.0 ready</example>
     <param pos="0" name="hw.vendor" value="MPI Technologies"/>
     <param pos="0" name="hw.family" value="LinkCom Xpress"/>
-    <param pos="0" name="hw.device" value="Print server"/>
+    <param pos="0" name="hw.device" value="Print Server"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
@@ -996,7 +997,7 @@ more text</example>
     <example hw.product="EIO PRO 10">LinkCom Xpress EIO PRO 10</example>
     <param pos="0" name="hw.vendor" value="MPI Technologies"/>
     <param pos="0" name="hw.family" value="LinkCom Xpress"/>
-    <param pos="0" name="hw.device" value="Print server"/>
+    <param pos="0" name="hw.device" value="Print Server"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
@@ -1039,7 +1040,7 @@ more text</example>
     <example>EUFSALE MarkNet X2011e FTP Server 4.20.21 ready.</example>
     <param pos="0" name="os.vendor" value="Lexmark"/>
     <param pos="0" name="os.family" value="MarkNet"/>
-    <param pos="0" name="os.device" value="Print server"/>
+    <param pos="0" name="os.device" value="Print Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
@@ -1189,11 +1190,11 @@ more text</example>
     <example>ESI-2999A Version 6.30a.07 ready.</example>
     <param pos="0" name="os.vendor" value="Sybase"/>
     <param pos="0" name="os.family" value="Extended Systems ExtendNet"/>
-    <param pos="0" name="os.device" value="Print server"/>
+    <param pos="0" name="os.device" value="Print Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
     <param pos="0" name="hw.family" value="Extended Systems ExtendNet"/>
-    <param pos="0" name="hw.device" value="Print server"/>
+    <param pos="0" name="hw.device" value="Print Server"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
@@ -1233,7 +1234,7 @@ more text</example>
     <param pos="0" name="service.product" value="Fiery Print Server"/>
     <param pos="0" name="os.vendor" value="EFI"/>
     <param pos="0" name="os.product" value="Fiery Print Server"/>
-    <param pos="0" name="os.device" value="Print server"/>
+    <param pos="0" name="os.device" value="Print Server"/>
   </fingerprint>
 
   <!-- Conjectured based on known MX FTP fingerprints -->
@@ -1289,11 +1290,11 @@ more text</example>
     <example os.version="V56.17.5Z">ZBR-79071 Version V56.17.5Z ready.</example>
     <example os.version="7.02">ZBR-46687 Version 7.02 ready.</example>
     <param pos="0" name="os.vendor" value="ZebraNet"/>
-    <param pos="0" name="os.device" value="Print server"/>
+    <param pos="0" name="os.device" value="Print Server"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
     <param pos="0" name="hw.vendor" value="ZebraNet"/>
-    <param pos="0" name="hw.device" value="Print server"/>
+    <param pos="0" name="hw.device" value="Print Server"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
 

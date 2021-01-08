@@ -619,17 +619,18 @@
        dnscmd /config /EnableVersionQuery 1
   -->
 
-  <fingerprint pattern="^Microsoft DNS (10.0.\d+)(?: \(\w+\))?$">
+  <fingerprint pattern="^Microsoft DNS (10.0.\d+)(?: \(([^)]+)\))?$">
     <description>Microsoft DNS on Windows 2016: GA</description>
     <!-- Windows 10 / 2016 moved towards a rolling release so capturing build
          is required unlike other Windows versions where we use a fixed string.
     -->
 
-    <example service.version="10.0.14393" os.build="10.0.14393">Microsoft DNS 10.0.14393 (383900CE)</example>
+    <example service.version="10.0.14393" os.build="10.0.14393" service.version.version="383900CE">Microsoft DNS 10.0.14393 (383900CE)</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="DNS"/>
     <param pos="0" name="service.product" value="DNS"/>
     <param pos="1" name="service.version"/>
+    <param pos="2" name="service.version.version"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2016"/>
@@ -637,13 +638,14 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2016:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^Microsoft DNS 6.3.9600(?: \(\w+\))?$">
+  <fingerprint pattern="^Microsoft DNS 6.3.9600(?: \(([^)]+)\))?$">
     <description>Microsoft DNS on Windows 2012 R2</description>
-    <example>Microsoft DNS 6.3.9600 (25804825)</example>
+    <example service.version.version="25804825">Microsoft DNS 6.3.9600 (25804825)</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="DNS"/>
     <param pos="0" name="service.product" value="DNS"/>
     <param pos="0" name="service.version" value="6.3.9600"/>
+    <param pos="1" name="service.version.version"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
@@ -651,13 +653,14 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^Microsoft DNS 6.2.9200(?: \(\w+\))?$">
+  <fingerprint pattern="^Microsoft DNS 6.2.9200(?: \(([^)]+)\))?$">
     <description>Microsoft DNS on Windows 2012</description>
-    <example>Microsoft DNS 6.2.9200 (23F04000)</example>
+    <example service.version.version="23F04000">Microsoft DNS 6.2.9200 (23F04000)</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="DNS"/>
     <param pos="0" name="service.product" value="DNS"/>
     <param pos="0" name="service.version" value="6.2.9200"/>
+    <param pos="1" name="service.version.version"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2012"/>
@@ -665,14 +668,15 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^Microsoft DNS 6.1.7601(?: \(\w+\))?$">
+  <fingerprint pattern="^Microsoft DNS 6.1.7601(?: \(([^)]+)\))?$">
     <description>Microsoft DNS on Windows 2008 R2 Service Pack 1</description>
-    <example>Microsoft DNS 6.1.7601 (1DB15CD4)</example>
+    <example service.version.version="1DB15CD4">Microsoft DNS 6.1.7601 (1DB15CD4)</example>
     <example>Microsoft DNS 6.1.7601</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="DNS"/>
     <param pos="0" name="service.product" value="DNS"/>
     <param pos="0" name="service.version" value="6.1.7601"/>
+    <param pos="1" name="service.version.version"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
@@ -681,13 +685,14 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:Service Pack 1"/>
   </fingerprint>
 
-  <fingerprint pattern="^Microsoft DNS 6.1.7600(?: \(\w+\))?$">
+  <fingerprint pattern="^Microsoft DNS 6.1.7600(?: \(([^)]+)\))?$">
     <description>Microsoft DNS on Windows 2008 R2</description>
-    <example>Microsoft DNS 6.1.7600 (1DB04228)</example>
+    <example service.version.version="1DB04228">Microsoft DNS 6.1.7600 (1DB04228)</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="DNS"/>
     <param pos="0" name="service.product" value="DNS"/>
     <param pos="0" name="service.version" value="6.1.7600"/>
+    <param pos="1" name="service.version.version"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
@@ -708,13 +713,14 @@
     <example>Microsoft DNS 6.0.6100 (2AEF76E)</example>
   </fingerprint>
 
-  <fingerprint pattern="^Microsoft DNS 6.0.6003(?: \(\w+\))?$">
+  <fingerprint pattern="^Microsoft DNS 6.0.6003(?: \(([^)]+)\))?$">
     <description>Microsoft DNS on Windows 2008 Service Pack 2 - Preview Rollup KB4489887 and later</description>
-    <example>Microsoft DNS 6.0.6003 (1773501D)</example>
+    <example service.version.version="1773501D">Microsoft DNS 6.0.6003 (1773501D)</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="DNS"/>
     <param pos="0" name="service.product" value="DNS"/>
     <param pos="0" name="service.version" value="6.0.6003"/>
+    <param pos="1" name="service.version.version"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
@@ -723,13 +729,14 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:Service Pack 2"/>
   </fingerprint>
 
-  <fingerprint pattern="^Microsoft DNS 6.0.6002(?: \(\w+\))?$">
+  <fingerprint pattern="^Microsoft DNS 6.0.6002(?: \(([^)]+)\))?$">
     <description>Microsoft DNS on Windows 2008 Service Pack 2</description>
-    <example>Microsoft DNS 6.0.6002 (17724D35)</example>
+    <example service.version.version="17724D35">Microsoft DNS 6.0.6002 (17724D35)</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="DNS"/>
     <param pos="0" name="service.product" value="DNS"/>
     <param pos="0" name="service.version" value="6.0.6002"/>
+    <param pos="1" name="service.version.version"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
@@ -738,19 +745,35 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:Service Pack 2"/>
   </fingerprint>
 
-  <fingerprint pattern="^Microsoft DNS 6.0.6001(?: \(\w+\))?$">
+  <fingerprint pattern="^Microsoft DNS 6.0.6001(?: \(([^)]+)\))?$">
     <description>Microsoft DNS on Windows 2008 Service Pack 1</description>
-    <example>Microsoft DNS 6.0.6001 (17714726)</example>
+    <example service.version.version="17714726">Microsoft DNS 6.0.6001 (17714726)</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="DNS"/>
     <param pos="0" name="service.product" value="DNS"/>
     <param pos="0" name="service.version" value="6.0.6001"/>
+    <param pos="1" name="service.version.version"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="0" name="os.version" value="Service Pack 1"/>
     <param pos="0" name="os.build" value="6.0.6001"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:Service Pack 1"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Microsoft DNS 5.2.3790(?: \(([^)]+)\))?$">
+    <description>Microsoft DNS on Windows 2003</description>
+    <example service.version.version="ECE135D">Microsoft DNS 5.2.3790 (ECE135D)</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="DNS"/>
+    <param pos="0" name="service.product" value="DNS"/>
+    <param pos="0" name="service.version" value="5.2.3790"/>
+    <param pos="1" name="service.version.version"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows Server 2003"/>
+    <param pos="0" name="os.build" value="5.2.3790"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:-"/>
   </fingerprint>
 
   <fingerprint pattern="^DNSServer$">

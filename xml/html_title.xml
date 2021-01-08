@@ -378,8 +378,10 @@
     <param pos="0" name="os.vendor" value="Ubiquiti"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="EdgeOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ui:edgeos:-"/>
     <param pos="0" name="hw.vendor" value="Ubiquiti"/>
     <param pos="0" name="hw.product" value="EdgeSwitch"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:ui:edgeswitch:-"/>
   </fingerprint>
 
   <fingerprint pattern="^EdgeOS$">
@@ -388,6 +390,7 @@
     <param pos="0" name="os.vendor" value="Ubiquiti"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="EdgeOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ui:edgeos:-"/>
     <param pos="0" name="hw.vendor" value="Ubiquiti"/>
   </fingerprint>
 
@@ -621,14 +624,14 @@
     <description>Eltek Power Controller</description>
     <example>WebPower</example>
     <param pos="0" name="hw.vendor" value="Eltek"/>
-    <param pos="0" name="hw.device" value="Power device"/>
+    <param pos="0" name="hw.device" value="Power Device"/>
   </fingerprint>
 
   <fingerprint pattern="(Expert Power Control NET \d+x\d+) - (.*)$">
     <description>Gude Expert Power Control</description>
     <example host.name="Rack42" hw.product="Expert Power Control NET 2x6">Expert Power Control NET 2x6 - Rack42</example>
     <param pos="0" name="hw.vendor" value="Gude"/>
-    <param pos="0" name="hw.device" value="Power device"/>
+    <param pos="0" name="hw.device" value="Power Device"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="host.name"/>
   </fingerprint>
@@ -637,7 +640,7 @@
     <description>Sentry Switched CDU</description>
     <example>Sentry Switched CDU</example>
     <param pos="0" name="hw.vendor" value="ServerTech"/>
-    <param pos="0" name="hw.device" value="Power device"/>
+    <param pos="0" name="hw.device" value="Power Device"/>
     <param pos="0" name="hw.product" value="Sentry Switched CDU"/>
   </fingerprint>
 
@@ -645,7 +648,7 @@
     <description>Emerson Network Power Rack PDU Card</description>
     <example>Emerson Network Power Rack PDU Card</example>
     <param pos="0" name="hw.vendor" value="Emerson"/>
-    <param pos="0" name="hw.device" value="Power device"/>
+    <param pos="0" name="hw.device" value="Power Device"/>
     <param pos="0" name="hw.product" value="Rack PDU Card"/>
   </fingerprint>
 
@@ -656,7 +659,7 @@
     <example hw.vendor="Vertiv">Vertiv IntelliSlot Web Card</example>
     <example hw.vendor="Liebert">Liebert IntelliSlot Web Card</example>
     <param pos="1" name="hw.vendor"/>
-    <param pos="0" name="hw.device" value="Power device"/>
+    <param pos="0" name="hw.device" value="Power Device"/>
     <param pos="0" name="hw.product" value="IntelliSlot Web Card"/>
   </fingerprint>
 
@@ -664,7 +667,7 @@
     <description>ConnectUPS Web/SNMP Card</description>
     <example>ConnectUPS Web/SNMP Card</example>
     <param pos="0" name="hw.vendor" value="APC"/>
-    <param pos="0" name="hw.device" value="Power device"/>
+    <param pos="0" name="hw.device" value="Power Device"/>
     <param pos="0" name="hw.product" value="ConnectUPS Web Card"/>
   </fingerprint>
 
@@ -1001,7 +1004,7 @@
     <description>Cisco IP Camera</description>
     <example>Cisco IP Camera</example>
     <param pos="0" name="hw.vendor" value="Cisco"/>
-    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
   </fingerprint>
 
   <fingerprint pattern="^Cisco TelePresence MCU">
@@ -1158,19 +1161,19 @@
     <description>Axis Communications Web Cam</description>
     <example>AXIS</example>
     <param pos="0" name="hw.vendor" value="AXIS"/>
-    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
     <param pos="0" name="os.vendor" value="AXIS"/>
     <param pos="0" name="os.family" value="Linux"/>
-    <param pos="0" name="os.device" value="Web cam"/>
+    <param pos="0" name="os.device" value="IP Camera"/>
   </fingerprint>
 
   <fingerprint pattern="^Hanwha Techwin$">
     <description>Hanwha Techwin IP Camera</description>
     <example>Hanwha Techwin</example>
     <param pos="0" name="hw.vendor" value="Hanwha Techwin"/>
-    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
     <param pos="0" name="os.vendor" value="Hanwha Techwin"/>
-    <param pos="0" name="os.device" value="Web cam"/>
+    <param pos="0" name="os.device" value="IP Camera"/>
     <param pos="0" name="os.family" value="Linux"/>
   </fingerprint>
 
@@ -1179,10 +1182,10 @@
     <example hw.product="WV-NS202A">WV-NS202A Network Camera</example>
     <example hw.product="WV-NS954">WV-NS954 Network Camera</example>
     <param pos="0" name="hw.vendor" value="Panasonic"/>
-    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
     <param pos="1" name="hw.product"/>
     <param pos="0" name="os.vendor" value="Panasonic"/>
-    <param pos="0" name="os.device" value="Web cam"/>
+    <param pos="0" name="os.device" value="IP Camera"/>
     <param pos="0" name="os.family" value="Linux"/>
   </fingerprint>
 
@@ -1551,6 +1554,7 @@
     <example>Elastic Kibana</example>
     <param pos="0" name="service.vendor" value="Elastic"/>
     <param pos="0" name="service.product" value="Kibana"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:elastic:kibana:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Grafana$">
@@ -1622,9 +1626,9 @@
   <fingerprint pattern="^Liebert OpenComms Network Interface Card$">
     <description>Liebert UPS</description>
     <example>Liebert OpenComms Network Interface Card</example>
-    <param pos="0" name="hw.device" value="Power device"/>
+    <param pos="0" name="hw.device" value="Power Device"/>
     <param pos="0" name="hw.vendor" value="Liebert"/>
-    <param pos="0" name="os.device" value="Power device"/>
+    <param pos="0" name="os.device" value="Power Device"/>
     <param pos="0" name="os.vendor" value="Liebert"/>
   </fingerprint>
 
@@ -2000,7 +2004,7 @@
     <description>Mobotix Network Camera</description>
     <example>Redirect to userimage: /control/userimage.html</example>
     <param pos="0" name="hw.vendor" value="Mobotix"/>
-    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
     <param pos="0" name="hw.product" value="IP Camera"/>
   </fingerprint>
 
@@ -2059,6 +2063,7 @@
     <param pos="0" name="os.vendor" value="Data Domain"/>
     <param pos="0" name="os.product" value="DD OS"/>
     <param pos="0" name="os.device" value="Storage"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:dell:emc_data_domain_os:-"/>
     <param pos="0" name="hw.vendor" value="Data Domain"/>
     <param pos="0" name="hw.product" value="DD OS"/>
     <param pos="0" name="hw.device" value="Storage"/>
@@ -2192,7 +2197,7 @@
     <example hw.product="IQA22N">IQA22N IQEYE1A1613: Live Images</example>
     <example hw.product="IQeye703">IQeye703 IQEYE011750: Live Images</example>
     <param pos="0" name="hw.vendor" value="IQinVision"/>
-    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
@@ -2214,7 +2219,7 @@
     <description>Genetec AutoVu SharpV ALPR Camera</description>
     <example>Genetec - SHARPV01111</example>
     <param pos="0" name="hw.vendor" value="Genetec"/>
-    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
     <param pos="0" name="hw.product" value="AutoVu SharpV"/>
   </fingerprint>
 
@@ -2241,6 +2246,7 @@
     <example>TwonkyMedia server media browser</example>
     <param pos="0" name="service.vendor" value="Lynx Technology"/>
     <param pos="0" name="service.product" value="Twonky Media Server"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:lynxtechnology:twonky_server:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Spiceworks(?: Server Busy| Help Desk)?$">
@@ -2274,6 +2280,7 @@
     <example>SABnzbd - Log in</example>
     <param pos="0" name="service.vendor" value="SABnzbd"/>
     <param pos="0" name="service.product" value="SABnzbd"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sabnzbd:sabnzbd:-"/>
   </fingerprint>
 
   <fingerprint pattern="^(?:Zabbix|.*: Zabbix)$">
@@ -2344,6 +2351,9 @@
     <description>OpenMediaVault</description>
     <example host.name="raspberrypi">openmediavault control panel - raspberrypi</example>
     <example host.name="raspberrypi">OpenMediaVault web administration interface - raspberrypi</example>
+    <param pos="0" name="service.vendor" value="OpenMediaVault"/>
+    <param pos="0" name="service.product" value="OpenMediaVault"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:openmediavault:openmediavault:-"/>
     <param pos="0" name="os.vendor" value="OpenMediaVault"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="OpenMediaVault"/>
@@ -2390,6 +2400,7 @@
     <param pos="0" name="service.vendor" value="CrushFTP"/>
     <param pos="0" name="service.product" value="CrushFTP Web Interface"/>
     <param pos="0" name="service.certainty" value="0.5"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:crushftp:crushftp:-"/>
   </fingerprint>
 
   <fingerprint pattern="^OpenEdge Explorer$">
@@ -2397,6 +2408,7 @@
     <example>OpenEdge Explorer</example>
     <param pos="0" name="service.vendor" value="Progress"/>
     <param pos="0" name="service.product" value="OpenEdge Explorer"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:progress:openedge:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Consul by HashiCorp$">
@@ -2442,7 +2454,8 @@
     <example>Swagger UI</example>
     <example>Swagger Editor</example>
     <param pos="0" name="service.vendor" value="Swagger"/>
-    <param pos="0" name="service.product" value="UI"/>
+    <param pos="0" name="service.product" value="Swagger UI"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:smartbear:swagger_ui:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Emby$">
@@ -2515,7 +2528,9 @@
     <description>Metasploit Pro (and Community Edition Web UI)</description>
     <example>Metasploit</example>
     <param pos="0" name="service.vendor" value="Rapid7"/>
-    <param pos="0" name="service.product" value="Metasploit Pro"/>
+    <param pos="0" name="service.product" value="Metasploit"/>
+    <param pos="0" name="service.edition" value="Pro"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:rapid7:metasploit:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Makito X Decoder$">
@@ -2559,6 +2574,7 @@
     <param pos="0" name="service.vendor" value="ownCloud"/>
     <param pos="0" name="service.product" value="ownCloud Server"/>
     <param pos="0" name="service.certainty" value="0.5"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:owncloud:owncloud:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Octopus Deploy$">
@@ -2588,8 +2604,9 @@
     <example>TurnKey Moodle</example>
     <example>New Site</example>
     <param pos="0" name="service.vendor" value="Moodle"/>
-    <param pos="0" name="service.product" value="Moodle CMS"/>
+    <param pos="0" name="service.product" value="Moodle"/>
     <param pos="0" name="service.certainty" value="0.5"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:moodle:moodle:-"/>
   </fingerprint>
 
   <fingerprint pattern="^ArchiveTeam Warrior$">
@@ -2642,6 +2659,7 @@
     <example>Kodi</example>
     <param pos="0" name="service.vendor" value="Kodi"/>
     <param pos="0" name="service.product" value="Media Server"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:kodi:kodi:-"/>
   </fingerprint>
 
   <fingerprint pattern="^(?:Drupal|TurnKey Drupal\d+|Select an installation profile)$">
@@ -2652,6 +2670,7 @@
     <example>Select an installation profile</example>
     <param pos="0" name="service.vendor" value="Drupal"/>
     <param pos="0" name="service.product" value="CMS"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:drupal:drupal:-"/>
   </fingerprint>
 
   <fingerprint pattern="^LibreNMS$">
@@ -2707,10 +2726,13 @@
   <fingerprint pattern="^Pulse Connect Secure - SSL">
     <description>Pulse Secure VPN</description>
     <example>Pulse Connect Secure - SSL</example>
+    <param pos="0" name="service.vendor" value="Pulse Secure"/>
+    <param pos="0" name="service.product" value="Pulse Connect Secure"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:pulsesecure:pulse_connect_secure:-"/>
     <param pos="0" name="os.vendor" value="Pulse Secure"/>
     <param pos="0" name="os.family" value="SSL-VPN"/>
     <param pos="0" name="os.device" value="SSL-VPN"/>
-    <param pos="0" name="os.product" value="SSL-VPN"/>
+    <param pos="0" name="os.product" value="Pulse Connect Secure"/>
   </fingerprint>
 
 </fingerprints>
