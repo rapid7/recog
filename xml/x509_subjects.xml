@@ -482,7 +482,7 @@
     <param pos="0" name="service.product" value="vmauthd"/>
   </fingerprint>
 
-  <fingerprint pattern="*CN=[a-zA-Z0-9\.\-\_]+,OU=VMware ESX Server Default Certificate,O=VMware\\, Inc,L=Palo Alto,ST=California,C=US$">
+  <fingerprint pattern="^CN=([a-zA-Z0-9\.\-\_]+),OU=VMware ESX Server Default Certificate,O=VMware\\, Inc,L=Palo Alto,ST=California,C=US$">
     <description>VMWare ESX</description>
     <example>CN=server99.,OU=VMware ESX Server Default Certificate,O=VMware\, Inc,L=Palo Alto,ST=California,C=US</example>
     <param pos="0" name="os.vendor" value="VMware"/>
@@ -492,7 +492,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="*CN=[a-zA-Z0-9\.\-\_]+,OU=VMware ESX Server Certificate,O=VMware\\, Inc,L=Palo Alto,ST=California,C=US$">
+  <fingerprint pattern="^CN=([a-zA-Z0-9\.\-\_]+),OU=VMware ESX Server Certificate,O=VMware\\, Inc,L=Palo Alto,ST=California,C=US$">
     <description>VMWare ESX</description>
     <example>CN=server99.,OU=VMware ESX Server Certificate,O=VMware\, Inc,L=Palo Alto,ST=California,C=US</example>
     <param pos="0" name="os.vendor" value="VMware"/>
@@ -1202,7 +1202,7 @@
     <param pos="0" name="os.product" value="RecoverPoint"/>
   </fingerprint>
 
-  <fingerprint pattern="^CN=[a-fA-F0-9]+,O=Palo Alto Networks,L=Santa Clara,ST=CA,C=US$">
+  <fingerprint pattern=".*CN=[a-fA-F0-9]+,O=Palo Alto Networks,L=Santa Clara,ST=CA,C=US$">
     <description>Palo Alto Firewall</description>
     <example>CN=d9fc2294968367a3a8ad1acd4c816c78444e6ea4d69869b40cc9751951fd3693,O=Palo Alto Networks,L=Santa Clara,ST=CA,C=US</example>
     <param pos="0" name="hw.vendor" value="Palo Alto Networks"/>
