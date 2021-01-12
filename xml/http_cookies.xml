@@ -193,6 +193,15 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:f5:big-ip_local_traffic_manager:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^(_gitlab_session)=.*">
+    <description>GitLab</description>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="GitLab"/>
+    <param pos="0" name="service.product" value="GitLab"/>
+    <param pos="0" name="service.certainty" value="0.5"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:gitlab:gitlab:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^(SERVERID)=([A-Za-z0-9\-_]+)">
     <description>HAProxy - http://haproxy.1wt.eu/download/1.2/doc/architecture.txt</description>
     <param pos="1" name="cookie"/>
