@@ -342,6 +342,14 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:sun:java_system_web_server:4.0"/>
   </fingerprint>
 
+  <fingerprint pattern="^(_redmine_session)=.*">
+    <description>Redmine</description>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="Redmine"/>
+    <param pos="0" name="service.product" value="Redmine"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:redmine:redmine:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^(gx_session_id|JROUTE)=.*">
     <description>Sun Java System Application Server (formerly iPlanet Application Server, Sun ONE Application Server)</description>
     <param pos="1" name="cookie"/>
