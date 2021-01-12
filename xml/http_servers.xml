@@ -20,6 +20,15 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
+  <fingerprint pattern="^cherokee(?:/([\d.]+))?$">
+    <description>CentOS Web Panel</description>
+    <example service.version="0.2.7">Cherokee/0.2.7</example>
+    <param pos="0" name="service.vendor" value="Cherokee Project"/>
+    <param pos="0" name="service.product" value="Cherokee"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cherokee-project:cherokee:{service.version}"/>
+  </fingerprint>
+
   <!-- CentOS Web Panel is not part of the CentOS project and runs on CentOS,
        RedHat, and CloudLinux.
   -->
