@@ -49,6 +49,14 @@
     <param pos="0" name="service.product" value="Dynamo"/>
   </fingerprint>
 
+  <fingerprint pattern="^(Bugzilla_login_request_cookie)=.*">
+    <description>Bugzilla</description>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="Mozilla"/>
+    <param pos="0" name="service.product" value="Bugzilla"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:mozilla:bugzilla:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^(WebLogicSession)=[^!]+![^!]+!([0-9]+);.*">
     <description>BEA WebLogic (with timestamp)</description>
     <param pos="1" name="cookie"/>
