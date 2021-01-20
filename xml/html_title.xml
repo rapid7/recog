@@ -255,6 +255,7 @@
     <param pos="0" name="hw.vendor" value="Philips"/>
     <param pos="0" name="hw.product" value="Hue"/>
     <param pos="0" name="hw.device" value="Light Bulb"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:philips:hue:-"/>
   </fingerprint>
 
   <fingerprint pattern="LANDesk\(R\) Management Agent$">
@@ -1677,6 +1678,7 @@
     <param pos="0" name="service.family" value="NetScaler"/>
     <param pos="0" name="service.device" value="Network Management Device"/>
     <param pos="0" name="service.product" value="NetScaler Gateway"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:citrix:netscaler_gateway:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Citrix (?:NetScaler SDX|ADC SDX)$">
@@ -2511,6 +2513,7 @@
     <example>SolarWinds Virtualization Manager</example>
     <param pos="0" name="service.vendor" value="SolarWinds"/>
     <param pos="0" name="service.product" value="Virtualization Manager"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:solarwinds:virtualization_manager:-"/>
   </fingerprint>
 
   <fingerprint pattern="^(?:Gitea: .*|LocalRepo|TurnKey Gitea)$">
@@ -2654,9 +2657,10 @@
     <param pos="0" name="service.product" value="Security Scanner"/>
   </fingerprint>
 
-  <fingerprint pattern="^Kodi$">
+  <fingerprint pattern="^(?:Chorus 2 - )?Kodi(?: web interface)?$">
     <description>Kodi Media Server</description>
     <example>Kodi</example>
+    <example>Chorus 2 - Kodi web interface</example>
     <param pos="0" name="service.vendor" value="Kodi"/>
     <param pos="0" name="service.product" value="Media Server"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:kodi:kodi:-"/>
@@ -2733,6 +2737,23 @@
     <param pos="0" name="os.family" value="SSL-VPN"/>
     <param pos="0" name="os.device" value="SSL-VPN"/>
     <param pos="0" name="os.product" value="Pulse Connect Secure"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Jellyfin$">
+    <description>Jellyfin media server</description>
+    <example>Jellyfin</example>
+    <param pos="0" name="service.vendor" value="Jellyfin"/>
+    <param pos="0" name="service.product" value="Media Server"/>
+  </fingerprint>
+
+  <fingerprint pattern="^proxmox - Proxmox Virtual Environment$">
+    <description>Proxmox open-source virtualization platform</description>
+    <example>proxmox - Proxmox Virtual Environment</example>
+    <param pos="0" name="service.vendor" value="proxmox"/>
+    <param pos="0" name="service.product" value="proxmox"/>
+    <param pos="0" name="os.vendor" value="Proxmox"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Proxmox"/>
   </fingerprint>
 
 </fingerprints>

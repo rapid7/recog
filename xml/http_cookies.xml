@@ -49,6 +49,15 @@
     <param pos="0" name="service.product" value="Dynamo"/>
   </fingerprint>
 
+  <fingerprint pattern="^Bugzilla_login_request_cookie=.*">
+    <description>Bugzilla</description>
+    <example>Bugzilla_login_request_cookie=ylMVo9ZDtd; path=/; secure</example>
+    <param pos="0" name="cookie" value="Bugzilla_login_request_cookie"/>
+    <param pos="0" name="service.vendor" value="Mozilla"/>
+    <param pos="0" name="service.product" value="Bugzilla"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:mozilla:bugzilla:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^(WebLogicSession)=[^!]+![^!]+!([0-9]+);.*">
     <description>BEA WebLogic (with timestamp)</description>
     <param pos="1" name="cookie"/>
@@ -165,6 +174,15 @@
     <param pos="0" name="os.product" value="Pulse Connect Secure"/>
   </fingerprint>
 
+  <fingerprint pattern="^DokuWiki=.*">
+    <description>Dokuwiki</description>
+    <example>DokuWiki=t8l1aev7703vbtejovp165pv01; path=/; secure</example>
+    <param pos="0" name="cookie" value="DokuWiki"/>
+    <param pos="0" name="service.vendor" value="Dokuwiki"/>
+    <param pos="0" name="service.product" value="Dokuwiki"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:dokuwiki:dokuwiki:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^(EktGUID|ecm)=.*">
     <description>Ektron CMS400.net</description>
     <param pos="1" name="cookie"/>
@@ -184,6 +202,15 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:f5:big-ip_local_traffic_manager:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^i_like_gogits=.*">
+    <description>Gogs</description>
+    <example>i_like_gogits=fc3914645f1d5c76; Path=/; HttpOnly</example>
+    <param pos="0" name="cookie" value="i_like_gogits"/>
+    <param pos="0" name="service.vendor" value="Gogs"/>
+    <param pos="0" name="service.product" value="Gogs"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:gogs:gogs:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^(BigIPCookie)=.*">
     <description>F5 BIG-IP LTM</description>
     <param pos="1" name="cookie"/>
@@ -191,6 +218,25 @@
     <param pos="0" name="service.family" value="BIG-IP"/>
     <param pos="0" name="service.product" value="BIG-IP LTM"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:f5:big-ip_local_traffic_manager:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^i_like_gitea=.*">
+    <description>Gitea</description>
+    <example>i_like_gitea=fc39d4645b1d5c7c; Path=/</example>
+    <param pos="0" name="cookie" value="i_like_gitea"/>
+    <param pos="0" name="service.vendor" value="Gitea"/>
+    <param pos="0" name="service.product" value="Gitea"/>
+    <param pos="0" name="service.certainty" value="0.5"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:gitea:gitea:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^_gitlab_session=.*">
+    <description>GitLab</description>
+    <param pos="0" name="cookie" value="_gitlab_session"/>
+    <param pos="0" name="service.vendor" value="GitLab"/>
+    <param pos="0" name="service.product" value="GitLab"/>
+    <param pos="0" name="service.certainty" value="0.5"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:gitlab:gitlab:-"/>
   </fingerprint>
 
   <fingerprint pattern="^(SERVERID)=([A-Za-z0-9\-_]+)">
@@ -296,6 +342,16 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:php:php:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^phsid=.*">
+    <description>Phabricator</description>
+    <example>phsid=A%2Fxesybc4bypb74dlgojdgw2edct6osflno25h2fw7</example>
+    <param pos="0" name="cookie" value="phsid"/>
+    <param pos="0" name="service.vendor" value="Phacility"/>
+    <param pos="0" name="service.family" value="Phabricator"/>
+    <param pos="0" name="service.product" value="Phabricator"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:phacility:phabricator:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^(RMID)=.*">
     <description>RealMedia OpenAdStream</description>
     <param pos="1" name="cookie"/>
@@ -340,6 +396,15 @@
     <param pos="0" name="service.product" value="Java System Web Server"/>
     <param pos="0" name="service.version" value="4.0"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:sun:java_system_web_server:4.0"/>
+  </fingerprint>
+
+  <fingerprint pattern="^_redmine_session=.*">
+    <description>Redmine</description>
+    <example>_redmine_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFRkkiJWY2MGY5MTJiZjg0NGU1ZmQxZWI2OTViNzAxYjU4NTRiBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMW1kV3Z5NDl6eVkwWDl4bFQvMUxSSmxmbjhhaDR1WWxERWUrMFQ4dVcvS0k9BjsARg%3D%3D--ce5f52d49b68e30a7ec34b75bf456d6c79d234d2; path=/; HttpOnly</example>
+    <param pos="0" name="cookie" value="_redmine_session"/>
+    <param pos="0" name="service.vendor" value="Redmine"/>
+    <param pos="0" name="service.product" value="Redmine"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:redmine:redmine:-"/>
   </fingerprint>
 
   <fingerprint pattern="^(gx_session_id|JROUTE)=.*">
@@ -397,6 +462,16 @@
     <param pos="0" name="service.vendor" value="WebTrends"/>
     <param pos="0" name="service.family" value="WebTrends"/>
     <param pos="0" name="service.product" value="WebTrends"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(ZM_TEST|ZM_LOGIN_CSRF)=.*">
+    <description>Zimbra</description>
+    <example cookie="ZM_TEST">ZM_TEST=true;Secure</example>
+    <example cookie="ZM_LOGIN_CSRF">ZM_LOGIN_CSRF=38ef0bea-a4c3-4f41-9ac3-73d7622f3131;Secure;HttpOnly</example>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="Synacor"/>
+    <param pos="0" name="service.product" value="Zimbra Collaboration Suite"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:synacor:zimbra_collaboration_suite:-"/>
   </fingerprint>
 
   <fingerprint pattern="^(_ZopeId)=.*">
