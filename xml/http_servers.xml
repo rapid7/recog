@@ -20,15 +20,6 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^cherokee(?:/([\d.]+))?$">
-    <description>Cherokee</description>
-    <example service.version="0.2.7">Cherokee/0.2.7</example>
-    <param pos="0" name="service.vendor" value="Cherokee Project"/>
-    <param pos="0" name="service.product" value="Cherokee"/>
-    <param pos="1" name="service.version"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:cherokee-project:cherokee:{service.version}"/>
-  </fingerprint>
-
   <!-- CentOS Web Panel is not part of the CentOS project and runs on CentOS,
        RedHat, and CloudLinux.
   -->
@@ -4180,15 +4171,64 @@
     <param pos="2" name="python.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^pve-api-daemon/[0-9.]+">
+  <fingerprint pattern="^pve-api-daemon/[\d.]+">
     <description>Proxmox api daemon</description>
     <example>pve-api-daemon/3.0</example>
     <param pos="0" name="service.vendor" value="proxmox"/>
     <param pos="0" name="service.product" value="proxmox"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:proxmox:proxmox:-"/>
-    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.vendor" value="Proxmox"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Proxmox"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cherokee/([\d.]+) \(Debian\)$">
+    <description>Cherokee Web Server - Debian variant</description>
+    <example service.version="1.2.104">Cherokee/1.2.104 (Debian)</example>
+    <param pos="0" name="service.vendor" value="Cherokee Project"/>
+    <param pos="0" name="service.product" value="Cherokee"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cherokee-project:cherokee:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.certainty" value="0.5"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cherokee/([\d.]+) \(Ubuntu\)$">
+    <description>Cherokee Web Server - Ubuntu variant</description>
+    <example service.version="1.2.104">Cherokee/1.2.104 (Ubuntu)</example>
+    <param pos="0" name="service.vendor" value="Cherokee Project"/>
+    <param pos="0" name="service.product" value="Cherokee"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cherokee-project:cherokee:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.certainty" value="0.5"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cherokee/([\d.]+) \(Gentoo Linux\)$">
+    <description>Cherokee Web Server - Gentoo variant</description>
+    <example service.version="1.2.104">Cherokee/1.2.104 (Gentoo Linux)</example>
+    <param pos="0" name="service.vendor" value="Cherokee Project"/>
+    <param pos="0" name="service.product" value="Cherokee"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cherokee-project:cherokee:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Gentoo"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.certainty" value="0.5"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:gentoo:linux:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cherokee(?:/([\d.]+))?(?: \(UNIX\))?$">
+    <description>Cherokee Web Server</description>
+    <example>Cherokee</example>
+    <example service.version="0.2.7">Cherokee/0.2.7</example>
+    <example service.version="1.2.101">Cherokee/1.2.101 (UNIX)</example>
+    <param pos="0" name="service.vendor" value="Cherokee Project"/>
+    <param pos="0" name="service.product" value="Cherokee"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cherokee-project:cherokee:{service.version}"/>
   </fingerprint>
 
   <!-- This is a version of ACME mini_httpd where the value 'mini_httpd' has been
