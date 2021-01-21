@@ -942,7 +942,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:vmware:esxi:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern=".*processor=&quot;([^ ]+)&quot;,.*system=&quot;OSF1[/V]?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="processor=&quot;([^ ]+)&quot;,.*system=&quot;OSF1[/V]?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on OSF/1</description>
     <example os.arch="alpha" os.version="4.0">
       processor="alpha", system="OSF1V4.0", leap=00, stratum=1, precision=-18,
@@ -955,7 +955,7 @@
     <param pos="1" name="os.arch"/>
   </fingerprint>
 
-  <fingerprint pattern=".*system=&quot;UNIX/DECOSF1&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="system=&quot;UNIX/DECOSF1&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>DEC OSF/1</description>
     <example>
       system="UNIX/DECOSF1", leap=0, stratum=3, rootdelay=18.14,
@@ -1019,7 +1019,7 @@
     <param pos="0" name="service.vendor" value="Cisco"/>
   </fingerprint>
 
-  <fingerprint pattern="^.*system=&quot;Data ONTAP/+(\S+)&quot;.*$" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="^.*system=&quot;Data ONTAP/+(\S+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>NetApp file servers</description>
     <example>
       system="Data ONTAP/8.1RC2"
@@ -1172,7 +1172,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern=".*version=&quot;ntpd (\S+)[^&quot;]+&quot;,.*\s*processor=&quot;([^ ]+)&quot;.*system=&quot;Isilon OneFS/v([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="version=&quot;ntpd (\S+)[^&quot;]+&quot;,.*\s*processor=&quot;([^ ]+)&quot;.*system=&quot;Isilon OneFS/v([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>Isilon OneFS NTP Server</description>
     <example>
       version="ntpd 4.2.4p4-o Thu Feb  4 20:43:00 UTC 2010 (1)",
@@ -1275,7 +1275,7 @@
     <param pos="0" name="os.arch" value="Alpha"/>
   </fingerprint>
 
-  <fingerprint pattern=".*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,\s*processor=&quot;([^ ]+)&quot;,\s*system=&quot;BIG-IPBIG-IP\s+([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,\s*processor=&quot;([^ ]+)&quot;,\s*system=&quot;BIG-IPBIG-IP\s+([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>F5 Big-IP Load Balancers NTP</description>
     <example service.version="4.1.1a@1.791" os.arch="i386" os.version="4.5PTF-0">
       version="ntpd 4.1.1a@1.791 Fri Aug  8 04:08:19 PDT 2003 (1)",
@@ -1294,7 +1294,7 @@
     <param pos="3" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern=".*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,\s*processor,\s*system=&quot;/&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,\s*processor,\s*system=&quot;/&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>NTP on an unknown system</description>
     <example service.version="4.2.6p2-RC4@1.2180-o">
       version="ntpd 4.2.6p2-RC4@1.2180-o Sun Jun 13 02:56:12 UTC 2010 (2)", processor, system="/"

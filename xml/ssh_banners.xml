@@ -59,7 +59,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:ipswitch:ws_ftp:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="IPSSH[-_]([\d\.p]+).*$">
+  <fingerprint pattern="IPSSH[-_]([\d\.p]+)">
     <description>VxWorks with version information</description>
     <example os.version="6.9.0">IPSSH-6.9.0</example>
     <param pos="0" name="os.vendor" value="Wind River"/>
@@ -1730,7 +1730,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^\s]+) FlowSsh: (?:Bitvise SSH Server \(WinSSHD\)|WinSSHD) ([\d\.]+):?.*$">
+  <fingerprint pattern="^([^\s]+) FlowSsh: (?:Bitvise SSH Server \(WinSSHD\)|WinSSHD) ([\d\.]+):?">
     <description>Bitvise WinSSHD (which uses Bitvise flowssh) with version</description>
     <example service.version="5.09" service.component.version="1.03">1.03 FlowSsh: WinSSHD 5.09</example>
     <example service.version="5.20" service.component.version="1.07">1.07 FlowSsh: WinSSHD 5.20: free only for personal non-commercial use</example>
@@ -1782,7 +1782,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^paramiko_([\d\.]+).*$">
+  <fingerprint pattern="^paramiko_([\d\.]+)">
     <description>Paramiko</description>
     <example service.version="2.1.3">paramiko_2.1.3 501 command not implemented ERROR</example>
     <example service.version="2.1.4">paramiko_2.1.4</example>
@@ -1948,7 +1948,7 @@
     <param pos="0" name="os.product" value="NetVanta"/>
   </fingerprint>
 
-  <fingerprint pattern="^.*MultiNet.*$">
+  <fingerprint pattern="^.*MultiNet">
     <description>Process Software MultiNet is a suite of network apps for OpenVMS</description>
     <param pos="0" name="service.vendor" value="Process Software"/>
     <param pos="0" name="service.family" value="MultiNet"/>
