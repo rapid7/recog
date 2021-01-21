@@ -2,6 +2,22 @@
 <fingerprints matches="http_header.server" protocol="http" database_type="service" preference="0.90">
   <!-- HTTP Server headers are matched against these patterns to fingerprint HTTP servers. -->
 
+  <fingerprint pattern="^BASHttpd/([\d.]+)">
+    <description>BASHttpd</description>
+    <example service.version="4.3.24">BASHttpd/4.3.24-release</example>
+    <param pos="0" name="service.product" value="bashttpd"/>
+    <param pos="0" name="service.vendor" value="Avleen Vig"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^monit ([\d.]+)$">
+    <description>Monit</description>
+    <example service.version="5.6">monit 5.6</example>
+    <param pos="0" name="service.vendor" value="Tildeslash"/>
+    <param pos="0" name="service.product" value="Monit"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
   <fingerprint pattern="(?i)^AirTunes/([\d\.]+)$">
     <description>Apple AirTunes/AirPlay, more generally RTSP used by a variety of wireless a/v products</description>
     <example service.version="220.68">AirTunes/220.68</example>
@@ -1402,7 +1418,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:nginx:nginx:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^nginx\/?(:?[\d.]+)?">
+    <fingerprint pattern="^nginx\/?(:?[\d.]+)?">
     <description>nginx with version info and/or mods</description>
     <example service.version="0.8.53">nginx/0.8.53 + Phusion Passenger 3.0.0 (mod_rails/mod_rack)</example>
     <example>nginx/0.8.53</example>
