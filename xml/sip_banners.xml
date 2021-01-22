@@ -108,6 +108,8 @@
 
   <fingerprint pattern="(?:Cisco|Linksys)/(SPA\d+[DG]?\d?)-([\d\.a-zA-Z]+)">
     <description>Cisco/Linksys SPA VoIP Phone</description>
+    <example hw.model="SPA112" hw.version="1.4.1SR1">Cisco/SPA112-1.4.1SR1(002)d-hisec</example>
+    <example hw.model="SPA122" hw.version="1.3.3">Cisco/SPA122-1.3.3(004)</example>
     <example hw.model="SPA922" hw.version="6.1.5">PhoneSystems.net aabbccddeeff Linksys/SPA922-6.1.5(a)</example>
     <example hw.model="SPA232D" hw.version="1.4.1">Cisco/SPA232D-1.4.1(002_282)</example>
     <example hw.model="SPA504G" hw.version="7.5.2">Cisco/SPA504G-7.5.2</example>
@@ -464,6 +466,18 @@
     <param pos="0" name="hw.family" value="SIP Gateway"/>
     <param pos="0" name="hw.device" value="SIP Gateway"/>
     <param pos="0" name="hw.product" value="SIP Gateway"/>
+  </fingerprint>
+
+  <fingerprint pattern="^PBX-IP Media Gateway/([\d.]+)$">
+    <description>Dialogic Media Gateway w Version</description>
+    <example os.version="2.1">PBX-IP Media Gateway/2.1</example>
+    <param pos="0" name="os.vendor" value="Dialogic"/>
+    <param pos="0" name="os.family" value="SIP Gateway"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="hw.vendor" value="Dialogic"/>
+    <param pos="0" name="hw.family" value="SIP Gateway"/>
+    <param pos="0" name="hw.device" value="SIP Gateway"/>
+    <param pos="0" name="hw.product" value="Media Gateway"/>
   </fingerprint>
 
   <fingerprint pattern="^Asterisk PBX (\S+)$">

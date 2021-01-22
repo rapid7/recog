@@ -515,9 +515,11 @@
     <param pos="0" name="os.vendor" value="Google"/>
     <param pos="0" name="os.product" value="Chrome OS"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:google:chrome_os:-"/>
+    <param pos="0" name="os.certainty" value="0.5"/>
     <param pos="0" name="hw.device" value="Media Server"/>
     <param pos="0" name="hw.vendor" value="Google"/>
     <param pos="0" name="hw.product" value="Chromecast"/>
+    <param pos="0" name="hw.certainty" value="0.5"/>
     <param pos="1" name="chromecast.serial_number"/>
     <!-- This is the hotspot-mode MAC address (clear bit 2) -->
 
@@ -554,6 +556,30 @@
   <fingerprint pattern="^CN=lifesize.com,C=US$">
     <description>Lifesize TelePresence</description>
     <example>CN=lifesize.com,C=US</example>
+    <param pos="0" name="hw.vendor" value="Lifesize"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
+    <param pos="0" name="hw.product" value="TelePresence"/>
+    <param pos="0" name="os.vendor" value="Lifesize"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="TelePresence"/>
+    <param pos="0" name="os.device" value="Video Conferencing"/>
+  </fingerprint>
+    
+  <fingerprint pattern="^CN=a_lifesize_system,OU=lifesize,O=lifesize,L=Austin,ST=Texas,C=US$">
+    <description>Lifesize TelePresence (a_lifesize variant 1)</description>
+    <example>CN=a_lifesize_system,OU=lifesize,O=lifesize,L=Austin,ST=Texas,C=US</example>
+    <param pos="0" name="hw.vendor" value="Lifesize"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
+    <param pos="0" name="hw.product" value="TelePresence"/>
+    <param pos="0" name="os.vendor" value="Lifesize"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="TelePresence"/>
+    <param pos="0" name="os.device" value="Video Conferencing"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=A_LifeSize_System,OU=IT,O=LifeSize Communications\\, Inc\.,ST=Texas,C=US$">
+    <description>Lifesize TelePresence (a_lifesize variant 2)</description>
+    <example>CN=A_LifeSize_System,OU=IT,O=LifeSize Communications\, Inc.,ST=Texas,C=US</example>
     <param pos="0" name="hw.vendor" value="Lifesize"/>
     <param pos="0" name="hw.device" value="Video Conferencing"/>
     <param pos="0" name="hw.product" value="TelePresence"/>
@@ -1445,6 +1471,40 @@
     <param pos="0" name="os.vendor" value="LigoWave"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=(RFS\d+)-([0-9a-fA-F]{2}-[0-9a-fA-F]{2}-[0-9a-fA-F]{2}-[0-9a-fA-F]{2}-[0-9a-fA-F]{2}-[0-9a-fA-F]{2})$">
+    <description>Motorola RFS Wireless Controllers</description>
+    <example host.mac="B1-C1-11-11-11-11" hw.product="RFS6000">CN=RFS6000-B1-C1-11-11-11-11</example>
+    <param pos="0" name="hw.device" value="Wireless Controller"/>
+    <param pos="0" name="hw.vendor" value="Motorola"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="host.mac"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=(AP\d+)-([0-9a-fA-F]{2}-[0-9a-fA-F]{2}-[0-9a-fA-F]{2}-[0-9a-fA-F]{2}-[0-9a-fA-F]{2}-[0-9a-fA-F]{2})$">
+    <description>Motorola Wireless Access Points</description>
+    <example host.mac="F1-11-11-11-11-11" hw.product="AP6532">CN=AP6532-F1-11-11-11-11-11</example>
+    <param pos="0" name="hw.device" value="WAP"/>
+    <param pos="0" name="hw.vendor" value="Motorola"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="host.mac"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=attvpngateway\.att\.com,O=AT&amp;T,L=Tampa,ST=FL,C=US$">
+    <description>ATT VPN Gateway</description>
+    <example>CN=attvpngateway.att.com,O=AT&amp;T,L=Tampa,ST=FL,C=US</example>
+    <param pos="0" name="hw.vendor" value="ATT"/>
+    <param pos="0" name="hw.device" value="VPN"/>
+    <param pos="0" name="hw.product" value="VPN Gateway"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=silver-peak,OU=Networking Appliance">
+    <description>Silver Peak Appliance</description>
+    <example>CN=silver-peak,OU=Networking Appliance,O=Silver Peak Systems Inc,L=Mountain View,ST=California,C=--</example>
+    <param pos="0" name="hw.vendor" value="Silver Peak"/>
+    <param pos="0" name="hw.device" value="Network Appliance"/>
+    <param pos="0" name="hw.product" value="SD-WAN"/>
   </fingerprint>
 
 </fingerprints>
