@@ -4246,4 +4246,30 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:acme:mini_httpd:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^Unspecified, UPnP/[\d\.]+, Unspecified$">
+    <description> UPNP server</description>
+    <example>Unspecified, UPnP/1.0, Unspecified</example>
+    <param pos="0" name="service.family" value="UPnP"/>
+  </fingerprint>
+
+  <fingerprint pattern="^WNR2000v([0-9]) UPnP/[\d\.]+ miniupnpd/([\d\.]+)$">
+    <description>Netgear WNR2000v5 Router UPnP</description>
+    <example service.version="5">WNR2000v5 UPnP/1.0 miniupnpd/1.0</example>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="Netgear"/>
+    <param pos="0" name="service.family" value="UPnp"/>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="0" name="hw.vendor" value="Netgear"/>
+    <param pos="0" name="hw.vendor" value="Router"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ev-compat$">
+    <description>PELCO CAMERA DEVICE</description>
+    <example>ev-compat</example>
+    <param pos="0" name="service.vendor" value="Pelco"/>
+    <param pos="0" name="service.family" value="UPnP"/>
+    <param pos="0" name="hw.vendor" value="Pelco"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
+  </fingerprint>
+
 </fingerprints>
