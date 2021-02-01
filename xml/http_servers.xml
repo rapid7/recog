@@ -4174,8 +4174,8 @@
   <fingerprint pattern="^pve-api-daemon/[\d.]+">
     <description>Proxmox api daemon</description>
     <example>pve-api-daemon/3.0</example>
-    <param pos="0" name="service.vendor" value="proxmox"/>
-    <param pos="0" name="service.product" value="proxmox"/>
+    <param pos="0" name="service.vendor" value="Proxmox"/>
+    <param pos="0" name="service.product" value="Proxmox"/>
     <param pos="0" name="os.vendor" value="Proxmox"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Proxmox"/>
@@ -4247,21 +4247,22 @@
   </fingerprint>
 
   <fingerprint pattern="^Unspecified, UPnP/[\d\.]+, Unspecified$">
-    <description> UPNP server</description>
+    <description>UPNP server</description>
     <example>Unspecified, UPnP/1.0, Unspecified</example>
     <param pos="0" name="service.family" value="UPnP"/>
   </fingerprint>
 
   <fingerprint pattern="^WNR2000v([0-9]) UPnP/[\d\.]+ miniupnpd/([\d\.]+)$">
     <description>Netgear WNR2000v5 Router UPnP</description>
-    <example service.version="5" service.component.version="1.0">WNR2000v5 UPnP/1.0 miniupnpd/1.0</example>
-    <param pos="1" name="service.version"/>
-    <param pos="2" name="service.component.version"/>
+    <example hw.version="5" service.version="1.0">WNR2000v5 UPnP/1.0 miniupnpd/1.0</example>
+    <param pos="1" name="hw.version"/>
+    <param pos="2" name="service.version"/>
     <param pos="0" name="service.vendor" value="Netgear"/>
-    <param pos="0" name="service.family" value="UPnp"/>
+    <param pos="0" name="service.family" value="UPnP"/>
     <param pos="0" name="service.product" value="MiniUPnP"/>
     <param pos="0" name="hw.vendor" value="Netgear"/>
-    <param pos="0" name="hw.vendor" value="Router"/>
+    <param pos="0" name="hw.product" value="WNR2000"/>
+    <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
 
   <fingerprint pattern="^ev-compat$">
