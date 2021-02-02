@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<fingerprints matches="tls.jarm" protocol="x509" database_type="service">
+<fingerprints matches="tls.jarm" protocol="tls" database_type="service">
   <!--
     Fingerprint based on https://github.com/salesforce/jarm
   -->
@@ -11,7 +11,7 @@
     <example>2ad2ad16d2ad2ad22c42d42d000000d342d5966a57139eeaff9f8bc4841b25</example>
     <param pos="0" name="service.product" value="Tor"/>
     <param pos="0" name="service.vendor" value="Tor Project"/>
-    <param pos="0" name="service.component.cpe23" value="cpe:/a:torproject:tor:-"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:torproject:tor:-"/>
   </fingerprint>
 
   <fingerprint pattern="^2ad2ad0002ad2ad0002ad2ad2ad2ada9e96d3ba9f7903758a731e0fa01453d$">
@@ -70,23 +70,26 @@
   </fingerprint>
 
   <fingerprint pattern="^0ed3dd16d25d00000042d43d000000e9435856b7ee99e87c06831602602f2d$">
-    <description>LANCOM 883 VoIP</description>
+    <description>LANCOM Systems - 883 VoIP</description>
     <example>0ed3dd16d25d00000042d43d000000e9435856b7ee99e87c06831602602f2d</example>
-    <param pos="0" name="hw.vendor" value="Lancom"/>
+    <param pos="0" name="hw.vendor" value="LANCOM Systems"/>
     <param pos="0" name="hw.product" value="883 VoIP"/>
   </fingerprint>
 
   <fingerprint pattern="^21d14d00021d21d21c42d43d00041d320c989d4ed06a7e9d3133ba36bb2752$">
-    <description>CUPS web interface</description>
+    <description>Apple CUPS - web interface</description>
     <example>21d14d00021d21d21c42d43d00041d320c989d4ed06a7e9d3133ba36bb2752</example>
-    <param pos="0" name="service.product" value="Cups"/>
+    <param pos="0" name="service.vendor" value="Apple"/>
+    <param pos="0" name="service.product" value="CUPS"/>
+    <param pos="0" name="service.family" value="CUPS"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:apple:cups:-"/>
   </fingerprint>
 
   <fingerprint pattern="^0bd14d0000bd0bd0000bd14d0bd0bd6b64279c20472e17718ddea38ab610fa$">
-    <description>Netgear R series</description>
+    <description>Netgear R Series</description>
     <example>0bd14d0000bd0bd0000bd14d0bd0bd6b64279c20472e17718ddea38ab610fa</example>
     <param pos="0" name="hw.vendor" value="Netgear"/>
-    <param pos="0" name="hw.product" value="R series"/>
+    <param pos="0" name="hw.product" value="R Series"/>
   </fingerprint>
 
   <fingerprint pattern="^2ad2ad16d2ad2ad07c2ad2ad2ad2ad4271ee10d978b0aecbc22f1de60ab611$">
@@ -99,10 +102,10 @@
   </fingerprint>
 
   <fingerprint pattern="^04d02d00004d04d04c04d02d04d04d9674c6b4e623ae36cc2d998e99e2262e$">
-    <description>Netgear D series</description>
+    <description>Netgear D Series</description>
     <example>04d02d00004d04d04c04d02d04d04d9674c6b4e623ae36cc2d998e99e2262e</example>
     <param pos="0" name="hw.vendor" value="Netgear"/>
-    <param pos="0" name="hw.product" value="D series"/>
+    <param pos="0" name="hw.product" value="D Series"/>
   </fingerprint>
 
   <fingerprint pattern="^21d3fd00021d21d21c21d3fd21d21d89188428dae58757cf803176e9701156$">
@@ -120,8 +123,10 @@
     <description>VMWare ESXi</description>
     <example>21d14d00021d21d21c21d14d21d21d3e9a0dda94718e521eb7d1409c9e3601</example>
     <param pos="0" name="os.vendor" value="VMware"/>
-    <param pos="0" name="os.family" value="ESXi"/>
+    <param pos="0" name="os.family" value="VMware ESX/ESXi"/>
     <param pos="0" name="os.product" value="ESXi"/>
+    <param pos="0" name="os.device" value="Hypervisor"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:vmware:esxi:-"/>
     <param pos="0" name="hw.device" value="Hypervisor"/>
   </fingerprint>
 
