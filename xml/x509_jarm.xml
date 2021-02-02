@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<fingerprints matches="tls.jarm" protocol="x509" database_type="service">
+  <!--
+    Fingerprint based on https://github.com/salesforce/jarm
+  -->
+
+  <fingerprint pattern="^2ad2ad16d2ad2ad00042d42d000000332dc9cd7d90589195193c8bb05d84fa|2ad2ad16d2ad2ad22c2ad2ad2ad2adce2e4c8c53174ecbf5529ce7584d5518$|2ad2ad16d2ad2ad22c42d42d000000d342d5966a57139eeaff9f8bc4841b25$">
+    <description>Tor relay</description>
+    <example>2ad2ad16d2ad2ad00042d42d000000332dc9cd7d90589195193c8bb05d84fa</example>
+    <example>2ad2ad16d2ad2ad22c2ad2ad2ad2adce2e4c8c53174ecbf5529ce7584d5518</example>
+    <example>2ad2ad16d2ad2ad22c42d42d000000d342d5966a57139eeaff9f8bc4841b25</example>
+    <param pos="0" name="service.product" value="Tor"/>
+    <param pos="0" name="service.vendor" value="Tor Project"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:torproject:tor:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^2ad2ad0002ad2ad0002ad2ad2ad2ada9e96d3ba9f7903758a731e0fa01453d$">
+    <description>Synology NAS</description>
+    <example>2ad2ad0002ad2ad0002ad2ad2ad2ada9e96d3ba9f7903758a731e0fa01453d</example>
+    <param pos="0" name="os.device" value="NAS"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="DSM"/>
+    <param pos="0" name="os.vendor" value="Synology"/>
+    <param pos="0" name="hw.vendor" value="Synology"/>
+    <param pos="0" name="hw.device" value="NAS"/>
+  </fingerprint>
+
+  <fingerprint pattern="^2ad2ad16d2ad2ad22c2ad2ad2ad2ad7e5e7dc6f569c9c16238278a408347ef$">
+    <description>Ubiquiti EdgeRouter</description>
+    <example>2ad2ad16d2ad2ad22c2ad2ad2ad2ad7e5e7dc6f569c9c16238278a408347ef</example>
+    <param pos="0" name="hw.vendor" value="Ubiquiti"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.Product" value="EdgeRouter X"/>
+    <param pos="0" name="os.vendor" value="Ubiquiti"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="Router"/>
+  </fingerprint>
+
+  <fingerprint pattern="^07d14d16d21d21d00042d43d000000aa99ce74e2c6d013c745aa52b5cc042d$">
+    <description>Metasploit listener</description>
+    <example>07d14d16d21d21d00042d43d000000aa99ce74e2c6d013c745aa52b5cc042d</example>
+    <param pos="0" name="service.vendor" value="Rapid7"/>
+    <param pos="0" name="service.product" value="Metasploit"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:rapid7:metasploit:-"/>
+  </fingerprint>
+
+  <!-- This fingerprint matches Java's TLS stack,
+    see https://blog.cobaltstrike.com/2020/12/08/a-red-teamer-plays-with-jarm/ for details -->
+
+  <fingerprint pattern="^07d14d16d21d21d07c42d41d00041d24a458a375eef0c576d23a7bab9a9fb1$">
+    <description>Cobalt Strike listener</description>
+    <example>07d14d16d21d21d07c42d41d00041d24a458a375eef0c576d23a7bab9a9fb1</example>
+    <param pos="0" name="service.vendor" value="Strategic Cyber LLC"/>
+    <param pos="0" name="service.product" value="Cobalt Strike Listener"/>
+    <param pos="0" name="service.certainty" value="0.3"/>
+  </fingerprint>
+
+  <fingerprint pattern="^04b02b00004b04b04b04b02b04b04b9674c6b4e623ae36cc2d998e99e2262e$">
+    <description>Ligowave WiFi access point</description>
+    <example>04b02b00004b04b04b04b02b04b04b9674c6b4e623ae36cc2d998e99e2262e</example>
+    <param pos="0" name="hw.vendor" value="Ligowave"/>
+    <param pos="0" name="hw.product" value="Infinity Controler"/>
+  </fingerprint>
+
+  <fingerprint pattern="^06d06d07d06d06d06c06d06d06d06d7991b0b1ad2cbf06082e3b1a9dcaaa8d$">
+    <description>D-Link DCS-825L WiFi baby camera</description>
+    <example>06d06d07d06d06d06c06d06d06d06d7991b0b1ad2cbf06082e3b1a9dcaaa8d</example>
+    <param pos="0" name="hw.vendor" value="D-Link"/>
+    <param pos="0" name="hw.product" value="DCS-825L"/>
+  </fingerprint>
+
+  <fingerprint pattern="^0ed3dd16d25d00000042d43d000000e9435856b7ee99e87c06831602602f2d$">
+    <description>LANCOM 883 VoIP</description>
+    <example>0ed3dd16d25d00000042d43d000000e9435856b7ee99e87c06831602602f2d</example>
+    <param pos="0" name="hw.vendor" value="Lancom"/>
+    <param pos="0" name="hw.product" value="883 VoIP"/>
+  </fingerprint>
+
+  <fingerprint pattern="^21d14d00021d21d21c42d43d00041d320c989d4ed06a7e9d3133ba36bb2752$">
+    <description>CUPS web interface</description>
+    <example>21d14d00021d21d21c42d43d00041d320c989d4ed06a7e9d3133ba36bb2752</example>
+    <param pos="0" name="service.product" value="Cups"/>
+  </fingerprint>
+
+  <fingerprint pattern="^0bd14d0000bd0bd0000bd14d0bd0bd6b64279c20472e17718ddea38ab610fa$">
+    <description>Netgear R series</description>
+    <example>0bd14d0000bd0bd0000bd14d0bd0bd6b64279c20472e17718ddea38ab610fa</example>
+    <param pos="0" name="hw.vendor" value="Netgear"/>
+    <param pos="0" name="hw.product" value="R series"/>
+  </fingerprint>
+
+  <fingerprint pattern="^2ad2ad16d2ad2ad07c2ad2ad2ad2ad4271ee10d978b0aecbc22f1de60ab611$">
+    <description>Netgear Orbi-micro</description>
+    <example>2ad2ad16d2ad2ad07c2ad2ad2ad2ad4271ee10d978b0aecbc22f1de60ab611</example>
+    <param pos="0" name="hw.vendor" value="Netgear"/>
+    <param pos="0" name="hw.product" value="Orbi micro"/>
+    <param pos="0" name="hw.device" value="WAP"/>
+    <param pos="0" name="hw.family" value="Orbi"/>
+  </fingerprint>
+
+  <fingerprint pattern="^04d02d00004d04d04c04d02d04d04d9674c6b4e623ae36cc2d998e99e2262e$">
+    <description>Netgear D series</description>
+    <example>04d02d00004d04d04c04d02d04d04d9674c6b4e623ae36cc2d998e99e2262e</example>
+    <param pos="0" name="hw.vendor" value="Netgear"/>
+    <param pos="0" name="hw.product" value="D series"/>
+  </fingerprint>
+
+  <fingerprint pattern="^21d3fd00021d21d21c21d3fd21d21d89188428dae58757cf803176e9701156$">
+    <description>Chromecast</description>
+    <example>21d3fd00021d21d21c21d3fd21d21d89188428dae58757cf803176e9701156</example>
+    <param pos="0" name="os.vendor" value="Google"/>
+    <param pos="0" name="os.product" value="Chrome OS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:google:chrome_os:-"/>
+    <param pos="0" name="hw.device" value="Media Server"/>
+    <param pos="0" name="hw.vendor" value="Google"/>
+    <param pos="0" name="hw.product" value="Chromecast"/>
+  </fingerprint>
+
+  <fingerprint pattern="^21d14d00021d21d21c21d14d21d21d3e9a0dda94718e521eb7d1409c9e3601$">
+    <description>VMWare ESXi</description>
+    <example>21d14d00021d21d21c21d14d21d21d3e9a0dda94718e521eb7d1409c9e3601</example>
+    <param pos="0" name="os.vendor" value="VMware"/>
+    <param pos="0" name="os.family" value="ESXi"/>
+    <param pos="0" name="os.product" value="ESXi"/>
+    <param pos="0" name="hw.device" value="Hypervisor"/>
+  </fingerprint>
+
+  <fingerprint pattern="^29d21b20d29d29d21c41d21b21b41d494e0df9532e75299f15ba73156cee38$">
+    <description>Merlin C2</description>
+    <example>29d21b20d29d29d21c41d21b21b41d494e0df9532e75299f15ba73156cee38</example>
+    <param pos="0" name="service.product" value="Merlin"/>
+  </fingerprint>
+
+</fingerprints>
