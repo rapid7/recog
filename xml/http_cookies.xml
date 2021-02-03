@@ -199,7 +199,7 @@
     <param pos="0" name="service.product" value="CMS400.NET"/>
   </fingerprint>
 
-  <fingerprint pattern="^FESESSIONID=">
+  <fingerprint pattern="^(FESESSIONID)=">
     <description>Atlanssian's Fisheye</description>
     <example>FESESSIONID=133713381337</example>
     <param pos="1" name="cookie"/>
@@ -234,6 +234,14 @@
     <param pos="0" name="service.family" value="BIG-IP"/>
     <param pos="0" name="service.product" value="BIG-IP LTM"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:f5:big-ip_local_traffic_manager:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(flyspray_project)=">
+    <description>Flyspray</description>
+    <example>flyspray_project=133713381234; Path=/; HttpOnly</example>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="Flyspray"/>
+    <param pos="0" name="service.product" value="Flyspray"/>
   </fingerprint>
 
   <fingerprint pattern="^i_like_gitea=.*">
