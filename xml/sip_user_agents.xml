@@ -4,6 +4,60 @@
   SIP User Agent header values are matched against these patterns to fingerprint SIP devices.
   -->
 
+  <!-- Generic high volume matches -->
+
+  <fingerprint pattern="^TP-Link SIP Stack V1.0.0$">
+    <description>TP-Link SIP enabled device</description>
+    <example>TP-Link SIP Stack V1.0.0</example>
+    <param pos="0" name="hw.vendor" value="TP-LINK"/>
+  </fingerprint>
+
+  <fingerprint pattern="^DLink VoIP Stack$">
+    <description>DLink SIP enabled device</description>
+    <example>DLink VoIP Stack</example>
+    <param pos="0" name="hw.vendor" value="D-Link"/>
+  </fingerprint>
+
+  <!-- Technicolor devices -->
+
+  <fingerprint pattern="^Technicolor / VANT-6 / AGTOT_([\d.]+) / AGTOT_[\d.]+$">
+    <description>Technicolor TG789vac Router</description>
+    <example os.version="2.1.4">Technicolor / VANT-6 / AGTOT_2.1.4 / AGTOT_2.1.4</example>
+    <param pos="0" name="os.vendor" value="Technicolor"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="hw.vendor" value="Technicolor"/>
+    <param pos="0" name="hw.product" value="TG789vac"/>
+    <param pos="0" name="hw.device" value="Router"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Technicolor / VANT-6$">
+    <description>Technicolor TG789vac Router w/o version string</description>
+    <example>Technicolor / VANT-6</example>
+    <param pos="0" name="os.vendor" value="Technicolor"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="0" name="hw.vendor" value="Technicolor"/>
+    <param pos="0" name="hw.product" value="TG789vac"/>
+    <param pos="0" name="hw.device" value="Router"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(?:Technicolor|MediaAccess) (TG[\w]+) (?:v\d )?Build (\d+\.[\w.-]+)(?: CP\w+)?$">
+    <description>Technicolor TGxxx Router with build info</description>
+    <example hw.product="TG784n" os.version="10.2.1.O">Technicolor TG784n v3 Build 10.2.1.O</example>
+    <example hw.product="TG789vn" os.version="10.5.2.Z.EC">Technicolor TG789vn v3 Build 10.5.2.Z.EC</example>
+    <example>MediaAccess TG789vac v2 Build 10.5.8.Y.GX CP1916SAQHD</example>
+    <example hw.product="TG799vn" os.version="10.5.2.T.JF">Technicolor TG799vn v2 Build 10.5.2.T.JF</example>
+    <example hw.product="TG788vn" os.version="10.5.2.S.GD">MediaAccess TG788vn v2 Build 10.5.2.S.GD</example>
+    <example hw.product="TG799vac" os.version="17.2.0405-1021">MediaAccess TG799vac Build 17.2.0405-1021</example>
+    <example hw.product="TG389">MediaAccess TG389 Build 10.5.2.T.AQ</example>
+    <param pos="0" name="os.vendor" value="Technicolor"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="hw.vendor" value="Technicolor"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Router"/>
+  </fingerprint>
+
   <!-- Axis devices -->
 
   <fingerprint pattern="(?i)^AXIS (\S+) Network Video Door Station$">
@@ -43,10 +97,12 @@
   <!-- AVM.DE Devices -->
 
   <fingerprint pattern="^FRITZ!OS$">
-    <description>AVM FritzOS Device</description>
+    <description>AVM Fritz!OS Device</description>
     <example>FRITZ!OS</example>
     <param pos="0" name="os.vendor" value="AVM"/>
-    <param pos="0" name="os.product" value="FRITZ!BOX"/>
+    <param pos="0" name="os.product" value="FRITZ!OS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:avm:fritz\!os:-"/>
+    <param pos="0" name="hw.vendor" value="AVM"/>
   </fingerprint>
 
   <fingerprint pattern="^(?:AVM )?(FRITZ!Box .*) +(\d+\.\d+\.\d+)">
@@ -80,12 +136,12 @@
   </fingerprint>
 
   <fingerprint pattern="^(?:AVM )?(Multibox .*) +(\d+\.\d+\.\d+)">
-    <description>AVM Multibox</description>
+    <description>AVM Multibox - Generic</description>
     <example>AVM Multibox 7390 NGN 84.05.09 (Jan 13 2012)</example>
     <param pos="0" name="os.vendor" value="AVM"/>
-    <param pos="0" name="os.family" value="Multibox"/>
-    <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
+    <param pos="0" name="hw.vendor" value="AVM"/>
+    <param pos="1" name="hw.product"/>
   </fingerprint>
 
   <!-- Huawei devices -->
@@ -243,6 +299,193 @@
     <param pos="0" name="hw.device" value="VoIP"/>
     <param pos="2" name="hw.version"/>
     <param pos="1" name="hw.product"/>
+  </fingerprint>
+
+  <!-- Grandstream -->
+
+  <!-- The next few fingerprints could be merged but are split to enable CPEs -->
+
+  <fingerprint pattern="^Grandstream HT818 ([\d.]+)$">
+    <description>Grandstream Handy Tone HT818</description>
+    <example os.version="1.0.8.7">Grandstream HT818 1.0.8.7</example>
+    <param pos="0" name="os.vendor" value="Grandstream"/>
+    <param pos="0" name="os.product" value="HT818 Firmware"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.device" value="SIP Gateway"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:grandstream:ht818_firmware:{os.version}"/>
+    <param pos="0" name="hw.vendor" value="Grandstream"/>
+    <param pos="0" name="hw.product" value="HT818"/>
+    <param pos="0" name="hw.device" value="SIP Gateway"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:grandstream:ht818:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Grandstream HT814 ([\d.]+)$">
+    <description>Grandstream Handy Tone HT814</description>
+    <example os.version="1.0.9.3">Grandstream HT814 1.0.9.3</example>
+    <param pos="0" name="os.vendor" value="Grandstream"/>
+    <param pos="0" name="os.product" value="HT814 Firmware"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.device" value="SIP Gateway"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:grandstream:ht814_firmware:{os.version}"/>
+    <param pos="0" name="hw.vendor" value="Grandstream"/>
+    <param pos="0" name="hw.product" value="HT814"/>
+    <param pos="0" name="hw.device" value="SIP Gateway"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:grandstream:ht814:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Grandstream HT813 ([\d.]+)$">
+    <description>Grandstream Handy Tone HT813</description>
+    <example os.version="1.0.1.2">Grandstream HT813 1.0.1.2</example>
+    <param pos="0" name="os.vendor" value="Grandstream"/>
+    <param pos="0" name="os.product" value="HT813 Firmware"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.device" value="SIP Gateway"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:grandstream:ht813_firmware:{os.version}"/>
+    <param pos="0" name="hw.vendor" value="Grandstream"/>
+    <param pos="0" name="hw.product" value="HT813"/>
+    <param pos="0" name="hw.device" value="SIP Gateway"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:grandstream:ht813:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Grandstream HT812 ([\d.]+)$">
+    <description>Grandstream Handy Tone HT812</description>
+    <example os.version="1.0.3.5">Grandstream HT812 1.0.3.5</example>
+    <param pos="0" name="os.vendor" value="Grandstream"/>
+    <param pos="0" name="os.product" value="HT812 Firmware"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.device" value="SIP Gateway"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:grandstream:ht812_firmware:{os.version}"/>
+    <param pos="0" name="hw.vendor" value="Grandstream"/>
+    <param pos="0" name="hw.product" value="HT812"/>
+    <param pos="0" name="hw.device" value="SIP Gateway"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:grandstream:ht812:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Grandstream HT802 ([\d.]+)$">
+    <description>Grandstream Handy Tone HT802</description>
+    <example os.version="1.0.3.2">Grandstream HT802 1.0.3.2</example>
+    <param pos="0" name="os.vendor" value="Grandstream"/>
+    <param pos="0" name="os.product" value="HT802 Firmware"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.device" value="SIP Gateway"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:grandstream:ht802_firmware:{os.version}"/>
+    <param pos="0" name="hw.vendor" value="Grandstream"/>
+    <param pos="0" name="hw.product" value="HT802"/>
+    <param pos="0" name="hw.device" value="SIP Gateway"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Grandstream HT801 ([\d.]+)$">
+    <description>Grandstream Handy Tone HT801</description>
+    <example os.version="1.0.3.2">Grandstream HT801 1.0.3.2</example>
+    <param pos="0" name="os.vendor" value="Grandstream"/>
+    <param pos="0" name="os.product" value="HT801 Firmware"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.device" value="SIP Gateway"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:grandstream:ht801_firmware:{os.version}"/>
+    <param pos="0" name="hw.vendor" value="Grandstream"/>
+    <param pos="0" name="hw.product" value="HT801"/>
+    <param pos="0" name="hw.device" value="SIP Gateway"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:grandstream:ht801:-"/>
+  </fingerprint>
+
+  <!-- Grandstream Handy Tone catchall for when CPEs aren't required for vuln mapping-->
+
+  <fingerprint pattern="^Grandstream (HT7\d\d) ([\d.]+)$">
+    <description>Grandstream Handy Tone HT7xx</description>
+    <example hw.product="HT701" os.version="1.0.8.2">Grandstream HT701 1.0.8.2</example>
+    <param pos="0" name="os.vendor" value="Grandstream"/>
+    <param pos="0" name="os.product" value="{hw.product} Firmware"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.device" value="SIP Gateway"/>
+    <param pos="0" name="hw.vendor" value="Grandstream"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="SIP Gateway"/>
+  </fingerprint>
+
+  <!-- The next few fingerprints could be merged but are split to enable CPEs -->
+
+  <fingerprint pattern="^Grandstream GXP2200 ([\d.]+)$">
+    <description>Grandstream GXP SIP Phone GXP2200</description>
+    <example os.version="1.0.3.27">Grandstream GXP2200 1.0.3.27</example>
+    <param pos="0" name="os.vendor" value="Grandstream"/>
+    <param pos="0" name="os.product" value="GXP2200 Firmware"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.device" value="SIP Device"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:grandstream:gxp2200_firmware:{os.version}"/>
+    <param pos="0" name="hw.vendor" value="Grandstream"/>
+    <param pos="0" name="hw.product" value="GXP2200"/>
+    <param pos="0" name="hw.device" value="SIP Device"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:grandstream:gxp2200:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Grandstream GXP1628 ([\d.]+)$">
+    <description>Grandstream GXP SIP Phone GXP1628</description>
+    <example os.version="1.0.7.6">Grandstream GXP1628 1.0.7.6</example>
+    <param pos="0" name="os.vendor" value="Grandstream"/>
+    <param pos="0" name="os.product" value="GXP1628 Firmware"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.device" value="SIP Device"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:grandstream:gxp1628_firmware:{os.version}"/>
+    <param pos="0" name="hw.vendor" value="Grandstream"/>
+    <param pos="0" name="hw.product" value="GXP1628"/>
+    <param pos="0" name="hw.device" value="SIP Device"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:grandstream:gxp1628:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Grandstream GXP1625 ([\d.]+)$">
+    <description>Grandstream GXP SIP Phone GXP1625</description>
+    <example os.version="1.0.4.128">Grandstream GXP1625 1.0.4.128</example>
+    <param pos="0" name="os.vendor" value="Grandstream"/>
+    <param pos="0" name="os.product" value="GXP1625 Firmware"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.device" value="SIP Device"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:grandstream:gxp1625_firmware:{os.version}"/>
+    <param pos="0" name="hw.vendor" value="Grandstream"/>
+    <param pos="0" name="hw.product" value="GXP1625"/>
+    <param pos="0" name="hw.device" value="SIP Device"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:grandstream:gxp1625:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Grandstream GXP1615 ([\d.]+)$">
+    <description>Grandstream GXP SIP Phone GXP1615</description>
+    <example os.version="1.0.4.128">Grandstream GXP1615 1.0.4.128</example>
+    <param pos="0" name="os.vendor" value="Grandstream"/>
+    <param pos="0" name="os.product" value="GXP1615 Firmware"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.device" value="SIP Device"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:grandstream:gxp1615_firmware:{os.version}"/>
+    <param pos="0" name="hw.vendor" value="Grandstream"/>
+    <param pos="0" name="hw.product" value="GXP1615"/>
+    <param pos="0" name="hw.device" value="SIP Device"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:grandstream:gxp1615:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Grandstream GXP1610 ([\d.]+)$">
+    <description>Grandstream GXP SIP Phone GXP1610</description>
+    <example os.version="1.0.4.138">Grandstream GXP1610 1.0.4.138</example>
+    <param pos="0" name="os.vendor" value="Grandstream"/>
+    <param pos="0" name="os.product" value="GXP1610 Firmware"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.device" value="SIP Device"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:grandstream:gxp1610_firmware:{os.version}"/>
+    <param pos="0" name="hw.vendor" value="Grandstream"/>
+    <param pos="0" name="hw.product" value="GXP1610"/>
+    <param pos="0" name="hw.device" value="SIP Device"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:grandstream:gxp1610:-"/>
+  </fingerprint>
+
+  <!-- Grandstream GXP catchall for when CPEs aren't required for vuln mapping-->
+
+  <fingerprint pattern="^Grandstream (GXP\d\d\d\d) ([\d.]+)$">
+    <description>Grandstream GXP SIP Phone</description>
+    <example hw.product="GXP2135" os.version="1.0.9.108">Grandstream GXP2135 1.0.9.108</example>
+    <param pos="0" name="os.vendor" value="Grandstream"/>
+    <param pos="0" name="os.product" value="{hw.product} Firmware"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.device" value="SIP Device"/>
+    <param pos="0" name="hw.vendor" value="Grandstream"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="SIP Device"/>
   </fingerprint>
 
 </fingerprints>

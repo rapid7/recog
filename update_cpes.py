@@ -190,7 +190,7 @@ def update_cpes(xml_file, cpe_vp_map, r7_vp_map):
                     continue
 
                 vendor = vendor.lower().replace(' ', '_').replace(',', '')
-                product = product.lower().replace(' ', '_').replace(',', '')
+                product = product.lower().replace(' ', '_').replace(',', '').replace('!', '%21')
                 if 'unknown' in [vendor, product]:
                     continue
 
@@ -209,8 +209,8 @@ def update_cpes(xml_file, cpe_vp_map, r7_vp_map):
                     continue
 
                 # building the CPE string
-                # Last minute escaping of '/'
-                product = product.replace('/', '\/')
+                # Last minute escaping of '/' and `!`
+                product = product.replace('/', '\/').replace('%21', '\!')
                 cpe_value = 'cpe:/{}:{}:{}'.format(cpe_type, vendor, product)
 
                 if version:
