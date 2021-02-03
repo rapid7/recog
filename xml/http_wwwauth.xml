@@ -192,6 +192,13 @@
     <param pos="0" name="service.family" value="GoAhead Webserver"/>
   </fingerprint>
 
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;Logitech Media Server&quot;.*$">
+    <description>Logitech Media server</description>
+    <example>Basic realm="Logitech Media Server"</example>
+    <param pos="0" name="service.vendor" value="Logitech"/>
+    <param pos="0" name="service.product" value="Squeezebox"/>
+  </fingerprint>
+
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;kubernetes-master&quot;.*$">
     <description>Kubernetes master nodes</description>
     <example>Basic realm="kubernetes-master"</example>

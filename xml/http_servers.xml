@@ -2,6 +2,29 @@
 <fingerprints matches="http_header.server" protocol="http" database_type="service" preference="0.90">
   <!-- HTTP Server headers are matched against these patterns to fingerprint HTTP servers. -->
 
+  <fingerprint pattern="^Mastodon$">
+    <description>Mastodon</description>
+    <example>Mastodon</example>
+    <param pos="0" name="service.product" value="Mastodon"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:joinmastodon:mastodon"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Logitech Media Server \(([0-9.]+) - [0-9]+\)$">
+    <description>Logitech Media server</description>
+    <example service.version="7.9.3">Logitech Media Server (7.9.3 - 1586752599)</example>
+    <param pos="0" name="service.vendor" value="Logitech"/>
+    <param pos="0" name="service.product" value="Squeezebox"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^libwww-perl-daemon/([.0-9]+)$">
+    <description>Perl web server</description>
+    <example service.version="1.36">libwww-perl-daemon/1.36</example>
+    <param pos="0" name="service.vendor" value="Perl"/>
+    <param pos="0" name="service.product" value="perl"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
   <fingerprint pattern="^BASHttpd/([\d.]+)">
     <description>BASHttpd</description>
     <example service.version="4.3.24">BASHttpd/4.3.24-release</example>
