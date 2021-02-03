@@ -19,6 +19,21 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:tildeslash:monit:{service.version}"/>
   </fingerprint>
 
+  <fingerprint pattern="^Artifactory/([\d.]+)$">
+    <description>JFrog’s Artifactory repository management</description>
+    <example service.version="4.16.0">Artifactory/4.16.0</example>
+    <param pos="0" name="service.vendor" value="JFrog"/>
+    <param pos="0" name="service.product" value="Artifactory"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cowboy$">
+    <description>Cowboy HTTP server</description>
+    <example>Cowboy</example>
+    <param pos="0" name="service.vendor" value="ninenines"/>
+    <param pos="0" name="service.product" value="Cowboy"/>
+  </fingerprint>
+
   <fingerprint pattern="(?i)^AirTunes/([\d\.]+)$">
     <description>Apple AirTunes/AirPlay, more generally RTSP used by a variety of wireless a/v products</description>
     <example service.version="220.68">AirTunes/220.68</example>

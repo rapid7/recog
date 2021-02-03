@@ -92,6 +92,14 @@
     <param pos="0" name="service.product" value="CakePHP"/>
   </fingerprint>
 
+  <fingerprint pattern="^__cfuid=">
+    <description>CloudFlare web load balancer endpoint</description>
+    <example>__cfuid=1337</example>
+    <param pos="0" name="service.vendor" value="CloudFlare"/>
+    <param pos="0" name="service.product" value="CloudFlare Load Balancer"/>
+    <param pos="0" name="service.family" value="CloudFlare"/>
+  </fingerprint>
+
   <!--
   For the following two Cisco Content Service Switch fingerprints:
       The cookie value breaks down to [box-id][service-id][timeout-value]
@@ -189,6 +197,14 @@
     <param pos="0" name="service.vendor" value="Ektron"/>
     <param pos="0" name="service.family" value="CMS400.NET"/>
     <param pos="0" name="service.product" value="CMS400.NET"/>
+  </fingerprint>
+
+  <fingerprint pattern="^FESESSIONID=">
+    <description>Atlanssian's Fisheye</description>
+    <example>FESESSIONID=133713381337</example>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="Atlassian"/>
+    <param pos="0" name="service.product" value="Fisheye"/>
   </fingerprint>
 
   <fingerprint pattern="(?i)^(BIGipServer([^=]+))=.*">
