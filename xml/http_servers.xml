@@ -19,6 +19,20 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:tildeslash:monit:{service.version}"/>
   </fingerprint>
 
+  <fingerprint pattern="^envoy$">
+    <description>Envoy</description>
+    <example>envoy</example>
+    <param pos="0" name="service.vendor" value="envoy"/>
+    <param pos="0" name="service.product" value="envoy"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Etherpad">
+    <description>Etherpad</description>
+    <example>Etherpad 44370f1 (http://etherpad.org)</example>
+    <param pos="0" name="service.vendor" value="etherpad"/>
+    <param pos="0" name="service.product" value="etherpad"/>
+  </fingerprint>
+
   <fingerprint pattern="^Artifactory/([\d.]+)$">
     <description>JFrog’s Artifactory repository management</description>
     <example service.version="4.16.0">Artifactory/4.16.0</example>
