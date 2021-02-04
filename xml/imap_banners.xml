@@ -47,7 +47,7 @@
     <param pos="2" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^Der Microsoft Exchange Server 2003 IMAP4rev1-Server, Version (6\.5\.\d{4}\.\d+) \((.*)\),.*$">
+  <fingerprint pattern="^Der Microsoft Exchange Server 2003 IMAP4rev1-Server, Version (6\.5\.\d{4}\.\d+) \((.*)\),">
     <description>Microsoft Exchange Server 2003, German</description>
     <example service.version="6.5.7638.1" host.name="foo.bar">Der Microsoft Exchange Server 2003 IMAP4rev1-Server, Version 6.5.7638.1 (foo.bar), steht zur Verfgung.</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
@@ -253,7 +253,7 @@
       // * OK xxx PMDF IMAP4rev1 V6.0-24 (Message store V6.0-24)
       // * OK xxx PMDF IMAP4rev1 V6.0-9
       IMAP_FP_PARSERS[5] = new PatternParser(
-         "^([^\\s]+) PMDF IMAP4rev1 V([^\\s]+).*$");
+         "^([^\\s]+) PMDF IMAP4rev1 V([^\\s]+)");
       IMAP_FP_PARSERS[5].addConstantParam("product", "PMDF");
       IMAP_FP_PARSERS[5].addParamSpec(1, "hostname");
       IMAP_FP_PARSERS[5].addParamSpec(2, "version");
@@ -265,7 +265,7 @@
       IMAP_FP_PARSERS[6].addParamSpec(2, "server-time");
       // Eudora Internet Mail Server
       IMAP_FP_PARSERS[7] = new PatternParser(
-         "^Eudora Internet Mail Server (.*) .*$");
+         "^Eudora Internet Mail Server (.*) ");
       IMAP_FP_PARSERS[7].addConstantParam("product", "eudoraims");
       IMAP_FP_PARSERS[7].addParamSpec(1, "version");
       // Eudora Qualcomm WorldMail

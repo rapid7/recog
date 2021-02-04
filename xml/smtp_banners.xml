@@ -247,7 +247,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) Microsoft ESMTP MAIL Service ready at .*$">
+  <fingerprint pattern="^([^ ]+) Microsoft ESMTP MAIL Service ready at ">
     <description>Microsoft Exchange 2007/2010 (for sure, can't be confused with the IIS builtin SMTP service)</description>
     <example>foo.bar Microsoft ESMTP MAIL Service ready at Wed, 21 Jul 2010 19:04:24 -0700</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
@@ -432,7 +432,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) FTGate server ready .*$">
+  <fingerprint pattern="^([^ ]+) FTGate server ready ">
     <description>FTGate mail server, runs on Windows 9x/NT/2k (http://www.ftgate.com)</description>
     <example host.name="foo.bar">foo.bar FTGate server ready -attitude [C.o.r.E]</example>
     <param pos="0" name="service.vendor" value="Floosietek"/>
@@ -780,7 +780,7 @@
     <param pos="2" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) SMTP NAVIEG ([^ ]+\.[^ ]+\.[^ ]+); (.+)* http.*$">
+  <fingerprint pattern="^([^ ]+) SMTP NAVIEG ([^ ]+\.[^ ]+\.[^ ]+); (.+)* http">
     <description>Norton Antivirus for Internet Email Gateways (becomes NAVGW in 2.1)</description>
     <example host.name="foo.bar" service.version="2.0.1">foo.bar SMTP NAVIEG 2.0.1; Sun, 29 Jul 2001 22:02:16 -0500 http://www.symantec.com</example>
     <param pos="0" name="service.vendor" value="Norton"/>
@@ -792,7 +792,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) ESMTP service \(Netscape Messaging Server ([^ ]+\.[^ ]+) Patch ([^ ]+).*$">
+  <fingerprint pattern="^([^ ]+) ESMTP service \(Netscape Messaging Server ([^ ]+\.[^ ]+) Patch ([^ ]+)">
     <description>Netscape Messaging Server - with patch number</description>
     <example host.name="foo.bar" service.version="4.15" service.version.version="7">foo.bar ESMTP service (Netscape Messaging Server 4.15 Patch 7 (built Sep 12 2001))</example>
     <param pos="0" name="service.vendor" value="Netscape"/>
@@ -915,7 +915,7 @@
     <param pos="4" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+)(?: UCX)? V\S+, OpenVMS V(\S+) (\S+) ready at .*$">
+  <fingerprint pattern="^(\S+)(?: UCX)? V\S+, OpenVMS V(\S+) (\S+) ready at ">
     <description>Some unknown mail server on OpenVMS</description>
     <example host.name="foo.bar" os.arch="IA64" os.version="8.4">foo.bar V5.7-ECO4, OpenVMS V8.4 IA64 ready at Wed, 20 May 2015 01:22:32 +0100 (BST)</example>
     <example host.name="foo.bar" os.arch="Alpha" os.version="7.3-2">foo.bar V5.4-15E, OpenVMS V7.3-2 Alpha ready at Wed, 20 May 2015 01:22:18 +0100 (BST)</example>
@@ -1286,7 +1286,7 @@
     <param pos="5" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d\+(?:wheezy|deb7u)\d; (.+); .*$">
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d\+(?:wheezy|deb7u)\d; (.+); ">
     <description>Sendmail - Debian 7.x (wheezy)</description>
     <example service.version="8.14.4">foo.bar ESMTP Sendmail 8.14.4/8.14.4/Debian-4+wheezy1; Thu, 30 Nov 2017 10:33:05 +0100; (No UCE/UBE) logging access from: xyz.foo.bar(OK)-xyz.foo.bar [10.0.0.1]</example>
     <example service.version="8.14.4">foo.bar ESMTP Sendmail 8.14.4/8.14.4/Debian-4+deb7u1; Thu, 30 Nov 2017 11:00:33 +0100; (No UCE/UBE) logging access from: xyz.foo.bar(OK)-xyz.foo.bar [10.0.0.1]</example>
@@ -1306,7 +1306,7 @@
     <param pos="4" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d\+deb8u\d; (.+); .*$">
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d\+deb8u\d; (.+); ">
     <description>Sendmail - Debian 8.x (jessie)</description>
     <example service.version="8.14.4">foo.bar ESMTP Sendmail 8.14.4/8.14.4/Debian-8+deb8u2; Thu, 30 Nov 2017 10:25:48 +0100; (No UCE/UBE) logging access from: xyz.foo.bar(OK)-xyz.foo.bar [10.0.0.1]</example>
     <param pos="0" name="service.vendor" value="Sendmail"/>
@@ -1325,7 +1325,7 @@
     <param pos="4" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d\+lenny\d; (.+); .*$">
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d\+lenny\d; (.+); ">
     <description>Sendmail - Debian 5.x (lenny)</description>
     <example service.version="8.14.3">foo.bar ESMTP Sendmail 8.14.3/8.14.3/Debian-5+lenny1; Thu, 30 Nov 2017 12:29:40 +0300; (No UCE/UBE) logging access from: xyz.foo.bar(OK)-xyz.foo.bar [10.0.0.1]</example>
     <param pos="0" name="service.vendor" value="Sendmail"/>
@@ -1344,7 +1344,7 @@
     <param pos="4" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d\+etch\d; (.+); .*$">
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d\+etch\d; (.+); ">
     <description>Sendmail - Debian 4.x (etch)</description>
     <example service.version="8.13.8" sendmail.config.version="8.13.8">foo.bar ESMTP Sendmail 8.13.8/8.13.8/Debian-3+etch1; Thu, 30 Nov 2017 10:28:23 +0100; (No UCE/UBE) logging access from: xyz.foo.bar(OK)-xyz.foo.bar [10.0.0.1]</example>
     <param pos="0" name="service.vendor" value="Sendmail"/>
@@ -1363,7 +1363,7 @@
     <param pos="4" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\dsarge\d; (.+); .*$">
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\dsarge\d; (.+); ">
     <description>Sendmail - Debian 3.1 (sarge)</description>
     <example service.version="8.13.4">foo.bar ESMTP Sendmail 8.13.4/8.13.4/Debian-3sarge1; Thu, 30 Nov 2017 10:55:47 +0100; (No UCE/UBE) logging access from: xyz.foo.bar(OK)-xyz.foo.bar [10.0.0.1]</example>
     <param pos="0" name="service.vendor" value="Sendmail"/>
@@ -1382,7 +1382,7 @@
     <param pos="4" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d(?:\.\d)?(?:build\d)?;+ (.+); .*$">
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d(?:\.\d)?(?:build\d)?;+ (.+); ">
     <description>Sendmail - Debian patch only</description>
     <example service.version="8.15.2">foo.bar ESMTP Sendmail 8.15.2/8.15.2/Debian-3; Thu, 30 Nov 2017 10:55:50 +0200; (No UCE/UBE) logging access from: xyz.foo.bar(OK)-xyz.foo.bar [10.0.0.1]</example>
     <example service.version="8.14.3">foo.bar ESMTP Sendmail 8.14.3/8.14.3/Debian-9.4; Thu, 30 Nov 2017 10:11:54 +0100; (No UCE/UBE) logging access from: xyz.foo.bar(OK)-xyz.foo.bar [10.0.0.1]</example>
@@ -1402,7 +1402,7 @@
     <param pos="4" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/[^/]+/Debian-[\d.]+ubuntu[^ ]*; (.+); .*$">
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/[^/]+/Debian-[\d.]+ubuntu[^ ]*; (.+); ">
     <description>Sendmail - Ubuntu</description>
     <example service.version="8.13.5.20060308">foo.bar ESMTP Sendmail 8.13.5.20060308/8.13.5/Debian-3ubuntu1.1; Fri, 24 Jul 2009 01:41:21 -0700; (No UCE/UBE) logging access from: xyz.foo.bar(OK)-xyz.foo.bar [10.0.0.1]</example>
     <example service.version="8.14.4">foo.bar ESMTP Sendmail 8.14.4/8.14.4/Debian-4.1ubuntu1; Thu, 30 Nov 2017 11:00:30 +0100; (No UCE/UBE) logging access from: xyz.foo.bar(OK)-xyz.foo.bar [10.0.0.1]</example>
