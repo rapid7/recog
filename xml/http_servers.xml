@@ -1805,6 +1805,10 @@
     <param pos="0" name="os.device" value="File Server"/>
     <param pos="1" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:netapp:data_ontap:{os.version}"/>
+    <param pos="0" name="hw.vendor" value="NetApp"/>
+    <param pos="0" name="hw.device" value="File Server"/>
+    <param pos="0" name="hw.family" value="Data ONTAP"/>
+    <param pos="0" name="hw.product" value="Data ONTAP"/>
   </fingerprint>
 
   <fingerprint pattern="^BlueCoat-Security-Appliance$">
@@ -2387,6 +2391,15 @@
     <param pos="0" name="service.family" value="Python"/>
     <param pos="1" name="service.version"/>
     <param pos="2" name="python.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Grandstream (GXP[^\s]+) ([\d\.]+)$">
+    <description>Grandstream IP Phone</description>
+    <example hw.product="GXP2020" hw.version="1.2.5.3">Grandstream GXP2020 1.2.5.3</example>
+    <param pos="0" name="hw.vendor" value="Grandstream"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="2" name="hw.version"/>
+    <param pos="1" name="hw.product"/>
   </fingerprint>
 
   <fingerprint pattern="^HP Web Jetadmin/((?:\d+\.)*\d+)\s*(.*)$">
@@ -4191,8 +4204,8 @@
   <fingerprint pattern="^pve-api-daemon/[\d.]+">
     <description>Proxmox api daemon</description>
     <example>pve-api-daemon/3.0</example>
-    <param pos="0" name="service.vendor" value="Proxmox"/>
-    <param pos="0" name="service.product" value="Proxmox"/>
+    <param pos="0" name="service.vendor" value="proxmox"/>
+    <param pos="0" name="service.product" value="proxmox"/>
     <param pos="0" name="os.vendor" value="Proxmox"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Proxmox"/>

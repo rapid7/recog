@@ -1493,6 +1493,10 @@
     <param pos="0" name="os.family" value="Data ONTAP"/>
     <param pos="0" name="os.product" value="Data ONTAP"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:netapp:data_ontap:-"/>
+    <param pos="0" name="hw.vendor" value="NetApp"/>
+    <param pos="0" name="hw.device" value="File server"/>
+    <param pos="0" name="hw.family" value="Data ONTAP"/>
+    <param pos="0" name="hw.product" value="Data ONTAP"/>
   </fingerprint>
 
   <fingerprint pattern="OpenVMS.*Version\sV([^\s]+).*">
@@ -2064,6 +2068,25 @@
     <param pos="0" name="service.component.vendor" value="SAP"/>
     <param pos="0" name="service.component.product" value="NetWeaver Application Server"/>
     <param pos="0" name="service.component.cpe23" value="cpe:/a:sap:netweaver_application_server:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(?:\r|\n|\s)*UDP/TCP/IP Stack: ACT Video security">
+    <description>ACT Security IP Cameras</description>
+    <!--
+      UDP/TCP/IP Stack: ACT Video security\r\n
+      V5.8\r\n
+      Welcome connection : 192.168.0.1:61300\r\n
+      \r\n
+      Password:
+    -->
+
+    <example _encoding="base64">
+      VURQL1RDUC9JUCBTdGFjazogQUNUIFZpZGVvIHNlY3VyaXR5DQpWNS44DQpX
+      ZWxjb21lIGNvbm5lY3Rpb24gOiAxOTIuMTY4LjAuMTo2MTMwMA0KDQpQYXNz
+      d29yZDog
+    </example>
+    <param pos="0" name="hw.vendor" value="ACT Security"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
   </fingerprint>
 
 </fingerprints>
