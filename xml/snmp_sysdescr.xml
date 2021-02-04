@@ -1040,6 +1040,8 @@
     <param pos="0" name="os.product" value="Fabric OS"/>
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:brocade:fabric_os:-"/>
+    <param pos="0" name="hw.vendor" value="Brocade"/>
+    <param pos="0" name="hw.device" value="Switch"/>
   </fingerprint>
 
   <fingerprint pattern="^Brocade ((?:\S+ )?SAN Switch) Module for IBM eServer BladeCenter$">
@@ -1050,6 +1052,7 @@
     <param pos="0" name="os.vendor" value="Brocade"/>
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
+    <param pos="0" name="hw.vendor" value="Brocade"/>
   </fingerprint>
 
   <fingerprint pattern="^Brocade (?:Communications? Systems, Inc\. )?([^,\(]+)(?: \([^\)]+\))?,(?: Extended route scalability,)? IronWare Version V?(\S+) .*$">
@@ -1077,6 +1080,47 @@
     <param pos="0" name="os.family" value="TrafficWare"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Brocade VDX Switch, BR-(\S+), Network Operating System Software Version (\S+)\.$">
+    <description>Brocade VDX Switch</description>
+    <example hw.product="VDX6740" os.version="7.0.2b">Brocade VDX Switch, BR-VDX6740, Network Operating System Software Version 7.0.2b.</example>
+    <param pos="0" name="os.vendor" value="Brocade"/>
+    <param pos="0" name="os.device" value="Switch"/>
+    <param pos="0" name="os.family" value="NetworkOS"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="hw.vendor" value="Brocade"/>
+    <param pos="0" name="hw.family" value="VDX"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Switch"/>
+  </fingerprint>
+
+  <fingerprint pattern="^([^,]+), (VDX\S+), Network Operating System Software Version (\S+)\.$">
+    <description>Brocade VDX Switch w/Hostname</description>
+    <example host.name="core02" hw.product="VDX6740T-1G" os.version="7.0.1b">core02, VDX6740T-1G, Network Operating System Software Version 7.0.1b.</example>
+    <param pos="0" name="os.vendor" value="Brocade"/>
+    <param pos="0" name="os.device" value="Switch"/>
+    <param pos="0" name="os.family" value="NetworkOS"/>
+    <param pos="3" name="os.version"/>
+    <param pos="0" name="hw.vendor" value="Brocade"/>
+    <param pos="0" name="hw.family" value="VDX"/>
+    <param pos="2" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Switch"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+
+  <fingerprint pattern="^([^,]+), BR-(\S+), Network Operating System Software Version (\S+)\.$">
+    <description>Brocade VDX Switch w/Hostname and BR prefix</description>
+    <example host.name="core01" hw.product="VDX6740" os.version="7.0.2b">core01, BR-VDX6740, Network Operating System Software Version 7.0.2b.</example>
+    <param pos="0" name="os.vendor" value="Brocade"/>
+    <param pos="0" name="os.device" value="Switch"/>
+    <param pos="0" name="os.family" value="NetworkOS"/>
+    <param pos="3" name="os.version"/>
+    <param pos="0" name="hw.vendor" value="Brocade"/>
+    <param pos="0" name="hw.family" value="VDX"/>
+    <param pos="2" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Switch"/>
+    <param pos="1" name="host.name"/>
   </fingerprint>
 
   <!--======================================================================
@@ -1808,6 +1852,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Cumulus Linux"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.version.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cumulusnetworks:cumulus_linux:{os.version}"/>
   </fingerprint>
 
   <!--======================================================================
@@ -7332,38 +7377,6 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="Zyxel"/>
     <param pos="0" name="os.product" value="Prestige 650R-T3"/>
     <param pos="0" name="os.device" value="Broadband Router"/>
-  </fingerprint>
-
-  <fingerprint pattern="^Brocade VDX Switch, BR-(\S+), Network Operating System Software Version (\S+)\.$">
-    <description>Brocade VDX Switch</description>
-    <example os.product="VDX6740" os.version="7.0.2b">Brocade VDX Switch, BR-VDX6740, Network Operating System Software Version 7.0.2b.</example>
-    <param pos="0" name="os.vendor" value="Brocade"/>
-    <param pos="0" name="os.device" value="Switch"/>
-    <param pos="0" name="os.family" value="NetworkOS"/>
-    <param pos="1" name="os.product"/>
-    <param pos="2" name="os.version"/>
-  </fingerprint>
-
-  <fingerprint pattern="^([^,]+), (VDX\S+), Network Operating System Software Version (\S+)\.$">
-    <description>Brocade VDX Switch w/Hostname</description>
-    <example host.name="core02" os.product="VDX6740T-1G" os.version="7.0.1b">core02, VDX6740T-1G, Network Operating System Software Version 7.0.1b.</example>
-    <param pos="0" name="os.vendor" value="Brocade"/>
-    <param pos="0" name="os.device" value="Switch"/>
-    <param pos="0" name="os.family" value="NetworkOS"/>
-    <param pos="1" name="host.name"/>
-    <param pos="2" name="os.product"/>
-    <param pos="3" name="os.version"/>
-  </fingerprint>
-
-  <fingerprint pattern="^([^,]+), BR-(\S+), Network Operating System Software Version (\S+)\.$">
-    <description>Brocade VDX Switch w/Hostname and BR prefix</description>
-    <example host.name="core01" os.product="VDX6740" os.version="7.0.2b">core01, BR-VDX6740, Network Operating System Software Version 7.0.2b.</example>
-    <param pos="0" name="os.vendor" value="Brocade"/>
-    <param pos="0" name="os.device" value="Switch"/>
-    <param pos="0" name="os.family" value="NetworkOS"/>
-    <param pos="1" name="host.name"/>
-    <param pos="2" name="os.product"/>
-    <param pos="3" name="os.version"/>
   </fingerprint>
 
 </fingerprints>
