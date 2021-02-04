@@ -6,6 +6,11 @@
 
   <!-- Generic high volume matches -->
 
+  <fingerprint pattern="^SIP/2.0$">
+    <description>Generic SIP/2.0 response -- assert nothing.</description>
+    <example>SIP/2.0</example>
+  </fingerprint>
+
   <fingerprint pattern="^TP-Link SIP Stack V1.0.0$">
     <description>TP-Link SIP enabled device</description>
     <example>TP-Link SIP Stack V1.0.0</example>
@@ -16,6 +21,16 @@
     <description>DLink SIP enabled device</description>
     <example>DLink VoIP Stack</example>
     <param pos="0" name="hw.vendor" value="D-Link"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Home&amp;Life HUB/([\d.]+)$">
+    <description>Zyxel home routers</description>
+    <example>Home&amp;Life HUB/1.1.26.00</example>
+    <param pos="0" name="os.vendor" value="Zyxel"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="0" name="hw.vendor" value="Zyxel"/>
+    <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
 
   <!-- Technicolor devices -->
@@ -54,6 +69,21 @@
     <param pos="0" name="os.device" value="Router"/>
     <param pos="2" name="os.version"/>
     <param pos="0" name="hw.vendor" value="Technicolor"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Router"/>
+  </fingerprint>
+
+  <!-- Thomson was an older name for Technicolor-->
+
+  <fingerprint pattern="^Thomson (TG[\w]+) (?:v\d )?Build (\d+\.[\w.-]+)(?: CP\w+)?$">
+    <description>Thomson TGxxx Router with build info</description>
+    <example hw.product="TG784" os.version="8.4.2.Q">Thomson TG784 Build 8.4.2.Q</example>
+    <example hw.product="TG784n" os.version="8.4.H.F">Thomson TG784n Build 8.4.H.F</example>
+    <example hw.product="TG797n" os.version="8.C.D.9">Thomson TG797n v2 Build 8.C.D.9</example>
+    <param pos="0" name="os.vendor" value="Thomson"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="hw.vendor" value="Thomson"/>
     <param pos="1" name="hw.product"/>
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
@@ -486,6 +516,40 @@
     <param pos="0" name="hw.vendor" value="Grandstream"/>
     <param pos="1" name="hw.product"/>
     <param pos="0" name="hw.device" value="SIP Device"/>
+  </fingerprint>
+
+  <fingerprint pattern="^FortiVoice/([\w.-]+)$">
+    <description>Fortinet FortiVoice</description>
+    <example service.version="7.31b00">FortiVoice/7.31b00</example>
+    <example service.version="5.2.95-5">FortiVoice/5.2.95-5</example>
+    <param pos="0" name="service.vendor" value="Fortinet"/>
+    <param pos="0" name="service.product" value="FortiVoice"/>
+    <param pos="0" name="service.device" value="SIP Gateway"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:fortinet:fortivoice:{service.version}"/>
+    <param pos="0" name="hw.vendor" value="Fortinet"/>
+    <param pos="0" name="hw.family" value="FortiVoice"/>
+    <param pos="0" name="hw.device" value="SIP Gateway"/>
+  </fingerprint>
+
+  <fingerprint pattern="^FreeSWITCH$">
+    <description>FreeSWITCH FreeSWITCH without version</description>
+    <example>FreeSWITCH</example>
+    <param pos="0" name="service.vendor" value="FreeSWITCH"/>
+    <param pos="0" name="service.product" value="FreeSWITCH"/>
+    <param pos="0" name="service.device" value="SIP Gateway"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:freeswitch:freeswitch:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^FreeSWITCH-mod_sofia/([\d.]+)">
+    <description>FreeSWITCH FreeSWITCH with version, mod_sofia</description>
+    <example service.version="1.10.4">FreeSWITCH-mod_sofia/1.10.4-release+git~20200805T110119Z~133fc2c870~64bit</example>
+    <example service.version="1.6.20">FreeSWITCH-mod_sofia/1.6.20~64bit</example>
+    <param pos="0" name="service.vendor" value="FreeSWITCH"/>
+    <param pos="0" name="service.product" value="FreeSWITCH"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.device" value="SIP Gateway"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:freeswitch:freeswitch:{service.version}"/>
   </fingerprint>
 
 </fingerprints>

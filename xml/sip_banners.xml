@@ -62,10 +62,11 @@
 
   <!-- The next few Linksys fingerprints could be merged but are split to enable CPEs -->
 
-  <fingerprint pattern="^Linksys/RT31P2-([\d.]+)\(\w+\)$">
+  <fingerprint pattern="^(?:[\dA-F]+ )?Linksys/RT31P2-([\d.]+)\(\w+\)$">
     <description>Linksys RT31P2</description>
     <example os.version="3.1.9">Linksys/RT31P2-3.1.9(LId)</example>
     <example os.version="3.1.6">Linksys/RT31P2-3.1.6(LI)</example>
+    <example os.version="3.1.6">001310E72B51 Linksys/RT31P2-3.1.6(LI)</example>
     <param pos="0" name="os.vendor" value="Linksys"/>
     <param pos="0" name="os.product" value="RT31P2 Firmware"/>
     <param pos="1" name="os.version"/>
@@ -648,6 +649,31 @@
     <param pos="0" name="service.vendor" value="STARFACE GmhH"/>
     <param pos="0" name="service.family" value="SIP Server"/>
     <param pos="0" name="service.product" value="STARFACE PBX"/>
+  </fingerprint>
+
+  <fingerprint pattern="^FortiVoice-([\w-]+)$">
+    <description>Fortinet FortiVoice</description>
+    <example hw.product="200D">FortiVoice-200D</example>
+    <example hw.product="VM-Azure">FortiVoice-VM-Azure</example>
+    <example>FortiVoice-1000E</example>
+    <param pos="0" name="service.vendor" value="Fortinet"/>
+    <param pos="0" name="service.product" value="FortiVoice"/>
+    <param pos="0" name="service.device" value="SIP Gateway"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:fortinet:fortivoice:-"/>
+    <param pos="0" name="hw.vendor" value="Fortinet"/>
+    <param pos="0" name="hw.family" value="FortiVoice"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="SIP Gateway"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Freeswitch ([\d.]+)$">
+    <description>FreeSWITCH FreeSWITCH</description>
+    <example service.version="2.0.0">Freeswitch 2.0.0</example>
+    <param pos="0" name="service.vendor" value="FreeSWITCH"/>
+    <param pos="0" name="service.product" value="FreeSWITCH"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.device" value="SIP Gateway"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:freeswitch:freeswitch:{service.version}"/>
   </fingerprint>
 
 </fingerprints>
