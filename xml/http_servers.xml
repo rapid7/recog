@@ -2,6 +2,23 @@
 <fingerprints matches="http_header.server" protocol="http" database_type="service" preference="0.90">
   <!-- HTTP Server headers are matched against these patterns to fingerprint HTTP servers. -->
 
+  <fingerprint pattern="^BASHttpd/([\d.]+)">
+    <description>BASHttpd</description>
+    <example service.version="4.3.24">BASHttpd/4.3.24-release</example>
+    <param pos="0" name="service.product" value="bashttpd"/>
+    <param pos="0" name="service.vendor" value="Avleen Vig"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^monit ([\d.]+)$">
+    <description>Monit</description>
+    <example service.version="5.6">monit 5.6</example>
+    <param pos="0" name="service.vendor" value="Tildeslash"/>
+    <param pos="0" name="service.product" value="Monit"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:tildeslash:monit:{service.version}"/>
+  </fingerprint>
+
   <fingerprint pattern="(?i)^AirTunes/([\d\.]+)$">
     <description>Apple AirTunes/AirPlay, more generally RTSP used by a variety of wireless a/v products</description>
     <example service.version="220.68">AirTunes/220.68</example>
@@ -1785,12 +1802,12 @@
     <param pos="0" name="os.vendor" value="NetApp"/>
     <param pos="0" name="os.family" value="Data ONTAP"/>
     <param pos="0" name="os.product" value="Data ONTAP"/>
-    <param pos="0" name="os.device" value="File Server"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.device" value="NAS"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:netapp:data_ontap:{os.version}"/>
     <param pos="0" name="hw.vendor" value="NetApp"/>
-    <param pos="0" name="hw.device" value="File server"/>
     <param pos="0" name="hw.family" value="Data ONTAP"/>
+    <param pos="0" name="hw.device" value="NAS"/>
     <param pos="0" name="hw.product" value="Data ONTAP"/>
   </fingerprint>
 
@@ -2374,6 +2391,15 @@
     <param pos="0" name="service.family" value="Python"/>
     <param pos="1" name="service.version"/>
     <param pos="2" name="python.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Grandstream (GXP[^\s]+) ([\d\.]+)$">
+    <description>Grandstream IP Phone</description>
+    <example hw.product="GXP2020" hw.version="1.2.5.3">Grandstream GXP2020 1.2.5.3</example>
+    <param pos="0" name="hw.vendor" value="Grandstream"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="2" name="hw.version"/>
+    <param pos="1" name="hw.product"/>
   </fingerprint>
 
   <fingerprint pattern="^HP Web Jetadmin/((?:\d+\.)*\d+)\s*(.*)$">
@@ -4175,13 +4201,64 @@
     <param pos="2" name="python.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^Grandstream (GXP[^\s]+) ([\d\.]+)$">
-    <description>Grandstream IP Phone</description>
-    <example hw.product="GXP2020" hw.version="1.2.5.3">Grandstream GXP2020 1.2.5.3</example>
-    <param pos="0" name="hw.vendor" value="Grandstream"/>
-    <param pos="0" name="hw.device" value="VoIP"/>
-    <param pos="2" name="hw.version"/>
-    <param pos="1" name="hw.product"/>
+  <fingerprint pattern="^pve-api-daemon/[\d.]+">
+    <description>Proxmox api daemon</description>
+    <example>pve-api-daemon/3.0</example>
+    <param pos="0" name="service.vendor" value="Proxmox"/>
+    <param pos="0" name="service.product" value="Proxmox"/>
+    <param pos="0" name="os.vendor" value="Proxmox"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Proxmox"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cherokee/([\d.]+) \(Debian\)$">
+    <description>Cherokee Web Server - Debian variant</description>
+    <example service.version="1.2.104">Cherokee/1.2.104 (Debian)</example>
+    <param pos="0" name="service.vendor" value="Cherokee Project"/>
+    <param pos="0" name="service.product" value="Cherokee"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cherokee-project:cherokee:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.certainty" value="0.5"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cherokee/([\d.]+) \(Ubuntu\)$">
+    <description>Cherokee Web Server - Ubuntu variant</description>
+    <example service.version="1.2.104">Cherokee/1.2.104 (Ubuntu)</example>
+    <param pos="0" name="service.vendor" value="Cherokee Project"/>
+    <param pos="0" name="service.product" value="Cherokee"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cherokee-project:cherokee:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.certainty" value="0.5"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cherokee/([\d.]+) \(Gentoo Linux\)$">
+    <description>Cherokee Web Server - Gentoo variant</description>
+    <example service.version="1.2.104">Cherokee/1.2.104 (Gentoo Linux)</example>
+    <param pos="0" name="service.vendor" value="Cherokee Project"/>
+    <param pos="0" name="service.product" value="Cherokee"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cherokee-project:cherokee:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Gentoo"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.certainty" value="0.5"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:gentoo:linux:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cherokee(?:/([\d.]+))?(?: \(UNIX\))?$">
+    <description>Cherokee Web Server</description>
+    <example>Cherokee</example>
+    <example service.version="0.2.7">Cherokee/0.2.7</example>
+    <example service.version="1.2.101">Cherokee/1.2.101 (UNIX)</example>
+    <param pos="0" name="service.vendor" value="Cherokee Project"/>
+    <param pos="0" name="service.product" value="Cherokee"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cherokee-project:cherokee:{service.version}"/>
   </fingerprint>
 
   <!-- This is a version of ACME mini_httpd where the value 'mini_httpd' has been
@@ -4197,6 +4274,35 @@
     <param pos="0" name="service.vendor" value="ACME"/>
     <param pos="0" name="service.product" value="mini_httpd"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:acme:mini_httpd:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Unspecified, UPnP/[\d\.]+, Unspecified$">
+    <description>UPNP server</description>
+    <example>Unspecified, UPnP/1.0, Unspecified</example>
+    <param pos="0" name="service.family" value="UPnP"/>
+  </fingerprint>
+
+  <fingerprint pattern="^WNR2000v([0-9]) UPnP/[\d\.]+ miniupnpd/([\d\.]+)$">
+    <description>Netgear WNR2000v5 Router UPnP</description>
+    <example hw.version="5" service.version="1.0">WNR2000v5 UPnP/1.0 miniupnpd/1.0</example>
+    <param pos="1" name="hw.version"/>
+    <param pos="2" name="service.version"/>
+    <param pos="0" name="service.vendor" value="Netgear"/>
+    <param pos="0" name="service.family" value="UPnP"/>
+    <param pos="0" name="service.product" value="MiniUPnP"/>
+    <param pos="0" name="hw.vendor" value="Netgear"/>
+    <param pos="0" name="hw.product" value="WNR2000"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:netgear:wnr2000:{hw.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ev-compat$">
+    <description>PELCO CAMERA DEVICE</description>
+    <example>ev-compat</example>
+    <param pos="0" name="service.vendor" value="Pelco"/>
+    <param pos="0" name="service.family" value="UPnP"/>
+    <param pos="0" name="hw.vendor" value="Pelco"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
   </fingerprint>
 
 </fingerprints>

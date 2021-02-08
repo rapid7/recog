@@ -2,6 +2,14 @@
 <fingerprints matches="http_header.wwwauth" protocol="http" database_type="service" preference="0.85">
   <!-- HTTP WWW-Authenticate headers are matched against these patterns to fingerprint HTTP servers. -->
 
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;monit&quot;$">
+    <description>Minot</description>
+    <example>Basic realm="monit"</example>
+    <param pos="0" name="service.vendor" value="Tildeslash"/>
+    <param pos="0" name="service.product" value="Monit"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:tildeslash:monit:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;access&quot;$">
     <description>Cisco IOS 11.x</description>
     <example>Basic realm="access"</example>

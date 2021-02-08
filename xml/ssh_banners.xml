@@ -936,7 +936,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:14.04"/>
   </fingerprint>
 
-  <fingerprint pattern="^OpenSSH_(6\.6\.1p1) (Ubuntu-8\S*)$">
+  <fingerprint pattern="^OpenSSH_(6\.6\.1p1) (Ubuntu-8)$">
     <description>OpenSSH running on Ubuntu 14.10</description>
     <example service.version="6.6.1p1" openssh.comment="Ubuntu-8">OpenSSH_6.6.1p1 Ubuntu-8</example>
     <param pos="1" name="service.version"/>
@@ -2108,11 +2108,12 @@
     <param pos="0" name="os.vendor" value="NetApp"/>
     <param pos="0" name="os.family" value="Data ONTAP"/>
     <param pos="0" name="os.product" value="Data ONTAP"/>
+    <param pos="0" name="os.device" value="NAS"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:netapp:data_ontap:-"/>
     <param pos="0" name="hw.vendor" value="NetApp"/>
-    <param pos="0" name="hw.device" value="File server"/>
     <param pos="0" name="hw.family" value="Data ONTAP"/>
     <param pos="0" name="hw.product" value="Data ONTAP"/>
+    <param pos="0" name="hw.device" value="NAS"/>
   </fingerprint>
 
   <fingerprint pattern="^(\d\.\d+\.\d+) SSH Secure Shell OpenVMS V\d+\.\d+$">
@@ -2216,6 +2217,19 @@
     <param pos="0" name="service.family" value="WeOnlyDo"/>
     <param pos="0" name="service.vendor" value="WeOnlyDo"/>
     <param pos="0" name="service.product" value="WeOnlyDo SSH Server"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Zyxel SSH server$">
+    <description>Zyxel Firewall SSH service</description>
+    <example>Zyxel SSH server</example>
+    <param pos="0" name="service.vendor" value="Zyxel"/>
+    <param pos="0" name="service.family" value="Zywall"/>
+    <param pos="0" name="os.vendor" value="Zyxel"/>
+    <param pos="0" name="os.product" value="ZyNOS firmware"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:zyxel:zynos_firmware:-"/>
+    <param pos="0" name="hw.vendor" value="Zyxel"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+    <param pos="0" name="hw.family" value="Unified Security Gateway"/>
   </fingerprint>
 
   <!--
