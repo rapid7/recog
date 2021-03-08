@@ -1,0 +1,215 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<fingerprints matches="dhcp_vendor_class" protocol="dhcp" database_type="service">
+  <!--
+    Fingerprint definitions that are matched against the string values in the
+    dhcp message vi_vendor_class field
+    The vi_vendor_class field can be found in client discover (1), request (3)
+    and inform (8) messages.
+  -->
+
+  <fingerprint pattern="^Mfg=(?:Fuji)?(?i:Xerox);Typ=(?:MFP|printer);Mod=(?:Xerox )?(\S+) ([a-zA-Z0-9]+)">
+    <description>Xerox Multifunction Printer</description>
+    <example hw.family="VersaLink" hw.model="C405">Mfg=Xerox;Typ=MFP;Mod=VersaLink C405;Ser=</example>
+    <example hw.family="AltaLink" hw.model="C8035">Mfg=Xerox;Typ=MFP;Mod=Xerox AltaLink C8035 Multifunction Printer;Ser=</example>
+    <example hw.family="WorkCentre" hw.model="3345">Mfg=XEROX;Typ=MFP;Mod=WorkCentre 3345;Ser=3BT844742;Loc=</example>
+    <example hw.family="Phaser" hw.model="6500DN">Mfg=FujiXerox;Typ=printer;Mod=Phaser 6500DN;Ser=YXE135427</example>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="0" name="hw.vendor" value="Xerox"/>
+    <param pos="1" name="hw.family"/>
+    <param pos="2" name="hw.model"/>
+    <param pos="0" name="hw.product" value="{hw.family} {hw.model}"/>
+    <param pos="0" name="os.vendor" value="Xerox"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Mfg=DELL;Typ=Printer;Mod=Dell (\S+) Laser Printer;">
+    <description>DELL Laser Printer</description>
+    <example hw.model="B2360dn">Mfg=DELL;Typ=Printer;Mod=Dell B2360dn Laser Printer;Ser=</example>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="0" name="hw.vendor" value="Dell"/>
+    <param pos="0" name="hw.family" value="Laser Printer"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="0" name="hw.product" value="{hw.family} {hw.model}"/>
+    <param pos="0" name="os.vendor" value="Dell"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Mfg=Hewlett Packard;Typ=Printer;Mod=HP (LaserJet 200|LaserJet 400) (?:color |colorMFP |MFP )?(M\d+\S+);Ser=">
+    <description>HP Multifunction Printer</description>
+    <example hw.family="LaserJet 200" hw.model="M276nw">Mfg=Hewlett Packard;Typ=Printer;Mod=HP LaserJet 200 colorMFP M276nw;Ser=CNC8DD4H9V;</example>
+    <example hw.family="LaserJet 400" hw.model="M401dne">Mfg=Hewlett Packard;Typ=Printer;Mod=HP LaserJet 400 M401dne;Ser=PHGFC71816;</example>
+    <example hw.family="LaserJet 400" hw.model="M401dw">Mfg=Hewlett Packard;Typ=Printer;Mod=HP LaserJet 400 M401dw;Ser=PHGGF06370;</example>
+    <example hw.family="LaserJet 400" hw.model="M401n">Mfg=Hewlett Packard;Typ=Printer;Mod=HP LaserJet 400 M401n;Ser=PHGDD02315;</example>
+    <example hw.family="LaserJet 400" hw.model="M425dn">Mfg=Hewlett Packard;Typ=Printer;Mod=HP LaserJet 400 MFP M425dn;Ser=CNF8G78J7W;</example>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="0" name="hw.vendor" value="HP"/>
+    <param pos="1" name="hw.family"/>
+    <param pos="2" name="hw.model"/>
+    <param pos="0" name="hw.product" value="{hw.family} {hw.model}"/>
+    <param pos="0" name="os.vendor" value="HP"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(?:Hewlett-Packard|HP) (OfficeJet|LaserJet|Printer|JetDirect)">
+    <description>HP Printer</description>
+    <example hw.family="LaserJet">Hewlett-Packard LaserJet</example>
+    <example hw.family="OfficeJet">Hewlett-Packard OfficeJet</example>
+    <example hw.family="LaserJet">HP LaserJet</example>
+    <example hw.family="Printer">HP Printer</example>
+    <example>Hewlett-Packard JetDirect</example>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="0" name="hw.vendor" value="HP"/>
+    <param pos="1" name="hw.family"/>
+    <param pos="0" name="os.vendor" value="HP"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Mfg=LEXMARK;Typ=(?:MFP|Printer);Mod=Lexmark (\S+);Ser=">
+    <description>Lexmark Printer</description>
+    <example hw.model="MX410de">Mfg=LEXMARK;Typ=MFP;Mod=Lexmark MX410de;Ser=70155PLM0Y5YD;</example>
+    <example hw.model="MS310dn">Mfg=LEXMARK;Typ=Printer;Mod=Lexmark MS310dn;Ser=451432LM0X7XY;</example>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="0" name="hw.vendor" value="Lexmark"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="0" name="os.vendor" value="Lexmark"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Canon iR-ADV (C?\d+ ?\S*)">
+    <description>Canon imageRunner Printer</description>
+    <example hw.model="C5535 III">Canon iR-ADV C5535 III</example>
+    <example hw.model="C350">Canon iR-ADV C350</example>
+    <example hw.model="4545 III">Canon iR-ADV 4545 III</example>
+    <example hw.model="525">Canon iR-ADV 525</example>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="0" name="hw.vendor" value="Canon"/>
+    <param pos="0" name="hw.family" value="imageRunner"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="0" name="hw.product" value="{hw.family} {hw.model}"/>
+    <param pos="0" name="os.vendor" value="Canon"/>
+  </fingerprint>
+
+  <fingerprint pattern="Canon (D\d+) Series">
+    <description>Canon imageClas Printer</description>
+    <example hw.model="D1600">Canon D1600 Series</example>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="0" name="hw.vendor" value="Canon"/>
+    <param pos="0" name="hw.family" value="imageClass"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="0" name="hw.product" value="{hw.family} {hw.model}"/>
+    <param pos="0" name="os.vendor" value="Canon"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Polycom-(VVX\S+)">
+    <description>Polycom IP Phone</description>
+    <example hw.model="VVX410">Polycom-VVX410</example>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="0" name="hw.vendor" value="Polycom"/>
+    <param pos="0" name="hw.family" value="VVX"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="0" name="os.vendor" value="Polycom"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cisco Systems, Inc. IP Phone (CP-\d+G?)\.*">
+    <description>Cisco IP Phone</description>
+    <example hw.model="CP-7821">Cisco Systems, Inc. IP Phone CP-7821\u0000</example>
+    <example hw.model="CP-7911G">Cisco Systems, Inc. IP Phone CP-7911G\u0000</example>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Aruba\s(JL\d+A)\s(\d+[A-Z]?)\S+\sSwitch">
+    <description>HP Aruba Network Switch</description>
+    <example hw.product="JL075A" hw.family="3810M">Aruba JL075A 3810M-16SFP+-2-slot Switch</example>
+    <example hw.product="JL253A" hw.family="2930F">Aruba JL253A 2930F-24G-4SFP+ Switch dslforum.org</example>
+    <example hw.product="JL256A" hw.family="2930F">Aruba JL256A 2930F-48G-PoE+-4SFP+ Switch</example>
+    <example hw.product="JL258A" hw.family="2930F">Aruba JL258A 2930F-8G-PoE+-2SFP+ Switch</example>
+    <example hw.product="JL357A" hw.family="2540">Aruba JL357A 2540-48G-PoE+-4SFP+ Switch</example>
+    <param pos="0" name="hw.device" value="Switch"/>
+    <param pos="0" name="hw.vendor" value="Aruba Networks"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="hw.family"/>
+    <param pos="0" name="os.vendor" value="Aruba Networks"/>
+  </fingerprint>
+
+  <fingerprint pattern="^AXIS,(?:PTZ Dome )?Network Camera,(.*),([\d\.]+)">
+    <description>Axis Network Camera</description>
+    <example hw.model="P3343" os.version="5.20.3">AXIS,Network Camera,P3343,5.20.3</example>
+    <example hw.model="M5014" os.version="5.50.3.7">AXIS,PTZ Dome Network Camera,M5014,5.50.3.7"</example>
+    <example hw.model="P3225-LV Mk II" os.version="9.70.1.5">AXIS,Network Camera,P3225-LV Mk II,9.70.1.5"</example>
+    <param pos="0" name="hw.device" value="IP Camera"/>
+    <param pos="0" name="hw.vendor" value="AXIS"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="0" name="os.vendor" value="AXIS"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^AXIS,(?:Network Video Encoder|Video Server),(\S+),([\d\.]+)">
+    <description>Axis Video Encoder</description>
+    <example hw.model="M7011" os.version="5.90.1">AXIS,Network Video Encoder,M7011,5.90.1</example>
+    <param pos="0" name="hw.device" value="Video Encoder"/>
+    <param pos="0" name="hw.vendor" value="AXIS"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="0" name="os.vendor" value="AXIS"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^AXIS,Network IO Audio Module,(\S+),([\d\.]+)">
+    <description>Axis IO Audio Module</description>
+    <example hw.model="P8221" os.version="5.10.2">AXIS,Network IO Audio Module,P8221,5.10.2</example>
+    <param pos="0" name="hw.device" value="Audio Encoder"/>
+    <param pos="0" name="hw.vendor" value="AXIS"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="0" name="os.vendor" value="AXIS"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^PCoIP Endpoint$">
+    <description>PCoIP Endpoint Device</description>
+    <example>PCoIP Endpoint</example>
+    <param pos="0" name="hw.device" value="Remote Desktop"/>
+    <param pos="0" name="hw.product" value="PCoIP Endpoint Device"/>
+    <param pos="0" name="os.vendor" value="Teradici"/>
+    <param pos="0" name="os.family" value="Teradici"/>
+  </fingerprint>
+
+  <fingerprint pattern="^android-dhcp-([\d\.]*)">
+    <description>Android Device</description>
+    <example os.version="7.1.1">android-dhcp-7.1.1</example>
+    <param pos="0" name="os.vendor" value="Google"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Android"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:google:android:{os.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^dhcpcd-(?:[\d\.]+):Linux-([\d\.]+).*:(\S*):.*">
+    <description>Linux</description>
+    <example os.version="4.14.78" os.arch="armv7l">dhcpcd-6.11.5:Linux-4.14.78:armv7l:Freescale</example>
+    <example os.version="4.19.155" os.arch="x86_64">dhcpcd-6.8.2:Linux-4.19.155-10581-g8bdb5ed8e80c:x86_64:GenuineIntel</example>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="os.version"/>
+    <param pos="2" name="os.arch"/>
+  </fingerprint>
+
+  <fingerprint pattern="^SAMSUNG Network Printer">
+    <description>Samsung Network Printer</description>
+    <example>SAMSUNG Network Printer</example>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="0" name="hw.vendor" value="Samsung"/>
+    <param pos="0" name="os.vendor" value="Samsung"/>
+  </fingerprint>
+
+  <fingerprint pattern="^MERAKI">
+    <description>MERAKI Device</description>
+    <example>MERAKI</example>
+    <param pos="0" name="hw.vendor" value="Meraki"/>
+    <param pos="0" name="os.vendor" value="Meraki"/>
+  </fingerprint>
+
+  <fingerprint pattern="^MSFT 5.0$">
+    <description>Microsoft Windows Device</description>
+    <example>MSFT 5.0</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+  </fingerprint>
+
+</fingerprints>
