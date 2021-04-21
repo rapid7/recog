@@ -134,6 +134,7 @@
     <param pos="0" name="os.product" value="ESXi"/>
     <param pos="0" name="os.device" value="Hypervisor"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:vmware:esxi:-"/>
+    <param pos="0" name="hw.device" value="Hypervisor"/>
   </fingerprint>
 
   <fingerprint pattern="^CN=CA,OU=VMware Engineering,O=vCenter,ST=California,C=US$">
@@ -156,6 +157,17 @@
     <param pos="0" name="os.vendor" value="HP"/>
     <param pos="0" name="os.family" value="iLO"/>
     <param pos="0" name="os.product" value="iLO"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=synology.com,O=Synology Inc.,L=Taipei,C=TW$">
+    <description>Synology</description>
+    <example>CN=synology.com,O=Synology Inc.,L=Taipei,C=TW</example>
+    <param pos="0" name="os.device" value="NAS"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="DSM"/>
+    <param pos="0" name="os.vendor" value="Synology"/>
+    <param pos="0" name="hw.vendor" value="Synology"/>
+    <param pos="0" name="hw.device" value="NAS"/>
   </fingerprint>
 
 </fingerprints>

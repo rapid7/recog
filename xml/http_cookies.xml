@@ -92,6 +92,14 @@
     <param pos="0" name="service.product" value="CakePHP"/>
   </fingerprint>
 
+  <fingerprint pattern="^__cfuid=">
+    <description>CloudFlare web load balancer endpoint</description>
+    <example>__cfuid=1337</example>
+    <param pos="0" name="service.vendor" value="CloudFlare"/>
+    <param pos="0" name="service.product" value="CloudFlare Load Balancer"/>
+    <param pos="0" name="service.family" value="CloudFlare"/>
+  </fingerprint>
+
   <!--
   For the following two Cisco Content Service Switch fingerprints:
       The cookie value breaks down to [box-id][service-id][timeout-value]
@@ -191,7 +199,15 @@
     <param pos="0" name="service.product" value="CMS400.NET"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^(BIGipServer([^=]+))=">
+  <fingerprint pattern="^(FESESSIONID)=">
+    <description>Atlanssian's Fisheye</description>
+    <example>FESESSIONID=133713381337</example>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="Atlassian"/>
+    <param pos="0" name="service.product" value="Fisheye"/>
+  </fingerprint>
+
+  <fingerprint pattern="(?i)^(BIGipServer([^=]+))=.*">
     <description>F5 BIG-IP LTM - Server variant</description>
     <example loadbalancer.poolname="CustomerRP">BigIpServerCustomerRP=5a; path=/; domain=.foo.bar; secure; HttpOnly</example>
     <param pos="1" name="cookie"/>
@@ -220,7 +236,15 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:f5:big-ip_local_traffic_manager:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^i_like_gitea=">
+  <fingerprint pattern="^(flyspray_project)=">
+    <description>Flyspray</description>
+    <example>flyspray_project=133713381234; Path=/; HttpOnly</example>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="Flyspray"/>
+    <param pos="0" name="service.product" value="Flyspray"/>
+  </fingerprint>
+
+  <fingerprint pattern="^i_like_gitea=.*">
     <description>Gitea</description>
     <example>i_like_gitea=fc39d4645b1d5c7c; Path=/</example>
     <param pos="0" name="cookie" value="i_like_gitea"/>
@@ -284,7 +308,14 @@
     <param pos="0" name="service.product" value="Joom!Fish"/>
   </fingerprint>
 
-  <fingerprint pattern="^(MSCSAuth|MSCSProfile)=">
+  <fingerprint pattern="^(_mastodon_session)=">
+    <description>Mastodon</description>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.product" value="Mastodon"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:joinmastodon:mastodon"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(MSCSAuth|MSCSProfile)=.*">
     <description>Microsoft Commerce Server - http://msdn2.microsoft.com/en-us/library/ms953828.aspx</description>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="Microsoft"/>
@@ -309,7 +340,18 @@
     <param pos="0" name="service.component.cpe23" value="cpe:/a:microsoft:asp.net:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(AlteonP)=">
+  <fingerprint pattern="^(nc_sameSiteCookiestrict|nc_sameSiteCookielax|oc_sessionPassphrase)=.*">
+    <description>Nextcloud</description>
+		<example>nc_sameSiteCookiestrict=true; path=/nextcloud; httponly;secure; expires=Fri, 31-Dec-2100 23:59:59 GMT; SameSite=strict</example>
+		<example>nc_sameSiteCookielax=true; path=/nextcloud; httponly;secure; expires=Fri, 31-Dec-2100 23:59:59 GMT; SameSite=lax</example>
+		<example>oc_sessionPassphrase=Y%2BZjBn8Gn%2B8jIJPVx468Tlt8qDNm%2B5IVXLxgtwlY%2BQU2T7edVmDS4091nQrT; path=/nextcloud; secure; HttpOnly</example>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="Nextcloud"/>
+    <param pos="0" name="service.product" value="Nextcloud"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:nextcloud:nextcloud_server"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(AlteonP)=.*">
     <description>Nortel Alteon Web Switch</description>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="Nortel"/>
@@ -317,7 +359,14 @@
     <param pos="0" name="service.product" value="Alteon Web Switch"/>
   </fingerprint>
 
-  <fingerprint pattern="^((?:SS_X_)?CSINTERSESSIONID)=">
+  <fingerprint pattern="^(OBSID)=.*">
+    <description>Observium</description>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="Observium"/>
+    <param pos="0" name="service.product" value="Observium"/>
+  </fingerprint>
+
+  <fingerprint pattern="^((?:SS_X_)?CSINTERSESSIONID)=.*">
     <description>OpenMarket/FatWire Content Server (www.fatwire.com)</description>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="FatWire"/>
