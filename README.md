@@ -85,7 +85,7 @@ xml/services/file2
 ...
 ```
 
-They can then be loaded using the `_filename_` attribute:
+They can then be loaded using the `_filename` attribute:
 
 ```xml
 <example _filename="file1"/>
