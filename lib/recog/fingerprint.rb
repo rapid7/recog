@@ -258,7 +258,7 @@ class Fingerprint
         contents = ""
         fn = File.join(filepath, attrs["_filename"])
         File.open(fn, "rb") do |file|
-          contents = file.read.chomp
+          contents = file.read
           contents.force_encoding(Encoding::ASCII_8BIT)
         end
         @tests << Test.new(contents, attrs)
