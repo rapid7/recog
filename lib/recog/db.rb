@@ -66,10 +66,11 @@ class DB
 
     end
 
+    filepath =  self.path.sub(/\.xml$/, '')
     @match_key = File.basename(self.path).sub(/\.xml$/, '') unless @match_key
 
     xml.xpath('/fingerprints/fingerprint').each do |fprint|
-      @fingerprints << Fingerprint.new(fprint, @match_key, @protocol)
+      @fingerprints << Fingerprint.new(fprint, @match_key, @protocol, filepath)
     end
 
     xml = nil

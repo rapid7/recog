@@ -31,7 +31,7 @@ class Fingerprint
   # @param xml [Nokogiri::XML::Element]
   # @param match_key [String] See Recog::DB
   # @param protocol [String] Protocol such as ftp, mssql, http, etc.
-  def initialize(xml, match_key=nil, protocol=nil)
+  def initialize(xml, match_key=nil, protocol=nil, filepath=nil)
     @match_key = match_key
     @protocol = protocol
     @name   = parse_description(xml)
@@ -40,7 +40,7 @@ class Fingerprint
     @tests = []
 
     @protocol.downcase! if @protocol
-    parse_examples(xml)
+    parse_examples(xml, filepath)
     parse_params(xml)
   end
 
@@ -248,13 +248,23 @@ class Fingerprint
 
   # @param xml [Nokogiri::XML::Element]
   # @return [void]
-  def parse_examples(xml)
+  def parse_examples(xml, filepath)
     elements = xml.xpath('example')
 
     elements.each do |elem|
       # convert nokogiri Attributes into a hash of name => value
       attrs = elem.attributes.values.reduce({}) { |a,e| a.merge(e.name => e.value) }
-      @tests << Test.new(elem.content, attrs)
+      if attrs["_filename"]
+        contents = ""
+        fn = File.join(filepath, attrs["_filename"])
+        File.open(fn, "rb") do |file|
+          contents = file.read
+          contents.force_encoding(Encoding::ASCII_8BIT)
+        end
+        @tests << Test.new(contents, attrs)
+      else
+        @tests << Test.new(elem.content, attrs)
+      end
     end
 
     nil

@@ -76,6 +76,23 @@ The `example` string can be base64 encoded to permit the use of unprintable char
 </example>
 ````
 
+Additionally, examples can be placed in a directory with the same base name as the XML file, in the same directory as the XML file:
+
+```
+xml/services.xml
+xml/services/file1
+xml/services/file2
+...
+```
+
+They can then be loaded using the `_filename` attribute:
+
+```xml
+<example _filename="file1"/>
+```
+
+This is useful for long examples.
+
 [^back to top](#recog-a-recognition-framework)
 
 ## Contributing
