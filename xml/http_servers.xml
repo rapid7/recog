@@ -1484,6 +1484,19 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:nginx:nginx:{service.version}"/>
   </fingerprint>
 
+  <fingerprint pattern="nginx\/(\d+\.\d+\.\d)+.+([uU]buntu)">
+    <description>nginx with version info and distro</description>
+    <example service.version="0.8.53">nginx/0.8.53 (Ubuntu)</example>
+    <param pos="0" name="service.product" value="nginx"/>
+    <param pos="0" name="service.family" value="nginx"/>
+    <param pos="0" name="service.vendor" value="nginx"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="os.vendor"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:nginx:nginx:{service.version}"/>
+  </fingerprint>
+
   <fingerprint pattern="^Lotus(?:-Domino)?(?:/|/0|/Release)?$">
     <description>IBM Lotus Notes/Domino with no useful version info</description>
     <example>Lotus</example>
