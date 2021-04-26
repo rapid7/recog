@@ -2,6 +2,29 @@
 <fingerprints matches="http_header.server" protocol="http" database_type="service" preference="0.90">
   <!-- HTTP Server headers are matched against these patterns to fingerprint HTTP servers. -->
 
+  <fingerprint pattern="^Mastodon$">
+    <description>Mastodon</description>
+    <example>Mastodon</example>
+    <param pos="0" name="service.product" value="Mastodon"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:joinmastodon:mastodon"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Logitech Media Server \(([0-9.]+) - [0-9]+\)$">
+    <description>Logitech Media server</description>
+    <example service.version="7.9.3">Logitech Media Server (7.9.3 - 1586752599)</example>
+    <param pos="0" name="service.vendor" value="Logitech"/>
+    <param pos="0" name="service.product" value="Squeezebox"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^libwww-perl-daemon/([.0-9]+)$">
+    <description>Perl web server</description>
+    <example service.version="1.36">libwww-perl-daemon/1.36</example>
+    <param pos="0" name="service.vendor" value="Perl"/>
+    <param pos="0" name="service.product" value="perl"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
   <fingerprint pattern="^BASHttpd/([\d.]+)">
     <description>BASHttpd</description>
     <example service.version="4.3.24">BASHttpd/4.3.24-release</example>
@@ -17,6 +40,35 @@
     <param pos="0" name="service.product" value="Monit"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:tildeslash:monit:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^envoy$">
+    <description>Envoy</description>
+    <example>envoy</example>
+    <param pos="0" name="service.vendor" value="envoy"/>
+    <param pos="0" name="service.product" value="envoy"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Etherpad">
+    <description>Etherpad</description>
+    <example>Etherpad 44370f1 (http://etherpad.org)</example>
+    <param pos="0" name="service.vendor" value="etherpad"/>
+    <param pos="0" name="service.product" value="etherpad"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Artifactory/([\d.]+)$">
+    <description>JFrog’s Artifactory repository management</description>
+    <example service.version="4.16.0">Artifactory/4.16.0</example>
+    <param pos="0" name="service.vendor" value="JFrog"/>
+    <param pos="0" name="service.product" value="Artifactory"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cowboy$">
+    <description>Cowboy HTTP server</description>
+    <example>Cowboy</example>
+    <param pos="0" name="service.vendor" value="ninenines"/>
+    <param pos="0" name="service.product" value="Cowboy"/>
   </fingerprint>
 
   <fingerprint pattern="(?i)^AirTunes/([\d\.]+)$">
@@ -4209,6 +4261,7 @@
     <param pos="0" name="os.vendor" value="Proxmox"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Proxmox"/>
+		<param pos="0" name="service.cpe23" value="cpe:/a:proxmox:virtual_environment:"/>
   </fingerprint>
 
   <fingerprint pattern="^Cherokee/([\d.]+) \(Debian\)$">
