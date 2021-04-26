@@ -1557,7 +1557,7 @@
 
   <fingerprint pattern="^&quot; \+ ID_VC_Welcome \+ &quot;$">
     <description>VMware vCenter</description>
-    <example>&quot; + ID_VC_Welcome + &quot;</example>
+    <example>" + ID_VC_Welcome + "</example>
     <param pos="0" name="service.vendor" value="VMware"/>
     <param pos="0" name="service.product" value="vCenter"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:vmware:vcenter_server:-"/>
@@ -2611,9 +2611,10 @@
     <param pos="0" name="service.certainty" value="0.5"/>
   </fingerprint>
 
-  <fingerprint pattern="^ownCloud$">
+  <fingerprint pattern="^[oO]wn[cC]loud$">
     <description>ownCloud</description>
     <example>ownCloud</example>
+    <example>Owncloud</example>
     <param pos="0" name="service.vendor" value="ownCloud"/>
     <param pos="0" name="service.product" value="ownCloud Server"/>
     <param pos="0" name="service.certainty" value="0.5"/>
@@ -2640,6 +2641,7 @@
     <example>RStudio Sign In</example>
     <param pos="0" name="service.vendor" value="RStudio"/>
     <param pos="0" name="service.product" value="Connect"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:rstudio:connect:-"/>
   </fingerprint>
 
   <fingerprint pattern="^(?:TurnKey Moodle|New Site)$">
@@ -2790,7 +2792,8 @@
     <description>Proxmox open-source virtualization platform</description>
     <example>proxmox - Proxmox Virtual Environment</example>
     <param pos="0" name="service.vendor" value="Proxmox"/>
-    <param pos="0" name="service.product" value="Proxmox"/>
+    <param pos="0" name="service.product" value="Virtual Environment"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:proxmox:virtual_environment:-"/>
     <param pos="0" name="os.vendor" value="Proxmox"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Proxmox"/>
@@ -2910,15 +2913,8 @@
     <description>Nextcloud</description>
     <example>Nextcloud</example>
     <param pos="0" name="service.vendor" value="Nextcloud"/>
-    <param pos="0" name="service.product" value="Nextcloud"/>
+    <param pos="0" name="service.product" value="Nextcloud Server"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:nextcloud:nextcloud_server:-"/>
-  </fingerprint>
-
-  <fingerprint pattern="Owncloud">
-    <description>Owncloud</description>
-    <example>Owncloud</example>
-    <param pos="0" name="service.vendor" value="Owncloud"/>
-    <param pos="0" name="service.product" value="Owncloud"/>
   </fingerprint>
 
   <fingerprint pattern="^Observium">
@@ -2926,6 +2922,7 @@
     <example>Observium :  - Test infra</example>
     <param pos="0" name="service.vendor" value="Observium"/>
     <param pos="0" name="service.product" value="Observium"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:observium:observium:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Login to Webmin$">
@@ -2933,6 +2930,7 @@
     <example>Login to Webmin</example>
     <param pos="0" name="service.vendor" value="Webmin"/>
     <param pos="0" name="service.product" value="Webmin"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:webmin:webmin:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Login to Usermin$">
@@ -2940,12 +2938,15 @@
     <example>Login to Usermin</example>
     <param pos="0" name="service.vendor" value="Webmin"/>
     <param pos="0" name="service.product" value="Usermin"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:webmin:usermin:-"/>
   </fingerprint>
 
   <fingerprint pattern="^MoinMoinWiki">
     <description>Moinmoin wiki</description>
     <example>MoinMoinWiki - MoinMoin</example>
-    <param pos="0" name="service.product" value="Moinmoin"/>
+    <param pos="0" name="service.vendor" value="MoinMoin"/>
+    <param pos="0" name="service.product" value="MoinMoin"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:moinmo:moinmoin:-"/>
   </fingerprint>
 
 </fingerprints>

@@ -6,7 +6,6 @@
     <description>Mastodon</description>
     <example>Mastodon</example>
     <param pos="0" name="service.product" value="Mastodon"/>
-    <param pos="0" name="service.component.cpe23" value="cpe:/a:joinmastodon:mastodon"/>
   </fingerprint>
 
   <fingerprint pattern="^Logitech Media Server \(([0-9.]+) - [0-9]+\)$">
@@ -23,6 +22,7 @@
     <param pos="0" name="service.vendor" value="Perl"/>
     <param pos="0" name="service.product" value="perl"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:perl:perl:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^BASHttpd/([\d.]+)">
@@ -43,10 +43,10 @@
   </fingerprint>
 
   <fingerprint pattern="^envoy$">
-    <description>Envoy</description>
+    <description>Envoy Proxy Envoy</description>
     <example>envoy</example>
-    <param pos="0" name="service.vendor" value="envoy"/>
-    <param pos="0" name="service.product" value="envoy"/>
+    <param pos="0" name="service.vendor" value="Envoy Proxy"/>
+    <param pos="0" name="service.product" value="Envoy"/>
   </fingerprint>
 
   <fingerprint pattern="^Etherpad">
@@ -54,6 +54,7 @@
     <example>Etherpad 44370f1 (http://etherpad.org)</example>
     <param pos="0" name="service.vendor" value="etherpad"/>
     <param pos="0" name="service.product" value="etherpad"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:etherpad:etherpad:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Artifactory/([\d.]+)$">
@@ -62,6 +63,7 @@
     <param pos="0" name="service.vendor" value="JFrog"/>
     <param pos="0" name="service.product" value="Artifactory"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:jfrog:artifactory:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^Cowboy$">
@@ -4257,11 +4259,11 @@
     <description>Proxmox api daemon</description>
     <example>pve-api-daemon/3.0</example>
     <param pos="0" name="service.vendor" value="Proxmox"/>
-    <param pos="0" name="service.product" value="Proxmox"/>
+    <param pos="0" name="service.product" value="Virtual Environment"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:proxmox:virtual_environment:-"/>
     <param pos="0" name="os.vendor" value="Proxmox"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Proxmox"/>
-		<param pos="0" name="service.cpe23" value="cpe:/a:proxmox:virtual_environment:"/>
   </fingerprint>
 
   <fingerprint pattern="^Cherokee/([\d.]+) \(Debian\)$">
