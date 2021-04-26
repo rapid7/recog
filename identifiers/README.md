@@ -1,16 +1,27 @@
 # Recog: Identifiers
 
-This directory contains lists of standard identifiers for mapping Recog matches. The goal is define a standard set of constants to represent known software, hardware, vendors, and categories.
+This directory contains lists of standard identifiers for mapping Recog matches.
+The goal is define a standard set of constants to represent known software,
+hardware, vendors, and categories.
 
-This is currently incomplete and will be updated as standardization work moves forward.
+This is currently incomplete and will be updated as standardization work moves
+forward.
 
-Fingerprints should use these identifiers whenever possible; if a different name or syntax for a given identifier is preferred, this should be implemented in the application through a mapping function.
+Fingerprints should use these identifiers whenever possible; if a different name
+or syntax for a given identifier is preferred, this should be implemented in the
+application through a mapping function.
 
 ## Lists
 
+### Fields
+
+`fields.txt` defines the various fields (`os.vendor`, etc.) used to assert
+information about a match.
+
 ### Vendors
 
-`vendor.txt` defines known vendor names, covering services, operating systems, and hardware.
+`vendor.txt` defines known vendor names, covering services, operating systems,
+and hardware.
 
 ### Operating Systems
 
@@ -22,14 +33,14 @@ Fingerprints should use these identifiers whenever possible; if a different name
 
 `os_device.txt` defines known types of devices by function or purpose.
 
-
 ### Hardware
 
 `hw_product.txt` defines known hardware product names.
 
 `hw_family.txt` defines known hardware product families.
 
-`hw_device.txt` defines known types of devices by function or purpose (overlaps with `os_device.txt`).
+`hw_device.txt` defines known types of devices by function or purpose (overlaps
+with `os_device.txt`).
 
 ### Services
 
@@ -47,10 +58,13 @@ Fingerprints should use these identifiers whenever possible; if a different name
 
 ## Pending Work
 
-  * All existing fingerprints should be correlated against these lists to identify mismatches and updated accordingly.
+* All existing fingerprints should be correlated against these lists to
+  identify mismatches and updated accordingly.
 
-  * All net new identifiers from the existing fingerprints should be merged into these lists.
+* All net new identifiers from the existing fingerprints should be merged into
+these lists.
 
-  * All fingerprint assertions should be enumerated, documented, and standardized where possible (`host.mac`, etc).
+* All fingerprint assertions should be enumerated, documented, and standardized
+where possible (`host.mac`, etc).
 
-  * Hardware identifiers should be enumerated, consolidated, and standardized.
+* Hardware identifiers should be enumerated, consolidated, and standardized.

@@ -50,6 +50,7 @@ end
 
 # Load the unique identifiers
 vendors = load_identifiers(File.join(bdir, "vendor.txt"))
+fields = load_identifiers(File.join(bdir, "fields.txt"))
 os_arch = load_identifiers(File.join(bdir, "os_architecture.txt"))
 os_prod = load_identifiers(File.join(bdir, "os_product.txt"))
 os_family = load_identifiers(File.join(bdir, "os_family.txt"))
@@ -67,6 +68,10 @@ ARGV.each do |arg|
     ndb.fingerprints.each do |f|
       f.params.each do |k,v|
         paramIndex, val = v
+        if ! fields[k]
+          puts "FIELD MISSING: #{k}"
+          fields[k] = true
+        end
         next if paramIndex != 0
         next if val.index("{") != nil
         next if val.strip == ""
@@ -131,6 +136,7 @@ exit if ! options.write
 
 # Write back the unique identifiers
 write_identifiers(vendors, File.join(bdir, "vendor.txt"))
+write_identifiers(fields, File.join(bdir, "fields.txt"))
 write_identifiers(os_arch, File.join(bdir, "os_architecture.txt"))
 write_identifiers(os_prod, File.join(bdir, "os_product.txt"))
 write_identifiers(os_family, File.join(bdir, "os_family.txt"))
