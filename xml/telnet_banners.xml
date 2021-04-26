@@ -1232,6 +1232,9 @@
     <param pos="0" name="os.vendor" value="Arescom"/>
     <param pos="0" name="os.device" value="WAP"/>
     <param pos="1" name="os.model"/>
+    <param pos="0" name="hw.vendor" value="Arescom"/>
+    <param pos="0" name="hw.device" value="WAP"/>
+    <param pos="1" name="hw.model"/>
   </fingerprint>
 
   <fingerprint pattern="^Welcome to ViewStation">
@@ -1803,7 +1806,7 @@
     \n \nServer Name: PS-B04E8E\nServer Model: LPV 2 - TX 1\nF / W Version: 2.00 J \nMAC Address: AE 32 EA 21 BB E3\n
     Uptime: 0 days, 00: 00: 12\n \nPlease Enter Password:"-->
 
-    <example _encoding="base64" os.version="2.00" host.id="PS-B04E8E" os.model="LPV" os.address="AE 32 EA 21 BB E3">
+    <example _encoding="base64" os.version="2.00" host.id="PS-B04E8E" hw.model="LPV" host.mac="AE 32 EA 21 BB E3">
       KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKipcbiogV2VsY29tZSB0byBNRUxDTyBQc
       mludCBTZXJ2ZXIgKlxuKiBUZWxuZXQgQ29uc29sZSAqXG4qKioqKioqKioqKioqKioqKioqKioqKi
       oqKioqKioqKioqKlxuIFxuU2VydmVyIE5hbWU6IFBTLUIwNEU4RVxuU2VydmVyIE1vZGVsOiBMUFY
@@ -1813,11 +1816,13 @@
     </example>
     <param pos="0" name="os.vendor" value="Buffalo"/>
     <param pos="0" name="os.family" value="PrintServer"/>
-    <param pos="0" name="os.device" value="Printer"/>
+    <param pos="0" name="os.device" value="Print Server"/>
     <param pos="1" name="host.id"/>
-    <param pos="2" name="os.model"/>
+    <param pos="0" name="hw.vendor" value="Buffalo"/>
+    <param pos="0" name="hw.device" value="Print Server"/>
+    <param pos="2" name="hw.model"/>
     <param pos="3" name="os.version"/>
-    <param pos="4" name="os.address"/>
+    <param pos="4" name="host.mac"/>
   </fingerprint>
 
   <fingerprint pattern="^(?m)AIX Version\W(\d).*">
