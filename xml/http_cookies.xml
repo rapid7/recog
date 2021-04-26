@@ -456,7 +456,16 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:redmine:redmine:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(gx_session_id|JROUTE)=">
+  <fingerprint pattern="^(syracuse\.sid\.\d+)=">
+    <description>Sage X3 Syracuse Web Server</description>
+    <example>syracuse.sid.8124=8b102bf7-327c-4962-9279-550e72afcaa9; path=/; HttpOnly</example>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="Sage"/>
+    <param pos="0" name="service.family" value="Sage X3 Syracuse Web Server"/>
+    <param pos="0" name="service.product" value="Sage X3 Syracuse Web Server"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(gx_session_id|JROUTE)=.*">
     <description>Sun Java System Application Server (formerly iPlanet Application Server, Sun ONE Application Server)</description>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="Sun"/>
