@@ -5,9 +5,49 @@
   servers.
   -->
 
+  <fingerprint pattern="^__cfd?uid=">
+    <description>CloudFlare web load balancer endpoint</description>
+    <example>__cfuid=1337</example>
+    <example>__cfduid=dd450f2431e1e611a61a15f68974de9a41618794671; expires=Wed, 19-May-21 01:11:11 GMT; path=/; domain=.foo.bar; HttpOnly; SameSite=Lax</example>
+    <param pos="0" name="service.vendor" value="CloudFlare"/>
+    <param pos="0" name="service.product" value="CloudFlare Load Balancer"/>
+    <param pos="0" name="service.family" value="CloudFlare"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(PHPSESSI(?:D|ON))=.*">
+    <description>PHP - http://www.php.net/ref.session</description>
+    <example cookie="PHPSESSID">PHPSESSID=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/</example>
+    <example cookie="PHPSESSION">PHPSESSION=vt2ag6n7t6ngvlg8adk4860h46; path=/</example>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="PHP"/>
+    <param pos="0" name="service.family" value="PHP"/>
+    <param pos="0" name="service.product" value="PHP"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:php:php:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(ASPSESSIONID[A-Z]+|ASP\.NET_SessionId|\.ASPXANONYMOUS)=.*">
+    <description>Microsoft IIS (ASP.NET)
+      http://msdn2.microsoft.com/en-us/library/ms953828.aspx
+      http://msdn2.microsoft.com/en-us/library/91ka2e6a.aspx
+    </description>
+    <example cookie="ASPSESSIONIDQSBRRTTB">ASPSESSIONIDQSBRRTTB=BECILMBCPMGHJGAHKCHNGENF; path=/</example>
+    <example cookie="ASP.NET_SessionId">ASP.NET_SessionId=00nxm4qqh2tdjl0p52m10edv</example>
+    <example cookie=".ASPXANONYMOUS">.ASPXANONYMOUS=5ts5UmJr1wEkAAAAMmY0Y2EwNTUtZGZhYi00YTFlLTlmNzAtYmEwNjdiYTgxZDA40; expires=Sun, 27-Jun-2021 14:40:06 GMT; path=/; HttpOnly</example>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="IIS"/>
+    <param pos="0" name="service.product" value="IIS"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:iis:-"/>
+    <param pos="0" name="service.component.vendor" value="Microsoft"/>
+    <param pos="0" name="service.component.family" value="ASP.NET"/>
+    <param pos="0" name="service.component.product" value="ASP.NET"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:microsoft:asp.net:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^(CFCLIENT_[^=]+|CFGLOBALS|CFID|CFTOKEN)=.*">
     <description>Adobe (Macromedia) ColdFusion uses various cookies</description>
     <example cookie="CFTOKEN">CFTOKEN=f3863673461e83d7-8B854468-1866-DAAC-99FBB842C6018037;expires=Mon, 01-Aug-2050 01:05:45 GMT;path=/;HttpOnly;</example>
+    <example cookie="CFCLIENT_FOO_CORP">CFCLIENT_FOO_CORP=preflanguage%3DEN%23; Expires=Wed, 12-Apr-2051 01:11:37 GMT; Path=/</example>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="Adobe"/>
     <param pos="0" name="service.family" value="ColdFusion"/>
@@ -36,6 +76,7 @@
 
   <fingerprint pattern="^JServSessionIdroot=.*">
     <description>Apache JServ</description>
+    <example>JServSessionIdroot=tphxjy73e1.JS1; path=/</example>
     <param pos="0" name="cookie" value="JServSessionIdroot"/>
     <param pos="0" name="service.vendor" value="Apache"/>
     <param pos="0" name="service.family" value="JServ"/>
@@ -44,6 +85,7 @@
 
   <fingerprint pattern="^(ATG_SESSION_ID|DYN_USER_CONFIRM|DYN_USER_ID)=.*">
     <description>ATG Dynamo</description>
+    <example cookie="ATG_SESSION_ID">ATG_SESSION_ID=yuAUs8xnkzLaF8P3Zk1v5hR28XB4dKsOKZ4jCkVO; path=/</example>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="ATG"/>
     <param pos="0" name="service.family" value="Dynamo"/>
@@ -86,19 +128,12 @@
     <param pos="0" name="service.product" value="Proxy"/>
   </fingerprint>
 
-  <fingerprint pattern="^(CAKEPHP)=.*">
+  <fingerprint pattern="^CAKEPHP=.*">
     <description>CakePHP - http://www.cakephp.org/</description>
-    <param pos="1" name="cookie"/>
+    <example>CAKEPHP=03bgv7jqfurftnm5crn3lc0ob1; expires=Mon, 19-Apr-2021 08:56:06 GMT; Max-Age=14400; path=/; HttpOnly</example>
+    <param pos="0" name="cookie" value="CAKEPHP"/>
     <param pos="0" name="service.family" value="PHP"/>
     <param pos="0" name="service.product" value="CakePHP"/>
-  </fingerprint>
-
-  <fingerprint pattern="^__cfuid=">
-    <description>CloudFlare web load balancer endpoint</description>
-    <example>__cfuid=1337</example>
-    <param pos="0" name="service.vendor" value="CloudFlare"/>
-    <param pos="0" name="service.product" value="CloudFlare Load Balancer"/>
-    <param pos="0" name="service.family" value="CloudFlare"/>
   </fingerprint>
 
   <!--
@@ -109,19 +144,21 @@
       http://www.cisco.com/warp/public/117/AP_cookies.html
   -->
 
-  <fingerprint pattern="^(ARPT)=([A-Z]+)([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})[A-Z]+.*">
+  <fingerprint pattern="^ARPT=([A-Z]+)([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})[A-Z]+.*">
     <description>Cisco 11000 Series Content Service Switch (CSS)</description>
-    <param pos="1" name="cookie"/>
-    <param pos="2" name="host.id"/>
-    <param pos="3" name="host.ip"/>
+    <example host.id="FOOOB" host.ip="192.168.15.52">ARPT=FOOOB192.168.15.52CKOKM; path=/</example>
+    <param pos="0" name="cookie" value="ARPT"/>
+    <param pos="1" name="host.id"/>
+    <param pos="2" name="host.ip"/>
     <param pos="0" name="service.vendor" value="Cisco"/>
     <param pos="0" name="service.family" value="Content Service Switch"/>
     <param pos="0" name="service.product" value="11000 Series Content Service Switch"/>
   </fingerprint>
 
-  <fingerprint pattern="^(ARPT)=.*">
+  <fingerprint pattern="^ARPT=.*">
     <description>Cisco 11000 Series Content Service Switch (CSS) - catch all variant</description>
-    <param pos="1" name="cookie"/>
+    <example>ARPT=388766892.51247.0000; path=/; Httponly/</example>
+    <param pos="0" name="cookie" value="ARPT"/>
     <param pos="0" name="service.vendor" value="Cisco"/>
     <param pos="0" name="service.family" value="Content Service Switch"/>
     <param pos="0" name="service.product" value="11000 Series Content Service Switch"/>
@@ -148,9 +185,9 @@
     <param pos="0" name="hw.cpe23" value="cpe:/h:cisco:adaptive_security_appliance:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(st8id)=.*">
+  <fingerprint pattern="^st8id=.*">
     <description>Citrix Application Protection System, Enterprise - http://support.citrix.com/article/CTX109330</description>
-    <param pos="1" name="cookie"/>
+    <param pos="0" name="cookie" value="st8id"/>
     <param pos="0" name="service.vendor" value="Citrix"/>
     <param pos="0" name="service.family" value="Application Protection System"/>
     <param pos="0" name="service.product" value="Application Protection System, Enterprise"/>
@@ -194,6 +231,7 @@
 
   <fingerprint pattern="^(EktGUID|ecm)=.*">
     <description>Ektron CMS400.net</description>
+    <example cookie="EktGUID">EktGUID=382107cc-a38d-4d25-8182-3748834e21c8; expires=Tue, 19-Apr-2022 03:12:15 GMT; path=/</example>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="Ektron"/>
     <param pos="0" name="service.family" value="CMS400.NET"/>
@@ -229,8 +267,10 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:gogs:gogs:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(BigIPCookie)=.*">
+  <fingerprint pattern="^(BigIPCookie[^=]*)=.*">
     <description>F5 BIG-IP LTM</description>
+    <example cookie="BigIPCookie">BigIPCookie=855248779.20480.0000; path=/; Httponly</example>
+    <example cookie="BigIPCookie_foo_corp_prod">BigIPCookie_foo_corp_prod=!tJHKH9zIwsUuJYJ38CCV0XSqmJXsZVQaOjj/m/SBSTQTg21/S+s2gmbsoGwwKXr5Tj9e0ijWZWItfA==; path=/; Httponly</example>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="F5"/>
     <param pos="0" name="service.family" value="BIG-IP"/>
@@ -259,6 +299,7 @@
 
   <fingerprint pattern="^_gitlab_session=.*">
     <description>GitLab</description>
+    <example>_gitlab_session=032d024e9c2445b595e68255da9e6835; path=/; expires=Mon, 26 Apr 2021 03:09:57 -0000; HttpOnly</example>
     <param pos="0" name="cookie" value="_gitlab_session"/>
     <param pos="0" name="service.vendor" value="GitLab"/>
     <param pos="0" name="service.product" value="GitLab"/>
@@ -266,10 +307,11 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:gitlab:gitlab:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(SERVERID)=([A-Za-z0-9\-_]+)">
+  <fingerprint pattern="^SERVERID=([A-Za-z0-9\-_]+)">
     <description>HAProxy - http://haproxy.1wt.eu/download/1.2/doc/architecture.txt</description>
-    <param pos="1" name="cookie"/>
-    <param pos="2" name="host.name"/>
+    <example host.name="foo1">SERVERID=foo1; path=/</example>
+    <param pos="0" name="cookie" value="SERVERID"/>
+    <param pos="1" name="host.name"/>
     <param pos="0" name="service.family" value="HAProxy"/>
     <param pos="0" name="service.product" value="HAProxy"/>
   </fingerprint>
@@ -278,6 +320,7 @@
     <description>IBM Tivoli Access Manager for e-business WebSEAL
       http://publib.boulder.ibm.com/infocenter/tivihelp/v2r1/index.jsp?topic=/com.ibm.itame.doc/am60_webseal_admin180.htm
     </description>
+    <example cookie="AMWEBJCT!%2F4plportal!JSESSIONID" junction.name="%2F4plportal" junction.cookie="JSESSIONID">AMWEBJCT!%2F4plportal!JSESSIONID=fQDCzpljFPMhMVaDUOD+uOBe.undefined; Path=/</example>
     <param pos="1" name="cookie"/>
     <param pos="2" name="junction.name"/>
     <param pos="3" name="junction.cookie"/>
@@ -290,15 +333,17 @@
     <description>IBM Tivoli Access Manager for e-business WebSeal
       http://publib.boulder.ibm.com/infocenter/tivihelp/v2r1/index.jsp?topic=/com.ibm.itame.doc/am60_webseal_admin117.htm
     </description>
+    <example cookie="PD-S-SESSION-ID">PD-S-SESSION-ID=1_2_0_xRzIc55lBOTYkrYfW+qWHWGgdqlVKeEgwrhtKt+KRfq8R3lW; Path=/; Secure; HttpOnly</example>
+    <example cookie="PD_STATEFUL_db45742c-3e5b-11e9-91da-00505682181c">PD_STATEFUL_db45742c-3e5b-11e9-91da-00505682181c=%2F; Path=/</example>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="IBM"/>
     <param pos="0" name="service.family" value="Tivoli"/>
     <param pos="0" name="service.product" value="Tivoli Access Manager for e-business WebSEAL"/>
   </fingerprint>
 
-  <fingerprint pattern="^(IBMCBR)=.*">
+  <fingerprint pattern="^IBMCBR=.*">
     <description>IBM WebSphere Load Balancer</description>
-    <param pos="1" name="cookie"/>
+    <param pos="0" name="cookie" value="IBMCBR"/>
     <param pos="0" name="service.vendor" value="IBM"/>
     <param pos="0" name="service.family" value="WebSphere"/>
     <param pos="0" name="service.product" value="WebSphere Load Balancer"/>
@@ -306,6 +351,8 @@
 
   <fingerprint pattern="^(mbfcookie(?:\[lang\])?)=.*">
     <description>Joom!Fish http://www.joomfish.net/</description>
+    <example cookie="mbfcookie">mbfcookie=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/</example>
+    <example cookie="mbfcookie[lang]">mbfcookie[lang]=pt_BR; expires=Tue, 20-Apr-2021 03:30:47 GMT; path=/</example>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.family" value="Joom!Fish"/>
     <param pos="0" name="service.product" value="Joom!Fish"/>
@@ -326,22 +373,6 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:commerce_server:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(ASPSESSIONID[A-Z]+|ASP\.NET_SessionId|\.ASPXANONYMOUS)=.*">
-    <description>Microsoft IIS (ASP.NET)
-      http://msdn2.microsoft.com/en-us/library/ms953828.aspx
-      http://msdn2.microsoft.com/en-us/library/91ka2e6a.aspx
-    </description>
-    <param pos="1" name="cookie"/>
-    <param pos="0" name="service.vendor" value="Microsoft"/>
-    <param pos="0" name="service.family" value="IIS"/>
-    <param pos="0" name="service.product" value="IIS"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:iis:-"/>
-    <param pos="0" name="service.component.vendor" value="Microsoft"/>
-    <param pos="0" name="service.component.family" value="ASP.NET"/>
-    <param pos="0" name="service.component.product" value="ASP.NET"/>
-    <param pos="0" name="service.component.cpe23" value="cpe:/a:microsoft:asp.net:-"/>
-  </fingerprint>
-
   <fingerprint pattern="^(nc_sameSiteCookiestrict|nc_sameSiteCookielax|oc_sessionPassphrase)=.*">
     <description>Nextcloud</description>
     <example cookie="nc_sameSiteCookiestrict">nc_sameSiteCookiestrict=true; path=/nextcloud; httponly;secure; expires=Fri, 31-Dec-2100 23:59:59 GMT; SameSite=strict</example>
@@ -353,9 +384,10 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:nextcloud:nextcloud_server:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(AlteonP)=.*">
+  <fingerprint pattern="^AlteonP=.*">
     <description>Nortel Alteon Web Switch</description>
-    <param pos="1" name="cookie"/>
+    <example>AlteonP=c46736793e45929dbaeebabb; path=</example>
+    <param pos="0" name="cookie" value="AlteonP"/>
     <param pos="0" name="service.vendor" value="Nortel"/>
     <param pos="0" name="service.family" value="Alteon"/>
     <param pos="0" name="service.product" value="Alteon Web Switch"/>
@@ -363,6 +395,7 @@
 
   <fingerprint pattern="^OBSID=.*">
     <description>Observium</description>
+    <example>OBSID=gud74jg1slhskdo7idqgklkamm6g3908; expires=Tue, 20-Apr-2021 01:31:27 GMT; Max-Age=86400; path=/; HttpOnly</example>
     <param pos="0" name="cookie" value="OBSID"/>
     <param pos="0" name="service.vendor" value="Observium"/>
     <param pos="0" name="service.product" value="Observium"/>
@@ -377,21 +410,12 @@
     <param pos="0" name="service.product" value="Content Server"/>
   </fingerprint>
 
-  <fingerprint pattern="^(parkinglot)=.*">
+  <fingerprint pattern="^parkinglot=.*">
     <description>Oversee Webserver</description>
-    <param pos="1" name="cookie"/>
+    <param pos="0" name="cookie" value="parkinglot"/>
     <param pos="0" name="service.vendor" value="Oversee"/>
     <param pos="0" name="service.family" value="Webserver"/>
     <param pos="0" name="service.product" value="Webserver"/>
-  </fingerprint>
-
-  <fingerprint pattern="^(PHPSESSID|PHPSESSION)=.*">
-    <description>PHP - http://www.php.net/ref.session</description>
-    <param pos="1" name="cookie"/>
-    <param pos="0" name="service.vendor" value="PHP"/>
-    <param pos="0" name="service.family" value="PHP"/>
-    <param pos="0" name="service.product" value="PHP"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:php:php:-"/>
   </fingerprint>
 
   <fingerprint pattern="^phsid=.*">
@@ -404,25 +428,28 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:phacility:phabricator:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(RMID)=.*">
+  <fingerprint pattern="^RMID=.*">
     <description>RealMedia OpenAdStream</description>
-    <param pos="1" name="cookie"/>
+    <example>RMID=36c12633607cf7a0; expires=Thu, 31-Dec-2020 23:59:59 GMT; path=/; domain=.foo.bar</example>
+    <param pos="0" name="cookie" value="RMID"/>
     <param pos="0" name="service.vendor" value="RealMedia"/>
     <param pos="0" name="service.family" value="OpenAdStream"/>
     <param pos="0" name="service.product" value="OpenAdStream"/>
   </fingerprint>
 
-  <fingerprint pattern="^(RoxenUserID)=.*">
+  <fingerprint pattern="^RoxenUserID=.*">
     <description>Roxen WebServer</description>
-    <param pos="1" name="cookie"/>
+    <example>RoxenUserID=c70fd536bc9e1342ce2a608b10547f88; expires=Wed, 19 Apr 2023 02:44:41 GMT; path=/</example>
+    <param pos="0" name="cookie" value="RoxenUserID"/>
     <param pos="0" name="service.vendor" value="Roxen"/>
     <param pos="0" name="service.family" value="WebServer"/>
     <param pos="0" name="service.product" value="WebServer"/>
   </fingerprint>
 
-  <fingerprint pattern="^(_sn)=.*">
+  <fingerprint pattern="^_sn=.*">
     <description>Siebel CRM</description>
-    <param pos="1" name="cookie"/>
+    <example>_sn=e7139835ca75f921e25c364d4a8fef48; path=/; expires=Mon, 19 Apr 2021 06:06:58 GMT; HttpOnly</example>
+    <param pos="0" name="cookie" value="_sn"/>
     <param pos="0" name="service.vendor" value="Siebel"/>
     <param pos="0" name="service.family" value="CRM"/>
     <param pos="0" name="service.product" value="CRM"/>
@@ -440,9 +467,9 @@
 
    -->
 
-  <fingerprint pattern="^(NSES40Session)=.*">
+  <fingerprint pattern="^NSES40Session=.*">
     <description>Netscape Enterprise Server (subsequently iPlanet Web Server, Sun ONE Web Server, presently Sun Java System Web Server)</description>
-    <param pos="1" name="cookie"/>
+    <param pos="0" name="cookie" value="NSES40Session"/>
     <param pos="0" name="service.vendor" value="Sun"/>
     <param pos="0" name="service.family" value="Java System Web Server"/>
     <param pos="0" name="service.product" value="Java System Web Server"/>
@@ -477,17 +504,19 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:sun:java_system_application_server:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(fe_typo_user)=.*">
+  <fingerprint pattern="^fe_typo_user=.*">
     <description>TYPO3 CMS - http://typo3.com/</description>
-    <param pos="1" name="cookie"/>
+    <example>fe_typo_user=aae725f7dcb8cb5215e64f66d4584cc92; path=/</example>
+    <param pos="0" name="cookie" value="fe_typo_user"/>
     <param pos="0" name="service.vendor" value="TYPO3"/>
     <param pos="0" name="service.family" value="CMS"/>
     <param pos="0" name="service.product" value="CMS"/>
   </fingerprint>
 
-  <fingerprint pattern="^(SaneID)=.*">
+  <fingerprint pattern="^SaneID=.*">
     <description>Unica NetTracker - http://netinsight.unica.com/Products/NetTracker.cfm</description>
-    <param pos="1" name="cookie"/>
+    <example>SaneID=10.1.1.223.1618798365976948; path=/; domain=.foo.bar</example>
+    <param pos="0" name="cookie" value="SaneID"/>
     <param pos="0" name="service.vendor" value="Unica"/>
     <param pos="0" name="service.family" value="NetTracker"/>
     <param pos="0" name="service.product" value="NetTracker"/>
@@ -495,6 +524,7 @@
 
   <fingerprint pattern="^(__utm[a-z])=.*">
     <description>Urchin Tracking Module - http://www.google.com/support/urchin45/bin/answer.py?answer=28307&amp;topic=7425</description>
+    <example cookie="__utmp">__utmp=2071164266.582676006.3393543082; path=/; domain=.foo.bar</example>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="Google"/>
     <param pos="0" name="service.family" value="Urchin"/>
@@ -519,16 +549,18 @@
     <param pos="0" name="service.product" value="Vignette"/>
   </fingerprint>
 
-  <fingerprint pattern="^(wgSession)=.*">
+  <fingerprint pattern="^wgSession=.*">
     <description>Plain Black WebGUI - http://www.plainblack.com/webgui</description>
-    <param pos="1" name="cookie"/>
+    <example>wgSession=xngFQdcbCap87x6d8qc1YA; path=/; expires=Thu, 17-Apr-2031 02:29:05 GMT</example>
+    <param pos="0" name="cookie" value="wgSession"/>
     <param pos="0" name="service.vendor" value="Plain Black"/>
     <param pos="0" name="service.family" value="WebGUI"/>
     <param pos="0" name="service.product" value="WebGUI"/>
   </fingerprint>
 
-  <fingerprint pattern="^(WEBTRENDSID|WEBTRENDS_ID)=.*">
+  <fingerprint pattern="^(WEBTRENDS_?ID)=.*">
     <description>WebTrends</description>
+    <example cookie="WEBTRENDS_ID">WEBTRENDS_ID=10.247.9.69.1618795409656141; path=/; expires=Tue, 19-Apr-22 01:23:29 GMT; domain=.foo.bar</example>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="WebTrends"/>
     <param pos="0" name="service.family" value="WebTrends"/>
@@ -545,9 +577,10 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:synacor:zimbra_collaboration_suite:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(_ZopeId)=.*">
+  <fingerprint pattern="^_ZopeId=.*">
     <description>Zope</description>
-    <param pos="1" name="cookie"/>
+    <example>_ZopeId="91304233A995SVLz3SI"; Path=/</example>
+    <param pos="0" name="cookie" value="_ZopeId"/>
     <param pos="0" name="service.family" value="Zope"/>
     <param pos="0" name="service.product" value="Zope"/>
   </fingerprint>
