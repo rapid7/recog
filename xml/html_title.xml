@@ -7,6 +7,11 @@
     <example>301 Moved Permanently</example>
   </fingerprint>
 
+  <fingerprint pattern="^302 Found$">
+    <description>3302 Found - generic -- assert nothing.</description>
+    <example>302 Found</example>
+  </fingerprint>
+
   <fingerprint pattern="^400 Bad Request$">
     <description>400 Bad Request - generic -- assert nothing.</description>
     <example>400 Bad Request</example>
@@ -17,9 +22,19 @@
     <example>401 Unauthorized</example>
   </fingerprint>
 
+  <fingerprint pattern="^403 Forbidden$">
+    <description>403 Forbidden - generic -- assert nothing.</description>
+    <example>403 Forbidden</example>
+  </fingerprint>
+
   <fingerprint pattern="^404 Not Found$">
     <description>404 Not Found - generic -- assert nothing.</description>
     <example>404 Not Found</example>
+  </fingerprint>
+
+  <fingerprint pattern="^Invalid URL$">
+    <description>Invalid URL - generic -- assert nothing.</description>
+    <example>Invalid URL</example>
   </fingerprint>
 
   <fingerprint pattern="^Index of /">
@@ -343,6 +358,10 @@
     <description>Synology with WebStation web hosting</description>
     <example>Hello! Welcome to Synology Web Station!</example>
     <example>Hallo! Herzlich Willkommen bei Synology Web Station!</example>
+    <param pos="0" name="service.vendor" value="Synology"/>
+    <param pos="0" name="service.family" value="Diskstation"/>
+    <param pos="0" name="service.product" value="Web Station"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:synology:web_station:-"/>
     <param pos="0" name="hw.vendor" value="Synology"/>
     <param pos="0" name="hw.family" value="DiskStation"/>
     <param pos="0" name="hw.device" value="NAS"/>
@@ -448,6 +467,18 @@
     <param pos="0" name="service.product" value="RomPager"/>
   </fingerprint>
 
+  <fingerprint pattern="^Wowza Streaming Engine 4 (Subscription|Perpetual Pro) Edition (\d\.[\w.]+) build(\d+)$">
+    <description>Wowza Streaming Engine</description>
+    <example service.version="4.7.7.01" service.version.version="20190222144406">Wowza Streaming Engine 4 Subscription Edition 4.7.7.01 build20190222144406</example>
+    <example service.edition="Perpetual Pro">Wowza Streaming Engine 4 Perpetual Pro Edition 4.8.8.01 build20201216140014</example>
+    <param pos="0" name="service.vendor" value="Wowza"/>
+    <param pos="0" name="service.product" value="Streaming Engine"/>
+    <param pos="1" name="service.edition"/>
+    <param pos="2" name="service.version"/>
+    <param pos="3" name="service.version.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:wowza:streaming_engine:{service.version}"/>
+  </fingerprint>
+
   <fingerprint pattern="^RouterOS router configuration page$">
     <description>MikroTik RouterOS router configuration page</description>
     <example>RouterOS router configuration page</example>
@@ -543,6 +574,10 @@
   <fingerprint pattern="^Netgear Prosafe Plus Switch$">
     <description>Netgear Prosafe Plus Switch</description>
     <example>Netgear Prosafe Plus Switch</example>
+    <param pos="0" name="os.vendor" value="Netgear"/>
+    <param pos="0" name="os.device" value="Switch"/>
+    <param pos="0" name="os.product" value="Prosafe Firmware"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:netgear:prosafe_firmware:-"/>
     <param pos="0" name="hw.vendor" value="Netgear"/>
     <param pos="0" name="hw.device" value="Switch"/>
     <param pos="0" name="hw.product" value="Prosafe Plus"/>
@@ -2358,10 +2393,11 @@
   </fingerprint>
 
   <fingerprint pattern="^Gerrit Code Review$">
-    <description>Gerrit Code Review</description>
+    <description>Google's Gerrit Code Review</description>
     <example>Gerrit Code Review</example>
-    <param pos="0" name="service.vendor" value="Gerrit"/>
-    <param pos="0" name="service.product" value="Code Review"/>
+    <param pos="0" name="service.vendor" value="Google"/>
+    <param pos="0" name="service.product" value="Gerrit"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:google:gerrit:-"/>
   </fingerprint>
 
   <fingerprint pattern=" - Ignition Gateway$">
