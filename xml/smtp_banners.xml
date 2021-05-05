@@ -333,17 +333,20 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^ESMTP Exim$">
-    <description>Exim - without version string or hostname</description>
+  <fingerprint pattern="^ESMTP Exim ?((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d{3,4})?)$">
+    <description>Exim - without version string or hostname - timestamp optional</description>
     <example>ESMTP Exim</example>
+    <example system.time="Thu, 29 Apr 2021 06:46:16 +0200">ESMTP Exim Thu, 29 Apr 2021 06:46:16 +0200</example>
     <param pos="0" name="service.vendor" value="exim"/>
     <param pos="0" name="service.family" value="exim"/>
     <param pos="0" name="service.product" value="exim"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:exim:exim:-"/>
+    <param pos="1" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^ ?([^, ]+)(?:,)? ESMTP \(?(?i:Exim) +(\d+\.[\d_.bRC-]+)\)?(?: +#\d)? ?.?((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *(?:We do not authorize the use of this system to transport unsolicited, and\/or bulk e-mail.)?$">
+  <fingerprint pattern="^ ?([^, ]+)(?:,)? +ESMTP \(?(?i:Exim) +(\d+\.[\d_.bdRC-]+)\)?(?: +#\d+)? ?.?((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d{3,4})?) *(?:We do not authorize the use of this system to transport unsolicited, and\/or bulk e-mail.)?$">
     <description>Exim - with version string and optional timestamp</description>
+    <example service.version="4.91" host.name="foo.bar">foo.bar  ESMTP Exim 4.91 Thu, 29 Apr 2021 05:41:36 +400</example>
     <example service.version="4.89" host.name="foo.bar">foo.bar ESMTP Exim 4.89 "</example>
     <example service.version="4.83" host.name="foo.bar">foo.bar, ESMTP EXIM 4.83</example>
     <example service.version="4.84_2" host.name="foo.bar">foo.bar ESMTP Exim 4.84_2 </example>
@@ -352,7 +355,7 @@
     <example service.version="4.89-122312">foo.bar ESMTP Exim 4.89-122312 Thu, 16 Nov 2017 10:33:38 +0200 </example>
     <example service.version="4.87">foo.bar ESMTP (Exim 4.87) Thu, 30 Nov 2017 03:25:58 -0800 </example>
     <example service.version="4.80" system.time="Thu, 16 Nov 2017 01:04:30 -0800">foo.bar ESMTP Exim 4.80 Thu, 16 Nov 2017 01:04:30 -0800 </example>
-    <example service.version="3.12" system.time="Wed, 31 Jan 2001 15:47:23 +1100">foo.bar ESMTP Exim 3.12 #1 Wed, 31 Jan 2001 15:47:23 +1100 </example>
+    <example service.version="4.92.2" system.time="Thu, 29 Apr 2021 07:43:39 +0200">foo.bar ESMTP Exim 4.92.2 #89 Thu, 29 Apr 2021 07:43:39 +0200 </example>
     <example service.version="4.89" host.name="foo.bar"> foo.bar ESMTP Exim 4.89 #1 Thu, 16 Nov 2017 04:55:31 -0500 We do not authorize the use of this system to transport unsolicited, and/or bulk e-mail.</example>
     <param pos="0" name="service.vendor" value="exim"/>
     <param pos="0" name="service.family" value="exim"/>
@@ -432,7 +435,17 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) FTGate server ready ">
+  <fingerprint pattern="^([\w.-]+) ESMTP \([a-z0-9]{32}\)$">
+    <description>Barracuda Email Security Gateway - physical or virtual appliance</description>
+    <example host.name="barracuda.foo.bar">barracuda.foo.bar ESMTP (0a8d40ef45300cc1bd0f16ced5c9e6f1)</example>
+    <param pos="0" name="service.vendor" value="Barracuda"/>
+    <param pos="0" name="service.product" value="Email Security Gateway"/>
+    <param pos="0" name="hw.vendor" value="Barracuda"/>
+    <param pos="0" name="hw.product" value="Email Security Gateway"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+
+  <fingerprint pattern="^([^ ]+) FTGate server ready .*$">
     <description>FTGate mail server, runs on Windows 9x/NT/2k (http://www.ftgate.com)</description>
     <example host.name="foo.bar">foo.bar FTGate server ready -attitude [C.o.r.E]</example>
     <param pos="0" name="service.vendor" value="Floosietek"/>
@@ -1325,7 +1338,26 @@
     <param pos="4" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d\+lenny\d; (.+); ">
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d\+deb9u1; (.+); .*$">
+    <description>Sendmail - Debian 9.1 (stretch)</description>
+    <example service.version="8.15.2">foo.bar ESMTP Sendmail 8.15.2/8.15.2/Debian-8+deb9u1; Thu, 29 Apr 2021 06:45:02 +0200; (No UCE/UBE) logging access from: xyz.foo.bar(OK)-xyz.foo.bar [10.0.0.1]</example>
+    <param pos="0" name="service.vendor" value="Sendmail"/>
+    <param pos="0" name="service.family" value="Sendmail"/>
+    <param pos="0" name="service.product" value="Sendmail"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="9.1"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:9.1"/>
+    <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sendmail:sendmail:{service.version}"/>
+    <param pos="3" name="sendmail.config.version"/>
+    <param pos="4" name="system.time"/>
+  </fingerprint>
+
+  <fingerprint pattern="^([^ ]+) ESMTP Sendmail ([^/]+)/([^/]+)/Debian-\d\+lenny\d; (.+); .*$">
     <description>Sendmail - Debian 5.x (lenny)</description>
     <example service.version="8.14.3">foo.bar ESMTP Sendmail 8.14.3/8.14.3/Debian-5+lenny1; Thu, 30 Nov 2017 12:29:40 +0300; (No UCE/UBE) logging access from: xyz.foo.bar(OK)-xyz.foo.bar [10.0.0.1]</example>
     <param pos="0" name="service.vendor" value="Sendmail"/>
@@ -1563,9 +1595,10 @@
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
   </fingerprint>
 
-  <fingerprint pattern="^ESMTP Sendmail +([^/ ]+) */ *([^/ ]+); (\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)$">
+  <fingerprint pattern="^\s?ESMTP Sendmail +([^/ ]+) */ *([^/ ]+); (\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)$">
     <description>Sendmail - with version and date, w/o hostname or platform (semicolon variant)</description>
     <example service.version="8.13.1" sendmail.config.version="8.13.1" system.time="Thu, 30 Nov 2017 01:58:22 -0700">ESMTP Sendmail  8.13.1/8.13.1; Thu, 30 Nov 2017 01:58:22 -0700</example>
+    <example service.version="8.14.7" sendmail.config.version="8.14.7" system.time="Thu, 29 Apr 2021 14:07:54 +0900"> ESMTP Sendmail 8.14.7/8.14.7; Thu, 29 Apr 2021 14:07:54 +0900</example>
     <param pos="0" name="service.vendor" value="Sendmail"/>
     <param pos="0" name="service.family" value="Sendmail"/>
     <param pos="0" name="service.product" value="Sendmail"/>

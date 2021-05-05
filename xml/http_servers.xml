@@ -47,6 +47,14 @@
     <example>envoy</example>
     <param pos="0" name="service.vendor" value="Envoy Proxy"/>
     <param pos="0" name="service.product" value="Envoy"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:envoyproxy:envoy:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^istio-envoy$">
+    <description>Istio custom Envoy Proxy</description>
+    <example>istio-envoy</example>
+    <param pos="0" name="service.vendor" value="Istio"/>
+    <param pos="0" name="service.product" value="Envoy"/>
   </fingerprint>
 
   <fingerprint pattern="^Etherpad">
@@ -1428,9 +1436,9 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:squid-cache:squid:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^thttpd/(\d\.[\w.]+)-MX\s*">
-    <description>thttpd with SSL support</description>
-    <example>thttpd/2.19-MX Jan 24 2006</example>
+  <fingerprint pattern="^thttpd/(\d\.[\w.]+)-MX\s*.*$">
+    <description>ACME thttpd with SSL support</description>
+    <example service.version="2.19">thttpd/2.19-MX Jan 24 2006</example>
     <param pos="0" name="service.vendor" value="ACME"/>
     <param pos="0" name="service.product" value="thttpd"/>
     <param pos="0" name="service.family" value="thttpd"/>
@@ -1440,15 +1448,17 @@
   </fingerprint>
 
   <fingerprint pattern="^thttpd(?:/(\d\.[\w.]+)\s*.*)?$">
-    <description>thttpd</description>
+    <description>ACME thttpd</description>
     <example>thttpd</example>
-    <example>thttpd/2.04 10aug98</example>
-    <example>thttpd/2.20b</example>
+    <example service.version="2.04">thttpd/2.04 10aug98</example>
+    <example service.version="2.20b">thttpd/2.20b</example>
     <example>thttpd/2.21b PHP/20030920</example>
-    <example>thttpd/2.23beta1 26may2002</example>
+    <example service.version="2.23beta1">thttpd/2.23beta1 26may2002</example>
+    <param pos="0" name="service.vendor" value="ACME"/>
     <param pos="0" name="service.product" value="thttpd"/>
     <param pos="0" name="service.family" value="thttpd"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:acme:thttpd:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="(?i)^lighttpd(?:/(\d[\d.]+))?">
@@ -1562,8 +1572,8 @@
 
   <fingerprint pattern="^Abyss/(\d\.[\d.]+)-X1-Win32 AbyssLib/(?:\d\.[\d.]+)$">
     <description>Aprelium Technologies Abyss Web Server X1 (free personal edition) on Windows</description>
-    <example>Abyss/2.0.0.20-X1-Win32 AbyssLib/2.0.0.20</example>
-    <example>Abyss/2.3.2-X1-Win32 AbyssLib/2.3.2</example>
+    <example service.version="2.0.0.20">Abyss/2.0.0.20-X1-Win32 AbyssLib/2.0.0.20</example>
+    <example service.version="2.3.2">Abyss/2.3.2-X1-Win32 AbyssLib/2.3.2</example>
     <param pos="0" name="service.vendor" value="Aprelium Technologies"/>
     <param pos="0" name="service.product" value="Abyss Web Server X1"/>
     <param pos="0" name="service.family" value="Abyss Web Server"/>
@@ -1575,17 +1585,68 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^Abyss/(\d\.[\d.]+)-X2-Win32 AbyssLib/(?:\d\.[\d.]+)$">
-    <description>Aprelium Technologies Abyss Web Server X2 (licensed professional edition) on Windows</description>
+  <fingerprint pattern="^Abyss/(\d\.[\d.]+)-X1-Linux AbyssLib/(?:\d\.[\d.]+)$">
+    <description>Aprelium Technologies Abyss Web Server X1 (free personal edition) on Linux</description>
+    <example service.version="2.14">Abyss/2.14-X1-Linux AbyssLib/2.14</example>
     <param pos="0" name="service.vendor" value="Aprelium Technologies"/>
     <param pos="0" name="service.product" value="Abyss Web Server X1"/>
     <param pos="0" name="service.family" value="Abyss Web Server"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:aprelium:abyss_web_server_x1:{service.version}"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Abyss/(\d\.[\d.]+)-X1-[mM]acOS (?:X )?AbyssLib/(?:\d\.[\d.]+)$">
+    <description>Aprelium Technologies Abyss Web Server X1 (free personal edition) on macOS</description>
+    <example service.version="2.12.1">Abyss/2.12.1-X1-MacOS X AbyssLib/2.12</example>
+    <example service.version="2.14">Abyss/2.14-X1-macOS AbyssLib/2.14</example>
+    <param pos="0" name="service.vendor" value="Aprelium Technologies"/>
+    <param pos="0" name="service.product" value="Abyss Web Server X1"/>
+    <param pos="0" name="service.family" value="Abyss Web Server"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:aprelium:abyss_web_server_x1:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS X"/>
+    <param pos="0" name="os.product" value="Mac OS X"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Abyss/(\d\.[\d.]+)-X2-Win32 AbyssLib/(?:\d\.[\d.]+)$">
+    <description>Aprelium Technologies Abyss Web Server X2 (licensed professional edition) on Windows</description>
+    <example>Abyss/2.14.2-X2-Win32 AbyssLib/2.14</example>
+    <param pos="0" name="service.vendor" value="Aprelium Technologies"/>
+    <param pos="0" name="service.product" value="Abyss Web Server X2"/>
+    <param pos="0" name="service.family" value="Abyss Web Server"/>
+    <param pos="1" name="service.version"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Abyss/(\d\.[\d.]+)-X2-Linux AbyssLib/(?:\d\.[\d.]+)$">
+    <description>Aprelium Technologies Abyss Web Server X2 (licensed professional edition) on Linux</description>
+    <example service.version="2.14.2">Abyss/2.14.2-X2-Linux AbyssLib/2.14</example>
+    <param pos="0" name="service.vendor" value="Aprelium Technologies"/>
+    <param pos="0" name="service.product" value="Abyss Web Server X2"/>
+    <param pos="0" name="service.family" value="Abyss Web Server"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Abyss/(\d\.[\d.]+)-X2-macOS AbyssLib/(?:\d\.[\d.]+)$">
+    <description>Aprelium Technologies Abyss Web Server X2 (licensed professional edition) on macOS</description>
+    <example service.version="2.14.2">Abyss/2.14.2-X2-macOS AbyssLib/2.14</example>
+    <param pos="0" name="service.vendor" value="Aprelium Technologies"/>
+    <param pos="0" name="service.product" value="Abyss Web Server X2"/>
+    <param pos="0" name="service.family" value="Abyss Web Server"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS X"/>
+    <param pos="0" name="os.product" value="Mac OS X"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Microsoft (Commerce Server\s*(?:2002|2007)?, (?:Enterprise|Standard|Evaluation|Developer) Edition)$">
@@ -1601,6 +1662,7 @@
 
   <fingerprint pattern="^NetWare-Enterprise-Web-Server/(\d+\.\d+)$">
     <description>NetWare Enterprise Web Server (runs on NetWare 5.1)</description>
+    <example service.version="5.1">NetWare-Enterprise-Web-Server/5.1</example>
     <param pos="0" name="service.vendor" value="Novell"/>
     <param pos="0" name="service.product" value="NetWare Enterprise Web Server"/>
     <param pos="0" name="service.family" value="NetWare Enterprise Web Server"/>
@@ -2447,6 +2509,14 @@
     <param pos="2" name="python.version"/>
   </fingerprint>
 
+  <fingerprint pattern="^uvicorn$">
+    <description>Encode uvicorn</description>
+    <example>uvicorn</example>
+    <param pos="0" name="service.vendor" value="Encode"/>
+    <param pos="0" name="service.product" value="uvicorn"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:encode:uvicorn:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^Grandstream (GXP[^\s]+) ([\d\.]+)$">
     <description>Grandstream IP Phone</description>
     <example hw.product="GXP2020" hw.version="1.2.5.3">Grandstream GXP2020 1.2.5.3</example>
@@ -2497,6 +2567,17 @@
     <param pos="0" name="service.vendor" value="Citrix"/>
     <param pos="0" name="service.product" value="Web PN Server"/>
     <param pos="0" name="service.family" value="Web PN Server"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ScreenConnect/([\d.]+)-(\d+)(?: Microsoft-HTTPAPI/2.0)?$">
+    <description>ConnectWise Control formerly ScreenConnect</description>
+    <example service.version="6.3.13446.6374">ScreenConnect/6.3.13446.6374-4039728469 Microsoft-HTTPAPI/2.0</example>
+    <example service.version.version="3841999031">ScreenConnect/19.3.25270.7185-3841999031</example>
+    <param pos="0" name="service.vendor" value="ConnectWise"/>
+    <param pos="0" name="service.product" value="Control"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.version.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:connectwise:control:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^Lotus Expeditor Web Container/((?:\d+\.)*\d+)$">
@@ -2617,6 +2698,7 @@
     <param pos="0" name="service.product" value="Twisted Web"/>
     <param pos="0" name="service.family" value="Twisted Web"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:twistedmatrix:twistedweb:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^mini_httpd/((?:\d+\.)*\d+) \S*$">
@@ -2856,8 +2938,8 @@
 
    -->
 
-  <fingerprint pattern="^(?:(?:\d+.){3}\d+):\d{1,4}$">
-    <description>A banner consisting of an IP address and port -- assert nothing.</description>
+  <fingerprint pattern="^(?:(?:\d{1,3}\.){3}\d{1,3}):\d{1,4}$">
+    <description>A banner consisting of an IPv4 address and port -- assert nothing.</description>
     <example>192.168.0.4:9999</example>
   </fingerprint>
 
@@ -3104,6 +3186,7 @@
     <param pos="0" name="service.family" value="Gateway"/>
     <param pos="0" name="service.product" value="Gateway"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:konghq:kong_gateway:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^kong/([\d.-]+)-enterprise-edition$">
@@ -3114,6 +3197,7 @@
     <param pos="0" name="service.family" value="Gateway"/>
     <param pos="0" name="service.product" value="Gateway"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:konghq:kong_gateway:{service.version}"/>
   </fingerprint>
 
   <!-- Tridium previously had a product with the 'Niagra' spelling -->
@@ -3157,6 +3241,17 @@
     <param pos="2" name="os.product"/>
     <param pos="3" name="os.version"/>
     <param pos="1" name="host.name"/>
+  </fingerprint>
+
+  <fingerprint pattern="^airCube$">
+    <description>Ubiquiti airMAX airCube accessory</description>
+    <example>airCube</example>
+    <param pos="0" name="os.vendor" value="Ubiquiti"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="hw.vendor" value="Ubiquiti"/>
+    <param pos="0" name="hw.family" value="airMAX"/>
+    <param pos="0" name="hw.product" value="airCube"/>
+    <param pos="0" name="hw.device" value="WAP"/>
   </fingerprint>
 
   <fingerprint pattern="(?i)^Linux/(\S+) UPnP/[\d\.]+ miniupnpd/([\d\.]+)$">
@@ -3782,6 +3877,16 @@
     <param pos="0" name="os.device" value="WAP"/>
   </fingerprint>
 
+  <fingerprint pattern="^Router Webserver$">
+    <description>TP-Link Router httpd - seen on Wireless N and portable 3G routers</description>
+    <example>Router Webserver</example>
+    <param pos="0" name="service.vendor" value="TP-LINK"/>
+    <param pos="0" name="os.vendor" value="TP-LINK"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="0" name="hw.vendor" value="TP-LINK"/>
+    <param pos="0" name="hw.device" value="Router"/>
+  </fingerprint>
+
   <fingerprint pattern="^Linux/(\S+\_eureka_1), UPnP/[\d\.]+, Portable SDK for UPnP devices/(\S+)$">
     <description>Siqura Video Encoder</description>
     <example>Linux/2.6.37_eureka_1, UPnP/1.0, Portable SDK for UPnP devices/1.6.6</example>
@@ -4092,6 +4197,24 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:xiph:icecast:{service.version}"/>
   </fingerprint>
 
+  <fingerprint pattern="^Tableau$">
+    <description>Tableau Tableau Server web interface</description>
+    <example>Tableau</example>
+    <param pos="0" name="service.vendor" value="Tableau"/>
+    <param pos="0" name="service.product" value="Tableau Server"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:tableau:tableau_server:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^WowzaStreamingEngine/(\d\.[\w.]+)$">
+    <description>Wowza Streaming Engine</description>
+    <example service.version="4.7.7">WowzaStreamingEngine/4.7.7</example>
+    <example service.version="4.6.0.04x">WowzaStreamingEngine/4.6.0.04x</example>
+    <param pos="0" name="service.vendor" value="Wowza"/>
+    <param pos="0" name="service.product" value="Streaming Engine"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:wowza:streaming_engine:{service.version}"/>
+  </fingerprint>
+
   <fingerprint pattern="^Couchbase Sync Gateway/([\d.]+) CE$">
     <description>Couchbase Sync Gateway Community Edition</description>
     <example service.version="2.5.0">Couchbase Sync Gateway/2.5.0 CE</example>
@@ -4152,6 +4275,17 @@
     <param pos="0" name="service.product" value="axTLS"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:axtls_project:axtls:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CommuniGatePro/(\d\.[\w.]+)$">
+    <description>Communigate Communigate Pro</description>
+    <example service.version="5.2.20">CommuniGatePro/5.2.20</example>
+    <example service.version="6.2.16v">CommuniGatePro/6.2.16v</example>
+    <param pos="0" name="service.vendor" value="Communigate"/>
+    <param pos="0" name="service.family" value="Pro"/>
+    <param pos="0" name="service.product" value="Communigate Pro"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:communigate:communigate_pro:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^tinyproxy/([\d.]+)$">
