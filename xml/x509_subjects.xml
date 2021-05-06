@@ -477,6 +477,7 @@
   <fingerprint pattern="^CN=([a-zA-Z0-9\.\-\_]+),OU=VMware ESX Server Default Certificate,O=VMware\\, Inc,L=Palo Alto,ST=California,C=US$">
     <description>VMware ESX</description>
     <example>CN=server99.,OU=VMware ESX Server Default Certificate,O=VMware\, Inc,L=Palo Alto,ST=California,C=US</example>
+    <param pos="0" name="service.vendor" value="VMware"/>
     <param pos="0" name="os.vendor" value="VMware"/>
     <param pos="0" name="os.product" value="ESX"/>
     <param pos="0" name="os.device" value="Hypervisor"/>
@@ -506,6 +507,42 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:-"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.device" value="Router"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=kube-apiserver$">
+    <description>Kubernetes api-server default certificate</description>
+    <example>CN=kube-apiserver</example>
+    <param pos="0" name="service.vendor" value="Kubernetes"/>
+    <param pos="0" name="service.family" value="Kubernetes"/>
+    <param pos="0" name="service.product" value="Kubernetes"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:kubernetes:kubernetes:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=kubernetes-master$">
+    <description>Kubernetes Control Plane (formerly master) default certificate</description>
+    <example>CN=kubernetes-master</example>
+    <param pos="0" name="service.vendor" value="Kubernetes"/>
+    <param pos="0" name="service.family" value="Kubernetes"/>
+    <param pos="0" name="service.product" value="Kubernetes"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:kubernetes:kubernetes:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=Kubernetes Ingress Controller Fake Certificate,O=Acme Co$">
+    <description>Kubernetes NGINX Ingress Controller with default cert</description>
+    <example>CN=Kubernetes Ingress Controller Fake Certificate,O=Acme Co</example>
+    <param pos="0" name="service.vendor" value="Kubernetes"/>
+    <param pos="0" name="service.family" value="Kubernetes"/>
+    <param pos="0" name="service.product" value="NGINX Ingress Controller"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:kubernetes:nginx_ingress_controller:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=TRAEFIK DEFAULT CERT$">
+    <description>Traefik Proxy default certificate</description>
+    <example>CN=TRAEFIK DEFAULT CERT</example>
+    <param pos="0" name="service.vendor" value="Traefik Labs"/>
+    <param pos="0" name="service.family" value="Traefik"/>
+    <param pos="0" name="service.product" value="Traefik Proxy"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:containous:traefik:-"/>
   </fingerprint>
 
   <fingerprint pattern="^CN=([a-zA-Z0-9]{5,12}) ([a-zA-Z0-9]{12}),OU=(?:Cast|Google TV),O=Google Inc,L=Mountain View,ST=California,C=US$">
@@ -1064,13 +1101,30 @@
   </fingerprint>
 
   <fingerprint pattern="^CN=[0-9\.]+,OU=SSL-VPN,O=SonicWALL\\, Inc\.,L=Sunnyvale,ST=CA,C=US$">
-    <description>SonicWALL Firewall</description>
+    <description>SonicWALL SSL-VPN</description>
     <example>CN=192.168.200.1,OU=SSL-VPN,O=SonicWALL\, Inc.,L=Sunnyvale,ST=CA,C=US</example>
+    <param pos="0" name="service.vendor" value="SonicWall"/>
+    <param pos="0" name="service.family" value="SSL-VPN"/>
     <param pos="0" name="hw.vendor" value="SonicWall"/>
     <param pos="0" name="hw.device" value="VPN"/>
     <param pos="0" name="os.vendor" value="SonicWall"/>
-    <param pos="0" name="os.product" value="VPN"/>
-    <param pos="0" name="os.family" value="VPN"/>
+    <param pos="0" name="os.family" value="SonicOS"/>
+    <param pos="0" name="os.product" value="SonicOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sonicwall:sonicos:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=[0-9\.]+,OU=HTTPS Management Certificate for SonicWALL \(self-signed\),O=HTTPS Management Certificate for SonicWALL \(self-signed\),L=Sunnyvale,ST=California,C=US$">
+    <description>SonicWALL Network Security Appliance firewall</description>
+    <example>CN=192.168.168.168,OU=HTTPS Management Certificate for SonicWALL (self-signed),O=HTTPS Management Certificate for SonicWALL (self-signed),L=Sunnyvale,ST=California,C=US</example>
+    <param pos="0" name="hw.vendor" value="SonicWall"/>
+    <param pos="0" name="hw.product" value="Network Security Appliance"/>
+    <param pos="0" name="hw.family" value="Network Security Appliance"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+    <param pos="0" name="os.vendor" value="SonicWall"/>
+    <param pos="0" name="os.family" value="SonicOS"/>
+    <param pos="0" name="os.product" value="SonicOS"/>
+    <param pos="0" name="os.device" value="Firewall"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sonicwall:sonicos:-"/>
   </fingerprint>
 
   <fingerprint pattern="^CN=.*\.akamai\.net,O=Akamai Technologies\\, Inc\.,L=Cambridge,ST=Massachusetts,C=US$">
