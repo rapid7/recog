@@ -1870,7 +1870,7 @@
     <param pos="0" name="service.family" value="SSL-VPN"/>
     <param pos="0" name="os.vendor" value="SonicWall"/>
     <param pos="0" name="os.device" value="VPN"/>
-    <param pos="0" name="os.family" value="SSL-VPN"/>
+    <param pos="0" name="os.family" value="SonicOS"/>
     <param pos="0" name="os.product" value="SonicOS"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:sonicwall:sonicos:-"/>
     <param pos="0" name="hw.vendor" value="SonicWall"/>
@@ -2958,21 +2958,26 @@
 
   <!-- Service provider equipment (CDNs, etc) -->
 
-  <fingerprint pattern="^AkamaiGHost$">
+  <fingerprint pattern="^(?:Akamai)?GHost$">
     <description>Akamai Global Host</description>
     <example>AkamaiGHost</example>
+    <example>GHost</example>
     <param pos="0" name="service.vendor" value="Akamai"/>
     <param pos="0" name="service.product" value="GHost"/>
     <param pos="0" name="os.vendor" value="Akamai"/>
+    <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.device" value="Web Proxy"/>
   </fingerprint>
+
+  <!-- Banner used for many Google services such as search, Gmail, etc. -->
 
   <fingerprint pattern="^gws$">
     <description>Google Web Services</description>
     <example>gws</example>
     <param pos="0" name="service.vendor" value="Google"/>
-    <param pos="0" name="service.product" value="Google Web Services"/>
     <param pos="0" name="service.family" value="Google Web Server"/>
+    <param pos="0" name="service.product" value="Google Web Services"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:google:web_server:-"/>
   </fingerprint>
 
   <fingerprint pattern="^GFE/((?:\d+\.)*\d+)$">
@@ -2980,8 +2985,8 @@
     <example>GFE/1.3</example>
     <example>GFE/1</example>
     <param pos="0" name="service.vendor" value="Google"/>
-    <param pos="0" name="service.product" value="Google Front End"/>
     <param pos="0" name="service.family" value="Google Web Server"/>
+    <param pos="0" name="service.product" value="Google Front End"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
 
@@ -3004,7 +3009,9 @@
     <description>Amazon S3 (Simple Cloud Storage Service)</description>
     <example>AmazonS3</example>
     <param pos="0" name="service.vendor" value="Amazon"/>
+    <param pos="0" name="service.family" value="Web Services"/>
     <param pos="0" name="service.product" value="S3"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:amazon:web_services_simple_storage_service:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Amazon SimpleDB$">

@@ -477,6 +477,7 @@
   <fingerprint pattern="^CN=([a-zA-Z0-9\.\-\_]+),OU=VMware ESX Server Default Certificate,O=VMware\\, Inc,L=Palo Alto,ST=California,C=US$">
     <description>VMware ESX</description>
     <example>CN=server99.,OU=VMware ESX Server Default Certificate,O=VMware\, Inc,L=Palo Alto,ST=California,C=US</example>
+    <param pos="0" name="service.vendor" value="VMware"/>
     <param pos="0" name="os.vendor" value="VMware"/>
     <param pos="0" name="os.product" value="ESX"/>
     <param pos="0" name="os.device" value="Hypervisor"/>
@@ -497,6 +498,24 @@
     <param pos="0" name="service.product" value="Site Recovery Manager"/>
   </fingerprint>
 
+  <fingerprint pattern="^CN=([^,=]{1,256}),OU=VMware Horizon View default certificate,O=VMware\\, Inc.$">
+    <description>VMware Horizon (formerly View)</description>
+    <example host.name="horizon.foo.bar">CN=horizon.foo.bar,OU=VMware Horizon View default certificate,O=VMware\, Inc.</example>
+    <param pos="0" name="service.vendor" value="VMware"/>
+    <param pos="0" name="service.product" value="Horizon"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:vmware:horizon:-"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=([^,=]{1,256}),OU=VMware View default certificate,O=VMware\\, Inc.$">
+    <description>VMware View</description>
+    <example host.name="horizon.foo.bar">CN=horizon.foo.bar,OU=VMware View default certificate,O=VMware\, Inc.</example>
+    <param pos="0" name="service.vendor" value="VMware"/>
+    <param pos="0" name="service.product" value="View"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:vmware:view:-"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+
   <fingerprint pattern="^CN=IOS-Self-Signed-Certificate-">
     <description>Cisco IOS Default Certificate</description>
     <example>CN=IOS-Self-Signed-Certificate-4163115936</example>
@@ -506,6 +525,62 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:-"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.device" value="Router"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=kube-apiserver$">
+    <description>Kubernetes api-server default certificate</description>
+    <example>CN=kube-apiserver</example>
+    <param pos="0" name="service.vendor" value="Kubernetes"/>
+    <param pos="0" name="service.family" value="Kubernetes"/>
+    <param pos="0" name="service.product" value="Kubernetes"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:kubernetes:kubernetes:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=kubernetes-master$">
+    <description>Kubernetes Control Plane (formerly master) default certificate</description>
+    <example>CN=kubernetes-master</example>
+    <param pos="0" name="service.vendor" value="Kubernetes"/>
+    <param pos="0" name="service.family" value="Kubernetes"/>
+    <param pos="0" name="service.product" value="Kubernetes"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:kubernetes:kubernetes:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=Kubernetes Ingress Controller Fake Certificate,O=Acme Co$">
+    <description>Kubernetes NGINX Ingress Controller with default cert</description>
+    <example>CN=Kubernetes Ingress Controller Fake Certificate,O=Acme Co</example>
+    <param pos="0" name="service.vendor" value="Kubernetes"/>
+    <param pos="0" name="service.family" value="Kubernetes"/>
+    <param pos="0" name="service.product" value="NGINX Ingress Controller"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:kubernetes:nginx_ingress_controller:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=TRAEFIK DEFAULT CERT$">
+    <description>Traefik Proxy default certificate</description>
+    <example>CN=TRAEFIK DEFAULT CERT</example>
+    <param pos="0" name="service.vendor" value="Traefik Labs"/>
+    <param pos="0" name="service.family" value="Traefik"/>
+    <param pos="0" name="service.product" value="Traefik Proxy"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:containous:traefik:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=default(?: [A-Z]+)?,OU=NS Internal,O=Citrix ANG,L=San Jose,ST=California,C=US$">
+    <description>Citrix Netscaler (later renamed to Citrix ADC)</description>
+    <example>CN=default,OU=NS Internal,O=Citrix ANG,L=San Jose,ST=California,C=US</example>
+    <example>CN=default UYENMB,OU=NS Internal,O=Citrix ANG,L=San Jose,ST=California,C=US</example>
+    <param pos="0" name="service.vendor" value="Citrix"/>
+    <param pos="0" name="service.family" value="Netscaler"/>
+    <param pos="0" name="service.product" value="Netscaler"/>
+    <param pos="0" name="service.device" value="Network Management Device"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:citrix:netscaler:-"/>
+    <param pos="0" name="os.vendor" value="Citrix"/>
+    <param pos="0" name="os.family" value="Netscaler"/>
+    <param pos="0" name="os.product" value="Netscaler Gateway Firmware"/>
+    <param pos="0" name="os.device" value="Network Management Device"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:citrix:netscaler_gateway_firmware:-"/>
+    <param pos="0" name="hw.vendor" value="Citrix"/>
+    <param pos="0" name="hw.family" value="Netscaler"/>
+    <param pos="0" name="hw.product" value="Netscaler Gateway"/>
+    <param pos="0" name="hw.device" value="Network Management Device"/>
   </fingerprint>
 
   <fingerprint pattern="^CN=([a-zA-Z0-9]{5,12}) ([a-zA-Z0-9]{12}),OU=(?:Cast|Google TV),O=Google Inc,L=Mountain View,ST=California,C=US$">
@@ -1064,13 +1139,30 @@
   </fingerprint>
 
   <fingerprint pattern="^CN=[0-9\.]+,OU=SSL-VPN,O=SonicWALL\\, Inc\.,L=Sunnyvale,ST=CA,C=US$">
-    <description>SonicWALL Firewall</description>
+    <description>SonicWALL SSL-VPN</description>
     <example>CN=192.168.200.1,OU=SSL-VPN,O=SonicWALL\, Inc.,L=Sunnyvale,ST=CA,C=US</example>
+    <param pos="0" name="service.vendor" value="SonicWall"/>
+    <param pos="0" name="service.family" value="SSL-VPN"/>
     <param pos="0" name="hw.vendor" value="SonicWall"/>
     <param pos="0" name="hw.device" value="VPN"/>
     <param pos="0" name="os.vendor" value="SonicWall"/>
-    <param pos="0" name="os.product" value="VPN"/>
-    <param pos="0" name="os.family" value="VPN"/>
+    <param pos="0" name="os.family" value="SonicOS"/>
+    <param pos="0" name="os.product" value="SonicOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sonicwall:sonicos:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=[0-9\.]+,OU=HTTPS Management Certificate for SonicWALL \(self-signed\),O=HTTPS Management Certificate for SonicWALL \(self-signed\),L=Sunnyvale,ST=California,C=US$">
+    <description>SonicWALL Network Security Appliance firewall</description>
+    <example>CN=192.168.168.168,OU=HTTPS Management Certificate for SonicWALL (self-signed),O=HTTPS Management Certificate for SonicWALL (self-signed),L=Sunnyvale,ST=California,C=US</example>
+    <param pos="0" name="hw.vendor" value="SonicWall"/>
+    <param pos="0" name="hw.product" value="Network Security Appliance"/>
+    <param pos="0" name="hw.family" value="Network Security Appliance"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+    <param pos="0" name="os.vendor" value="SonicWall"/>
+    <param pos="0" name="os.family" value="SonicOS"/>
+    <param pos="0" name="os.product" value="SonicOS"/>
+    <param pos="0" name="os.device" value="Firewall"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sonicwall:sonicos:-"/>
   </fingerprint>
 
   <fingerprint pattern="^CN=.*\.akamai\.net,O=Akamai Technologies\\, Inc\.,L=Cambridge,ST=Massachusetts,C=US$">
@@ -1240,14 +1332,6 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:paloaltonetworks:pan-os:-"/>
     <param pos="0" name="service.vendor" value="Palo Alto Networks"/>
     <param pos="0" name="service.device" value="Firewall"/>
-  </fingerprint>
-
-  <fingerprint pattern="^CN=VMware default certificate,OU=vCenterServer.*,O=VMware\\, Inc\.$">
-    <description>VMware vCenter</description>
-    <example>CN=VMware default certificate,OU=vCenterServer_2013.09.26_220623,O=VMware\, Inc.</example>
-    <param pos="0" name="service.vendor" value="VMware"/>
-    <param pos="0" name="service.product" value="vCenter"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:vmware:vcenter_server:-"/>
   </fingerprint>
 
   <fingerprint pattern="^CN=selfappliance,OU=Engineering,O=Symplified,L=Boulder,ST=Colorado,C=US$">
@@ -1509,6 +1593,17 @@
     <param pos="0" name="hw.vendor" value="Silver Peak"/>
     <param pos="0" name="hw.device" value="Network Appliance"/>
     <param pos="0" name="hw.product" value="SD-WAN"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=Windows Media Player Network Sharing Service \(([A-Z-]{1,15})\)$">
+    <description>Windows Media Player Network Sharing Service</description>
+    <example host.name="LIVING-ROOM">CN=Windows Media Player Network Sharing Service (LIVING-ROOM)</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.product" value="Windows Media Player"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:windows_media_player:-"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="1" name="host.name"/>
   </fingerprint>
 
 </fingerprints>
