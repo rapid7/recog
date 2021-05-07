@@ -563,6 +563,26 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:containous:traefik:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^CN=default(?: [A-Z]+)?,OU=NS Internal,O=Citrix ANG,L=San Jose,ST=California,C=US$">
+    <description>Citrix Netscaler (later renamed to Citrix ADC)</description>
+    <example>CN=default,OU=NS Internal,O=Citrix ANG,L=San Jose,ST=California,C=US</example>
+    <example>CN=default UYENMB,OU=NS Internal,O=Citrix ANG,L=San Jose,ST=California,C=US</example>
+    <param pos="0" name="service.vendor" value="Citrix"/>
+    <param pos="0" name="service.family" value="Netscaler"/>
+    <param pos="0" name="service.product" value="Netscaler"/>
+    <param pos="0" name="service.device" value="Network Management Device"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:citrix:netscaler:-"/>
+    <param pos="0" name="os.vendor" value="Citrix"/>
+    <param pos="0" name="os.family" value="Netscaler"/>
+    <param pos="0" name="os.product" value="Netscaler Gateway Firmware"/>
+    <param pos="0" name="os.device" value="Network Management Device"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:citrix:netscaler_gateway_firmware:-"/>
+    <param pos="0" name="hw.vendor" value="Citrix"/>
+    <param pos="0" name="hw.family" value="Netscaler"/>
+    <param pos="0" name="hw.product" value="Netscaler Gateway"/>
+    <param pos="0" name="hw.device" value="Network Management Device"/>
+  </fingerprint>
+
   <fingerprint pattern="^CN=([a-zA-Z0-9]{5,12}) ([a-zA-Z0-9]{12}),OU=(?:Cast|Google TV),O=Google Inc,L=Mountain View,ST=California,C=US$">
     <description>Google Chromecast</description>
     <example chromecast.serial_number="LVDZG5" host.mac_local="FA8FCA67413D">CN=LVDZG5 FA8FCA67413D,OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
