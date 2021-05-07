@@ -498,6 +498,24 @@
     <param pos="0" name="service.product" value="Site Recovery Manager"/>
   </fingerprint>
 
+  <fingerprint pattern="^CN=([^,=]{1,256}),OU=VMware Horizon View default certificate,O=VMware\\, Inc.$">
+    <description>VMware Horizon (formerly View)</description>
+    <example host.name="horizon.foo.bar">CN=horizon.foo.bar,OU=VMware Horizon View default certificate,O=VMware\, Inc.</example>
+    <param pos="0" name="service.vendor" value="VMware"/>
+    <param pos="0" name="service.product" value="Horizon"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:vmware:horizon:-"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=([^,=]{1,256}),OU=VMware View default certificate,O=VMware\\, Inc.$">
+    <description>VMware View</description>
+    <example host.name="horizon.foo.bar">CN=horizon.foo.bar,OU=VMware View default certificate,O=VMware\, Inc.</example>
+    <param pos="0" name="service.vendor" value="VMware"/>
+    <param pos="0" name="service.product" value="View"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:vmware:view:-"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+
   <fingerprint pattern="^CN=IOS-Self-Signed-Certificate-">
     <description>Cisco IOS Default Certificate</description>
     <example>CN=IOS-Self-Signed-Certificate-4163115936</example>
@@ -1296,14 +1314,6 @@
     <param pos="0" name="service.device" value="Firewall"/>
   </fingerprint>
 
-  <fingerprint pattern="^CN=VMware default certificate,OU=vCenterServer.*,O=VMware\\, Inc\.$">
-    <description>VMware vCenter</description>
-    <example>CN=VMware default certificate,OU=vCenterServer_2013.09.26_220623,O=VMware\, Inc.</example>
-    <param pos="0" name="service.vendor" value="VMware"/>
-    <param pos="0" name="service.product" value="vCenter"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:vmware:vcenter_server:-"/>
-  </fingerprint>
-
   <fingerprint pattern="^CN=selfappliance,OU=Engineering,O=Symplified,L=Boulder,ST=Colorado,C=US$">
     <description>Symplified IAM Appliance (now RSA)</description>
     <example>CN=selfappliance,OU=Engineering,O=Symplified,L=Boulder,ST=Colorado,C=US</example>
@@ -1563,6 +1573,17 @@
     <param pos="0" name="hw.vendor" value="Silver Peak"/>
     <param pos="0" name="hw.device" value="Network Appliance"/>
     <param pos="0" name="hw.product" value="SD-WAN"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=Windows Media Player Network Sharing Service \(([A-Z-]{1,15})\)$">
+    <description>Windows Media Player Network Sharing Service</description>
+    <example host.name="LIVING-ROOM">CN=Windows Media Player Network Sharing Service (LIVING-ROOM)</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.product" value="Windows Media Player"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:windows_media_player:-"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="1" name="host.name"/>
   </fingerprint>
 
 </fingerprints>
