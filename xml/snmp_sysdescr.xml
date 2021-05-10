@@ -7094,13 +7094,26 @@ Copyright (c) 1995-2005 by Cisco Systems
   <fingerprint pattern="^(VMware ESXi?) (\d\.\d+\.\d+) build-\d+ VMware, Inc\. (\S+)$">
     <description>VMware ESX/ESXi</description>
     <example os.product="VMware ESXi" os.version="5.1.0" os.arch="x86_64">VMware ESXi 5.1.0 build-1157734 VMware, Inc. x86_64</example>
+    <param pos="0" name="os.vendor" value="VMware"/>
+    <param pos="0" name="os.family" value="VMware ESX/ESXi"/>
+    <param pos="0" name="os.product" value="VMware ESXi Server"/>
+    <param pos="1" name="os.version"/>
+    <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.device" value="Hypervisor"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:vmware:esxi:{os.version}"/>
+    <param pos="0" name="hw.device" value="Hypervisor"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(VMware ESXi?) (\d\.\d+\.\d+) build-\d+ VMware, Inc\. (\S+)$">
+    <description>VMware ESX/ESXi</description>
     <example os.product="VMware ESX" os.version="5.0.0" os.arch="x86_64">VMware ESX 5.0.0 build-623860 VMware, Inc. x86_64</example>
     <param pos="0" name="os.vendor" value="VMware"/>
     <param pos="0" name="os.family" value="VMware ESX/ESXi"/>
-    <param pos="1" name="os.product"/>
-    <param pos="2" name="os.version"/>
-    <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.product" value="VMware ESX Server"/>
+    <param pos="1" name="os.version"/>
+    <param pos="2" name="os.arch"/>
     <param pos="0" name="os.device" value="Hypervisor"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:vmware:esx:{os.version}"/>
     <param pos="0" name="hw.device" value="Hypervisor"/>
   </fingerprint>
 
