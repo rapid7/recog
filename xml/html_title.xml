@@ -27,14 +27,32 @@
     <example>403 Forbidden</example>
   </fingerprint>
 
-  <fingerprint pattern="^404 Not Found$">
+  <fingerprint pattern="^(?:404 )?Not Found$">
     <description>404 Not Found - generic -- assert nothing.</description>
     <example>404 Not Found</example>
+    <example>Not Found</example>
   </fingerprint>
 
   <fingerprint pattern="^Invalid URL$">
     <description>Invalid URL - generic -- assert nothing.</description>
     <example>Invalid URL</example>
+  </fingerprint>
+
+  <fingerprint pattern="^ERROR: The request could not be satisfied$">
+    <description>Amazon CloudFront web load balancer endpoint</description>
+    <example>ERROR: The request could not be satisfied</example>
+    <param pos="0" name="service.vendor" value="Amazon"/>
+    <param pos="0" name="service.family" value="CloudFront"/>
+    <param pos="0" name="service.product" value="CloudFront Load Balancer"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Microsoft Azure Web App - Error 404$">
+    <description>Microsoft Azure Web App - Error 404</description>
+    <example>Microsoft Azure Web App - Error 404</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="Azure"/>
+    <param pos="0" name="service.product" value="Azure App Service on Azure Stack"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:azure_app_service_on_azure_stack:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Index of /">
@@ -342,6 +360,30 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:sonicwall:sonicos:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^SonicWall Universal Management Suite v(\d+\.\d+)$">
+    <description>SonicWall Universal Management Appliance - with version</description>
+    <example service.version="8.7">SonicWall Universal Management Suite v8.7</example>
+    <param pos="0" name="service.vendor" value="SonicWall"/>
+    <param pos="0" name="service.product" value="Universal Management Appliance"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sonicwall:universal_management_appliance:{service.version}"/>
+    <param pos="0" name="os.vendor" value="SonicWall"/>
+    <param pos="0" name="os.family" value="SonicOS"/>
+    <param pos="0" name="os.product" value="SonicOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sonicwall:sonicos:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Fireware XTM User Authentication$">
+    <description>WatchGuard Fireware XTM login page</description>
+    <example>Fireware XTM User Authentication</example>
+    <param pos="0" name="service.vendor" value="WatchGuard"/>
+    <param pos="0" name="service.product" value="Fireware XTM"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:watchguard:fireware_xtm:-"/>
+    <param pos="0" name="os.vendor" value="WatchGuard"/>
+    <param pos="0" name="os.product" value="Fireware"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:watchguard:fireware:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^(.*).nbsp;-.nbsp;Synology.nbsp;DiskStation$">
     <description>Synology DiskStation</description>
     <example host.name="DiskStation">DiskStation&amp;nbsp;-&amp;nbsp;Synology&amp;nbsp;DiskStation</example>
@@ -456,6 +498,50 @@
     <param pos="0" name="hw.family" value="UniFi"/>
     <param pos="0" name="hw.product" value="UniFi NVR"/>
     <param pos="0" name="hw.device" value="DVR"/>
+  </fingerprint>
+
+  <!-- Various products by Zyxel -->
+
+  <fingerprint pattern="^USG60$">
+    <description>Zyxel USG60 Unified Security Gateway</description>
+    <example>USG60</example>
+    <param pos="0" name="os.vendor" value="Zyxel"/>
+    <param pos="0" name="os.product" value="USG60 firmware"/>
+    <param pos="0" name="os.device" value="Firewall"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:zyxel:usg60_firmware:-"/>
+    <param pos="0" name="hw.vendor" value="Zyxel"/>
+    <param pos="0" name="hw.family" value="Unified Security Gateway"/>
+    <param pos="0" name="hw.product" value="USG60"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:zyxel:usg60:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^USG40$">
+    <description>Zyxel USG40 Unified Security Gateway</description>
+    <example>USG40</example>
+    <param pos="0" name="os.vendor" value="Zyxel"/>
+    <param pos="0" name="os.product" value="USG40 firmware"/>
+    <param pos="0" name="os.device" value="Firewall"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:zyxel:usg40_firmware:-"/>
+    <param pos="0" name="hw.vendor" value="Zyxel"/>
+    <param pos="0" name="hw.family" value="Unified Security Gateway"/>
+    <param pos="0" name="hw.product" value="USG40"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:zyxel:usg40:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^USG20-VPN$">
+    <description>Zyxel USG20-VPN Unified Security Gateway</description>
+    <example>USG20-VPN</example>
+    <param pos="0" name="os.vendor" value="Zyxel"/>
+    <param pos="0" name="os.product" value="USG20-VPN firmware"/>
+    <param pos="0" name="os.device" value="Firewall"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:zyxel:usg20-vpn_firmware:-"/>
+    <param pos="0" name="hw.vendor" value="Zyxel"/>
+    <param pos="0" name="hw.family" value="Unified Security Gateway"/>
+    <param pos="0" name="hw.product" value="USG20-VPN"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:zyxel:usg20-vpn:-"/>
   </fingerprint>
 
   <fingerprint pattern="^RomPager Embedded Web Server Toolkit$">
@@ -1038,6 +1124,14 @@
     <param pos="0" name="hw.device" value="VoIP"/>
   </fingerprint>
 
+  <fingerprint pattern="^3CX Phone System Management Console$">
+    <description>3CX Phone System Management Console</description>
+    <example>3CX Phone System Management Console</example>
+    <param pos="0" name="service.vendor" value="3CX"/>
+    <param pos="0" name="service.product" value="3CX Web Server"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:3cx:3cx_web_server:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^(SPA\S+) Configuration Utility$">
     <description>Cisco IP Phone - SPA504G Configuration Utility</description>
     <example hw.product="SPA504G">SPA504G Configuration Utility</example>
@@ -1473,7 +1567,26 @@
     <param pos="0" name="service.vendor" value="Citrix"/>
     <param pos="0" name="service.product" value="XenServer"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.device" value="Hypervisor"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:citrix:xenserver:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Citrix"/>
+    <param pos="0" name="os.product" value="XenServer"/>
+    <param pos="0" name="os.device" value="Hypervisor"/>
+    <param pos="0" name="hw.device" value="Hypervisor"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Welcome to Citrix Hypervisor ([0-9\.]+)$">
+    <description>XenServer</description>
+    <example service.version="8.2.0">Welcome to Citrix Hypervisor 8.2.0</example>
+    <param pos="0" name="service.vendor" value="Citrix"/>
+    <param pos="0" name="service.product" value="XenServer"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.device" value="Hypervisor"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:citrix:xenserver:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Citrix"/>
+    <param pos="0" name="os.product" value="XenServer"/>
+    <param pos="0" name="os.device" value="Hypervisor"/>
+    <param pos="0" name="hw.device" value="Hypervisor"/>
   </fingerprint>
 
   <fingerprint pattern="^RabbitMQ Management$">
@@ -1598,6 +1711,25 @@
     <param pos="0" name="service.vendor" value="VMware"/>
     <param pos="0" name="service.product" value="vCenter"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:vmware:vcenter_server:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^&quot; \+ ID_EESX_Welcome \+ &quot;$">
+    <description>VMware ESXi</description>
+    <example>" + ID_EESX_Welcome + "</example>
+    <param pos="0" name="service.vendor" value="VMware"/>
+    <param pos="0" name="os.vendor" value="VMware"/>
+    <param pos="0" name="os.product" value="ESX"/>
+    <param pos="0" name="os.device" value="Hypervisor"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:vmware:esx:-"/>
+    <param pos="0" name="hw.device" value="Hypervisor"/>
+  </fingerprint>
+
+  <fingerprint pattern="^&quot; \+ ID_Converter_Welcome \+ &quot;$">
+    <description>VMware Converter</description>
+    <example>" + ID_Converter_Welcome + "</example>
+    <param pos="0" name="service.vendor" value="VMware"/>
+    <param pos="0" name="service.product" value="vCenter Converter"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:vmware:vcenter_converter:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Graylog Web Interface$">
@@ -2280,6 +2412,47 @@
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
+  <fingerprint pattern="^Welcome to Oracle Fusion Middleware$">
+    <description>Oracle Fusion Middleware</description>
+    <example>Welcome to Oracle Fusion Middleware</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="Fusion Middleware"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:oracle:fusion_middleware:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Oracle Secure Global Desktop(?: Redirect Page)?$">
+    <description>Oracle Secure Global Desktop</description>
+    <example>Oracle Secure Global Desktop</example>
+    <example>Oracle Secure Global Desktop Redirect Page</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="Secure Global Desktop"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:oracle:secure_global_desktop:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^OTM - Oracle Transportation Management$">
+    <description>Oracle Transportation Management</description>
+    <example>OTM - Oracle Transportation Management</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="Transportation Management"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:oracle:transportation_management:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Bad Oracle Access Manager Request$">
+    <description>Oracle Access Manager - Bad Request</description>
+    <example>Bad Oracle Access Manager Request</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="Access Manager"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:oracle:access_manager:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Oracle Access Manager Operation Error$">
+    <description>Oracle Access Manager - Operation Error</description>
+    <example>Oracle Access Manager Operation Error</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="Access Manager"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:oracle:access_manager:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^(?:Oracle\(R\) )?Integrated Lights Out Manager$">
     <description>Oracle iLOM</description>
     <example>Oracle(R) Integrated Lights Out Manager</example>
@@ -2291,7 +2464,8 @@
     <param pos="0" name="os.device" value="Lights Out Management"/>
     <param pos="0" name="os.vendor" value="Oracle"/>
     <param pos="0" name="os.family" value="ILOM"/>
-    <param pos="0" name="os.product" value="ILOM"/>
+    <param pos="0" name="os.product" value="Integrated Lights Out Manager firmware"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:oracle:integrated_lights_out_manager_firmware:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Genetec - SHARPV\S+$">

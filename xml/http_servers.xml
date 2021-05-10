@@ -2509,6 +2509,17 @@
     <param pos="2" name="python.version"/>
   </fingerprint>
 
+  <fingerprint pattern="^Python/(\d\.[\d.]+) aiohttp/(\d[\w.]+)$">
+    <description>AIOHTTP Project AIOHTTP</description>
+    <example service.version="3.7.4.post0">Python/3.8 aiohttp/3.7.4.post0</example>
+    <example python.version="3.4">Python/3.4 aiohttp/1.0.5</example>
+    <param pos="0" name="service.vendor" value="AIOHTTP Project"/>
+    <param pos="0" name="service.product" value="AIOHTTP"/>
+    <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:aiohttp_project:aiohttp:{service.version}"/>
+    <param pos="1" name="python.version"/>
+  </fingerprint>
+
   <fingerprint pattern="^uvicorn$">
     <description>Encode uvicorn</description>
     <example>uvicorn</example>
@@ -3029,10 +3040,11 @@
   </fingerprint>
 
   <fingerprint pattern="^awselb/([\d.rc]+)$">
-    <description>Amazon Elastic Load Balancing</description>
+    <description>Amazon Elastic Load Balancer</description>
     <example service.version="2.0">awselb/2.0</example>
     <param pos="0" name="service.vendor" value="Amazon"/>
-    <param pos="0" name="service.family" value="Elastic Load Balancing"/>
+    <param pos="0" name="service.family" value="Web Services"/>
+    <param pos="0" name="service.product" value="Elastic Load Balancer"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
 
@@ -4502,6 +4514,17 @@
     <param pos="0" name="service.family" value="UPnP"/>
     <param pos="0" name="hw.vendor" value="Pelco"/>
     <param pos="0" name="hw.device" value="IP Camera"/>
+  </fingerprint>
+
+  <fingerprint pattern="^xxxxxxxx-xxxxx$">
+    <description>Fortinet - device unknown</description>
+    <example>xxxxxxxx-xxxxx</example>
+    <param pos="0" name="os.vendor" value="Fortinet"/>
+    <param pos="0" name="os.family" value="FortiOS"/>
+    <param pos="0" name="os.product" value="FortiOS"/>
+    <param pos="0" name="os.device" value="Firewall"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:fortinet:fortios:-"/>
+    <param pos="0" name="hw.vendor" value="Fortinet"/>
   </fingerprint>
 
 </fingerprints>
