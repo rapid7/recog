@@ -103,6 +103,29 @@
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
+  <fingerprint pattern="^O=Technicolor,L=Edegem,ST=Antwerp,C=BE$">
+    <description>Technicolor Router - without model or version</description>
+    <example>O=Technicolor,L=Edegem,ST=Antwerp,C=BE</example>
+    <param pos="0" name="os.vendor" value="Technicolor"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="0" name="os.certainty" value="0.5"/>
+    <param pos="0" name="hw.vendor" value="Technicolor"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.certainty" value="0.5"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=Vigor Router,OU=DrayTek Support,O=DrayTek Corp.,L=HuKou,ST=HsinChu,C=TW$">
+    <description>DrayTek Vigor Router - without model or version</description>
+    <example>CN=Vigor Router,OU=DrayTek Support,O=DrayTek Corp.,L=HuKou,ST=HsinChu,C=TW</example>
+    <param pos="0" name="os.vendor" value="DrayTek"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="0" name="os.certainty" value="0.5"/>
+    <param pos="0" name="hw.vendor" value="DrayTek"/>
+    <param pos="0" name="hw.family" value="Vigor"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.certainty" value="0.5"/>
+  </fingerprint>
+
   <fingerprint pattern="^CN=Nepenthes Development Team,OU=anv,O=dionaea\.carnivore\.it,C=DE$">
     <description>Nepenthes honeypot</description>
     <example>CN=Nepenthes Development Team,OU=anv,O=dionaea.carnivore.it,C=DE</example>
@@ -479,7 +502,8 @@
     <example>CN=server99.,OU=VMware ESX Server Default Certificate,O=VMware\, Inc,L=Palo Alto,ST=California,C=US</example>
     <param pos="0" name="service.vendor" value="VMware"/>
     <param pos="0" name="os.vendor" value="VMware"/>
-    <param pos="0" name="os.product" value="ESX"/>
+    <param pos="0" name="os.family" value="VMware ESX/ESXi"/>
+    <param pos="0" name="os.product" value="VMware ESX Server"/>
     <param pos="0" name="os.device" value="Hypervisor"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:vmware:esx:-"/>
     <param pos="1" name="host.name"/>
@@ -581,6 +605,7 @@
     <param pos="0" name="hw.family" value="Netscaler"/>
     <param pos="0" name="hw.product" value="Netscaler Gateway"/>
     <param pos="0" name="hw.device" value="Network Management Device"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:citrix:netscaler_gateway:-"/>
   </fingerprint>
 
   <fingerprint pattern="^CN=([a-zA-Z0-9]{5,12}) ([a-zA-Z0-9]{12}),OU=(?:Cast|Google TV),O=Google Inc,L=Mountain View,ST=California,C=US$">
@@ -1172,6 +1197,14 @@
     <param pos="0" name="service.product" value="GHost"/>
     <param pos="0" name="os.vendor" value="Akamai"/>
     <param pos="0" name="os.device" value="Web Proxy"/>
+  </fingerprint>
+
+  <fingerprint pattern="^O=Caddy Self-Signed$">
+    <description>CaddyServer Caddy - golang based httpd</description>
+    <example>O=Caddy Self-Signed</example>
+    <param pos="0" name="service.vendor" value="CaddyServer"/>
+    <param pos="0" name="service.product" value="Caddy"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:caddyserver:caddy:-"/>
   </fingerprint>
 
   <fingerprint pattern="^CN=HP_3PAR_">
