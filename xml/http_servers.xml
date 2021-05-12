@@ -97,6 +97,15 @@
     <param pos="0" name="service.vendor" value="cPanel"/>
     <param pos="0" name="service.product" value="cPanel Service Daemon"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cpanel:cpanel:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^sw-cp-server$">
+    <description>Plesk Control Panel Server</description>
+    <example>sw-cp-server</example>
+    <param pos="0" name="service.vendor" value="Parallels"/>
+    <param pos="0" name="service.product" value="Plesk"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:parallels:parallels_plesk_panel:-"/>
   </fingerprint>
 
   <!-- CentOS Web Panel is not part of the CentOS project and runs on CentOS,
@@ -2709,6 +2718,18 @@
     <param pos="0" name="service.product" value="Twisted Web"/>
     <param pos="0" name="service.family" value="Twisted Web"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:twistedmatrix:twistedweb:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Twisted/([\d.]+) TwistedWeb/([\d.]+)$">
+    <description>Twisted Matrix Labs - TwistedWeb - verbose variant</description>
+    <example service.version="13.0.0">Twisted/13.0.0 TwistedWeb/9.0.0</example>
+    <example service.version.version="9.0.0">Twisted/17.9.0 TwistedWeb/9.0.0</example>
+    <param pos="0" name="service.vendor" value="TwistedMatrix"/>
+    <param pos="0" name="service.product" value="Twisted Web"/>
+    <param pos="0" name="service.family" value="Twisted Web"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="service.version.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:twistedmatrix:twistedweb:{service.version}"/>
   </fingerprint>
 
