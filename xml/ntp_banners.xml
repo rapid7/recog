@@ -362,6 +362,7 @@
     <param pos="0" name="os.product" value="NetScaler"/>
     <param pos="3" name="os.arch"/>
     <param pos="4" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:citrix:netscaler_firmware:{os.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;FreeBSD/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
@@ -926,6 +927,11 @@
     <param pos="3" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:hp:hp-ux:{os.version}"/>
   </fingerprint>
+
+  <!--
+    This may need to be split into ESX and ESXi. ESXi started w/ version 4.1 and
+    all versions 5.x were ESXi only.
+    -->
 
   <fingerprint pattern="^.*version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;VMkernel/?([^ ]+)?&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on VMware ESXi</description>

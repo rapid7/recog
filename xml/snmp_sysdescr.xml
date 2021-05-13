@@ -1583,7 +1583,7 @@
     <param pos="0" name="os.product" value="Adaptive Security Appliance"/>
     <param pos="0" name="os.device" value="Firewall"/>
     <param pos="1" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:adaptive_security_appliance:{os.version}"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:adaptive_security_appliance_software:{os.version}"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.family" value="Adaptive Security Appliance"/>
     <param pos="0" name="hw.product" value="Adaptive Security Appliance"/>
@@ -1612,7 +1612,7 @@
     <param pos="0" name="os.product" value="VPN 3000 Concentrator"/>
     <param pos="0" name="os.device" value="VPN"/>
     <param pos="1" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:vpn_3000_concentrator:{os.version}"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:vpn_3000_concentrator_series_software:{os.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^(?:Cisco )?Network Analysis Module \(WS-[^\)]+\), Version ([^, ]+)[,\s]?">
@@ -1631,6 +1631,11 @@ Copyright (c) 1999-2004 by cisco Systems, Inc.</example>
     <param pos="0" name="os.product" value="NAM"/>
     <param pos="0" name="os.device" value="Network Management Device"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:network_analysis_module_software:{os.version}"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.product" value="NAM"/>
+    <param pos="0" name="hw.device" value="Network Management Device"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:cisco:network_analysis_module:-"/>
   </fingerprint>
 
   <fingerprint pattern="^(?:Cisco )?Network Analysis Module \(WS-([^\-]+)-NAM\)$">
@@ -1640,6 +1645,9 @@ Copyright (c) 1999-2004 by cisco Systems, Inc.</example>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.product" value="NAM"/>
     <param pos="0" name="os.device" value="Network Management Device"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:network_analysis_module_software:-"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="Network Management Device"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
@@ -3074,6 +3082,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="iLO"/>
     <param pos="0" name="os.device" value="Lights Out Management"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:hp:integrated_lights-out_firmware:{os.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^Integrated Lights-Out (\d) \(iLO \d\) for Integrity$">
@@ -3084,6 +3093,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="iLO"/>
     <param pos="0" name="os.device" value="Lights Out Management"/>
     <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:hp:integrated_lights-out_firmware:{os.version}"/>
   </fingerprint>
 
   <!--======================================================================
@@ -4912,6 +4922,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="NetScaler"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.version.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:citrix:netscaler_firmware:{os.version}"/>
   </fingerprint>
 
   <!--======================================================================
@@ -7091,16 +7102,29 @@ Copyright (c) 1995-2005 by Cisco Systems
                              VMware
    =======================================================================-->
 
-  <fingerprint pattern="^(VMware ESXi?) (\d\.\d+\.\d+) build-\d+ VMware, Inc\. (\S+)$">
-    <description>VMware ESX/ESXi</description>
-    <example os.product="VMware ESXi" os.version="5.1.0" os.arch="x86_64">VMware ESXi 5.1.0 build-1157734 VMware, Inc. x86_64</example>
-    <example os.product="VMware ESX" os.version="5.0.0" os.arch="x86_64">VMware ESX 5.0.0 build-623860 VMware, Inc. x86_64</example>
+  <fingerprint pattern="^VMware ESXi (\d\.\d+\.\d+) build-\d+ VMware, Inc\. (\S+)$">
+    <description>VMware ESXi</description>
+    <example os.version="5.1.0" os.arch="x86_64">VMware ESXi 5.1.0 build-1157734 VMware, Inc. x86_64</example>
     <param pos="0" name="os.vendor" value="VMware"/>
     <param pos="0" name="os.family" value="VMware ESX/ESXi"/>
-    <param pos="1" name="os.product"/>
-    <param pos="2" name="os.version"/>
-    <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.product" value="VMware ESXi Server"/>
+    <param pos="1" name="os.version"/>
+    <param pos="2" name="os.arch"/>
     <param pos="0" name="os.device" value="Hypervisor"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:vmware:esxi:{os.version}"/>
+    <param pos="0" name="hw.device" value="Hypervisor"/>
+  </fingerprint>
+
+  <fingerprint pattern="^VMware ESX (\d\.\d+\.\d+) build-\d+ VMware, Inc\. (\S+)$">
+    <description>VMware ESX</description>
+    <example os.version="5.0.0" os.arch="x86_64">VMware ESX 5.0.0 build-623860 VMware, Inc. x86_64</example>
+    <param pos="0" name="os.vendor" value="VMware"/>
+    <param pos="0" name="os.family" value="VMware ESX/ESXi"/>
+    <param pos="0" name="os.product" value="VMware ESX Server"/>
+    <param pos="1" name="os.version"/>
+    <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.device" value="Hypervisor"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:vmware:esx:{os.version}"/>
     <param pos="0" name="hw.device" value="Hypervisor"/>
   </fingerprint>
 

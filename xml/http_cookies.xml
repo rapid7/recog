@@ -12,6 +12,28 @@
     <param pos="0" name="service.vendor" value="CloudFlare"/>
     <param pos="0" name="service.product" value="CloudFlare Load Balancer"/>
     <param pos="0" name="service.family" value="CloudFlare"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cloudflare:load_balancing:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(AWSALB(?:TG)?(?:CORS)?)=.*$">
+    <description>Amazon Application Load Balancer</description>
+    <example cookie="AWSALB">AWSALB=791357231C9C446E295988DA51A2CD313D13788329433D96A05631377389B17BF097D4C8A2D0BE5BC4F3C649AED7DFF939364A5790E2EC67F33C4483E2E9DD17E99814071B;PATH=/;HttpOnly;Secure</example>
+    <example cookie="AWSALBCORS">AWSALBCORS=D5A3BF7B08C8E0626B1C77DAAEAB0A7542DEB35F43097F06FD3833E22A9BA2543B805B7AE1B6E97F2BE3A701A19AF5D2CC898E0DB5E52055B0B983CC64EAD006CF77C1CF72;PATH=/;SECURE;SAMESITE=None</example>
+    <example cookie="AWSALBTGCORS">AWSALBTGCORS=E0+uuQyz1jbU2P5jrIIWTuoK0aAbjfgsuA814N0xT5w9Vu4N61/CZTKT+yxwCfUqIUx/IgZfsDyA24+eSXKFO60aqEbtGPw2Mm4bGNDMVpcZ/yKHzifDPjT7mNQvNVq7xCAed5VgTpMH/nD3D2pLn9+ooJcShVgv+z97rSYAV5C98tecx6Q=; Expires=Mon, 10 May 2021 01:21:27 GMT; Path=/; SameSite=None; Secure</example>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="Amazon"/>
+    <param pos="0" name="service.family" value="Web Services"/>
+    <param pos="0" name="service.product" value="Application Load Balancer"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(AWSELB(?:CORS)?)=.*$">
+    <description>Amazon Elastic Load Balancer</description>
+    <example cookie="AWSELB">AWSELB=791357231C9C446E295988DA51A2CD313D13788329433D96A05631377389B17BF097D4C8A2D0BE5BC4F3C649AED7DFF939364A5790E2EC67F33C4483E2E9DD17E99814071B;PATH=/;HttpOnly;Secure</example>
+    <example cookie="AWSELBCORS">AWSELBCORS=D5A3BF7B08C8E0626B1C77DAAEAB0A7542DEB35F43097F06FD3833E22A9BA2543B805B7AE1B6E97F2BE3A701A19AF5D2CC898E0DB5E52055B0B983CC64EAD006CF77C1CF72;PATH=/;SECURE;SAMESITE=None</example>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="Amazon"/>
+    <param pos="0" name="service.family" value="Web Services"/>
+    <param pos="0" name="service.product" value="Elastic Load Balancer"/>
   </fingerprint>
 
   <fingerprint pattern="^(PHPSESSI(?:D|ON))=.*">
@@ -177,7 +199,7 @@
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="Adaptive Security Appliance"/>
     <param pos="0" name="os.product" value="Adaptive Security Appliance"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:adaptive_security_appliance:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:adaptive_security_appliance_software:-"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.family" value="Adaptive Security Appliance"/>
     <param pos="0" name="hw.product" value="Adaptive Security Appliance"/>
@@ -201,6 +223,7 @@
     <param pos="0" name="os.family" value="NetScaler"/>
     <param pos="0" name="os.device" value="Network Management Device"/>
     <param pos="0" name="os.product" value="NetScaler"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:citrix:netscaler_firmware:-"/>
     <param pos="0" name="service.vendor" value="Citrix"/>
     <param pos="0" name="service.family" value="NetScaler"/>
     <param pos="0" name="service.device" value="Network Management Device"/>

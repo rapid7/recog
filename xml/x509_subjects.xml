@@ -103,6 +103,29 @@
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
+  <fingerprint pattern="^O=Technicolor,L=Edegem,ST=Antwerp,C=BE$">
+    <description>Technicolor Router - without model or version</description>
+    <example>O=Technicolor,L=Edegem,ST=Antwerp,C=BE</example>
+    <param pos="0" name="os.vendor" value="Technicolor"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="0" name="os.certainty" value="0.5"/>
+    <param pos="0" name="hw.vendor" value="Technicolor"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.certainty" value="0.5"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=Vigor Router,OU=DrayTek Support,O=DrayTek Corp.,L=HuKou,ST=HsinChu,C=TW$">
+    <description>DrayTek Vigor Router - without model or version</description>
+    <example>CN=Vigor Router,OU=DrayTek Support,O=DrayTek Corp.,L=HuKou,ST=HsinChu,C=TW</example>
+    <param pos="0" name="os.vendor" value="DrayTek"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="0" name="os.certainty" value="0.5"/>
+    <param pos="0" name="hw.vendor" value="DrayTek"/>
+    <param pos="0" name="hw.family" value="Vigor"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.certainty" value="0.5"/>
+  </fingerprint>
+
   <fingerprint pattern="^CN=Nepenthes Development Team,OU=anv,O=dionaea\.carnivore\.it,C=DE$">
     <description>Nepenthes honeypot</description>
     <example>CN=Nepenthes Development Team,OU=anv,O=dionaea.carnivore.it,C=DE</example>
@@ -198,11 +221,12 @@
     <param pos="0" name="hw.vendor" value="HP"/>
     <param pos="0" name="hw.family" value="iLO"/>
     <param pos="0" name="hw.product" value="iLO"/>
-    <param pos="0" name="hw.cpe23" value="cpe:/h:hp:integrated_lights_out:-"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:hp:integrated_lights-out:-"/>
     <param pos="0" name="os.device" value="Lights Out Management"/>
     <param pos="0" name="os.vendor" value="HP"/>
     <param pos="0" name="os.family" value="iLO"/>
     <param pos="0" name="os.product" value="iLO"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:hp:integrated_lights-out_firmware:-"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
 
@@ -213,11 +237,12 @@
     <param pos="0" name="hw.vendor" value="HP"/>
     <param pos="0" name="hw.family" value="iLO"/>
     <param pos="0" name="hw.product" value="iLO"/>
-    <param pos="0" name="hw.cpe23" value="cpe:/h:hp:integrated_lights_out:-"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:hp:integrated_lights-out:-"/>
     <param pos="0" name="os.device" value="Lights Out Management"/>
     <param pos="0" name="os.vendor" value="HP"/>
     <param pos="0" name="os.family" value="iLO"/>
     <param pos="0" name="os.product" value="iLO"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:hp:integrated_lights-out_firmware:-"/>
   </fingerprint>
 
   <fingerprint pattern="^CN=OA\-([a-fA-F0-9]+),OU=Onboard Administrator,">
@@ -228,11 +253,12 @@
     <param pos="0" name="hw.vendor" value="HP"/>
     <param pos="0" name="hw.family" value="iLO"/>
     <param pos="0" name="hw.product" value="iLO"/>
-    <param pos="0" name="hw.cpe23" value="cpe:/h:hp:integrated_lights_out:-"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:hp:integrated_lights-out:-"/>
     <param pos="0" name="os.device" value="Lights Out Management"/>
     <param pos="0" name="os.vendor" value="HP"/>
     <param pos="0" name="os.family" value="iLO"/>
     <param pos="0" name="os.product" value="iLO"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:hp:integrated_lights-out_firmware:-"/>
     <param pos="1" name="host.mac"/>
   </fingerprint>
 
@@ -243,11 +269,12 @@
     <param pos="0" name="hw.vendor" value="HP"/>
     <param pos="0" name="hw.family" value="iLO"/>
     <param pos="0" name="hw.product" value="iLO"/>
-    <param pos="0" name="hw.cpe23" value="cpe:/h:hp:integrated_lights_out:-"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:hp:integrated_lights-out:-"/>
     <param pos="0" name="os.device" value="Lights Out Management"/>
     <param pos="0" name="os.vendor" value="HP"/>
     <param pos="0" name="os.family" value="iLO"/>
     <param pos="0" name="os.product" value="iLO"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:hp:integrated_lights-out_firmware:-"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
 
@@ -370,7 +397,7 @@
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="Adaptive Security Appliance"/>
     <param pos="0" name="os.product" value="Adaptive Security Appliance"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:adaptive_security_appliance:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:adaptive_security_appliance_software:-"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.family" value="Adaptive Security Appliance"/>
     <param pos="0" name="hw.product" value="Adaptive Security Appliance"/>
@@ -384,7 +411,7 @@
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.device" value="Wireless Controller"/>
     <param pos="0" name="os.product" value="Wireless LAN Controller"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:wireless_lan_controller:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:wireless_lan_controller_software:-"/>
     <param pos="1" name="cisco.serial_number"/>
   </fingerprint>
 
@@ -394,7 +421,7 @@
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.device" value="Wireless Controller"/>
     <param pos="0" name="os.product" value="Wireless LAN Controller"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:wireless_lan_controller:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:wireless_lan_controller_software:-"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.device" value="Wireless Controller"/>
     <param pos="0" name="hw.product" value="Wireless LAN Controller"/>
@@ -479,7 +506,8 @@
     <example>CN=server99.,OU=VMware ESX Server Default Certificate,O=VMware\, Inc,L=Palo Alto,ST=California,C=US</example>
     <param pos="0" name="service.vendor" value="VMware"/>
     <param pos="0" name="os.vendor" value="VMware"/>
-    <param pos="0" name="os.product" value="ESX"/>
+    <param pos="0" name="os.family" value="VMware ESX/ESXi"/>
+    <param pos="0" name="os.product" value="VMware ESX Server"/>
     <param pos="0" name="os.device" value="Hypervisor"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:vmware:esx:-"/>
     <param pos="1" name="host.name"/>
@@ -581,6 +609,7 @@
     <param pos="0" name="hw.family" value="Netscaler"/>
     <param pos="0" name="hw.product" value="Netscaler Gateway"/>
     <param pos="0" name="hw.device" value="Network Management Device"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:citrix:netscaler_gateway:-"/>
   </fingerprint>
 
   <fingerprint pattern="^CN=([a-zA-Z0-9]{5,12}) ([a-zA-Z0-9]{12}),OU=(?:Cast|Google TV),O=Google Inc,L=Mountain View,ST=California,C=US$">
@@ -1170,8 +1199,17 @@
     <example>CN=a248.e.akamai.net,O=Akamai Technologies\, Inc.,L=Cambridge,ST=Massachusetts,C=US</example>
     <param pos="0" name="service.vendor" value="Akamai"/>
     <param pos="0" name="service.product" value="GHost"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:akamai:akamaighost:-"/>
     <param pos="0" name="os.vendor" value="Akamai"/>
     <param pos="0" name="os.device" value="Web Proxy"/>
+  </fingerprint>
+
+  <fingerprint pattern="^O=Caddy Self-Signed$">
+    <description>CaddyServer Caddy - golang based httpd</description>
+    <example>O=Caddy Self-Signed</example>
+    <param pos="0" name="service.vendor" value="CaddyServer"/>
+    <param pos="0" name="service.product" value="Caddy"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:caddyserver:caddy:-"/>
   </fingerprint>
 
   <fingerprint pattern="^CN=HP_3PAR_">
