@@ -16,8 +16,17 @@ def parse_cpe_vp_map(file):
     parser = etree.XMLParser(remove_comments=False)
     doc = etree.parse(file, parser)
     namespaces = {'ns': 'http://cpe.mitre.org/dictionary/2.0', 'meta': 'http://scap.nist.gov/schema/cpe-dictionary-metadata/0.2'}
-    for cpe_name in doc.xpath("//ns:cpe-list/ns:cpe-item/@name", namespaces=namespaces):
+    for entry in doc.xpath("//ns:cpe-list/ns:cpe-item", namespaces=namespaces):
+        cpe_name = entry.get("name")
+        if not cpe_name:
+            continue
+
+        # If the entry is deprecated then don't add it to our list of valid CPEs.
+        if entry.get("deprecated"):
+            continue
+
         cpe_match = re.match('^cpe:/([aho]):([^:]+):([^:]+)', cpe_name)
+
         if cpe_match:
             cpe_type, vendor, product = cpe_match.group(1, 2, 3)
             if cpe_type not in vp_map:
@@ -86,7 +95,11 @@ def lookup_cpe(vendor, product, cpe_type, cpe_table, remap):
 
     # Everything else depends on a remap of some sort.
     # get the remappings for this one vendor string.
-    vendor_remap = remap.get(vendor, None)
+    vendor_remap = None
+
+    remap_type = remap.get(cpe_type, None)
+    if remap_type:
+        vendor_remap = remap_type.get(vendor, None)
 
     if vendor_remap:
         # If we have product remappings, work that angle next
