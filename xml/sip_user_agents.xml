@@ -559,4 +559,16 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:freeswitch:freeswitch:{service.version}"/>
   </fingerprint>
 
+  <fingerprint pattern="^Valcom (VIP-\w+) sw([\d.]+)">
+    <description>Valcom SIP device with version</description>
+    <example os.version="1.50.28">Valcom VIP-204 sw1.50.28</example>
+    <param pos="0" name="os.vendor" value="Valcom"/>
+    <param pos="0" name="os.product" value="{hw.product} Firmware"/>
+    <param pos="2" name="os.version"/>
+    <param pos="1" name="os.device"/>
+    <param pos="0" name="hw.vendor" value="Valcom"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="SIP Device"/>
+  </fingerprint>
+
 </fingerprints>
