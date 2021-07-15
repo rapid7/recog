@@ -3602,15 +3602,16 @@ Copyright (c) 1995-2005 by Cisco Systems
 
   <fingerprint pattern="^Juniper Networks, Inc\. (\S+) Ethernet Switch, kernel JUNOS (\S+?),? ">
     <description>Juniper Ethernet Switch</description>
-    <example hw.model="ex2300-c-12t" os.version="15.1X53-D590.1">Juniper Networks, Inc. ex2300-c-12t Ethernet Switch, kernel JUNOS 15.1X53-D590.1, Build date: 2018-11-14 20:31:32 UTC Copyright (c) 1996-2018 Juniper Networks, Inc.</example>
-    <example hw.model="ex2200-c-12t-2g" os.version="12.3R12-S15">Juniper Networks, Inc. ex2200-c-12t-2g Ethernet Switch, kernel JUNOS 12.3R12-S15, Build date: 2020-02-13 14:27:08 UTC Copyright (c) 1996-2020 Juniper Networks, Inc.</example>
+    <example hw.product="ex2300-c-12t" os.version="15.1X53-D590.1">Juniper Networks, Inc. ex2300-c-12t Ethernet Switch, kernel JUNOS 15.1X53-D590.1, Build date: 2018-11-14 20:31:32 UTC Copyright (c) 1996-2018 Juniper Networks, Inc.</example>
+    <example hw.product="ex2200-c-12t-2g" os.version="12.3R12-S15">Juniper Networks, Inc. ex2200-c-12t-2g Ethernet Switch, kernel JUNOS 12.3R12-S15, Build date: 2020-02-13 14:27:08 UTC Copyright (c) 1996-2020 Juniper Networks, Inc.</example>
+    <example hw.product="qfx5110-48s-4c" os.version="17.3R3-S1.5">Juniper Networks, Inc. qfx5110-48s-4c Ethernet Switch, kernel JUNOS 17.3R3-S1.5, Build date: 2018-08-31 19:06:08 UTC Copyright (c) 1996-2018 Juniper Networks, Inc.</example>
     <param pos="0" name="os.vendor" value="Juniper"/>
-    <param pos="0" name="os.family" value="Junos"/>
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="0" name="os.product" value="Junos OS"/>
-    <param pos="1" name="hw.model"/>
     <param pos="2" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:juniper:junos:{os.version}"/>
+    <param pos="0" name="hw.vendor" value="Juniper"/>
+    <param pos="0" name="hw.device" value="Switch"/>
+    <param pos="1" name="hw.product"/>
   </fingerprint>
 
   <fingerprint pattern="^Juniper Networks, Inc\. (\S+) Edge Routing Switch SW Version : \((\S+) (\S+) \[BuildId (\d+)\]\) ">
