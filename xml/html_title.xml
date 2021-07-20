@@ -1183,6 +1183,15 @@
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
+  <fingerprint pattern="^(SPA\S+) Device Information \(SEP(\S+)\)$">
+    <description>Cisco IP Phone - SPA504G</description>
+    <example hw.product="SPA504G" host.mac="0123456789ab">SPA504G Device Information (SEP0123456789ab)</example>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="host.mac"/>
+  </fingerprint>
+
   <fingerprint pattern="^Cisco (?:SPA Configuration|IP Phone)$">
     <description>Cisco IP Phone </description>
     <example>Cisco SPA Configuration</example>
@@ -3230,6 +3239,27 @@
     <param pos="0" name="hw.device" value="Device Server"/>
     <param pos="0" name="hw.product" value="BlackBox"/>
     <param pos="1" name="host.name"/>
+  </fingerprint>
+
+  <!-- Various products by Avocent -->
+
+  <fingerprint pattern="^Avocent AutoView ([^/$]+)">
+    <description>Avocent AutoView KVM</description>
+    <example hw.model="3100">Avocent AutoView 3100/3200</example>
+    <example hw.model="3050">Avocent AutoView 3050</example>
+    <param pos="0" name="hw.vendor" value="Avocent"/>
+    <param pos="0" name="hw.device" value="KVM"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="0" name="hw.product" value="AutoView {hw.model}"/>
+  </fingerprint>
+
+  <!-- Various products by Aerohive -->
+
+  <fingerprint pattern="^Aerohive HiveUI$">
+    <description>Aerohive Access Point</description>
+    <example>Aerohive HiveUI</example>
+    <param pos="0" name="hw.vendor" value="Aerohive"/>
+    <param pos="0" name="hw.device" value="WAP"/>
   </fingerprint>
 
 </fingerprints>
