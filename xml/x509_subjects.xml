@@ -1308,6 +1308,15 @@
     <param pos="1" name="ruckus.serial_number"/>
   </fingerprint>
 
+  <fingerprint pattern="^CN=SN-(\d+),O=Ruckus Wireless Inc.,L=Sunnyvale,ST=California,C=US$">
+    <description>Ruckus Wireless Access Point</description>
+    <example ruckus.serial_number="010101010101">CN=SN-010101010101,O=Ruckus Wireless Inc.,L=Sunnyvale,ST=California,C=US</example>
+    <param pos="0" name="hw.device" value="WAP"/>
+    <param pos="0" name="hw.vendor" value="Ruckus"/>
+    <param pos="0" name="hw.product" value="Access Point"/>
+    <param pos="1" name="ruckus.serial_number"/>
+  </fingerprint>
+
   <fingerprint pattern="^CN=DT([^\s]+) Series,O=NEC Corporation,ST=Tokyo,C=JP$">
     <description>NEC DT Series IP Phone</description>
     <example>CN=DT800 Series,O=NEC Corporation,ST=Tokyo,C=JP</example>

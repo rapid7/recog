@@ -1459,6 +1459,36 @@
     <param pos="0" name="os.product" value="SmartServer"/>
   </fingerprint>
 
+  <!-- Various products by Avocent -->
+
+  <fingerprint pattern="^Avocent AutoView ([^/$]+)">
+    <description>Avocent AutoView KVM</description>
+    <example hw.model="3100">Avocent AutoView 3100/3200</example>
+    <example hw.model="3050">Avocent AutoView 3050</example>
+    <param pos="0" name="hw.vendor" value="Avocent"/>
+    <param pos="0" name="hw.device" value="KVM"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="0" name="hw.product" value="AutoView {hw.model}"/>
+  </fingerprint>
+
+  <!-- Various products by Aerohive -->
+
+  <fingerprint pattern="^Aerohive HiveUI$">
+    <description>Aerohive Access Point</description>
+    <example>Aerohive HiveUI</example>
+    <param pos="0" name="hw.vendor" value="Aerohive"/>
+    <param pos="0" name="hw.device" value="WAP"/>
+  </fingerprint>
+
+  <!-- Various products by Ruckus -->
+
+  <fingerprint pattern="^Ruckus Wireless Admin$">
+    <description>Ruckus Wireless Access Point</description>
+    <example>Ruckus Wireless Admin</example>
+    <param pos="0" name="hw.vendor" value="Ruckus"/>
+    <param pos="0" name="hw.device" value="WAP"/>
+  </fingerprint>
+
   <!-- Various ICS/OT -->
 
   <fingerprint pattern="^CTI (25\S+) Main Menu$">
@@ -3239,27 +3269,6 @@
     <param pos="0" name="hw.device" value="Device Server"/>
     <param pos="0" name="hw.product" value="BlackBox"/>
     <param pos="1" name="host.name"/>
-  </fingerprint>
-
-  <!-- Various products by Avocent -->
-
-  <fingerprint pattern="^Avocent AutoView ([^/$]+)">
-    <description>Avocent AutoView KVM</description>
-    <example hw.model="3100">Avocent AutoView 3100/3200</example>
-    <example hw.model="3050">Avocent AutoView 3050</example>
-    <param pos="0" name="hw.vendor" value="Avocent"/>
-    <param pos="0" name="hw.device" value="KVM"/>
-    <param pos="1" name="hw.model"/>
-    <param pos="0" name="hw.product" value="AutoView {hw.model}"/>
-  </fingerprint>
-
-  <!-- Various products by Aerohive -->
-
-  <fingerprint pattern="^Aerohive HiveUI$">
-    <description>Aerohive Access Point</description>
-    <example>Aerohive HiveUI</example>
-    <param pos="0" name="hw.vendor" value="Aerohive"/>
-    <param pos="0" name="hw.device" value="WAP"/>
   </fingerprint>
 
 </fingerprints>

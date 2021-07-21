@@ -7113,6 +7113,20 @@ Copyright (c) 1995-2005 by Cisco Systems
   </fingerprint>
 
   <!--======================================================================
+                             VBrick
+   =======================================================================-->
+
+  <fingerprint pattern="^VBrick Systems Inc., Model (\d+) Serial (\d+)$">
+    <description>VBrick Video Encoder</description>
+    <example hw.model="4300" vbrick.serial_number="01010101010">VBrick Systems Inc., Model 4300 Serial 01010101010</example>
+    <param pos="0" name="hw.vendor" value="VBrick"/>
+    <param pos="0" name="hw.device" value="Video Encoder"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="0" name="hw.product" value="{hw.device} {hw.model}"/>
+    <param pos="2" name="vbrick.serial_number"/>
+  </fingerprint>
+
+  <!--======================================================================
                              VMware
    =======================================================================-->
 

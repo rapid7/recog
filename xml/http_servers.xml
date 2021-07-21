@@ -4563,4 +4563,14 @@
     <param pos="0" name="hw.vendor" value="Fortinet"/>
   </fingerprint>
 
+  <fingerprint pattern="^VBrick (\S+) Server$">
+    <description>VBrick Encoding Server</description>
+    <example service.product="VB6000">VBrick VB6000 Server</example>
+    <param pos="0" name="service.vendor" value="VBrick"/>
+    <param pos="1" name="service.product"/>
+    <param pos="0" name="hw.product" value="{service.product}"/>
+    <param pos="0" name="hw.vendor" value="{service.vendor}"/>
+    <param pos="0" name="hw.device" value="Video Encoder"/>
+  </fingerprint>
+
 </fingerprints>
