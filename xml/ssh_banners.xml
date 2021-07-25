@@ -1505,10 +1505,11 @@
     <param pos="0" name="hw.product" value="Raspberry Pi"/>
   </fingerprint>
 
-  <fingerprint pattern="^OpenSSH_(7\.9p1)\s+(Raspbian-(?:10|\d\d?\+deb10u\d+))$">
+  <fingerprint pattern="^(?:SSH-2.0-)?OpenSSH_(7\.9p1)\s+(Raspbian-(?:10|\d\d?\+deb10u\d+)(?:\+rpt\d)?)$">
     <description>OpenSSH running on Raspbian (Debian 10 "Buster" based)</description>
     <example service.version="7.9p1" openssh.comment="Raspbian-10">OpenSSH_7.9p1 Raspbian-10</example>
     <example service.version="7.9p1" openssh.comment="Raspbian-10+deb10u1">OpenSSH_7.9p1 Raspbian-10+deb10u1</example>
+    <example service.version="7.9p1" openssh.comment="Raspbian-10+deb10u2+rpt1">SSH-2.0-OpenSSH_7.9p1 Raspbian-10+deb10u2+rpt1</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>
