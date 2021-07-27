@@ -1134,20 +1134,22 @@
 
   <fingerprint pattern="^Agilent 33220A \((.*)\)$">
     <description>Agilent 33220A</description>
-    <example agilent.serial="MY44041111">Agilent 33220A (MY44041111)</example>
+    <example agilent.serial="MY44041111" hw.serial="MY44041111">Agilent 33220A (MY44041111)</example>
     <param pos="0" name="hw.vendor" value="Agilent"/>
     <param pos="0" name="hw.device" value="Test Instrument"/>
     <param pos="0" name="hw.product" value="33220A Waveform Generator"/>
     <param pos="1" name="agilent.serial"/>
+    <param pos="1" name="hw.serial_number"/>
   </fingerprint>
 
   <fingerprint pattern="^Agilent N5172B (?:EXG )?(MY\S+)$">
     <description>Agilent N5172B</description>
-    <example agilent.serial="MY44041111">Agilent N5172B EXG MY44041111</example>
+    <example agilent.serial="MY44041111" hw.serial="MY44041111">Agilent N5172B EXG MY44041111</example>
     <param pos="0" name="hw.vendor" value="Agilent"/>
     <param pos="0" name="hw.device" value="Test Instrument"/>
     <param pos="0" name="hw.product" value="N5172B Signal Generator"/>
     <param pos="1" name="agilent.serial"/>
+    <param pos="1" name="hw.serial_number"/>
   </fingerprint>
 
   <fingerprint pattern="^Polycom - Configuration Utility$">
@@ -1397,6 +1399,7 @@
     <param pos="0" name="hw.vendor" value="KACE"/>
     <param pos="0" name="hw.device" value="Support Appliance"/>
     <param pos="0" name="hw.product" value="K1000"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:dell:kace_k1000_systems_management_appliance:-"/>
     <param pos="0" name="os.vendor" value="KACE"/>
     <param pos="0" name="os.family" value="FreeBSD"/>
   </fingerprint>
