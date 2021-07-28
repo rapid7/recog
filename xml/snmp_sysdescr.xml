@@ -6121,6 +6121,17 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Router"/>
   </fingerprint>
 
+  <fingerprint pattern="^(CSS\S+) SwOS v(\S+)$">
+    <description>MikroTik Swtich</description>
+    <example hw.product="CSS326-24G-2S+" os.version="2.13">CSS326-24G-2S+ SwOS v2.13</example>
+    <param pos="0" name="os.vendor" value="MikroTik"/>
+    <param pos="0" name="os.device" value="Switch"/>
+    <param pos="0" name="os.product" value="SwOS"/>
+    <param pos="0" name="hw.vendor" value="{os.vendor}"/>
+    <param pos="0" name="hw.device" value="Switch"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
   <!--======================================================================
                                     SAVIN
    =======================================================================-->
