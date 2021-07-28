@@ -17,28 +17,28 @@
   Ruby, Python, Java, and Golang.
   -->
 
-  <fingerprint pattern="\A(?i)(?:\r|\n)*login:\s*$">
+  <fingerprint pattern="(?i)\A(?:\r|\n)*login:\s*$">
     <description>bare 'login:' -- assert nothing.</description>
     <example>login:</example>
   </fingerprint>
 
-  <fingerprint pattern="\A(?i)(?:\r|\n)*User(?:name)?\s*:\s*$">
+  <fingerprint pattern="(?i)\A(?:\r|\n)*User(?:name)?\s*:\s*$">
     <description>bare 'Username:' -- assert nothing.</description>
     <example>Username:</example>
     <example>User:</example>
   </fingerprint>
 
-  <fingerprint pattern="\A(?i)(?:\r|\n)*Password:\s*$">
+  <fingerprint pattern="(?i)\A(?:\r|\n)*Password:\s*$">
     <description>bare 'Password:' -- assert nothing.</description>
     <example>Password:</example>
   </fingerprint>
 
-  <fingerprint pattern="\A(?i)(?:\r|\n)*Account:\s*$">
+  <fingerprint pattern="(?i)\A(?:\r|\n)*Account:\s*$">
     <description>bare 'Account:' -- assert nothing.</description>
     <example>Account:</example>
   </fingerprint>
 
-  <fingerprint pattern="\A(?i)Connection refused(?:\r|\n)*$">
+  <fingerprint pattern="(?i)\AConnection refused(?:\r|\n)*$">
     <description>bare 'Connection refused' -- assert nothing.</description>
     <example>Connection refused</example>
   </fingerprint>
@@ -424,7 +424,7 @@
     <param pos="4" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?m)TiMOS-[CB]-([\S]+) (?:both|cpm)/([\w]+) ALCATEL (SR [\S]+) Copyright.*Login:\s*$" flags="REG_MULTILINE">
+  <fingerprint pattern="(?m)^TiMOS-[CB]-([\S]+) (?:both|cpm)/([\w]+) ALCATEL (SR [\S]+) Copyright.*Login:\s*$" flags="REG_MULTILINE">
     <description>ALCATEL Service Router running TiMOS</description>
     <!-- TiMOS-C-12.0.R12 cpm/hops64 ALCATEL SR 7750 Copyright (c) 2000-2015 Alcatel-Lucent.\r\r\nBanner Shortened For \r\r\nBrevity\r\nLogin: -->
 
@@ -446,7 +446,7 @@
 
   <!-- Nokia purchased Alcatel Lucent, finalized in Nov 2016 -->
 
-  <fingerprint pattern="^(?m)TiMOS-[CB]-([\S]+) (?:both|cpm)\/([\w]+) Nokia ([\S]+ [SRX]+) Copyright.*Login:\s*$" flags="REG_MULTILINE">
+  <fingerprint pattern="(?m)^TiMOS-[CB]-([\S]+) (?:both|cpm)\/([\w]+) Nokia ([\S]+ [SRX]+) Copyright.*Login:\s*$" flags="REG_MULTILINE">
     <description>Nokia Service Router running TiMOS</description>
     <!-- TiMOS-C-14.0.R5 cpm/hops64 Nokia 7750 SR Copyright (c) 2000-2016 Nokia.\r\r\nBanner Shortened For \r\r\nBrevity\r\nLogin: -->
 
@@ -473,7 +473,7 @@
     <param pos="3" name="hw.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?m)TiMOS-[CB]-([\S]+) (?:both|cpm)\/([\w]+) Nokia (SAS[+\w\s-]+) Copyright.*Login:\s*$" flags="REG_MULTILINE">
+  <fingerprint pattern="(?m)^TiMOS-[CB]-([\S]+) (?:both|cpm)\/([\w]+) Nokia (SAS[+\w\s-]+) Copyright.*Login:\s*$" flags="REG_MULTILINE">
     <description>Nokia Service Access Switch running TiMOS</description>
     <!-- TiMOS-B-8.0.R12 both/hops Nokia SAS-Mxp 22F2C 4SFP+ 7210 Copyright (c) 2000-2017 Nokia.\r\r\nBanner Shortened For \r\r\nBrevity\r\nLogin: -->
 
@@ -721,7 +721,7 @@
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?m)(?:\r|\n)*Catalyst 1900 Management Console(?:\r|\n)+.*Ethernet Address:\s+([\w-]+)(?:\r|\n)+.*Model Number:\s+([\w-]+)(?:\r|\n)+System Serial Number:\s+(\w+)(?:\r|\n)+Power Supply" flags="REG_MULTILINE">
+  <fingerprint pattern="(?m)^(?:\r|\n)*Catalyst 1900 Management Console(?:\r|\n)+.*Ethernet Address:\s+([\w-]+)(?:\r|\n)+.*Model Number:\s+([\w-]+)(?:\r|\n)+System Serial Number:\s+(\w+)(?:\r|\n)+Power Supply" flags="REG_MULTILINE">
     <description>Cisco Catalyst 1900</description>
     <!-- Catalyst 1900, unlike other Catalyst models, didn't run CatOS or IOS -->
 
@@ -855,7 +855,7 @@
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?m)(BCM\d+) Broadband Router\r\n.*Please input the verification code:$" flags="REG_MULTILINE">
+  <fingerprint pattern="(?m)^(BCM\d+) Broadband Router\r\n.*Please input the verification code:$" flags="REG_MULTILINE">
     <description>OEM'd Broadcom Router - input validation code</description>
     <!-- BCM96318 Broadband Router\r\n====================================================\r\n    * *         * * * *      * * * *      * * * *   \r\n      *         *                  *      *     *   \r\n      *         * * * *      * * * *      * * * *   \r\n      *         *     *            *            *   \r\n      *         *     *            *            *   \r\n   * * * *      * * * *      * * * *      * * * *   \r\n====================================================\r\nPlease input the verification code: -->
 
@@ -1084,7 +1084,7 @@
     <param pos="1" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?m)Red Hat Enterprise Linux ES release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d)" flags="REG_MULTILINE">
+  <fingerprint pattern="(?m)^Red Hat Enterprise Linux ES release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d)" flags="REG_MULTILINE">
     <description>RedHat Enterprise Linux ES</description>
     <!-- Red Hat Enterprise Linux ES release 3 (Taroon Update 9\nKernel 2.4.21-47.EL on an x86_64\nlogin: -->
 
@@ -1101,7 +1101,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:redhat:linux:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?m)Red Hat Enterprise Linux AS release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d)" flags="REG_MULTILINE">
+  <fingerprint pattern="(?m)^Red Hat Enterprise Linux AS release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d)" flags="REG_MULTILINE">
     <description>RedHat Enterprise Linux AS</description>
     <!-- Red Hat Enterprise Linux AS release 5.8 (Tikanga)\nKernel 2.6.18-308.11.1.el5 on an x86_64\nlogin: -->
 
@@ -1117,7 +1117,7 @@
     <param pos="3" name="os.arch"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?m)Red Hat Enterprise Linux WS release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*)" flags="REG_MULTILINE">
+  <fingerprint pattern="(?m)^Red Hat Enterprise Linux WS release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*)" flags="REG_MULTILINE">
     <description>RedHat Enterprise Linux WS</description>
     <!--Red Hat Enterprise Linux WS release 2.1 (Tampa) \nKernel 2.4.9-e.40smp on an i686 \nlogin:  -->
 
@@ -1133,7 +1133,7 @@
     <param pos="3" name="os.arch"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?m)Fedora Core.release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d).*$" flags="REG_MULTILINE">
+  <fingerprint pattern="(?m)^Fedora Core.release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d).*$" flags="REG_MULTILINE">
     <description>Fedora Core Release</description>
     <!-- Fedora Core release 1 (Yarrow)\nKernel 2.4.20-13.9ensim-3.5.0-13 on an i686\nlogin:-->
 
@@ -1149,7 +1149,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:redhat:fedora:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?m)Welcome to SuSE Linux (.*) \(([^\)]+)\) - Kernel (.*) .*">
+  <fingerprint pattern="(?m)^Welcome to SuSE Linux (.*) \(([^\)]+)\) - Kernel (.*) .*">
     <description>SuSE Linux</description>
     <!-- Welcome to SuSE Linux 7.0 (i386) - Kernel 2.2.16-RAID (0). 2VG029037\n\nlogin: -->
 
@@ -1454,7 +1454,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?m)Compaq Tru64 UNIX V(.*) \(Rev. (.*\d)\) .*">
+  <fingerprint pattern="(?m)^Compaq Tru64 UNIX V(.*) \(Rev. (.*\d)\) .*">
     <description>Compaq Tru64 UNIX V</description>
     <!-- Compaq Tru64 UNIX V5.1B (Rev. 2650) (docalpha) (pts/11)\n\n\n\n\nlogin: -->
 
@@ -1517,7 +1517,7 @@
     <param pos="1" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?m)SCO OpenServer\(TM\) Release ([^ ]+).*$">
+  <fingerprint pattern="(?m)^SCO OpenServer\(TM\) Release ([^ ]+).*$">
     <description>SCO OpenServer</description>
     <!-- SCO OpenServer(TM) Release 5 (bomdia.co.za) (ttyp6)\nlogin: -->
 
@@ -1723,7 +1723,7 @@
     <param pos="1" name="os.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?m).*ConnectUPS">
+  <fingerprint pattern="(?m)^.*ConnectUPS">
     <description>PowerWare ConnectUPS</description>
     <!-- +============================================================================+\n|            [ ConnectUPS Web/SNMP
      Card Configuration Utility ]              |\n+============================================================================+\n
@@ -1800,7 +1800,7 @@
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?m).*Welcome to MELCO Print Server.*Server Name *: *([^ ]*)\W.*Server Model *: *([^ ]*).*F \/ W Version *: *([^ ]*).*MAC Address *: *(.. .. .. .. .. ..).*$">
+  <fingerprint pattern="(?m)^.*Welcome to MELCO Print Server.*Server Name *: *([^ ]*)\W.*Server Model *: *([^ ]*).*F \/ W Version *: *([^ ]*).*MAC Address *: *(.. .. .. .. .. ..).*$">
     <description>System is a Buffalo/MELCO Embedded Print Server</description>
     <!-- ***********************************\n* Welcome to MELCO Print Server *\n* Telnet Console *\n***********************************
     \n \nServer Name: PS-B04E8E\nServer Model: LPV 2 - TX 1\nF / W Version: 2.00 J \nMAC Address: AE 32 EA 21 BB E3\n
@@ -1825,7 +1825,7 @@
     <param pos="4" name="host.mac"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?m)AIX Version\W(\d).*">
+  <fingerprint pattern="(?m)^AIX Version\W(\d).*">
     <description>System is IBM AIX v</description>
     <!-- AIX Version 6\nCopyright IBM Corporation, 1982, 2007.\nlogin: -->
 
@@ -1839,7 +1839,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?m)CIMC Debug Firmware Utility Shell\W([^\s]+).*">
+  <fingerprint pattern="(?m)^CIMC Debug Firmware Utility Shell\W([^\s]+).*">
     <description>System is Cisco UCS Device</description>
     <!-- CIMC Debug Firmware Utility Shell\nfake-ucs-device-3-1-p login: -->
 
@@ -1853,7 +1853,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?m)HP ProLiant.*v(\d+.\d+)">
+  <fingerprint pattern="(?m)^HP ProLiant.*v(\d+.\d+)">
     <description>Sytem is HP ProLiant server</description>
     <!-- HP ProLiant BL e-Class Integrated Administrator v2.00
          Copyright 2005 Hewlett-Packard Development Group, L.P.
@@ -1880,7 +1880,7 @@
     <param pos="1" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^Power Measurement Ltd. Meter ION ([[:alnum:]]+)">
+  <fingerprint pattern="^Power Measurement Ltd. Meter ION ([a-zA-Z0-9]+)">
     <!-- Power Measurement Ltd. Meter ION 7330V271 ETH ETH7330V272
          Serial#: PB-0204A058-11
          login: -->
@@ -1895,7 +1895,7 @@
     <param pos="1" name="hw.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^GW25 v([[:digit:]\.]+) - Intelligent Power Meters GPRS Gateway[[:space:]]+Developed by Satelitech">
+  <fingerprint pattern="^GW25 v([\d.]+) - Intelligent Power Meters GPRS Gateway\s+Developed by Satelitech">
     <!-- GW25 v1.2.1 - Intelligent Power Meters GPRS Gateway
          Developed by Satelitech S.A for ESG Dilec
          Enter password: -->
