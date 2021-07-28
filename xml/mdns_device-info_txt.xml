@@ -1802,10 +1802,11 @@
 
   <!-- HomePod -->
 
-  <fingerprint pattern="^model=B238a?AP$">
+  <fingerprint pattern="^model=(B(?:238a?|520)AP)$">
     <description>HomePod</description>
-    <example>model=B238aAP</example>
-    <example>model=B238AP</example>
+    <example hw.model="B238aAP">model=B238aAP</example>
+    <example hw.model="B238AP">model=B238AP</example>
+    <example hw.model="B520AP">model=B520AP</example>
     <param pos="0" name="os.vendor" value="Apple"/>
     <param pos="0" name="os.family" value="audioOS"/>
     <param pos="0" name="os.product" value="audioOS"/>
@@ -1813,6 +1814,7 @@
     <param pos="0" name="hw.family" value="HomePod"/>
     <param pos="0" name="hw.product" value="HomePod"/>
     <param pos="0" name="hw.device" value="Media Server"/>
+    <param pos="1" name="hw.model"/>
   </fingerprint>
 
   <!-- Apple TV -->
