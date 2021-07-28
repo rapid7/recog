@@ -1047,7 +1047,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?i)([^ ]+) +E?SMTP.* Postfix *$">
+  <fingerprint pattern="(?i)^([^ ]+) +E?SMTP.* Postfix *$">
     <description>Postfix - generic banner</description>
     <example>foo.bar ESMTP Postfix</example>
     <example>foo.bar SMTP Postfix</example>
@@ -1067,7 +1067,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:postfix:postfix:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?i)([^ ]+) POSTFIX$">
+  <fingerprint pattern="(?i)^([^ ]+) POSTFIX$">
     <description>Postfix - generic w/o ESMTP</description>
     <example host.name="foo.bar">foo.bar Postfix</example>
     <param pos="0" name="service.vendor" value="Postfix"/>
@@ -1578,7 +1578,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?i)([^ ]+) +(?:ESMTP +)?Sendmail *(?: Ready.? ?)?(?:;|at)? ?((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?)(?: \(.+\))?$">
+  <fingerprint pattern="(?i)^([^ ]+) +(?:ESMTP +)?Sendmail *(?: Ready.? ?)?(?:;|at)? ?((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?)(?: \(.+\))?$">
     <description>Sendmail - with date, w/o version or platform, optional status string.</description>
     <example host.name="foo.bar">foo.bar ESMTP Sendmail ; Thu, 30 Nov 2017 17:50:14 +0900</example>
     <example host.name="foo.bar">foo.bar ESMTP Sendmail; Thu, 30 Nov 2017 17:50:14 +0900</example>
@@ -1680,7 +1680,7 @@
     <param pos="4" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?i)([^ ]+) SMTP Server SLMail v?(\d\.[\d.]+) Ready ESMTP spoken here *$">
+  <fingerprint pattern="(?i)^([^ ]+) SMTP Server SLMail v?(\d\.[\d.]+) Ready ESMTP spoken here *$">
     <description>Seattle Labs SLMail server for Windows NT/2k (v2.7 runs on Win9x)</description>
     <example service.version="2.7">foo.bar Smtp Server SLMail v2.7 Ready ESMTP spoken here</example>
     <example service.version="3.2.3113">foo.bar SMTP Server SLmail 3.2.3113 Ready ESMTP spoken here</example>
@@ -1712,7 +1712,7 @@
 
   <!-- SonicWall makes hardware, virtual appliances, and Windows software. The banner doesn't indicate which. -->
 
-  <fingerprint pattern="^(?i)([^ ]+) ESMTP SonicWALL \(([\d.]+)\)$">
+  <fingerprint pattern="(?i)^([^ ]+) ESMTP SonicWALL \(([\d.]+)\)$">
     <description>SonicWall Email Security</description>
     <example host.name="foo.bar" service.version="9.0.5.2077">foo.bar ESMTP SonicWALL (9.0.5.2077)</example>
     <example host.name="foo.bar" service.version="9.1.1.3113">foo.bar ESMTP SonicWall (9.1.1.3113)</example>
@@ -1919,14 +1919,14 @@
     <param pos="2" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?i)(\S+) E?SMTP Perl">
+  <fingerprint pattern="(?i)^(\S+) E?SMTP Perl">
     <description>Some simple PERL SMTP server</description>
     <example host.name="foo.bar">foo.bar ESMTP Perl</example>
     <param pos="0" name="service.product" value="Perl"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?i)(?:([^ ]+) )?E?SMTP(?: (?:Service )?Ready\.?)?$">
+  <fingerprint pattern="(?i)^(?:([^ ]+) )?E?SMTP(?: (?:Service )?Ready\.?)?$">
     <description>Non-specific banner with optional hostname</description>
     <example host.name="foo.bar">foo.bar ESMTP</example>
     <example host.name="foo.bar">foo.bar ESMTP Ready</example>
