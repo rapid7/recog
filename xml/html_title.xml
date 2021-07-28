@@ -3279,12 +3279,21 @@
     <param pos="0" name="hw.product" value="Color Bulb"/>
   </fingerprint>
 
-  <fingerprint pattern="^Shelly Plug$">
-    <description>Shelly Plug</description>
-    <example>Shelly Plug</example>
+  <fingerprint pattern="^Shelly (Plug|Dimmer)$">
+    <description>Shelly Plug and Dimmer Devices</description>
+    <example hw.product="Plug">Shelly Plug</example>
+    <example hw.product="Dimmer">Shelly Dimmer</example>
     <param pos="0" name="hw.vendor" value="Shelly"/>
     <param pos="0" name="hw.device" value="Device"/>
-    <param pos="0" name="hw.product" value="Plug"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+
+  <fingerprint pattern="^WLED$">
+    <description>WLED Controlled Device</description>
+    <example>WLED</example>
+    <param pos="0" name="service.vendor" value="WLED"/>
+    <param pos="0" name="service.product" value="WLED"/>
+    <param pos="0" name="service.device" value="Device"/>
   </fingerprint>
 
 </fingerprints>
