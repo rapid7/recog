@@ -8,13 +8,13 @@ class Nizer
   # Non-weighted host attributes that can be extracted from fingerprint matches
   HOST_ATTRIBUTES = %W{
     host.domain
-    host.id
     host.ip
     host.mac
     host.name
     host.time
     hw.device
     hw.family
+    hw.serial_number
     hw.product
     hw.vendor
   }
@@ -264,84 +264,3 @@ class Nizer
 
 end
 end
-
-=begin
-
-Current key names:
-
-  apache.info
-  apache.variant
-  apache.variant.version
-  cookie
-  host.domain
-  host.id
-  host.ip
-  host.mac
-  host.name
-  host.time
-  hw.device
-  hw.family
-  hw.product
-  hw.vendor
-  imail.eval
-  jetty.info
-  junction.cookie
-  junction.name
-  linux.kernel.version
-  loadbalancer.poolname
-  mdaemon.unregistered
-  mercur.os.info
-  metainfo.version
-  metainfo.version.version
-  ms.nttp.version
-  notes.build.version
-  notes.intl
-  ntmail.id
-  openssh.comment
-  openssh.cvepatch
-  os.arch
-  os.build
-  os.certainty
-  os.device
-  os.edition
-  os.family
-  os.product
-  os.vendor
-  os.version
-  os.version.version
-  os.version.version.version
-  postfix.os.info
-  postoffice.build
-  postoffice.id
-  proftpd.server.name
-  pureftpd.config
-  qpopper.version
-  sendmail.config.version
-  sendmail.hpux.phne.version
-  sendmail.vendor.version
-  service.certainty
-  service.component.family
-  service.component.product
-  service.component.vendor
-  service.component.version
-  service.family
-  service.product
-  service.vendor
-  service.version
-  service.version.version
-  service.version.version.version
-  service.version.version.version.version
-  service.version.version.version.version.version
-  siemens.model
-  snmp.fpmib.oid.1
-  snmp.fpmib.oid.2
-  system.time
-  system.time.format
-  system.time.micros
-  system.time.millis
-  thttpd.mx-patch
-  timeout
-  tomcat.info
-  zmailer.ident
-
-=end
