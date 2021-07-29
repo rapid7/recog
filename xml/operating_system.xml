@@ -397,7 +397,7 @@
 
   <!-- Vendor-based distribution catch-call -->
 
-  <fingerprint pattern="^(?i:(.*)\sLinux?\s(.*))$">
+  <fingerprint pattern="(?i)^(\S{0,256})\s{1,8}Linux\s+([\w.-]*)$">
     <description>Vendor-based Linux catch-all</description>
     <example os.vendor="Aurox" os.version="10.2">Aurox Linux 10.2</example>
     <param pos="0" name="os.family" value="Linux"/>
@@ -409,7 +409,7 @@
 
   <!-- Linux catch-all goes at the bottom-->
 
-  <fingerprint pattern="^(?i:.*Linux?\s?(\d+?(?:\.\d+?)*?)?)$">
+  <fingerprint pattern="(?i)^.{0,1024}Linux?\s?(\d+?(?:\.\d+?)*?)?$">
     <description>Linux catch-all</description>
     <example os.version="2.42.6">Linux 2.42.6</example>
     <param pos="0" name="os.vendor" value="Linux"/>
@@ -588,7 +588,7 @@
 
   <!-- BSD begin -->
 
-  <fingerprint pattern="^(?i:(.*?BSD)\s?(\d+?(?:\.\d+?)*?(?:[\-\/_ ]?\w+?)?(?:-[a-z]\d+?)?)?)$">
+  <fingerprint pattern="(?i)^(.{0,256}?BSD)\s?(\d+?(?:\.\d+?)*?(?:[\-\/_ ]?\w+?)?(?:-[a-z]\d+?)?)?$">
     <description>Many BSD family OSes</description>
     <example os.version="10.3-RELEASE" os.product="FreeBSD">FreeBSD 10.3-RELEASE</example>
     <example os.version="10.3-RELEASE-p4" os.product="FreeBSD">FreeBSD 10.3-RELEASE-p4</example>
@@ -605,7 +605,7 @@
 
   <!-- Other Unix-likes begin -->
 
-  <fingerprint pattern="^(?i:(?:Oracle|Sun)?\s?OpenSolaris\s?(\d+?(?:\.\d+?)*?)?)$">
+  <fingerprint pattern="(?i)^(?:Oracle|Sun)?\s?OpenSolaris\s?(\d+?(?:\.\d+?)*?)?$">
     <description>OpenSolaris</description>
     <example os.version="2009.06">OpenSolaris 2009.06</example>
     <param pos="0" name="os.vendor" value="Sun"/>

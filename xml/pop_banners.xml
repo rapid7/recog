@@ -5,7 +5,7 @@
   matched against these patterns to fingerprint POP3 servers.
   -->
 
-  <fingerprint pattern="^([^ ]+) +Cyrus POP3 v(\d+\.\d+.*)-OS X(?: Server)? ([\d\.]+).* server ready">
+  <fingerprint pattern="^([^ ]{1,512}) +Cyrus POP3 v(\d+\.\d+.*)-OS X(?: Server)? ([\d\.]+).* server ready">
     <description>OSX Cyrus POP</description>
     <example host.domain="8.8.8.8" service.version="2.3.8" os.version="10.5">8.8.8.8 Cyrus POP3 v2.3.8-OS X Server 10.5: 9A562 server ready &lt;1999107648.1324502155@8.8.8.8&gt;</example>
     <param pos="0" name="service.vendor" value="Carnegie Mellon University"/>
@@ -20,7 +20,7 @@
     <param pos="1" name="host.domain"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +Cyrus POP3 v([\d\.]+)">
+  <fingerprint pattern="^([^ ]{1,512}) +Cyrus POP3 v([\d\.]+)">
     <description>CMU Cyrus POP</description>
     <example host.domain="foo" service.version="2.3">foo Cyrus POP3 v2.3</example>
     <example host.domain="foo" service.version="2.3.14">foo Cyrus POP3 v2.3.14 server ready &lt;13087751828270990591.1301068892@foo&gt;</example>
@@ -229,7 +229,7 @@
     <param pos="0" name="hw.product" value="Raspberry Pi"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) Zimbra POP3 server ready\.?$">
+  <fingerprint pattern="^(\S{1,512}) Zimbra POP3 server ready\.?$">
     <description>VMware Zimbra POP</description>
     <example host.name="foo.bar">foo.bar Zimbra POP3 server ready</example>
     <param pos="0" name="service.vendor" value="VMware"/>
@@ -238,7 +238,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) Zimbra (\S+) POP3 server ready\.?$">
+  <fingerprint pattern="^(\S{1,512}) Zimbra (\S+) POP3 server ready\.?$">
     <description>VMware Zimbra POP with version</description>
     <example host.name="foo.bar">foo.bar Zimbra 7.0.0_GA_3079 POP3 server ready</example>
     <param pos="0" name="service.vendor" value="VMware"/>

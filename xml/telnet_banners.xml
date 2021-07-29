@@ -540,7 +540,7 @@
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\r|\n|\s)*Grandstream (GXV[\w-]+)\s+(?:V\d\.\d\w?\s+)?Shell Command.Copyight \d\d\d\d-\d\d\d\d(?:\r|\n)+Username:\s*$">
+  <fingerprint pattern="^(?:\r|\n|\s){0,256}Grandstream (GXV[\w-]+)\s+(?:V\d\.\d\w?\s+)?Shell Command.Copyight \d\d\d\d-\d\d\d\d(?:\r|\n)+Username:\s*$">
     <description>Grandstream IP Cameras</description>
     <!-- Grandstream GXV3674_FHD_VF    Shell Command.Copyight 2011-2014\r\nUsername: -->
 
@@ -1222,7 +1222,7 @@
     <param pos="0" name="os.product" value="Brother Printer"/>
   </fingerprint>
 
-  <fingerprint pattern="^(.*) Copyright by ARESCOM">
+  <fingerprint pattern="^\s{0,256}(\S{1,64}) Copyright by ARESCOM">
     <description>Arescom System</description>
     <!--NDS1260HE-TLI Copyright by ARESCOM 2002\n\n\nPassword: -->
 
@@ -2076,7 +2076,7 @@
     <param pos="0" name="service.component.cpe23" value="cpe:/a:sap:netweaver_application_server:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\r|\n|\s)*UDP/TCP/IP Stack: ACT Video security">
+  <fingerprint pattern="^(?:\r|\n|\s){0,256}UDP/TCP/IP Stack: ACT Video security">
     <description>ACT Security IP Cameras</description>
     <!--
       UDP/TCP/IP Stack: ACT Video security\r\n

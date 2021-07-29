@@ -341,7 +341,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:10.10"/>
   </fingerprint>
 
-  <fingerprint pattern="^.*version=&quot;ntpd ([^ p]+)(:?p[^ &quot;]+)?[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;FreeBSD/?(?:[^ ]+-NETSCALER-([^ ]+))&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="^.*version=&quot;ntpd ([^ p]+)(p[^ &quot;]+)?[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;FreeBSD/?(?:[^ ]+-NETSCALER-([^ ]+))&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Citrix Netscaler, which is based on FreeBSD</description>
     <example service.version="4.2.6" service.version.version="p2@1.2194" os.arch="i386" os.version="9.3">
       version="ntpd 4.2.6p2@1.2194 Wed Nov 24 15:54:11 UTC 2010 (1)",

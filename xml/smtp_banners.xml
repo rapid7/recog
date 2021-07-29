@@ -80,7 +80,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:argosoft:mail_server:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^^(?:(\S+) +)?ArGoSoft Mail Server Freeware, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
+  <fingerprint pattern="^(?:(\S{1,512}) {1,8})?ArGoSoft Mail Server Freeware, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
     <description>ArGoSoft Mail Server - freeware version</description>
     <example host.name="foo.bar" service.version="1.8.8.8">foo.bar ArGoSoft Mail Server Freeware, Version 1.8 (1.8.8.8)</example>
     <example service.version="1.8.8.8">ArGoSoft Mail Server Freeware, Version 1.8 (1.8.8.8)</example>
@@ -96,7 +96,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:(\S+) +)?ArGoSoft Mail Server Pro for WinNT\/2000(?:\/XP)?, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
+  <fingerprint pattern="^(?:(\S{1,512}) {1,8})?ArGoSoft Mail Server Pro for WinNT\/2000(?:\/XP)?, Version [^ ]+ \(([^ ]+\.[^ ]+\.[^ ]+\.[^ ]+)\) *$">
     <description>ArGoSoft Mail Server - Pro version</description>
     <example service.version="1.6.1.8">ArGoSoft Mail Server Pro for WinNT/2000, Version 1.61 (1.6.1.8)</example>
     <example service.version="1.8.9.5">ArGoSoft Mail Server Pro for WinNT/2000/XP, Version 1.8 (1.8.9.5)</example>
@@ -113,7 +113,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:argosoft:mail_server:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +AppleShare IP Mail Server ([^ ]+\.[\d.]+) SMTP Server Ready *$">
+  <fingerprint pattern="^([^ ]{1,512}) +AppleShare IP Mail Server ([^ ]+\.[\d.]+) SMTP Server Ready *$">
     <description>AppleShare IP Mail Server</description>
     <example service.version="6.2.1">foo.bar AppleShare IP Mail Server 6.2.1 SMTP Server Ready</example>
     <example service.version="6.2">foo.bar AppleShare IP Mail Server 6.2 SMTP Server Ready</example>
@@ -162,7 +162,7 @@
     Search Cisco's documentation for "fixup protocol SMTP" for more information.
   -->
 
-  <fingerprint pattern="^[\*20 ]+$">
+  <fingerprint pattern="^[\*20 ]{1,1024}$">
     <description>Cisco PIX firewall MailGuard banner stripping</description>
     <example os.product="PIX">***************************</example>
     <param pos="0" name="os.vendor" value="Cisco"/>
@@ -171,7 +171,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:pix_firewall_software:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +ESMTP CPMTA-([^ ]+)_([^ ]+)_([^ ]+)_([^ ]+) - NO UCE *$">
+  <fingerprint pattern="^([^ ]{1,512}) +ESMTP CPMTA-([^ ]+)_([^ ]+)_([^ ]+)_([^ ]+) - NO UCE *$">
     <description>Critical Path (aka InScribe) Messaging Server on Windows NT4/2k, Solaris 2.6/2.7/2.8 Sparc/Intel, SGI IRIX 6.5.3 or later, or AIX </description>
     <param pos="0" name="service.vendor" value="Critical Path"/>
     <param pos="0" name="service.family" value="Messaging Server"/>
@@ -192,7 +192,7 @@
     <param pos="0" name="service.product" value="Internet Mail Scanner"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +IMS SMTP Receiver Version ([^ ]+\.[^ ]+) Ready *$">
+  <fingerprint pattern="^([^ ]{1,512}) +IMS SMTP Receiver Version ([^ ]+\.[^ ]+) Ready *$">
     <description>EMWAC Internet Mail Services (http://emwac.ed.ac.uk/html/internet_toolchest/ims/ims.htm)</description>
     <example service.version="0.83" host.name="foo.bar">foo.bar IMS SMTP Receiver Version 0.83 Ready</example>
     <param pos="0" name="service.vendor" value="EMWAC"/>
@@ -261,9 +261,10 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(:?[^ ]+)? ?Microsoft ESMTP MAIL Service, Version: +(10\.0\.14393\.[\d.]+) +ready +(?:at +)?(.+)$">
+  <fingerprint pattern="^([^ ]{1,512})? ?Microsoft ESMTP MAIL Service, Version: +(10\.0\.14393\.[\d.]+) +ready +(?:at +)?(.+)$">
     <description>Microsoft IIS builtin SMTP service - Windows Server 2016</description>
     <example host.name="foo.bar" service.version="10.0.14393.2608">foo.bar Microsoft ESMTP MAIL Service, Version: 10.0.14393.2608 ready at  Sun, 19 May 2019 09:04:29 -0500</example>
+    <example service.version="10.0.14393.2608"> Microsoft ESMTP MAIL Service, Version: 10.0.14393.2608 ready at  Sun, 19 May 2019 09:04:29 -0500</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="IIS"/>
     <param pos="0" name="service.product" value="IIS"/>
@@ -278,7 +279,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2016:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(:?[^ ]+)? ?Microsoft ESMTP MAIL Service, Version: +(10\.0\.17763\.[\d.]+) +ready +(?:at +)?(.+)$">
+  <fingerprint pattern="^([^ ]{1,512})? ?Microsoft ESMTP MAIL Service, Version: +(10\.0\.17763\.[\d.]+) +ready +(?:at +)?(.+)$">
     <description>Microsoft IIS builtin SMTP service - Windows Server 2019</description>
     <example host.name="foo.bar" service.version="10.0.17763.1">foo.bar Microsoft ESMTP MAIL Service, Version: 10.0.17763.1 ready at  Sun, 19 May 2019 09:04:29 -0500</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
@@ -295,7 +296,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2019:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) Microsoft SMTP MAIL ready at (.+) Version: +(\d+\.\d+\.\d+\.\d+\.\d+) *$">
+  <fingerprint pattern="^([^ ]{1,512}) Microsoft SMTP MAIL ready at (.+) Version: +(\d+\.\d+\.\d+\.\d+\.\d+) *$">
     <description>Microsoft IIS builtin SMTP service, or Microsoft Exchange Server (they are differentiated from each other in smtp-iis.clp)  - variant 1</description>
     <example host.name="foo.bar" service.version="5.5.1877.197.19">foo.bar Microsoft SMTP MAIL ready at Wed, 29 Nov 2017 23:48:59 +0000 Version: 5.5.1877.197.19</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
@@ -312,7 +313,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(:?[^ ]+)? ?Microsoft ESMTP MAIL Service, Version: +(\d+\.\d+\.\d+\.\d+)(?: +ready)?(?: +(?:at +)?(\w\w\w, \d.+))?$">
+  <fingerprint pattern="^([^ ]{1,512})? ?Microsoft ESMTP MAIL Service, Version: +(\d+\.\d+\.\d+\.\d+)(?: +ready)?(?: +(?:at +)?(\w\w\w, \d.+))?$">
     <description>Microsoft IIS builtin SMTP service, or Microsoft Exchange Server (they are differentiated from each other in smtp-iis.clp) - variant 2 </description>
     <example service.version="5.0.2195.5329"> Microsoft ESMTP MAIL Service, Version: 5.0.2195.5329 ready Thu, 30 Nov 2017 11:40:25 +0200</example>
     <example service.version="6.0.3790.4675" host.name="foo.bar">foo.bar Microsoft ESMTP MAIL Service, Version: 6.0.3790.4675 ready at Wed, 21 Jul 2010 19:04:24 -0700</example>
@@ -344,7 +345,7 @@
     <param pos="1" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^ ?([^, ]+)(?:,)? +ESMTP \(?(?i:Exim) +(\d+\.[\d_.bdRC-]+)\)?(?: +#\d+)? ?.?((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d{3,4})?) *(?:We do not authorize the use of this system to transport unsolicited, and\/or bulk e-mail.)?$">
+  <fingerprint pattern="^ ?([^, ]{1,512}),? +ESMTP \(?(?i:Exim) +(\d+\.[\d_.bdRC-]+)\)?(?: +#\d+)? ?.?((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d{3,4})?) *(?:We do not authorize the use of this system to transport unsolicited, and\/or bulk e-mail.)?$">
     <description>Exim - with version string and optional timestamp</description>
     <example service.version="4.91" host.name="foo.bar">foo.bar  ESMTP Exim 4.91 Thu, 29 Apr 2021 05:41:36 +400</example>
     <example service.version="4.89" host.name="foo.bar">foo.bar ESMTP Exim 4.89 "</example>
@@ -367,7 +368,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^, ]+)(?:,)? ESMTP (?i:Exim) +(\d+) ((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
+  <fingerprint pattern="^([^, ]{1,512}),? ESMTP (?i:Exim) +(\d+) ((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
     <description>Exim - with digit only version string and optional timestamp</description>
     <example service.version="125302" host.name="foo.bar">foo.bar ESMTP Exim 125302 Thu, 16 Nov 2017 04:55:11 -0500 </example>
     <param pos="0" name="service.vendor" value="exim"/>
@@ -380,7 +381,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^, ]+)(?:,)? ESMTP (?i:Exim) +(\d+\.[\d_.]+)(?: +#\d)? Ubuntu ((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
+  <fingerprint pattern="^([^, ]{1,512}),? ESMTP (?i:Exim) +(\d+\.[\d_.]+)(?: +#\d)? Ubuntu ((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
     <description>Exim - with version string and optional timestamp (Ubuntu)</description>
     <example service.version="4.82" system.time="Thu, 16 Nov 2017 11:30:44 +0300">foo.bar ESMTP Exim 4.82 Ubuntu Thu, 16 Nov 2017 11:30:44 +0300 </example>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
@@ -397,7 +398,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^, ]+)(?:,)? ESMTP (?i:Exim)(?: +#\d)? *((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
+  <fingerprint pattern="^([^, ]{1,512}),? ESMTP (?i:Exim)(?: +#\d)? *((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
     <description>Exim - without version string and with optional timestamp</description>
     <example host.name="foo.bar">foo.bar ESMTP Exim</example>
     <example host.name="foo.bar" system.time="Thu, 16 Nov 2017 01:11:30 -0800">foo.bar ESMTP Exim Thu, 16 Nov 2017 01:11:30 -0800 </example>
@@ -425,7 +426,7 @@
     <param pos="2" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^ ?([^, ]+) Exim ESMTP Service ready$">
+  <fingerprint pattern="^ ?([^, ]{1,512}) Exim ESMTP Service ready$">
     <description>Exim - with hostname </description>
     <example host.name="foo.bar">foo.bar Exim ESMTP Service ready</example>
     <param pos="0" name="service.vendor" value="exim"/>
@@ -435,7 +436,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^([\w.-]+) ESMTP \([a-z0-9]{32}\)$">
+  <fingerprint pattern="^([\w.-]{1,512}) ESMTP \([a-z0-9]{32}\)$">
     <description>Barracuda Email Security Gateway - physical or virtual appliance</description>
     <example host.name="barracuda.foo.bar">barracuda.foo.bar ESMTP (0a8d40ef45300cc1bd0f16ced5c9e6f1)</example>
     <param pos="0" name="service.vendor" value="Barracuda"/>
@@ -445,7 +446,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) FTGate server ready .*$">
+  <fingerprint pattern="^([^ ]{1,512}) FTGate server ready .*$">
     <description>FTGate mail server, runs on Windows 9x/NT/2k (http://www.ftgate.com)</description>
     <example host.name="foo.bar">foo.bar FTGate server ready -attitude [C.o.r.E]</example>
     <param pos="0" name="service.vendor" value="Floosietek"/>
@@ -454,7 +455,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +SMTP/smap Ready\.$">
+  <fingerprint pattern="^([^ ]{1,512}) +SMTP/smap Ready\.$">
     <description>TIS FWTK and derivatives (other firewalls, like Gauntlet, are derived from TIS)</description>
     <example host.name="foo.bar">foo.bar SMTP/smap Ready.</example>
     <param pos="0" name="service.vendor" value="TIS"/>
@@ -463,7 +464,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) GroupWise Internet Agent ([^ ]+\.[^ ]+\.[^ ]+) Ready \(C\).* Novell, Inc\. *$">
+  <fingerprint pattern="^([^ ]{1,512}) GroupWise Internet Agent ([^ ]+\.[^ ]+\.[^ ]+) Ready \(C\).* Novell, Inc\. *$">
     <description>Novell GroupWise Internet Agent - versions 5 and higher</description>
     <example service.version="5.5.1">foo.bar GroupWise Internet Agent 5.5.1 Ready (C)1993, 1998 Novell, Inc.</example>
     <param pos="0" name="service.vendor" value="Novell"/>
@@ -498,7 +499,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:novell:groupwise:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) (?:ESMTP )?running IBM VM SMTP (.+)(?:; | on )(.+) *$">
+  <fingerprint pattern="^([^ ]{1,512}) (?:ESMTP )?running IBM VM SMTP (.+)(?:; | on )(.+) *$">
     <description>IBM SMTP server for VM/ESA on IBM S/390 and IBM eserver z/Series 900.</description>
     <example service.version="Level 640" system.time="Thu, 30 Nov 2017 01:08:59 PDT">foo.bar running IBM VM SMTP Level 640 on Thu, 30 Nov 2017 01:08:59 PDT</example>
     <example service.version="Level 3A0">foo.bar running IBM VM SMTP Level 3A0 on Mon, 10 Sep 2001 07:21:54 EDT</example>
@@ -512,7 +513,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) \(IntraStore TurboSendmail\) ESMTP Service ready *$">
+  <fingerprint pattern="^([^ ]{1,512}) \(IntraStore TurboSendmail\) ESMTP Service ready *$">
     <description>
          Syntegra/CDC IntraStore TurboSendmail, part of the IntraStore server which runs on
          the following platforms ONLY: Linux, HP-UX, Solaris, AIX, and Windows NT/2000
@@ -525,7 +526,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) E?SMTP Server \(JAMES E?SMTP Server ([\d\.]+)\) ready (\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d) \(.+\)$">
+  <fingerprint pattern="^(\S{1,512}) E?SMTP Server \(JAMES E?SMTP Server ([\d\.]+)\) ready (\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d) \(.+\)$">
     <description>JAMES SMTP Server</description>
     <example host.name="foo.bar" service.version="2.3.2">foo.bar SMTP Server (JAMES SMTP Server 2.3.2) ready Tue, 19 May 2015 00:36:13 +0200 (CEST)</example>
     <param pos="0" name="service.vendor" value="Apache"/>
@@ -537,7 +538,7 @@
     <param pos="0" name="system.time.format" value="EEE, d MMM yyyy HH:mm:ss Z"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:(\S+) +)?ESMTP MailEnable Service, Version: ([\d.]+)$">
+  <fingerprint pattern="^(?:(\S{1,512}) {1,8})?ESMTP MailEnable Service, Version: ([\d.]+)$">
     <description>MailEnable - Simple</description>
     <example service.version="9.53">ESMTP MailEnable Service, Version: 9.53</example>
     <param pos="0" name="os.vendor" value="Microsoft"/>
@@ -554,10 +555,11 @@
 
   <!-- MailEnable has an odd, three version string. Not sure about the meaning the second and third version #s. -->
 
-  <fingerprint pattern="^(?:(\S+) +)?ESMTP MailEnable Service, Version: (?:([\d.]+))?-[\d.]*-[\d.]* (?:ready|denied access) at (\d{2}/\d{2}/\d{2} \d{2}:\d{2}:\d{2})$">
+  <fingerprint pattern="^(?:(\S{1,512}) {1,8})?ESMTP MailEnable Service, Version: (?:([\d.]+))?-[\d.]*-[\d.]* (?:ready|denied access) at (\d{2}/\d{2}/\d{2} \d{2}:\d{2}:\d{2})$">
     <description>MailEnable - Complex</description>
     <example host.name="foo.bar" service.version="1.8">foo.bar ESMTP MailEnable Service, Version: 1.8-- ready at 05/20/15 08:50:22</example>
-    <example host.name="foo.bar" service.version="9.53">foo.bar ESMTP MailEnable Service, Version: 9.53-9.53- ready at 11/30/17 00:57:37</example>
+    <example host.name="*.foo.bar" service.version="9.53">*.foo.bar ESMTP MailEnable Service, Version: 9.53-9.53- ready at 11/30/17 00:57:37</example>
+    <example host.name="%WPI_HOSTNAME%" service.version="10.27">%WPI_HOSTNAME% ESMTP MailEnable Service, Version: 10.27-- ready at 07/07/21 18:24:47</example>
     <example host.name="foo.bar" service.version="9.00" system.time="11/30/17 09:30:34">foo.bar ESMTP MailEnable Service, Version: 9.00--9.00 ready at 11/30/17 09:30:34</example>
     <example host.name="foo.bar" service.version="1.986" system.time="04/05/18 16:15:25">foo.bar ESMTP MailEnable Service, Version: 1.986-- denied access at 04/05/18 16:15:25</example>
     <param pos="0" name="os.vendor" value="Microsoft"/>
@@ -587,7 +589,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +MailSite E?SMTP Receiver Version (\d+\.[\d.]+) Ready *$">
+  <fingerprint pattern="^([^ ]{1,512}) {1,8}MailSite E?SMTP Receiver Version (\d+\.[\d.]+) Ready *$">
     <description>Rockliffe MailSite - with version (http://www.rockliffe.com)</description>
     <example host.name="foo.bar" service.version="3.4.6.0">foo.bar  MailSite ESMTP Receiver Version 3.4.6.0 Ready</example>
     <example host.name="foo.bar" service.version="2.1.7">foo.bar MailSite SMTP Receiver Version 2.1.7 Ready</example>
@@ -598,7 +600,7 @@
     <param pos="2" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +MailSite E?SMTP Receiver Ready *$">
+  <fingerprint pattern="^([^ ]{1,512}) {1,8}MailSite E?SMTP Receiver Ready *$">
     <description>Rockliffe MailSite - without version (http://www.rockliffe.com)</description>
     <example host.name="foo.bar">foo.bar MailSite SMTP Receiver Ready</example>
     <param pos="0" name="service.vendor" value="Rockliffe"/>
@@ -616,7 +618,7 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +MAILsweeper ESMTP Receiver Version (\d\.[\d.]+) Ready *$">
+  <fingerprint pattern="^([^ ]{1,512}) {1,8}MAILsweeper ESMTP Receiver Version (\d\.[\d.]+) Ready *$">
     <description>Content Security MAILsweeper for SMTP (http://www.contenttechnologies.com/products/msw4smtp/default.asp)</description>
     <example service.version="4.2.1.0">foo.bar MAILsweeper ESMTP Receiver Version 4.2.1.0 Ready</example>
     <param pos="0" name="service.vendor" value="Clearswift"/>
@@ -626,7 +628,7 @@
     <param pos="2" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+) UNREGISTERED; *(.+) *$">
+  <fingerprint pattern="^([^ ]{1,512}) {1,8}ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+) UNREGISTERED; *(.+) *$">
     <description>MDaemon mail server - with timestamp, unregistered</description>
     <example service.version="4.0.5">foo.bar ESMTP MDaemon 4.0.5 UNREGISTERED; Sat, 06 Oct 2001 09:10:56 +0400</example>
     <param pos="0" name="service.vendor" value="Alt-N"/>
@@ -645,7 +647,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+); *(.+) *$">
+  <fingerprint pattern="^([^ ]{1,512}) {1,8}ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+); *(.+) *$">
     <description>MDaemon mail server - with timestamp</description>
     <example service.version="4.0.2">foo.bar ESMTP MDaemon 4.0.2; Sat, 06 Oct 2001 01:46:44 -0500</example>
     <param pos="0" name="service.vendor" value="Alt-N"/>
@@ -663,7 +665,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+) ready *$">
+  <fingerprint pattern="^([^ ]{1,512}) {1,8}ESMTP MDaemon ([^ ]+\.[^ ]+\.[^ ]+) ready *$">
     <description>MDaemon mail server - without timestamp</description>
     <example service.version="3.5.7">foo.bar ESMTP MDaemon 3.5.7 ready</example>
     <param pos="0" name="service.vendor" value="Alt-N"/>
@@ -679,7 +681,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:altn:mdaemon:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] (?:using )?MDaemon v(\d+\.[\d.]+) ([^ ]+) *$">
+  <fingerprint pattern="^([^ ]{1,512}) {1,8}ESMTP service ready \[[0-9]+\] (?:using )?MDaemon v(\d+\.[\d.]+) ([^ ]+) *$">
     <description>MDaemon mail server - with version revision</description>
     <example service.version="2.84" service.version.version="R">foo.bar ESMTP service ready [1] MDaemon v2.84 R</example>
     <example service.version="3.0.3" service.version.version="R">foo.bar ESMTP service ready [1] using MDaemon v3.0.3 R</example>
@@ -698,7 +700,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:altn:mdaemon:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] (?:\()?MDaemon v([\d.]+) ([^ ]+) ([^ )]+)(?:\))? *$">
+  <fingerprint pattern="^([^ ]{1,512}) {1,8}ESMTP service ready \[[0-9]+\] (?:\()?MDaemon v([\d.]+) ([^ ]+) ([^ )]+)(?:\))? *$">
     <description>MDaemon mail server - with service pack</description>
     <example service.version="2.7" service.version.version="SP5" service.version.version.version="R">foo.bar ESMTP service ready [1] MDaemon v2.7 SP5 R</example>
     <example service.version="2.7" service.version.version="SP4" service.version.version.version="R">foo.bar ESMTP service ready [1] (MDaemon v2.7 SP4 R)</example>
@@ -717,7 +719,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:altn:mdaemon:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +ESMTP service ready \[[0-9]+\] \(MDaemon v([^ ]+\.[^ ]+) ([^ ]+) ([^ ]+) ([^ ]+)\) *$">
+  <fingerprint pattern="^([^ ]{1,512}) {1,8}ESMTP service ready \[[0-9]+\] \(MDaemon v([^ ]+\.[^ ]+) ([^ ]+) ([^ ]+) ([^ ]+)\) *$">
     <description>MDaemon mail server</description>
     <example service.version="2.5" service.version.version.version="b1">foo.bar ESMTP service ready [1] (MDaemon v2.5 rB b1 32-T)</example>
     <param pos="0" name="service.vendor" value="Alt-N"/>
@@ -846,7 +848,7 @@
        called IBM Domino as of v9.0 on product and in banners.
   -->
 
-  <fingerprint pattern="^ ?(?:([^ ]+))? *ESMTP Service \(Lotus Domino Release (\d+\.[\w.]+(?: FP\d+)?(?: HF\d+)?)(?: \(Intl\))?\) ready at (.+) *$">
+  <fingerprint pattern=" ?(?:([^ ]{1,512}))? {0,8}ESMTP Service \(Lotus Domino Release (\d+\.[\w.]+(?: FP\d+)?(?: HF\d+)?)(?: \(Intl\))?\) ready at (.+) *$">
     <description>Lotus Domino SMTP MTA</description>
     <example service.version="8.5">foo.bar  ESMTP Service (Lotus Domino Release 8.5) ready at Thu, 30 Nov 2017 17:01:45 +0800</example>
     <example service.version="8.5.3FP6 HF1944">foo.bar ESMTP Service (Lotus Domino Release 8.5.3FP6 HF1944) ready at Thu, 30 Nov 2017 17:17:43 +0800</example>
@@ -867,7 +869,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^ ?(?:([^ ]+))? *ESMTP Service \(IBM Domino Release (\d+\.[\w.]+(?: HF\d+)?)\) ready at (.+) *$">
+  <fingerprint pattern="^ ?(?:([^ ]{1,512}))? {0,8}ESMTP Service \(IBM Domino Release (\d+\.[\w.]+(?: HF\d+)?)\) ready at (.+) *$">
     <description>IBM Domino SMTP MTA</description>
     <example host.name="foo.bar" service.version="9.0.1FP8 HF475">foo.bar ESMTP Service (IBM Domino Release 9.0.1FP8 HF475) ready at Thu, 30 Nov 2017 17:55:48 +0900</example>
     <example host.name="foo.bar" service.version="9.0.1"> foo.bar ESMTP Service (IBM Domino Release 9.0.1) ready at Thu, 30 Nov 2017 10:12:26 +0100</example>
@@ -918,7 +920,7 @@
     <param pos="3" name="ntmail.id"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) WindowsNT SMTP Server v([^ ]+\.[^ ]+\.[^ ]+)/([^ ]+)/SP ESMTP ready at (.+) *$">
+  <fingerprint pattern="^([^ ]{1,512}) WindowsNT SMTP Server v([^ ]+\.[^ ]+\.[^ ]+)/([^ ]+)/SP ESMTP ready at (.+) *$">
     <description>NTMail - versions 3.x and earlier (it was called Internet Shopper's something or other)</description>
     <example host.name="foo.bar" service.version="3.03.0018" ntmail.id="7.aavn">foo.bar WindowsNT SMTP Server v3.03.0018/7.aavn/SP ESMTP ready at Thu, 30 Nov 2017 10:15:31 +0100</example>
     <param pos="0" name="service.vendor" value="Gordano"/>
@@ -931,7 +933,7 @@
     <param pos="4" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+)(?: UCX)? V\S+, OpenVMS V(\S+) (\S+) ready at .*$">
+  <fingerprint pattern="^([^ ]{1,512})(?: UCX)? V\S+, OpenVMS V(\S+) (\S+) ready at .*$">
     <description>Some unknown mail server on OpenVMS</description>
     <example host.name="foo.bar" os.arch="IA64" os.version="8.4">foo.bar V5.7-ECO4, OpenVMS V8.4 IA64 ready at Wed, 20 May 2015 01:22:32 +0100 (BST)</example>
     <example host.name="foo.bar" os.arch="Alpha" os.version="7.3-2">foo.bar V5.4-15E, OpenVMS V7.3-2 Alpha ready at Wed, 20 May 2015 01:22:18 +0100 (BST)</example>
@@ -946,7 +948,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:hp:openvms:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) E?SMTP PMailServer(?: \[Free Edition\])? ([\d\.]+); (\w\w\w, +\d+ \w\w\w \d\d\d\d [\d:]+)$">
+  <fingerprint pattern="^([^ ]{1,512}) E?SMTP PMailServer(?: \[Free Edition\])? ([\d\.]+); (\w\w\w, +\d+ \w\w\w \d\d\d\d [\d:]+)$">
     <description>A.K.I PMail</description>
     <example host.name="foo.bar" service.version="1.91">foo.bar ESMTP PMailServer [Free Edition] 1.91; Fri, 22 May 2015 02:04:56</example>
     <example host.name="foo.bar" service.version="1.78">foo.bar ESMTP PMailServer 1.78; Fri,  6 Apr 2018 04:34:11</example>
@@ -958,7 +960,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) Postfix \(Postfix-([^ ]+)-([^ ]+)\) \(([^ ]+)\) *$">
+  <fingerprint pattern="^([^ ]{1,512}) Postfix \(Postfix-([^ ]+)-([^ ]+)\) \(([^ ]+)\) *$">
     <description>Postfix - version + build, followed by os</description>
     <param pos="0" name="service.vendor" value="Postfix"/>
     <param pos="0" name="service.family" value="Postfix"/>
@@ -970,7 +972,7 @@
     <param pos="4" name="postfix.os.info"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) ESMTP Postfix \(?([\d.]+)\)?$">
+  <fingerprint pattern="^([^ ]{1,512}) ESMTP Postfix \(?([\d.]+)\)?$">
     <description>Postfix - Std semantic versioning, w/ optional parens</description>
     <example service.version="3.1.4">foo.bar ESMTP Postfix (3.1.4)</example>
     <example service.version="2.7.1">foo.bar ESMTP Postfix 2.7.1</example>
@@ -982,7 +984,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:postfix:postfix:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) ESMTP Postfix \((?:Postfix-)?([\d.]+)-([^ ]+)\)$">
+  <fingerprint pattern="^([^ ]{1,512}) ESMTP Postfix \((?:Postfix-)?([\d.]+)-([^ ]+)\)$">
     <description>Postfix - version + build</description>
     <example service.version="2.8" service.version.version="20100306">foo.bar ESMTP Postfix (2.8-20100306)</example>
     <param pos="0" name="service.vendor" value="Postfix"/>
@@ -994,7 +996,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:postfix:postfix:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +E?SMTP Postfix \(Ubuntu\)$">
+  <fingerprint pattern="^([^ ]{1,512}) +E?SMTP Postfix \(Ubuntu\)$">
     <description>Postfix - Ubuntu</description>
     <example>foo.bar ESMTP Postfix (Ubuntu)</example>
     <param pos="0" name="service.vendor" value="Postfix"/>
@@ -1008,9 +1010,9 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+)(?: ESMTP)? Hi, I'm a Mail-in-a-Box \(Ubuntu/Postfix; see https://mailinabox.email/\)$">
+  <fingerprint pattern="^([^ ]{1,512})(?: ESMTP)? Hi, I'm a Mail-in-a-Box \(Ubuntu/Postfix; see https://mailinabox.email/\)$">
     <description>Postfix - Ubuntu, Mail-in-a-Box package</description>
-    <example>foo.bar ESMTP Hi, I'm a Mail-in-a-Box (Ubuntu/Postfix; see https://mailinabox.email/)</example>
+    <example host.name="foo.bar">foo.bar ESMTP Hi, I'm a Mail-in-a-Box (Ubuntu/Postfix; see https://mailinabox.email/)</example>
     <example>foo.bar Hi, I'm a Mail-in-a-Box (Ubuntu/Postfix; see https://mailinabox.email/)</example>
     <param pos="0" name="service.vendor" value="Postfix"/>
     <param pos="0" name="service.family" value="Postfix"/>
@@ -1037,7 +1039,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) ESMTP.* Postfix *\(.+\) *$">
+  <fingerprint pattern="^([^ ]{1,512}) ESMTP.* Postfix *\(.+\) *$">
     <description>Postfix - generic banner with amusing comments in parentheses</description>
     <example>foo.bar ESMTP Postfix (lol)</example>
     <param pos="0" name="service.vendor" value="Postfix"/>
@@ -1047,7 +1049,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^([^ ]+) +E?SMTP.* Postfix *$">
+  <fingerprint pattern="(?i)^([^ ]{1,512}) {1,8}E?SMTP.* Postfix *$">
     <description>Postfix - generic banner</description>
     <example>foo.bar ESMTP Postfix</example>
     <example>foo.bar SMTP Postfix</example>
@@ -1058,7 +1060,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^ *ESMTP Postfix$">
+  <fingerprint pattern="^ {0,512}ESMTP Postfix$">
     <description>Postfix - banner without hostname or version</description>
     <example>ESMTP Postfix</example>
     <param pos="0" name="service.vendor" value="Postfix"/>
@@ -1067,7 +1069,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:postfix:postfix:-"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^([^ ]+) POSTFIX$">
+  <fingerprint pattern="(?i)^([^ ]{1,512}) POSTFIX$">
     <description>Postfix - generic w/o ESMTP</description>
     <example host.name="foo.bar">foo.bar Postfix</example>
     <param pos="0" name="service.vendor" value="Postfix"/>
@@ -1098,7 +1100,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) SAP (\S+) E?SMTP service ready$">
+  <fingerprint pattern="^(\S{1,512}) SAP (\S+) E?SMTP service ready$">
     <description>SAP SMTP Server</description>
     <example host.name="foo.bar" service.version="8.04(53)">foo.bar SAP 8.04(53) ESMTP service ready</example>
     <param pos="0" name="service.vendor" value="SAP"/>
@@ -1116,7 +1118,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:sendmail:sendmail:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail +([^ ]+) \(PHNE_([^ ]+)\) */ *(.+); *(.+) \(.+\)$">
+  <fingerprint pattern="^([^ ]{1,512}) +ESMTP +Sendmail +([^ ]+) \(PHNE_([^ ]+)\) */ *(.+); *(.+) \(.+\)$">
     <description>Sendmail - HP-UX with a PHNE (HP Networking patch) installed</description>
     <example host.name="foo.bar" service.version="8.8.6" sendmail.config.version="8.7.1">foo.bar ESMTP Sendmail 8.8.6 (PHNE_14041)/8.7.1; Tue, 6 Feb 2001 10:04:32 -0300 (SAT)</example>
     <param pos="0" name="service.vendor" value="Sendmail"/>
@@ -1135,7 +1137,7 @@
     <param pos="5" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) ESMTP Sendmail \S+ version ([\d\.]+) - Revision \S+ HP-UX([\d\.]+).*(\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ \w\w\w)$">
+  <fingerprint pattern="^(\S{1,512}) ESMTP Sendmail \S+ version ([\d\.]+) - Revision \S+ HP-UX([\d\.]+).*(\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ \w\w\w)$">
     <description>Sendmail - HP-UX</description>
     <example host.name="foo.bar" os.version="11.31" service.version="8.13.3">foo.bar ESMTP Sendmail @(#)Sendmail version 8.13.3 - Revision 1.004:: HP-UX11.31 - 03rd February,2010/8.11.1; Wed, 20 May 2015 23:35:38 GMT</example>
     <param pos="0" name="service.vendor" value="Sendmail"/>
@@ -1153,7 +1155,7 @@
     <param pos="4" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail +([^ ]+)/UW([^ ]+) ready at *(.+) \(.+\) *$">
+  <fingerprint pattern="^([^ ]{1,512}) {1,8}ESMTP +Sendmail +([^ ]+)/UW([^ ]+) ready at *(.+) \(.+\) *$">
     <description>Sendmail - Unixware</description>
     <example service.version="8.8.7">foo.bar ESMTP Sendmail 8.8.7/UW7.1.0 ready at Tue, 6 Feb 2001 16:39:30 -0300 (GMT-0300)</example>
     <param pos="0" name="service.vendor" value="Sendmail"/>
@@ -1170,7 +1172,7 @@
     <param pos="4" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) ESMTP Sendmail AIX([^/]+)/UCB ([^;]+); (.+) \(.+\)$">
+  <fingerprint pattern="^([^ ]{1,512}) ESMTP Sendmail AIX([^/]+)/UCB ([^;]+); (.+) \(.+\)$">
     <description>Sendmail - AIX (UCB variant)</description>
     <example os.version="4.2" service.version="8.7">foo.bar ESMTP Sendmail AIX4.2/UCB 8.7; Sun, 29 Jul 2001 22:34:37 -0400 (EDT)</example>
     <param pos="0" name="service.vendor" value="Sendmail"/>
@@ -1508,7 +1510,7 @@
     <param pos="6" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +ESMTP .*Sendmail +([^/ ]+) */ *([^/ ]+); *((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?)(?: \(.+\))?$">
+  <fingerprint pattern="^([^ ]{1,512}) +ESMTP .*Sendmail +([^/ ]+) */ *([^/ ]+); *((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?)(?: \(.+\))?$">
     <description>Sendmail - optional timezone and timestamp, w/o OS</description>
     <example host.name="foo.bar" service.version="8.9.3+3.4W" sendmail.config.version="8.9.3+3.4W" system.time="Tue, 30 Jan 2001 20:40:09 -0500">foo.bar ESMTP Sendmail 8.9.3+3.4W/8.9.3+3.4W; Tue, 30 Jan 2001 20:40:09 -0500 (EST)</example>
     <example host.name="foo.bar" service.version="8.12.10" sendmail.config.version="8.12.10">foo.bar ESMTP Sendmail 8.12.10/8.12.10;</example>
@@ -1526,7 +1528,7 @@
     <param pos="4" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +ESMTP .*Sendmail +([^/ ]+) */ *([^/ ]+); *(\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ \w+)\.?$">
+  <fingerprint pattern="^([^ ]{1,512}) +ESMTP .*Sendmail +([^/ ]+) */ *([^/ ]+); *(\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ \w+)\.?$">
     <description>Sendmail - with timezone and timestamp, w/o timezone offset or OS</description>
     <example host.name="foo.bar" service.version="8.14.4" sendmail.config.version="8.14.4" system.time="Thu, 5 Apr 2018 19:30:58 GMT">foo.bar ESMTP Sendmail 8.14.4/8.14.4; Thu, 5 Apr 2018 19:30:58 GMT</example>
     <param pos="0" name="service.vendor" value="Sendmail"/>
@@ -1539,7 +1541,7 @@
     <param pos="4" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ([^ ]+) ready at *(\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)(?: \(.+\))$">
+  <fingerprint pattern="^([^ ]{1,512}) +ESMTP +Sendmail ([^ ]+) ready at *(\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)(?: \(.+\))$">
     <description>Sendmail - with version and date (optional timezone), w/o config version</description>
     <example host.name="foo.bar" service.version="8.8.8" system.time="Tue, 6 Feb 2001 14:37:14 +0100">foo.bar ESMTP Sendmail 8.8.8 ready at Tue, 6 Feb 2001 14:37:14 +0100 (CET)</example>
     <param pos="0" name="service.vendor" value="Sendmail"/>
@@ -1552,7 +1554,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ([^ /]+) - \([^\)]+\)/[^ ]+;? *(\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)(?: \(.+\)) *$">
+  <fingerprint pattern="^([^ ]{1,512}) +ESMTP +Sendmail ([^ /]+) - \([^\)]+\)/[^ ]+;? *(\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)(?: \(.+\)) *$">
     <description>Sendmail - revision variant 1</description>
     <example>foo.foo.bar ESMTP Sendmail 8.11.1 - (Revision 1.010)/8.9.3; Sat, 22 Jan 2011 10:08:35 -0500 (EST)</example>
     <param pos="0" name="service.vendor" value="Sendmail"/>
@@ -1565,7 +1567,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail +(?:[^ ]+) +version +([^ ]+) +- +(?:[^;]+); *(\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)(?: \(.+\)) *$">
+  <fingerprint pattern="^([^ ]{1,512}) +ESMTP +Sendmail +(?:[^ ]+) +version +([^ ]+) +- +(?:[^;]+); *(\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)(?: \(.+\)) *$">
     <description>Sendmail - revision variant 2</description>
     <example>foo.foo.bar ESMTP Sendmail @(#)Sendmail version 8.13.3 - Revision 2.007 - 8 December 2008/8.8.6; Wed, 21 Jul 2010 11:17:01 -0400 (EDT)</example>
     <param pos="0" name="service.vendor" value="Sendmail"/>
@@ -1578,7 +1580,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^([^ ]+) +(?:ESMTP +)?Sendmail *(?: Ready.? ?)?(?:;|at)? ?((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?)(?: \(.+\))?$">
+  <fingerprint pattern="(?i)^([^ ]{1,512}) {1,8}(?:ESMTP +)?Sendmail *(?: Ready.? ?)?(?:;|at)? ?((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?)(?: \(.+\))?$">
     <description>Sendmail - with date, w/o version or platform, optional status string.</description>
     <example host.name="foo.bar">foo.bar ESMTP Sendmail ; Thu, 30 Nov 2017 17:50:14 +0900</example>
     <example host.name="foo.bar">foo.bar ESMTP Sendmail; Thu, 30 Nov 2017 17:50:14 +0900</example>
@@ -1612,7 +1614,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +ESMTP +Sendmail ([^ /]+) \([^\)]+\) *(.+) \(.+\)$">
+  <fingerprint pattern="^([^ ]{1,512}) +ESMTP +Sendmail ([^ /]+) \([^\)]+\) *(.+) \(.+\)$">
     <description>Sendmail - unknown (date in version string variant)</description>
     <example>mail.foo.bar ESMTP Sendmail 8.11.1 (1.1.2.11/12Jul01-1016AM) Wed, 8 Jan 2003 11:21:22 +0100 (MET)</example>
     <param pos="0" name="service.vendor" value="Sendmail"/>
@@ -1680,7 +1682,7 @@
     <param pos="4" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^([^ ]+) SMTP Server SLMail v?(\d\.[\d.]+) Ready ESMTP spoken here *$">
+  <fingerprint pattern="(?i)^([^ ]{1,512}) SMTP Server SLMail v?(\d\.[\d.]+) Ready ESMTP spoken here *$">
     <description>Seattle Labs SLMail server for Windows NT/2k (v2.7 runs on Win9x)</description>
     <example service.version="2.7">foo.bar Smtp Server SLMail v2.7 Ready ESMTP spoken here</example>
     <example service.version="3.2.3113">foo.bar SMTP Server SLmail 3.2.3113 Ready ESMTP spoken here</example>
@@ -1692,7 +1694,7 @@
     <param pos="2" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +ESMTP Symantec Mail Security$">
+  <fingerprint pattern="^([^ ]{1,512}) +ESMTP Symantec Mail Security$">
     <description>Symantec Mail Security for SMTP</description>
     <example host.name="foo.bar">foo.bar ESMTP Symantec Mail Security</example>
     <param pos="0" name="service.vendor" value="Symantec"/>
@@ -1701,7 +1703,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) ESMTP Symantec Messaging Gateway$">
+  <fingerprint pattern="^([^ ]{1,512}) ESMTP Symantec Messaging Gateway$">
     <description>Symantec Mail Gateway</description>
     <example host.name="foo.bar">foo.bar ESMTP Symantec Messaging Gateway</example>
     <param pos="0" name="service.vendor" value="Symantec"/>
@@ -1712,7 +1714,7 @@
 
   <!-- SonicWall makes hardware, virtual appliances, and Windows software. The banner doesn't indicate which. -->
 
-  <fingerprint pattern="(?i)^([^ ]+) ESMTP SonicWALL \(([\d.]+)\)$">
+  <fingerprint pattern="(?i)^([^ ]{1,512}) ESMTP SonicWALL \(([\d.]+)\)$">
     <description>SonicWall Email Security</description>
     <example host.name="foo.bar" service.version="9.0.5.2077">foo.bar ESMTP SonicWALL (9.0.5.2077)</example>
     <example host.name="foo.bar" service.version="9.1.1.3113">foo.bar ESMTP SonicWall (9.1.1.3113)</example>
@@ -1723,7 +1725,7 @@
     <param pos="2" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) \(PowerMTA\(TM\) v([\d.r]+)\) ESMTP service ready$">
+  <fingerprint pattern="^([^ ]{1,512}) \(PowerMTA\(TM\) v([\d.r]+)\) ESMTP service ready$">
     <description>PowerMTA</description>
     <example host.name="foo.bar" service.version="3.2r24">foo.bar (PowerMTA(TM) v3.2r24) ESMTP service ready</example>
     <param pos="0" name="service.vendor" value="port25"/>
@@ -1733,7 +1735,7 @@
     <param pos="2" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) +VOPmail ESMTP Receiver Version (\d\.[\d.]+) Ready$">
+  <fingerprint pattern="^([^ ]{1,512}) +VOPmail ESMTP Receiver Version (\d\.[\d.]+) Ready$">
     <description>VOPMail http://www.vircom.com/en/products/vopmail/vopmail.shtml</description>
     <example host.name="foo.bar" service.version="4.0.179.0">foo.bar VOPmail ESMTP Receiver Version 4.0.179.0 Ready</example>
     <param pos="0" name="service.vendor" value="Vircom"/>
@@ -1743,7 +1745,7 @@
     <param pos="2" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) VPOP3 E?SMTP Server (?:Ready|access not allowed!)$">
+  <fingerprint pattern="^([^ ]{1,512}) VPOP3 E?SMTP Server (?:Ready|access not allowed!)$">
     <description>VPOP3 Email server: http://www.pscs.co.uk/products/vpop3/index.html</description>
     <example>foo.bar VPOP3 ESMTP Server Ready</example>
     <example>foo.bar VPOP3 SMTP Server Ready</example>
@@ -1754,7 +1756,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) WebShield SMTP V([^ ]+\.[^ ]+) (:?[^ ]+)? ?Network Associates.*Ready at (.+) *$">
+  <fingerprint pattern="^([^ ]{1,512}) WebShield SMTP V([^ ]+\.[^ ]+) ([^ ]+)? ?Network Associates.*Ready at (.+) *$">
     <description>McAfee WebShield</description>
     <example host.name="foo.bar" service.version="4.5" service.version.version="MR1a">foo.bar WebShield SMTP V4.5 MR1a Network Associates, Inc. Ready at Thu Nov 30 09:15:32 2017</example>
     <example host.name="foo.bar" service.version="4.5" system.time="Thu Nov 30 09:15:32 2017">foo.bar WebShield SMTP V4.5 Network Associates, Inc. Ready at Thu Nov 30 09:15:32 2017</example>
@@ -1769,7 +1771,7 @@
     <param pos="4" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) McAfee WebShield ASaP v([^ ]+\.[^ ]+\.[^ ]+): (.+) *$">
+  <fingerprint pattern="^([^ ]{1,512}) McAfee WebShield ASaP v([^ ]+\.[^ ]+\.[^ ]+): (.+) *$">
     <description>McAfee Webshield ASaP (bundled hardware / software)</description>
     <example host.name="foo.bar" service.version="1.0.1" system.time="Sun, 29 Jul 2001 22:46:18 -0700">foo.bar McAfee WebShield ASaP v1.0.1: Sun, 29 Jul 2001 22:46:18 -0700</example>
     <param pos="0" name="service.vendor" value="McAfee"/>
@@ -1785,7 +1787,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) McAfee VirusScreen ASaP v([^ ]+\.[^ ]+): (.+) *$">
+  <fingerprint pattern="^([^ ]{1,512}) McAfee VirusScreen ASaP v([^ ]+\.[^ ]+): (.+) *$">
     <description>McAfee VirusScreen</description>
     <example host.name="foo.bar" service.version="1.1" system.time="Sun, 20 Jul 2003 09:20:52 -0700">foo.bar McAfee VirusScreen ASaP v1.1: Sun, 20 Jul 2003 09:20:52 -0700</example>
     <param pos="0" name="service.vendor" value="McAfee"/>
@@ -1868,7 +1870,7 @@
     <param pos="3" name="service.version.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) ESMTP CommuniGate Pro (\d\.[\w.]+)(?:. It is you again :-\()?$">
+  <fingerprint pattern="^([^ ]{1,512}) ESMTP CommuniGate Pro (\d\.[\w.]+)(?:. It is you again :-\()?$">
     <description>Communigate Pro</description>
     <example host.name="foo.bar" service.version="5.3.1">foo.bar ESMTP CommuniGate Pro 5.3.1</example>
     <example host.name="foo.bar" service.version="6.2c3">foo.bar ESMTP CommuniGate Pro 6.2c3</example>
@@ -1881,7 +1883,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:communigate:communigate_pro:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) NO UCE NO UBE NO RELAY PROBES ESMTP">
+  <fingerprint pattern="^(\S{1,512}) NO UCE NO UBE NO RELAY PROBES ESMTP">
     <description>Twisted SMTP server</description>
     <example host.name="foo.bar">foo.bar NO UCE NO UBE NO RELAY PROBES ESMTP</example>
     <param pos="0" name="service.vendor" value="Twisted Matrix Labs"/>
@@ -1919,14 +1921,14 @@
     <param pos="2" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^(\S+) E?SMTP Perl">
+  <fingerprint pattern="(?i)^(\S{1,512}) E?SMTP Perl">
     <description>Some simple PERL SMTP server</description>
     <example host.name="foo.bar">foo.bar ESMTP Perl</example>
     <param pos="0" name="service.product" value="Perl"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^(?:([^ ]+) )?E?SMTP(?: (?:Service )?Ready\.?)?$">
+  <fingerprint pattern="(?i)^(?:([^ ]{1,512}) )?E?SMTP(?: (?:Service )?Ready\.?)?$">
     <description>Non-specific banner with optional hostname</description>
     <example host.name="foo.bar">foo.bar ESMTP</example>
     <example host.name="foo.bar">foo.bar ESMTP Ready</example>
@@ -1938,7 +1940,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) ESMTP OpenSMTPD$">
+  <fingerprint pattern="^([^ ]{1,512}) ESMTP OpenSMTPD$">
     <description>OpenSMPTD</description>
     <example host.name="foo.bar">foo.bar ESMTP OpenSMTPD</example>
     <param pos="0" name="service.vendor" value="OpenBSD"/>

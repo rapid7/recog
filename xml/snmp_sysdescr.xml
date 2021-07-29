@@ -1095,7 +1095,7 @@
     <param pos="0" name="hw.device" value="Switch"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^,]+), (VDX\S+), Network Operating System Software Version (\S+)\.$">
+  <fingerprint pattern="^([^,]{1,512}), (VDX\S+), Network Operating System Software Version (\S+)\.$">
     <description>Brocade VDX Switch w/Hostname</description>
     <example host.name="core02" hw.product="VDX6740T-1G" os.version="7.0.1b">core02, VDX6740T-1G, Network Operating System Software Version 7.0.1b.</example>
     <param pos="0" name="os.vendor" value="Brocade"/>
@@ -1109,7 +1109,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^,]+), BR-(\S+), Network Operating System Software Version (\S+)\.$">
+  <fingerprint pattern="^([^,]{1,512}), BR-(\S+), Network Operating System Software Version (\S+)\.$">
     <description>Brocade VDX Switch w/Hostname and BR prefix</description>
     <example host.name="core01" hw.product="VDX6740" os.version="7.0.2b">core01, BR-VDX6740, Network Operating System Software Version 7.0.2b.</example>
     <param pos="0" name="os.vendor" value="Brocade"/>
@@ -1396,7 +1396,7 @@
                            Computer Associates
    =======================================================================-->
 
-  <fingerprint pattern="^(?:Linux )?\s*SystemEDGE.*$">
+  <fingerprint pattern="^(?:Linux )?\s{0,256}SystemEDGE.*$">
     <description>CA SystemEDGE Management Agent</description>
     <example>Linux SystemEDGE Management Agent, Concord Communications, Inc.</example>
     <example>SystemEDGE Management Agent, CA, Inc.</example>
@@ -1453,7 +1453,7 @@
     <param pos="0" name="os.product" value="Switch"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) OPTICAL SW:(\S+) .* Ciena \(R\) Corporation$">
+  <fingerprint pattern="^(\S{1,32}) OPTICAL SW:(\S+) .* Ciena \(R\) Corporation$">
     <description>Ciena Optical - software version variant</description>
     <example>6500 OPTICAL SW:0810 BN:HD (c) Ciena (R) Corporation</example>
     <param pos="0" name="os.vendor" value="Ciena"/>
@@ -2450,9 +2450,9 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:hp:hp-ux:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) .*OpenVMS V(\S+) .*$">
+  <fingerprint pattern="^(\S{1,512}) .*OpenVMS V(\S+) .*$">
     <description>OpenVMS</description>
-    <example>hostname VAX 4000-200 OpenVMS V7.2 Compaq TCP/IP Services for OpenVMS</example>
+    <example host.name="hostname">hostname VAX 4000-200 OpenVMS V7.2 Compaq TCP/IP Services for OpenVMS</example>
     <param pos="0" name="os.vendor" value="HP"/>
     <param pos="0" name="os.family" value="OpenVMS"/>
     <param pos="0" name="os.product" value="OpenVMS"/>
@@ -2461,7 +2461,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:hp:openvms:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) (.*?) (?:HP|Compaq) Tru64 UNIX V(\S+) \(Rev\. ([^\)]+)\).*TCP/IP$">
+  <fingerprint pattern="^(\S{1,512}) (.*?) (?:HP|Compaq) Tru64 UNIX V(\S+) \(Rev\. ([^\)]+)\).*TCP\/IP$">
     <description>Digital/Compaq/HP Tru64 Unix</description>
     <example host.name="was1" hw.product="AlphaServer DS10 466 MHz" os.version="5.1B" os.version.version="2650">was1 AlphaServer DS10 466 MHz Compaq Tru64 UNIX V5.1B (Rev. 2650); Wed Feb 25 13:29:07 KST 2004 TCP/IP</example>
     <param pos="0" name="os.vendor" value="HP"/>
@@ -2474,7 +2474,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:hp:tru64_unix:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) (.*?) Digital UNIX V(\S+)\s+\(Rev\. ([^\)]+)\).*TCP/IP$">
+  <fingerprint pattern="^(\S{1,512}) (.*?) Digital UNIX V(\S+)\s+\(Rev\. ([^\)]+)\).*TCP/IP$">
     <description>Digital/Compaq/HP Tru64 Unix - Digital branding variant</description>
     <example host.name="example.com" hw.product="COMPAQ AlphaServer DS10 617 MHz" os.version="4.0F" os.version.version="1229">example.com COMPAQ AlphaServer DS10 617 MHz Digital UNIX V4.0F (Rev. 1229); Wed May 22 13:55:58 CST 2002 TCP/IP</example>
     <example host.name="example.com" hw.product="COMPAQ Professional Workstation XP1000" os.version="4.0F" os.version.version="1229">example.com COMPAQ Professional Workstation XP1000 Digital UNIX V4.0F  (Rev. 1229); Wed Jun 30 14:32:53 MET DST 2004 . TCP/IP</example>
@@ -6265,7 +6265,7 @@ Copyright (c) 1995-2005 by Cisco Systems
                               SGI
    =======================================================================-->
 
-  <fingerprint pattern="^.* IRIX (?:version )?(\d+\S+).*$">
+  <fingerprint pattern="^.{0,256} IRIX (?:version )?(\d+\S+).*$">
     <description>SGI IRIX</description>
     <example os.version="6.5">Silicon Graphics IRIS Indigo2  running IRIX version 6.5</example>
     <example os.version="5.3">Silicon Graphics IRIS Indigo2 Elan running IRIX 5.3</example>
@@ -6280,7 +6280,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:sgi:irix:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^.* IRIX64 (?:version )?(\d+\S+).*$">
+  <fingerprint pattern="^.{0,256} IRIX64 (?:version )?(\d+\S+).*$">
     <description>SGI IRIX64</description>
     <example os.version="6.5">Silicon Graphics Challenge/1 running IRIX64 6.5</example>
     <example os.version="6.5">Silicon Graphics Fuel running IRIX64 version 6.5</example>
