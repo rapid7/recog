@@ -1044,7 +1044,7 @@ more text</example>
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^ET(\S+) Source Technologies (ST-96\S+) FTP Server (\S+) ready\.?$">
+  <fingerprint pattern="^ET(\S{1,12}) Source Technologies (ST-96\S+) FTP Server (\S+) ready\.?$">
     <description>Source Technologies ST9600 Series Secure Printer</description>
     <example>ET0021B730F70E Source Technologies ST-9620 FTP Server NJ.APS.N254e ready.</example>
     <example>ET0021B7549AF2 Source Technologies ST-9620 FTP Server NR.APS.N447b2 ready.</example>
@@ -1057,7 +1057,7 @@ more text</example>
     <param pos="3" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^ET(\S+) (Pro\d+) Series FTP Server ready\.$" certainty="1.0">
+  <fingerprint pattern="^ET(\S{1,12}) (Pro\d+) Series FTP Server ready\.$" certainty="1.0">
     <description>Lexmark ProXXX Series of Printers</description>
     <example host.mac="0020007E4D2A" hw.product="Pro700">ET0020007E4D2A Pro700 Series FTP Server ready.</example>
     <param pos="0" name="os.vendor" value="Lexmark"/>
@@ -1070,7 +1070,7 @@ more text</example>
     <param pos="2" name="hw.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^ET(\S+) Lexmark Forms Printer (\d+) Ethernet FTP Server (\S+) ready\.$" certainty="1.0">
+  <fingerprint pattern="^ET(\S{1,12}) Lexmark Forms Printer (\d+) Ethernet FTP Server (\S+) ready\.$" certainty="1.0">
     <description>Lexmark Forms Printer</description>
     <example os.product="2590">ET0020004F54EE Lexmark Forms Printer 2590 Ethernet FTP Server LCL.CU.P012c ready.</example>
     <param pos="0" name="os.vendor" value="Lexmark"/>
@@ -1085,7 +1085,7 @@ more text</example>
     <param pos="2" name="hw.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^ET(\S+) TOSHIBA e-STUDIO500S FTP Server (\S+) ready\.$" certainty="1.0">
+  <fingerprint pattern="^ET(\S{1,12}) TOSHIBA e-STUDIO500S FTP Server (\S+) ready\.$" certainty="1.0">
     <description>Toshiba e-STUDIO Printer with MAC address</description>
     <example os.version="NC2.NPS.N221">ET0004001E9C00 TOSHIBA e-STUDIO500S FTP Server NC2.NPS.N221 ready.</example>
     <example host.mac="00040089BE42">ET00040089BE42 TOSHIBA e-STUDIO500S FTP Server NC2.NPS.N211 ready.</example>
@@ -1099,7 +1099,7 @@ more text</example>
     <param pos="0" name="hw.product" value="e-STUDIO"/>
   </fingerprint>
 
-  <fingerprint pattern="^\S+ TOSHIBA e-STUDIO500S FTP Server (\S+) ready\.$" certainty="1.0">
+  <fingerprint pattern="^\S{1,16} TOSHIBA e-STUDIO500S FTP Server (\S+) ready\.$" certainty="1.0">
     <description>Toshiba e-STUDIO Printer</description>
     <example os.version="NC2.NPS.N211">JHBPRN13 TOSHIBA e-STUDIO500S FTP Server NC2.NPS.N211 ready.</example>
     <param pos="0" name="os.vendor" value="Toshiba"/>

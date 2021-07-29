@@ -44,9 +44,9 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) \(IMail (\d+\.[^ ]+) \d+-\d+\) NT-ESMTP Server X1$">
+  <fingerprint pattern="^([^ ]{1,512}) \(IMail (\d+\.[^ ]+) \d+-\d+\) NT-ESMTP Server X1$">
     <description>IMail - non-EVAL version, NT-ESMTP at end</description>
-    <example service.version="12.4.2.27">foo.bar (IMail 12.4.2.27 21349-1) NT-ESMTP Server X1</example>
+    <example host.name="foo.bar" service.version="12.4.2.27">foo.bar (IMail 12.4.2.27 21349-1) NT-ESMTP Server X1</example>
     <param pos="0" name="service.vendor" value="Ipswitch"/>
     <param pos="0" name="service.family" value="IMail Server"/>
     <param pos="0" name="service.product" value="IMail Server"/>
@@ -55,7 +55,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) SMTP AnalogX Proxy ([^ ]+\.[^ ]+) \(Release\) ready *$">
+  <fingerprint pattern="^([^ ]{1,512}) SMTP AnalogX Proxy ([^ ]+\.[^ ]+) \(Release\) ready *$">
     <description>AnalogX proxy  (http://www.analogx.com/contents/download/network/proxy.htm)</description>
     <example host.name="192.168.1.1" service.version="4.15">192.168.1.1 SMTP AnalogX Proxy 4.15 (Release) ready</example>
     <param pos="0" name="service.vendor" value="AnalogX"/>
@@ -475,7 +475,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:novell:groupwise:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) GroupWise Internet Agent (\d+\.[\d.]+)  Copyright .*\d{4}-\d{4} Novell, Inc..* All rights reserved. Ready *$">
+  <fingerprint pattern="^([^ ]{1,512}) GroupWise Internet Agent (\d+\.[\d.]+)  Copyright .*\d{4}-\d{4} Novell, Inc..* All rights reserved. Ready *$">
     <description>Novell GroupWise Internet Agent - versions 5 and higher, second variant</description>
     <example service.version="8.0.3">foo.bar GroupWise Internet Agent 8.0.3  Copyright (c) 1993-2012 Novell, Inc.  All rights reserved. Ready</example>
     <example service.version="14.2.1">foo.bar GroupWise Internet Agent 14.2.1  Copyright 1993-2016 Novell, Inc., a Micro Focus Company. All rights reserved. Ready</example>
@@ -487,7 +487,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:novell:groupwise:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) GroupWise SMTP/MIME Daemon ([^ ]+\.[^ ]+) v([^ ]+) Ready \(C\).* Novell, Inc\. *$">
+  <fingerprint pattern="^([^ ]{1,512}) GroupWise SMTP/MIME Daemon ([^ ]+\.[^ ]+) v([^ ]+) Ready \(C\).* Novell, Inc\. *$">
     <description>Novell GroupWise - versions below 5</description>
     <example host.name="foo.bar" service.version="4.1" service.version.version="3">foo.bar GroupWise SMTP/MIME Daemon 4.1 v3 Ready (C)1993, 1996 Novell, Inc.</example>
     <param pos="0" name="service.vendor" value="Novell"/>
@@ -768,7 +768,7 @@
     <param pos="5" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) Mercury ([^ ]+\.[^ ]+) ESMTP server ready.$">
+  <fingerprint pattern="^([^ ]{1,512}) Mercury ([^ ]+\.[^ ]+) ESMTP server ready.$">
     <description>Mercury NLM for Netware ( http://www.pmail.com/index.cfm )</description>
     <example host.name="foo.bar" service.version="1.43">foo.bar Mercury 1.43 ESMTP server ready.</example>
     <param pos="0" name="service.family" value="Mercury Mail Transport System"/>
@@ -884,7 +884,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) ESMTP Service \(Lotus Domino Build (V?[\w.]+)\) ready at (.+) *$">
+  <fingerprint pattern="^([^ ]{1,512}) ESMTP Service \(Lotus Domino Build (V?[\w.]+)\) ready at (.+) *$">
     <description>Lotus Domino (some early build)</description>
     <example notes.build.version="166.1">foo.bar ESMTP Service (Lotus Domino Build 166.1) ready at Thu, 16 Nov 2017 10:39:22 +0200</example>
     <example notes.build.version="V85_M2_08202008">foo.bar ESMTP Service (Lotus Domino Build V85_M2_08202008) ready at Thu, 16 Nov 2017 03:57:40 -0500</example>
@@ -909,7 +909,7 @@
     <param pos="2" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) NTMail \(v(\d+\.\d+\.\d+)/([^ ]+)\) ready for ESMTP transfer *$">
+  <fingerprint pattern="^([^ ]{1,512}) NTMail \(v(\d+\.\d+\.\d+)/([^ ]+)\) ready for ESMTP transfer *$">
     <description>NTMail (http://www.gordano.com)</description>
     <example host.name="foo.bar" service.version="7.02.3037" ntmail.id="NU1319.01.5b000000">foo.bar NTMail (v7.02.3037/NU1319.01.5b000000) ready for ESMTP transfer   </example>
     <param pos="0" name="service.vendor" value="Gordano"/>
@@ -1190,7 +1190,7 @@
     <param pos="4" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) Sendmail AIX([^/]+)/UCB ([^/]+)/([^ ]+) ready at (.+)$">
+  <fingerprint pattern="^([^ ]{1,512}) Sendmail AIX([^/]+)/UCB ([^/]+)/([^ ]+) ready at (.+)$">
     <description>Sendmail - AIX (UCB/ready at variant)</description>
     <example>foo.bar Sendmail AIX 4.1/UCB 5.64/4.03 ready at Mon, 30 Jul 2001 00:42:21 -0500</example>
     <param pos="0" name="service.vendor" value="Sendmail"/>
