@@ -576,7 +576,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]+) \(Mail-Max Version (\d+\.[\d\.]+), (.+, .+)\) ESMTP Mail Server Ready. *$">
+  <fingerprint pattern="^([^ ]{1,512}) \(Mail-Max Version (\d+\.[\d\.]+), (.+, .+)\) ESMTP Mail Server Ready. *$">
     <description>Mail Max</description>
     <example host.name="foo.bar" service.version="4.2.4.7">foo.bar (Mail-Max Version 4.2.4.7, Wed, 31 Jan 2001 03:44:35 +0100 WST) ESMTP Mail Server Ready.</example>
     <example host.name="foo.bar" service.version="3.073">foo.bar (Mail-Max Version 3.073, Thu, 30 Nov 2017 17:24:59 +0800 ) ESMTP Mail Server Ready.</example>
