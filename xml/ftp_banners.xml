@@ -89,7 +89,7 @@
     <param pos="2" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S{1,512}) +FTP +Server \(Revision \S+ Version wuftpd-([^\(]+)\(PHNE_\d+\) [^\)]+\) ready.?$" flags="REG_ICASE">
+  <fingerprint pattern="^([^ ]{1,512}) +FTP +Server \(Revision \S+ Version wuftpd-([^\(]+)\(PHNE_\d+\) [^\)]+\) ready.?$" flags="REG_ICASE">
     <description>WU-FTPD on HPUX with a PHNE (HP Networking patch) installed</description>
     <example>example.com FTP server (Revision 1.1 Version wuftpd-2.6.1(PHNE_38578) Fri Sep 5 12:10:54 GMT 2008) ready.</example>
     <param pos="0" name="service.vendor" value="Washington University"/>
@@ -888,7 +888,7 @@ more text</example>
     <param pos="0" name="os.cpe23" value="cpe:/o:windriver:vxworks:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^[\w\-\.]* FTP server \((?:VxWorks\s?)+([\d\.]+)\) ready.$" flags="REG_ICASE">
+  <fingerprint pattern="^[\w\-\.]{0,128} FTP server \((?:VxWorks\s?)+([\d\.]+)\) ready.$" flags="REG_ICASE">
     <description>VxWorks 6 with version information</description>
     <example os.version="6.6">NanoDAC FTP server (VxWorks VxWorks 6.6) ready.</example>
     <example os.version="6.4">BVS-MR-BSC2 FTP server (VxWorks 6.4) ready.</example>
