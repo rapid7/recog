@@ -604,6 +604,13 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:sonicwall:sonicos"/>
   </fingerprint>
 
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;rokudev&quot;">
+    <description>Roku Streaming Device</description>
+    <example>Digest qop="auth", realm="rokudev", nonce="1111111111"</example>
+    <param pos="0" name="hw.vendor" value="Roku"/>
+    <param pos="0" name="hw.device" value="Media Server"/>
+  </fingerprint>
+
   <!-- a variety of headers we currently just ignore -->
 
   <fingerprint pattern="(?i)^NTLM$">
