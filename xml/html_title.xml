@@ -1319,6 +1319,15 @@
     <param pos="0" name="hw.cpe23" value="cpe:/h:cisco:wireless_lan_controller:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^Cisco ASDM (\S+)$">
+    <description>Cisco Adaptive Security Device Manager Application</description>
+    <example service.version="6.4(7)">Cisco ASDM 6.4(7)</example>
+    <param pos="0" name="service.vendor" value="Cisco"/>
+    <param pos="0" name="service.product" value="ASDM"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:cisco:asdm:{service.version}"/>
+  </fingerprint>
+
   <fingerprint pattern="^Duo Access Gateway$">
     <description>Duo Access Gateway</description>
     <example>Duo Access Gateway</example>
