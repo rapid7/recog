@@ -3340,6 +3340,19 @@
     <param pos="0" name="os.device" value="WAP"/>
   </fingerprint>
 
+  <fingerprint pattern="(?i)^(AsusWRT)\/(\S+) UPnP/\S+ MiniUPnPd/([\d.]+)$">
+    <description>AsusWRT Firmware</description>
+    <example os.product="AsusWRT" os.version="3.0.0.4" service.version="1.9">AsusWRT/3.0.0.4 UPnP/1.1 MiniUPnPd/1.9</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
+    <param pos="0" name="service.product" value="MiniUPnPd"/>
+    <param pos="3" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnpd:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Asus"/>
+    <param pos="1" name="os.product"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.device" value="Router"/>
+  </fingerprint>
+
   <fingerprint pattern="(?i)^DrayTek/Vigor(\S+) UPnP/\S+ miniupnpd/([\d.]+)$">
     <description>DrayTek Vigor router UPnP Server</description>
     <example service.version="1.0" hw.model="2130">DrayTek/Vigor2130 UPnP/1.0 miniupnpd/1.0</example>
