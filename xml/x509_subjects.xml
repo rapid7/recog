@@ -1130,7 +1130,7 @@
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="^CN=MAC([a-fA-F0-9]{12}),OU=([^,]+),O=Mercury Security Products\\, LLC,L=Long Beach,ST=CA,C=US">
+  <fingerprint pattern="^CN=MAC([a-fA-F0-9]{12}),OU=([^,]+),O=Mercury Security Products\\, LLC,L=Long Beach,ST=CA,C=US(?:,\S+)?$">
     <description>Mercurity Security (now HID Global)</description>
     <example hw.product="M5IC" host.mac="000FE507A1F1">CN=MAC000FE507A1F1,OU=M5IC,O=Mercury Security Products\, LLC,L=Long Beach,ST=CA,C=US</example>
     <example hw.product="EP-1502" host.mac="000FE508BC71">CN=MAC000FE508BC71,OU=EP-1502,O=Mercury Security Products\, LLC,L=Long Beach,ST=CA,C=US</example>
@@ -1659,6 +1659,12 @@
     <description>Freebox Device</description>
     <example>CN=Freebox Intermediate CA,O=Freebox,ST=France,C=FR</example>
     <param pos="0" name="hw.vendor" value="Freebox"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=TP-LINK CA,O=TP-LINK Technologies CO.\\, LTD.,L=Shenzhen,ST=Guangdong,C=CN(?:,\S+)?$">
+    <description>TP-LINK Device</description>
+    <example>CN=TP-LINK CA,O=TP-LINK Technologies CO.\, LTD.,L=Shenzhen,ST=Guangdong,C=CN,1.2.840.113549.1.9.1=#0c16736572766963654074702d6c696e6b2e636f6d2e636e</example>
+    <param pos="0" name="hw.vendor" value="TP-LINK"/>
   </fingerprint>
 
 </fingerprints>
