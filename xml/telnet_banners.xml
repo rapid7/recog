@@ -20,27 +20,42 @@
   <fingerprint pattern="(?i)\A(?:\r|\n)*login:\s*$">
     <description>bare 'login:' -- assert nothing.</description>
     <example>login:</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="(?i)\A(?:\r|\n)*User(?:name)?\s*:\s*$">
     <description>bare 'Username:' -- assert nothing.</description>
     <example>Username:</example>
     <example>User:</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="(?i)\A(?:\r|\n)*Password:\s*$">
     <description>bare 'Password:' -- assert nothing.</description>
     <example>Password:</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="(?i)\A(?:\r|\n)*Account:\s*$">
     <description>bare 'Account:' -- assert nothing.</description>
     <example>Account:</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="(?i)\AConnection refused(?:\r|\n)*$">
     <description>bare 'Connection refused' -- assert nothing.</description>
     <example>Connection refused</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <!-- end of assert nothing block -->

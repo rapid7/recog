@@ -2965,29 +2965,28 @@
     <param pos="0" name="service.product" value="2wire"/>
   </fingerprint>
 
-  <!-- junit says,
-     "Example pattern '' from http_servers.xml didn't match pattern '^$'"
-     Figure out if we have a way to support matching empty strings later.
-   <fingerprint pattern="^?">
-      <example></example>
-      <description>A blank banner; assert nothing.</description>
-   </fingerprint>
-
-   -->
-
   <fingerprint pattern="^(?:(?:\d{1,3}\.){3}\d{1,3}):\d{1,4}$">
     <description>A banner consisting of an IPv4 address and port -- assert nothing.</description>
     <example>192.168.0.4:9999</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="^Web-Server/(?:\d+\.+\d+)$">
     <description>Obfuscated web server -- assert nothing.</description>
     <example>Web-Server/3.0</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="^httpd$">
     <description>httpd - generic -- assert nothing.</description>
     <example>httpd</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <!-- Service provider equipment (CDNs, etc) -->
