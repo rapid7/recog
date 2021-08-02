@@ -412,7 +412,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:watchguard:fireware:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(.*).nbsp;-.nbsp;Synology.nbsp;DiskStation$">
+  <fingerprint pattern="^(.{0,512}).nbsp;-.nbsp;Synology.nbsp;DiskStation$">
     <description>Synology DiskStation</description>
     <example host.name="DiskStation">DiskStation&amp;nbsp;-&amp;nbsp;Synology&amp;nbsp;DiskStation</example>
     <example host.name="DS218">DS218&amp;nbsp;-&amp;nbsp;Synology&amp;nbsp;DiskStation</example>
@@ -699,7 +699,7 @@
     <param pos="0" name="hw.product" value="Prosafe Plus"/>
   </fingerprint>
 
-  <fingerprint pattern="^(.*).nbsp;Configuration and Management$">
+  <fingerprint pattern="^(.{0,256}).nbsp;Configuration and Management$">
     <description>Digi Terminal Servers</description>
     <example hw.product="Digi One SP">Digi One SP&amp;nbsp;Configuration and Management</example>
     <example hw.product="PortServer TS 4">PortServer TS 4&amp;nbsp;Configuration and Management</example>
@@ -820,7 +820,7 @@
     <param pos="0" name="hw.product" value="Rack PDU Card"/>
   </fingerprint>
 
-  <fingerprint pattern="^(.*) IntelliSlot Web(?:/\d+)? Card?$">
+  <fingerprint pattern="^(.{0,256}) IntelliSlot Web(?:/\d+)? Card?$">
     <description>Emerson Network Power IntelliSlot Web Card and rebrands</description>
     <example hw.vendor="Emerson Network Power">Emerson Network Power IntelliSlot Web Card</example>
     <example hw.vendor="Emerson Network Power">Emerson Network Power IntelliSlot Web/485 Card</example>
@@ -1038,7 +1038,7 @@
     <param pos="0" name="hw.product" value="OpenManage Switch"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+)\s+-\s+ProCurve Switch (\S+) \((.*)\)$">
+  <fingerprint pattern="^(\S{1,512})\s{1,8}-\s{1,8}ProCurve Switch (\S+) \((.*)\)$">
     <description>HPE ProCurve Switch w/Hostname</description>
     <example host.name="SW1" hw.product="4204vl" procurve.model="J8770A">SW1 - ProCurve Switch 4204vl (J8770A)</example>
     <param pos="0" name="hw.vendor" value="HPE"/>
@@ -1681,7 +1681,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:realvnc:realvnc:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^.* \[Jenkins\]$">
+  <fingerprint pattern="^.{0,1024} \[Jenkins\]$">
     <description>Jenkins Customized Dashboard</description>
     <example>Continuous Integrations [Jenkins]</example>
     <example>Dashboard [Jenkins]</example>
@@ -2344,7 +2344,7 @@
     <param pos="0" name="service.product" value="SonarQube"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) - Opengear Management Console$">
+  <fingerprint pattern="^(\S{1,512}) - Opengear Management Console$">
     <description>Opengear Management Console</description>
     <example host.name="server01">server01 - Opengear Management Console</example>
     <param pos="0" name="service.vendor" value="Opengear"/>
@@ -2610,7 +2610,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:zabbix:zabbix:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) \(build (\S+)\) - Info$">
+  <fingerprint pattern="^(\S{1,512}) \(build (\S+)\) - Info$">
     <description>DD-WRT</description>
     <example host.name="SubTerraVia-NUC" os.version="36104" os.build="36104">SubTerraVia-NUC (build 36104) - Info</example>
     <example host.name="DD-WRT" os.version="35030M" os.build="35030M">DD-WRT (build 35030M) - Info</example>

@@ -419,7 +419,7 @@
     <param pos="0" name="service.product" value="SWAT"/>
   </fingerprint>
 
-  <fingerprint pattern="^.*(?:Basic|Digest) realm=&quot;SPIP Configuration&quot;.*$">
+  <fingerprint pattern="^.{0,1024}(?:Basic|Digest) realm=&quot;SPIP Configuration&quot;.*$">
     <description>SPIP publishing system (www.spip.net)</description>
     <example>Basic realm="SPIP Configuration", Digest realm="SPIP Configuration", nonce="116761147", algorithm="MD5"</example>
     <param pos="0" name="service.vendor" value="SPIP"/>
@@ -427,7 +427,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:spip:spip:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^.*(?:Basic|Digest) .*realm=&quot;HP ISEE @ ([^&quot;]+)&quot;.*$">
+  <fingerprint pattern="^.{0,1024}(?:Basic|Digest) .*realm=&quot;HP ISEE @ ([^&quot;]+)&quot;.*$">
     <description>HP Instant Support Enterprise Edition with a hostname</description>
     <example host.name="blah">Basic realm="HP ISEE @ blah"</example>
     <param pos="0" name="service.vendor" value="HP"/>
@@ -435,7 +435,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^.*(?:Basic|Digest) .*realm=&quot;BIG-IP&quot;.*$">
+  <fingerprint pattern="^.{0,1024}(?:Basic|Digest) .*realm=&quot;BIG-IP&quot;.*$">
     <description>Generic F5 Big-IP</description>
     <example>Basic realm="BIG-IP"</example>
     <param pos="0" name="service.vendor" value="F5"/>

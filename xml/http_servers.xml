@@ -840,7 +840,7 @@
   </fingerprint>
 
   <fingerprint pattern="^UOS$">
-    <description>HTTP Server that appears unique to Managment Console on HP TippingPoint IPS Devices</description>
+    <description>HTTP Server that appears unique to Management Console on HP TippingPoint IPS Devices</description>
     <example>UOS</example>
     <param pos="0" name="service.vendor" value="HP"/>
     <param pos="0" name="service.product" value="HTTP"/>
@@ -878,10 +878,10 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:acme:mini_httpd:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^LiteSpeed\/?(:?[\d.]+)?(?: \S+)?">
+  <fingerprint pattern="^LiteSpeed\/?([\d.]+)?(?: \S+)?">
     <description>LiteSpeed</description>
     <example>LiteSpeed</example>
-    <example>LiteSpeed/5.2.8 Enterprise</example>
+    <example service.version="5.2.8">LiteSpeed/5.2.8 Enterprise</example>
     <param pos="0" name="service.vendor" value="LiteSpeed Technologies"/>
     <param pos="0" name="service.product" value="LiteSpeed Web Server"/>
     <param pos="1" name="service.version"/>
@@ -897,7 +897,7 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^openresty\/?(:?[\d.]+)?$">
+  <fingerprint pattern="^openresty\/?([\d.]+)?$">
     <description>OpenResty OpenResty</description>
     <example>openresty</example>
     <example service.version="1.13.6.2">openresty/1.13.6.2</example>
@@ -1000,7 +1000,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:varnish-cache:varnish:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^Tengine\/?(:?[\d.]+)?$">
+  <fingerprint pattern="^Tengine\/?([\d.]+)?$">
     <description>Tengine</description>
     <example>Tengine</example>
     <example service.version="2.0.0">Tengine/2.0.0</example>
@@ -1492,7 +1492,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:nginx:nginx:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^nginx\/?(:?[\d.]+)?">
+  <fingerprint pattern="^nginx\/?([\d.]+)?">
     <description>nginx with version info and/or mods</description>
     <example service.version="0.8.53">nginx/0.8.53 + Phusion Passenger 3.0.0 (mod_rails/mod_rack)</example>
     <example>nginx/0.8.53</example>
@@ -2651,7 +2651,7 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^Embedthis-(?:Appweb|http)\/?(:?[\d.]+)?$">
+  <fingerprint pattern="^Embedthis-(?:Appweb|http)\/?([\d.]+)?$">
     <description>Embedthis AppWeb</description>
     <example service.version="3.2.3">Embedthis-Appweb/3.2.3</example>
     <example>Embedthis-http</example>
@@ -3284,7 +3284,7 @@
     <param pos="0" name="service.product" value="Node"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^(.*) UPnP/[\d\.]+\s+AVM FRITZ!(.*) ([\d\.]+)$">
+  <fingerprint pattern="(?i)^(.{0,256}) UPnP/[\d\.]+\s+AVM FRITZ!(.*) ([\d\.]+)$">
     <description>AVM FRITZ! devices of various types</description>
     <example host.name="some thing" os.product="WLAN Repeater 1750E" os.version="134.07.01">some thing UPnP/1.0 AVM FRITZ!WLAN Repeater 1750E 134.07.01</example>
     <param pos="0" name="os.vendor" value="AVM"/>
@@ -3681,7 +3681,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnpd:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) \d+/Service Pack \d+, UPnP/[\d\.]+, TVersity Media Server$">
+  <fingerprint pattern="^(\S{1,16}) \d+/Service Pack \d+, UPnP/[\d\.]+, TVersity Media Server$">
     <description>TVersity Media Server UPnP Server with Service Pack</description>
     <example>5.2.3790 2/Service Pack 1, UPnP/1.0, TVersity Media Server</example>
     <example>5.1.2600 2/Service Pack 3, UPnP/1.0, TVersity Media Server</example>
@@ -3690,7 +3690,7 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) 2/, UPnP/\S+, TVersity Media Server$">
+  <fingerprint pattern="^(\S{1,16}) 2/, UPnP/\S+, TVersity Media Server$">
     <description>TVersity Media Server UPnP Server</description>
     <example>6.2.8400 2/, UPnP/1.0, TVersity Media Server</example>
     <example>6.2.9200 2/, UPnP/1.0, TVersity Media Server</example>
