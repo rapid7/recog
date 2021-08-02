@@ -443,6 +443,9 @@ more text</example>
   <fingerprint pattern="^Welcom to Serv-U FTP Server$">
     <description>Common FTP banner modification to look like Serv-U -- assert nothing.</description>
     <example>Welcom to Serv-U FTP Server</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="^zFTPServer v?(\S+), .*ready\.$" flags="REG_ICASE">
@@ -1314,6 +1317,9 @@ more text</example>
     <example host.name="host.example.com">host.example.com FTP server (Version 4.1 Sat Sep 7 14:31:53 CDT 2002) ready.</example>
     <example host.name="host.example.com">host.example.com FTP server (Version 5.3 Sat Jan 10 14:01:03 CDT 2012) ready</example>
     <param pos="1" name="host.name"/>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="^Welcome to the (?:Cisco )?(?:TelePresence) ([a-zA-Z\s]*?) ((?:MSE )?\d+), version (\d+.\d+\(\d+.\d+\)).*?" flags="REG_ICASE">
@@ -1648,6 +1654,9 @@ more text</example>
     <description>Generic FTP fingerprint with a hostname</description>
     <example host.name="example.com">example.com FTP server ready.</example>
     <param pos="1" name="host.name"/>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="^(\S{1,512}) FTP server \(Version (\d.*)\) ready\.?$" flags="REG_ICASE">
@@ -1666,6 +1675,9 @@ more text</example>
     <example>FTP-Server</example>
     <example>FTP Server</example>
     <example>FTP service ready.</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="^Welcom to ProRat Ftp Server$">
