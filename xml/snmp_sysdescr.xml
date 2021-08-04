@@ -3665,6 +3665,18 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
   </fingerprint>
 
+  <fingerprint pattern="^Juniper (\S+) Ethernet Switch$">
+    <description>Juniper Ethernet Swtich</description>
+    <example hw.product="EX4200-48PX">Juniper EX4200-48PX Ethernet Switch</example>
+    <example hw.product="EX2200-C-12T-2G">Juniper EX2200-C-12T-2G Ethernet Switch</example>
+    <param pos="0" name="os.vendor" value="Juniper"/>
+    <param pos="0" name="os.device" value="Switch"/>
+    <param pos="0" name="os.product" value="Junos OS"/>
+    <param pos="0" name="hw.vendor" value="{os.vendor}"/>
+    <param pos="0" name="hw.device" value="Switch"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+
   <!--======================================================================
                               LANIER
    =======================================================================-->
