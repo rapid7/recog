@@ -620,6 +620,15 @@
     <param pos="0" name="hw.certainty" value="0.50"/>
   </fingerprint>
 
+  <fingerprint pattern="(?i)^Digest realm=&quot;Login to ND[0-9]{3,20}&quot;, nonce=">
+    <description>Lorex NR900 Series DVR</description>
+    <example>Digest realm="Login to ND011811000000", nonce="ec3682ef24b2cd9cedefe5cc26110000"</example>
+    <param pos="0" name="hw.vendor" value="Lorex"/>
+    <param pos="0" name="hw.device" value="DVR"/>
+    <param pos="0" name="hw.product" value="NR900"/>
+    <param pos="0" name="hw.certainty" value="0.50"/>
+  </fingerprint>
+
   <!-- a variety of headers we currently just ignore -->
 
   <fingerprint pattern="(?i)^NTLM$">
