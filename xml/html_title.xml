@@ -757,6 +757,15 @@
     <param pos="2" name="digi.serial"/>
   </fingerprint>
 
+  <fingerprint pattern="^Digi (\S+) - ([a-fA-F0-9]{12})">
+    <description>Digi TX Cellular Routers</description>
+    <example hw.product="TX54-Dual-Cellular" host.mac="0040FF100000">Digi TX54-Dual-Cellular - 0040FF100000</example>
+    <param pos="0" name="hw.vendor" value="Digi"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="host.mac"/>
+  </fingerprint>
+
  <fingerprint pattern="^Digi Configuration and Management$">
     <description>Digi Cellular Routers (Generic)</description>
     <example>Digi Configuration and Management</example>
@@ -3429,7 +3438,30 @@
     <param pos="0" name="hw.product" value="Quad Plus Receiver"/>
   </fingerprint>
 
+  <fingerprint pattern="^Barix Instreamer Instreamer$">
+    <description>Barix Instreamer</description>
+    <example>Barix Instreamer Instreamer</example>
+    <param pos="0" name="hw.vendor" value="Barix"/>
+    <param pos="0" name="hw.device" value="Audio Encoder"/>
+    <param pos="0" name="hw.product" value="Instreamer"/>
+  </fingerprint>
 
+  <fingerprint pattern="^Tracker Display$">
+    <description>SpotterRF</description>
+    <example>Tracker Display</example>
+    <param pos="0" name="os.vendor" value="SpotterRF"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="hw.vendor" value="SpotterRF"/>
+    <param pos="0" name="hw.device" value="Sensor"/>
+    <param pos="0" name="hw.product" value="Drone Detector"/>
+  </fingerprint>
 
+  <fingerprint pattern="^Polycom (DMA \d+)$">
+    <description>Polycom DMA 7000</description>
+    <example hw.product="DMA 7000">Polycom DMA 7000</example>
+    <param pos="0" name="hw.vendor" value="Polycom"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
 
 </fingerprints>
