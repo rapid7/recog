@@ -744,18 +744,17 @@
     <param pos="0" name="os.product" value="NET+OS"/>
   </fingerprint>
 
-  <fingerprint pattern="^(:?TransPort )?(WR\S+) \(SN: (\d+)\) Configuration and Management$">
+  <fingerprint pattern="^(?:TransPort )?(WR\S+) \(SN: (\d+)\) Configuration and Management$">
     <description>Digi Cellular Routers</description>
     <example hw.product="WR44v2" digi.serial="888111">WR44v2 (SN: 888111) Configuration and Management</example>
     <example hw.product="WR21" digi.serial="888111">WR21 (SN: 888111) Configuration and Management</example>
-    <example hw.product="WR44v2" digi.serial="888111">WR44v2 (SN: 888111) Configuration and Management</example>
     <example hw.product="WR44v2" digi.serial="888111">TransPort WR44v2 (SN: 888111) Configuration and Management</example>
     <example hw.product="WR44RR" digi.serial="888111">TransPort WR44RR (SN: 888111) Configuration and Management</example>
     <example hw.product="WR44" digi.serial="888111">TransPort WR44 (SN: 888111) Configuration and Management</example>
     <param pos="0" name="hw.vendor" value="Digi"/>
     <param pos="0" name="hw.device" value="Router"/>
-    <param pos="2" name="hw.product"/>
-    <param pos="3" name="digi.serial"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="digi.serial"/>
   </fingerprint>
 
  <fingerprint pattern="^Digi Configuration and Management$">
