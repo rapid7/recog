@@ -840,7 +840,7 @@
   </fingerprint>
 
   <fingerprint pattern="^UOS$">
-    <description>HTTP Server that appears unique to Managment Console on HP TippingPoint IPS Devices</description>
+    <description>HTTP Server that appears unique to Management Console on HP TippingPoint IPS Devices</description>
     <example>UOS</example>
     <param pos="0" name="service.vendor" value="HP"/>
     <param pos="0" name="service.product" value="HTTP"/>
@@ -878,10 +878,10 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:acme:mini_httpd:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^LiteSpeed\/?(:?[\d.]+)?(?: \S+)?">
+  <fingerprint pattern="^LiteSpeed\/?([\d.]+)?(?: \S+)?">
     <description>LiteSpeed</description>
     <example>LiteSpeed</example>
-    <example>LiteSpeed/5.2.8 Enterprise</example>
+    <example service.version="5.2.8">LiteSpeed/5.2.8 Enterprise</example>
     <param pos="0" name="service.vendor" value="LiteSpeed Technologies"/>
     <param pos="0" name="service.product" value="LiteSpeed Web Server"/>
     <param pos="1" name="service.version"/>
@@ -897,7 +897,7 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^openresty\/?(:?[\d.]+)?$">
+  <fingerprint pattern="^openresty\/?([\d.]+)?$">
     <description>OpenResty OpenResty</description>
     <example>openresty</example>
     <example service.version="1.13.6.2">openresty/1.13.6.2</example>
@@ -945,7 +945,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:wftpserver:wing_ftp_server:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?i)Linux UPnP/1.0 Sonos/([\d\.\-a-z]+) \((BR\d+)\)$">
+  <fingerprint pattern="(?i)^Linux UPnP/1.0 Sonos/([\d\.\-a-z]+) \((BR\d+)\)$">
     <description>Sonos Bridge/ZoneBridge</description>
     <example hw.model="BR100" hw.version="47.2-59120">Linux UPnP/1.0 Sonos/47.2-59120 (BR100)</example>
     <param pos="0" name="hw.vendor" value="Sonos"/>
@@ -956,7 +956,7 @@
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?i)Linux UPnP/1.0 Sonos/([\d\.\-a-z]+) \(ANVIL\)$">
+  <fingerprint pattern="(?i)^Linux UPnP/1.0 Sonos/([\d\.\-a-z]+) \(ANVIL\)$">
     <description>Sonos Subwoofer Speaker</description>
     <example>Linux UPnP/1.0 Sonos/31.3-22220 (ANVIL)</example>
     <param pos="0" name="hw.vendor" value="Sonos"/>
@@ -1000,7 +1000,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:varnish-cache:varnish:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^Tengine\/?(:?[\d.]+)?$">
+  <fingerprint pattern="^Tengine\/?([\d.]+)?$">
     <description>Tengine</description>
     <example>Tengine</example>
     <example service.version="2.0.0">Tengine/2.0.0</example>
@@ -1423,7 +1423,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:eclipse:jetty:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?i)squid/(\d+\.[\w.\-\+]+)$">
+  <fingerprint pattern="(?i)^squid/(\d+\.[\w.\-\+]+)$">
     <description>Squid Web Proxy with a version</description>
     <example service.version="2.3.STABLE1">Squid/2.3.STABLE1</example>
     <example service.version="4.4">squid/4.4</example>
@@ -1435,7 +1435,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:squid-cache:squid:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?i)squid$">
+  <fingerprint pattern="(?i)^squid$">
     <description>Squid Web Proxy without a version</description>
     <example>Squid</example>
     <example>squid</example>
@@ -1492,7 +1492,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:nginx:nginx:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^nginx\/?(:?[\d.]+)?">
+  <fingerprint pattern="^nginx\/?([\d.]+)?">
     <description>nginx with version info and/or mods</description>
     <example service.version="0.8.53">nginx/0.8.53 + Phusion Passenger 3.0.0 (mod_rails/mod_rack)</example>
     <example>nginx/0.8.53</example>
@@ -1993,11 +1993,11 @@
        this information useful and mappable to CPE
   -->
 
-  <fingerprint pattern="^HP HTTP Server; (?:Hewlett-Packard )?HP ((\S+) \S+)">
+  <fingerprint pattern="^HP HTTP Server; (?:Hewlett-Packard )?HP ((\S+) \S+)[^;]+; Serial Number: ([^;]+);">
     <description>HP Printer</description>
-    <example os.product="Photosmart C309a" os.family="Photosmart">HP HTTP Server; HP Photosmart C309a series - CC335A; Serial Number: abc123; Vader Built:Wed Apr 15, 2009 11:40:58AM {abc123, ASIC id 0x00280004}</example>
-    <example os.product="Officejet 6500" os.family="Officejet">HP HTTP Server; HP Officejet 6500 E709n - CB057A; Serial Number: abc123; Rainbow Built:Sat Dec 13, 2008 10:58:21AM {abc123, ASIC id 0x00ffc2105}</example>
-    <example os.product="Designjet T520" os.family="Designjet">HP HTTP Server; Hewlett-Packard HP Designjet T520 36in - ABC123; Serial Number: 0123456789; Built:Tue Sep 09, 2014 08:32:54AM {012345678901}</example>
+    <example os.product="Photosmart C309a" os.family="Photosmart" hw.serial_number="abc123">HP HTTP Server; HP Photosmart C309a series - CC335A; Serial Number: abc123; Vader Built:Wed Apr 15, 2009 11:40:58AM {abc123, ASIC id 0x00280004}</example>
+    <example os.product="Officejet 6500" os.family="Officejet" hw.serial_number="abc123">HP HTTP Server; HP Officejet 6500 E709n - CB057A; Serial Number: abc123; Rainbow Built:Sat Dec 13, 2008 10:58:21AM {abc123, ASIC id 0x00ffc2105}</example>
+    <example os.product="Designjet T520" os.family="Designjet" hw.serial_number="0123456789">HP HTTP Server; Hewlett-Packard HP Designjet T520 36in - ABC123; Serial Number: 0123456789; Built:Tue Sep 09, 2014 08:32:54AM {012345678901}</example>
     <param pos="0" name="service.vendor" value="HP"/>
     <param pos="0" name="service.product" value="JetDirect"/>
     <param pos="0" name="service.family" value="JetDirect"/>
@@ -2009,6 +2009,7 @@
     <param pos="0" name="hw.family" value="JetDirect"/>
     <param pos="0" name="hw.product" value="JetDirect"/>
     <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="3" name="hw.serial_number"/>
   </fingerprint>
 
   <fingerprint pattern="^HTTP/1\.0$">
@@ -2650,7 +2651,7 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^Embedthis-(?:Appweb|http)\/?(:?[\d.]+)?$">
+  <fingerprint pattern="^Embedthis-(?:Appweb|http)\/?([\d.]+)?$">
     <description>Embedthis AppWeb</description>
     <example service.version="3.2.3">Embedthis-Appweb/3.2.3</example>
     <example>Embedthis-http</example>
@@ -2964,29 +2965,28 @@
     <param pos="0" name="service.product" value="2wire"/>
   </fingerprint>
 
-  <!-- junit says,
-     "Example pattern '' from http_servers.xml didn't match pattern '^$'"
-     Figure out if we have a way to support matching empty strings later.
-   <fingerprint pattern="^?">
-      <example></example>
-      <description>A blank banner; assert nothing.</description>
-   </fingerprint>
-
-   -->
-
   <fingerprint pattern="^(?:(?:\d{1,3}\.){3}\d{1,3}):\d{1,4}$">
     <description>A banner consisting of an IPv4 address and port -- assert nothing.</description>
     <example>192.168.0.4:9999</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="^Web-Server/(?:\d+\.+\d+)$">
     <description>Obfuscated web server -- assert nothing.</description>
     <example>Web-Server/3.0</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="^httpd$">
     <description>httpd - generic -- assert nothing.</description>
     <example>httpd</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <!-- Service provider equipment (CDNs, etc) -->
@@ -3283,7 +3283,7 @@
     <param pos="0" name="service.product" value="Node"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^(.*) UPnP/[\d\.]+\s+AVM FRITZ!(.*) ([\d\.]+)$">
+  <fingerprint pattern="(?i)^(.{0,256}) UPnP/[\d\.]+\s+AVM FRITZ!(.*) ([\d\.]+)$">
     <description>AVM FRITZ! devices of various types</description>
     <example host.name="some thing" os.product="WLAN Repeater 1750E" os.version="134.07.01">some thing UPnP/1.0 AVM FRITZ!WLAN Repeater 1750E 134.07.01</example>
     <param pos="0" name="os.vendor" value="AVM"/>
@@ -3693,7 +3693,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnpd:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) \d+/Service Pack \d+, UPnP/[\d\.]+, TVersity Media Server$">
+  <fingerprint pattern="^(\S{1,16}) \d+/Service Pack \d+, UPnP/[\d\.]+, TVersity Media Server$">
     <description>TVersity Media Server UPnP Server with Service Pack</description>
     <example>5.2.3790 2/Service Pack 1, UPnP/1.0, TVersity Media Server</example>
     <example>5.1.2600 2/Service Pack 3, UPnP/1.0, TVersity Media Server</example>
@@ -3702,7 +3702,7 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) 2/, UPnP/\S+, TVersity Media Server$">
+  <fingerprint pattern="^(\S{1,16}) 2/, UPnP/\S+, TVersity Media Server$">
     <description>TVersity Media Server UPnP Server</description>
     <example>6.2.8400 2/, UPnP/1.0, TVersity Media Server</example>
     <example>6.2.9200 2/, UPnP/1.0, TVersity Media Server</example>

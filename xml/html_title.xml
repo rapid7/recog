@@ -1,41 +1,62 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<fingerprints matches="html_title" database_type="service" preference="0.90">
+<fingerprints matches="html_title" protocol="http" database_type="service" preference="0.90">
   <!-- HTML Title elements found in HTTP response bodies are matched against these patterns to fingerprint HTTP servers. -->
 
   <fingerprint pattern="^301 Moved Permanently$">
     <description>301 Moved Permanently - generic -- assert nothing.</description>
     <example>301 Moved Permanently</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="^302 Found$">
     <description>302 Found - generic -- assert nothing.</description>
     <example>302 Found</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="^400 Bad Request$">
     <description>400 Bad Request - generic -- assert nothing.</description>
     <example>400 Bad Request</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="^401 Unauthorized$">
     <description>401 Unauthorized - generic -- assert nothing.</description>
     <example>401 Unauthorized</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="^403 Forbidden$">
     <description>403 Forbidden - generic -- assert nothing.</description>
     <example>403 Forbidden</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="^(?:404 )?Not Found$">
     <description>404 Not Found - generic -- assert nothing.</description>
     <example>404 Not Found</example>
     <example>Not Found</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="^Invalid URL$">
     <description>Invalid URL - generic -- assert nothing.</description>
     <example>Invalid URL</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="^ERROR: The request could not be satisfied$">
@@ -353,7 +374,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?i)Default (?:Parallels )?Plesk (?:Panel )?Page$">
+  <fingerprint pattern="(?i)^Default (?:Parallels )?Plesk (?:Panel )?Page$">
     <description>Plesk web hosting platform with no version</description>
     <example>Default Parallels Plesk Panel Page</example>
     <example>Default Parallels Plesk Page</example>
@@ -378,7 +399,7 @@
     <param pos="0" name="hw.device" value="DVR"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?i)(?:Dell )?Sonicwall - Authentication$">
+  <fingerprint pattern="(?i)^(?:Dell )?Sonicwall - Authentication$">
     <description>Sonicwall firewalls</description>
     <example>SonicWall - Authentication</example>
     <param pos="0" name="os.vendor" value="SonicWall"/>
@@ -412,17 +433,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:watchguard:fireware:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:.)*;SynologyRouter$">
-    <description>Synology Router</description>
-    <example>Synology\u0026nbsp;Router\u0026nbsp;-\u0026nbsp;SynologyRouter</example>
-    <param pos="0" name="hw.vendor" value="Synology"/>
-    <param pos="0" name="hw.device" value="Router"/>
-    <param pos="0" name="os.device" value="Router"/>
-    <param pos="0" name="os.family" value="Linux"/>
-    <param pos="0" name="os.vendor" value="Synology"/>
-  </fingerprint>
-
-  <fingerprint pattern="^(.*).nbsp;-.nbsp;Synology.nbsp;DiskStation$">
+  <fingerprint pattern="^(.{0,512}).nbsp;-.nbsp;Synology.nbsp;DiskStation$">
     <description>Synology DiskStation</description>
     <example host.name="DiskStation">DiskStation&amp;nbsp;-&amp;nbsp;Synology&amp;nbsp;DiskStation</example>
     <example host.name="DS218">DS218&amp;nbsp;-&amp;nbsp;Synology&amp;nbsp;DiskStation</example>
@@ -720,7 +731,7 @@
     <param pos="0" name="hw.product" value="Prosafe Plus"/>
   </fingerprint>
 
-  <fingerprint pattern="^(.*).nbsp;Configuration and Management$">
+  <fingerprint pattern="^(.{0,256}).nbsp;Configuration and Management$">
     <description>Digi Terminal Servers</description>
     <example hw.product="Digi One SP">Digi One SP&amp;nbsp;Configuration and Management</example>
     <example hw.product="PortServer TS 4">PortServer TS 4&amp;nbsp;Configuration and Management</example>
@@ -863,7 +874,7 @@
     <param pos="0" name="hw.product" value="Rack PDU Card"/>
   </fingerprint>
 
-  <fingerprint pattern="^(.*) IntelliSlot Web(?:/\d+)? Card?$">
+  <fingerprint pattern="^(.{0,256}) IntelliSlot Web(?:/\d+)? Card?$">
     <description>Emerson Network Power IntelliSlot Web Card and rebrands</description>
     <example hw.vendor="Emerson Network Power">Emerson Network Power IntelliSlot Web Card</example>
     <example hw.vendor="Emerson Network Power">Emerson Network Power IntelliSlot Web/485 Card</example>
@@ -1081,7 +1092,7 @@
     <param pos="0" name="hw.product" value="OpenManage Switch"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+)\s+-\s+ProCurve Switch (\S+) \((.*)\)$">
+  <fingerprint pattern="^(\S{1,512})\s{1,8}-\s{1,8}ProCurve Switch (\S+) \((.*)\)$">
     <description>HPE ProCurve Switch w/Hostname</description>
     <example host.name="SW1" hw.product="4204vl" procurve.model="J8770A">SW1 - ProCurve Switch 4204vl (J8770A)</example>
     <param pos="0" name="hw.vendor" value="HPE"/>
@@ -1177,20 +1188,22 @@
 
   <fingerprint pattern="^Agilent 33220A \((.*)\)$">
     <description>Agilent 33220A</description>
-    <example agilent.serial="MY44041111">Agilent 33220A (MY44041111)</example>
+    <example agilent.serial="MY44041111" hw.serial_number="MY44041111">Agilent 33220A (MY44041111)</example>
     <param pos="0" name="hw.vendor" value="Agilent"/>
     <param pos="0" name="hw.device" value="Test Instrument"/>
     <param pos="0" name="hw.product" value="33220A Waveform Generator"/>
     <param pos="1" name="agilent.serial"/>
+    <param pos="1" name="hw.serial_number"/>
   </fingerprint>
 
   <fingerprint pattern="^Agilent N5172B (?:EXG )?(MY\S+)$">
     <description>Agilent N5172B</description>
-    <example agilent.serial="MY44041111">Agilent N5172B EXG MY44041111</example>
+    <example agilent.serial="MY44041111" hw.serial_number="MY44041111">Agilent N5172B EXG MY44041111</example>
     <param pos="0" name="hw.vendor" value="Agilent"/>
     <param pos="0" name="hw.device" value="Test Instrument"/>
     <param pos="0" name="hw.product" value="N5172B Signal Generator"/>
     <param pos="1" name="agilent.serial"/>
+    <param pos="1" name="hw.serial_number"/>
   </fingerprint>
 
   <fingerprint pattern="^Polycom - Configuration Utility$">
@@ -1458,6 +1471,7 @@
     <param pos="0" name="hw.vendor" value="KACE"/>
     <param pos="0" name="hw.device" value="Support Appliance"/>
     <param pos="0" name="hw.product" value="K1000"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:dell:kace_k1000_systems_management_appliance:-"/>
     <param pos="0" name="os.vendor" value="KACE"/>
     <param pos="0" name="os.family" value="FreeBSD"/>
   </fingerprint>
@@ -1769,7 +1783,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:realvnc:realvnc:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^.* \[Jenkins\]$">
+  <fingerprint pattern="^.{0,1024} \[Jenkins\]$">
     <description>Jenkins Customized Dashboard</description>
     <example>Continuous Integrations [Jenkins]</example>
     <example>Dashboard [Jenkins]</example>
@@ -2432,7 +2446,7 @@
     <param pos="0" name="service.product" value="SonarQube"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) - Opengear Management Console$">
+  <fingerprint pattern="^(\S{1,512}) - Opengear Management Console$">
     <description>Opengear Management Console</description>
     <example host.name="server01">server01 - Opengear Management Console</example>
     <param pos="0" name="service.vendor" value="Opengear"/>
@@ -2698,7 +2712,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:zabbix:zabbix:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) \(build (\S+)\) - Info$">
+  <fingerprint pattern="^(\S{1,512}) \(build (\S+)\) - Info$">
     <description>DD-WRT</description>
     <example host.name="SubTerraVia-NUC" os.version="36104" os.build="36104">SubTerraVia-NUC (build 36104) - Info</example>
     <example host.name="DD-WRT" os.version="35030M" os.build="35030M">DD-WRT (build 35030M) - Info</example>

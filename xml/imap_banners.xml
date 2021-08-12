@@ -166,7 +166,7 @@
     <param pos="0" name="service.product" value="Courier IMAP"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) CallPilot IMAP4rev1 v(\S+) server ready\.?$">
+  <fingerprint pattern="^(\S{1,512}) CallPilot IMAP4rev1 v(\S+) server ready\.?$">
     <description>Nortel CallPilot</description>
     <example>nottest.localdomain CallPilot IMAP4rev1 v42.02.05.22 server ready.</example>
     <example>test.localdomain CallPilot IMAP4rev1 v43.03.19.22 server ready.</example>
@@ -177,7 +177,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) Zimbra IMAP4rev1 server ready\.?$">
+  <fingerprint pattern="^(\S{1,512}) Zimbra IMAP4rev1 server ready\.?$">
     <description>VMware Zimbra IMAP</description>
     <example host.name="foo.bar">foo.bar Zimbra IMAP4rev1 server ready</example>
     <param pos="0" name="service.vendor" value="VMware"/>
@@ -186,7 +186,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S+) Zimbra (\S+) IMAP4rev1 server ready\.?$">
+  <fingerprint pattern="^(\S{1,512}) Zimbra (\S+) IMAP4rev1 server ready\.?$">
     <description>VMware Zimbra IMAP with service version</description>
     <example host.name="foo.bar" service.version="7.0.0_GA_3079">foo.bar Zimbra 7.0.0_GA_3079 IMAP4rev1 server ready</example>
     <param pos="0" name="service.vendor" value="VMware"/>
@@ -196,7 +196,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^(.+) Cyrus IMAP4 v(\d+\.\d+.*)-OS X(?: Server)? ([\d\.]+).* server ready$">
+  <fingerprint pattern="^(\S{1,512}) Cyrus IMAP4 v(\d+\.\d+.*)-OS X(?: Server)? ([\d\.]+).* server ready$">
     <description>CMU Cyrus IMAP on Mac OS X</description>
     <example host.name="example.com" service.version="2.2.12" os.version="10.4.0">example.com Cyrus IMAP4 v2.2.12-OS X 10.4.0 server ready</example>
     <example host.name="example.com" service.version="2.3.8" os.version="10.5">example.com Cyrus IMAP4 v2.3.8-OS X Server 10.5: 9A562 server ready</example>
@@ -213,7 +213,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^(.+) Cyrus IMAP4? (?:\S+ )?v(\d+\.\d+.*) server ready$">
+  <fingerprint pattern="^(\S{1,512}) Cyrus IMAP4? (?:\S+ )?v(\d+\.\d+.*) server ready$">
     <description>CMU Cyrus IMAP</description>
     <example host.name="example.com" service.version="2.3.7">example.com Cyrus IMAP4 v2.3.7 server ready</example>
     <example host.name="example.com" service.version="2.4.8-Invoca-RPM-2.4.8-1">example.com Cyrus IMAP Murder v2.4.8-Invoca-RPM-2.4.8-1 server ready</example>

@@ -1786,7 +1786,7 @@
     <param pos="1" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^([\d.]+)[ _]sshlib:? (?i:GlobalScape)$">
+  <fingerprint pattern="^([\d.]{1,8})[ _]sshlib:? (?i:GlobalScape)$">
     <description>GlobalScape SSH (which uses Bitvise sshlib)</description>
     <example service.component.version="1.36">1.36_sshlib GlobalSCAPE</example>
     <example service.component.version="1.82">1.82_sshlib Globalscape</example>
@@ -1804,7 +1804,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^\s]+) sshlib: WinSSHD (.*)$">
+  <fingerprint pattern="^([\d.]{1,8}) sshlib: WinSSHD ([\w.-]*)$">
     <description>Bitvise WinSSHD (which uses Bitvise sshlib)</description>
     <example service.component.version="1.78" service.version="4.15a">1.78 sshlib: WinSSHD 4.15a</example>
     <param pos="1" name="service.component.version"/>
@@ -1821,7 +1821,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^\s]+) FlowSsh: (?:Bitvise SSH Server \(WinSSHD\)|WinSSHD) ([\d\.]+):?">
+  <fingerprint pattern="^([\d.]{1,8}) FlowSsh: (?:Bitvise SSH Server \(WinSSHD\)|WinSSHD) ([\d\.]+):?.*$">
     <description>Bitvise WinSSHD (which uses Bitvise flowssh) with version</description>
     <example service.version="5.09" service.component.version="1.03">1.03 FlowSsh: WinSSHD 5.09</example>
     <example service.version="5.20" service.component.version="1.07">1.07 FlowSsh: WinSSHD 5.20: free only for personal non-commercial use</example>
@@ -1840,7 +1840,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^\s]+) FlowSsh: (?:Bitvise SSH Server \(WinSSHD\)|WinSSHD)(?: :.*)?$">
+  <fingerprint pattern="^([\d.]{1,8}) FlowSsh: (?:Bitvise SSH Server \(WinSSHD\)|WinSSHD)(?: :.*)?$">
     <description>Bitvise WinSSHD (which uses Bitvise flowssh) without version</description>
     <example service.component.version="9.99">9.99 FlowSsh: Bitvise SSH Server (WinSSHD)</example>
     <example service.component.version="9.99">9.99 FlowSsh: Bitvise SSH Server (WinSSHD) : free only for personal non-commercial use</example>
@@ -1857,7 +1857,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^\s]+) sshlib: MOVEit DMZ SSH (.*)$">
+  <fingerprint pattern="^([\d.]{1,8}) sshlib: MOVEit DMZ SSH (.*)$">
     <description>MOVEit DMZ (which uses Bitvise sshlib)</description>
     <param pos="1" name="service.component.version"/>
     <param pos="2" name="service.version"/>
@@ -1940,8 +1940,9 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:vandyke:vshell:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^([\s]*)\s*VShell$">
+  <fingerprint pattern="^([\d.]{0,8})\s{1,8}VShell$">
     <description>VanDyke VShell</description>
+    <example service.version="1.0.2">1.0.2 VShell</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="VanDyke Software"/>
     <param pos="0" name="service.family" value="VShell"/>
@@ -1960,7 +1961,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:attachmate:reflection_for_secure_it:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^\s]*)\s*F-Secure SSH\s*(?:.*)$">
+  <fingerprint pattern="^(\S{0,256})\s{0,256}F-Secure SSH ">
     <description>Attachmate Reflection (formerly F-Secure SSH)</description>
     <example service.version="3.2.3">3.2.3 F-Secure SSH Windows NT Server</example>
     <param pos="1" name="service.version"/>
@@ -1969,7 +1970,7 @@
     <param pos="0" name="service.product" value="Reflection"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^\s]*)\s*SSH Tectia Server$">
+  <fingerprint pattern="^(\S{0,256})\s{0,256}SSH Tectia Server$">
     <description>SSH Communications Security Tectia Server - branded</description>
     <example service.version="6.4.12.353">6.4.12.353 SSH Tectia Server</example>
     <param pos="1" name="service.version"/>
@@ -1979,7 +1980,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:ssh:tectia_server:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^([0-9\.]+) SSH Secure Shell(?: \(non-commercial\))?$">
+  <fingerprint pattern="^([0-9\.]{1,8}) SSH Secure Shell(?: \(non-commercial\))?$">
     <description>SSH Communications Security Tectia Server</description>
     <example service.version="3.2.9.1">3.2.9.1 SSH Secure Shell (non-commercial)</example>
     <example service.version="4.0.3">4.0.3 SSH Secure Shell</example>
@@ -1991,7 +1992,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:ssh:tectia_server:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^([0-9\.]+) SSH Secure Shell Windows NT Server$">
+  <fingerprint pattern="^([0-9\.]{1,8}) SSH Secure Shell Windows NT Server$">
     <description>Unknown Windows SSH server</description>
     <example service.version="4.0.3">4.0.3 SSH Secure Shell Windows NT Server</example>
     <param pos="0" name="os.vendor" value="Microsoft"/>
@@ -2159,7 +2160,7 @@
     <param pos="0" name="os.certainty" value="0.75"/>
   </fingerprint>
 
-  <fingerprint pattern="^\S+ SSH Secure Shell Tru64 UNIX$">
+  <fingerprint pattern="^\S{1,16} SSH Secure Shell Tru64 UNIX$">
     <description>Digital/Compaq/HP Tru64 Unix</description>
     <example>3.2.0 SSH Secure Shell Tru64 UNIX</example>
     <param pos="0" name="os.vendor" value="HP"/>
