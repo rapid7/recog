@@ -629,6 +629,24 @@
     <param pos="0" name="hw.certainty" value="0.50"/>
   </fingerprint>
 
+  <fingerprint pattern="(?i)^Basic realm=&quot;the Access Point&quot;">
+    <description>Psion Teklogix</description>
+    <example>Basic realm="the Access Point"</example>
+    <param pos="0" name="hw.vendor" value="Psion Teklogix"/>
+    <param pos="0" name="hw.device" value="Network Appliance"/>
+    <param pos="0" name="hw.product" value="CommServer"/>
+  </fingerprint>
+
+ <fingerprint pattern="(?i)^Digest realm=&quot;Use 'live' as User Name">
+    <description>Bosch AutoDome IP Camera</description>
+    <example>Digest realm="Use 'live' as User Name",nonce="18e62d241a5358a9650640fa72c1773c",opaque="",stale=FALSE,algorithm=MD5</example>
+    <example>Digest realm="Use 'live' as User Name in order to log in to the respective level",nonce="2e6007092c2b28af7e2516b80b5b4f95",opaque="",stale=FALSE,algorithm=MD5,qop="auth"</example>
+    <param pos="0" name="hw.vendor" value="Bosch"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.product" value="AutoDome"/>
+    <param pos="0" name="hw.certainty" value="0.50"/>
+  </fingerprint>
+
   <!-- a variety of headers we currently just ignore -->
 
   <fingerprint pattern="(?i)^NTLM$">

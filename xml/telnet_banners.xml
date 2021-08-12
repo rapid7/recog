@@ -2110,4 +2110,86 @@
     <param pos="0" name="hw.device" value="IP Camera"/>
   </fingerprint>
 
+  <fingerprint pattern="Novus Telnet Interface \(v(\S+)\)">
+    <description>Alpha Technologies Novus UPS</description>
+    <example hw.version="2.00.01">Novus Telnet Interface (v2.00.01)</example>
+    <param pos="0" name="hw.vendor" value="Alpha Technologies"/>
+    <param pos="0" name="hw.device" value="Power Device"/>
+    <param pos="0" name="hw.product" value="Novus UPS"/>
+    <param pos="1" name="hw.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="New Telnet Console Client Attached">
+    <description>Psion Teklogix</description>
+    <example>New Telnet Console Client Attached.</example>
+    <param pos="0" name="hw.vendor" value="Psion Teklogix"/>
+    <param pos="0" name="hw.device" value="Network Appliance"/>
+    <param pos="0" name="hw.product" value="CommServer"/>
+  </fingerprint>
+
+  <fingerprint pattern="UPS SYSTEMS SNMP/Web agent Configuration menu">
+    <description>APC UPS Network Card</description>
+    <example>UPS SYSTEMS SNMP/Web agent Configuration menu</example>
+    <param pos="0" name="hw.vendor" value="APC"/>
+    <param pos="0" name="hw.device" value="Power Device"/>
+    <param pos="0" name="hw.product" value="UPS"/>
+    <param pos="0" name="hw.certainty" value="0.5"/>
+  </fingerprint>
+
+ <fingerprint pattern="(?i)Welcome to (\S+Dome [^\)]+) \d+\.\d+.\d+\.\d+ from">
+    <description>Bosch Dome IP Cameras</description>
+    <example hw.product="AutoDome 800 HD">Welcome to AutoDome 800 HD 1.2.3.4 from 5.6.7.8</example>
+    <example hw.product="FLEXIDOME NDC-455-P">Welcome to FLEXIDOME NDC-455-P 1.2.3.4 from 5.6.7.8</example>
+    <param pos="0" name="hw.vendor" value="Bosch"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+
+ <fingerprint pattern="(?:RDL-\d+ Ellipse\s+|Connect-OWS?) .{0,1000} Copyright .{0,1000} Redline Communications Inc">
+    <description>Redline Communication Radios</description>
+    <example>RDL-3000 Ellipse     (c) Copyright 2010-2016  Redline Communications Inc.</example>
+    <example>Connect-OW     (c) Copyright 2010-2016  Redline Communications Inc.</example>
+    <example>Connect-OWS     (c) Copyright 2010-2016  Redline Communications Inc.</example>
+    <param pos="0" name="hw.vendor" value="Redline"/>
+    <param pos="0" name="hw.device" value="WAP"/>
+    <param pos="0" name="hw.product" value="Wireless Radio"/>
+    <param pos="0" name="hw.certainty" value="0.5"/>
+  </fingerprint>
+
+  <fingerprint pattern="Vaddio VNG (\S+) vaddio-doccam-([a-fA-F0-9-]{17})">
+    <description>Vadio VNG DocCom</description>
+    <example hw.version="1.6+snapshot-20170720" host.mac="54-10-EC-31-2A-19">Vaddio VNG 1.6+snapshot-20170720 vaddio-doccam-54-10-EC-31-2A-19</example>
+    <param pos="0" name="hw.vendor" value="Vaddio"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.product" value="DocCam"/>
+    <param pos="1" name="hw.version"/>
+    <param pos="2" name="host.mac"/>
+  </fingerprint>
+
+  <fingerprint pattern="\((FL WLAN \S+)\)">
+    <description>Phoenix Contact Wireless Module</description>
+    <example hw.product="FL WLAN 510X" >(FL WLAN 510X)</example>
+    <param pos="0" name="hw.vendor" value="Phoenix Contact"/>
+    <param pos="0" name="hw.device" value="WAP"/>
+    <param pos="1" name="hw.product" />
+  </fingerprint>
+
+  <fingerprint pattern="Welcome to i.CanDoIt ([\S+ ]+) v(\S+)">
+    <description>Control Solutions i.CanDoIt PLC</description>
+    <example hw.product="BAS-700 ReMOTE I/O" hw.version="2.47x">Welcome to i.CanDoIt BAS-700 ReMOTE I/O v2.47x</example>
+    <param pos="0" name="hw.vendor" value="Control Solutions"/>
+    <param pos="0" name="hw.device" value="PLC"/>
+    <param pos="1" name="hw.product" />
+    <param pos="2" name="hw.version" />
+    <param pos="0" name="hw.certainty" value="0.75"/>
+  </fingerprint>
+
+  <fingerprint pattern="Welcome to the MRV Communications' LX Series Server">
+    <description>Lantronix terminal server - model only variant</description>
+    <example>Welcome to the MRV Communications' LX Series Server</example>
+    <param pos="0" name="hw.vendor" value="MRV Communications"/>
+    <param pos="0" name="hw.device" value="Device Server"/>
+    <param pos="0" name="hw.product" "LX Series"/>
+  </fingerprint>
+
 </fingerprints>
