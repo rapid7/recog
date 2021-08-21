@@ -7056,6 +7056,24 @@ Copyright (c) 1995-2005 by Cisco Systems
   </fingerprint>
 
   <!--======================================================================
+                              TRUENAS / FREENAS
+   =======================================================================-->
+
+  <fingerprint pattern="^(TrueNAS|FreeNAS)-(\S+) \((?:\S+)\)\. Hardware: (\S+) ">
+    <description>TrueNAS/FreeNAS Device</description>
+    <example os.product="FreeNAS" os.version="11.3-U3.2">FreeNAS-11.3-U3.2 (1e9dd3b3e2). Hardware: amd64 Intel(R) Xeon(R) CPU E3-1230 v6 @ 3.50GHz running at 3504. Software: FreeBSD 11.3-RELEASE-p9 (revision 199506)</example>
+    <example os.product="TrueNAS" os.version="12.0-U4.1">TrueNAS-12.0-U4.1 (fb0389beb0). Hardware: amd64 Intel(R) Xeon(R) CPU E5-1620 v3 @ 3.50GHz running at 3491 MHz. Software: FreeBSD 12.2-RELEASE-p6 (revision 199506)</example>
+    <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.vendor" value="iXsystems"/>
+    <param pos="0" name="os.device" value="NAS"/>
+    <param pos="0" name="hw.device" value="NAS"/>
+    <param pos="1" name="os.product"/>
+    <param pos="2" name="os.version"/>
+    <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:ixsystems:{os.product}:{os.version}"/>
+  </fingerprint>
+
+  <!--======================================================================
                               UBIQUITI
    =======================================================================-->
 
