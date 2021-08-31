@@ -61,6 +61,7 @@ hw_device = load_identifiers(File.join(bdir, "hw_device.txt"))
 svc_prod = load_identifiers(File.join(bdir, "service_product.txt"))
 svc_family = load_identifiers(File.join(bdir, "service_family.txt"))
 
+missing_count = 0
 
 ARGV.each do |arg|
   Dir.glob(arg).each do |file|
@@ -70,6 +71,7 @@ ARGV.each do |arg|
         paramIndex, val = v
         if ! fields[k]
           puts "FIELD MISSING: #{k}"
+          missing_count += 1
           fields[k] = true
         end
         next if paramIndex != 0
@@ -79,51 +81,61 @@ ARGV.each do |arg|
         when "os.vendor", "service.vendor", "service.component.vendor", "hw.vendor"
           if ! vendors[val]
             puts "VENDOR MISSING: #{val}"
+            missing_count += 1
             vendors[val] = true
           end
         when "os.arch"
           if ! os_arch[val]
             puts "OS ARCH MISSING: #{val}"
+            missing_count += 1
             os_arch[val] = true
           end          
         when "os.product"
           if ! os_prod[val]
             puts "OS PRODUCT MISSING: #{val}"
+            missing_count += 1
             os_prod[val] = true
           end
         when "os.family"
           if ! os_family[val]
             puts "OS FAMILY MISSING: #{val}"
+            missing_count += 1
             os_family[val] = true
           end
         when "os.device"
           if ! os_device[val]
             puts "OS DEVICE MISSING: #{val}"
+            missing_count += 1
             os_device[val] = true
           end
         when "hw.product"
           if ! hw_prod[val]
             puts "HW PRODUCT MISSING: #{val}"
+            missing_count += 1
             hw_prod[val] = true
           end
         when "hw.family"
           if ! hw_family[val]
             puts "HW FAMILY MISSING: #{val}"
+            missing_count += 1
             hw_family[val] = true
           end
         when "hw.device"
           if ! hw_device[val]
             puts "HW DEVICE MISSING: #{val}"
+            missing_count += 1
             hw_device[val] = true
           end          
         when "service.product", "service.component.product"
           if ! svc_prod[val]
             puts "SERVICE PRODUCT MISSING: #{val}"
+            missing_count += 1
             svc_prod[val] = true
           end            
         when "service.family"
           if ! svc_family[val]
             puts "SERVICE FAMILY MISSING: #{val}"
+            missing_count += 1
             svc_family[val] = true
           end          
         end
@@ -132,17 +144,20 @@ ARGV.each do |arg|
   end
 end
 
-exit if ! options.write
+if options.write
+  # Write back the unique identifiers
+  write_identifiers(vendors, File.join(bdir, "vendor.txt"))
+  write_identifiers(fields, File.join(bdir, "fields.txt"))
+  write_identifiers(os_arch, File.join(bdir, "os_architecture.txt"))
+  write_identifiers(os_prod, File.join(bdir, "os_product.txt"))
+  write_identifiers(os_family, File.join(bdir, "os_family.txt"))
+  write_identifiers(os_device, File.join(bdir, "os_device.txt"))
+  write_identifiers(hw_prod, File.join(bdir, "hw_product.txt"))
+  write_identifiers(hw_family, File.join(bdir, "hw_family.txt"))
+  write_identifiers(hw_device, File.join(bdir, "hw_device.txt"))
+  write_identifiers(svc_prod, File.join(bdir, "service_product.txt"))
+  write_identifiers(svc_family, File.join(bdir, "service_family.txt"))
+end
 
-# Write back the unique identifiers
-write_identifiers(vendors, File.join(bdir, "vendor.txt"))
-write_identifiers(fields, File.join(bdir, "fields.txt"))
-write_identifiers(os_arch, File.join(bdir, "os_architecture.txt"))
-write_identifiers(os_prod, File.join(bdir, "os_product.txt"))
-write_identifiers(os_family, File.join(bdir, "os_family.txt"))
-write_identifiers(os_device, File.join(bdir, "os_device.txt"))
-write_identifiers(hw_prod, File.join(bdir, "hw_product.txt"))
-write_identifiers(hw_family, File.join(bdir, "hw_family.txt"))
-write_identifiers(hw_device, File.join(bdir, "hw_device.txt"))
-write_identifiers(svc_prod, File.join(bdir, "service_product.txt"))
-write_identifiers(svc_family, File.join(bdir, "service_family.txt"))
+exit_code = (missing_count > 0 ? 1 : 0)
+exit(exit_code)
