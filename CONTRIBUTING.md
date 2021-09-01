@@ -74,6 +74,12 @@ Generally, this should only need to be done once, or if you need to start over.
     git fetch --all
     ```
 
+1. Set up git hooks to help identify potential issues with your contributions:
+
+    ```bash
+    ln -sf ../../tools/dev/hooks/pre-commit .git/hooks/pre-commit
+    ```
+
 [^back to top](#contributing-to-recog)
 
 ### Branch and Improve
