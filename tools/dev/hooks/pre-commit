@@ -1,0 +1,21 @@
+#!/bin/sh
+#
+# Hook script to verify changes about to be committed.
+# The hook should exit with non-zero status after issuing an appropriate
+# message if it wants to stop the commit.
+
+# Verify that each fingerprint asserts known identifiers.
+git diff --cached --name-only --diff-filter=ACM -z xml/*.xml | xargs -0 ./bin/recog_standardize --write
+
+# get status
+status=$?
+
+if [ $status -ne 0 ]; then
+    echo "Please review any new additions to the text files under 'identifiers/'."
+    echo "If any of these names are close to an existing name, update the offending"
+    echo "fingerprint to use the existing name instead. Once the fingerprints are fixed,"
+    echo "remove the 'extra' names from the identifiers files, and run the tool again."
+    exit 1
+fi
+
+exit 0
