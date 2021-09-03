@@ -4,7 +4,11 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'xml/**.xml'
   pull_request:
+    paths:
+      - 'xml/**.xml'
 
 jobs:
   standardize:
