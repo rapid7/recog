@@ -1,0 +1,22 @@
+name: Verify
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  standardize:
+    name: 'Standardize'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Run recog_standardize
+        run: bundle exec bin/recog_standardize xml/*.xml
