@@ -223,7 +223,7 @@ class Fingerprint
     capture_group_used.each do |param_name, param_used|
       if !param_used
         message = "'#{@name}' is missing an example that checks for parameter '#{param_name}' " +
-                  "messsage which is derived from a capture group"
+                  "which is derived from a capture group"
         yield :warn, message
       end
     end

@@ -21,7 +21,7 @@ Feature: Verify
     Then it should fail with:
       """
       WARN: 'Pure-FTPd' has no test cases
-      WARN: 'Pure-FTPd' is missing an example that checks for parameter 'pureftpd.config' messsage which is derived from a capture group
+      WARN: 'Pure-FTPd' is missing an example that checks for parameter 'pureftpd.config' which is derived from a capture group
       SUMMARY: Test completed with 1 successful, 2 warnings, and 0 failures
       """
     And the exit status should be 2
