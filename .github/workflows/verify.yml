@@ -64,7 +64,7 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       - name: Build with Maven
-        run: mvn --batch-mode --no-transfer-progress install
+        run: mvn --batch-mode --no-transfer-progress install -Dmaven.antrun.skip=true -DskipTests
       - name: Run recog verify
         run: mvn --batch-mode --no-transfer-progress --projects recog-verify exec:java -Dexec.mainClass="com.rapid7.recog.verify.RecogVerifier" -Dexec.args="--no-warnings recog-content/xml/*.xml"
   go-verify:
