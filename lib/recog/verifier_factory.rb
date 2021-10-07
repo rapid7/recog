@@ -7,7 +7,7 @@ module VerifierFactory
   def self.build(options, db)
     formatter = Formatter.new(options, $stdout)
     reporter  = VerifyReporter.new(options, formatter, db.path)
-    Verifier.new(options.fingerprints, reporter)
+    Verifier.new(db, reporter)
   end
 end
 end
