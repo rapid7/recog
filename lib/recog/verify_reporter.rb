@@ -3,14 +3,18 @@ class VerifyReporter
   attr_reader :formatter
   attr_reader :success_count, :warning_count, :failure_count
 
-  def initialize(options, formatter)
+  def initialize(options, formatter, path=nil)
     @options = options
     @formatter = formatter
+    @path = path
     reset_counts
   end
 
   def report(fingerprint_count)
     reset_counts
+    if detail? and !@path.to_s.empty?
+      formatter.status_message("\n#{@path}:\n")
+    end
     yield self
     summarize(fingerprint_count) unless @options.quiet
   end
@@ -23,12 +27,12 @@ class VerifyReporter
   def warning(text)
     return unless @options.warnings
     @warning_count += 1
-    formatter.warning_message("#{padding}#{text}")
+    formatter.warning_message("#{path_label}#{padding}#{text}")
   end
 
   def failure(text)
     @failure_count += 1
-    formatter.failure_message("#{padding}#{text}")
+    formatter.failure_message("#{path_label}#{padding}#{text}")
   end
 
   def print_name(fingerprint)
@@ -61,12 +65,18 @@ class VerifyReporter
     @options.detail
   end
 
+  def path_label
+    unless detail?
+      @path.to_s.empty? ? "" : "#{@path}: "
+    end
+  end
+
   def padding
     '   ' if @options.detail
   end
 
   def summary_line
-    summary = "SUMMARY: Test completed with "
+    summary = "#{path_label}SUMMARY: Test completed with "
     summary << "#{@success_count} successful"
     summary << ", #{@warning_count} warnings"
     summary << ", and #{@failure_count} failures"
