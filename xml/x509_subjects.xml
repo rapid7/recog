@@ -1654,4 +1654,16 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
+  <fingerprint pattern="^CN=(.{1,256}),OU=PVE Cluster Node,O=Proxmox Virtual Environment$">
+    <description>Proxmox open-source virtualization platform</description>
+    <example>CN=pve.example.org,OU=PVE Cluster Node,O=Proxmox Virtual Environment</example>
+    <param pos="1" name="host.name"/>
+    <param pos="0" name="service.vendor" value="Proxmox"/>
+    <param pos="0" name="service.product" value="Virtual Environment"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:proxmox:virtual_environment:-"/>
+    <param pos="0" name="os.vendor" value="Proxmox"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Proxmox"/>
+  </fingerprint>
+
 </fingerprints>
