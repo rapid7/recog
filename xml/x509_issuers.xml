@@ -366,4 +366,21 @@
     <param pos="0" name="hw.cpe23" value="cpe:/h:avaya:cu360:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^CN=(Roomba) CA,OU=(?:\S+),O=(iRobot),L=Bedford,ST=MA,C=US$">
+    <description>Roomba Device</description>
+    <example hw.product="Roomba" hw.vendor="iRobot">CN=Roomba CA,OU=HBU,O=iRobot,L=Bedford,ST=MA,C=US</example>
+    <param pos="0" name="hw.device" value="Device"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="hw.vendor"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:irobot:roomba:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="(?i)^CN=\S+,OU=FreshTomato Team,O=FreshTomato,L=Columbus,ST=Ohio,C=US(?:.*)$">
+    <description>FreshTomato Router Fireware</description>
+    <example>CN=192.168.1.1,OU=FreshTomato Team,O=FreshTomato,L=Columbus,ST=Ohio,C=US</example>
+    <param pos="0" name="os.vendor" value="FreshTomato"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.device" value="Router"/>
+  </fingerprint>
+
 </fingerprints>

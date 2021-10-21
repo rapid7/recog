@@ -689,4 +689,30 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:freeswitch:freeswitch:{service.version}"/>
   </fingerprint>
 
+  <fingerprint pattern="^(OpenStage|OpenScape)_(\d+)_(V\d \S+) ">
+    <description>Unify OpenStage VoIP Phone 1</description>
+    <example hw.family="OpenStage" unify.model="40" os.version="V3 R5.13.0">OpenStage_40_V3 R5.13.0      SIP  190111</example>
+    <param pos="0" name="os.vendor" value="Unify"/>
+    <param pos="0" name="hw.vendor" value="Unify"/>
+    <param pos="0" name="hw.product" value="{hw.family} {unify.model}"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="1" name="hw.family"/>
+    <param pos="2" name="unify.model"/>
+    <param pos="3" name="os.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Desk_Phone_IP_(CP\d+[EXT]?)_(V\d \S+) ">
+    <description>Unify OpenStage VoIP Phone 2</description>
+    <example unify.model="CP200" os.version="V1 R6.14.0">Desk_Phone_IP_CP200_V1 R6.14.0      SIP  190802</example>
+    <example unify.model="CP400" os.version="V1 R6.14.0">Desk_Phone_IP_CP400_V1 R6.14.0      SIP  190802</example>
+    <example unify.model="CP600" os.version="V1 R6.14.0">Desk_Phone_IP_CP600_V1 R6.14.0      SIP  190802</example>
+    <param pos="0" name="os.vendor" value="Unify"/>
+    <param pos="0" name="hw.vendor" value="Unify"/>
+    <param pos="0" name="hw.family" value="OpenScape Desk Phone"/>
+    <param pos="0" name="hw.product" value="{hw.family} {unify.model}"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="1" name="unify.model"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+
 </fingerprints>

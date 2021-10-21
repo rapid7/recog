@@ -464,9 +464,30 @@
     <param pos="0" name="os.vendor" value="Synology"/>
   </fingerprint>
 
+  <fingerprint pattern="^Synology.nbsp;Router.nbsp;-.nbsp;synology$">
+    <description>Synology Router</description>
+    <example>Synology&amp;nbsp;Router&amp;nbsp;-&amp;nbsp;synology</example>
+    <param pos="0" name="hw.vendor" value="Synology"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.certainty" value="0.7"/>
+  </fingerprint>
+
   <fingerprint pattern="^Web Filter Block Override$">
     <description>Fortinet FortiGate/Fortiguard Web Filter</description>
     <example>Web Filter Block Override</example>
+    <param pos="0" name="os.vendor" value="Fortinet"/>
+    <param pos="0" name="os.family" value="FortiOS"/>
+    <param pos="0" name="os.product" value="FortiOS"/>
+    <param pos="0" name="os.device" value="Firewall"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:fortinet:fortios:-"/>
+    <param pos="0" name="hw.vendor" value="Fortinet"/>
+    <param pos="0" name="hw.family" value="FortiGate"/>
+    <param pos="0" name="hw.device" value="Firewall"/>
+  </fingerprint>
+
+  <fingerprint pattern="^FortiGate$">
+    <description>Fortinet FortiGate Network Firewall</description>
+    <example>FortiGate</example>
     <param pos="0" name="os.vendor" value="Fortinet"/>
     <param pos="0" name="os.family" value="FortiOS"/>
     <param pos="0" name="os.product" value="FortiOS"/>
@@ -727,9 +748,10 @@
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^Netgear Prosafe Plus Switch$">
+  <fingerprint pattern="^(?i)Netgear Prosafe Plus Switch$">
     <description>Netgear Prosafe Plus Switch</description>
     <example>Netgear Prosafe Plus Switch</example>
+    <example>NETGEAR ProSAFE Plus Switch</example>
     <param pos="0" name="os.vendor" value="Netgear"/>
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="0" name="os.product" value="Prosafe Firmware"/>
@@ -1228,6 +1250,23 @@
     <param pos="0" name="hw.product" value="N5172B Signal Generator"/>
     <param pos="1" name="agilent.serial"/>
     <param pos="1" name="hw.serial_number"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Agilent E5810 \(([a-fA-F0-9-]{17})\)$">
+    <description>Agilent E5810 Instrument Gateway Device</description>
+    <example host.mac="00-30-D3-01-01-01">Agilent E5810 (00-30-D3-01-01-01)</example>
+    <param pos="0" name="hw.vendor" value="Agilent"/>
+    <param pos="0" name="hw.device" value="Test Instrument"/>
+    <param pos="0" name="hw.product" value="E5810 Gateway Device"/>
+    <param pos="1" name="host.mac"/>
+  </fingerprint>
+
+  <fingerprint pattern="^LXI - Agilent Technologies - N1913A -  EPM Series Power Meter$">
+    <description>Agilent N1913A EPM Series Power Meter</description>
+    <example>LXI - Agilent Technologies - N1913A -  EPM Series Power Meter</example>
+    <param pos="0" name="hw.vendor" value="Agilent"/>
+    <param pos="0" name="hw.device" value="Test Instrument"/>
+    <param pos="0" name="hw.product" value="N1913A Power Meter"/>
   </fingerprint>
 
   <fingerprint pattern="^Polycom - Configuration Utility$">
@@ -3191,9 +3230,10 @@
     <param pos="0" name="service.product" value="Media Server"/>
   </fingerprint>
 
-  <fingerprint pattern="^proxmox - Proxmox Virtual Environment$">
+  <fingerprint pattern="^.+ - Proxmox Virtual Environment$">
     <description>Proxmox open-source virtualization platform</description>
     <example>proxmox - Proxmox Virtual Environment</example>
+    <example>hypervisor - Proxmox Virtual Environment</example>
     <param pos="0" name="service.vendor" value="Proxmox"/>
     <param pos="0" name="service.product" value="Virtual Environment"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:proxmox:virtual_environment:-"/>
@@ -3364,16 +3404,21 @@
   <fingerprint pattern="^Shelly Color Bulb$">
     <description>Shelly Smart Bulb</description>
     <example>Shelly Color Bulb</example>
+    <param pos="0" name="os.vendor" value="Cesanta"/>
+    <param pos="0" name="os.product" value="Mongoose"/>
     <param pos="0" name="hw.vendor" value="Shelly"/>
     <param pos="0" name="hw.device" value="Light Bulb"/>
     <param pos="0" name="hw.product" value="Color Bulb"/>
   </fingerprint>
 
-  <fingerprint pattern="^Shelly (Plug|Dimmer|Switch)$">
+  <fingerprint pattern="^Shelly (Plug|Dimmer(?: 2)?|Switch)$">
     <description>Shelly Plug/Dimmer/Switch Devices</description>
     <example hw.product="Plug">Shelly Plug</example>
     <example hw.product="Dimmer">Shelly Dimmer</example>
+    <example hw.product="Dimmer 2">Shelly Dimmer 2</example>
     <example hw.product="Switch">Shelly Switch</example>
+    <param pos="0" name="os.vendor" value="Cesanta"/>
+    <param pos="0" name="os.product" value="Mongoose"/>
     <param pos="0" name="hw.vendor" value="Shelly"/>
     <param pos="0" name="hw.device" value="Device"/>
     <param pos="1" name="hw.product"/>
@@ -3382,6 +3427,8 @@
   <fingerprint pattern="^Shelly (RGBW2)$">
     <description>Shelly Lighting Controller</description>
     <example hw.product="RGBW2">Shelly RGBW2</example>
+    <param pos="0" name="os.vendor" value="Cesanta"/>
+    <param pos="0" name="os.product" value="Mongoose"/>
     <param pos="0" name="hw.vendor" value="Shelly"/>
     <param pos="0" name="hw.device" value="Device"/>
     <param pos="1" name="hw.product"/>
@@ -3498,6 +3545,14 @@
     <param pos="0" name="hw.product" value="VVX {hw.model}"/>
   </fingerprint>
 
+  <fingerprint pattern="^(OBi[23]\d{2})">
+    <description>Poly OBI Analog Telephone Adapter</description>
+    <example hw.product="OBi200">OBi200</example>
+    <param pos="0" name="hw.vendor" value="Poly"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+
   <fingerprint pattern="^Alpha Technologies$">
     <description>Alpha Technologies Novus UPS</description>
     <example>Alpha Technologies</example>
@@ -3571,6 +3626,97 @@
     <example>Web Smart Switch</example>
     <param pos="0" name="hw.vendor" value="3Com"/>
     <param pos="0" name="hw.device" value="Switch"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(Quantum) - (Scalar i\d+) Login Screen$">
+    <description>Quantum Scalar Tape Library</description>
+    <example hw.vendor="Quantum" hw.product="Scalar i80">Quantum - Scalar i80 Login Screen</example>
+    <param pos="0" name="hw.device" value="Tape Library"/>
+    <param pos="1" name="hw.vendor"/>
+    <param pos="2" name="hw.product"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Printer Administration$">
+    <description>Weidmüller Printer</description>
+    <example>Printer Administration</example>
+    <param pos="0" name="hw.vendor" value="Weidmüller"/>
+    <param pos="0" name="hw.device" value="Printer"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Machine Identification - (MX-\S+)$">
+    <description>Sharp MX Printer</description>
+    <example hw.product="MX-3071">Machine Identification - MX-3071</example>
+    <param pos="0" name="hw.vendor" value="Sharp"/>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Remote UI: Login: (MF\S+):">
+    <description>Canon MF Printer</description>
+    <example hw.product="MF632C/634C">Remote UI: Login: MF632C/634C: MF632C/634C</example>
+    <param pos="0" name="hw.vendor" value="Canon"/>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.certainty" value="0.8"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Network Video Recorder Login$">
+    <description>Nuuo NVR</description>
+    <example>Network Video Recorder Login</example>
+    <param pos="0" name="hw.vendor" value="Nuuo"/>
+    <param pos="0" name="hw.device" value="DVR"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Evolis Printer$">
+    <description>Evolis Printer</description>
+    <example>Evolis Printer</example>
+    <param pos="0" name="hw.vendor" value="Evolis"/>
+    <param pos="0" name="hw.device" value="Printer"/>
+  </fingerprint>
+
+  <fingerprint pattern="^WyzeOutdoorPlug - ">
+    <description>Wyze Plug Outdoor</description>
+    <example>WyzeOutdoorPlug - Main Menu</example>
+    <param pos="0" name="hw.vendor" value="Wyze"/>
+    <param pos="0" name="hw.device" value="Device"/>
+    <param pos="0" name="hw.product" value="Plug Outdoor"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Aptinex IOT Relay Module - (\d+ Channel) (Rev\S+)?">
+    <description>Aptinex Relay Controller</description>
+    <example aptinex.model="4 Channel" os.version="Rev1.1">Aptinex IOT Relay Module - 4 Channel Rev1.1</example>
+    <param pos="0" name="os.vendor" value="Aptinex"/>
+    <param pos="0" name="hw.vendor" value="Aptinex"/>
+    <param pos="0" name="hw.device" value="Relay Controller"/>
+    <param pos="0" name="hw.product" value="{aptinex.model} Relay Controller"/>
+    <param pos="1" name="aptinex.model"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Diagnoser - Bobcatminer Diagnostic Dashboard$">
+    <description>Bobcat Helium Miner</description>
+    <example>Diagnoser - Bobcatminer Diagnostic Dashboard</example>
+    <param pos="0" name="hw.vendor" value="Bobcat"/>
+    <param pos="0" name="hw.device" value="Device"/>
+    <param pos="0" name="hw.product" value="Helium Miner"/>
+  </fingerprint>
+
+  <fingerprint pattern="^LORIX Manager$">
+    <description>Wifx LORIX One</description>
+    <example>LORIX Manager</example>
+    <param pos="0" name="os.vendor" value="Wifx"/>
+    <param pos="0" name="os.vendor" value="LORIX OS"/>
+    <param pos="0" name="hw.vendor" value="Wifx"/>
+    <param pos="0" name="hw.device" value="Device"/>
+    <param pos="0" name="hw.product" value="LORIX ONE"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ETERNUS$">
+    <description>Fujitsu ETERNUS Storage Appliance</description>
+    <example>ETERNUS</example>
+    <param pos="0" name="hw.vendor" value="Fujitsu"/>
+    <param pos="0" name="hw.device" value="Storage Appliance"/>
+    <param pos="0" name="hw.product" value="Eternus"/>
   </fingerprint>
 
 </fingerprints>

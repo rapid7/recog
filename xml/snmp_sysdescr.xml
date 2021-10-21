@@ -661,6 +661,18 @@
   </fingerprint>
 
   <!--======================================================================
+                              ALLWORX
+   =======================================================================-->
+
+  <fingerprint pattern="^ALLWORX (9\d{3}.*)$">
+    <description>Allworx 9XXX IP Phones</description>
+    <example hw.product="9308">ALLWORX 9308</example>
+    <param pos="0" name="hw.vendor" value="Allworx"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+
+  <!--======================================================================
                               APC
    =======================================================================-->
 
@@ -6144,6 +6156,23 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="hw.product"/>
     <param pos="2" name="os.version"/>
   </fingerprint>
+
+  <!--======================================================================
+                                    NVIDIA
+   =======================================================================-->
+
+  <fingerprint pattern="^Onyx,(MSN\S+),SWv(\S+)$">
+    <description>NVIDIA MSN Switch</description>
+    <example hw.product="MSN2700" os.version="3.9.3202">Onyx,MSN2700,SWv3.9.3202</example>
+    <param pos="0" name="os.vendor" value="NVIDIA"/>
+    <param pos="0" name="os.product" value="Onyx"/>
+    <param pos="0" name="os.device" value="Switch"/>
+    <param pos="0" name="hw.vendor" value="NVIDIA"/>
+    <param pos="0" name="hw.device" value="Switch"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+
   <!--======================================================================
                                     SAVIN
    =======================================================================-->
