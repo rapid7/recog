@@ -1,0 +1,89 @@
+name: Verify
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'xml/**.xml'
+  pull_request:
+    paths:
+      - 'xml/**.xml'
+
+jobs:
+  standardize:
+    name: 'Standardize'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Run recog standardize
+        run: bundle exec bin/recog_standardize xml/*.xml
+  ruby-verify:
+    name: 'Ruby Verify'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+      - name: Checkout Ruby implementation
+        uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Run recog verify
+        run: bundle exec recog_verify --no-warnings xml/*.xml
+  java-verify:
+    name: 'Java Verify'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+      - name: Checkout Java implementation
+        uses: actions/checkout@v2
+        with:
+          repository: rapid7/recog-java
+      - name: Checkout recog content
+        uses: actions/checkout@v2
+        with:
+          path: recog-content
+      - uses: actions/setup-java@v2
+        with:
+          distribution: zulu
+          java-version: '17'
+      - name: Cache Maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+      - name: Build with Maven
+        run: mvn --batch-mode --no-transfer-progress install -Dmaven.antrun.skip=true -DskipTests
+      - name: Run recog verify
+        run: mvn --batch-mode --no-transfer-progress --projects recog-verify exec:java -Dexec.mainClass="com.rapid7.recog.verify.RecogVerifier" -Dexec.args="--no-warnings recog-content/xml/*.xml"
+  go-verify:
+    name: 'Go Verify'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+      - name: Checkout Go implementation
+        uses: actions/checkout@v2
+        with:
+          repository: RumbleDiscovery/recog-go
+      - name: Checkout recog content
+        uses: actions/checkout@v2
+        with:
+          path: recog-content
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '^1.17.1'
+      - name: Run recog verify
+        run: go run cmd/recog_verify/main.go recog-content/xml/

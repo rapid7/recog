@@ -1,15 +1,15 @@
 module Recog
 class Verifier
-  attr_reader :fingerprints, :reporter
+  attr_reader :db, :reporter
 
-  def initialize(fingerprints, reporter)
-    @fingerprints = fingerprints
+  def initialize(db, reporter)
+    @db = db
     @reporter = reporter
   end
 
   def verify
-    reporter.report(fingerprints.count) do
-      fingerprints.each do |fp|
+    reporter.report(db.fingerprints.count) do
+      db.fingerprints.each do |fp|
         reporter.print_name fp
 
         fp.verify_params do |status, message|

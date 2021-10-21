@@ -217,7 +217,7 @@
 
   <fingerprint pattern="^CN=([A-Za-z0-9\_\-\.]+),OU=ISS,O=Hewlett-Packard Company,L=Houston,ST=Texas,C=US$">
     <description>HP iLO</description>
-    <example>CN=SERVER-1231,OU=ISS,O=Hewlett-Packard Company,L=Houston,ST=Texas,C=US</example>
+    <example host.name="SERVER-1231">CN=SERVER-1231,OU=ISS,O=Hewlett-Packard Company,L=Houston,ST=Texas,C=US</example>
     <param pos="0" name="hw.device" value="Lights Out Management"/>
     <param pos="0" name="hw.vendor" value="HP"/>
     <param pos="0" name="hw.family" value="iLO"/>
@@ -248,7 +248,7 @@
 
   <fingerprint pattern="^CN=OA\-([a-fA-F0-9]+),OU=Onboard Administrator,">
     <description>HP iLO (Onboard Administrator)</description>
-    <example>CN=OA-001F296E21A3,OU=Onboard Administrator,O=Corp.,L=Location,ST=N/A,C=US</example>
+    <example host.mac="001F296E21A3">CN=OA-001F296E21A3,OU=Onboard Administrator,O=Corp.,L=Location,ST=N/A,C=US</example>
     <example>CN=OA-80C16E999999,OU=Onboard Administrator,O=Hewlett-Packard</example>
     <param pos="0" name="hw.device" value="Lights Out Management"/>
     <param pos="0" name="hw.vendor" value="HP"/>
@@ -265,7 +265,7 @@
 
   <fingerprint pattern="^CN=([A-Za-z0-9\_\-\.]+),OU=Hewlett Packard Enterprise Network Management Software \(SMH\),O=Hewlett Packard Enterprise,L=Houston,ST=Texas,C=US$">
     <description>HP iLO - Enterprise Mgmt variant</description>
-    <example>CN=bigsrv99,OU=Hewlett Packard Enterprise Network Management Software (SMH),O=Hewlett Packard Enterprise,L=Houston,ST=Texas,C=US</example>
+    <example host.name="bigsrv99">CN=bigsrv99,OU=Hewlett Packard Enterprise Network Management Software (SMH),O=Hewlett Packard Enterprise,L=Houston,ST=Texas,C=US</example>
     <param pos="0" name="hw.device" value="Lights Out Management"/>
     <param pos="0" name="hw.vendor" value="HP"/>
     <param pos="0" name="hw.family" value="iLO"/>
@@ -508,7 +508,7 @@
 
   <fingerprint pattern="^CN=([a-zA-Z0-9\.\-\_]+),OU=VMware ESX Server Default Certificate,O=VMware\\, Inc,L=Palo Alto,ST=California,C=US$">
     <description>VMware ESX</description>
-    <example>CN=server99.,OU=VMware ESX Server Default Certificate,O=VMware\, Inc,L=Palo Alto,ST=California,C=US</example>
+    <example host.name="server99.">CN=server99.,OU=VMware ESX Server Default Certificate,O=VMware\, Inc,L=Palo Alto,ST=California,C=US</example>
     <param pos="0" name="service.vendor" value="VMware"/>
     <param pos="0" name="os.vendor" value="VMware"/>
     <param pos="0" name="os.family" value="VMware ESX/ESXi"/>
@@ -1243,7 +1243,7 @@
 
   <fingerprint pattern="^CN=Canon (iR-[a-zA-Z0-9\.\-\_]+)$">
     <description>Canon iR-ADV Printer with product info</description>
-    <example os.product="iR-ADV">CN=Canon iR-ADV</example>
+    <example os.product="iR-ADV" hw.product="iR-ADV">CN=Canon iR-ADV</example>
     <param pos="0" name="hw.device" value="Printer"/>
     <param pos="0" name="hw.vendor" value="Canon"/>
     <param pos="0" name="os.device" value="Printer"/>
@@ -1330,7 +1330,7 @@
 
   <fingerprint pattern="^CN=DT([^\s]+) Series,O=NEC Corporation,ST=Tokyo,C=JP$">
     <description>NEC DT Series IP Phone</description>
-    <example>CN=DT800 Series,O=NEC Corporation,ST=Tokyo,C=JP</example>
+    <example hw.product="800">CN=DT800 Series,O=NEC Corporation,ST=Tokyo,C=JP</example>
     <param pos="0" name="os.vendor" value="NEC"/>
     <param pos="0" name="os.device" value="VoIP"/>
     <param pos="0" name="hw.vendor" value="NEC"/>
@@ -1748,9 +1748,10 @@
     <param pos="0" name="hw.certainty" value="0.50"/>
   </fingerprint>
 
-  <fingerprint pattern="^CN=.*OU=PVE Cluster Node,O=Proxmox Virtual Environment$">
+  <fingerprint pattern="^CN=(.{1,256}),OU=PVE Cluster Node,O=Proxmox Virtual Environment$">
     <description>Proxmox open-source virtualization platform</description>
-    <example>CN=pve.example.org,OU=PVE Cluster Node,O=Proxmox Virtual Environment</example>
+    <example host.name="pve.example.org">CN=pve.example.org,OU=PVE Cluster Node,O=Proxmox Virtual Environment</example>
+    <param pos="1" name="host.name"/>
     <param pos="0" name="service.vendor" value="Proxmox"/>
     <param pos="0" name="service.product" value="Virtual Environment"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:proxmox:virtual_environment:-"/>
@@ -1758,5 +1759,5 @@
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Proxmox"/>
   </fingerprint>
-  
+
 </fingerprints>

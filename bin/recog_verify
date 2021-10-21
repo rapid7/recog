@@ -53,8 +53,7 @@ failures = 0
 ARGV.each do |arg|
   Dir.glob(arg).each do |file|
     ndb = Recog::DB.new(file)
-    options.fingerprints = ndb.fingerprints
-    verifier = Recog::VerifierFactory.build(options)
+    verifier = Recog::VerifierFactory.build(options, ndb)
     verified = verifier.verify
     failures += verifier.reporter.failure_count
     warnings += verifier.reporter.warning_count
