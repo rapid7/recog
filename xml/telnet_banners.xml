@@ -1086,7 +1086,7 @@
     <param pos="0" name="os.product" value="EDR G902 Firmware"/>
   </fingerprint>
 
-  <fingerprint pattern="^Red Hat Linux release ([^\\s]+)\\s*.*$">
+  <fingerprint pattern="^Red Hat Linux release ([^\\s]+)\\s*">
     <description>RedHat general purpose linux</description>
     <!-- Red Hat Linux release 9 (Shrike)\nKernel 2.4.20-8 on an i686\nlogin: -->
 
@@ -1148,7 +1148,7 @@
     <param pos="3" name="os.arch"/>
   </fingerprint>
 
-  <fingerprint pattern="(?m)^Fedora Core.release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d).*$" flags="REG_MULTILINE">
+  <fingerprint pattern="(?m)^Fedora Core.release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d)" flags="REG_MULTILINE">
     <description>Fedora Core Release</description>
     <!-- Fedora Core release 1 (Yarrow)\nKernel 2.4.20-13.9ensim-3.5.0-13 on an i686\nlogin:-->
 
@@ -1164,7 +1164,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:redhat:fedora:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="(?m)^Welcome to SuSE Linux (.*) \(([^\)]+)\) - Kernel (.*) .*">
+  <fingerprint pattern="(?m)^Welcome to SuSE Linux (.*) \(([^\)]+)\) - Kernel (.*) ">
     <description>SuSE Linux</description>
     <!-- Welcome to SuSE Linux 7.0 (i386) - Kernel 2.2.16-RAID (0). 2VG029037\n\nlogin: -->
 
@@ -1180,7 +1180,7 @@
     <param pos="3" name="linux.kernel.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^Turbolinux ApplianceServer (\d+\.\d+).*">
+  <fingerprint pattern="^Turbolinux ApplianceServer (\d+\.\d+)">
     <description>Turbolinux ApplianceServer</description>
     <!--Turbolinux ApplianceServer 4.0 (Atlas2) Linux 2.6.32-431.23.3.el6.x86_64 on a x86_64\n(senyo191x89.digitalink.ne.jp) TTY: 12:15 on Tuesday, 02 October 2018 login:  -->
 
@@ -1195,7 +1195,7 @@
     <param pos="1" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^UnixWare ([^ ]+).*$">
+  <fingerprint pattern="^UnixWare ([^ ]+)">
     <description>UnixWare</description>
     <!-- UnixWare 2.1.3 (profil) (pts/3)\n\n\nlogin:  -->
 
@@ -1296,7 +1296,7 @@
     <param pos="0" name="os.family" value="VxWorks"/>
   </fingerprint>
 
-  <fingerprint pattern=".*Nortel.*Passport ([^ ]*) .*Software Release ([^ ]*).*">
+  <fingerprint pattern=".*Nortel.*Passport ([^ ]*) .*Software Release ([^ ]*)">
     <description>Nortel Passport</description>
     <!-- *********************************************\n\n\n* Copyright (c) 2003 Nortel Networks, Inc.  *\n\n\n* All Rights Reserved                       *\n\n\n* Passport 8010                             *\n\n\n* Software Release 3.5.0.0                  *\n\n\n*********************************************\n\n\n\n\nLogin: -->
 
@@ -1387,7 +1387,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
 
-  <fingerprint pattern="Cobalt Linux release\W(.*)\W\(.*">
+  <fingerprint pattern="Cobalt Linux release\W(.*)\W\(">
     <description>Cobalt Linux</description>
     <!-- Cobalt Linux release 6.0 (Shinkansen)\nKernel 2.2.16C37_III on an i586\nlogin:  -->
 
@@ -1456,7 +1456,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:sun:solaris:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^Digital UNIX \(([^)]+).*">
+  <fingerprint pattern="^Digital UNIX \(([^)]+)">
     <description>Digital Unix</description>
     <!-- Digital UNIX (journal) (ttyp2)\n\n\nlogin: -->
 
@@ -1469,7 +1469,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="(?m)^Compaq Tru64 UNIX V(.*) \(Rev. (.*\d)\) .*">
+  <fingerprint pattern="(?m)^Compaq Tru64 UNIX V(.*) \(Rev. (.*\d)\) ">
     <description>Compaq Tru64 UNIX V</description>
     <!-- Compaq Tru64 UNIX V5.1B (Rev. 2650) (docalpha) (pts/11)\n\n\n\n\nlogin: -->
 
@@ -1484,7 +1484,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:hp:tru64:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="HP-UX ([^ ]+) [A-Z]\.([^ ]+) ([^ ]+) ([^ ]+)\s([^ ]+\)).*$">
+  <fingerprint pattern="HP-UX ([^ ]+) [A-Z]\.([^ ]+) ([^ ]+) ([^ ]+)\s([^ ]+\))">
     <description>System HP-UX</description>
     <!-- HP-UX ctout B.11.11 U 9000/800 (tc)\nlogin: -->
 
@@ -1518,7 +1518,7 @@
     <param pos="0" name="hw.device" value="NAS"/>
   </fingerprint>
 
-  <fingerprint pattern="OpenVMS.*Version\sV([^\s]+).*">
+  <fingerprint pattern="OpenVMS.*Version\sV([^\s]+)">
     <description>OpenVMS</description>
     <!--  Welcome to OpenVMS (TM) Alpha Operating System, Version V8.4     - NOT70\n\nUsername: -->
 
@@ -1532,7 +1532,7 @@
     <param pos="1" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="(?m)^SCO OpenServer\(TM\) Release ([^ ]+).*$">
+  <fingerprint pattern="(?m)^SCO OpenServer\(TM\) Release ([^ ]+)">
     <description>SCO OpenServer</description>
     <!-- SCO OpenServer(TM) Release 5 (bomdia.co.za) (ttyp6)\nlogin: -->
 
@@ -1614,7 +1614,7 @@
     <param pos="0" name="hw.product" value="Vigor"/>
   </fingerprint>
 
-  <fingerprint pattern=".*Version\s(\d*.\d*)\/OpenBSD.*">
+  <fingerprint pattern=".*Version\s(\d*.\d*)\/OpenBSD">
     <description>OpenBSD</description>
     <!-- 220 killer09 FTP server (Version 6.4/OpenBSD/Linux-ftpd-0.17) ready. -->
 
@@ -1815,7 +1815,7 @@
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="(?m)^.*Welcome to MELCO Print Server.*Server Name *: *([^ ]*)\W.*Server Model *: *([^ ]*).*F \/ W Version *: *([^ ]*).*MAC Address *: *(.. .. .. .. .. ..).*$">
+  <fingerprint pattern="(?m)^.*Welcome to MELCO Print Server.*Server Name *: *([^ ]*)\W.*Server Model *: *([^ ]*).*F \/ W Version *: *([^ ]*).*MAC Address *: *(.. .. .. .. .. ..)">
     <description>System is a Buffalo/MELCO Embedded Print Server</description>
     <!-- ***********************************\n* Welcome to MELCO Print Server *\n* Telnet Console *\n***********************************
     \n \nServer Name: PS-B04E8E\nServer Model: LPV 2 - TX 1\nF / W Version: 2.00 J \nMAC Address: AE 32 EA 21 BB E3\n
@@ -1840,7 +1840,7 @@
     <param pos="4" name="host.mac"/>
   </fingerprint>
 
-  <fingerprint pattern="(?m)^AIX Version\W(\d).*">
+  <fingerprint pattern="(?m)^AIX Version\W(\d)">
     <description>System is IBM AIX v</description>
     <!-- AIX Version 6\nCopyright IBM Corporation, 1982, 2007.\nlogin: -->
 
@@ -1854,7 +1854,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="(?m)^CIMC Debug Firmware Utility Shell\W([^\s]+).*">
+  <fingerprint pattern="(?m)^CIMC Debug Firmware Utility Shell\W([^\s]+)">
     <description>System is Cisco UCS Device</description>
     <!-- CIMC Debug Firmware Utility Shell\nfake-ucs-device-3-1-p login: -->
 

@@ -31,7 +31,7 @@
     <param pos="1" name="host.domain"/>
   </fingerprint>
 
-  <fingerprint pattern="^Lotus Notes POP3 server version X[^ ]+ ready on .*$">
+  <fingerprint pattern="^Lotus Notes POP3 server version X[^ ]+ ready on">
     <description>IBM Lotus Notes/Domino</description>
     <example>Lotus Notes POP3 server version X2.0 ready on foo/bar.</example>
     <param pos="0" name="service.vendor" value="IBM"/>
@@ -40,7 +40,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:ibm:lotus_domino:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^Lotus Notes POP3 server version Release ([^ ]+) ready on .*$">
+  <fingerprint pattern="^Lotus Notes POP3 server version Release ([^ ]+) ready on">
     <description>IBM Lotus Notes/Domino - Release variant</description>
     <example service.version="8.5.1FP5">Lotus Notes POP3 server version Release 8.5.1FP5 ready on foo/US.</example>
     <param pos="0" name="service.vendor" value="IBM"/>
@@ -50,7 +50,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:ibm:lotus_domino:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^Qpopper \(version (\d+\.\d+\.\d+), modified by Sphera Technologies\) at (.+) starting\..*$">
+  <fingerprint pattern="^Qpopper \(version (\d+\.\d+\.\d+), modified by Sphera Technologies\) at (.+) starting\.">
     <description>Qpopper with Sphera mods</description>
     <example>Qpopper (version 4.0.3, modified by Sphera Technologies) at domain starting.  &lt;xxx@domain&gt;</example>
     <param pos="0" name="service.vendor" value="Sphera"/>
@@ -60,7 +60,7 @@
     <param pos="2" name="host.domain"/>
   </fingerprint>
 
-  <fingerprint pattern="^Qpopper \(version (\d+\.\d+\.\d+)-mysql-(.+)\) at (.+) starting\..*$">
+  <fingerprint pattern="^Qpopper \(version (\d+\.\d+\.\d+)-mysql-(.+)\) at (.+) starting\.">
     <description>Qpopper with MySQL auth module</description>
     <example>Qpopper (version 4.0.3-mysql-0.13) at domain starting.  &lt;xxx@domain&gt;</example>
     <param pos="0" name="service.vendor" value="Qualcomm"/>
@@ -73,7 +73,7 @@
     <param pos="3" name="host.domain"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^Qpop(?:per)? \(version ([\d\.]+)\) at (.+)(?: starting\.)?.*$">
+  <fingerprint pattern="(?i)^Qpop(?:per)? \(version ([\d\.]+)\) at (.+)(?: starting\.)?">
     <description>Qpopper missing version info</description>
     <example>Qpopper (version 4.0.16) at foo.example.com</example>
     <example>QPOP (version 2.53) at domain starting.  &lt;xxx@domain&gt;</example>
@@ -85,7 +85,7 @@
     <param pos="2" name="host.domain"/>
   </fingerprint>
 
-  <fingerprint pattern="^QPOP \(version (.*)\) at (.+) starting\..*$">
+  <fingerprint pattern="^QPOP \(version (.*)\) at (.+) starting\.">
     <description>Qpopper with missing version info</description>
     <example>QPOP (version ?) at domain starting.  &lt;xxx@domain&gt;</example>
     <param pos="0" name="service.vendor" value="Qualcomm"/>
@@ -269,7 +269,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^TCPIP POP server V\d\.\d\S-\S{3}, OpenVMS V(\d\.\d-\d)(?:\s+\S+)?\s+at\s+(\S+), .*$">
+  <fingerprint pattern="^TCPIP POP server V\d\.\d\S-\S{3}, OpenVMS V(\d\.\d-\d)(?:\s+\S+)?\s+at\s+(\S+),">
     <description>TCP/IP Services for OpenVMS POP server</description>
     <example os.version="7.3-2" host.name="example.com">TCPIP POP server V5.4J-15A, OpenVMS V7.3-2 Alpha at example.com, up since 2015-02-12 08:44:53 20400434.2</example>
     <param pos="0" name="service.family" value="OpenVMS"/>

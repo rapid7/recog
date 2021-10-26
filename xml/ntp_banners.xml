@@ -4,7 +4,7 @@
   NTP "banners", taken from a readvar response
   -->
 
-  <fingerprint pattern="^.*version=Domain Time II (\S+),hostname=([^,]+),.*system=Win2003.*,processor=(\S+)" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="version=Domain Time II (\S+),hostname=([^,]+),.*system=Win2003.*,processor=(\S+)" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>Greyware Automation Products, Inc. Domain Time II on Windows Server 2003</description>
     <example service.version="5.1.b.20100331R" os.arch="x64" host.name="blah">
       version=Domain Time II 5.1.b.20100331R,hostname=blah,domain=,flat=WORKGROUP,system=Win2003 x64,processor=x64
@@ -1029,7 +1029,7 @@
     <param pos="0" name="service.vendor" value="Cisco"/>
   </fingerprint>
 
-  <fingerprint pattern="^.*system=&quot;Data ONTAP/+(\S+)&quot;.*$" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="^.*system=&quot;Data ONTAP/+(\S+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>NetApp file servers</description>
     <example>
       system="Data ONTAP/8.1RC2"
