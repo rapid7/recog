@@ -199,7 +199,7 @@
     <param pos="2" name="apache.info"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^CouchDB/([\.\d]+) .*$">
+  <fingerprint pattern="(?i)^CouchDB/([\.\d]+)">
     <description>Apache CouchDB</description>
     <example service.version="2.1.1">CouchDB/2.1.1 (Erlang OTP/20)</example>
     <param pos="0" name="service.vendor" value="Apache"/>
@@ -711,7 +711,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:oracle:web_cache:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^OracleAS-Web-Cache-10g/([\d.]+).*">
+  <fingerprint pattern="^OracleAS-Web-Cache-10g/([\d.]+)">
     <description>Oracle Application Server Web Cache</description>
     <example service.version="10.1.2.3.0">OracleAS-Web-Cache-10g/10.1.2.3.0</example>
     <param pos="0" name="service.vendor" value="Oracle"/>
@@ -1207,7 +1207,7 @@
     <param pos="1" name="apache.variant.version"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^(?:IBM_HTTP_SERVER|IBM-HTTP-SERVER)$">
+  <fingerprint pattern="(?i)^IBM_HTTP_SERVER|IBM-HTTP-SERVER$">
     <description>IBM HTTP Server with no version info</description>
     <example>IBM_HTTP_SERVER</example>
     <example>IBM_HTTP_Server</example>
@@ -1445,7 +1445,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:squid-cache:squid:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^thttpd/(\d\.[\w.]+)-MX\s*.*$">
+  <fingerprint pattern="^thttpd/(\d\.[\w.]+)-MX\s*">
     <description>ACME thttpd with SSL support</description>
     <example service.version="2.19">thttpd/2.19-MX Jan 24 2006</example>
     <param pos="0" name="service.vendor" value="ACME"/>
@@ -1470,7 +1470,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:acme:thttpd:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^lighttpd(?:/(\d[\d.]+))?.*$">
+  <fingerprint pattern="(?i)^lighttpd(?:/(\d[\d.]+))?">
     <description>Lighttpd</description>
     <example>lighttpd</example>
     <example>Lighttpd</example>
@@ -1528,7 +1528,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:ibm:lotus_domino:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^WebLogic (?:WebLogic )?Server (\d+\.\d+(?:\s+SP\d+)?)\s+.*$">
+  <fingerprint pattern="^WebLogic (?:WebLogic )?Server (\d+\.\d+(?:\s+SP\d+)?)\s+">
     <description>BEA WebLogic</description>
     <example service.version="8.1 SP3">WebLogic Server 8.1 SP3 Tue Jun 29 23:11:19 PDT 2004 404973</example>
     <example service.version="7.0 SP4">WebLogic Server 7.0 SP4 Tue Aug 12 11:22:26 PDT 2003</example>
@@ -1945,7 +1945,7 @@
     <param pos="0" name="os.product" value="Appliance"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:BigIP|BIG-IP)$">
+  <fingerprint pattern="^BigIP|BIG-IP$">
     <description>F5 BIG-IP</description>
     <param pos="0" name="service.vendor" value="F5"/>
     <param pos="0" name="service.product" value="BIG-IP LTM"/>
@@ -2064,7 +2064,7 @@
     <param pos="0" name="hw.device" value="Multifunction Device"/>
   </fingerprint>
 
-  <fingerprint pattern=".*Linksys.*">
+  <fingerprint pattern="Linksys">
     <description>Linksys Wireless Access Point</description>
     <param pos="0" name="os.vendor" value="Linksys"/>
     <param pos="0" name="os.device" value="WAP"/>
@@ -2087,7 +2087,7 @@
     <param pos="0" name="hw.vendor" value="Cisco"/>
   </fingerprint>
 
-  <fingerprint pattern="^cisco-IOS/([^\s]+) HTTP-server/.*$">
+  <fingerprint pattern="^cisco-IOS/([^\s]+) HTTP-server/">
     <description>Cisco IOS with version information</description>
     <example>cisco-IOS/12.1 HTTP-server/1.0(1)</example>
     <param pos="0" name="service.vendor" value="Cisco"/>
@@ -2159,7 +2159,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^Agent-ListenServer-HttpSvr/.*$">
+  <fingerprint pattern="^Agent-ListenServer-HttpSvr/">
     <description>McAfee ePolicy Orchestrator</description>
     <param pos="0" name="service.vendor" value="McAfee"/>
     <param pos="0" name="service.product" value="ePolicy Orchestrator"/>
@@ -2167,7 +2167,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:mcafee:epolicy_orchestrator:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^LANDesk Management Agent/.*$">
+  <fingerprint pattern="^LANDesk Management Agent/">
     <description>LANDesk Management Agent</description>
     <param pos="0" name="service.vendor" value="LANDesk"/>
     <param pos="0" name="service.product" value="Management Agent"/>
@@ -2308,7 +2308,7 @@
     <param pos="0" name="os.device" value="IP Camera"/>
   </fingerprint>
 
-  <fingerprint pattern="^ListManagerWeb/(\S+) .*$">
+  <fingerprint pattern="^ListManagerWeb/(\S+)">
     <description>Lyris ListManager</description>
     <example>ListManagerWeb/8.8a (based on Tcl-Webserver/3.4.2)</example>
     <param pos="0" name="service.vendor" value="Lyris"/>
@@ -2887,7 +2887,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:treck:tcp\/ip:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^WEBrick/([\d\.]+) .*$">
+  <fingerprint pattern="^WEBrick/([\d\.]+)">
     <description>WEBrick default setup</description>
     <example service.version="1.3.1">WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)</example>
     <param pos="0" name="service.vendor" value="Ruby-Lang"/>
@@ -3148,7 +3148,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:intel:active_management_technology:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:AMT|Intel\(R\) Active Management Technology)$">
+  <fingerprint pattern="^AMT|Intel\(R\) Active Management Technology$">
     <description>Intel(R) Active Management Technology (AMT) without a version</description>
     <example>AMT</example>
     <example>Intel(R) Active Management Technology</example>
