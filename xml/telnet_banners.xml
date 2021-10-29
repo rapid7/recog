@@ -1148,7 +1148,7 @@
     <param pos="3" name="os.arch"/>
   </fingerprint>
 
-  <fingerprint pattern="(?m)^Fedora Core.release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d).*$" flags="REG_MULTILINE">
+  <fingerprint pattern="(?m)^Fedora Core.release (.*) \(.*\).*Kernel (.*) on a[^ ]* ([^ ]*\d)" flags="REG_MULTILINE">
     <description>Fedora Core Release</description>
     <!-- Fedora Core release 1 (Yarrow)\nKernel 2.4.20-13.9ensim-3.5.0-13 on an i686\nlogin:-->
 
@@ -1164,7 +1164,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:redhat:fedora:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="(?m)^Welcome to SuSE Linux (.*) \(([^\)]+)\) - Kernel (.*) .*">
+  <fingerprint pattern="(?m)^Welcome to SuSE Linux (.*) \(([^\)]+)\) - Kernel (.*) ">
     <description>SuSE Linux</description>
     <!-- Welcome to SuSE Linux 7.0 (i386) - Kernel 2.2.16-RAID (0). 2VG029037\n\nlogin: -->
 
@@ -1469,7 +1469,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="(?m)^Compaq Tru64 UNIX V(.*) \(Rev. (.*\d)\) .*">
+  <fingerprint pattern="(?m)^Compaq Tru64 UNIX V(.*) \(Rev. (.*\d)\) ">
     <description>Compaq Tru64 UNIX V</description>
     <!-- Compaq Tru64 UNIX V5.1B (Rev. 2650) (docalpha) (pts/11)\n\n\n\n\nlogin: -->
 
@@ -1532,7 +1532,7 @@
     <param pos="1" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="(?m)^SCO OpenServer\(TM\) Release ([^ ]+).*$">
+  <fingerprint pattern="(?m)^SCO OpenServer\(TM\) Release ([^ ]+)">
     <description>SCO OpenServer</description>
     <!-- SCO OpenServer(TM) Release 5 (bomdia.co.za) (ttyp6)\nlogin: -->
 
@@ -1815,7 +1815,7 @@
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="(?m)^.*Welcome to MELCO Print Server.*Server Name *: *([^ ]*)\W.*Server Model *: *([^ ]*).*F \/ W Version *: *([^ ]*).*MAC Address *: *(.. .. .. .. .. ..).*$">
+  <fingerprint pattern="(?m)^.*Welcome to MELCO Print Server.*Server Name *: *([^ ]*)\W.*Server Model *: *([^ ]*).*F \/ W Version *: *([^ ]*).*MAC Address *: *(.. .. .. .. .. ..)">
     <description>System is a Buffalo/MELCO Embedded Print Server</description>
     <!-- ***********************************\n* Welcome to MELCO Print Server *\n* Telnet Console *\n***********************************
     \n \nServer Name: PS-B04E8E\nServer Model: LPV 2 - TX 1\nF / W Version: 2.00 J \nMAC Address: AE 32 EA 21 BB E3\n
@@ -1840,7 +1840,7 @@
     <param pos="4" name="host.mac"/>
   </fingerprint>
 
-  <fingerprint pattern="(?m)^AIX Version\W(\d).*">
+  <fingerprint pattern="(?m)^AIX Version\W(\d)">
     <description>System is IBM AIX v</description>
     <!-- AIX Version 6\nCopyright IBM Corporation, 1982, 2007.\nlogin: -->
 
@@ -1854,7 +1854,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="(?m)^CIMC Debug Firmware Utility Shell\W([^\s]+).*">
+  <fingerprint pattern="(?m)^CIMC Debug Firmware Utility Shell\W([^\s]+)">
     <description>System is Cisco UCS Device</description>
     <!-- CIMC Debug Firmware Utility Shell\nfake-ucs-device-3-1-p login: -->
 

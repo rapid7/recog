@@ -278,7 +278,7 @@
     <param pos="1" name="os.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^3Com Enterprise AP:\s*v(\S+) ">
+  <fingerprint pattern="^3Com Enterprise AP:\s*v(\S+)">
     <description>3COM Enterprise AP</description>
     <example os.version="3.1.00">3Com Enterprise AP: v3.1.00 v3.0.8</example>
     <example>3Com Enterprise AP: v3.2.0 v3.0.8</example>
@@ -303,7 +303,7 @@
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^3Com Router .* Software Release ([^,]+), ">
+  <fingerprint pattern="^3Com Router .* Software Release ([^,]+),">
     <description>3COM Router - release variant</description>
     <example os.version="1910P02">3Com Router OSR6740 Software Release 1910P02, Standard (build V300R003B04D015SP01)</example>
     <param pos="0" name="os.vendor" value="3Com"/>
@@ -518,7 +518,7 @@
     <param pos="1" name="os.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^Total Access ([^,\s]+).*Version: ([^,]+), Date: ">
+  <fingerprint pattern="^Total Access ([^,\s]+).*Version: ([^,]+), Date:">
     <description>ADTRAN TotalAccess - date variant</description>
     <example>Total Access 924 (2nd Gen), Version: A1.08.00.E, Date: Tue Apr 28 10:54:58 2009</example>
     <example>Total Access 904 (1st Gen), Version: A4.02.00.E, Date: Mon Aug 09 13:57:18 2010</example>
@@ -544,7 +544,7 @@
     <param pos="1" name="os.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^(TA\d\S+) (\d\S+ )?Total Access ">
+  <fingerprint pattern="^(TA\d\S+) (\d\S+ )?Total Access">
     <description>ADTRAN TotalAccess - model first variant</description>
     <example>TA1100F 1179.760 Total Access SFP-Based System</example>
     <example>TA1200F 1179.660L1 Total Access IP DSLAM System</example>
@@ -676,7 +676,7 @@
                               APC
    =======================================================================-->
 
-  <fingerprint pattern="^APC - (\d+-port IP KVM) - version: V_(\S+) ">
+  <fingerprint pattern="^APC - (\d+-port IP KVM) - version: V_(\S+)">
     <description>APC KVM over IP</description>
     <example>APC - 16-port IP KVM - version: V_2.0.0-2 (Oct/17/06)</example>
     <param pos="0" name="os.vendor" value="APC"/>
@@ -1067,7 +1067,7 @@
     <param pos="0" name="hw.vendor" value="Brocade"/>
   </fingerprint>
 
-  <fingerprint pattern="^Brocade (?:Communications? Systems, Inc\. )?([^,\(]+)(?: \([^\)]+\))?,(?: Extended route scalability,)? IronWare Version V?(\S+) ">
+  <fingerprint pattern="^Brocade (?:Communications? Systems, Inc\. )?([^,\(]+)(?: \([^\)]+\))?,(?: Extended route scalability,)? IronWare Version V?(\S+)">
     <description>Brocade IronWare</description>
     <example>Brocade Communications Systems, Inc. BigIron RX, IronWare Version V2.7.3aT143 Compiled on Jan 07 2011 at 19:37:41 labeled as V2.7.03a</example>
     <example>Brocade Communications Systems, Inc. FESX424-PREM, IronWare Version 07.0.01bT3e3 Compiled on Mar 17 2010 at 23:02:11 labeled as SXR07001b</example>
@@ -1408,7 +1408,7 @@
                            Computer Associates
    =======================================================================-->
 
-  <fingerprint pattern="^(?:Linux )?\s{0,256}SystemEDGE.*$">
+  <fingerprint pattern="^(?:Linux )?\s{0,256}SystemEDGE">
     <description>CA SystemEDGE Management Agent</description>
     <example>Linux SystemEDGE Management Agent, Concord Communications, Inc.</example>
     <example>SystemEDGE Management Agent, CA, Inc.</example>
@@ -1893,7 +1893,7 @@ Copyright (c) 1995-2005 by Cisco Systems
                               DATAMAX
    =======================================================================-->
 
-  <fingerprint pattern="^Datamax Corporation I-Class (\S+) Ver:(\S+) ">
+  <fingerprint pattern="^Datamax Corporation I-Class (\S+) Ver:(\S+)">
     <description>Datamax I-Class printer</description>
     <example>Datamax Corporation I-Class 4208 Ver:08.01 01/14/2004 PN:83-2297-08B</example>
     <example>Datamax Corporation I-Class 4208 Ver:08.038 11/16/2004 PN:83-2297-08D8</example>
@@ -2028,7 +2028,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^Digi International (PortServer II) v(\S+) ">
+  <fingerprint pattern="^Digi International (PortServer II) v(\S+)">
     <description>Digi Serial PortServer II</description>
     <example>Digi International PortServer II v3.1.12 Jan 21 2003</example>
     <param pos="0" name="os.vendor" value="Digi"/>
@@ -2278,7 +2278,7 @@ Copyright (c) 1995-2005 by Cisco Systems
 
   <!-- Sneaky. The XOS uses both Zero and Oh depending on version -->
 
-  <fingerprint pattern="Extreme(?:X[0O]S|Ware X[0O]S) (?:\S+ )?version (\S+) \S+ by \S+ on ">
+  <fingerprint pattern="Extreme(?:X[0O]S|Ware X[0O]S) (?:\S+ )?version (\S+) \S+ by \S+ on">
     <description>Extreme Networks Switches</description>
     <example>ExtremeWare X0S version 11.2.0.15 v1120b15 by release-manager on Fri Apr 1 18:40:23 PST 2005</example>
     <example>ExtremeXOS version 11.6.3.5 v1163b5 by release-manager on Sun Sep 9 10:46:16 PDT 2007</example>
@@ -2293,7 +2293,7 @@ Copyright (c) 1995-2005 by Cisco Systems
                               Foundry Networks
    =======================================================================-->
 
-  <fingerprint pattern="^Foundry Networks, Inc\. ([^,]+), (?:IronWare|Iron Software) Version V?(\S+) Compiled ">
+  <fingerprint pattern="^Foundry Networks, Inc\. ([^,]+), (?:IronWare|Iron Software) Version V?(\S+) Compiled">
     <description>Foundry Networks IronWare Switches</description>
     <example>Foundry Networks, Inc. Backbone, IronWare Version 06.6.36T41 Compiled on Jul 20 2001 at 21:38:29 labeled as BIS06636</example>
     <example>Foundry Networks, Inc. BigIron 15000 Router, IronWare Version 08.0.01vT53 Compiled on Feb 26 2010 at 20:07:21 labeled as B2P08001v</example>
@@ -2451,7 +2451,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^HP-UX (\S+) (\S+) ">
+  <fingerprint pattern="^HP-UX (\S+) (\S+)">
     <description>HP-UX</description>
     <example>HP-UX hostname B.10.20 A 9000/820 2006447661</example>
     <param pos="0" name="os.vendor" value="HP"/>
@@ -2462,7 +2462,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:hp:hp-ux:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S{1,512}) .*OpenVMS V(\S+) .*$">
+  <fingerprint pattern="^(\S{1,512}) .*OpenVMS V(\S+)">
     <description>OpenVMS</description>
     <example host.name="hostname">hostname VAX 4000-200 OpenVMS V7.2 Compaq TCP/IP Services for OpenVMS</example>
     <param pos="0" name="os.vendor" value="HP"/>
@@ -2516,7 +2516,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^HP3000 SERIES ([^,]+), MPE XL version (\S+) NS Transport ">
+  <fingerprint pattern="^HP3000 SERIES ([^,]+), MPE XL version (\S+) NS Transport">
     <description>HP3000 MPEi/X</description>
     <example>HP3000 SERIES 918RX, MPE XL version C.75.00 NS Transport version B.07.05</example>
     <example>HP3000 SERIES 928RX, MPE XL version C.60.00 NS Transport version B.06.00</example>
@@ -2544,7 +2544,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^HP Comware Platform Software Comware Software Version ([^\s,]+)[,\s]\s*(?:Release|Alpha|Beta)\s*(\S+) HP (\S+) Router ">
+  <fingerprint pattern="^HP Comware Platform Software Comware Software Version ([^\s,]+)[,\s]\s*(?:Release|Alpha|Beta)\s*(\S+) HP (\S+) Router">
     <description>HP Comware</description>
     <example>HP Comware Platform Software Comware Software Version 5.20,Release 2603P08 HP A6602 Router Copyright(c) 2010-2011 Hewlett-Packard Development Company, L.P.</example>
     <example>HP Comware Platform Software Comware Software Version 5.20,Release 2603P08 HP A6608 Router Copyright(c) 2010-2011 Hewlett-Packard Development Company, L.P.</example>
@@ -2583,7 +2583,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^HP Comware Platform Software, Software Version ([^\s,]+)[,\s]\s*(?:Release|Alpha|Beta)\s*(\S+) HP (\S+) (?:SI|EI|Switch|Copyright|v\d) ">
+  <fingerprint pattern="^HP Comware Platform Software, Software Version ([^\s,]+)[,\s]\s*(?:Release|Alpha|Beta)\s*(\S+) HP (\S+) (?:SI|EI|Switch|Copyright|v\d)">
     <description>HP Comware - variant 3</description>
     <example>HP Comware Platform Software, Software Version 5.20 Release 2208 HP A5500-24G SI Switch with 2 Interface Slots Copyright (c) 2010-2011 Hewlett-Packard Development Company, L.P.</example>
     <example>HP Comware Platform Software, Software Version 5.20 Release 2208 HP A5500-48G EI Switch with 2 Interface Slots Copyright (c) 2010-2011 Hewlett-Packard Development Company, L.P.</example>
@@ -2668,7 +2668,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^Hewlett-Packard Company (\S+) HP ProCurve Routing Switch.*Software Version (\S+) ">
+  <fingerprint pattern="^Hewlett-Packard Company (\S+) HP ProCurve Routing Switch.*Software Version (\S+)">
     <description>HP ProCurve Routing Switch - build data variant</description>
     <example>Hewlett-Packard Company J4139A HP ProCurve Routing Switch 9304M, Software Version 08.0.01kT53 Compiled on Apr 27 2007 at 18:55:59 labeled as H2R08001k</example>
     <param pos="0" name="os.vendor" value="HP"/>
@@ -2699,7 +2699,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^HP ProCurve (\S+) - \d+ GE, ([A-Z]{1,2}\.[^,]+), ">
+  <fingerprint pattern="^HP ProCurve (\S+) - \d+ GE, ([A-Z]{1,2}\.[^,]+),">
     <description>HP ProCurve Switch - HP prefix variant</description>
     <example os.product="1810G" os.version="H.1.2">HP ProCurve 1810G - 8 GE, H.1.2, eCos-2.0</example>
     <example>HP ProCurve 1810G - 24 GE, P.1.14, eCos-2.0</example>
@@ -2711,7 +2711,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^HP V1810\S+ ([A-Z]{1,2}\.[^,]+), ">
+  <fingerprint pattern="^HP V1810\S+ ([A-Z]{1,2}\.[^,]+),">
     <description>HP Procurve 1810 Series Switch</description>
     <example os.version="PK.1.4">HP V1810-48G, PK.1.4, eCos-2.0, CFE-3.8</example>
     <param pos="0" name="os.vendor" value="HP"/>
@@ -3184,7 +3184,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:4.3"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 04\.02\..*$">
+  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 04\.02\.">
     <description>IBM AIX 4.2 on PowerPC</description>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 0040906A4C00 Base Operating System Runtime AIX version: 04.02.0001.0000 TCP/IP Client Support version: 04.02.0001.0000</example>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 0044B47A4C00 Base Operating System Runtime AIX version: 04.02.0001.0000 TCP/IP Client Support version: 04.02.0001.0000</example>
@@ -3199,7 +3199,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:4.2"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 04\.03\..*$">
+  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 04\.03\.">
     <description>IBM AIX 4.3 on PowerPC</description>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 0056BD5A4C00 Base Operating System Runtime AIX version: 04.03.0003.0075 TCP/IP Client Support version: 04.03.0003.0075</example>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 005A269A4C00 Base Operating System Runtime AIX version: 04.03.0003.0075 TCP/IP Client Support version: 04.03.0003.0075</example>
@@ -3216,7 +3216,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:4.3"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 05\.01\..*$">
+  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 05\.01\.">
     <description>IBM AIX 5.1 on PowerPC</description>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 0059B7BA4C00 Base Operating System Runtime AIX version: 05.01.0000.0051 TCP/IP Client Support version: 05.01.0000.0070</example>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 009F12264C00 Base Operating System Runtime AIX version: 05.01.0000.0050 TCP/IP Client Support version: 05.01.0000.0050</example>
@@ -3239,7 +3239,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:5.1"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Operating System Software: AIX version: 5\.1 Networking Software:.*$">
+  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Operating System Software: AIX version: 5\.1 Networking Software:">
     <description>IBM AIX 5.1 on PowerPC - network software variant</description>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 0008FB8A4C00 Operating System Software: AIX version: 5.1 Networking Software: not available!</example>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 000BD57F4C00 Operating System Software: AIX version: 5.1 Networking Software: not available!</example>
@@ -3251,7 +3251,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:5.1"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 05\.02\..*$">
+  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 05\.02\.">
     <description>IBM AIX 5.2 on PowerPC</description>
     <example>IBM PowerPC CHRP Computer.Machine Type: 0x0800004c Processor id: 00C0E53F4C00.Base Operating System Runtime AIX version: 05.02.0000.0105.TCP/IP Client Support version: 05.02.0000.0107</example>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 00CBEEFA4C00 Base Operating System Runtime AIX version: 05.02.0000.0075 TCP/IP Client Support version: 05.02.0000.0075</example>
@@ -3278,7 +3278,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:5.2"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 05\.03\..*$">
+  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 05\.03\.">
     <description>IBM AIX 5.3 on PowerPC</description>
     <example>IBM PowerPC CHRP Computer.Machine Type: 0x0800004c Processor id: 000A3CD8D600.Base Operating System Runtime AIX version: 05.03.0000.0060.TCP/IP Client Support version: 05.03.0000.0063</example>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 00F7BF9F4C00 Base Operating System Runtime AIX version: 05.03.0012.0001 TCP/IP Client Support version: 05.03.0012.0005</example>
@@ -3301,7 +3301,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:5.3"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime VIOS [^:]+: 05\.03\..*$">
+  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime VIOS [^:]+: 05\.03\.">
     <description>IBM VIOS 5.3 on PowerPC</description>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 00018C4AD400 Base Operating System Runtime VIOS version: 05.03.0008.0000 TCP/IP Client Support version: 05.03.0008.0000</example>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 0002EBDAD700 Base Operating System Runtime VIOS version: 05.03.0008.0000 TCP/IP Client Support version: 05.03.0008.0001</example>
@@ -3318,7 +3318,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:ibm:vios:5.3"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 06\.01\..*$">
+  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 06\.01\.">
     <description>IBM AIX 6.1 on PowerPC</description>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 00F77AEE4C00 Base Operating System Runtime AIX version: 06.01.0006.0015 TCP/IP Client Support version: 06.01.0006.0015</example>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 00F77C9A4C00 Base Operating System Runtime AIX version: 06.01.0006.0015 TCP/IP Client Support version: 06.01.0006.0015</example>
@@ -3332,7 +3332,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:6.1"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime VIOS [^:]+: 06\.01\..*$">
+  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime VIOS [^:]+: 06\.01\.">
     <description>IBM VIOS 6.1 on PowerPC</description>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 00055539D600 Base Operating System Runtime VIOS version: 06.01.0007.0000 TCP/IP Client Support version: 06.01.0005.0000</example>
     <param pos="0" name="os.vendor" value="IBM"/>
@@ -3342,7 +3342,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:ibm:vios:6.1"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 07\.01\..*$">
+  <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 07\.01\.">
     <description>IBM AIX 7.1 on PowerPC</description>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 000B0148D700 Base Operating System Runtime AIX version: 07.01.0000.0015 TCP/IP Client Support version: 07.01.0000.0015</example>
     <example>IBM PowerPC CHRP Computer Machine Type: 0x0800004c Processor id: 00C5433C4C00 Base Operating System Runtime AIX version: 07.01.0001.0000 TCP/IP Client Support version: 07.01.0001.0003</example>
@@ -3355,7 +3355,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:7.1"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\S{1,1000} )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 05\.01\..*$">
+  <fingerprint pattern="^(?:\S{1,1000} )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 05\.01\.">
     <description>IBM AIX 5.1 - unknown machine type variant</description>
     <example>UNIX System Machine Type: not available! Processor id: 0001FDAF4C00 Base Operating System Runtime AIX version: 05.01.0000.0051 TCP/IP Client Support version: 05.01.0000.0070</example>
     <param pos="0" name="os.vendor" value="IBM"/>
@@ -3365,7 +3365,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:5.1"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\S{1,1000} )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 05\.02\..*$">
+  <fingerprint pattern="^(?:\S{1,1000} )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 05\.02\.">
     <description>IBM AIX 5.2 - unknown machine type variant</description>
     <example>UNIX System Machine Type: not available! Processor id: 0001FDAF4C00 Base Operating System Runtime AIX version: 05.02.0000.0105 TCP/IP Client Support version: 05.02.0000.0107</example>
     <param pos="0" name="os.vendor" value="IBM"/>
@@ -3375,7 +3375,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:5.2"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\S{1,1000} )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 05\.03\..*$">
+  <fingerprint pattern="^(?:\S{1,1000} )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 05\.03\.">
     <description>IBM AIX 5.3 - unknown machine type variant</description>
     <example>UNIX System Machine Type: not available! Processor id: 0001FDAF4C00 Base Operating System Runtime AIX version: 05.03.0000.0050 TCP/IP Client Support version: 05.03.0000.0053</example>
     <param pos="0" name="os.vendor" value="IBM"/>
@@ -3385,7 +3385,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:5.3"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\S{1,1000} )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 06\.01\..*$">
+  <fingerprint pattern="^(?:\S{1,1000} )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 06\.01\.">
     <description>IBM AIX 6.1 - unknown machine type variant</description>
     <example>UNIX System Machine Type: not available! Processor id: 0001FDAF4C00 Base Operating System Runtime AIX version: 06.01.0007.0000 TCP/IP Client Support version: 06.01.0005.0000</example>
     <param pos="0" name="os.vendor" value="IBM"/>
@@ -3395,7 +3395,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:ibm:aix:6.1"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\S{1,1000} )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 07\.01\..*$">
+  <fingerprint pattern="^(?:\S{1,1000} )?UNIX System Machine Type: not available.*Base Operating System Runtime AIX [^:]+: 07\.01\.">
     <description>IBM AIX 7.1 - unknown machine type variant</description>
     <example>UNIX System Machine Type: not available! Processor id: 0001FDAF4C00 Base Operating System Runtime AIX version: 07.01.0001.0000 TCP/IP Client Support version: 07.01.0001.0002</example>
     <param pos="0" name="os.vendor" value="IBM"/>
@@ -3626,7 +3626,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^Juniper Networks, Inc\. (\S+) Edge Routing Switch SW Version : \((\S+) (\S+) \[BuildId (\d+)\]\) ">
+  <fingerprint pattern="^Juniper Networks, Inc\. (\S+) Edge Routing Switch SW Version : \((\S+) (\S+) \[BuildId (\d+)\]\)">
     <description>Juniper Edge Routing Switch</description>
     <example>Juniper Networks, Inc. E120 Edge Routing Switch SW Version : (10.1.0 release-0.0 [BuildId 10854]) Build Date : April 22, 2009 02:27 Copyright (c) 1999-2009 Juniper Networks, Inc. All rights reserved.</example>
     <example>Juniper Networks, Inc. E120 Edge Routing Switch SW Version : (10.1.3 release-0.0 [BuildId 12315]) Build Date : July 7, 2010 13:31 Copyright (c) 1999-2010 Juniper Networks, Inc. All rights reserved.</example>
@@ -3648,7 +3648,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^Juniper Networks, Inc\. (\S+) Edge Switch Router SW Version : \((\S+) (\S+) \[BuildId (\d+)\]\) ">
+  <fingerprint pattern="^Juniper Networks, Inc\. (\S+) Edge Switch Router SW Version : \((\S+) (\S+) \[BuildId (\d+)\]\)">
     <description>Juniper Edge Routing Switch - variant 1</description>
     <example>Juniper Networks, Inc. RX1400 Edge Switch Router SW Version : (10.3.2 patch-0.2 [BuildId 12841]) Build Date : February 3, 2011 16:26 Copyright (c) 1999, 2001 Juniper Networks, Inc.</example>
     <param pos="0" name="os.vendor" value="Juniper"/>
@@ -4092,7 +4092,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Printer"/>
   </fingerprint>
 
-  <fingerprint pattern="^KYOCERA Printer I/F (IB-.*) Ver ">
+  <fingerprint pattern="^KYOCERA Printer I/F (IB-.*) Ver">
     <description>KYOCERA MITA printer - version variant</description>
     <example>KYOCERA Printer I/F IB-23 Ver 1.1.0</example>
     <example>KYOCERA Printer I/F IB-20/21 Ver 1.1.1</example>
@@ -4233,7 +4233,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:redhat:linux:7.3"/>
   </fingerprint>
 
-  <fingerprint pattern="^CentOS release ([\d.]*) ">
+  <fingerprint pattern="^CentOS release ([\d.]*)">
     <description>CentOS Linux</description>
     <example>CentOS release 4.9 (Final)</example>
     <param pos="0" name="os.certainty" value="0.9"/>
@@ -4883,7 +4883,7 @@ Copyright (c) 1995-2005 by Cisco Systems
                               NETAPP
    =======================================================================-->
 
-  <fingerprint pattern="^(?:NetApp|Data ONTAP) Release (\S+):? ">
+  <fingerprint pattern="^(?:NetApp|Data ONTAP) Release (\S+):?">
     <description>NetApp filer</description>
     <example>Data ONTAP Release 7.2.3: Thu Jul  5 10:42:49 PDT 2007 (IBM)</example>
     <example>NetApp Release 7.2.4: Fri Nov 16 00:34:57 PST 2007</example>
@@ -4901,7 +4901,7 @@ Copyright (c) 1995-2005 by Cisco Systems
                               NETBOTZ
    =======================================================================-->
 
-  <fingerprint pattern="^NetBotz RackBotz (\S+) Appliance; FV: ([^,]+), HR: ">
+  <fingerprint pattern="^NetBotz RackBotz (\S+) Appliance; FV: ([^,]+), HR:">
     <description>NetBotz RackBotz monitoring device</description>
     <example>NetBotz RackBotz 400C Appliance; FV: A1_3_71_136-20021216P, HR: REV A13, MD: 11/04/2003; MC: TEX</example>
     <example>NetBotz RackBotz 400C Appliance; FV: A1_3_90_168-20040908P, HR: REV A13, MD: 11/03/2003; MC: TEX</example>
@@ -4950,7 +4950,7 @@ Copyright (c) 1995-2005 by Cisco Systems
                               Netscaler
    =======================================================================-->
 
-  <fingerprint pattern="^NetScaler NS([^:]+): Build ([^,]+), Date: ">
+  <fingerprint pattern="^NetScaler NS([^:]+): Build ([^,]+), Date:">
     <description>Netscaler Appliance</description>
     <example os.version="10.0" os.version.version="54.6.nc">NetScaler NS10.0: Build 54.6.nc, Date: Apr 6 2012, 08:00:41 </example>
     <example>NetScaler NS9.3: Build 57.5.nc, Date: Jun 27 2012, 19:37:56 </example>
@@ -4967,7 +4967,7 @@ Copyright (c) 1995-2005 by Cisco Systems
                               NORTEL
    =======================================================================-->
 
-  <fingerprint pattern="^Business Policy Switch 2000.* SW:v([\d.]+) ">
+  <fingerprint pattern="^Business Policy Switch 2000.* SW:v([\d.]+)">
     <description>Nortel Business Policy Switch 2000</description>
     <example>Business Policy Switch 2000 HW:10 FW:3.6.0.1 SW:v3.1.6.02 ISVN:2</example>
     <param pos="0" name="os.certainty" value="1.0"/>
@@ -5134,7 +5134,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^Image: rel/([^/\s]+)/? Created on ">
+  <fingerprint pattern="^Image: rel/([^/\s]+)/? Created on">
     <description>Bay Networks Router</description>
     <example>Image: rel/10.00 Created on Fri Mar 1 23:18:04 EST 1996.</example>
     <example>Image: rel/10.01 Created on Thu Jul 18 11:31:53 EDT 1996.</example>
@@ -5653,7 +5653,7 @@ Copyright (c) 1995-2005 by Cisco Systems
                               PARADYNE
    =======================================================================-->
 
-  <fingerprint pattern="^PARADYNE T1 DSU/CSU; model: ([^;]+); S/W Release: ([^;]+); ">
+  <fingerprint pattern="^PARADYNE T1 DSU/CSU; model: ([^;]+); S/W Release: ([^;]+);">
     <description>Paradyne CSU/DSU</description>
     <example>PARADYNE T1 DSU/CSU; model: 3165-A4-210; S/W Release: 05.01.16; H/W CCA1: 3996-82C; Serial number: 5796841</example>
     <param pos="0" name="os.certainty" value="1.0"/>
@@ -5859,7 +5859,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^Redback Networks SmartEdge OS Version SEOS-(.*?) Built by ">
+  <fingerprint pattern="^Redback Networks SmartEdge OS Version SEOS-(.*?) Built by">
     <description>Redback SmartEdge</description>
     <example>Redback Networks SmartEdge OS Version SEOS-11.1.2.3p1-Release Built by sysbuild@SWB-node04 Fri Dec 23 11:47:30 PST 2011 Copyright (C) 1998-2011, Redback Networks Inc. All rights reserved.</example>
     <example>Redback Networks SmartEdge OS Version SEOS-11.1.2.3p3-Release Built by sysbuild@SWB-node06 Thu Feb 16 16:39:21 PST 2012 Copyright (C) 1998-2012, Redback Networks Inc. All rights reserved.</example>
@@ -6187,7 +6187,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="os.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^SAVIN ((?:\S+ )?\S+) (\d\S+) / ">
+  <fingerprint pattern="^SAVIN ((?:\S+ )?\S+) (\d\S+) /">
     <description>Savin Printer - version variant</description>
     <example>SAVIN 2522 5.20 / SAVIN Network Printer C model / SAVIN Network Scanner C model / SAVIN Network Facsimile C model</example>
     <example>SAVIN 9922DP 1.4.9 / RICOH Network Printer C model</example>
@@ -6331,7 +6331,7 @@ Copyright (c) 1995-2005 by Cisco Systems
                               SGI
    =======================================================================-->
 
-  <fingerprint pattern="^.{0,256} IRIX (?:version )?(\d+\S+).*$">
+  <fingerprint pattern="^.{0,256} IRIX (?:version )?(\d+\S+)">
     <description>SGI IRIX</description>
     <example os.version="6.5">Silicon Graphics IRIS Indigo2  running IRIX version 6.5</example>
     <example os.version="5.3">Silicon Graphics IRIS Indigo2 Elan running IRIX 5.3</example>
@@ -6346,7 +6346,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:sgi:irix:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^.{0,256} IRIX64 (?:version )?(\d+\S+).*$">
+  <fingerprint pattern="^.{0,256} IRIX64 (?:version )?(\d+\S+)">
     <description>SGI IRIX64</description>
     <example os.version="6.5">Silicon Graphics Challenge/1 running IRIX64 6.5</example>
     <example os.version="6.5">Silicon Graphics Fuel running IRIX64 version 6.5</example>
@@ -7019,7 +7019,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^Symbol (AP\S+|WS\S+) .* SW=(\S+) ">
+  <fingerprint pattern="^Symbol (AP\S+|WS\S+) .* SW=(\S+)">
     <description>Symbol Access Point - abreviated variant</description>
     <example>Symbol AP-7131 HW=E SW=4.0.3.0-010R MIB=01h18</example>
     <example>Symbol AP5131 HW=A SW=0.0-045R MIB=01b15</example>
@@ -7175,7 +7175,7 @@ Copyright (c) 1995-2005 by Cisco Systems
                               UNISYS
    =======================================================================-->
 
-  <fingerprint pattern="^Unisys (\S+) version (\S+) kernel ">
+  <fingerprint pattern="^Unisys (\S+) version (\S+) kernel">
     <description>Unisys printer</description>
     <example>Unisys UDS544 version NS.NP.N219 kernel 2.6.6 All-N-1</example>
     <param pos="0" name="os.vendor" value="Unisys"/>
@@ -7363,7 +7363,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^Xerox WorkCentre Pro Multifunction System[,;] " certainty="1.0">
+  <fingerprint pattern="^Xerox WorkCentre Pro Multifunction System[,;]" certainty="1.0">
     <description>Xerox WorkCentre Pro Laser Printer</description>
     <example>Xerox WorkCentre Pro Multifunction System, ESS 0.C03.04.510.01, IOT 9.0.3, UI 0.1.4.509, Scanner 1.4.0</example>
     <example>Xerox WorkCentre Pro Multifunction System, ESS 0.C03.04.510.01, IOT 9.0.3, UI 0.1.4.509, Finisher 3.8.0, Scanner 1.4.0</example>
@@ -7402,7 +7402,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="hw.device" value="Printer"/>
   </fingerprint>
 
-  <fingerprint pattern="^XEROX (\d{4} WIDE FORMAT) PRINTER; ACCXES (\d+.\d+) \d+, IOT " certainty="1.0">
+  <fingerprint pattern="^XEROX (\d{4} WIDE FORMAT) PRINTER; ACCXES (\d+.\d+) \d+, IOT" certainty="1.0">
     <description>Xerox Wide Format Printer</description>
     <example>XEROX 6204 WIDE FORMAT PRINTER; ACCXES 15.0 136, IOT 01.01.07</example>
     <param pos="0" name="os.vendor" value="Xerox"/>
@@ -7414,7 +7414,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^XEROX (WIDE FORMAT \d{4}) PRINTER; ACCXES (\d+.\d+) \d+, IOT " certainty="1.0">
+  <fingerprint pattern="^XEROX (WIDE FORMAT \d{4}) PRINTER; ACCXES (\d+.\d+) \d+, IOT" certainty="1.0">
     <description>Xerox Wide Format Printer - variant 1</description>
     <example>XEROX WIDE FORMAT 6605 PRINTER; ACCXES 14.0 142, IOT 01.01.04XXXXXX</example>
     <example>XEROX WIDE FORMAT 6604 PRINTER; ACCXES 14.0 142, IOT 01.01.04XXXXXX</example>
@@ -7432,7 +7432,7 @@ Copyright (c) 1995-2005 by Cisco Systems
                                     Xyplex
    =======================================================================-->
 
-  <fingerprint pattern="^.*Xyplex hardware (\S+) .*Xyplex software Terminal Server V(\S+)\s*$">
+  <fingerprint pattern="Xyplex hardware (\S+) .*Xyplex software Terminal Server V(\S+)\s*$">
     <description>Xyplex Terminal Server</description>
     <example>- Netlink-Xyplex Xyplex hardware MX-1600 00.00.00 Rom 470000 Xyplex software Terminal Server V6.0S91 </example>
     <example>- WTF? Xyplex hardware CSERV-20 00.00.00 Rom 470000 Xyplex software Terminal Server V6.0.3 </example>

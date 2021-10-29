@@ -615,7 +615,7 @@ more text</example>
     <param pos="0" name="service.product" value="Nepenthes"/>
   </fingerprint>
 
-  <fingerprint pattern="^[^ ]{1,512} IBM FTP CS (V1R\d+) at ([^,]*),.*">
+  <fingerprint pattern="^[^ ]{1,512} IBM FTP CS (V1R\d+) at ([^,]*),">
     <description>IBM z/OS FTP Service</description>
     <example>SFTPD1 IBM FTP CS V1R4 at x.y.z, 21:02:19 on 2007-12-15.</example>
     <param pos="0" name="service.vendor" value="IBM"/>
@@ -676,7 +676,7 @@ more text</example>
     <param pos="0" name="os.device" value="Storage"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^AXIS (\S+) .* Camera(?:\s+version)?\s+(\S+) ">
+  <fingerprint pattern="(?i)^AXIS (\S+) .* Camera(?:\s+version)?\s+(\S+)">
     <description>Axis Network Camera</description>
     <example hw.product="2100" hw.version="2.43">Axis 2100 Network Camera 2.43 Nov 04 2008 ready.</example>
     <example hw.product="216FD" hw.version="4.47">AXIS 216FD Network Fixed Dome Camera 4.47 (Mar 13 2008) ready.</example>
@@ -693,7 +693,7 @@ more text</example>
     <param pos="0" name="os.device" value="IP Camera"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^AXIS (\S+) (?:(?:Mk II )?Video) (?:Encoder|Encoder Blade|Module|Server|Decoder) (\S+) ">
+  <fingerprint pattern="(?i)^AXIS (\S+) (?:(?:Mk II )?Video) (?:Encoder|Encoder Blade|Module|Server|Decoder) (\S+)">
     <description>Axis Video encoders/servers</description>
     <example hw.product="Q7406">AXIS Q7406 Video Encoder Blade 5.01 (Aug 01 2008) ready.</example>
     <example hw.product="241Q">AXIS 241Q Video Server 4.47.2 (Dec 11 2008) ready.</example>
@@ -709,7 +709,7 @@ more text</example>
     <param pos="0" name="os.family" value="Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^AXIS (\S+) (?:(?:Mk II )?IO Audio) (?:Encoder|Encoder Blade|Module|Server|Decoder) (\S+) ">
+  <fingerprint pattern="(?i)^AXIS (\S+) (?:(?:Mk II )?IO Audio) (?:Encoder|Encoder Blade|Module|Server|Decoder) (\S+)">
     <description>Axis Audio encoders/servers</description>
     <example hw.product="P8221" hw.version="5.10.2">AXIS P8221 IO Audio Module 5.10.2 (Nov 07 2011) ready.</example>
     <param pos="0" name="hw.vendor" value="Axis"/>
@@ -804,7 +804,7 @@ more text</example>
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^XEROX (\d+) Wide Format " certainty="1.0">
+  <fingerprint pattern="^XEROX (\d+) Wide Format" certainty="1.0">
     <description>Xerox Wide Format Series of Printers</description>
     <example>XEROX 6204 Wide Format FTP server ready</example>
     <param pos="0" name="os.vendor" value="Xerox"/>
@@ -840,7 +840,7 @@ more text</example>
     <param pos="2" name="hw.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^.*Lexmark (\S+) FTP Server (\S+) ready\.?$" certainty="1.0" flags="REG_ICASE">
+  <fingerprint pattern="Lexmark (\S+) FTP Server (\S+) ready\.?$" certainty="1.0" flags="REG_ICASE">
     <description>Lexmark printer with OS version</description>
     <example hw.product="T654" os.version="NR.APS.F368">ET0021718 Lexmark T654 FTP Server NR.APS.F368 ready.</example>
     <param pos="0" name="os.vendor" value="Lexmark"/>
@@ -851,7 +851,7 @@ more text</example>
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^.*Lexmark (\S+) FTP Server ready\.?$" certainty="1.0" flags="REG_ICASE">
+  <fingerprint pattern="Lexmark (\S+) FTP Server ready\.?$" certainty="1.0" flags="REG_ICASE">
     <description>Lexmark printer</description>
     <example hw.product="X500">Lexmark X500 FTP server ready</example>
     <param pos="0" name="os.vendor" value="Lexmark"/>
@@ -1114,7 +1114,7 @@ more text</example>
     <param pos="0" name="hw.product" value="e-STUDIO"/>
   </fingerprint>
 
-  <fingerprint pattern="^.*Lexmark Optra (\S+) FTP Server (\S+) ready\.$" certainty="1.0">
+  <fingerprint pattern="Lexmark Optra (\S+) FTP Server (\S+) ready\.$" certainty="1.0">
     <description>Lexmark Optra Printer</description>
     <example os.product="T612">lex142785470853 Lexmark Optra T612 FTP Server 3.20.30 ready.</example>
     <example os.version="3.20.20">oppr1.s02504.us Lexmark Optra T610 FTP Server 3.20.20 ready.</example>
