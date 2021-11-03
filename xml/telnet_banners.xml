@@ -655,7 +655,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\r|\n)*HP JetDirect(?:\r|\n)+$">
+  <fingerprint pattern="^(?:\r|\n)*HP JetDirect(?:\r|\n)+">
     <description>HP Printer - Jet Direct</description>
     <!-- HP JetDirect\r\nPassword is not set\r\n\r\nPlease type "menu" for the MENU system, \r\nor "?" for help, or "/" for current settings.\r\n> -->
 
@@ -1209,7 +1209,7 @@
     <param pos="1" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^Telnet Server Build (5.*)">
+  <fingerprint pattern="(?m)^Telnet Server Build (5\.[.\d]+)">
     <description>Windows 2000</description>
     <!--Microsoft (R) Windows NT (TM) Version 4.00 (Build 1381)\nWelcome to Microsoft Telnet Service \nTelnet Server Build 5.00.99034.1\nlogin:  -->
 
@@ -1703,7 +1703,7 @@
     <param pos="3" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^HP ([^\s]+) ProCurve Switch">
+  <fingerprint pattern="(?m)^HP ([^\s]+) ProCurve Switch">
     <description>HP ProCurve Switch</description>
     <!-- ==============================================================================\nHP J4121A ProCurve Switch 4000M\n
     Firmware revision v2.2.3\n\nCopyright (C) 1991-2004 Hewlett-Packard Co. All Rights Reserved.\n\n
