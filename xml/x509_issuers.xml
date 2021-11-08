@@ -383,4 +383,13 @@
     <param pos="0" name="os.device" value="Router"/>
   </fingerprint>
 
+  <fingerprint pattern="(?i)^SERIALNUMBER=(\d+),CN=(\S+),OU=ST-VS,O=Bosch Sicherheitssysteme GmbH,L=Grasbrunn,C=DE">
+    <description>Bosch Device</description>
+    <example>SERIALNUMBER=111111111111111111,CN=00-07-5f-11-11-11,OU=ST-VS,O=Bosch Sicherheitssysteme GmbH,L=Grasbrunn,C=DE</example>
+    <param pos="0" name="os.vendor" value="Bosch"/>
+    <param pos="0" name="hw.vendor" value="Bosch"/>
+    <param pos="1" name="bosch.serial_number"/>
+    <param pos="2" name="host.mac"/>
+  </fingerprint>
+
 </fingerprints>
