@@ -176,6 +176,7 @@ class Fingerprint
       # out correctly and match the capture group values we expect.
       test.attributes.each do |k, v|
         next if k == '_encoding'
+        next if k == '_filename'
         if !result.has_key?(k) || result[k] != v
           message = "'#{@name}' failed to find expected capture group #{k} '#{v}'. Result was #{result[k]}"
           status = :fail
