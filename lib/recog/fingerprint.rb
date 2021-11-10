@@ -31,6 +31,7 @@ class Fingerprint
   # @param xml [Nokogiri::XML::Element]
   # @param match_key [String] See Recog::DB
   # @param protocol [String] Protocol such as ftp, mssql, http, etc.
+  # @param filepath [String] Directory path for fingerprint example files
   def initialize(xml, match_key=nil, protocol=nil, filepath=nil)
     @match_key = match_key
     @protocol = protocol
@@ -248,6 +249,7 @@ class Fingerprint
   end
 
   # @param xml [Nokogiri::XML::Element]
+  # @param filepath [String] Directory path for fingerprint example files
   # @return [void]
   def parse_examples(xml, filepath)
     elements = xml.xpath('example')

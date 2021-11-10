@@ -607,13 +607,15 @@
     <param pos="0" name="hw.device" value="SIP Device"/>
   </fingerprint>
 
-  <fingerprint pattern="^(DX800A)/([\d.]+)$">
+  <fingerprint pattern="^DX800A/([\d.]+)$">
     <description>Gigaset SIP Phones</description>
-    <example hw.product="DX800A" os.version="41.175.00.000.000">DX800A/41.175.00.000.000</example>
+    <example os.version="41.175.00.000.000">DX800A/41.175.00.000.000</example>
     <param pos="0" name="hw.vendor" value="Gigaset"/>
     <param pos="0" name="hw.device" value="VoIP"/>
-    <param pos="1" name="hw.product"/>
-    <param pos="2" name="os.version"/>
+    <param pos="0" name="hw.product" value="DX800A"/>
+    <param pos="0" name="os.vendor" value="Gigaset"/>
+    <param pos="0" name="os.product" value="{hw.product} Firmware"/>
+    <param pos="1" name="os.version"/>
   </fingerprint>
 
 </fingerprints>
