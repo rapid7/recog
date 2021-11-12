@@ -748,7 +748,7 @@
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?i)Netgear Prosafe Plus Switch$">
+  <fingerprint pattern="(?i)^Netgear Prosafe Plus Switch$">
     <description>Netgear Prosafe Plus Switch</description>
     <example>Netgear Prosafe Plus Switch</example>
     <example>NETGEAR ProSAFE Plus Switch</example>
@@ -776,15 +776,16 @@
 
   <fingerprint pattern="^(?:TransPort )?(WR\S+) \(SN: (\d+)\) Configuration and Management$">
     <description>Digi Cellular Routers</description>
-    <example hw.product="WR44v2" digi.serial="888111">WR44v2 (SN: 888111) Configuration and Management</example>
-    <example hw.product="WR21" digi.serial="888111">WR21 (SN: 888111) Configuration and Management</example>
-    <example hw.product="WR44v2" digi.serial="888111">TransPort WR44v2 (SN: 888111) Configuration and Management</example>
-    <example hw.product="WR44RR" digi.serial="888111">TransPort WR44RR (SN: 888111) Configuration and Management</example>
-    <example hw.product="WR44" digi.serial="888111">TransPort WR44 (SN: 888111) Configuration and Management</example>
+    <example hw.product="WR44v2" hw.serial_number="888111" digi.serial_number="888111">WR44v2 (SN: 888111) Configuration and Management</example>
+    <example hw.product="WR21" hw.serial_number="888111" digi.serial_number="888111">WR21 (SN: 888111) Configuration and Management</example>
+    <example hw.product="WR44v2" hw.serial_number="888111" digi.serial_number="888111">TransPort WR44v2 (SN: 888111) Configuration and Management</example>
+    <example hw.product="WR44RR" hw.serial_number="888111" digi.serial_number="888111">TransPort WR44RR (SN: 888111) Configuration and Management</example>
+    <example hw.product="WR44" hw.serial_number="888111" digi.serial_number="888111">TransPort WR44 (SN: 888111) Configuration and Management</example>
     <param pos="0" name="hw.vendor" value="Digi"/>
     <param pos="0" name="hw.device" value="Router"/>
     <param pos="1" name="hw.product"/>
-    <param pos="2" name="digi.serial"/>
+    <param pos="2" name="digi.serial_number"/>
+    <param pos="2" name="hw.serial_number"/>
   </fingerprint>
 
   <fingerprint pattern="^Digi (\S+) - ([a-fA-F0-9]{12})">
@@ -3443,7 +3444,7 @@
   <fingerprint pattern="^WLED$">
     <description>WLED Controlled Device</description>
     <example>WLED</example>
-    <param pos="0" name="service.vendor" value="WLED"/>
+    <param pos="0" name="service.vendor" value="Aircookie"/>
     <param pos="0" name="service.product" value="WLED"/>
     <param pos="0" name="service.device" value="Device"/>
   </fingerprint>
@@ -3591,7 +3592,7 @@
  <fingerprint pattern="^Radio Configuration/Diagnostic Utility$">
     <description>ProSoft RadioLinx</description>
     <example>Radio Configuration/Diagnostic Utility</example>
-    <param pos="0" name="hw.vendor" value="ProSoft"/>
+    <param pos="0" name="hw.vendor" value="ProSoft Technology"/>
     <param pos="0" name="hw.device" value="WAP"/>
     <param pos="0" name="hw.product" value="RadioLinx"/>
     <param pos="0" name="hw.certainty" value="0.5"/>
@@ -3705,7 +3706,7 @@
     <description>Wifx LORIX One</description>
     <example>LORIX Manager</example>
     <param pos="0" name="os.vendor" value="Wifx"/>
-    <param pos="0" name="os.vendor" value="LORIX OS"/>
+    <param pos="0" name="os.product" value="LORIX OS"/>
     <param pos="0" name="hw.vendor" value="Wifx"/>
     <param pos="0" name="hw.device" value="Device"/>
     <param pos="0" name="hw.product" value="LORIX ONE"/>

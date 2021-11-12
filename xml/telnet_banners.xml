@@ -1241,7 +1241,7 @@
     <description>Arescom System</description>
     <!--NDS1260HE-TLI Copyright by ARESCOM 2002\n\n\nPassword: -->
 
-    <example _encoding="base64" os.model="NDS1260HE-TLI">
+    <example _encoding="base64" os.model="NDS1260HE-TLI" hw.model="NDS1260HE-TLI">
       TkRTMTI2MEhFLVRMSSBDb3B5cmlnaHQgYnkgQVJFU0NPTSAyMDAyCgoKClBhc3N3b3JkOgo=
     </example>
     <param pos="0" name="os.vendor" value="Arescom"/>
@@ -2189,7 +2189,7 @@
     <example>Welcome to the MRV Communications' LX Series Server</example>
     <param pos="0" name="hw.vendor" value="MRV Communications"/>
     <param pos="0" name="hw.device" value="Device Server"/>
-    <param pos="0" name="hw.product" value="LX Series"/>
+    <param pos="0" name="hw.family" value="LX Series"/>
   </fingerprint>
 
   <fingerprint pattern="(?m)\*\*\* Lantronix ([\S+ ]+) Device Server .{0,1000}MAC address ([a-fA-F0-9]{12}).{0,1000}Software version V(\S+)">
@@ -2223,7 +2223,7 @@
       Press Enter to go into Setup Mode
     -->
 
-    <example _encoding="base64" hw.version="04.5" host.mac="00:20:4A:64:00:00" lantronix.serial="6451000">
+    <example _encoding="base64" hw.version="04.5" host.mac="00:20:4A:64:00:00" hw.serial_number="6451000" lantronix.serial_number="6451000">
       KioqIExhbnRyb25peCBVbml2ZXJzYWwgRGV2aWNlIFNlcnZlciAqKioKU2Vy
       aWFsIE51bWJlciA2NDUxMDAwICBNQUMgYWRkcmVzcyAwMDoyMDo0QTo2NDow
       MDowMAoKU29mdHdhcmUgdmVyc2lvbiAwNC41ICgwMTEwMjUpCgpQcmVzcyBF
@@ -2232,14 +2232,15 @@
     <param pos="0" name="hw.vendor" value="Lantronix"/>
     <param pos="0" name="hw.device" value="Device Server"/>
     <param pos="0" name="hw.product" value="UDS"/>
-    <param pos="1" name="lantronix.serial"/>
+    <param pos="1" name="lantronix.serial_number"/>
+    <param pos="1" name="hw.serial_number"/>
     <param pos="2" name="host.mac"/>
     <param pos="3" name="hw.version"/>
   </fingerprint>
 
  <fingerprint pattern="&quot;BeerTemp&quot;:.*&quot;FridgeTemp&quot;:">
     <description>Fermentrack Beer Brewing Monitor</description>
-    <example>T:{&quot;BeerTemp&quot;:null,&quot;BeerSet&quot;:null,&quot;BeerAnn&quot;:null,&quot;FridgeTemp&quot;:null,&quot;FridgeSet&quot;:null,&quot;FridgeAnn&quot;:null,&quot;State&quot;:0}</example>
+    <example>T:{"BeerTemp":null,"BeerSet":null,"BeerAnn":null,"FridgeTemp":null,"FridgeSet":null,"FridgeAnn":null,"State":0}</example>
     <param pos="0" name="hw.device" value="Device"/>
     <param pos="0" name="os.product" value="Fermentrack"/>
   </fingerprint>
