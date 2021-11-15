@@ -593,6 +593,75 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;DELL \| SonicWALL SonicPoint">
+    <description>SonicWall SonicPoint (non-specific)</description>
+    <example>Basic realm="DELL | SonicWALL SonicPoint ACe/ACi/N2"</example>
+    <param pos="0" name="os.vendor" value="SonicWall"/>
+    <param pos="0" name="os.device" value="WAP"/>
+    <param pos="0" name="os.product" value="SonicOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sonicwall:sonicos:-"/>
+    <param pos="0" name="hw.vendor" value="SonicWall"/>
+    <param pos="0" name="hw.product" value="SonicPoint"/>
+  </fingerprint>
+
+  <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;rokudev&quot;">
+    <description>Roku Streaming Device</description>
+    <example>Digest qop="auth", realm="rokudev", nonce="1111111111"</example>
+    <param pos="0" name="hw.vendor" value="Roku"/>
+    <param pos="0" name="hw.device" value="Media Server"/>
+  </fingerprint>
+
+  <fingerprint pattern="(?i)^Basic realm=&quot;System Setup&quot;">
+    <description>Patton DSL Router</description>
+    <example>Basic realm="System Setup"</example>
+    <param pos="0" name="hw.vendor" value="Patton"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="0" name="hw.product" value="SHDSL Router"/>
+    <param pos="0" name="hw.certainty" value="0.50"/>
+  </fingerprint>
+
+  <fingerprint pattern="(?i)^Digest realm=&quot;Login to ND[0-9]{3,20}&quot;, nonce=">
+    <description>Lorex NR900 Series DVR</description>
+    <example>Digest realm="Login to ND011811000000", nonce="ec3682ef24b2cd9cedefe5cc26110000"</example>
+    <param pos="0" name="hw.vendor" value="Lorex"/>
+    <param pos="0" name="hw.device" value="DVR"/>
+    <param pos="0" name="hw.product" value="NR900"/>
+    <param pos="0" name="hw.certainty" value="0.50"/>
+  </fingerprint>
+
+  <fingerprint pattern="(?i)^Basic realm=&quot;the Access Point&quot;">
+    <description>Psion Teklogix</description>
+    <example>Basic realm="the Access Point"</example>
+    <param pos="0" name="hw.vendor" value="Psion Teklogix"/>
+    <param pos="0" name="hw.device" value="Network Appliance"/>
+    <param pos="0" name="hw.product" value="CommServer"/>
+  </fingerprint>
+
+ <fingerprint pattern="(?i)^Digest realm=&quot;Use 'live' as User Name">
+    <description>Bosch AutoDome IP Camera</description>
+    <example>Digest realm="Use 'live' as User Name",nonce="18e62d241a5358a9650640fa72c1773c",opaque="",stale=FALSE,algorithm=MD5</example>
+    <example>Digest realm="Use 'live' as User Name in order to log in to the respective level",nonce="2e6007092c2b28af7e2516b80b5b4f95",opaque="",stale=FALSE,algorithm=MD5,qop="auth"</example>
+    <param pos="0" name="hw.vendor" value="Bosch"/>
+    <param pos="0" name="hw.device" value="Web cam"/>
+    <param pos="0" name="hw.product" value="AutoDome"/>
+    <param pos="0" name="hw.certainty" value="0.50"/>
+  </fingerprint>
+
+  <fingerprint pattern="(?i)^Basic realm=&quot;Shelly&quot;">
+    <description>Shelly Smart Device</description>
+    <example>Basic realm="Shelly"</example>
+    <param pos="0" name="hw.vendor" value="Shelly"/>
+    <param pos="0" name="hw.device" value="Device"/>
+  </fingerprint>
+
+  <fingerprint pattern="(?i)^Basic realm=&quot;Eurotherm&quot;">
+    <description>Schneider Electric Eurotherm Device</description>
+    <example>Basic realm="Eurotherm"</example>
+    <param pos="0" name="hw.vendor" value="Schneider Electric"/>
+    <param pos="0" name="hw.device" value="Device"/>
+    <param pos="0" name="hw.family" value="Eurotherm"/>
+  </fingerprint>
+
   <!-- a variety of headers we currently just ignore -->
 
   <fingerprint pattern="(?i)^NTLM$">

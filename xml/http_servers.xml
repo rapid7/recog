@@ -3340,6 +3340,19 @@
     <param pos="0" name="os.device" value="WAP"/>
   </fingerprint>
 
+  <fingerprint pattern="(?i)^(AsusWRT)\/(\S+) UPnP/\S+ MiniUPnPd/([\d.]+)$">
+    <description>AsusWRT Firmware</description>
+    <example os.product="AsusWRT" os.version="3.0.0.4" service.version="1.9">AsusWRT/3.0.0.4 UPnP/1.1 MiniUPnPd/1.9</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
+    <param pos="0" name="service.product" value="MiniUPnPd"/>
+    <param pos="3" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnpd:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Asus"/>
+    <param pos="1" name="os.product"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.device" value="Router"/>
+  </fingerprint>
+
   <fingerprint pattern="(?i)^DrayTek/Vigor(\S+) UPnP/\S+ miniupnpd/([\d.]+)$">
     <description>DrayTek Vigor router UPnP Server</description>
     <example service.version="1.0" hw.model="2130">DrayTek/Vigor2130 UPnP/1.0 miniupnpd/1.0</example>
@@ -3937,6 +3950,15 @@
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
 
+  <fingerprint pattern="^TP-LINK HTTPD/1.0$">
+    <description>TP-Link httpd</description>
+    <example>TP-LINK HTTPD/1.0</example>
+    <param pos="0" name="service.vendor" value="TP-LINK"/>
+    <param pos="0" name="os.vendor" value="TP-LINK"/>
+    <param pos="0" name="hw.vendor" value="TP-LINK"/>
+    <param pos="0" name="hw.device" value="Device"/>
+  </fingerprint>
+
   <fingerprint pattern="^Linux/(\S+\_eureka_1), UPnP/[\d\.]+, Portable SDK for UPnP devices/(\S+)$">
     <description>Siqura Video Encoder</description>
     <example>Linux/2.6.37_eureka_1, UPnP/1.0, Portable SDK for UPnP devices/1.6.6</example>
@@ -4090,6 +4112,7 @@
     <param pos="0" name="hw.product" value="Roku"/>
     <param pos="0" name="hw.device" value="Media Server"/>
     <param pos="1" name="hw.version"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:roku:roku:{hw.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^Roku/(\S+) UPnP/\S+ Roku/\S+$">
@@ -4099,6 +4122,7 @@
     <param pos="0" name="hw.product" value="Roku"/>
     <param pos="0" name="hw.device" value="Media Server"/>
     <param pos="1" name="hw.version"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:roku:roku:{hw.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^Roku UPnP/\S+ MiniUPnPd/([\d\.]+)$">
@@ -4544,6 +4568,14 @@
     <param pos="0" name="hw.device" value="IP Camera"/>
   </fingerprint>
 
+  <fingerprint pattern="UNMS (\d+\.\d+\.\d+)">
+    <description>Ubiquiti UNMS</description>
+    <example>302 Found UNMS 1.2.7</example>
+    <param pos="0" name="service.vendor" value="Ubiquiti"/>
+    <param pos="0" name="service.product" value="UNMS"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
   <fingerprint pattern="^xxxxxxxx-xxxxx$">
     <description>Fortinet - device unknown</description>
     <example>xxxxxxxx-xxxxx</example>
@@ -4553,6 +4585,33 @@
     <param pos="0" name="os.device" value="Firewall"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:fortinet:fortios:-"/>
     <param pos="0" name="hw.vendor" value="Fortinet"/>
+  </fingerprint>
+
+  <fingerprint pattern="^VBrick (\S+) Server$">
+    <description>VBrick Encoding Server</description>
+    <example service.product="VB6000">VBrick VB6000 Server</example>
+    <param pos="0" name="service.vendor" value="VBrick"/>
+    <param pos="1" name="service.product"/>
+    <param pos="0" name="hw.product" value="{service.product}"/>
+    <param pos="0" name="hw.vendor" value="{service.vendor}"/>
+    <param pos="0" name="hw.device" value="Video Encoder"/>
+  </fingerprint>
+
+  <fingerprint pattern="^kx-ns1000$">
+    <description>Panasonic KX-NS1000 IP PBX</description>
+    <example>kx-ns1000</example>
+    <param pos="0" name="hw.product" value="KX-NS1000"/>
+    <param pos="0" name="hw.vendor" value="Panasonic"/>
+    <param pos="0" name="hw.device" value="VoIP Server"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Oce Express WebTools$">
+    <description>Oce Printer</description>
+    <example>Oce Express WebTools</example>
+    <param pos="0" name="service.vendor" value="Oce"/>
+    <param pos="0" name="service.product" value="Express WebTools"/>
+    <param pos="0" name="hw.vendor" value="Oce"/>
+    <param pos="0" name="hw.device" value="Printer"/>
   </fingerprint>
 
 </fingerprints>

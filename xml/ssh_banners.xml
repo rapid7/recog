@@ -1491,6 +1491,7 @@
   <fingerprint pattern="^OpenSSH_([^\s]+)\s+(Raspbian-\d\d?\+deb9u\d+)$">
     <description>OpenSSH running on Raspbian (Debian 9 "Stretch" based)</description>
     <example service.version="7.4p1" openssh.comment="Raspbian-10+deb9u1">OpenSSH_7.4p1 Raspbian-10+deb9u1</example>
+    <example service.version="7.4p1" openssh.comment="Raspbian-10+deb9u7">OpenSSH_7.4p1 Raspbian-10+deb9u7</example>
     <example service.version="7.4p1" openssh.comment="Raspbian-9+deb9u1">OpenSSH_7.4p1 Raspbian-9+deb9u1</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
@@ -1505,10 +1506,11 @@
     <param pos="0" name="hw.product" value="Raspberry Pi"/>
   </fingerprint>
 
-  <fingerprint pattern="^OpenSSH_(7\.9p1)\s+(Raspbian-(?:10|\d\d?\+deb10u\d+))$">
+  <fingerprint pattern="^OpenSSH_(7\.9p1)\s+(Raspbian-(?:10|\d\d?\+deb10u\d+)(?:\+rpt\d)?)$">
     <description>OpenSSH running on Raspbian (Debian 10 "Buster" based)</description>
     <example service.version="7.9p1" openssh.comment="Raspbian-10">OpenSSH_7.9p1 Raspbian-10</example>
     <example service.version="7.9p1" openssh.comment="Raspbian-10+deb10u1">OpenSSH_7.9p1 Raspbian-10+deb10u1</example>
+    <example service.version="7.9p1" openssh.comment="Raspbian-10+deb10u2+rpt1">OpenSSH_7.9p1 Raspbian-10+deb10u2+rpt1</example>
     <param pos="1" name="service.version"/>
     <param pos="2" name="openssh.comment"/>
     <param pos="0" name="service.vendor" value="OpenBSD"/>

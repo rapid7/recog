@@ -129,6 +129,36 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:{os.version}"/>
   </fingerprint>
 
+  <fingerprint pattern="^Cisco-CP(\d{4})/([\d.]+)$">
+    <description>Cisco CP-model IP Phones</description>
+    <example cisco.model="3905" hw.product="CP-3905" os.version="9.4.1">Cisco-CP3905/9.4.1</example>
+    <param pos="1" name="cisco.model"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="0" name="hw.product" value="CP-{cisco.model}"/>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.product" value="IOS"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="hw.certainty" value="0.95"/>
+    <param pos="0" name="os.certainty" value="0.95"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:{os.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cisco-ATA(\d{3})/([\d.]+)$">
+    <description>Cisco Analog Telephone Adapters (ATA)</description>
+    <example cisco.model="187" hw.product="ATA-187" os.version="9.2.3">Cisco-ATA187/9.2.3</example>
+    <param pos="1" name="cisco.model"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="0" name="hw.product" value="ATA-{cisco.model}"/>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.product" value="IOS"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="hw.certainty" value="0.9"/>
+    <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:ios:{os.version}"/>
+  </fingerprint>
+
   <!-- AVM.DE Devices -->
 
   <fingerprint pattern="^FRITZ!OS$">
@@ -303,10 +333,11 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^ShoreGear/([\d\.]+)\s+\(ShoreTel \d+\)$">
+  <fingerprint pattern="^ShoreGear/([\d\.]+)\s+\(ShoreTel [\d\.]+\)$">
     <description>ShoreTel VoIP Switch</description>
     <example hw.version="21.90.4128.0">ShoreGear/21.90.4128.0 (ShoreTel 15)</example>
     <example hw.version="22.11.4900.0">ShoreGear/22.11.4900.0 (ShoreTel 15)</example>
+    <example hw.version="19.48.2600.0">ShoreGear/19.48.2600.0 (ShoreTel 14.2)</example>
     <param pos="0" name="hw.vendor" value="ShoreTel"/>
     <param pos="0" name="hw.device" value="VoIP Switch"/>
     <param pos="1" name="hw.version"/>
@@ -562,6 +593,29 @@
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.device" value="SIP Gateway"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:freeswitch:freeswitch:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Valcom (VIP-\w+) sw([\d.]+)">
+    <description>Valcom SIP device with version</description>
+    <example os.version="1.50.28">Valcom VIP-204 sw1.50.28</example>
+    <param pos="0" name="os.vendor" value="Valcom"/>
+    <param pos="0" name="os.product" value="{hw.product} Firmware"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.device" value="SIP Device"/>
+    <param pos="0" name="hw.vendor" value="Valcom"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="SIP Device"/>
+  </fingerprint>
+
+  <fingerprint pattern="^DX800A/([\d.]+)$">
+    <description>Gigaset SIP Phones</description>
+    <example os.version="41.175.00.000.000">DX800A/41.175.00.000.000</example>
+    <param pos="0" name="hw.vendor" value="Gigaset"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="0" name="hw.product" value="DX800A"/>
+    <param pos="0" name="os.vendor" value="Gigaset"/>
+    <param pos="0" name="os.product" value="{hw.product} Firmware"/>
+    <param pos="1" name="os.version"/>
   </fingerprint>
 
 </fingerprints>

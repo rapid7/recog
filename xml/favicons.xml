@@ -343,7 +343,6 @@
     <param pos="0" name="service.vendor" value="Rundeck"/>
     <param pos="0" name="service.product" value="Rundeck"/>
     <param pos="0" name="service.certainty" value="0.5"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:rundeck:rundeck:-"/>
   </fingerprint>
 
   <fingerprint pattern="^3ef81fad2a3deaeb19f02c9cf67ed8eb$">
@@ -486,9 +485,10 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:dd-wrt:dd-wrt:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^bad2c1f96cd66e70b4aa119e7270cc62$">
+  <fingerprint pattern="^bad2c1f96cd66e70b4aa119e7270cc62|966e60f8eb85b7ea43a7b0095f3e2336$">
     <description>Atlassian Confluence</description>
     <example>bad2c1f96cd66e70b4aa119e7270cc62</example>
+    <example>966e60f8eb85b7ea43a7b0095f3e2336</example>
     <param pos="0" name="service.vendor" value="Atlassian"/>
     <param pos="0" name="service.product" value="Confluence"/>
     <param pos="0" name="service.certainty" value="0.5"/>
@@ -1829,7 +1829,7 @@
     <description>Pure Storage Appliance</description>
     <example>7b73744799150c888a172daf3d7093bf</example>
     <param pos="0" name="hw.vendor" value="Pure Storage"/>
-    <param pos="0" name="hw.device" value="NAS"/>
+    <param pos="0" name="hw.device" value="Storage Appliance"/>
     <param pos="0" name="hw.product" value="Appliance"/>
     <param pos="0" name="hw.certainty" value="0.5"/>
   </fingerprint>
@@ -1842,6 +1842,85 @@
     <param pos="0" name="service.certainty" value="0.5"/>
   </fingerprint>
 
+  <fingerprint pattern="^4f52bd9a74742b08b0a152559da4d32a$">
+    <description>Grandstream</description>
+    <example>4f52bd9a74742b08b0a152559da4d32a</example>
+    <param pos="0" name="hw.vendor" value="Grandstream"/>
+    <param pos="0" name="hw.device" value="Device"/>
+  </fingerprint>
+
+  <fingerprint pattern="^c7f62c79333a43b6cd3f24d9e9c69526$">
+    <description>iSTAR Ultra</description>
+    <example>c7f62c79333a43b6cd3f24d9e9c69526</example>
+    <param pos="0" name="os.vendor" value="iStar"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="hw.vendor" value="iStar"/>
+    <param pos="0" name="hw.device" value="Access Control"/>
+    <param pos="0" name="hw.product" value="Ultra Door Controller"/>
+  </fingerprint>
+
+  <fingerprint pattern="^fc83221e4a9e57f2e0b10416de541ca3|e518c347f94a594de49e3f3948b8e6e5$">
+    <description>SpotterRF</description>
+    <example>fc83221e4a9e57f2e0b10416de541ca3</example>
+    <example>e518c347f94a594de49e3f3948b8e6e5</example>
+    <param pos="0" name="os.vendor" value="SpotterRF"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.certainty" value="0.90"/>
+    <param pos="0" name="hw.vendor" value="SpotterRF"/>
+    <param pos="0" name="hw.device" value="Sensor"/>
+    <param pos="0" name="hw.product" value="Drone Detector"/>
+    <param pos="0" name="hw.certainty" value="0.5"/>
+  </fingerprint>
+
+  <fingerprint pattern="^95db983278a0c04695b2e6775a65a8da$">
+    <description>Schneider Electric PowerLogic Meter</description>
+    <example>95db983278a0c04695b2e6775a65a8da</example>
+    <param pos="0" name="hw.vendor" value="Schneider Electric"/>
+    <param pos="0" name="hw.device" value="Power Meter"/>
+    <param pos="0" name="hw.product" value="PowerLogic Power Meter"/>
+  </fingerprint>
+
+  <fingerprint pattern="^6211ad748f77d07a0bccc40cf227ec4e$">
+    <description>Alpha Technologies Novus UPS</description>
+    <example>6211ad748f77d07a0bccc40cf227ec4e</example>
+    <param pos="0" name="hw.vendor" value="Alpha Technologies"/>
+    <param pos="0" name="hw.device" value="Power Device"/>
+    <param pos="0" name="hw.product" value="Novus UPS"/>
+  </fingerprint>
+
+ <fingerprint pattern="^34a1514e6ab88611178ef9bda6e1c752$">
+    <description>ProSoft RadioLinx</description>
+    <example>34a1514e6ab88611178ef9bda6e1c752</example>
+    <param pos="0" name="hw.vendor" value="ProSoft Technology"/>
+    <param pos="0" name="hw.device" value="WAP"/>
+    <param pos="0" name="hw.product" value="RadioLinx"/>
+    <param pos="0" name="hw.certainty" value="0.5"/>
+  </fingerprint>
+
+  <fingerprint pattern="^78d86dadf923f20c09c89f883047c985$">
+    <description>Redis Commander</description>
+    <example>78d86dadf923f20c09c89f883047c985</example>
+    <param pos="0" name="service.vendor" value="Ferner"/>
+    <param pos="0" name="service.product" value="Redis Commander"/>
+    <param pos="0" name="service.certainty" value="0.5"/>
+  </fingerprint>
+
+  <fingerprint pattern="^595591dc3d5e9bc47b2af8f12602ba19$">
+    <description>CBT Nuggets Learning Server</description>
+    <example>595591dc3d5e9bc47b2af8f12602ba19</example>
+    <param pos="0" name="service.vendor" value="CBT"/>
+    <param pos="0" name="service.product" value="Nuggets Learning Server"/>
+    <param pos="0" name="service.certainty" value="0.5"/>
+  </fingerprint>
+
+  <fingerprint pattern="^bd1b5fef10a0846b2db322b90a57b746$">
+    <description>Teledyne FLIR IP Camera</description>
+    <example>bd1b5fef10a0846b2db322b90a57b746</example>
+    <param pos="0" name="hw.vendor" value="Teledyne FLIR"/>
+    <param pos="0" name="hw.device" value="IP Camera"/>
+    <param pos="0" name="hw.certainty" value="0.5"/>
+  </fingerprint>
+
   <fingerprint pattern="^908db8e56aeee8bb7a911b5df4eaf90e|02f4db63a9cfb650c05ffd82956cbfd6$">
     <description>Proxmox</description>
     <example>908db8e56aeee8bb7a911b5df4eaf90e</example>
@@ -1852,6 +1931,17 @@
     <param pos="0" name="os.vendor" value="Proxmox"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Proxmox"/>
+  </fingerprint>
+
+  <fingerprint pattern="^716417a84b643460167d84e251579491$">
+    <description>LG Smart TV</description>
+    <example>716417a84b643460167d84e251579491</example>
+    <param pos="0" name="os.vendor" value="LG"/>
+    <param pos="0" name="os.product" value="webOS"/>
+    <param pos="0" name="os.certainty" value="0.5"/>     
+    <param pos="0" name="hw.vendor" value="LG"/>
+    <param pos="0" name="hw.device" value="Smart TV"/>
+    <param pos="0" name="hw.certainty" value="0.5"/>
   </fingerprint>
 
 </fingerprints>

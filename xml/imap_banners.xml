@@ -253,7 +253,7 @@
       // * OK xxx PMDF IMAP4rev1 V6.0-24 (Message store V6.0-24)
       // * OK xxx PMDF IMAP4rev1 V6.0-9
       IMAP_FP_PARSERS[5] = new PatternParser(
-         "^([^\\s]+) PMDF IMAP4rev1 V([^\\s]+).*$");
+         "^([^\\s]+) PMDF IMAP4rev1 V([^\\s]+)");
       IMAP_FP_PARSERS[5].addConstantParam("product", "PMDF");
       IMAP_FP_PARSERS[5].addParamSpec(1, "hostname");
       IMAP_FP_PARSERS[5].addParamSpec(2, "version");
@@ -265,7 +265,7 @@
       IMAP_FP_PARSERS[6].addParamSpec(2, "server-time");
       // Eudora Internet Mail Server
       IMAP_FP_PARSERS[7] = new PatternParser(
-         "^Eudora Internet Mail Server (.*) .*$");
+         "^Eudora Internet Mail Server (.*) ");
       IMAP_FP_PARSERS[7].addConstantParam("product", "eudoraims");
       IMAP_FP_PARSERS[7].addParamSpec(1, "version");
       // Eudora Qualcomm WorldMail

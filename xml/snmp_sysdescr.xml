@@ -661,6 +661,18 @@
   </fingerprint>
 
   <!--======================================================================
+                              ALLWORX
+   =======================================================================-->
+
+  <fingerprint pattern="^ALLWORX (9\d{3})$">
+    <description>Allworx 9XXX IP Phones</description>
+    <example hw.product="9308">ALLWORX 9308</example>
+    <param pos="0" name="hw.vendor" value="Allworx"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+
+  <!--======================================================================
                               APC
    =======================================================================-->
 
@@ -1039,7 +1051,7 @@
     <param pos="0" name="os.vendor" value="Brocade"/>
     <param pos="0" name="os.product" value="Fabric OS"/>
     <param pos="0" name="os.device" value="Switch"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:broadcom:fabric_operating_system:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:brocade:fabric_operating_system:-"/>
     <param pos="0" name="hw.vendor" value="Brocade"/>
     <param pos="0" name="hw.device" value="Switch"/>
   </fingerprint>
@@ -1792,6 +1804,24 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.device" value="WAP"/>
     <param pos="0" name="os.product" value="Wireless Controller"/>
+  </fingerprint>
+
+  <!--======================================================================
+                             Crestron
+   =======================================================================-->
+
+  <fingerprint pattern="^Crestron Electronics (AM-\d+) \(Version ([\d.]+)\)">
+    <description>Crestron AirMedia</description>
+    <example os.version="2.4.2.1" hw.product="AM-100">Crestron Electronics AM-100 (Version 2.4.2.1)</example>
+    <param pos="0" name="os.vendor" value="Crestron"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.certainty" value="0.95"/>
+    <param pos="0" name="hw.vendor" value="Crestron"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
+    <param pos="0" name="hw.certainty" value="0.95"/>
   </fingerprint>
 
   <!--======================================================================
@@ -3303,7 +3333,6 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.version" value="5.3"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
     <param pos="0" name="os.certainty" value="0.9"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:vios:5.3"/>
   </fingerprint>
 
   <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 06\.01\.">
@@ -3327,7 +3356,6 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="VIOS"/>
     <param pos="0" name="os.version" value="6.1"/>
     <param pos="0" name="os.arch" value="PowerPC"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:ibm:vios:6.1"/>
   </fingerprint>
 
   <fingerprint pattern="^(?:\S{1,1000} )?(?:Motorola PowerPC|IBM PowerPC|\S+ \S+ PowerPC IBM).*Base Operating System Runtime AIX [^:]+: 07\.01\.">
@@ -3600,6 +3628,21 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.cpe23" value="cpe:/o:juniper:junos:{os.version}"/>
   </fingerprint>
 
+  <fingerprint pattern="^Juniper Networks, Inc\. (\S+) Ethernet Switch, kernel JUNOS (\S+?),? ">
+    <description>Juniper Ethernet Switch</description>
+    <example hw.product="ex2300-c-12t" os.version="15.1X53-D590.1">Juniper Networks, Inc. ex2300-c-12t Ethernet Switch, kernel JUNOS 15.1X53-D590.1, Build date: 2018-11-14 20:31:32 UTC Copyright (c) 1996-2018 Juniper Networks, Inc.</example>
+    <example hw.product="ex2200-c-12t-2g" os.version="12.3R12-S15">Juniper Networks, Inc. ex2200-c-12t-2g Ethernet Switch, kernel JUNOS 12.3R12-S15, Build date: 2020-02-13 14:27:08 UTC Copyright (c) 1996-2020 Juniper Networks, Inc.</example>
+    <example hw.product="qfx5110-48s-4c" os.version="17.3R3-S1.5">Juniper Networks, Inc. qfx5110-48s-4c Ethernet Switch, kernel JUNOS 17.3R3-S1.5, Build date: 2018-08-31 19:06:08 UTC Copyright (c) 1996-2018 Juniper Networks, Inc.</example>
+    <param pos="0" name="os.vendor" value="Juniper"/>
+    <param pos="0" name="os.device" value="Switch"/>
+    <param pos="0" name="os.product" value="Junos OS"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:juniper:junos:{os.version}"/>
+    <param pos="0" name="hw.vendor" value="Juniper"/>
+    <param pos="0" name="hw.device" value="Switch"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+
   <fingerprint pattern="^Juniper Networks, Inc\. (\S+) Edge Routing Switch SW Version : \((\S+) (\S+) \[BuildId (\d+)\]\)">
     <description>Juniper Edge Routing Switch</description>
     <example>Juniper Networks, Inc. E120 Edge Routing Switch SW Version : (10.1.0 release-0.0 [BuildId 10854]) Build Date : April 22, 2009 02:27 Copyright (c) 1999-2009 Juniper Networks, Inc. All rights reserved.</example>
@@ -3649,6 +3692,19 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="Juniper"/>
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="1" name="os.product"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Juniper (\S+) Ethernet Switch$">
+    <description>Juniper Ethernet Swtich</description>
+    <example hw.product="EX4200-48PX">Juniper EX4200-48PX Ethernet Switch</example>
+    <example hw.product="EX2200-C-12T-2G">Juniper EX2200-C-12T-2G Ethernet Switch</example>
+    <param pos="0" name="os.vendor" value="Juniper"/>
+    <param pos="0" name="os.device" value="Switch"/>
+    <param pos="0" name="os.product" value="Junos OS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:juniper:junos:-"/>
+    <param pos="0" name="hw.vendor" value="Juniper"/>
+    <param pos="0" name="hw.device" value="Switch"/>
+    <param pos="1" name="hw.product"/>
   </fingerprint>
 
   <!--======================================================================
@@ -6107,6 +6163,34 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Router"/>
   </fingerprint>
 
+  <fingerprint pattern="^(CSS\S+) SwOS v(\S+)$">
+    <description>MikroTik Swtich</description>
+    <example hw.product="CSS326-24G-2S+" os.version="2.13">CSS326-24G-2S+ SwOS v2.13</example>
+    <param pos="0" name="os.vendor" value="MikroTik"/>
+    <param pos="0" name="os.device" value="Switch"/>
+    <param pos="0" name="os.product" value="SwOS"/>
+    <param pos="0" name="hw.vendor" value="MikroTik"/>
+    <param pos="0" name="hw.device" value="Switch"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+
+  <!--======================================================================
+                                    NVIDIA
+   =======================================================================-->
+
+  <fingerprint pattern="^Onyx,(MSN\S+),SWv(\S+)$">
+    <description>NVIDIA MSN Switch</description>
+    <example hw.product="MSN2700" os.version="3.9.3202">Onyx,MSN2700,SWv3.9.3202</example>
+    <param pos="0" name="os.vendor" value="NVIDIA"/>
+    <param pos="0" name="os.product" value="Onyx"/>
+    <param pos="0" name="os.device" value="Switch"/>
+    <param pos="0" name="hw.vendor" value="NVIDIA"/>
+    <param pos="0" name="hw.device" value="Switch"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+
   <!--======================================================================
                                     SAVIN
    =======================================================================-->
@@ -7010,6 +7094,31 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Multifunction Device"/>
   </fingerprint>
 
+  <fingerprint pattern="^TOSHIBA TEC (B\S+)$">
+    <description>Toshiba TEC Printer</description>
+    <example>TOSHIBA TEC B-FV4</example>
+    <param pos="0" name="hw.vendor" value="Toshiba"/>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="1" name="hw.product"/>
+  </fingerprint>
+
+  <!--======================================================================
+                              TRUENAS / FREENAS
+   =======================================================================-->
+
+  <fingerprint pattern="^(TrueNAS|FreeNAS)-(\S+) \((?:\S+)\)\. Hardware: (\S+) ">
+    <description>TrueNAS/FreeNAS Device</description>
+    <example os.product="FreeNAS" os.version="11.3-U3.2">FreeNAS-11.3-U3.2 (1e9dd3b3e2). Hardware: amd64 Intel(R) Xeon(R) CPU E3-1230 v6 @ 3.50GHz running at 3504. Software: FreeBSD 11.3-RELEASE-p9 (revision 199506)</example>
+    <example os.product="TrueNAS" os.version="12.0-U4.1">TrueNAS-12.0-U4.1 (fb0389beb0). Hardware: amd64 Intel(R) Xeon(R) CPU E5-1620 v3 @ 3.50GHz running at 3491 MHz. Software: FreeBSD 12.2-RELEASE-p6 (revision 199506)</example>
+    <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="0" name="os.vendor" value="iXsystems"/>
+    <param pos="0" name="os.device" value="NAS"/>
+    <param pos="0" name="hw.device" value="NAS"/>
+    <param pos="1" name="os.product"/>
+    <param pos="2" name="os.version"/>
+    <param pos="3" name="os.arch"/>
+  </fingerprint>
+
   <!--======================================================================
                               UBIQUITI
    =======================================================================-->
@@ -7052,9 +7161,10 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Switch"/>
   </fingerprint>
 
-  <fingerprint pattern="^(USW-[^\s]+), ([0-9][.a-zA-Z0-9\-]+), Linux ([0-9][.a-zA-Z0-9\-]+)$">
+  <fingerprint pattern="^(US[W]?-[^\s]+), ([0-9][.a-zA-Z0-9\-]+), Linux ([0-9][.a-zA-Z0-9\-]+)$">
     <description>Ubiquiti Switch w/Version and Linux version</description>
     <example hw.product="USW-8P-60" hw.version="4.3.20.11298" os.version="3.6.5">USW-8P-60, 4.3.20.11298, Linux 3.6.5</example>
+    <example hw.product="US-24-500W" hw.version="5.43.36.12724" os.version="3.6.5">US-24-500W, 5.43.36.12724, Linux 3.6.5</example>
     <param pos="0" name="hw.vendor" value="Ubiquiti"/>
     <param pos="0" name="hw.device" value="Switch"/>
     <param pos="1" name="hw.product"/>
@@ -7065,9 +7175,10 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="3" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^(USW-[^\s]+), ([0-9][.a-zA-Z0-9\-]+)$">
+  <fingerprint pattern="^(USW-[^\s,]+)(?:,)? ([0-9][.a-zA-Z0-9\-]+)$">
     <description>Ubiquiti Switch w/Version (no Linux version)</description>
     <example hw.product="USW-5-Flex" hw.version="4.0.80.10875">USW-5-Flex, 4.0.80.10875</example>
+    <example hw.product="USW-Flex" hw.version="5.64.8.13083">USW-Flex 5.64.8.13083</example>
     <param pos="0" name="hw.vendor" value="Ubiquiti"/>
     <param pos="0" name="hw.device" value="Switch"/>
     <param pos="1" name="hw.product"/>
@@ -7096,6 +7207,20 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="Wind River"/>
     <param pos="0" name="os.product" value="VxWorks"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:windriver:vxworks:-"/>
+  </fingerprint>
+
+  <!--======================================================================
+                             VBrick
+   =======================================================================-->
+
+  <fingerprint pattern="^VBrick Systems Inc., Model (\d+) Serial (\d+)$">
+    <description>VBrick Video Encoder</description>
+    <example hw.model="4300" hw.serial_number="01010101010">VBrick Systems Inc., Model 4300 Serial 01010101010</example>
+    <param pos="0" name="hw.vendor" value="VBrick"/>
+    <param pos="0" name="hw.device" value="Video Encoder"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="0" name="hw.product" value="{hw.device} {hw.model}"/>
+    <param pos="2" name="hw.serial_number"/>
   </fingerprint>
 
   <!--======================================================================

@@ -64,7 +64,7 @@ def lookup_cpe(vendor, product, cpe_type, cpe_table, remap):
     these values to more correct values used by NIST.
 
     For example, the remapping might tell us that a value of 'alpine' for the
-    vendor string should be 'aplinelinux' instead, or for product 'solaris'
+    vendor string should be 'alpinelinux' instead, or for product 'solaris'
     should be 'sunos'.
 
     This function should only emit values seen in the official NIST CPE list
