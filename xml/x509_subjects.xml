@@ -1688,11 +1688,14 @@
   <fingerprint pattern="^CN=iSTAR Ultra">
     <description>iSTAR Ultra</description>
     <example>CN=iSTAR Ultra,OU=Access Control and Video Division,O=Johnson Controls,L=Westford,ST=Massachusetts,C=US</example>
-    <param pos="0" name="os.vendor" value="iStar"/>
-    <param pos="0" name="os.product" value="Linux"/>
-    <param pos="0" name="hw.vendor" value="iStar"/>
+    <param pos="0" name="os.vendor" value="Software House"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="{hw.product} Firmware"/>
+    <param pos="0" name="hw.vendor" value="Software House"/>
     <param pos="0" name="hw.device" value="Access Control"/>
-    <param pos="0" name="hw.product" value="Ultra Door Controller"/>
+    <param pos="0" name="hw.family" value="iSTAR Door Controllers"/>
+    <param pos="0" name="hw.product" value="iSTAR Ultra"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:swhouse:istar_ultra:-"/>
   </fingerprint>
 
   <fingerprint pattern="^O=SpotteRF - NetworkedIO$">
@@ -1706,7 +1709,7 @@
     <param pos="0" name="hw.product" value="Drone Detector"/>
   </fingerprint>
 
- <fingerprint pattern="(?i)^CN=.{0,1000}myboschcam.net,O=Bosch Sicherheitssysteme">
+  <fingerprint pattern="(?i)^CN=.{0,1000}myboschcam.net,O=Bosch Sicherheitssysteme">
     <description>Bosch AutoDome IP Camera</description>
     <example>CN=local.myboschcam.net,O=Bosch Sicherheitssysteme GmbH,L=Grasbrunn,ST=Bayern,C=DE</example>
     <param pos="0" name="hw.vendor" value="Bosch"/>
@@ -1715,7 +1718,7 @@
     <param pos="0" name="hw.certainty" value="0.50"/>
   </fingerprint>
 
- <fingerprint pattern="(?i)CN=(\w+),OU=BWI,O=Redline Communications Inc">
+  <fingerprint pattern="(?i)CN=(\w+),OU=BWI,O=Redline Communications Inc">
     <description>Redline Communication Radios</description>
     <example hw.product="an80i">CN=an80i,OU=BWI,O=Redline Communications Inc.,C=CA</example>
     <param pos="0" name="hw.vendor" value="Redline"/>
@@ -1723,7 +1726,7 @@
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
- <fingerprint pattern="(?i)CN=Vaddio Device,O=Vaddio,L=Minnetonka,ST=MN,C=US">
+  <fingerprint pattern="(?i)CN=Vaddio Device,O=Vaddio,L=Minnetonka,ST=MN,C=US">
     <description>Vadio DocCom</description>
     <example>CN=Vaddio Device,O=Vaddio,L=Minnetonka,ST=MN,C=US</example>
     <param pos="0" name="hw.vendor" value="Vaddio"/>
@@ -1732,7 +1735,7 @@
     <param pos="0" name="hw.certainty" value="0.50"/>
   </fingerprint>
 
- <fingerprint pattern="(?i)CN=.{0,1000},OU=2N IP Intercoms,O=2N Telekomunikace a.s.,L=Prague,ST=Czech Republic,C=CZ">
+  <fingerprint pattern="(?i)CN=.{0,1000},OU=2N IP Intercoms,O=2N Telekomunikace a.s.,L=Prague,ST=Czech Republic,C=CZ">
     <description>2N IP Intercoms</description>
     <example>CN=11111111111d,OU=2N IP Intercoms,O=2N Telekomunikace a.s.,L=Prague,ST=Czech Republic,C=CZ</example>
     <param pos="0" name="hw.vendor" value="2N Telekomunikace"/>

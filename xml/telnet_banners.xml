@@ -2136,7 +2136,7 @@
     <param pos="0" name="hw.certainty" value="0.5"/>
   </fingerprint>
 
- <fingerprint pattern="(?i)Welcome to (\S+Dome [^\)]+) \d+\.\d+.\d+\.\d+ from">
+  <fingerprint pattern="(?i)Welcome to (\S+Dome [^\)]+) \d+\.\d+.\d+\.\d+ from">
     <description>Bosch Dome IP Cameras</description>
     <example hw.product="AutoDome 800 HD">Welcome to AutoDome 800 HD 1.2.3.4 from 5.6.7.8</example>
     <example hw.product="FLEXIDOME NDC-455-P">Welcome to FLEXIDOME NDC-455-P 1.2.3.4 from 5.6.7.8</example>
@@ -2145,7 +2145,7 @@
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
- <fingerprint pattern="(?:RDL-\d+ Ellipse\s+|Connect-OWS?) .{0,1000} Copyright .{0,1000} Redline Communications Inc">
+  <fingerprint pattern="(?:RDL-\d+ Ellipse\s+|Connect-OWS?) .{0,1000} Copyright .{0,1000} Redline Communications Inc">
     <description>Redline Communication Radios</description>
     <example>RDL-3000 Ellipse     (c) Copyright 2010-2016  Redline Communications Inc.</example>
     <example>Connect-OW     (c) Copyright 2010-2016  Redline Communications Inc.</example>
@@ -2168,10 +2168,10 @@
 
   <fingerprint pattern="\((FL WLAN \S+)\)">
     <description>Phoenix Contact Wireless Module</description>
-    <example hw.product="FL WLAN 510X" >(FL WLAN 510X)</example>
+    <example hw.product="FL WLAN 510X">(FL WLAN 510X)</example>
     <param pos="0" name="hw.vendor" value="Phoenix Contact"/>
     <param pos="0" name="hw.device" value="WAP"/>
-    <param pos="1" name="hw.product" />
+    <param pos="1" name="hw.product"/>
   </fingerprint>
 
   <fingerprint pattern="Welcome to i\.CanDoIt (.{0,1000}) v(\S+)">
@@ -2179,8 +2179,8 @@
     <example hw.product="BAS-700 ReMOTE I/O" hw.version="2.47x">Welcome to i.CanDoIt BAS-700 ReMOTE I/O v2.47x</example>
     <param pos="0" name="hw.vendor" value="Control Solutions"/>
     <param pos="0" name="hw.device" value="PLC"/>
-    <param pos="1" name="hw.product" />
-    <param pos="2" name="hw.version" />
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="hw.version"/>
     <param pos="0" name="hw.certainty" value="0.75"/>
   </fingerprint>
 
@@ -2238,7 +2238,7 @@
     <param pos="3" name="hw.version"/>
   </fingerprint>
 
- <fingerprint pattern="&quot;BeerTemp&quot;:.*&quot;FridgeTemp&quot;:">
+  <fingerprint pattern="&quot;BeerTemp&quot;:.*&quot;FridgeTemp&quot;:">
     <description>Fermentrack Beer Brewing Monitor</description>
     <example>T:{"BeerTemp":null,"BeerSet":null,"BeerAnn":null,"FridgeTemp":null,"FridgeSet":null,"FridgeAnn":null,"State":0}</example>
     <param pos="0" name="hw.device" value="Device"/>
