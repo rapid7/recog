@@ -15,9 +15,9 @@ class Verifier
         fp.verify_params do |status, message|
           case status
           when :warn
-            reporter.warning "WARN (line #{fp.line}): #{message}"
+            reporter.warning "WARN: #{message}", fp.line
           when :fail
-            reporter.failure "FAIL (line #{fp.line}): #{message}"
+            reporter.failure "FAIL: #{message}", fp.line
           when :success
             reporter.success(message)
           end
@@ -25,9 +25,9 @@ class Verifier
         fp.verify_tests do |status, message|
           case status
           when :warn
-            reporter.warning "WARN (line #{fp.line}): #{message}"
+            reporter.warning "WARN: #{message}", fp.line
           when :fail
-            reporter.failure "FAIL (line #{fp.line}): #{message}"
+            reporter.failure "FAIL: #{message}", fp.line
           when :success
             reporter.success(message)
           end
