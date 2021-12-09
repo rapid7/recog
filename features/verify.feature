@@ -15,7 +15,10 @@ Feature: Verify
       successful_tests.xml: SUMMARY: Test completed with 4 successful, 0 warnings, and 0 failures
       """
 
+  # This test is diabled in JRuby because JRuby does not number lines correctly, whereas
+  # CRuby does. See https://github.com/sparklemotion/nokogiri/issues/2380
   @no-clobber
+  @jruby-disabled
   Scenario: Tests with warnings, warnings enabled
     When I run `recog_verify tests_with_warnings.xml`
     Then it should fail with:
@@ -34,7 +37,10 @@ Feature: Verify
       tests_with_warnings.xml: SUMMARY: Test completed with 1 successful, 0 warnings, and 0 failures
       """
 
+  # This test is diabled in JRuby because JRuby does not number lines correctly, whereas
+  # CRuby does. See https://github.com/sparklemotion/nokogiri/issues/2380
   @no-clobber
+  @jruby-disabled
   Scenario: Tests with failures
     When I run `recog_verify tests_with_failures.xml`
     Then it should fail with:
