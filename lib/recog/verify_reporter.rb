@@ -24,15 +24,15 @@ class VerifyReporter
     formatter.success_message("#{padding}#{text}") if detail?
   end
 
-  def warning(text)
+  def warning(text, line=nil)
     return unless @options.warnings
     @warning_count += 1
-    formatter.warning_message("#{path_label}#{padding}#{text}")
+    formatter.warning_message("#{path_label(line)}#{padding}#{text}")
   end
 
-  def failure(text)
+  def failure(text, line=nil)
     @failure_count += 1
-    formatter.failure_message("#{path_label}#{padding}#{text}")
+    formatter.failure_message("#{path_label(line)}#{padding}#{text}")
   end
 
   def print_name(fingerprint)
@@ -65,9 +65,10 @@ class VerifyReporter
     @options.detail
   end
 
-  def path_label
+  def path_label(line=nil)
     unless detail?
-      @path.to_s.empty? ? "" : "#{@path}: "
+      line_label = line ? line.to_s + ":" : ""
+      @path.to_s.empty? ? "" : "#{@path}:#{line_label} "
     end
   end
 

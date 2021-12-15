@@ -28,6 +28,12 @@ class Fingerprint
   # @return (see #parse_examples)
   attr_reader :tests
 
+  # The line number of the XML entity in the source file for this
+  # fingerprint.
+  #
+  # @return [Integer] The line number of this entity.
+  attr_reader :line
+
   # @param xml [Nokogiri::XML::Element]
   # @param match_key [String] See Recog::DB
   # @param protocol [String] Protocol such as ftp, mssql, http, etc.
@@ -37,6 +43,7 @@ class Fingerprint
     @protocol = protocol
     @name   = parse_description(xml)
     @regex  = create_regexp(xml)
+    @line   = xml.line
     @params = {}
     @tests = []
 

@@ -14,8 +14,12 @@ end
 require 'cucumber'
 require 'cucumber/rake/task'
 
+def jruby?
+  defined?(RUBY_ENGINE) && RUBY_ENGINE == "jruby"
+end
+
 Cucumber::Rake::Task.new(:features) do |t|
-    t.cucumber_opts = "features --format pretty"
+    t.cucumber_opts = "features --format pretty" + (jruby? ? " --tags 'not @jruby-disabled'" : "")
 end
 
 task :default => [ :tests, :yard ]
