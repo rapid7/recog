@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Recog Verify",
+            "command": ".vscode/bin/monitor-recog-fingerprints.sh",
+            "args": [ "${workspaceFolder}/xml" ],
+            "windows": { "command": "" },
+            "type": "process",
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "recog",
+                "fileLocation": [
+                    "absolute"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):\\s+(WARN|FAIL):\\s+(.*)$",
+                    "file": 1,
+                    "severity": 3,
+                    "message": 4,
+                    "location": 2
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^Changes detected",
+                    "endsPattern": "^Waiting for changes"
+                },
+            },
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem"
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        }
+    ]
+  }

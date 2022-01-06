@@ -141,6 +141,8 @@ $ echo 'OpenSSH_6.6p1 Ubuntu-2ubuntu1' | bin/recog_match xml/ssh_banners.xml -
 MATCH: {"matched"=>"OpenSSH running on Ubuntu 14.04", "service.version"=>"6.6p1", "openssh.comment"=>"Ubuntu-2ubuntu1", "service.vendor"=>"OpenBSD", "service.family"=>"OpenSSH", "service.product"=>"OpenSSH", "os.vendor"=>"Ubuntu", "os.device"=>"General", "os.family"=>"Linux", "os.product"=>"Linux", "os.version"=>"14.04", "service.protocol"=>"ssh", "fingerprint_db"=>"ssh.banner", "data"=>"OpenSSH_6.6p1 Ubuntu-2ubuntu1"}
 ```
 
+Additionally, in Visual Studio Code, there is a task (.vscode/tasks.json) which will automatically run recog_verify in the background to watch all the XML fingerprint files (under the xml/ subdirectory of this repository). Whenever files are modified, this task will automatically update the Visual Studio Code user interface and highlight any errors or warnings discovered through recog_verify on the correct file/line. You can also manually run the task by bringing up the Visual Studio Code command menu (cmd + shift + P on mac, or ctrl + shift + P for linux/windows) -> Tasks: Run Task -> Recog Verify). Note that in order for the task to run successfully, you must have a valid ruby installed on your PATH with the gems from `bundle install` installed using bundler for that ruby engine. JRuby is not supported as it has issues related to line numbering due to a bug in Nokogiri.
+
 [^back to top](#contributing-to-recog)
 
 
