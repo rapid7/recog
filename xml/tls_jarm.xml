@@ -56,9 +56,10 @@
     <param pos="0" name="os.device" value="Router"/>
   </fingerprint>
 
-  <fingerprint pattern="^07d14d16d21d21d00042d43d000000aa99ce74e2c6d013c745aa52b5cc042d$">
+  <fingerprint pattern="^07d14d16d21d21d00042d43d000000aa99ce74e2c6d013c745aa52b5cc042d|07d14d16d21d21d07c42d43d000000f50d155305214cf247147c43c0f1a823$">
     <description>Metasploit listener</description>
     <example>07d14d16d21d21d00042d43d000000aa99ce74e2c6d013c745aa52b5cc042d</example>
+    <example>07d14d16d21d21d07c42d43d000000f50d155305214cf247147c43c0f1a823</example>
     <param pos="0" name="service.vendor" value="Rapid7"/>
     <param pos="0" name="service.product" value="Metasploit"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:rapid7:metasploit:-"/>
@@ -67,9 +68,10 @@
   <!-- This fingerprint matches Java's TLS stack,
     see https://blog.cobaltstrike.com/2020/12/08/a-red-teamer-plays-with-jarm/ for details -->
 
-  <fingerprint pattern="^07d14d16d21d21d07c42d41d00041d24a458a375eef0c576d23a7bab9a9fb1$">
+  <fingerprint pattern="^07d14d16d21d21d07c42d41d00041d24a458a375eef0c576d23a7bab9a9fb1|07d14d16d21d21d00042d41d00041de5fb3038104f457d92ba02e9311512c2$">
     <description>Cobalt Strike listener</description>
     <example>07d14d16d21d21d07c42d41d00041d24a458a375eef0c576d23a7bab9a9fb1</example>
+    <example>07d14d16d21d21d00042d41d00041de5fb3038104f457d92ba02e9311512c2</example>
     <param pos="0" name="service.vendor" value="Strategic Cyber LLC"/>
     <param pos="0" name="service.product" value="Cobalt Strike Listener"/>
     <param pos="0" name="service.certainty" value="0.3"/>
