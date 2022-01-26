@@ -1,0 +1,73 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Recog Verify - Background Monitor",
+            "command": ".vscode/bin/monitor-recog-fingerprints.sh",
+            "args": [
+                "${workspaceFolder}/xml"
+            ],
+            "windows": {
+                "command": ""
+            },
+            "type": "process",
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "recog",
+                "fileLocation": [
+                    "absolute"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):\\s+(WARN|FAIL):\\s+(.*)$",
+                    "file": 1,
+                    "severity": 3,
+                    "message": 4,
+                    "location": 2
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^Changes detected",
+                    "endsPattern": "^Waiting for changes"
+                },
+            },
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem"
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        },
+        {
+            "label": "Recog Verify",
+            "command": "bin/recog_verify",
+            "args": [
+                "${workspaceFolder}/xml/*.xml"
+            ],
+            "windows": {
+                "command": ""
+            },
+            "type": "process",
+            "problemMatcher": {
+                "owner": "recog",
+                "fileLocation": [
+                    "absolute"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):\\s+(WARN|FAIL):\\s+(.*)$",
+                    "file": 1,
+                    "severity": 3,
+                    "message": 4,
+                    "location": 2
+                }
+            },
+            "presentation": {
+                "reveal": "always",
+                "revealProblems": "onProblem"
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        }
+    ]
+}
