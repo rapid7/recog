@@ -248,7 +248,7 @@
   <fingerprint pattern="^CN=OA\-([a-fA-F0-9]+),OU=Onboard Administrator,">
     <description>HP iLO (Onboard Administrator)</description>
     <example host.mac="001F296E21A3">CN=OA-001F296E21A3,OU=Onboard Administrator,O=Corp.,L=Location,ST=N/A,C=US</example>
-    <example>CN=OA-80C16E999999,OU=Onboard Administrator,O=Hewlett-Packard</example>
+    <example host.mac="80C16E999999">CN=OA-80C16E999999,OU=Onboard Administrator,O=Hewlett-Packard</example>
     <param pos="0" name="hw.device" value="Lights Out Management"/>
     <param pos="0" name="hw.vendor" value="HP"/>
     <param pos="0" name="hw.family" value="iLO"/>
@@ -353,8 +353,8 @@
 
   <fingerprint pattern="^CN=HP Jetdirect [a-zA-Z0-9]+,OU=([a-fA-F0-9]{12})\+OU=([a-zA-Z0-9]+),O=Hewlett-Packard Co\.$">
     <description>HP Jet Direct - with host MAC and product</description>
-    <example host.mac="2C413883186A" hw.product="J8028E">CN=HP Jetdirect 38831831,OU=2C413883186A+OU=J8028E,O=Hewlett-Packard Co.</example>
-    <example os.product="J8016E">CN=HP Jetdirect FBFA31E7,OU=8851FBE33ABB+OU=J8016E,O=Hewlett-Packard Co.</example>
+    <example host.mac="2C413883186A" hw.product="J8028E" os.product="J8028E">CN=HP Jetdirect 38831831,OU=2C413883186A+OU=J8028E,O=Hewlett-Packard Co.</example>
+    <example os.product="J8016E" host.mac="8851FBE33ABB" hw.product="J8016E">CN=HP Jetdirect FBFA31E7,OU=8851FBE33ABB+OU=J8016E,O=Hewlett-Packard Co.</example>
     <param pos="0" name="hw.device" value="Printer"/>
     <param pos="0" name="hw.vendor" value="HP"/>
     <param pos="0" name="hw.family" value="JetDirect"/>

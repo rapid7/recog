@@ -68,8 +68,8 @@
     <example service.version="9.3.6-P1" os.version="5" os.version.version="11">9.3.6-P1-RedHat-9.3.6-25.P1.el5_11.12</example>
     <example service.version="9.9.1-P3" os.version="6">9.9.1-P3-RedHat-9.9.1.P3.el6</example>
     <example service.version="9.9.3-rpz2+rl.13208.13-P2" os.version="6">9.9.3-rpz2+rl.13208.13-P2-RedHat-9.9.3-4.P2.el6</example>
-    <example os.version="6" os.version.version="1">9.7.3-P3-RedHat-9.7.3-2.el6_1.P3.3</example>
-    <example os.version="6" os.version.version="">9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6</example>
+    <example os.version="6" os.version.version="1" service.version="9.7.3-P3">9.7.3-P3-RedHat-9.7.3-2.el6_1.P3.3</example>
+    <example os.version="6" os.version.version="" service.version="9.8.2rc1">9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6</example>
     <param pos="0" name="service.vendor" value="ISC"/>
     <param pos="0" name="service.family" value="BIND"/>
     <param pos="0" name="service.product" value="BIND"/>
@@ -85,11 +85,11 @@
 
   <fingerprint pattern="^(9.[^-]+(?:-rl[.\d]+)?(?:-[SP]\d)?)-RedHat-[\d.]+-[\w.]+fc([\d]+)$">
     <description>ISC BIND: Fedora</description>
-    <example service.version="9.10.4-P8">9.10.4-P8-RedHat-9.10.4-4.P8.fc25</example>
+    <example service.version="9.10.4-P8" os.version="25">9.10.4-P8-RedHat-9.10.4-4.P8.fc25</example>
     <!-- The '-rl' in the example below indicates a rate limiting patch -->
 
-    <example service.version="9.9.3-rl.13207.22-P2">9.9.3-rl.13207.22-P2-RedHat-9.9.3-5.P2.fc19</example>
-    <example os.version="10">9.5.2-RedHat-9.5.2-1.fc10</example>
+    <example service.version="9.9.3-rl.13207.22-P2" os.version="19">9.9.3-rl.13207.22-P2-RedHat-9.9.3-5.P2.fc19</example>
+    <example os.version="10" service.version="9.5.2">9.5.2-RedHat-9.5.2-1.fc10</example>
     <param pos="0" name="service.vendor" value="ISC"/>
     <param pos="0" name="service.family" value="BIND"/>
     <param pos="0" name="service.product" value="BIND"/>
@@ -843,8 +843,8 @@
 
   <fingerprint pattern="^ALU DNS ([\d\.]+) Build (\d+)$">
     <description>ALU (Alcatel Lucent?) DNS</description>
-    <example service.version="6.2">ALU DNS 6.2 Build 22</example>
-    <example service.version.version="9">ALU DNS 6.2 Build 9</example>
+    <example service.version="6.2" service.version.version="22">ALU DNS 6.2 Build 22</example>
+    <example service.version.version="9" service.version="6.2">ALU DNS 6.2 Build 9</example>
     <param pos="0" name="service.vendor" value="ALU"/>
     <param pos="0" name="service.family" value="DNS"/>
     <param pos="0" name="service.product" value="DNS"/>
@@ -910,8 +910,8 @@
 
   <fingerprint pattern="^Meta IP[\s\/]DNS (?:V[\d\.]+ )?- BIND V([\d\.]+(?:-REL)?) \(Build (\d+)\s?\)$">
     <description>Check Point Meta IP</description>
-    <example service.version="8.2.7-REL">Meta IP DNS - BIND V8.2.7-REL (Build 31)</example>
-    <example service.version.version="4704">Meta IP/DNS V4.1 - BIND V8.1.2 (Build 4704 )</example>
+    <example service.version="8.2.7-REL" service.version.version="31">Meta IP DNS - BIND V8.2.7-REL (Build 31)</example>
+    <example service.version.version="4704" service.version="8.1.2">Meta IP/DNS V4.1 - BIND V8.1.2 (Build 4704 )</example>
     <param pos="0" name="service.vendor" value="Check Point"/>
     <param pos="0" name="service.family" value="META IP"/>
     <param pos="0" name="service.product" value="DNS"/>

@@ -52,7 +52,7 @@
 
   <fingerprint pattern="^Qpopper \(version (\d+\.\d+\.\d+), modified by Sphera Technologies\) at (.+) starting\.">
     <description>Qpopper with Sphera mods</description>
-    <example>Qpopper (version 4.0.3, modified by Sphera Technologies) at domain starting.  &lt;xxx@domain&gt;</example>
+    <example service.version="4.0.3" host.domain="domain">Qpopper (version 4.0.3, modified by Sphera Technologies) at domain starting.  &lt;xxx@domain&gt;</example>
     <param pos="0" name="service.vendor" value="Sphera"/>
     <param pos="0" name="service.family" value="Qpopper"/>
     <param pos="0" name="service.product" value="Qpopper"/>
@@ -62,7 +62,7 @@
 
   <fingerprint pattern="^Qpopper \(version (\d+\.\d+\.\d+)-mysql-(.+)\) at (.+) starting\.">
     <description>Qpopper with MySQL auth module</description>
-    <example>Qpopper (version 4.0.3-mysql-0.13) at domain starting.  &lt;xxx@domain&gt;</example>
+    <example service.version="4.0.3" service.component.version="0.13" host.domain="domain">Qpopper (version 4.0.3-mysql-0.13) at domain starting.  &lt;xxx@domain&gt;</example>
     <param pos="0" name="service.vendor" value="Qualcomm"/>
     <param pos="0" name="service.family" value="Qpopper"/>
     <param pos="0" name="service.product" value="Qpopper"/>
@@ -75,9 +75,9 @@
 
   <fingerprint pattern="(?i)^Qpop(?:per)? \(version ([\d\.]+)\) at (.+)(?: starting\.)?">
     <description>Qpopper missing version info</description>
-    <example>Qpopper (version 4.0.16) at foo.example.com</example>
-    <example>QPOP (version 2.53) at domain starting.  &lt;xxx@domain&gt;</example>
-    <example>Qpopper (version 4.0.3) at domain starting.  &lt;xxx@domain&gt;</example>
+    <example service.version="4.0.16" host.domain="foo.example.com">Qpopper (version 4.0.16) at foo.example.com</example>
+    <example service.version="2.53" host.domain="domain starting.  &lt;xxx@domain&gt;">QPOP (version 2.53) at domain starting.  &lt;xxx@domain&gt;</example>
+    <example service.version="4.0.3" host.domain="domain starting.  &lt;xxx@domain&gt;">Qpopper (version 4.0.3) at domain starting.  &lt;xxx@domain&gt;</example>
     <param pos="0" name="service.vendor" value="Qualcomm"/>
     <param pos="0" name="service.family" value="Qpopper"/>
     <param pos="0" name="service.product" value="Qpopper"/>
@@ -87,7 +87,7 @@
 
   <fingerprint pattern="^QPOP \(version (.*)\) at (.+) starting\.">
     <description>Qpopper with missing version info</description>
-    <example>QPOP (version ?) at domain starting.  &lt;xxx@domain&gt;</example>
+    <example qpopper.version="?" host.domain="domain">QPOP (version ?) at domain starting.  &lt;xxx@domain&gt;</example>
     <param pos="0" name="service.vendor" value="Qualcomm"/>
     <param pos="0" name="service.family" value="Qpopper"/>
     <param pos="0" name="service.product" value="Qpopper"/>
@@ -97,7 +97,7 @@
 
   <fingerprint pattern="^Microsoft Exchange Server 2003 POP3 server version (\d+\.\d+\.\d+\.\d+) (.+) ready.$">
     <description>Microsoft Exchange Server 2003</description>
-    <example>Microsoft Exchange Server 2003 POP3 server version 6.5.6944.0 (host) ready.</example>
+    <example service.version="6.5.6944.0" host.name="(host)">Microsoft Exchange Server 2003 POP3 server version 6.5.6944.0 (host) ready.</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="Exchange Server"/>
     <param pos="0" name="service.product" value="Exchange 2003 Server"/>
@@ -112,7 +112,7 @@
 
   <fingerprint pattern="^Microsoft Exchange 2000 POP3 server version (\d+\.\d+\.\d+\.\d+) (.+) ready.$">
     <description>Microsoft Exchange Server 2000</description>
-    <example>Microsoft Exchange 2000 POP3 server version 6.0.6603.0 (host) ready.</example>
+    <example service.version="6.0.6603.0" host.name="(host)">Microsoft Exchange 2000 POP3 server version 6.0.6603.0 (host) ready.</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="Exchange Server"/>
     <param pos="0" name="service.product" value="Exchange 2000 Server"/>
@@ -127,7 +127,7 @@
 
   <fingerprint pattern="^Microsoft Exchange POP3 server version (\d+\.\d+\.\d+\.\d+) ready$">
     <description>Microsoft Exchange Server</description>
-    <example>Microsoft Exchange POP3 server version 5.5.2654.50 ready</example>
+    <example service.version="5.5.2654.50">Microsoft Exchange POP3 server version 5.5.2654.50 ready</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="Exchange Server"/>
     <param pos="0" name="service.product" value="Exchange Server"/>
@@ -141,7 +141,7 @@
 
   <fingerprint pattern="^Microsoft Windows POP3 Service Version 1.0 &lt;.+@(.+)&gt; ready.$">
     <description>Microsoft POP3 Services on Windows 2003</description>
-    <example>Microsoft Windows POP3 Service Version 1.0 &lt;xxx@host&gt; ready.</example>
+    <example host.name="host">Microsoft Windows POP3 Service Version 1.0 &lt;xxx@host&gt; ready.</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="E-mail Services"/>
     <param pos="0" name="service.product" value="E-mail Services"/>
@@ -240,7 +240,7 @@
 
   <fingerprint pattern="^(\S{1,512}) Zimbra (\S+) POP3 server ready\.?$">
     <description>VMware Zimbra POP with version</description>
-    <example host.name="foo.bar">foo.bar Zimbra 7.0.0_GA_3079 POP3 server ready</example>
+    <example host.name="foo.bar" service.version="7.0.0_GA_3079">foo.bar Zimbra 7.0.0_GA_3079 POP3 server ready</example>
     <param pos="0" name="service.vendor" value="VMware"/>
     <param pos="0" name="service.product" value="Zimbra"/>
     <param pos="2" name="service.version"/>
@@ -250,15 +250,15 @@
 
   <fingerprint pattern="^(?:S?POP3? server ready |Hello there.? )?&lt;.*@([^&gt;]+)&gt;$">
     <description>Generic masked POP3 server</description>
-    <example>POP3 server ready &lt;58c29ae4-7316-429e-8109-060444ab1a28@foo.example.com&gt;</example>
-    <example>&lt;84427.1298535083@foo.example.com&gt;</example>
+    <example host.name="foo.example.com">POP3 server ready &lt;58c29ae4-7316-429e-8109-060444ab1a28@foo.example.com&gt;</example>
+    <example host.name="foo.example.com">&lt;84427.1298535083@foo.example.com&gt;</example>
     <param pos="1" name="host.name"/>
   </fingerprint>
 
   <fingerprint pattern="^ApplePasswordServer ([\d\.]+) password">
     <description>Apple Open Directory</description>
-    <example>ApplePasswordServer 10.6.0.0 password server at 10.2.90.228 ready.</example>
-    <example>ApplePasswordServer 10.5.0.1 password serv</example>
+    <example os.version="10.6.0.0">ApplePasswordServer 10.6.0.0 password server at 10.2.90.228 ready.</example>
+    <example os.version="10.5.0.1">ApplePasswordServer 10.5.0.1 password serv</example>
     <param pos="0" name="service.vendor" value="Apple"/>
     <param pos="0" name="service.product" value="Open Directory"/>
     <param pos="0" name="os.vendor" value="Apple"/>

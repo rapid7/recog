@@ -15,11 +15,11 @@
 
   <fingerprint pattern="(?i)laserjet (.*)(?: series)?">
     <description>HP JetDirect Printer</description>
-    <example>HP LaserJet 4100 Series</example>
-    <example>HP LaserJet 2200</example>
-    <example>LASERJET 4050</example>
-    <example>LASERJET 4 PLUS</example>
-    <example>HP LaserJet Professional P1606dn</example>
+    <example os.product="4100 Series">HP LaserJet 4100 Series</example>
+    <example os.product="2200">HP LaserJet 2200</example>
+    <example os.product="4050">LASERJET 4050</example>
+    <example os.product="4 PLUS">LASERJET 4 PLUS</example>
+    <example os.product="Professional P1606dn">HP LaserJet Professional P1606dn</example>
     <param pos="0" name="service.vendor" value="HP"/>
     <param pos="0" name="service.product" value="JetDirect"/>
     <param pos="0" name="service.family" value="JetDirect"/>
@@ -31,10 +31,10 @@
 
   <fingerprint pattern="(?i)(designjet \S+)">
     <description>HP Designjet printer</description>
-    <example>hp designjet 110plus</example>
-    <example>DESIGNJET 1050C</example>
-    <example>DESIGNJET 1055CM</example>
-    <example>DESIGNJET 700</example>
+    <example os.product="designjet 110plus">hp designjet 110plus</example>
+    <example os.product="DESIGNJET 1050C">DESIGNJET 1050C</example>
+    <example os.product="DESIGNJET 1055CM">DESIGNJET 1055CM</example>
+    <example os.product="DESIGNJET 700">DESIGNJET 700</example>
     <param pos="0" name="service.vendor" value="HP"/>
     <param pos="0" name="service.product" value="JetDirect"/>
     <param pos="0" name="service.family" value="JetDirect"/>
@@ -46,9 +46,9 @@
 
   <fingerprint pattern="^Xerox ColorQube (\S+)$">
     <description>Xerox ColorQube Multifunction Printer</description>
-    <example>Xerox ColorQube 8570DN</example>
-    <example>Xerox ColorQube 8570DT</example>
-    <example>Xerox ColorQube 8570N</example>
+    <example os.product="8570DN">Xerox ColorQube 8570DN</example>
+    <example os.product="8570DT">Xerox ColorQube 8570DT</example>
+    <example os.product="8570N">Xerox ColorQube 8570N</example>
     <param pos="0" name="os.vendor" value="Xerox"/>
     <param pos="0" name="os.family" value="ColorQube"/>
     <param pos="1" name="os.product"/>
@@ -57,7 +57,7 @@
 
   <fingerprint pattern="^Brother (.+)$">
     <description>Brother Printer</description>
-    <example>Brother HL-1660e</example>
+    <example os.product="HL-1660e">Brother HL-1660e</example>
     <param pos="0" name="os.vendor" value="Brother"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
@@ -67,9 +67,9 @@
 
   <fingerprint pattern="^(iR ?\S+)">
     <description>Canon iR multifunction device</description>
-    <example>iR 3180C EUR</example>
-    <example>iR C4080/C4580</example>
-    <example>iR1020/1024/1025</example>
+    <example os.product="iR 3180C">iR 3180C EUR</example>
+    <example os.product="iR C4080/C4580">iR C4080/C4580</example>
+    <example os.product="iR1020/1024/1025">iR1020/1024/1025</example>
     <param pos="0" name="os.vendor" value="Canon"/>
     <param pos="0" name="os.family" value="iR Series"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
@@ -78,16 +78,16 @@
 
   <fingerprint pattern="^(?:Dell (?:Color Laser |Laser Printer )?|(?:Color Laser |Laser Printer ))(\d+(?:n|cn|dn|cdn))(?: Color Laser| Laser Printer)?$">
     <description>Dell Laser Printer</description>
-    <example>Dell Laser Printer 1710n</example>
-    <example>Dell Color Laser 3110cn</example>
-    <example>Laser Printer 5100cn</example>
-    <example>Dell 2130cn Color Laser</example>
-    <example>Dell 2330dn Laser Printer</example>
-    <example>Dell 2350dn Laser Printer</example>
-    <example>Dell 3130cn Color Laser</example>
-    <example>Dell 5130cdn Color Laser</example>
-    <example>Dell 5230n Laser Printer</example>
-    <example>Dell 2145cn</example>
+    <example os.product="1710n">Dell Laser Printer 1710n</example>
+    <example os.product="3110cn">Dell Color Laser 3110cn</example>
+    <example os.product="5100cn">Laser Printer 5100cn</example>
+    <example os.product="2130cn">Dell 2130cn Color Laser</example>
+    <example os.product="2330dn">Dell 2330dn Laser Printer</example>
+    <example os.product="2350dn">Dell 2350dn Laser Printer</example>
+    <example os.product="3130cn">Dell 3130cn Color Laser</example>
+    <example os.product="5130cdn">Dell 5130cdn Color Laser</example>
+    <example os.product="5230n">Dell 5230n Laser Printer</example>
+    <example os.product="2145cn">Dell 2145cn</example>
     <param pos="0" name="os.vendor" value="Dell"/>
     <param pos="0" name="os.family" value="Laser Printer"/>
     <param pos="0" name="os.device" value="Printer"/>
@@ -96,8 +96,8 @@
 
   <fingerprint pattern="^Dell (\d+(?:n|cn|dn|cdn)) MFP$">
     <description>Dell Laser multifunction device</description>
-    <example>Dell 2135cn MFP</example>
-    <example>Dell 2335dn MFP</example>
+    <example os.product="2135cn">Dell 2135cn MFP</example>
+    <example os.product="2335dn">Dell 2335dn MFP</example>
     <param pos="0" name="os.vendor" value="Dell"/>
     <param pos="0" name="os.family" value="Laser Printer"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
@@ -106,7 +106,7 @@
 
   <fingerprint pattern="^HP (\S+ Digital Sender)$">
     <description>HP Digital Sender scanner</description>
-    <example>HP 9250C Digital Sender</example>
+    <example os.product="9250C Digital Sender">HP 9250C Digital Sender</example>
     <param pos="0" name="os.vendor" value="HP"/>
     <param pos="0" name="os.device" value="Scanner"/>
     <param pos="0" name="os.family" value="Digital Sender"/>
@@ -123,7 +123,7 @@
 
   <fingerprint pattern="^KM-(.*)$">
     <description>Konica Minolta printer</description>
-    <example>KM-5050</example>
+    <example os.product="5050">KM-5050</example>
     <param pos="0" name="os.vendor" value="Lexmark"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
@@ -131,9 +131,9 @@
 
   <fingerprint pattern="^(FS-\S+MFP\S*)$">
     <description>Kyocera Mita Multifunction device</description>
-    <example>FS-C2126MFP</example>
-    <example>FS-C2126MFP+</example>
-    <example>FS-1035MFP/DP</example>
+    <example os.product="FS-C2126MFP">FS-C2126MFP</example>
+    <example os.product="FS-C2126MFP+">FS-C2126MFP+</example>
+    <example os.product="FS-1035MFP/DP">FS-1035MFP/DP</example>
     <param pos="0" name="os.vendor" value="Kyocera Mita"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="0" name="os.family" value="FS"/>
@@ -142,9 +142,9 @@
 
   <fingerprint pattern="^(FS-(?:C)?\d+(?:D|DN))$">
     <description>Kyocera Mita Printer</description>
-    <example>FS-C8500DN</example>
-    <example>FS-4100DN</example>
-    <example>FS-2020D</example>
+    <example os.product="FS-C8500DN">FS-C8500DN</example>
+    <example os.product="FS-4100DN">FS-4100DN</example>
+    <example os.product="FS-2020D">FS-2020D</example>
     <param pos="0" name="os.vendor" value="Kyocera Mita"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="0" name="os.family" value="FS"/>
@@ -153,9 +153,9 @@
 
   <fingerprint pattern="^(TASKalfa \S+)$">
     <description>Kyocera Mita TASKalfa multifunction device</description>
-    <example>TASKalfa 300ci</example>
-    <example>TASKalfa 520i</example>
-    <example>TASKalfa 250ci</example>
+    <example os.product="TASKalfa 300ci">TASKalfa 300ci</example>
+    <example os.product="TASKalfa 520i">TASKalfa 520i</example>
+    <example os.product="TASKalfa 250ci">TASKalfa 250ci</example>
     <param pos="0" name="os.vendor" value="Kyocera Mita"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="0" name="os.family" value="TASKalfa"/>
@@ -164,9 +164,9 @@
 
   <fingerprint pattern="^Lexmark (.*)$">
     <description>Lexmark JetDirect printer</description>
-    <example>Lexmark C910</example>
-    <example>Lexmark Optra LaserPrinter</example>
-    <example>Lexmark Optra S 1250</example>
+    <example os.product="C910">Lexmark C910</example>
+    <example os.product="Optra LaserPrinter">Lexmark Optra LaserPrinter</example>
+    <example os.product="Optra S 1250">Lexmark Optra S 1250</example>
     <param pos="0" name="os.vendor" value="Lexmark"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
@@ -183,7 +183,7 @@
 
   <fingerprint pattern="(?i)^Oce (VL\S+):">
     <description>Oce VarioLink multifunction device</description>
-    <example>Oce VL3200:8C5-D92:Ver.B</example>
+    <example os.product="VL3200:8C5-D92">Oce VL3200:8C5-D92:Ver.B</example>
     <param pos="0" name="os.vendor" value="Oce"/>
     <param pos="0" name="os.family" value="VarioLink"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
@@ -205,7 +205,7 @@
 
   <fingerprint pattern="(?i)^Imagistics (im\S+) (.+)">
     <description>Oce IM series multifunction device</description>
-    <example>Imagistics im3510/4510 02-Aug-04 10:56</example>
+    <example os.product="im3510/4510" system.time="02-Aug-04 10:56">Imagistics im3510/4510 02-Aug-04 10:56</example>
     <param pos="0" name="os.vendor" value="Oce"/>
     <param pos="0" name="os.family" value="IM Series"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
@@ -218,9 +218,9 @@
 
   <fingerprint pattern="^OKI (C\d+)\S*$">
     <description>Okidata color printer</description>
-    <example>OKI C610</example>
-    <example>OKI C710</example>
-    <example>OKI C710dn</example>
+    <example os.product="C610">OKI C610</example>
+    <example os.product="C710">OKI C710</example>
+    <example os.product="C710">OKI C710dn</example>
     <param pos="0" name="os.vendor" value="Okidata"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
@@ -228,7 +228,7 @@
 
   <fingerprint pattern="^OKI (MC\d+)\S*$">
     <description>Okidata multifunction device</description>
-    <example>OKI MC860</example>
+    <example os.product="MC860">OKI MC860</example>
     <param pos="0" name="os.vendor" value="Okidata"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="1" name="os.product"/>
@@ -236,10 +236,10 @@
 
   <fingerprint pattern="(?i)^RICOH ((?:Aficio|MP|SP) .*)$">
     <description>Ricoh Aficio Printer</description>
-    <example>RICOH Aficio 2075</example>
-    <example>RICOH Aficio AP610N</example>
-    <example>RICOH Aficio SP 8100DN</example>
-    <example>RICOH MP C1500/615C</example>
+    <example os.product="Aficio 2075">RICOH Aficio 2075</example>
+    <example os.product="Aficio AP610N">RICOH Aficio AP610N</example>
+    <example os.product="Aficio SP 8100DN">RICOH Aficio SP 8100DN</example>
+    <example os.product="MP C1500/615C">RICOH MP C1500/615C</example>
     <param pos="0" name="os.vendor" value="Ricoh"/>
     <param pos="0" name="os.family" value="Aficio"/>
     <param pos="1" name="os.product"/>
@@ -251,14 +251,14 @@
 
   <fingerprint pattern="(?i)^NRG ([MS]P \S+)$">
     <description>Ricoh NRG printer</description>
-    <example>NRG MP 171</example>
-    <example>NRG MP 3350</example>
-    <example>NRG MP C2550</example>
-    <example>NRG MP C2800</example>
-    <example>NRG MP C3500</example>
-    <example>NRG MP C4000</example>
-    <example>NRG MP C4500</example>
-    <example>NRG SP C231SF</example>
+    <example os.product="MP 171">NRG MP 171</example>
+    <example os.product="MP 3350">NRG MP 3350</example>
+    <example os.product="MP C2550">NRG MP C2550</example>
+    <example os.product="MP C2800">NRG MP C2800</example>
+    <example os.product="MP C3500">NRG MP C3500</example>
+    <example os.product="MP C4000">NRG MP C4000</example>
+    <example os.product="MP C4500">NRG MP C4500</example>
+    <example os.product="SP C231SF">NRG SP C231SF</example>
     <param pos="0" name="os.vendor" value="Ricoh"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
@@ -269,7 +269,7 @@
 
   <fingerprint pattern="(?i)^Gestetner (MP\S+/DSc\S+)$">
     <description>Ricoh Gestetner multifunction device</description>
-    <example>Gestetner MPC2500/DSc525</example>
+    <example os.product="MPC2500/DSc525">Gestetner MPC2500/DSc525</example>
     <param pos="0" name="os.vendor" value="Ricoh"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="1" name="os.product"/>
@@ -285,7 +285,7 @@
 
   <fingerprint pattern="(?i)^Savin (\S+)$">
     <description>Savin Printer</description>
-    <example>SAVIN 4075</example>
+    <example os.product="4075">SAVIN 4075</example>
     <param pos="0" name="os.vendor" value="Savin"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
@@ -293,8 +293,8 @@
 
   <fingerprint pattern="(?i)^Samsung ((?:SCX|CLX)-\S+) Series$">
     <description>Samsung multifunction device</description>
-    <example>Samsung SCX-5835_5935 Series</example>
-    <example>Samsung CLX-4195 Series</example>
+    <example os.product="SCX-5835_5935">Samsung SCX-5835_5935 Series</example>
+    <example os.product="CLX-4195">Samsung CLX-4195 Series</example>
     <param pos="0" name="os.vendor" value="Samsung"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
     <param pos="1" name="os.product"/>
@@ -302,8 +302,8 @@
 
   <fingerprint pattern="(?i)^Samsung ((?:ML|CLP)-\S+) Series$">
     <description>Samsung printer</description>
-    <example>Samsung CLP-680 Series</example>
-    <example>Samsung ML-5012_5512 Series</example>
+    <example os.product="CLP-680">Samsung CLP-680 Series</example>
+    <example os.product="ML-5012_5512">Samsung ML-5012_5512 Series</example>
     <param pos="0" name="os.vendor" value="Samsung"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
@@ -311,8 +311,8 @@
 
   <fingerprint pattern="(?i)^SHARP (\S+-\S+)">
     <description>Sharp Printer</description>
-    <example>Sharp MX-NBX3 18-Mar-08 10:22</example>
-    <example>Sharp AR-P17 24-Mar-04 19:55</example>
+    <example os.product="MX-NBX3">Sharp MX-NBX3 18-Mar-08 10:22</example>
+    <example os.product="AR-P17">Sharp AR-P17 24-Mar-04 19:55</example>
     <param pos="0" name="os.vendor" value="Sharp"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
@@ -320,7 +320,7 @@
 
   <fingerprint pattern="(?i)^Source Technologies (\S+)$">
     <description>Source Technologies Printer</description>
-    <example>Source Technologies ST-9620</example>
+    <example os.product="ST-9620">Source Technologies ST-9620</example>
     <param pos="0" name="os.vendor" value="Source Technologies"/>
     <param pos="0" name="os.device" value="Printer"/>
     <param pos="1" name="os.product"/>
@@ -330,10 +330,10 @@
 
   <fingerprint pattern="^TOSHIBA (e-STUDIO\S+)(?:\s+.*)?" certainty="0.9">
     <description>Toshiba e-STUDIO multifunction device</description>
-    <example>TOSHIBA e-STUDIO350 V468Z 20061013</example>
-    <example>TOSHIBA e-STUDIO350-450 V444Z 20041104</example>
-    <example>TOSHIBA e-STUDIO450 V468Z 20061013</example>
-    <example>TOSHIBA e-STUDIO500S</example>
+    <example os.product="e-STUDIO350">TOSHIBA e-STUDIO350 V468Z 20061013</example>
+    <example os.product="e-STUDIO350-450">TOSHIBA e-STUDIO350-450 V444Z 20041104</example>
+    <example os.product="e-STUDIO450">TOSHIBA e-STUDIO450 V468Z 20061013</example>
+    <example os.product="e-STUDIO500S">TOSHIBA e-STUDIO500S</example>
     <param pos="0" name="os.vendor" value="Toshiba"/>
     <param pos="0" name="os.family" value="e-STUDIO"/>
     <param pos="0" name="os.device" value="Multifunction Device"/>
@@ -351,8 +351,8 @@
 
   <fingerprint pattern="^(?:ID=)?Xerox (Phaser \S+)$" certainty="0.9">
     <description>Xerox Phaser Printer</description>
-    <example>Xerox Phaser 6180MFP-D</example>
-    <example>ID=Xerox Phaser 5400</example>
+    <example os.product="Phaser 6180MFP-D">Xerox Phaser 6180MFP-D</example>
+    <example os.product="Phaser 5400">ID=Xerox Phaser 5400</example>
     <param pos="0" name="os.vendor" value="Xerox"/>
     <param pos="0" name="os.family" value="Phaser"/>
     <param pos="0" name="os.device" value="Printer"/>
@@ -361,9 +361,9 @@
 
   <fingerprint pattern="^Xerox (WorkCentre .*)$" certainty="0.9">
     <description>Xerox Workcentre Printer</description>
-    <example>Xerox WorkCentre 7425</example>
-    <example>Xerox WorkCentre Pro 245</example>
-    <example>Xerox WorkCentre Pro 55, v1 Multifunction System</example>
+    <example os.product="WorkCentre 7425">Xerox WorkCentre 7425</example>
+    <example os.product="WorkCentre Pro 245">Xerox WorkCentre Pro 245</example>
+    <example os.product="WorkCentre Pro 55, v1 Multifunction System">Xerox WorkCentre Pro 55, v1 Multifunction System</example>
     <param pos="0" name="os.vendor" value="Xerox"/>
     <param pos="0" name="os.family" value="WorkCentre"/>
     <param pos="1" name="os.product"/>
@@ -372,7 +372,7 @@
 
   <fingerprint pattern="^(XC\S+)$" certainty="0.9">
     <description>Xerox XC Printer</description>
-    <example>XC560</example>
+    <example os.product="XC560">XC560</example>
     <param pos="0" name="os.vendor" value="Xerox"/>
     <param pos="0" name="os.family" value="XC"/>
     <param pos="0" name="os.device" value="Printer"/>
@@ -381,7 +381,7 @@
 
   <fingerprint pattern="^(DC\S+)$" certainty="0.9">
     <description>Xerox DocuColor Printer</description>
-    <example>DC250</example>
+    <example os.product="DC250">DC250</example>
     <param pos="0" name="os.vendor" value="Xerox"/>
     <param pos="0" name="os.family" value="DocuColor"/>
     <param pos="0" name="os.device" value="Printer"/>
@@ -390,7 +390,7 @@
 
   <fingerprint pattern="^(EX\d+-\d+)$" certainty="0.9">
     <description>Xerox EX Print Server, powered by EFI Fiery</description>
-    <example>EX4112-4127</example>
+    <example os.product="EX4112-4127">EX4112-4127</example>
     <param pos="0" name="os.vendor" value="Xerox"/>
     <param pos="0" name="os.family" value="EX"/>
     <param pos="0" name="os.device" value="Print Server"/>
