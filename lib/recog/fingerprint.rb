@@ -168,6 +168,7 @@ class Fingerprint
     # look for the presence of test cases
     if tests.size == 0
       yield :warn, "'#{@name}' has no test cases"
+      return
     end
 
     # make sure each test case passes
