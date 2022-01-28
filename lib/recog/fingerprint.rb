@@ -234,7 +234,7 @@ class Fingerprint
       if !param_used
         message = "'#{@name}' is missing an example that checks for parameter '#{param_name}' " +
                   "which is derived from a capture group"
-        yield :warn, message
+        yield :fail, message
       end
     end
   end

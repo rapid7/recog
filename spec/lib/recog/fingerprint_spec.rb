@@ -75,7 +75,7 @@ describe Recog::Fingerprint do
       let(:entry) { described_class.new(doc.xpath("//fingerprints/fingerprint")[6]) }
 
       it "identifies when a parameter defined by a capture group is not included in one example" do
-        expect { |unused| entry.verify_tests_have_capture_groups(&unused) }.to yield_successive_args([:warn, String])
+        expect { |unused| entry.verify_tests_have_capture_groups(&unused) }.to yield_successive_args([:fail, String])
       end
     end
 
@@ -83,7 +83,7 @@ describe Recog::Fingerprint do
       let(:entry) { described_class.new(doc.xpath("//fingerprints/fingerprint")[7]) }
 
       it "identifies when two parameters defined by a capture groups are not included in one example" do
-        expect { |unused| entry.verify_tests_have_capture_groups(&unused) }.to yield_successive_args([:warn, String], [:warn, String])
+        expect { |unused| entry.verify_tests_have_capture_groups(&unused) }.to yield_successive_args([:fail, String], [:fail, String])
       end
     end
 
@@ -92,7 +92,7 @@ describe Recog::Fingerprint do
       let(:entry) { described_class.new(doc.xpath("//fingerprints/fingerprint")[8]) }
 
       it "identifies when a parameter defined by a capture group is not included in one example" do
-        expect { |unused| entry.verify_tests_have_capture_groups(&unused) }.to yield_successive_args([:warn, String])
+        expect { |unused| entry.verify_tests_have_capture_groups(&unused) }.to yield_successive_args([:fail, String])
       end
     end
 
@@ -100,7 +100,7 @@ describe Recog::Fingerprint do
       let(:entry) { described_class.new(doc.xpath("//fingerprints/fingerprint")[9]) }
 
       it "identifies when two parameters defined by a capture groups are not included in one example" do
-        expect { |unused| entry.verify_tests_have_capture_groups(&unused) }.to yield_successive_args([:warn, String], [:warn, String])
+        expect { |unused| entry.verify_tests_have_capture_groups(&unused) }.to yield_successive_args([:fail, String], [:fail, String])
       end
     end
 
