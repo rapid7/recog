@@ -289,7 +289,7 @@
 
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;(?:SmartAX )?(MT\d+[^ ]*)(?: ADSL Router)?&quot;$">
     <description>Huawei xDSL routers</description>
-    <example hw.product="MT882">Basic realm="SmartAX MT882"</example>
+    <example hw.product="MT882" service.product="MT882" os.product="MT882">Basic realm="SmartAX MT882"</example>
     <param pos="0" name="service.vendor" value="Huawei"/>
     <param pos="0" name="service.family" value="MT"/>
     <param pos="1" name="service.product"/>
@@ -322,10 +322,10 @@
 
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;(WRT54G\w*)&quot;$">
     <description>Linksys WRT54G wireless access point (dozen of variants of the product)</description>
-    <example hw.product="WRT54G">Basic realm="WRT54G"</example>
-    <example hw.product="WRT54GL">Basic realm="WRT54GL"</example>
-    <example hw.product="WRT54GSV4">Basic realm="WRT54GSV4"</example>
-    <example hw.product="WRT54GCv3">Basic realm="WRT54GCv3"</example>
+    <example hw.product="WRT54G" os.product="WRT54G">Basic realm="WRT54G"</example>
+    <example hw.product="WRT54GL" os.product="WRT54GL">Basic realm="WRT54GL"</example>
+    <example hw.product="WRT54GSV4" os.product="WRT54GSV4">Basic realm="WRT54GSV4"</example>
+    <example hw.product="WRT54GCv3" os.product="WRT54GCv3">Basic realm="WRT54GCv3"</example>
     <param pos="0" name="os.vendor" value="Linksys"/>
     <param pos="0" name="os.device" value="WAP"/>
     <param pos="1" name="os.product"/>
@@ -336,9 +336,9 @@
 
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;(TD-[VW8][A-Z0-9]+)(?:| \d+\.\d+)&quot;$">
     <description>TP-LINK SoHo Router - dash variant</description>
-    <example os.product="TD-W8901G">Basic realm="TD-W8901G"</example>
-    <example>Basic realm="TD-8840T 2.0"</example>
-    <example hw.product="TD-8811">Basic realm="TD-8811"</example>
+    <example os.product="TD-W8901G" hw.product="TD-W8901G">Basic realm="TD-W8901G"</example>
+    <example os.product="TD-8840T" hw.product="TD-8840T">Basic realm="TD-8840T 2.0"</example>
+    <example hw.product="TD-8811" os.product="TD-8811">Basic realm="TD-8811"</example>
     <param pos="0" name="os.vendor" value="TP-LINK"/>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="1" name="os.product"/>
@@ -349,10 +349,10 @@
 
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;(TD8[A-Z0-9]+)&quot;$">
     <description>TP-LINK SoHo Router</description>
-    <example os.product="TD854W">Basic realm="TD854W"</example>
-    <example hw.product="TD811">Basic realm="TD811"</example>
-    <example>Basic realm="TD821"</example>
-    <example>Basic realm="TD841"</example>
+    <example os.product="TD854W" hw.product="TD854W">Basic realm="TD854W"</example>
+    <example hw.product="TD811" os.product="TD811">Basic realm="TD811"</example>
+    <example os.product="TD821" hw.product="TD821">Basic realm="TD821"</example>
+    <example os.product="TD841" hw.product="TD841">Basic realm="TD841"</example>
     <param pos="0" name="os.vendor" value="TP-LINK"/>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="1" name="os.product"/>
@@ -363,22 +363,22 @@
 
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;TP-LINK.*(?:Access Point|Extender|AP) ([A-Z0-9\-\+]+)&quot;">
     <description>TP-LINK SoHo Router - verbose variant</description>
-    <example os.product="WA801N">Basic realm="TP-LINK Wireless N Access Point WA801N"</example>
-    <example hw.product="WA830RE">Basic realm="TP-LINK Wireless Range Extender WA830RE"</example>
-    <example>Basic realm="TP-LINK Wireless Range Extender WA850RE"</example>
-    <example>Basic realm="TP-LINK Wireless AP WA501G"</example>
-    <example>Basic realm="TP-LINK Wireless N Access Point WA701ND"</example>
-    <example>Basic realm="TP-LINK Wireless N Access Point WA901ND"</example>
-    <example>Basic realm="TP-LINK Wireless AP WA601G"</example>
-    <example>Basic realm="TP-LINK Wireless AP WR710N"</example>
-    <example>Basic realm="TP-LINK Wireless AP WR700N"</example>
-    <example>Basic realm="TP-LINK Wireless Range Extender WA750RE"</example>
-    <example>Basic realm="TP-LINK Wireless AP WR702N"</example>
-    <example>Basic realm="TP-LINK Wireless AP WR800N"</example>
-    <example>Basic realm="TP-LINK Wireless Range Extender WA730RE"</example>
-    <example>Basic realm="TP-LINK Wireless N Access Point WA805N"</example>
-    <example>Basic realm="TP-LINK Wireless N Access Point WA701N"</example>
-    <example>Basic realm="TP-LINK Wireless AP WR706N"</example>
+    <example os.product="WA801N" hw.product="WA801N">Basic realm="TP-LINK Wireless N Access Point WA801N"</example>
+    <example hw.product="WA830RE" os.product="WA830RE">Basic realm="TP-LINK Wireless Range Extender WA830RE"</example>
+    <example os.product="WA850RE" hw.product="WA850RE">Basic realm="TP-LINK Wireless Range Extender WA850RE"</example>
+    <example os.product="WA501G" hw.product="WA501G">Basic realm="TP-LINK Wireless AP WA501G"</example>
+    <example os.product="WA701ND" hw.product="WA701ND">Basic realm="TP-LINK Wireless N Access Point WA701ND"</example>
+    <example os.product="WA901ND" hw.product="WA901ND">Basic realm="TP-LINK Wireless N Access Point WA901ND"</example>
+    <example os.product="WA601G" hw.product="WA601G">Basic realm="TP-LINK Wireless AP WA601G"</example>
+    <example os.product="WR710N" hw.product="WR710N">Basic realm="TP-LINK Wireless AP WR710N"</example>
+    <example os.product="WR700N" hw.product="WR700N">Basic realm="TP-LINK Wireless AP WR700N"</example>
+    <example os.product="WA750RE" hw.product="WA750RE">Basic realm="TP-LINK Wireless Range Extender WA750RE"</example>
+    <example os.product="WR702N" hw.product="WR702N">Basic realm="TP-LINK Wireless AP WR702N"</example>
+    <example os.product="WR800N" hw.product="WR800N">Basic realm="TP-LINK Wireless AP WR800N"</example>
+    <example os.product="WA730RE" hw.product="WA730RE">Basic realm="TP-LINK Wireless Range Extender WA730RE"</example>
+    <example os.product="WA805N" hw.product="WA805N">Basic realm="TP-LINK Wireless N Access Point WA805N"</example>
+    <example os.product="WA701N" hw.product="WA701N">Basic realm="TP-LINK Wireless N Access Point WA701N"</example>
+    <example os.product="WR706N" hw.product="WR706N">Basic realm="TP-LINK Wireless AP WR706N"</example>
     <param pos="0" name="os.vendor" value="TP-LINK"/>
     <param pos="0" name="os.device" value="WAP"/>
     <param pos="1" name="os.product"/>
@@ -389,9 +389,9 @@
 
   <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;TP-LINK (.*Router.*)&quot;">
     <description>TP-LINK Routers</description>
-    <example>Basic realm="TP-LINK Wireless N Router WR841N"</example>
-    <example>Basic realm="TP-LINK Gigabit Broadband VPN Router R600VPN"</example>
-    <example>Basic realm="TP-LINK Wireless Lite N Router WR740N/WR741ND"</example>
+    <example hw.product="Wireless N Router WR841N">Basic realm="TP-LINK Wireless N Router WR841N"</example>
+    <example hw.product="Gigabit Broadband VPN Router R600VPN">Basic realm="TP-LINK Gigabit Broadband VPN Router R600VPN"</example>
+    <example hw.product="Wireless Lite N Router WR740N/WR741ND">Basic realm="TP-LINK Wireless Lite N Router WR740N/WR741ND"</example>
     <param pos="0" name="hw.vendor" value="TP-LINK"/>
     <param pos="0" name="hw.device" value="Router"/>
     <param pos="1" name="hw.product"/>
@@ -504,7 +504,7 @@
 
   <fingerprint pattern="(?i)^(?:Basic|Digest).*realm=&quot;ZXHN (\S+)&quot;">
     <description>ZTE ZXHN router</description>
-    <example>Basic realm="ZXHN H108L"</example>
+    <example hw.product="H108L">Basic realm="ZXHN H108L"</example>
     <param pos="0" name="hw.vendor" value="ZTE"/>
     <param pos="0" name="hw.device" value="Router"/>
     <param pos="0" name="hw.family" value="ZXHN"/>

@@ -92,7 +92,7 @@
 
   <fingerprint pattern="version=&quot;ntpd (\S+)[^&quot;]+&quot;,.*system=&quot;Equallogic \(R\) storage array&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on an EqualLogic Storage Array that includes the NTP version</description>
-    <example>
+    <example service.version="4.2.0-r">
       version="ntpd 4.2.0-r Fri Feb  5 15:18:30 EST 2010 (1)",
       processor="Working", system="EqualLogic (R) storage array", leap=0,
       stratum=3, precision=-7, rootdelay=102.894, rootdispersion=245.154,
@@ -140,7 +140,7 @@
 
   <fingerprint pattern="version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;Linux/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Linux</description>
-    <example>
+    <example service.version="4.2.4p3@1.1502-o" os.arch="i686" os.version="2.4.29">
       version="ntpd 4.2.4p3@1.1502-o Wed Jul 18 11:45:01 UTC 2007 (1)",
       processor="i686", system="Linux/2.4.29", leap=00, stratum=3,
     </example>
@@ -157,7 +157,7 @@
 
   <fingerprint pattern="version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?6\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Mac OSX 10.2/Jaguar</description>
-    <example service.version="4.1.1@1.786" os.version.version="8">
+    <example service.version="4.1.1@1.786" os.version.version="8" os.arch="Power Macintosh">
       version="ntpd 4.1.1@1.786 Tue Nov 12 09:30:41 PST 2002 (1)", processor="Power Macintosh", system="Darwin6.8",
     </example>
     <param pos="0" name="service.family" value="NTP"/>
@@ -190,7 +190,7 @@
 
   <fingerprint pattern="version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?8\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Mac OSX 10.4/Tiger</description>
-    <example>
+    <example service.version="4.2.0@1.1161-r" os.arch="i386" os.version.version="11.1">
       version="ntpd 4.2.0@1.1161-r Fri Jan 13 11:36:23 PST 2006 (1)",
       processor="i386", system="Darwin/8.11.1", leap=11, stratum=16,
     </example>
@@ -209,7 +209,7 @@
 
   <fingerprint pattern="version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?9\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Mac OSX 10.5/Leopard</description>
-    <example>
+    <example service.version="4.2.2@1.1532-o" os.arch="Power Macintosh" os.version.version="0.0">
       version="ntpd 4.2.2@1.1532-o Mon Sep 24 01:42:27 UTC 2007 (1)",
       processor="Power Macintosh", system="Darwin/9.0.0", leap=3, stratum=16,
     </example>
@@ -228,7 +228,7 @@
 
   <fingerprint pattern="version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?10\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Mac OSX 10.6/Snow Leopard</description>
-    <example>
+    <example service.version="4.2.4p4@1.1520-o" os.arch="i386" os.version.version="8.0">
       version="ntpd 4.2.4p4@1.1520-o Mon May 18 19:38:25 UTC 2009 (1)",
       processor="i386", system="Darwin/10.8.0", leap=0, stratum=3,
     </example>
@@ -267,7 +267,7 @@
 
   <fingerprint pattern="version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^&quot;]+)&quot;,.*system=&quot;Darwin/?11\.([^&quot;]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Mac OSX 10.7/Lion</description>
-    <example>
+    <example service.version="4.2.6@1.2089-o" os.arch="x86_64" os.version.version="2.0">
       version="ntpd 4.2.6@1.2089-o Fri May 28 01:20:53 UTC 2010 (1)",
       processor="x86_64", system="Darwin/11.2.0", leap=11, stratum=16,
     </example>
@@ -367,7 +367,7 @@
 
   <fingerprint pattern="version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;FreeBSD/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on FreeBSD</description>
-    <example>
+    <example service.version="4.2.6p2@1.2194" os.arch="i386" os.version="7.4-PRERELEASE">
       version="ntpd 4.2.6p2@1.2194 Wed Nov 24 15:54:11 UTC 2010 (1)",
       processor="i386", system="FreeBSD/7.4-PRERELEASE", leap=00, stratum=3,
     </example>
@@ -400,7 +400,7 @@
 
   <fingerprint pattern="version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;NetBSD/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on NetBSD</description>
-    <example>
+    <example service.version="4.2.4p6-o" os.arch="sparc64" os.version="5.0_STABLE">
       version="ntpd 4.2.4p6-o Thu Jan  8 21:02:40 MET 2009 (import)",
       processor="sparc64", system="NetBSD/5.0_STABLE", leap=00, stratum=1,
     </example>
@@ -420,34 +420,34 @@
     <example os.arch="i386" os.version="1.5.3">
       processor="i386", system="NetBSD1.5.3"
     </example>
-    <example>
+    <example os.arch="i386" os.version="1.6">
       processor="i386", system="NetBSD1.6"
     </example>
-    <example>
+    <example os.arch="i386" os.version="1.6.1">
       processor="i386", system="NetBSD1.6.1"
     </example>
-    <example>
+    <example os.arch="i386" os.version="1.6.2_STABLE">
       processor="i386", system="NetBSD1.6.2_STABLE"
     </example>
-    <example>
+    <example os.arch="sbmips" os.version="3.0">
       processor="sbmips", system="NetBSD3.0"
     </example>
-    <example>
+    <example os.arch="se100" os.version="1.5.3">
       processor="se100", system="NetBSD1.5.3"
     </example>
-    <example>
+    <example os.arch="seil3" os.version="1.6.1_STABLE">
       processor="seil3", system="NetBSD1.6.1_STABLE"
     </example>
-    <example>
+    <example os.arch="seil3" os.version="1.6.2_STABLE">
       processor="seil3", system="NetBSD1.6.2_STABLE"
     </example>
-    <example>
+    <example os.arch="seil4" os.version="1.6.1_STABLE">
       processor="seil4", system="NetBSD1.6.1_STABLE"
     </example>
-    <example>
+    <example os.arch="seil4" os.version="1.6.2_STABLE">
       processor="seil4", system="NetBSD1.6.2_STABLE"
     </example>
-    <example>
+    <example os.arch="siara2k" os.version="1.5.3">
       processor="siara2k", system="NetBSD1.5.3"
     </example>
     <param pos="0" name="os.vendor" value="NetBSD"/>
@@ -818,7 +818,7 @@
 
   <fingerprint pattern="system=&quot;UNIX/SunOS ([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>SunOS with no ntp version</description>
-    <example>
+    <example os.version="4.x">
       system="UNIX/SunOS 4.x",
     </example>
     <param pos="0" name="os.vendor" value="Sun"/>
@@ -830,7 +830,7 @@
 
   <fingerprint pattern="version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;JUNOS/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Juniper/Netscreen JunOS</description>
-    <example>
+    <example service.version="4.2.0-a" os.arch="i386" os.version="9.3R4.4">
       version="ntpd 4.2.0-a Wed Aug 12 04:22:47 UTC 2009 (1)",
       processor="i386", system="JUNOS9.3R4.4", leap=11, stratum=16,
     </example>
@@ -860,11 +860,11 @@
 
   <fingerprint pattern="version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;Windows/?([^ ]+)?&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on Windows</description>
-    <example>
+    <example service.version="4.2.4p7@copenhagen-o" os.arch="x86">
       version="ntpd 4.2.4p7@copenhagen-o May 22 11:25:36 (UTC+02:00) 2009  (3)",
       processor="x86", system="Windows", leap=00, stratum=2, precision=-19,
     </example>
-    <example>
+    <example service.version="4.2.4p4@1.1520-modena-o" os.arch="unknown" os.version="NT">
       version="ntpd 4.2.4p4@1.1520-modena-o Dec 05 9:35:28 (UTC+01:00) 2007  (11)",
       processor="unknown", system="WINDOWS/NT", leap=00, stratum=2,
     </example>
@@ -881,7 +881,7 @@
 
   <fingerprint pattern="version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;HP-UX/?([^ ]+)?&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on HP-UX</description>
-    <example>
+    <example service.version="4.2.2@1.1532-o" os.arch="9000/800" os.version="B.11.11">
       version="ntpd 4.2.2@1.1532-o Wed Sep  6 16:49:43 EDT 2006 (2)",
       processor="9000/800", system="HP-UX/B.11.11", leap=00, stratum=1,
     </example>
@@ -913,7 +913,7 @@
 
   <fingerprint pattern="version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;[^ ]+&quot;,.*system=&quot;([^ ]+)-hp-hpux([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on HP-UX, where the processor is in the 'system' variable</description>
-    <example>
+    <example service.version="4.2.5p154@1.1802" os.arch="ia64" os.version="11.31">
       version="ntpd 4.2.5p154@1.1802 Tue Mar 22 22:09:00 UTC 2011 (39)",
       processor="unknown", system="ia64-hp-hpux11.31", leap=00, stratum=1,
     </example>
@@ -935,7 +935,7 @@
 
   <fingerprint pattern="version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;VMkernel/?([^ ]+)?&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on VMware ESXi</description>
-    <example>
+    <example service.version="4.2.4p6@1.1495" os.arch="x86_64" os.version="4.1.0">
       version="ntpd 4.2.4p6@1.1495 Wed Sep 22 02:33:15 UTC 2010 (1)",
       processor="x86_64", system="VMkernel/4.1.0", leap=11, stratum=16,
     </example>
@@ -1031,7 +1031,7 @@
 
   <fingerprint pattern="system=&quot;Data ONTAP/+(\S+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>NetApp file servers</description>
-    <example>
+    <example os.version="8.1RC2">
       system="Data ONTAP/8.1RC2"
     </example>
     <param pos="0" name="os.vendor" value="NetApp"/>
@@ -1110,7 +1110,7 @@
 
   <fingerprint pattern="system=&quot;UNIX/Unixware([^ ]+)&quot;" flags="REG_ICASE">
     <description>SCO Unixware NTP</description>
-    <example>
+    <example os.product="2">
       system="UNIX/Unixware2", leap=3, stratum=16, rootdelay=0.00,
       rootdispersion=0.00, peer=0, refid=0.0.0.0, reftime=0x00000000.00000000,
       poll=4, clock=0xd1d874b7.051ec000, phase=0.000, freq=0.00, error=0.00
@@ -1134,7 +1134,7 @@
 
   <fingerprint pattern="version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*\s*processor=&quot;([^ ]+)&quot;,.*system=&quot;SecureOS/([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>McAfee Network Firewall Enterprise NTP (SecureOS)</description>
-    <example>
+    <example service.version="4.2.0-r" os.arch="i386" os.version="7.0.1.00">
       version="ntpd 4.2.0-r Thu Aug 11 12:41:19 CDT 2005 (1)",
       processor="i386", system="SecureOS/7.0.1.00", leap=0, stratum=3,
       precision=-19, rootdelay=27.044, rootdispersion=87.845, peer=2357,
@@ -1142,7 +1142,7 @@
       clock=0xd2636c8e.d5e2d427, state=4, offset=0.519, frequency=-3.027,
       jitter=5.132, stability=0.394
     </example>
-    <example>
+    <example service.version="4.2.0-r" os.arch="i386" os.version="7.0.0.04">
       version="ntpd 4.2.0-r Thu Aug 11 12:41:19 CDT 2005 (1)",
       processor="i386", system="SecureOS/7.0.0.04", leap=0, stratum=2,
       precision=-19, rootdelay=56.480, rootdispersion=35.772, peer=8677,
@@ -1161,14 +1161,14 @@
 
   <fingerprint pattern="processor=&quot;([^ ]+)&quot;.*system=&quot;Linux([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on linux</description>
-    <example>
+    <example os.arch="i686" os.version="2.6.10">
       processor="i686", system="Linux2.6.10", leap=0, stratum=2,
       precision=-17, rootdelay=44.644, rootdispersion=29.933, peer=13317,
       refid=A.B.C.D, reftime=0xd2c29f69.407570c5, poll=10,
       clock=0xd2c2a335.360999dc, state=4, phase=1.037, frequency=55.898,
       jitter=0.203, stability=0.004
     </example>
-    <example>
+    <example os.arch="i686" os.version="2.6.23.waas">
       processor="i686", system="Linux2.6.23.waas", leap=0, stratum=2,
       precision=-18, rootdelay=37.550, rootdispersion=427.047, peer=40613,
       refid=172.20.62.191, reftime=0xd297a442.8b66c6de, poll=14,
@@ -1188,7 +1188,7 @@
 
   <fingerprint pattern="version=&quot;ntpd (\S+)[^&quot;]+&quot;,.*\s*processor=&quot;([^ ]+)&quot;.*system=&quot;Isilon OneFS/v([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>Isilon OneFS NTP Server</description>
-    <example>
+    <example service.version="4.2.4p4-o" os.arch="i386" os.version="5.5.4.21">
       version="ntpd 4.2.4p4-o Thu Feb  4 20:43:00 UTC 2010 (1)",
       processor="i386", system="Isilon OneFS/v5.5.4.21", leap=0, stratum=14,
       precision=-19, rootdelay=0.000, rootdispersion=11.260, peer=60044,
