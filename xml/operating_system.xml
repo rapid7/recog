@@ -59,6 +59,7 @@
   <fingerprint pattern="^(?i:(?:Microsoft )?Windows 2000(?:\s)?([a-z]+|[a-z]+\s[a-z]+)?(?:\s)?(SP\d|SP \d|Service Pack \d)?)$">
     <description>Windows 2000</description>
     <example os.edition="Professional">Windows 2000 Professional</example>
+    <example os.edition="Professional" os.version="Service Pack 1">Windows 2000 Professional Service Pack 1</example>
     <example os.edition="Advanced Server">Windows 2000 Advanced Server</example>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
@@ -228,6 +229,7 @@
   <fingerprint pattern="^(?i:Gentoo(?: Linux)\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>Gentoo Linux</description>
     <example>Gentoo Linux</example>
+    <example os.version="1.0">Gentoo Linux 1.0</example>
     <param pos="0" name="os.vendor" value="Gentoo"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
@@ -670,6 +672,7 @@
     <example os.product="VM/CMS" os.family="VM/CMS">IBM VM/CMS</example>
     <example os.product="VM/ESA" os.family="VM/ESA">IBM VM/ESA</example>
     <example os.product="z/OS" os.family="z/OS">IBM z/OS</example>
+    <example os.product="z/OS" os.family="z/OS" os.version="1.0">IBM z/OS 1.0</example>
     <param pos="0" name="os.vendor" value="IBM"/>
     <param pos="1" name="os.family"/>
     <param pos="1" name="os.product"/>
@@ -680,6 +683,7 @@
     <description>HP OSes</description>
     <example os.product="HP-UX" os.family="HP-UX">HP-UX</example>
     <example os.product="OpenVMS" os.family="OpenVMS">OpenVMS</example>
+    <example os.product="OpenVMS" os.family="OpenVMS" os.version="1.0">OpenVMS 1.0</example>
     <param pos="0" name="os.vendor" value="HP"/>
     <param pos="1" name="os.family"/>
     <param pos="1" name="os.product"/>
@@ -693,6 +697,7 @@
   <fingerprint pattern="^(?i:(?:Juniper\s?)?(Junos|Junos OS|ScreenOS)\s?(\d+?(?:\.\d+?)*?)?)$">
     <description>Juniper</description>
     <example os.family="Junos" os.product="Junos">Junos</example>
+    <example os.family="Junos" os.product="Junos" os.version="1.0">Junos 1.0</example>
     <example os.family="ScreenOS" os.product="ScreenOS">ScreenOS</example>
     <param pos="0" name="os.vendor" value="Juniper"/>
     <param pos="1" name="os.family"/>
@@ -705,6 +710,7 @@
   <fingerprint pattern="^(?i:(?:Cisco\s?)?(ASA|Adaptive Security Appliance|IOS|IOS-XE|IOS-XR|NX-OS|PIX-OS|SAN-OS)\s?(?:Version (\S+))?)$">
     <description>Cisco</description>
     <example os.family="ASA" os.product="ASA">Cisco ASA</example>
+    <example os.family="ASA" os.product="ASA" os.version="1.0">Cisco ASA Version 1.0</example>
     <example os.family="IOS" os.product="IOS">Cisco IOS</example>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="1" name="os.family"/>
