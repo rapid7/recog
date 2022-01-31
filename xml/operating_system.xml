@@ -679,11 +679,16 @@
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?i:(?:HP\s?)?(Digital UNIX|HP-UX|iLO|OpenVMS|ProLiant|Tru64 UNIX)\s?(\d+?(?:\.\d+?)*?)?)$">
+  <fingerprint pattern="^(?i:(?:HP\s?)?(Digital UNIX|HP-UX|iLO|OpenVMS|ProLiant|Tru64 UNIX)\s?V?(\d+(?:\.\d+)*(?:-[\dA-Z]+)?)?)$">
     <description>HP OSes</description>
     <example os.product="HP-UX" os.family="HP-UX">HP-UX</example>
     <example os.product="OpenVMS" os.family="OpenVMS">OpenVMS</example>
     <example os.product="OpenVMS" os.family="OpenVMS" os.version="6.2">OpenVMS 6.2</example>
+    <example os.product="OpenVMS" os.family="OpenVMS" os.version="7.3-2">OpenVMS V7.3-2</example>
+    <example os.product="OpenVMS" os.family="OpenVMS" os.version="8.2-1">OpenVMS V8.2-1</example>
+    <example os.product="OpenVMS" os.family="OpenVMS" os.version="8.3">OpenVMS V8.3</example>
+    <example os.product="OpenVMS" os.family="OpenVMS" os.version="8.3-1H1">OpenVMS V8.3-1H1</example>
+    <example os.product="OpenVMS" os.family="OpenVMS" os.version="8.4-2L1">OpenVMS V8.4-2L1</example>
     <param pos="0" name="os.vendor" value="HP"/>
     <param pos="1" name="os.family"/>
     <param pos="1" name="os.product"/>
