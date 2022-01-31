@@ -699,10 +699,11 @@
 
   <!-- Network equipment begin -->
 
-  <fingerprint pattern="^(?i:(?:Juniper\s?)?(Junos|Junos OS|ScreenOS)\s?(\d+?(?:\.\d+?)*?)?)$">
+  <fingerprint pattern="^(?i:(?:Juniper\s?)?(Junos|Junos OS|ScreenOS)\s?(\d+(?:\.\d+?)*(?:X\d{2})?)?)$">
     <description>Juniper</description>
     <example os.family="Junos" os.product="Junos">Junos</example>
-    <example os.family="Junos" os.product="Junos" os.version="1.0">Junos 1.0</example>
+    <example os.family="Junos" os.product="Junos" os.version="4.4">Junos 4.4</example>
+    <example os.family="Junos" os.product="Junos" os.version="12.1X44">Junos 12.1X44</example>
     <example os.family="ScreenOS" os.product="ScreenOS">ScreenOS</example>
     <param pos="0" name="os.vendor" value="Juniper"/>
     <param pos="1" name="os.family"/>
@@ -712,11 +713,14 @@
 
   <!-- This needs to be improved if it's not how one would generally present a Cisco OS version. -->
 
-  <fingerprint pattern="^(?i:(?:Cisco\s?)?(ASA|Adaptive Security Appliance|IOS|IOS-XE|IOS-XR|NX-OS|PIX-OS|SAN-OS)\s?(?:Version (\S+))?)$">
+  <fingerprint pattern="^(?i:(?:Cisco\s?)?(ASA|Adaptive Security Appliance|IOS|IOS-XE|IOS-XR|NX-OS|PIX-OS|SAN-OS)\s?(?:Version (\d+(?:\.\d+)*(?:\(\d+(?:\.\d+)*\)?)))?)$">
     <description>Cisco</description>
     <example os.family="ASA" os.product="ASA">Cisco ASA</example>
-    <example os.family="ASA" os.product="ASA" os.version="1.0">Cisco ASA Version 1.0</example>
     <example os.family="IOS" os.product="IOS">Cisco IOS</example>
+    <example os.family="ASA" os.product="ASA" os.version="7.0(1)">Cisco ASA Version 7.0(1)</example>
+    <example os.family="ASA" os.product="ASA" os.version="8.2(4.4)">Cisco ASA Version 8.2(4.4)</example>
+    <example os.family="ASA" os.product="ASA" os.version="8.3(2.25)">Cisco ASA Version 8.3(2.25)</example>
+    <example os.family="ASA" os.product="ASA" os.version="9.5(2.200)">Cisco ASA Version 9.5(2.200)</example>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="1" name="os.family"/>
     <param pos="1" name="os.product"/>
