@@ -48,6 +48,7 @@ Feature: Verify
       tests_with_failures.xml:8: FAIL: '' failed to match "This almost matches" with (?-mix:^This matches$)'
       tests_with_failures.xml:13: FAIL: 'bar test's os.name is a non-zero pos but specifies a value of 'Bar'
       tests_with_failures.xml:13: FAIL: 'bar test' failed to find expected capture group os.version '5.0'. Result was 1.0
-      tests_with_failures.xml: SUMMARY: Test completed with 0 successful, 0 warnings, and 4 failures
+      tests_with_failures.xml:20: FAIL: 'example with untested parameter' is missing an example that checks for parameter 'os.version' which is derived from a capture group
+      tests_with_failures.xml: SUMMARY: Test completed with 1 successful, 0 warnings, and 5 failures
       """
-    And the exit status should be 4
+    And the exit status should be 5
