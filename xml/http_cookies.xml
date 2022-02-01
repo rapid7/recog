@@ -86,10 +86,25 @@
     <param pos="0" name="hw.device" value="VPN"/>
   </fingerprint>
 
-  <fingerprint pattern="^(Apache)=[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.([0-9]+);">
-    <description>Apache</description>
-    <param pos="1" name="cookie"/>
-    <param pos="2" name="system.time.micros"/>
+  <fingerprint pattern="^Apache=(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\.([0-9]+(?:\.[0-9]+)?);">
+    <description>Apache with session ID containing IP and timestamp (timestamp can be micros, millis or seconds)</description>
+    <example host.ip="10.10.130.165" system.time="1643670182768255">Apache=10.10.130.165.1643670182768255; path=/</example>
+    <example host.ip="10.0.101.6" system.time="1643663969718158">Apache=10.0.101.6.1643663969718158; path=/; expires=Wed, 31-Jan-24 21:19:29 GMT; domain=.contoso.com</example>
+    <example host.ip="10.10.20.18" system.time="1643510579.1915">Apache=10.10.20.18.1643510579.1915; domain=foo.com; path=/; expires=Mon, 30-Jan-2023 02:42:58 GMT</example>
+    <example host.ip="10.23.219.241" system.time="1643541709604">Apache=10.23.219.241.1643541709604; path=/; expires=Tue, 19-Jan-2038 03:14:07 GMT</example>
+    <param pos="0" name="cookie" value="Apache"/>
+    <param pos="2" name="system.time"/>
+    <param pos="1" name="host.ip"/>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.family" value="Apache"/>
+    <param pos="0" name="service.product" value="HTTPD"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Apache=[0-9a-z]{8}\.[0-9a-z]{13};">
+    <description>Apache with opaque session ID</description>
+    <example>Apache=1148b9c3.5d6e61e36f2f9; path=/; domain=.foo.com</example>
+    <param pos="0" name="cookie" value="Apache"/>
     <param pos="0" name="service.vendor" value="Apache"/>
     <param pos="0" name="service.family" value="Apache"/>
     <param pos="0" name="service.product" value="HTTPD"/>
@@ -123,27 +138,20 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:mozilla:bugzilla:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(WebLogicSession)=[^!]+![^!]+!([0-9]+);">
-    <description>BEA WebLogic (with timestamp)</description>
-    <param pos="1" name="cookie"/>
-    <param pos="2" name="system.time.millis"/>
-    <param pos="0" name="service.vendor" value="BEA"/>
-    <param pos="0" name="service.family" value="WebLogic"/>
-    <param pos="0" name="service.product" value="WebLogic"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:bea:weblogic_server:-"/>
-  </fingerprint>
-
-  <fingerprint pattern="^(WebLogicSession)=">
+  <fingerprint pattern="^WebLogicSession=">
     <description>BEA WebLogic (no timestamp)</description>
-    <param pos="1" name="cookie"/>
+    <example>WebLogicSession=YfifY2Ck8aWILbJPiaoY3L8aKBjh2MZhUAjHXypG6IBwvWXrun3i|-3385140432258369694/-900104935/6/7009/7009/7010/7010/7009/-1; path=/</example>
+    <example>WebLogicSession=QKRlJZbj0b948CrXnoQw8FNuSWvO6fXaJNadlcCWwA3qm6CtqD5a; path=/</example>
+    <param pos="0" name="cookie" value="WebLogicSession"/>
     <param pos="0" name="service.vendor" value="BEA"/>
     <param pos="0" name="service.family" value="WebLogic"/>
     <param pos="0" name="service.product" value="WebLogic"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:bea:weblogic_server:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(BCSI-CSC[0-9A-Za-z]+)=">
+  <fingerprint pattern="^(BCSI-CS-[0-9A-Za-z]+)=">
     <description>BlueCoat Proxy</description>
+    <example cookie="BCSI-CS-2f6c78bdf64f3b32">BCSI-CS-2f6c78bdf64f3b32=2; Path=/</example>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="Blue Coat"/>
     <param pos="0" name="service.family" value="Proxy"/>
@@ -208,6 +216,7 @@
 
   <fingerprint pattern="^st8id=">
     <description>Citrix Application Protection System, Enterprise - http://support.citrix.com/article/CTX109330</description>
+    <example>st8id=1e1bcc1010b6de32734c584317443b31.00.641b86ac5ed3ebb0799138f83af9b63f;</example>
     <param pos="0" name="cookie" value="st8id"/>
     <param pos="0" name="service.vendor" value="Citrix"/>
     <param pos="0" name="service.family" value="Application Protection System"/>
@@ -365,6 +374,8 @@
 
   <fingerprint pattern="^IBMCBR=">
     <description>IBM WebSphere Load Balancer</description>
+    <!-- Replace with a valid example if one is discovered -->
+    <example>IBMCBR=fakevalue</example>
     <param pos="0" name="cookie" value="IBMCBR"/>
     <param pos="0" name="service.vendor" value="IBM"/>
     <param pos="0" name="service.family" value="WebSphere"/>
@@ -382,12 +393,14 @@
 
   <fingerprint pattern="^_mastodon_session=">
     <description>Mastodon</description>
+    <example>_mastodon_session=U09wSzlaMHNuZVI3RGJjR1M2d2lqNFhXc1BXNlJtOXBueTdoM1J2Ykk3UjRXa2V3WkNUNm5BUmY4Z0NISk9FaEtrOVQrMXJCRldvbk1kY3BUaDZkMlRuZkNBUDVXU01EakN3S1JEZDdjbzhNQ0t5MHpXZE9WSGlTOVhKNkhlZWhlaWsxM3Mvd0poU1NHWkZjWUNucmJoeDdNdU85ekpkQVJSbkhDeXdKZ08wMkNuUm1BYnE3cGVBK2FBN1FTUU9SLS1EdUVoNWtLOFFWaWsxNmY2bzErbFVRPT0%3D--4b6087906fdfa25f0bfd46b13d3c1c3a9fb379cd; path=/; secure; HttpOnly</example>
     <param pos="0" name="cookie" value="_mastodon_session"/>
     <param pos="0" name="service.product" value="Mastodon"/>
   </fingerprint>
 
   <fingerprint pattern="^(MSCSAuth|MSCSProfile)=">
     <description>Microsoft Commerce Server - http://msdn2.microsoft.com/en-us/library/ms953828.aspx</description>
+    <example cookie="MSCSProfile">MSCSProfile=287001FD2674671C7869448243193407F294F4F921DD7D627A0F4EE0CC7F3FAC36B5E45588612D30B2A6C57F1D461CB5EE0887989EE7F09E4529B0795EF87BB095FFF1DE42BD5E8F00273BCAACB9DC80733367D09A4B6A48A6802C4DCD6EB029BF5B207BCE523E8BF2EE3EBCDF5776BAC6B6BCD4BF54EF9C178F9605E75D0DDA; path=/</example>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="Commerce Server"/>
@@ -426,6 +439,8 @@
 
   <fingerprint pattern="^((?:SS_X_)?CSINTERSESSIONID)=">
     <description>OpenMarket/FatWire Content Server (www.fatwire.com)</description>
+    <example cookie="SS_X_CSINTERSESSIONID">SS_X_CSINTERSESSIONID=0001P73k2FUEYEU4Ks5TtKxcs2K:vv0b9pej; path=/</example>
+    <example cookie="CSINTERSESSIONID">CSINTERSESSIONID=0001xquPwAx2NFUFvi7yw-43f35:vv7sdeqs;Path=/</example>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="FatWire"/>
     <param pos="0" name="service.family" value="Content Server"/>
@@ -434,6 +449,7 @@
 
   <fingerprint pattern="^parkinglot=">
     <description>Oversee Webserver</description>
+    <example>parkinglot=1; domain=.foo.com; path=/; expires=Sun, 11-May-2008 13:51:17 GMT</example>
     <param pos="0" name="cookie" value="parkinglot"/>
     <param pos="0" name="service.vendor" value="Oversee"/>
     <param pos="0" name="service.family" value="Webserver"/>
@@ -491,6 +507,7 @@
 
   <fingerprint pattern="^NSES40Session=">
     <description>Netscape Enterprise Server (subsequently iPlanet Web Server, Sun ONE Web Server, presently Sun Java System Web Server)</description>
+    <example>NSES40Session=2%253A3e57d375%253Adc59172283a7e72c;path=/;expires=Sat, 22-Feb-2003 20:15:57 GMT</example>
     <param pos="0" name="cookie" value="NSES40Session"/>
     <param pos="0" name="service.vendor" value="Sun"/>
     <param pos="0" name="service.family" value="Java System Web Server"/>
@@ -517,8 +534,10 @@
     <param pos="0" name="service.product" value="Sage X3 Syracuse Web Server"/>
   </fingerprint>
 
-  <fingerprint pattern="^(gx_session_id|JROUTE)=">
+  <fingerprint pattern="^(gx_session_id|JROUTE)=" flags="REG_ICASE">
     <description>Sun Java System Application Server (formerly iPlanet Application Server, Sun ONE Application Server)</description>
+    <example cookie="GX_SESSION_ID">GX_SESSION_ID=ji7vouPhPt5CAtGF%2BWPMXBrhjjxWZAD9HRNeEEITGCA%3D</example>
+    <example cookie="JROUTE">JROUTE=KbDs; Path=/</example>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="Sun"/>
     <param pos="0" name="service.family" value="Java System Application Server"/>
@@ -565,6 +584,7 @@
 
   <fingerprint pattern="^(vgncontext|vgnvisitor|ssuid)=">
     <description>Vignette</description>
+    <example cookie="vgnvisitor">vgnvisitor=2KM2OM00bZ40000PovANt0Dgn0; path=/; expires=Saturday, 06-Sep-2014 23:50:08 GMT</example>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="Vignette"/>
     <param pos="0" name="service.family" value="Vignette"/>
@@ -607,10 +627,11 @@
     <param pos="0" name="service.product" value="Zope"/>
   </fingerprint>
 
-  <fingerprint pattern="^(portal)=([0-9]+\.[0-9]+\.[0-9]+)">
+  <fingerprint pattern="^portal=([0-9]+\.[0-9]+\.[0-9]+)">
     <description>OracleAS Portal default cookie name - http://download.oracle.com/docs/cd/B14099_19/portal.1014/b19305/cg_app_f.htm</description>
-    <param pos="1" name="cookie"/>
-    <param pos="2" name="service.version"/>
+    <example service.version="2173348032.20480.0000">portal=2173348032.20480.0000;</example>
+    <param pos="0" name="cookie" value="portal"/>
+    <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.family" value="OracleAS"/>
     <param pos="0" name="service.product" value="Application Server Portal"/>
