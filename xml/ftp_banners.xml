@@ -202,7 +202,7 @@ example.com FTP server (Version:  Mac OS X Server) ready.</example>
 
   <fingerprint pattern="^ProFTPD (\d+\.[^\s]+) Server \(Linksys(W.+)\) \[(.+)\]$">
     <description>ProFTPD on a Linksys Wireless Access Point/Router</description>
-    <example service.version="1.3.0rc2" os.product="WRT350N" host.name="host">ProFTPD 1.3.0rc2 Server (LinksysWRT350N) [host]</example>
+    <example service.version="1.3.0rc2" os.product="WRT350N" hw.product="WRT350N" host.name="host">ProFTPD 1.3.0rc2 Server (LinksysWRT350N) [host]</example>
     <param pos="0" name="service.family" value="ProFTPD"/>
     <param pos="0" name="service.vendor" value="ProFTPD Project"/>
     <param pos="0" name="service.product" value="ProFTPD"/>
@@ -211,6 +211,8 @@ example.com FTP server (Version:  Mac OS X Server) ready.</example>
     <param pos="0" name="os.vendor" value="Linksys"/>
     <param pos="0" name="os.device" value="WAP"/>
     <param pos="2" name="os.product"/>
+    <param pos="0" name="hw.vendor" value="Linksys"/>
+    <param pos="2" name="hw.product"/>
     <param pos="3" name="host.name"/>
   </fingerprint>
 
@@ -239,19 +241,6 @@ example.com FTP server (Version:  Mac OS X Server) ready.</example>
     <param pos="0" name="hw.device" value="NAS"/>
     <param pos="0" name="hw.product" value="ReadyNAS"/>
     <param pos="1" name="host.name"/>
-  </fingerprint>
-
-  <fingerprint pattern="^ProFTPD (\d+\.[^\s]+) Server \(Linksys(.*)\) \[(.+)\]$">
-    <description>ProFTPD on a wired Linksys device</description>
-    <param pos="0" name="service.family" value="ProFTPD"/>
-    <param pos="0" name="service.vendor" value="ProFTPD Project"/>
-    <param pos="0" name="service.product" value="ProFTPD"/>
-    <param pos="1" name="service.version"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:proftpd:proftpd:{service.version}"/>
-    <param pos="0" name="os.vendor" value="Linksys"/>
-    <param pos="0" name="os.device" value="Router"/>
-    <param pos="2" name="os.product"/>
-    <param pos="3" name="host.name"/>
   </fingerprint>
 
   <fingerprint pattern="^ProFTPD (\d+\.[^\s]+) Server \((.*)\) \[(.+)\]$">
@@ -611,6 +600,7 @@ more text</example>
 
   <fingerprint pattern="^---freeFTPd 1.0---warFTPd 1.65---$">
     <description>Nepenthes honeypot</description>
+    <example>---freeFTPd 1.0---warFTPd 1.65---</example>
     <param pos="0" name="service.family" value="Nepenthes"/>
     <param pos="0" name="service.product" value="Nepenthes"/>
   </fingerprint>
@@ -693,9 +683,9 @@ more text</example>
     <param pos="0" name="os.device" value="IP Camera"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^AXIS (\S+) (?:(?:Mk II )?Video) (?:Encoder|Encoder Blade|Module|Server|Decoder) (\S+)">
+  <fingerprint pattern="(?i)^AXIS (\S+) (?:(?:Mk II )?Video) (?:Encoder(?: Blade)?|Module|Server|Decoder) (\S+)">
     <description>Axis Video encoders/servers</description>
-    <example hw.product="Q7406" hw.version="Blade">AXIS Q7406 Video Encoder Blade 5.01 (Aug 01 2008) ready.</example>
+    <example hw.product="Q7406" hw.version="5.01">AXIS Q7406 Video Encoder Blade 5.01 (Aug 01 2008) ready.</example>
     <example hw.product="241Q" hw.version="4.47.2">AXIS 241Q Video Server 4.47.2 (Dec 11 2008) ready.</example>
     <example hw.version="5.07.2" hw.product="P7701">AXIS P7701 Video Decoder 5.07.2 (Apr 20 2010) ready.</example>
     <example hw.product="Q7401" hw.version="5.01">AXIS Q7401 Video Encoder 5.01 (Aug 01 2008) ready.</example>

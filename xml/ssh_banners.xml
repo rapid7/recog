@@ -1732,6 +1732,7 @@
 
   <fingerprint pattern="^SSH Protocol Compatible Server SCS (.*)$">
     <description>Netscreen with version</description>
+    <example service.version="2.0">SSH Protocol Compatible Server SCS 2.0</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="Juniper"/>
     <param pos="0" name="service.family" value="NetScreen"/>
@@ -1859,6 +1860,7 @@
 
   <fingerprint pattern="^([\d.]{1,8}) sshlib: MOVEit DMZ SSH (.*)$">
     <description>MOVEit DMZ (which uses Bitvise sshlib)</description>
+    <example service.component.version="1.29" service.version="3.0.5.0">1.29 sshlib: MOVEit DMZ SSH 3.0.5.0</example>
     <param pos="1" name="service.component.version"/>
     <param pos="2" name="service.version"/>
     <param pos="0" name="service.component.vendor" value="Bitvise"/>
@@ -1886,6 +1888,7 @@
 
   <fingerprint pattern="^Pragma SecureShell\s*(.*)$">
     <description>Pragma SecureShell</description>
+    <example service.version="3.0">Pragma SecureShell 3.0</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="Pragma Systems"/>
     <param pos="0" name="service.family" value="FortressSSH Server"/>
@@ -2047,6 +2050,7 @@
 
   <fingerprint pattern="MultiNet">
     <description>Process Software MultiNet is a suite of network apps for OpenVMS</description>
+    <example>Process Software SSH 6.1.5.0 MultiNet</example>
     <param pos="0" name="service.vendor" value="Process Software"/>
     <param pos="0" name="service.family" value="MultiNet"/>
     <param pos="0" name="service.product" value="MultiNet"/>
