@@ -333,10 +333,11 @@
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="\(StartCom Linux\)">
+  <fingerprint pattern="\(StartCom(?: Linux)?\)">
     <description>StartCom Linux</description>
-    <!-- Replace with a useful (real world) example if one is found -->
-    <example>Apache (StartCom Linux)</example>
+    <example>Apache/2.2.3 (StartCom)</example>
+    <example>Apache/2.2.3 (StartCom) (Release 31.SEL5_4)</example>
+    <example>Apache/2.2.0 (StartCom Linux)</example>
     <param pos="0" name="os.vendor" value="StartCom"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
