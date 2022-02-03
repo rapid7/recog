@@ -86,14 +86,13 @@
     <param pos="0" name="hw.device" value="VPN"/>
   </fingerprint>
 
-  <fingerprint pattern="^Apache=(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\.([0-9]+(?:\.[0-9]+)?);">
+  <fingerprint pattern="^Apache=(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\.[0-9]+(?:\.[0-9]+)?;">
     <description>Apache with session ID containing IP and timestamp (timestamp can be micros, millis or seconds)</description>
-    <example host.ip="10.10.130.165" system.time="1643670182768255">Apache=10.10.130.165.1643670182768255; path=/</example>
-    <example host.ip="10.0.101.6" system.time="1643663969718158">Apache=10.0.101.6.1643663969718158; path=/; expires=Wed, 31-Jan-24 21:19:29 GMT; domain=.contoso.com</example>
-    <example host.ip="10.10.20.18" system.time="1643510579.1915">Apache=10.10.20.18.1643510579.1915; domain=foo.com; path=/; expires=Mon, 30-Jan-2023 02:42:58 GMT</example>
-    <example host.ip="10.23.219.241" system.time="1643541709604">Apache=10.23.219.241.1643541709604; path=/; expires=Tue, 19-Jan-2038 03:14:07 GMT</example>
+    <example host.ip="10.10.130.165">Apache=10.10.130.165.1643670182768255; path=/</example>
+    <example host.ip="10.0.101.6">Apache=10.0.101.6.1643663969718158; path=/; expires=Wed, 31-Jan-24 21:19:29 GMT; domain=.contoso.com</example>
+    <example host.ip="10.10.20.18">Apache=10.10.20.18.1643510579.1915; domain=foo.com; path=/; expires=Mon, 30-Jan-2023 02:42:58 GMT</example>
+    <example host.ip="10.23.219.241">Apache=10.23.219.241.1643541709604; path=/; expires=Tue, 19-Jan-2038 03:14:07 GMT</example>
     <param pos="0" name="cookie" value="Apache"/>
-    <param pos="2" name="system.time"/>
     <param pos="1" name="host.ip"/>
     <param pos="0" name="service.vendor" value="Apache"/>
     <param pos="0" name="service.family" value="Apache"/>
@@ -534,7 +533,7 @@
     <param pos="0" name="service.product" value="Sage X3 Syracuse Web Server"/>
   </fingerprint>
 
-  <fingerprint pattern="^(gx_session_id|JROUTE)=" flags="REG_ICASE">
+  <fingerprint pattern="^(GX_SESSION_ID|JROUTE)=">
     <description>Sun Java System Application Server (formerly iPlanet Application Server, Sun ONE Application Server)</description>
     <example cookie="GX_SESSION_ID">GX_SESSION_ID=ji7vouPhPt5CAtGF%2BWPMXBrhjjxWZAD9HRNeEEITGCA%3D</example>
     <example cookie="JROUTE">JROUTE=KbDs; Path=/</example>
