@@ -17,4 +17,10 @@
      <param pos="2" name="os.version" />
      <param pos="1" name="os.name" value="Bar" />
    </fingerprint>
+  <fingerprint pattern="^(\S+) ([\d.]+)$">
+    <description>example with untested parameter</description>
+    <!-- Fail: missing example test os.version parameter -->
+    <example>bar 1.0</example>
+    <param pos="1" name="os.version" />
+  </fingerprint>
 </fingerprints>
