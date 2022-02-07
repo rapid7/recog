@@ -37,7 +37,7 @@ jobs:
         with:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: Run recog verify
-        run: bundle exec recog_verify --no-warnings xml/*.xml
+        run: bundle exec recog_verify --schema-location xml/fingerprints.xsd --no-warnings xml/*.xml
   java-verify:
     name: 'Java Verify'
     runs-on: ubuntu-latest

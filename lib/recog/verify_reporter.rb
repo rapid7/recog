@@ -27,12 +27,12 @@ class VerifyReporter
   def warning(text, line=nil)
     return unless @options.warnings
     @warning_count += 1
-    formatter.warning_message("#{path_label(line)}#{padding}#{text}")
+    formatter.warning_message("#{path_label(line)}#{padding}WARN: #{text}")
   end
 
   def failure(text, line=nil)
     @failure_count += 1
-    formatter.failure_message("#{path_label(line)}#{padding}#{text}")
+    formatter.failure_message("#{path_label(line)}#{padding}FAIL: #{text}")
   end
 
   def print_name(fingerprint)

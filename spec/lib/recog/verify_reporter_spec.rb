@@ -22,12 +22,12 @@ describe Recog::VerifyReporter do
 
   describe "#report" do
     it "prints warnings" do
-      expect(formatter).to receive(:warning_message).with('a warning')
+      expect(formatter).to receive(:warning_message).with('WARN: a warning')
       run_report
     end
 
     it "prints failures" do
-      expect(formatter).to receive(:failure_message).with('a failure')
+      expect(formatter).to receive(:failure_message).with('FAIL: a failure')
       run_report
     end
 
@@ -50,12 +50,12 @@ describe Recog::VerifyReporter do
       end
 
       it "prints warnings" do
-        expect(formatter).to receive(:warning_message).with('   a warning')
+        expect(formatter).to receive(:warning_message).with('   WARN: a warning')
         run_report
       end
 
       it "prints failures" do
-        expect(formatter).to receive(:failure_message).with('   a failure')
+        expect(formatter).to receive(:failure_message).with('   FAIL: a failure')
         run_report
       end
 
@@ -84,12 +84,12 @@ describe Recog::VerifyReporter do
       subject { Recog::VerifyReporter.new(double(detail: false, quiet: false, warnings: true), formatter, path) }
 
       it "prints warnings" do
-        expect(formatter).to receive(:warning_message).with("#{path}: a warning")
+        expect(formatter).to receive(:warning_message).with("#{path}: WARN: a warning")
         run_report
       end
 
       it "prints failures" do
-        expect(formatter).to receive(:failure_message).with("#{path}: a failure")
+        expect(formatter).to receive(:failure_message).with("#{path}: FAIL: a failure")
         run_report
       end
 
@@ -118,12 +118,12 @@ describe Recog::VerifyReporter do
       end
 
       it "prints warnings" do
-        expect(formatter).to receive(:warning_message).with('   a warning')
+        expect(formatter).to receive(:warning_message).with('   WARN: a warning')
         run_report
       end
 
       it "prints failures" do
-        expect(formatter).to receive(:failure_message).with('   a failure')
+        expect(formatter).to receive(:failure_message).with('   FAIL: a failure')
         run_report
       end
 

@@ -1,12 +1,15 @@
 #!/usr/bin/env ruby
 
 $:.unshift(File.expand_path(File.join(File.dirname(__FILE__), "..", "lib")))
+require 'nokogiri'
 require 'optparse'
 require 'ostruct'
 require 'recog'
-require 'recog/verifier_factory'
+require 'recog/formatter'
+require 'recog/verifier'
+require 'recog/verify_reporter'
 
-options = OpenStruct.new(color: false, detail: false, quiet: false, warnings: true)
+options = OpenStruct.new(color: false, detail: false, quiet: false, warnings: true, schema_file: nil)
 
 option_parser = OptionParser.new do |opts|
   opts.banner = "Usage: #{$0} [options] XML_FINGERPRINT_FILE1 ..."
@@ -35,6 +38,10 @@ option_parser = OptionParser.new do |opts|
     options.warnings = o
   end
 
+  opts.on("--schema-location SCHEMA_FILE", "Location of the Recog XSD schema file (default: ./xml/fingerprints.xsd). If not specified, validation will not be run.") do |schema_file|
+    options.schema_file = schema_file
+  end
+
   opts.on("-h", "--help", "Show this message.") do
     puts opts
     exit
@@ -48,15 +55,45 @@ if ARGV.empty?
   exit(1)
 end
 
+def validate(xmlfile_path, xsd_path)
+  schema = Nokogiri::XML::Schema(File.read(xsd_path))
+  doc = Nokogiri::XML(File.read(xmlfile_path))
+  schema.validate(doc)
+end
+
 warnings = 0
 failures = 0
+formatter = Recog::Formatter.new(options, $stdout)
 ARGV.each do |arg|
   Dir.glob(arg).each do |file|
-    ndb = Recog::DB.new(file)
-    verifier = Recog::VerifierFactory.build(options, ndb)
-    verified = verifier.verify
-    failures += verifier.reporter.failure_count
-    warnings += verifier.reporter.warning_count
+    # Create a new reporter per XML file to hold context on success/warn/fails
+    reporter  = Recog::VerifyReporter.new(options, formatter, file)
+
+    begin
+      # Validate the XML database against the recog schema first, if requested
+      if options.schema_file
+        errors = validate(file, options.schema_file)
+        if errors.length > 0
+          reporter.report(0) do
+            errors.each do |error|
+              reporter.failure(error.message, error.line)
+            end
+          end
+          # Skip validation of individual fingerprints since the XML itself
+          # is likely malformed.
+          next
+        end
+      end
+
+      # Now read the XML file directly and validate the fingerprints
+      # themselves
+      db = Recog::DB.new(file)
+      verifier = Recog::Verifier.new(db, reporter)
+      verifier.verify
+    ensure
+      failures += reporter.failure_count
+      warnings += reporter.warning_count
+    end
   end
 end
 
