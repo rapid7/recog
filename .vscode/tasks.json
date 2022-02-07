@@ -5,6 +5,8 @@
             "label": "Recog Verify - Background Monitor",
             "command": ".vscode/bin/monitor-recog-fingerprints.sh",
             "args": [
+                "--schema-location",
+                "xml/fingerprints.xsd",
                 "${workspaceFolder}/xml"
             ],
             "windows": {
@@ -42,6 +44,8 @@
             "label": "Recog Verify",
             "command": "bin/recog_verify",
             "args": [
+                "--schema-location",
+                "xml/fingerprints.xsd",
                 "${workspaceFolder}/xml/*.xml"
             ],
             "windows": {
