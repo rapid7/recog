@@ -40,13 +40,15 @@ Feature: Verify
       """
     And the exit status should be 1
  
+  # JRuby 9.2.20.1 and 9.3.3.0 differ in how they parse XML, where the latter is more close to libxml
+  # and Nokogiri. We use a regex test to match results from both versions.
   @no-clobber
   @requires-ruby-platform-java
   Scenario: Tests with warnings, warnings enabled (JRuby)
     When I run `recog_verify tests_with_warnings.xml`
-    Then it should fail with:
+    Then it should fail with regex:
       """
-      tests_with_warnings.xml:9: WARN: 'Pure-FTPd' has no test cases
+      tests_with_warnings.xml:\d+: WARN: 'Pure-FTPd' has no test cases
       tests_with_warnings.xml: SUMMARY: Test completed with 1 successful, 1 warnings, and 0 failures
       """
     And the exit status should be 1
@@ -66,17 +68,19 @@ Feature: Verify
       """
     And the exit status should be 5
  
+  # JRuby 9.2.20.1 and 9.3.3.0 differ in how they parse XML, where the latter is more close to libxml
+  # and Nokogiri. We use a regex test to match results from both versions.
   @no-clobber
   @requires-ruby-platform-java
   Scenario: Tests with failures (JRuby)
     When I run `recog_verify tests_with_failures.xml`
-    Then it should fail with:
+    Then it should fail with regex:
       """
-      tests_with_failures.xml:2: FAIL: 'foo test' failed to match "bar" with (?-mix:^foo$)'
-      tests_with_failures.xml:7: FAIL: '' failed to match "This almost matches" with (?-mix:^This matches$)'
-      tests_with_failures.xml:12: FAIL: 'bar test's os.name is a non-zero pos but specifies a value of 'Bar'
-      tests_with_failures.xml:12: FAIL: 'bar test' failed to find expected capture group os.version '5.0'. Result was 1.0
-      tests_with_failures.xml:19: FAIL: 'example with untested parameter' is missing an example that checks for parameter 'os.version' which is derived from a capture group
+      tests_with_failures.xml:\d+: FAIL: 'foo test' failed to match "bar" with \(\?-mix:\^foo\$\)'
+      tests_with_failures.xml:\d+: FAIL: '' failed to match "This almost matches" with \(\?-mix:\^This matches\$\)'
+      tests_with_failures.xml:\d+: FAIL: 'bar test's os\.name is a non-zero pos but specifies a value of 'Bar'
+      tests_with_failures.xml:\d+: FAIL: 'bar test' failed to find expected capture group os\.version '5\.0'. Result was 1\.0
+      tests_with_failures.xml:\d+: FAIL: 'example with untested parameter' is missing an example that checks for parameter 'os\.version' which is derived from a capture group
       tests_with_failures.xml: SUMMARY: Test completed with 1 successful, 0 warnings, and 5 failures
       """
     And the exit status should be 5
