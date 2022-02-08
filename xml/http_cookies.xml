@@ -679,23 +679,32 @@
     -->
 
   <fingerprint pattern="(?i)^JSESSIONID(?:\.[^=]+)?=[^;]+;">
-    <description>Ignore simple JSESSIONID and related cookies</description>
+    <description>Ignore simple JSESSIONID and related cookies -- assert nothing</description>
     <example>JSESSIONID=6ooov35i4l3n36qtaf8csvg0;Path=/</example>
     <example>jsessionid=6nkp66iogcdc92720%2Dc6e4%2D4989%2Db7b2%2D5021624cfdff;Path=/;secure</example>
     <example>JSESSIONID.c00a9623=v216643eijh19p9duve5srgf;Path=/;HttpOnly</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="(?i)^_?SESSION_?ID\s*=\s*[^;]+;">
-    <description>Ignore simple SESSIONID and related cookies</description>
+    <description>Ignore simple SESSIONID and related cookies -- assert nothing</description>
     <example>sessionId=7dba3249cfcd4b59854055311099a294; path=/;</example>
     <example>_session_id=7fe933db0fea13e9c872103ba2d142db; path=/; HttpOnly</example>
     <example>sessionId =0VrS6Ro6uC5QPXKgNdqGvyUgUFtUOVwv6OWAEWcWQ3jLRtAk2TVAgAApN9yTWVz;postId=; path=/;</example>
     <example>_session_id=18b3e173aa11db0533fd01752e81f583; path=/; HttpOnly</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="(?i)^sid=[^;]+;">
-    <description>Ignore simple SID and related cookies</description>
+    <description>Ignore simple SID and related cookies -- assert nothing</description>
     <example>sid=sfd10bf73-654458f687aa3c68b3874915f651e0ca;path=/;"</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
 </fingerprints>

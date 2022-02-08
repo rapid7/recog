@@ -665,14 +665,20 @@
   <!-- a variety of headers we currently just ignore -->
 
   <fingerprint pattern="(?i)^NTLM$">
-    <description>Ignore NTLM-only</description>
+    <description>Ignore NTLM-only -- assert nothing</description>
     <example>NTLM</example>
     <example>Ntlm</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="^Negotiate$">
-    <description>Ignore Negotiate-only</description>
+    <description>Ignore Negotiate-only -- assert nothing</description>
     <example>Negotiate</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <!--
@@ -681,24 +687,33 @@
   -->
 
   <fingerprint pattern="^(?:Basic|Digest) .*realm=['&quot;](?:\/|\.|null|\/?index.html?)?['&quot;]">
-    <description>Ignore null/empty/period/index.</description>
+    <description>Ignore null/empty/period/index -- assert nothing</description>
     <example>Basic realm="null"</example>
     <example>Basic realm="."</example>
     <example>Basic realm=""</example>
     <example>Basic realm="/"</example>
     <example>Basic realm='/'</example>
     <example>Basic realm="index.html"</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="^(?:Basic|Digest) .*realm=&quot;(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)&quot;">
-    <description>Ignore realms with an IPv4 address</description>
+    <description>Ignore realms with an IPv4 address -- assert nothing</description>
     <example>Basic realm="192.168.0.1"</example>
     <example>Digest qop="auth", realm="172.16.0.1", nonce="AAAAAAAAAAAAAP//DwHpM0IvM78=", algorithm="MD5"</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <fingerprint pattern="^(?:Basic|Digest) .*realm=&quot;config&quot;">
-    <description>Ignore generic 'config' realms</description>
+    <description>Ignore generic 'config' realms -- assert nothing</description>
     <example>Digest realm="config", nonce="1155041914", algorithm="MD5", qop="auth"</example>
+    <param pos="0" name="hw.certainty" value="0.0"/>
+    <param pos="0" name="os.certainty" value="0.0"/>
+    <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
   <!--
