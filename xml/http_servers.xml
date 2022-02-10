@@ -1506,6 +1506,16 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:nginx:nginx:{service.version}"/>
   </fingerprint>
 
+  <fingerprint pattern="^TeamSpeak Server ([\d.]+)$">
+    <description>TeamSpeak HTTP server</description>
+    <example service.version="3.13.6">TeamSpeak Server 3.13.6</example>
+    <example service.version="3.13.3">TeamSpeak Server 3.13.3</example>
+    <param pos="0" name="service.vendor" value="TeamSpeak"/>
+    <param pos="0" name="service.product" value="TeamSpeak"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:teamspeak:teamspeak:{service.version}"/>
+  </fingerprint>
+
   <fingerprint pattern="^Lotus(?:-Domino)?(?:/|/0|/Release)?$">
     <description>IBM Lotus Notes/Domino with no useful version info</description>
     <example>Lotus</example>
