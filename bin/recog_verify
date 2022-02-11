@@ -67,7 +67,7 @@ ARGV.each do |arg|
       # Validate the XML database against the recog schema first, if requested
       if options.schema
         errors = options.schema.validate(Nokogiri::XML(File.read(file)))
-        if errors.length > 0
+        if errors.size > 0
           reporter.report(0) do
             errors.each do |error|
               reporter.failure(error.message, error.line)
