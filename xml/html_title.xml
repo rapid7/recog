@@ -3738,17 +3738,19 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:mitre:caldera:-"/>
   </fingerprint>
 
-  <fingerprint pattern="phpMyAdmin(?: ([\d.]+(?:-[a-zA-Z0-9]+)?(?:\+\d{8}\.[a-f0-9]{4,40})?))?">
+  <fingerprint pattern="(?:(\S{1,512}):\d{1,5} / \S{1,512} \| )?phpMyAdmin(?: ([\d.]+(?:-[a-zA-Z0-9]+)?(?:\+\d{8}\.[a-f0-9]{4,40})?))?">
     <description>phpMyAdmin web interface for MySQL and MariaDB</description>
     <example>phpMyAdmin</example>
     <example service.version="2.10.0.2">phpMyAdmin 2.10.0.2</example>
     <example service.version="5.0.0-rc1">phpMyAdmin 5.0.0-rc1</example>
     <example service.version="5.3.0-dev">phpMyAdmin 5.3.0-dev</example>
-    <example service.version="5.0.4">10.10.10.10:8080 / db.foo.bar | phpMyAdmin 5.0.4</example>
-    <example service.version="5.3.0-dev+20220208.47252f9cf8">localhost:8080 / mysql-server | phpMyAdmin 5.3.0-dev+20220208.47252f9cf8</example>
+    <example host.name="10.10.10.10" service.version="5.0.4">10.10.10.10:8080 / db.foo.bar | phpMyAdmin 5.0.4</example>
+    <example host.name="localhost" service.version="5.3.0-dev+20220208.47252f9cf8">localhost:8080 / mysql-server | phpMyAdmin 5.3.0-dev+20220208.47252f9cf8</example>
+    <example host.name="[::ffff:10.10.10.10]" service.version="5.3.0-dev+20220208.47252f9cf8">[::ffff:10.10.10.10]:8080 / mysql-server | phpMyAdmin 5.3.0-dev+20220208.47252f9cf8</example>
     <param pos="0" name="service.vendor" value="phpMyAdmin"/>
     <param pos="0" name="service.product" value="phpMyAdmin"/>
-    <param pos="1" name="service.version"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:phpmyadmin:phpmyadmin:{service.version}"/>
   </fingerprint>
 
