@@ -751,6 +751,23 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:oracle:iplanet_web_server:{service.version}"/>
   </fingerprint>
 
+  <fingerprint pattern="^Oracle-ILOM-Web-Server/([\d.]+)$">
+    <description>Oracle(R) Integrated Lights Out Manager Web Server</description>
+    <example service.version="1.0">Oracle-ILOM-Web-Server/1.0</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="ILOM"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Oracle"/>
+    <param pos="0" name="os.family" value="ILOM"/>
+    <param pos="0" name="os.product" value="ILOM"/>
+    <param pos="0" name="os.device" value="Lights Out Management"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:oracle:integrated_lights_out_manager_firmware:-"/>
+    <param pos="0" name="hw.vendor" value="Oracle"/>
+    <param pos="0" name="hw.family" value="ILOM"/>
+    <param pos="0" name="hw.product" value="ILOM"/>
+    <param pos="0" name="hw.device" value="Lights Out Management"/>
+  </fingerprint>
+
   <fingerprint pattern="^HP Apache-based Web Server/([012][\d.]*)\s*\(Unix\)\s*(.*)$">
     <description>Apache running on HP-UX</description>
     <example service.version="1.3.26" apache.info="mod_ssl/2.8.9 OpenSSL/0.9.6c">HP Apache-based Web Server/1.3.26 (Unix) mod_ssl/2.8.9 OpenSSL/0.9.6c</example>
