@@ -9,7 +9,7 @@ require 'recog/formatter'
 require 'recog/verifier'
 require 'recog/verify_reporter'
 
-options = OpenStruct.new(color: false, detail: false, quiet: false, warnings: true, schema_file: nil)
+options = OpenStruct.new(color: false, detail: false, quiet: false, warnings: true, schema: nil)
 
 option_parser = OptionParser.new do |opts|
   opts.banner = "Usage: #{$0} [options] XML_FINGERPRINT_FILE1 ..."
@@ -39,7 +39,7 @@ option_parser = OptionParser.new do |opts|
   end
 
   opts.on("--schema-location SCHEMA_FILE", "Location of the Recog XSD schema file (default: ./xml/fingerprints.xsd). If not specified, validation will not be run.") do |schema_file|
-    options.schema_file = schema_file
+    options.schema = Nokogiri::XML::Schema(File.read(schema_file))
   end
 
   opts.on("-h", "--help", "Show this message.") do
@@ -55,12 +55,6 @@ if ARGV.empty?
   exit(1)
 end
 
-def validate(xmlfile_path, xsd_path)
-  schema = Nokogiri::XML::Schema(File.read(xsd_path))
-  doc = Nokogiri::XML(File.read(xmlfile_path))
-  schema.validate(doc)
-end
-
 warnings = 0
 failures = 0
 formatter = Recog::Formatter.new(options, $stdout)
@@ -71,8 +65,8 @@ ARGV.each do |arg|
 
     begin
       # Validate the XML database against the recog schema first, if requested
-      if options.schema_file
-        errors = validate(file, options.schema_file)
+      if options.schema
+        errors = options.schema.validate(Nokogiri::XML(File.read(file)))
         if errors.length > 0
           reporter.report(0) do
             errors.each do |error|
