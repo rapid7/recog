@@ -648,21 +648,26 @@
 
   <!-- TODO: this needs to be improved -->
 
-  <fingerprint pattern="^Oracle-Application-Server-\d+[ig](?:[ /]([\d.]+) (?:\(.*\)|Oracle-HTTP-Server\s*(.*)))?$">
-    <description>Oracle Application Server 10g (powered by Apache)</description>
-    <example>Oracle-Application-Server-11g</example>
+  <fingerprint pattern="^Oracle-Application-Server-\d+[cgi](?:(?:[ /]([\d.]+))?\s*((?:Oracle-HTTP-Server|Oracle-Web-Cache-|OracleAS-Web-Cache-)?.{0,512})?(?:\s*\([TF]?[HSUGMN]?(?:;max-age=\d+(?:\+\d+)?)?(?:;age=\d+)?;ecid=[^)]+\))?)?$">
+    <description>Oracle Application Server</description>
     <example>Oracle-Application-Server-10g</example>
-    <example apache.variant.version="10.1.2.0.2">Oracle-Application-Server-10g/10.1.2.0.2 Oracle-HTTP-Server</example>
-    <example apache.info="(Unix) mod_plsql/10.1.2.2.0 mod_ossl/10.1.2.0.0 mod_perl/1.29 OracleAS-Web-Cache-10g/10.1.2.0.2 (N;ecid=89116016562,0)" apache.variant.version="10.1.2.2.0">Oracle-Application-Server-10g/10.1.2.2.0 Oracle-HTTP-Server (Unix) mod_plsql/10.1.2.2.0 mod_ossl/10.1.2.0.0 mod_perl/1.29 OracleAS-Web-Cache-10g/10.1.2.0.2 (N;ecid=89116016562,0)</example>
-    <example apache.info="OracleAS-Web-Cache-10g/10.1.2.2.0 (N;ecid=153541209221,0)" apache.variant.version="10.1.2.2.0">Oracle-Application-Server-10g/10.1.2.2.0 Oracle-HTTP-Server OracleAS-Web-Cache-10g/10.1.2.2.0 (N;ecid=153541209221,0)</example>
-    <example apache.variant.version="9.0.4.1.0">Oracle-Application-Server-10g/9.0.4.1.0 Oracle-HTTP-Server</example>
-    <param pos="0" name="service.vendor" value="Apache"/>
-    <param pos="0" name="service.product" value="HTTPD"/>
-    <param pos="0" name="service.family" value="Apache"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:-"/>
-    <param pos="2" name="apache.info"/>
+    <example>Oracle-Application-Server-11g</example>
+    <example>Oracle-Application-Server-12c</example>
+    <example service.version="10.2.3.6.0">Oracle-Application-Server-11g/10.2.3.6.0</example>
+    <example service.version="10.1.2.0.2">Oracle-Application-Server-10g/10.1.2.0.2 Oracle-HTTP-Server</example>
+    <example service.version="10.1.2.2.0" apache.info="Oracle-HTTP-Server (Unix) mod_plsql/10.1.2.2.0 mod_ossl/10.1.2.0.0 mod_perl/1.29 OracleAS-Web-Cache-10g/10.1.2.0.2 (N;ecid=89116016562,0)">Oracle-Application-Server-10g/10.1.2.2.0 Oracle-HTTP-Server (Unix) mod_plsql/10.1.2.2.0 mod_ossl/10.1.2.0.0 mod_perl/1.29 OracleAS-Web-Cache-10g/10.1.2.0.2 (N;ecid=89116016562,0)</example>
+    <example service.version="10.1.2.2.0" apache.info="Oracle-HTTP-Server OracleAS-Web-Cache-10g/10.1.2.2.0 (N;ecid=153541209221,0)">Oracle-Application-Server-10g/10.1.2.2.0 Oracle-HTTP-Server OracleAS-Web-Cache-10g/10.1.2.2.0 (N;ecid=153541209221,0)</example>
+    <example service.version="9.0.4.1.0">Oracle-Application-Server-10g/9.0.4.1.0 Oracle-HTTP-Server</example>
+    <example apache.info="Oracle-Web-Cache-11g/11.1.1.3.0">Oracle-Application-Server-11g Oracle-Web-Cache-11g/11.1.1.3.0</example>
+    <example apache.info="OracleAS-Web-Cache-10g/9.0.4.0.0 (G;max-age=405077281+0;age=0)">Oracle-Application-Server-10g OracleAS-Web-Cache-10g/9.0.4.0.0 (G;max-age=405077281+0;age=0)</example>
+    <example apache.info="(N;ecid=7862868532763,0:1)">Oracle-Application-Server-11g   (N;ecid=7862868532763,0:1)</example>
+    <example apache.info="Oracle-Web-Cache-11g/11.1.1.6.0 (G;max-age=0+0;age=0;ecid=9345078839670331,0:1)">Oracle-Application-Server-11g Oracle-Web-Cache-11g/11.1.1.6.0 (G;max-age=0+0;age=0;ecid=9345078839670331,0:1)</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="Application Server"/>
     <param pos="0" name="apache.variant" value="Oracle"/>
-    <param pos="1" name="apache.variant.version"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:oracle:application_server:{service.version}"/>
+    <param pos="2" name="apache.info"/>
   </fingerprint>
 
   <fingerprint pattern="^Oracle9iAS/([\d.]+) Oracle HTTP Server\s*(.*)$">
