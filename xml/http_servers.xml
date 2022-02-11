@@ -721,9 +721,12 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:oracle:http_server:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^Oracle-Web-Cache-11g/([\d.]+) \(N;ecid=[^)]+\)$">
+  <fingerprint pattern="^Oracle-Web-Cache-11g/([\d.]+)(?:\s*\([TF]?[HSUGMN]?(?:;max-age=\d+(?:\+\d+)?)?(?:;age=\d+)?;ecid=[^)]+\))?$">
     <description>Oracle Web Cache</description>
-    <example service.version="11.1.1.9.0">Oracle-Web-Cache-11g/11.1.1.9.0 (N;ecid=93620137613024,0:1)</example>
+    <example service.version="11.1.1.6.0">Oracle-Web-Cache-11g/11.1.1.6.0</example>
+    <example service.version="11.1.1.6.0">Oracle-Web-Cache-11g/11.1.1.6.0 (N;ecid=8590109479546459,0:1)</example>
+    <example service.version="11.1.1.6.0">Oracle-Web-Cache-11g/11.1.1.6.0 (G;max-age=0+0;age=0;ecid=86359748033185402,0:1:1)</example>
+    <example service.version="11.1.1.9.0">Oracle-Web-Cache-11g/11.1.1.9.0 (TH;max-age=60+30;age=55;ecid=23248098121,0)</example>
     <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.product" value="Web Cache"/>
     <param pos="1" name="service.version"/>
