@@ -707,6 +707,20 @@
     <param pos="0" name="apache.variant" value="Oracle"/>
   </fingerprint>
 
+  <fingerprint pattern="^Oracle-HTTP-Server(?:(?:-(?:\d{2}[cg]\/?)?([\d.]+)?(?:\/[\d.]+)?)?(?:.{0,512}\([TF]?[HSUGMN]?(?:;max-age=\d+(?:\+\d+)?)?(?:;age=\d+)?;ecid=[^)]+\))?)?$">
+    <description>Oracle HTTP Server</description>
+    <example>Oracle-HTTP-Server</example>
+    <example>Oracle-HTTP-Server-11g</example>
+    <example>Oracle-HTTP-Server-12c</example>
+    <example service.version="12.1.3.0.0">Oracle-HTTP-Server-12c/12.1.3.0.0</example>
+    <example service.version="12.2.1.4.0">Oracle-HTTP-Server-12.2.1.4.0/2.4.39</example>
+    <example>Oracle-HTTP-Server-11g Oracle-Web-Cache-11g/11.1.1.9.0 (H;max-age=214748356+0;age=61086;ecid=32073608106620,0:1)</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="HTTP Server"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:oracle:http_server:{service.version}"/>
+  </fingerprint>
+
   <fingerprint pattern="^Oracle-Web-Cache-11g/([\d.]+) \(N;ecid=[^)]+\)$">
     <description>Oracle Web Cache</description>
     <example service.version="11.1.1.9.0">Oracle-Web-Cache-11g/11.1.1.9.0 (N;ecid=93620137613024,0:1)</example>
