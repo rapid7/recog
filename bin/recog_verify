@@ -38,7 +38,7 @@ option_parser = OptionParser.new do |opts|
     options.warnings = o
   end
 
-  opts.on("--schema-location SCHEMA_FILE", "Location of the Recog XSD schema file (default: ./xml/fingerprints.xsd). If not specified, validation will not be run.") do |schema_file|
+  opts.on("--schema-location SCHEMA_FILE", "Location of the Recog XSD file. If not specified, validation will not be run.") do |schema_file|
     options.schema = Nokogiri::XML::Schema(File.read(schema_file))
   end
 
