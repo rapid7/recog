@@ -267,7 +267,9 @@ class Fingerprint
       attrs = elem.attributes.values.reduce({}) { |a,e| a.merge(e.name => e.value) }
       if attrs["_filename"]
         contents = ""
-        fn = File.join(example_path, attrs["_filename"])
+        filename = attrs["_filename"]
+        fn = File.expand_path(File.join(example_path, filename))
+        raise "illegal file path '#{filename}'" unless fn.start_with?(File.expand_path(example_path) + File::Separator)
 
         File.open(fn, "rb") do |file|
           contents = file.read
