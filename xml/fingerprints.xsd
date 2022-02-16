@@ -104,16 +104,24 @@
     <xsd:sequence>
       <xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
       <xsd:element name="example" type="example_element" minOccurs="0" maxOccurs="unbounded"/>
-      <xsd:element name="param" type="param_element" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="param" type="param_element" minOccurs="1" maxOccurs="unbounded"/>
     </xsd:sequence>
     <xsd:attribute name="certainty" type="xsd:string" use="optional"/>
     <xsd:attribute name="pattern" type="xsd:string" use="required"/>
     <xsd:attribute name="flags" type="xsd:string" use="optional"/>
   </xsd:complexType>
 
+  <xsd:simpleType name="encoding">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="base64" />
+    </xsd:restriction>
+  </xsd:simpleType>
+
   <xsd:complexType name="example_element">
     <xsd:simpleContent>
       <xsd:extension base="xsd:string">
+        <xsd:attribute name="_encoding" type="encoding"/>
+        <xsd:attribute name="_filename" type="xsd:string"/>
         <xsd:anyAttribute processContents="skip"/>
       </xsd:extension>
     </xsd:simpleContent>
