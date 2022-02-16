@@ -374,6 +374,7 @@
   <fingerprint pattern="^IBMCBR=">
     <description>IBM WebSphere Load Balancer</description>
     <!-- Replace with a valid example if one is discovered -->
+
     <example>IBMCBR=fakevalue</example>
     <param pos="0" name="cookie" value="IBMCBR"/>
     <param pos="0" name="service.vendor" value="IBM"/>
@@ -668,6 +669,14 @@
     <param pos="0" name="service.vendor" value="Lime Technologies"/>
     <param pos="0" name="service.product" value="Unraid"/>
     <param pos="0" name="service.certainty" value="0.5"/>
+  </fingerprint>
+
+  <fingerprint pattern="^phpMyAdmin=">
+    <description>phpMyAdmin web interface for MySQL and MariaDB</description>
+    <example>phpMyAdmin=28600e9ff9772c871dacec70f9c5edaa; path=/; HttpOnly</example>
+    <param pos="0" name="service.vendor" value="phpMyAdmin"/>
+    <param pos="0" name="service.product" value="phpMyAdmin"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:phpmyadmin:phpmyadmin:-"/>
   </fingerprint>
 
   <!--
