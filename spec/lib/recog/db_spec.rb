@@ -92,7 +92,7 @@ describe Recog::DB do
           expect(entry.params).to eq({"service.vendor"=>[0, "HP"]})
         end
 
-        it "has no tests" do
+        it "has tests" do
           expect(entry.tests.map(&:content)).to match_array(["HP LaserJet 4100 Series", "HP LaserJet 2200"])
         end
       end
