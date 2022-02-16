@@ -97,5 +97,25 @@ describe Recog::DB do
         end
       end
     end
+
+    context "with external example content" do
+      let(:xml_file) { File.expand_path File.join('spec', 'data', 'external_example_fingerprint.xml') }
+      subject { Recog::DB.new(xml_file) }
+
+      subject(:entry) { described_class.new(xml_file).fingerprints[0] }
+
+      it "has tests" do
+        expect(entry.tests.map(&:content)).to match_array(["HP LaserJet 4100 Series", "HP LaserJet 2200"])
+      end
+    end
+
+    context "with external example content illegal path" do
+      let(:xml_file) { File.expand_path File.join('spec', 'data', 'external_example_illegal_path_fingerprint.xml') }
+      subject { Recog::DB.new(xml_file) }
+
+      it "raises an illegal file path error" do
+        expect { subject }.to raise_error(/illegal file path '.+'/)
+      end
+    end
   end
 end
