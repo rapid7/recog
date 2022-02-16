@@ -679,6 +679,16 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:phpmyadmin:phpmyadmin:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^(adminer_(?:sid|key))=">
+    <description>Adminer database management tool</description>
+    <example cookie="adminer_sid">adminer_sid=6580f6449f9572f817ec99600bc619d2; path=/; HttpOnly</example>
+    <example cookie="adminer_key">adminer_key=b8eebd6de0deabc8b30c26a67e01c5b9; path=/; HttpOnly; SameSite=lax</example>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="Adminer"/>
+    <param pos="0" name="service.product" value="Adminer"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:adminer:adminer:-"/>
+  </fingerprint>
+
   <!--
         Ignore various cookies that are very generic cookies for session IDs
         that are not necessarily indicative of any particular

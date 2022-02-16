@@ -3730,7 +3730,7 @@
     <param pos="0" name="service.product" value="Covenant"/>
   </fingerprint>
 
-  <fingerprint pattern="^Login | CALDERA$">
+  <fingerprint pattern="^Login \| CALDERA$">
     <description>MITRE CALDERA C2 framework</description>
     <example>Login | CALDERA</example>
     <param pos="0" name="service.vendor" value="MITRE"/>
@@ -3752,6 +3752,14 @@
     <param pos="1" name="host.name"/>
     <param pos="2" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:phpmyadmin:phpmyadmin:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Login - Adminer$">
+    <description>Adminer database management tool</description>
+    <example>Login - Adminer</example>
+    <param pos="0" name="service.vendor" value="Adminer"/>
+    <param pos="0" name="service.product" value="Adminer"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:adminer:adminer:-"/>
   </fingerprint>
 
 </fingerprints>
