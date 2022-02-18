@@ -52,13 +52,13 @@
 
   <fingerprint pattern="^Windows XP (\d+) (Service Pack \d+)$">
     <description>Windows XP with Service Pack</description>
-    <example os.build="2600" os.version="Service Pack 1">Windows XP 2600 Service Pack 1</example>
+    <example os.build="2600" os.update="Service Pack 1">Windows XP 2600 Service Pack 1</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows XP"/>
     <param pos="1" name="os.build"/>
-    <param pos="2" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_xp:{os.version}"/>
+    <param pos="2" name="os.update"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_xp:"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows XP (\d+)$">
@@ -87,29 +87,31 @@
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Server 2003"/>
-    <param pos="0" name="os.version" value="Beta"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:Beta"/>
+    <param pos="0" name="os.update" value="Beta"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:-:beta"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Server 2003 R2 (\d+)$">
     <description>Windows Server 2003 R2</description>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
-    <param pos="0" name="os.product" value="Windows Server 2003 R2"/>
+    <param pos="0" name="os.product" value="Windows Server 2003"/>
+    <param pos="0" name="os.version" value="R2"/>
     <param pos="1" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:r2"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Server 2003 R2 (\d+) (Service Pack \d+)(?:, v\.\d+)?$">
     <description>Windows Server 2003 R2 (SP)</description>
-    <example os.build="3790" os.version="Service Pack 2">Windows Server 2003 R2 3790 Service Pack 2</example>
-    <example os.build="3790" os.version="Service Pack 2">Windows Server 2003 R2 3790 Service Pack 2, v.2825</example>
+    <example os.build="3790" os.update="Service Pack 2">Windows Server 2003 R2 3790 Service Pack 2</example>
+    <example os.build="3790" os.update="Service Pack 2">Windows Server 2003 R2 3790 Service Pack 2, v.2825</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
-    <param pos="0" name="os.product" value="Windows Server 2003 R2"/>
+    <param pos="0" name="os.product" value="Windows Server 2003"/>
+    <param pos="0" name="os.version" value="R2"/>
     <param pos="1" name="os.build"/>
-    <param pos="2" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:{os.version}"/>
+    <param pos="2" name="os.update"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:r2:${os.update}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Server 2003 (\d+)$">
@@ -133,14 +135,14 @@
 
   <fingerprint pattern="^Windows Server 2003 (\d+) (Service Pack \d+)(?:, v\.\d+)?$">
     <description>Windows Server 2003 (SP)</description>
-    <example os.build="3790" os.version="Service Pack 1">Windows Server 2003 3790 Service Pack 1, v.3309</example>
-    <example os.build="3790" os.version="Service Pack 2">Windows Server 2003 3790 Service Pack 2</example>
+    <example os.build="3790" os.update="Service Pack 1">Windows Server 2003 3790 Service Pack 1, v.3309</example>
+    <example os.build="3790" os.update="Service Pack 2">Windows Server 2003 3790 Service Pack 2</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Server 2003"/>
     <param pos="1" name="os.build"/>
-    <param pos="2" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:{os.version}"/>
+    <param pos="2" name="os.update"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:-:{os.update}"/>
   </fingerprint>
 
   <!-- Note that 2008 SP1 is technically "2008 Gold" according to Microsoft -->
@@ -156,27 +158,27 @@
 
   <fingerprint pattern="^Windows Server \(R\) 2008 (\w+|\w+ \w+|\w+ \w+ \w+)(?: (?:with|without) Hyper-V|) (\d+) (Service Pack \d+)(?:, v\.\d+)?$">
     <description>Windows Server 2008</description>
-    <example os.edition="Enterprise" os.version="Service Pack 1" os.build="6001">Windows Server (R) 2008 Enterprise without Hyper-V 6001 Service Pack 1</example>
-    <example os.edition="Enterprise" os.version="Service Pack 2" os.build="6002">Windows Server (R) 2008 Enterprise 6002 Service Pack 2, v.275</example>
+    <example os.edition="Enterprise" os.update="Service Pack 1" os.build="6001">Windows Server (R) 2008 Enterprise without Hyper-V 6001 Service Pack 1</example>
+    <example os.edition="Enterprise" os.update="Service Pack 2" os.build="6002">Windows Server (R) 2008 Enterprise 6002 Service Pack 2, v.275</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
-    <param pos="3" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:{os.version}"/>
+    <param pos="3" name="os.update"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-:{os.update}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows \(R\) Web Server 2008 (\d+) (Service Pack \d+)$">
     <description>Windows Web Server 2008 (SP)</description>
-    <example os.edition="Web" os.version="Service Pack 2" os.build="6002">Windows (R) Web Server 2008 6002 Service Pack 2</example>
+    <example os.edition="Web" os.update="Service Pack 2" os.build="6002">Windows (R) Web Server 2008 6002 Service Pack 2</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="0" name="os.edition" value="Web"/>
     <param pos="1" name="os.build"/>
-    <param pos="2" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:{os.version}"/>
+    <param pos="2" name="os.update"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-:{os.update}:web"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows \(R\) Web Server 2008 (\d+)$">
@@ -187,7 +189,7 @@
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="0" name="os.edition" value="Web"/>
     <param pos="1" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-:-:web"/>
   </fingerprint>
 
   <!-- TODO: Need an example string -->
@@ -199,8 +201,8 @@
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="0" name="os.edition" value="Storage"/>
     <param pos="1" name="os.build"/>
-    <param pos="2" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:{os.version}"/>
+    <param pos="2" name="os.update"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-:{os.update}:storage"/>
   </fingerprint>
 
   <!-- TODO: Need an example string -->
@@ -212,19 +214,19 @@
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="0" name="os.edition" value="Storage"/>
     <param pos="1" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-:-:storage"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Server 2008 HPC Edition (\d+) (Service Pack \d+)$">
     <description>Windows Server 2008 HPC</description>
-    <example os.build="7601" os.version="Service Pack 1">Windows Server 2008 HPC Edition 7601 Service Pack 1</example>
+    <example os.build="7601" os.update="Service Pack 1">Windows Server 2008 HPC Edition 7601 Service Pack 1</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="0" name="os.edition" value="HPC"/>
     <param pos="1" name="os.build"/>
-    <param pos="2" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:{os.version}"/>
+    <param pos="2" name="os.update"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-:{os.update}:hpc"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Server 2008 HPC Edition (\d+)$">
@@ -235,22 +237,23 @@
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="0" name="os.edition" value="HPC"/>
     <param pos="1" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-:-:hpc"/>
   </fingerprint>
 
   <!-- 2008 R2 -->
 
   <fingerprint pattern="^Windows Server 2008 R2 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)(?:, v\.\d+)?$">
     <description>Windows Server 2008 R2</description>
-    <example os.edition="Enterprise" os.build="7601" os.version="Service Pack 1">Windows Server 2008 R2 Enterprise 7601 Service Pack 1</example>
-    <example os.edition="Standard" os.build="7601" os.version="Service Pack 1">Windows Server 2008 R2 Standard 7601 Service Pack 1</example>
+    <example os.edition="Enterprise" os.build="7601" os.update="Service Pack 1">Windows Server 2008 R2 Enterprise 7601 Service Pack 1</example>
+    <example os.edition="Standard" os.build="7601" os.update="Service Pack 1">Windows Server 2008 R2 Standard 7601 Service Pack 1</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
-    <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
+    <param pos="0" name="os.product" value="Windows Server 2008"/>
+    <param pos="0" name="os.version" value="R2"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
-    <param pos="3" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:{os.version}"/>
+    <param pos="3" name="os.update"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:r2:{os.update}:{os.edition}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Server 2008 R2 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
@@ -260,22 +263,24 @@
     <example os.edition="Datacenter" os.build="7600">Windows Server 2008 R2 Datacenter 7600</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
-    <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
+    <param pos="0" name="os.product" value="Windows Server 2008"/>
+    <param pos="0" name="os.version" value="R2"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:r2"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Web Server 2008 R2 (\d+) (Service Pack \d+)$">
     <description>Windows Server 2008 R2 Web</description>
-    <example os.version="Service Pack 1" os.build="7601">Windows Web Server 2008 R2 7601 Service Pack 1</example>
+    <example os.update="Service Pack 1" os.build="7601">Windows Web Server 2008 R2 7601 Service Pack 1</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
-    <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
+    <param pos="0" name="os.product" value="Windows Server 2008"/>
+    <param pos="0" name="os.version" value="R2"/>
     <param pos="0" name="os.edition" value="Web"/>
     <param pos="1" name="os.build"/>
-    <param pos="2" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:{os.version}"/>
+    <param pos="2" name="os.update"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:r2:{os.update}:web"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Web Server 2008 R2 (\d+)$">
@@ -283,22 +288,24 @@
     <example os.build="7600">Windows Web Server 2008 R2 7600</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
-    <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
+    <param pos="0" name="os.product" value="Windows Server 2008"/>
+    <param pos="0" name="os.version" value="R2"/>
     <param pos="0" name="os.edition" value="Web"/>
     <param pos="1" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:r2:-:web"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Storage Server 2008 R2 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
     <description>Windows Server 2008 Storage R2 (SP)</description>
-    <example os.version="Service Pack 1" os.build="7601">Windows Storage Server 2008 R2 Essentials 7601 Service Pack 1</example>
+    <example os.update="Service Pack 1" os.build="7601">Windows Storage Server 2008 R2 Essentials 7601 Service Pack 1</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
-    <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
+    <param pos="0" name="os.product" value="Windows Server 2008"/>
+    <param pos="0" name="os.version" value="R2"/>
     <param pos="0" name="os.edition" value="Storage"/>
     <param pos="1" name="os.build"/>
-    <param pos="2" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:{os.version}"/>
+    <param pos="2" name="os.update"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:r2:{os.update}:storage"/>
   </fingerprint>
 
   <fingerprint pattern="^Hyper-V Server 7601 Service Pack 1$">
@@ -306,10 +313,11 @@
     <example>Hyper-V Server 7601 Service Pack 1</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
-    <param pos="0" name="os.product" value="Windows Server 2008 R2"/>
+    <param pos="0" name="os.product" value="Windows Server 2008"/>
+    <param pos="0" name="os.version" value="R2"/>
     <param pos="0" name="os.edition" value="Hyper-V"/>
     <param pos="0" name="os.build" value="7601"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:r2"/>
   </fingerprint>
 
   <!-- Windows 2019 -->
@@ -325,7 +333,7 @@
     <param pos="0" name="os.product" value="Windows Server 2019"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2019:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2019:-:-:{os.edition}"/>
   </fingerprint>
 
   <fingerprint pattern="^Hyper-V Server 2019  (\d+)$">
@@ -378,14 +386,14 @@
 
   <fingerprint pattern="^Windows Vista \(TM\) (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
     <description>Windows Vista (SP)</description>
-    <example os.edition="Home Premium" os.version="Service Pack 2" os.build="6002">Windows Vista (TM) Home Premium 6002 Service Pack 2</example>
+    <example os.edition="Home Premium" os.update="Service Pack 2" os.build="6002">Windows Vista (TM) Home Premium 6002 Service Pack 2</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Vista"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
-    <param pos="3" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_vista:{os.version}"/>
+    <param pos="3" name="os.update"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_vista:-:{os.update}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Vista \(TM\) (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
@@ -401,25 +409,25 @@
 
   <fingerprint pattern="^(Windows (?:7|8|8\.1)(?:| RT)) (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)(?:, v\.\d+)?$">
     <description>Windows 7/8 (SP + Edition)</description>
-    <example os.edition="Enterprise" os.version="Service Pack 1" os.product="Windows 7" os.build="7601">Windows 7 Enterprise 7601 Service Pack 1</example>
-    <example os.edition="Starter" os.version="Service Pack 1" os.product="Windows 7" os.build="7601">Windows 7 Starter 7601 Service Pack 1</example>
-    <example os.edition="Ultimate" os.build="7601" os.version="Service Pack 1" os.product="Windows 7">Windows 7 Ultimate 7601 Service Pack 1, v.178</example>
+    <example os.edition="Enterprise" os.update="Service Pack 1" os.product="Windows 7" os.build="7601">Windows 7 Enterprise 7601 Service Pack 1</example>
+    <example os.edition="Starter" os.update="Service Pack 1" os.product="Windows 7" os.build="7601">Windows 7 Starter 7601 Service Pack 1</example>
+    <example os.edition="Ultimate" os.build="7601" os.update="Service Pack 1" os.product="Windows 7">Windows 7 Ultimate 7601 Service Pack 1, v.178</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.edition"/>
     <param pos="3" name="os.build"/>
-    <param pos="4" name="os.version"/>
+    <param pos="4" name="os.update"/>
   </fingerprint>
 
   <fingerprint pattern="^(Windows (?:7|8|8\.1)(?:| RT)) (\d+) (Service Pack \d+)$">
     <description>Windows 7/8 (SP)</description>
-    <example os.version="Service Pack 1" os.product="Windows 7" os.build="7601">Windows 7 7601 Service Pack 1</example>
+    <example os.update="Service Pack 1" os.product="Windows 7" os.build="7601">Windows 7 7601 Service Pack 1</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="1" name="os.product"/>
     <param pos="2" name="os.build"/>
-    <param pos="3" name="os.version"/>
+    <param pos="3" name="os.update"/>
   </fingerprint>
 
   <fingerprint pattern="^(Windows (?:7|8|8\.1)(?:| RT)) (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
@@ -447,14 +455,15 @@
 
   <fingerprint pattern="^Windows Server 2012 R2 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
     <description>Windows Server 2012 R2 (SP)</description>
-    <example os.build="9600" os.edition="Standard" os.version="Service Pack 1">Windows Server 2012 R2 Standard 9600 Service Pack 1</example>
+    <example os.build="9600" os.edition="Standard" os.update="Service Pack 1">Windows Server 2012 R2 Standard 9600 Service Pack 1</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
-    <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
+    <param pos="0" name="os.product" value="Windows Server 2012"/>
+    <param pos="0" name="os.version" value="R2"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
-    <param pos="3" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:{os.version}"/>
+    <param pos="3" name="os.update"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:r2:{os.update}:{os.edition}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Server 2012 R2 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
@@ -462,10 +471,11 @@
     <example os.build="9600" os.edition="Standard">Windows Server 2012 R2 Standard 9600</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
-    <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
+    <param pos="0" name="os.product" value="Windows Server 2012"/>
+    <param pos="0" name="os.version" value="R2"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:r2"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Storage Server 2012 R2 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
@@ -475,10 +485,11 @@
     <example os.build="9600" os.edition="Essentials">Windows Storage Server 2012 R2 Essentials 9600</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
-    <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
+    <param pos="0" name="os.product" value="Windows Server 2012"/>
+    <param pos="0" name="os.version" value="R2"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:r2"/>
   </fingerprint>
 
   <fingerprint pattern="^Hyper-V Server 2012 R2 (\d+)$">
@@ -486,24 +497,25 @@
     <example os.build="9600">Hyper-V Server 2012 R2 9600</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
-    <param pos="0" name="os.product" value="Windows Server 2012 R2"/>
+    <param pos="0" name="os.product" value="Windows Server 2012"/>
+    <param pos="0" name="os.version" value="R2"/>
     <param pos="0" name="os.edition" value="Hyper-V"/>
     <param pos="1" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:r2"/>
   </fingerprint>
 
   <!-- Windows 2012 -->
 
   <fingerprint pattern="^Windows Server 2012 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
     <description>Windows Server 2012 (SP)</description>
-    <example os.build="9200" os.edition="Standard" os.version="Service Pack 1">Windows Server 2012 Standard 9200 Service Pack 1</example>
+    <example os.build="9200" os.edition="Standard" os.update="Service Pack 1">Windows Server 2012 Standard 9200 Service Pack 1</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Server 2012"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
-    <param pos="3" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:{os.version}"/>
+    <param pos="3" name="os.update"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-:{os.update}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Server 2012 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
@@ -542,14 +554,14 @@
 
   <fingerprint pattern="^Windows MultiPoint Server 2012 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
     <description>Windows MultiPoint Server 2012 (SP)</description>
-    <example os.build="9201" os.version="Service Pack 1">Windows MultiPoint Server 2012 Premium 9201 Service Pack 1</example>
+    <example os.build="9201" os.update="Service Pack 1">Windows MultiPoint Server 2012 Premium 9201 Service Pack 1</example>
     <param pos="0" name="os.certainty" value="1.0"/>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Server 2012"/>
     <param pos="0" name="os.edition" value="MultiPoint"/>
     <param pos="1" name="os.build"/>
-    <param pos="2" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:{os.version}"/>
+    <param pos="2" name="os.update"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-:{os.update}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows MultiPoint Server 2012 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">

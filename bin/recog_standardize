@@ -55,6 +55,7 @@ os_arch = load_identifiers(File.join(bdir, "os_architecture.txt"))
 os_prod = load_identifiers(File.join(bdir, "os_product.txt"))
 os_family = load_identifiers(File.join(bdir, "os_family.txt"))
 os_device = load_identifiers(File.join(bdir, "os_device.txt"))
+os_update = load_identifiers(File.join(bdir, "os_update.txt"))
 hw_prod = load_identifiers(File.join(bdir, "hw_product.txt"))
 hw_family = load_identifiers(File.join(bdir, "hw_family.txt"))
 hw_device = load_identifiers(File.join(bdir, "hw_device.txt"))
@@ -89,7 +90,7 @@ ARGV.each do |arg|
             puts "OS ARCH MISSING: #{val}"
             missing_count += 1
             os_arch[val] = true
-          end          
+          end
         when "os.product"
           if ! os_prod[val]
             puts "OS PRODUCT MISSING: #{val}"
@@ -108,6 +109,12 @@ ARGV.each do |arg|
             missing_count += 1
             os_device[val] = true
           end
+        when "os.update"
+          if ! os_update[val]
+            puts "OS UPDATE MISSING: #{val}"
+            missing_count += 1
+            os_update[val] = true
+          end
         when "hw.product"
           if ! hw_prod[val]
             puts "HW PRODUCT MISSING: #{val}"
@@ -125,19 +132,19 @@ ARGV.each do |arg|
             puts "HW DEVICE MISSING: #{val}"
             missing_count += 1
             hw_device[val] = true
-          end          
+          end
         when "service.product", "service.component.product"
           if ! svc_prod[val]
             puts "SERVICE PRODUCT MISSING: #{val}"
             missing_count += 1
             svc_prod[val] = true
-          end            
+          end
         when "service.family"
           if ! svc_family[val]
             puts "SERVICE FAMILY MISSING: #{val}"
             missing_count += 1
             svc_family[val] = true
-          end          
+          end
         end
       end
     end
@@ -152,6 +159,7 @@ if options.write
   write_identifiers(os_prod, File.join(bdir, "os_product.txt"))
   write_identifiers(os_family, File.join(bdir, "os_family.txt"))
   write_identifiers(os_device, File.join(bdir, "os_device.txt"))
+  write_identifiers(os_update, File.join(bdir, "os_update.txt"))
   write_identifiers(hw_prod, File.join(bdir, "hw_product.txt"))
   write_identifiers(hw_family, File.join(bdir, "hw_family.txt"))
   write_identifiers(hw_device, File.join(bdir, "hw_device.txt"))
