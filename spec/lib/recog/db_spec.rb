@@ -114,7 +114,7 @@ describe Recog::DB do
       subject { Recog::DB.new(xml_file) }
 
       it "raises an illegal file path error" do
-        expect { subject }.to raise_error(/illegal file path '.+'/)
+        expect { subject }.to raise_error(/an example specifies an illegal file path '.+'/)
       end
     end
   end

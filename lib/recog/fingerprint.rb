@@ -5,6 +5,7 @@ module Recog
 class Fingerprint
   require 'set'
 
+  require 'recog/fingerprint_parse_error'
   require 'recog/fingerprint/regexp_factory'
   require 'recog/fingerprint/test'
 
@@ -269,7 +270,9 @@ class Fingerprint
         contents = ""
         filename = attrs["_filename"]
         fn = File.expand_path(File.join(example_path, filename))
-        raise "illegal file path '#{filename}'" unless fn.start_with?(File.expand_path(example_path) + File::Separator)
+        unless fn.start_with?(File.expand_path(example_path) + File::Separator)
+          raise FingerprintParseError.new("an example specifies an illegal file path '#{filename}'", line_number = @line)
+        end
 
         File.open(fn, "rb") do |file|
           contents = file.read
