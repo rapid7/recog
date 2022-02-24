@@ -84,6 +84,10 @@ ARGV.each do |arg|
       db = Recog::DB.new(file)
       verifier = Recog::Verifier.new(db, reporter)
       verifier.verify
+    rescue Recog::FingerprintParseError => e
+      reporter.failure(e.message, e.line_number)
+    rescue => e
+      reporter.failure(e.message)
     ensure
       failures += reporter.failure_count
       warnings += reporter.warning_count
