@@ -5,6 +5,7 @@ module Recog
 class Fingerprint
   require 'set'
 
+  require 'recog/fingerprint_parse_error'
   require 'recog/fingerprint/regexp_factory'
   require 'recog/fingerprint/test'
 
@@ -37,8 +38,8 @@ class Fingerprint
   # @param xml [Nokogiri::XML::Element]
   # @param match_key [String] See Recog::DB
   # @param protocol [String] Protocol such as ftp, mssql, http, etc.
-  # @param filepath [String] Directory path for fingerprint example files
-  def initialize(xml, match_key=nil, protocol=nil, filepath=nil)
+  # @param example_path [String] Directory path for fingerprint example files
+  def initialize(xml, match_key=nil, protocol=nil, example_path=nil)
     @match_key = match_key
     @protocol = protocol
     @name   = parse_description(xml)
@@ -48,7 +49,7 @@ class Fingerprint
     @tests = []
 
     @protocol.downcase! if @protocol
-    parse_examples(xml, filepath)
+    parse_examples(xml, example_path)
     parse_params(xml)
   end
 
@@ -257,9 +258,9 @@ class Fingerprint
   end
 
   # @param xml [Nokogiri::XML::Element]
-  # @param filepath [String] Directory path for fingerprint example files
+  # @param example_path [String] Directory path for fingerprint example files
   # @return [void]
-  def parse_examples(xml, filepath)
+  def parse_examples(xml, example_path)
     elements = xml.xpath('example')
 
     elements.each do |elem|
@@ -267,7 +268,12 @@ class Fingerprint
       attrs = elem.attributes.values.reduce({}) { |a,e| a.merge(e.name => e.value) }
       if attrs["_filename"]
         contents = ""
-        fn = File.join(filepath, attrs["_filename"])
+        filename = attrs["_filename"]
+        fn = File.expand_path(File.join(example_path, filename))
+        unless fn.start_with?(File.expand_path(example_path) + File::Separator)
+          raise FingerprintParseError.new("an example specifies an illegal file path '#{filename}'", line_number = @line)
+        end
+
         File.open(fn, "rb") do |file|
           contents = file.read
           contents.force_encoding(Encoding::ASCII_8BIT)
