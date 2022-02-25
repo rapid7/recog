@@ -19,6 +19,8 @@ def parse_r7_remapping(file):
         return yaml.safe_load(remap_file)["mappings"]
 
 def update_vp_map(target_map, cpe_type, vendor, product):
+    """Add an entry to the dict tracking valid combinations
+    """
 
     if cpe_type not in target_map:
         target_map[cpe_type] = {}
