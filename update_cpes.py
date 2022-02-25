@@ -7,45 +7,115 @@ import sys
 import yaml
 from lxml import etree
 
+# CPE w/o 2.3 component: cpe:/a:nginx:nginx:0.1.0"
+REGEX_CPE = re.compile('^cpe:/([aho]):([^:]+):([^:]+)')
+# CPE w/  2.3 component: cpe:2.3:a:f5:nginx:0.1.0:*:*:*:*:*:*:*
+REGEX_CPE_23 = re.compile('^cpe:2.3:([aho]):([^:]+):([^:]+)')
+
+XML_PATH_DEPRECATED_BY = "./{http://scap.nist.gov/schema/cpe-extension/2.3}cpe23-item/{http://scap.nist.gov/schema/cpe-extension/2.3}deprecation/{http://scap.nist.gov/schema/cpe-extension/2.3}deprecated-by"
+
 def parse_r7_remapping(file):
     with open(file) as remap_file:
         return yaml.safe_load(remap_file)["mappings"]
 
+def update_vp_map(target_map, cpe_type, vendor, product):
+
+    if cpe_type not in target_map:
+        target_map[cpe_type] = {}
+
+    if vendor not in target_map[cpe_type]:
+        target_map[cpe_type][vendor] = set()
+
+    product = product.replace('%2f', '/')
+    target_map[cpe_type][vendor].add(product)
+
+
+def update_deprecated_map(target_map, dep_string, entry):
+    """Add an entry to the dict tracking deprecations
+
+    target_map example:
+
+    {
+      "a:100plus:101eip":
+        {
+          "deprecated_date": "2021-06-10T15:28:05.490Z",
+          "deprecated_by": "a:hundredplus:101eip"
+        }
+    }
+
+    Args:
+        target_map (dict): dict containing deprecations
+        dep_string (str): key to add in the format of 'type:vendor:product'
+        entry (lxml.etree._Element): XML element to pull additional data from
+
+    Returns:
+        Nothing, target_map modified in place
+    """
+
+    deprecated_date = entry.get("deprecation_date", "")
+
+    # Find the CPE that deprecated this entry
+    raw_dep_by = entry.find(XML_PATH_DEPRECATED_BY).get('name')
+
+    # Extract the type, vendor, product
+    dep_by_match = REGEX_CPE_23.match(raw_dep_by)
+    if not dep_by_match:
+        logging.error("CPE %s is deprecated but we can't build the deprecation mapping entry for some reason.", dep_string)
+        return
+
+    dep_type, dep_vendor, dep_product = dep_by_match.group(1, 2, 3)
+    deprecated_by = "{}:{}:{}".format(dep_type, dep_vendor, dep_product)
+
+    if dep_string not in target_map:
+        target_map[dep_string] = {}
+
+    if not target_map[dep_string].get('deprecated_date'):
+        target_map[dep_string]['deprecated_date'] = deprecated_date
+
+    if not target_map[dep_string].get('deprecated_by'):
+        target_map[dep_string]['deprecated_by'] = deprecated_by
+
+
 def parse_cpe_vp_map(file):
+    deprecated_map = {}
     vp_map = {} # cpe_type -> vendor -> products
+
     parser = etree.XMLParser(remove_comments=False)
     doc = etree.parse(file, parser)
-    namespaces = {'ns': 'http://cpe.mitre.org/dictionary/2.0', 'meta': 'http://scap.nist.gov/schema/cpe-dictionary-metadata/0.2'}
+    namespaces = {
+        'ns':     'http://cpe.mitre.org/dictionary/2.0',
+        'meta':   'http://scap.nist.gov/schema/cpe-dictionary-metadata/0.2'
+    }
     for entry in doc.xpath("//ns:cpe-list/ns:cpe-item", namespaces=namespaces):
         cpe_name = entry.get("name")
         if not cpe_name:
             continue
 
-        # If the entry is deprecated then don't add it to our list of valid CPEs.
-        if entry.get("deprecated"):
-            continue
-
-        cpe_match = re.match('^cpe:/([aho]):([^:]+):([^:]+)', cpe_name)
-
+        cpe_match = REGEX_CPE.match(cpe_name)
         if cpe_match:
             cpe_type, vendor, product = cpe_match.group(1, 2, 3)
-            if cpe_type not in vp_map:
-                vp_map[cpe_type] = {}
-            if vendor not in vp_map[cpe_type]:
-                vp_map[cpe_type][vendor] = set()
-            product = product.replace('%2f', '/')
-            vp_map[cpe_type][vendor].add(product)
+            # If the entry is deprecated then don't add it to our list of valid
+            # CPEs, but instead add it to a list for reference later.
+            if entry.get("deprecated"):
+                # This will be the key under which we store the deprecation data
+                deprecated_string = "{}:{}:{}".format(cpe_type, vendor, product)
+
+                update_deprecated_map(deprecated_map, deprecated_string, entry)
+                continue
+
+            update_vp_map(vp_map, cpe_type, vendor, product)
+
         else:
             logging.error("Unexpected CPE %s", cpe_name)
 
-    return vp_map
+    return vp_map, deprecated_map
 
 def main():
     if len(sys.argv) != 4:
         logging.critical("Expecting exactly 3 arguments; recog XML file, CPE 2.3 XML dictionary, JSON remapping, got %s", (len(sys.argv) - 1))
         sys.exit(1)
 
-    cpe_vp_map = parse_cpe_vp_map(sys.argv[2])
+    cpe_vp_map, deprecated_map = parse_cpe_vp_map(sys.argv[2])
     if not cpe_vp_map:
         logging.critical("No CPE vendor => product mappings read from CPE 2.3 XML dictionary %s", sys.argv[2])
         sys.exit(1)
@@ -54,9 +124,9 @@ def main():
     if not r7_vp_map:
         logging.warning("No Rapid7 vendor/product => CPE mapping read from %s", sys.argv[3])
 
-    update_cpes(sys.argv[1], cpe_vp_map, r7_vp_map)
+    update_cpes(sys.argv[1], cpe_vp_map, r7_vp_map, deprecated_map)
 
-def lookup_cpe(vendor, product, cpe_type, cpe_table, remap):
+def lookup_cpe(vendor, product, cpe_type, cpe_table, remap, deprecated_map):
     """Identify the correct vendor and product values for a CPE
 
     This function attempts to determine the correct CPE using vendor and product
@@ -82,6 +152,8 @@ def lookup_cpe(vendor, product, cpe_type, cpe_table, remap):
         cpe_type (str): CPE type - o, a, h, etc.
         cpe_table (dict): dict containing the official NIST CPE data
         remap (dict): dict containing the remapping values
+        deprecated_cves (set): set of all deprecated CPEs in the format
+            'type:vendor:product'
     Returns:
         success, vendor, product
     """
@@ -130,13 +202,20 @@ def lookup_cpe(vendor, product, cpe_type, cpe_table, remap):
                     # Found remap vendor, remap product
                     return True, new_vendor, possible_product
 
+    deprecated_string = "{}:{}:{}".format(cpe_type, vendor, product)
+    if deprecated_map.get(deprecated_string, False):
+        dep_by = deprecated_map[deprecated_string].get("deprecated_by", "")
+        dep_date = deprecated_map[deprecated_string].get("deprecated_date", "")
+        logging.error("Product %s from vendor %s invalid for CPE %s and no mapping.  This combination is DEPRECATED by %s at %s",
+                    product, vendor, cpe_type, dep_by, dep_date)
+    else:
+        logging.error("Product %s from vendor %s invalid for CPE %s and no mapping.",
+                    product, vendor, cpe_type)
 
-    logging.error("Product %s from vendor %s invalid for CPE %s and no mapping",
-                  product, vendor, cpe_type)
     return False, None, None
 
 
-def update_cpes(xml_file, cpe_vp_map, r7_vp_map):
+def update_cpes(xml_file, cpe_vp_map, r7_vp_map, deprecated_cves):
     parser = etree.XMLParser(remove_comments=False, remove_blank_text=True)
     doc = etree.parse(xml_file, parser)
 
@@ -210,7 +289,7 @@ def update_cpes(xml_file, cpe_vp_map, r7_vp_map):
                 if (vendor.startswith('{') and vendor.endswith('}')) or (product.startswith('{') and product.endswith('}')):
                     continue
 
-                success, vendor, product = lookup_cpe(vendor, product, cpe_type, cpe_vp_map, r7_vp_map)
+                success, vendor, product = lookup_cpe(vendor, product, cpe_type, cpe_vp_map, r7_vp_map, deprecated_cves)
                 if not success:
                     continue
 
