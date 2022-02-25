@@ -3770,4 +3770,15 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:apache:solr:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^Spark (?:Master|Worker) at (?:spark:\/\/)?(\S{1,512}):\d{1,5}$">
+    <description>Apache Spark</description>
+    <example host.name="spark-master-0.foo.bar">Spark Master at spark://spark-master-0.foo.bar:7077</example>
+    <example host.name="10.10.10.10">Spark Master at spark://10.10.10.10:7077</example>
+    <example host.name="10.10.10.10">Spark Worker at 10.10.10.10:45339</example>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="Spark"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:apache:spark:-"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+
 </fingerprints>
