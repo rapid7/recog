@@ -73,11 +73,11 @@
     <param pos="3" name="host.domain"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^Qpop(?:per)? \(version ([\d\.]+)\) at (.+)(?: starting\.)?">
+  <fingerprint pattern="(?i)^Qpop(?:per)? \(version ([\d\.]+)\) at (\S{1,512})(?: starting\.)?">
     <description>Qpopper missing version info</description>
     <example service.version="4.0.16" host.domain="foo.example.com">Qpopper (version 4.0.16) at foo.example.com</example>
-    <example service.version="2.53" host.domain="domain starting.  &lt;xxx@domain&gt;">QPOP (version 2.53) at domain starting.  &lt;xxx@domain&gt;</example>
-    <example service.version="4.0.3" host.domain="domain starting.  &lt;xxx@domain&gt;">Qpopper (version 4.0.3) at domain starting.  &lt;xxx@domain&gt;</example>
+    <example service.version="2.53" host.domain="domain">QPOP (version 2.53) at domain starting.  &lt;xxx@domain&gt;</example>
+    <example service.version="4.0.3" host.domain="domain">Qpopper (version 4.0.3) at domain starting.  &lt;xxx@domain&gt;</example>
     <param pos="0" name="service.vendor" value="Qualcomm"/>
     <param pos="0" name="service.family" value="Qpopper"/>
     <param pos="0" name="service.product" value="Qpopper"/>
@@ -110,9 +110,9 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^Microsoft Exchange 2000 POP3 server version (\d+\.\d+\.\d+\.\d+) (.+) ready.$">
+  <fingerprint pattern="^Microsoft Exchange 2000 POP3 server version (\d+\.\d+\.\d+\.\d+) \((\S{1,512})\) ready\.$">
     <description>Microsoft Exchange Server 2000</description>
-    <example service.version="6.0.6603.0" host.name="(host)">Microsoft Exchange 2000 POP3 server version 6.0.6603.0 (host) ready.</example>
+    <example service.version="6.0.6603.0" host.name="host">Microsoft Exchange 2000 POP3 server version 6.0.6603.0 (host) ready.</example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.family" value="Exchange Server"/>
     <param pos="0" name="service.product" value="Exchange 2000 Server"/>
