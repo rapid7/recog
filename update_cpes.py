@@ -7,6 +7,8 @@ import sys
 import yaml
 from lxml import etree
 
+BASE_LOG_FORMAT = '%(levelname)s: %(message)s'
+
 # CPE w/o 2.3 component: cpe:/a:nginx:nginx:0.1.0"
 REGEX_CPE = re.compile('^cpe:/([aho]):([^:]+):([^:]+)')
 # CPE w/  2.3 component: cpe:2.3:a:f5:nginx:0.1.0:*:*:*:*:*:*:*
@@ -14,9 +16,11 @@ REGEX_CPE_23 = re.compile('^cpe:2.3:([aho]):([^:]+):([^:]+)')
 
 XML_PATH_DEPRECATED_BY = "./{http://scap.nist.gov/schema/cpe-extension/2.3}cpe23-item/{http://scap.nist.gov/schema/cpe-extension/2.3}deprecation/{http://scap.nist.gov/schema/cpe-extension/2.3}deprecated-by"
 
+
 def parse_r7_remapping(file):
     with open(file) as remap_file:
         return yaml.safe_load(remap_file)["mappings"]
+
 
 def update_vp_map(target_map, cpe_type, vendor, product):
     """Add an entry to the dict tracking valid combinations
@@ -51,7 +55,7 @@ def update_deprecated_map(target_map, dep_string, entry):
         entry (lxml.etree._Element): XML element to pull additional data from
 
     Returns:
-        Nothing, target_map modified in place
+        None, target_map modified in place
     """
 
     deprecated_date = entry.get("deprecation_date", "")
@@ -112,21 +116,6 @@ def parse_cpe_vp_map(file):
 
     return vp_map, deprecated_map
 
-def main():
-    if len(sys.argv) != 4:
-        logging.critical("Expecting exactly 3 arguments; recog XML file, CPE 2.3 XML dictionary, JSON remapping, got %s", (len(sys.argv) - 1))
-        sys.exit(1)
-
-    cpe_vp_map, deprecated_map = parse_cpe_vp_map(sys.argv[2])
-    if not cpe_vp_map:
-        logging.critical("No CPE vendor => product mappings read from CPE 2.3 XML dictionary %s", sys.argv[2])
-        sys.exit(1)
-
-    r7_vp_map = parse_r7_remapping(sys.argv[3])
-    if not r7_vp_map:
-        logging.warning("No Rapid7 vendor/product => CPE mapping read from %s", sys.argv[3])
-
-    update_cpes(sys.argv[1], cpe_vp_map, r7_vp_map, deprecated_map)
 
 def lookup_cpe(vendor, product, cpe_type, cpe_table, remap, deprecated_map):
     """Identify the correct vendor and product values for a CPE
@@ -241,7 +230,6 @@ def update_cpes(xml_file, cpe_vp_map, r7_vp_map, deprecated_cves):
                     raise ValueError('Duplicated fingerprint named {} in fingerprint {} in file {}'.format(name, fingerprint.attrib['pattern'], xml_file))
                 params[fp_type][name] = param
 
-
         # for each of the applicable os/service param groups, build a CPE
         for fp_type in params:
             if fp_type == 'os':
@@ -326,6 +314,30 @@ def update_cpes(xml_file, cpe_vp_map, r7_vp_map, deprecated_cves):
     with open(xml_file, 'wb') as xml_out:
         xml_out.write(etree.tostring(root, pretty_print=True, xml_declaration=True, encoding=doc.docinfo.encoding))
 
+
+def main():
+    if len(sys.argv) != 4:
+        logging.critical("Expecting exactly 3 arguments; recog XML file, CPE 2.3 XML dictionary, JSON remapping, got %s", (len(sys.argv) - 1))
+        sys.exit(1)
+
+    cpe_vp_map, deprecated_map = parse_cpe_vp_map(sys.argv[2])
+    if not cpe_vp_map:
+        logging.critical("No CPE vendor => product mappings read from CPE 2.3 XML dictionary %s", sys.argv[2])
+        sys.exit(1)
+
+    r7_vp_map = parse_r7_remapping(sys.argv[3])
+    if not r7_vp_map:
+        logging.warning("No Rapid7 vendor/product => CPE mapping read from %s", sys.argv[3])
+
+    # update format string for the logging handler to include the recog XML filename
+    logging.basicConfig(force=True, format=f"{sys.argv[1]}: {BASE_LOG_FORMAT}")
+
+    update_cpes(sys.argv[1], cpe_vp_map, r7_vp_map, deprecated_map)
+
+
 if __name__ == '__main__':
-    try: sys.exit(main())
-    except KeyboardInterrupt: pass
+    logging.basicConfig(format=BASE_LOG_FORMAT)
+    try:
+        sys.exit(main())
+    except KeyboardInterrupt:
+        pass
