@@ -648,21 +648,26 @@
 
   <!-- TODO: this needs to be improved -->
 
-  <fingerprint pattern="^Oracle-Application-Server-\d+[ig](?:[ /]([\d.]+) (?:\(.*\)|Oracle-HTTP-Server\s*(.*)))?$">
-    <description>Oracle Application Server 10g (powered by Apache)</description>
-    <example>Oracle-Application-Server-11g</example>
+  <fingerprint pattern="^Oracle-Application-Server-\d+[cgi](?:(?:[ /]([\d.]+))?\s*((?:Oracle-HTTP-Server|Oracle-Web-Cache-|OracleAS-Web-Cache-)?.{0,512})?(?:\s*\([TF]?[HSUGMN]?(?:;max-age=\d+(?:\+\d+)?)?(?:;age=\d+)?;ecid=[^)]+\))?)?$">
+    <description>Oracle Application Server</description>
     <example>Oracle-Application-Server-10g</example>
-    <example apache.variant.version="10.1.2.0.2">Oracle-Application-Server-10g/10.1.2.0.2 Oracle-HTTP-Server</example>
-    <example apache.info="(Unix) mod_plsql/10.1.2.2.0 mod_ossl/10.1.2.0.0 mod_perl/1.29 OracleAS-Web-Cache-10g/10.1.2.0.2 (N;ecid=89116016562,0)" apache.variant.version="10.1.2.2.0">Oracle-Application-Server-10g/10.1.2.2.0 Oracle-HTTP-Server (Unix) mod_plsql/10.1.2.2.0 mod_ossl/10.1.2.0.0 mod_perl/1.29 OracleAS-Web-Cache-10g/10.1.2.0.2 (N;ecid=89116016562,0)</example>
-    <example apache.info="OracleAS-Web-Cache-10g/10.1.2.2.0 (N;ecid=153541209221,0)" apache.variant.version="10.1.2.2.0">Oracle-Application-Server-10g/10.1.2.2.0 Oracle-HTTP-Server OracleAS-Web-Cache-10g/10.1.2.2.0 (N;ecid=153541209221,0)</example>
-    <example apache.variant.version="9.0.4.1.0">Oracle-Application-Server-10g/9.0.4.1.0 Oracle-HTTP-Server</example>
-    <param pos="0" name="service.vendor" value="Apache"/>
-    <param pos="0" name="service.product" value="HTTPD"/>
-    <param pos="0" name="service.family" value="Apache"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:apache:http_server:-"/>
-    <param pos="2" name="apache.info"/>
+    <example>Oracle-Application-Server-11g</example>
+    <example>Oracle-Application-Server-12c</example>
+    <example service.version="10.2.3.6.0">Oracle-Application-Server-11g/10.2.3.6.0</example>
+    <example service.version="10.1.2.0.2">Oracle-Application-Server-10g/10.1.2.0.2 Oracle-HTTP-Server</example>
+    <example service.version="10.1.2.2.0" apache.info="Oracle-HTTP-Server (Unix) mod_plsql/10.1.2.2.0 mod_ossl/10.1.2.0.0 mod_perl/1.29 OracleAS-Web-Cache-10g/10.1.2.0.2 (N;ecid=89116016562,0)">Oracle-Application-Server-10g/10.1.2.2.0 Oracle-HTTP-Server (Unix) mod_plsql/10.1.2.2.0 mod_ossl/10.1.2.0.0 mod_perl/1.29 OracleAS-Web-Cache-10g/10.1.2.0.2 (N;ecid=89116016562,0)</example>
+    <example service.version="10.1.2.2.0" apache.info="Oracle-HTTP-Server OracleAS-Web-Cache-10g/10.1.2.2.0 (N;ecid=153541209221,0)">Oracle-Application-Server-10g/10.1.2.2.0 Oracle-HTTP-Server OracleAS-Web-Cache-10g/10.1.2.2.0 (N;ecid=153541209221,0)</example>
+    <example service.version="9.0.4.1.0">Oracle-Application-Server-10g/9.0.4.1.0 Oracle-HTTP-Server</example>
+    <example apache.info="Oracle-Web-Cache-11g/11.1.1.3.0">Oracle-Application-Server-11g Oracle-Web-Cache-11g/11.1.1.3.0</example>
+    <example apache.info="OracleAS-Web-Cache-10g/9.0.4.0.0 (G;max-age=405077281+0;age=0)">Oracle-Application-Server-10g OracleAS-Web-Cache-10g/9.0.4.0.0 (G;max-age=405077281+0;age=0)</example>
+    <example apache.info="(N;ecid=7862868532763,0:1)">Oracle-Application-Server-11g   (N;ecid=7862868532763,0:1)</example>
+    <example apache.info="Oracle-Web-Cache-11g/11.1.1.6.0 (G;max-age=0+0;age=0;ecid=9345078839670331,0:1)">Oracle-Application-Server-11g Oracle-Web-Cache-11g/11.1.1.6.0 (G;max-age=0+0;age=0;ecid=9345078839670331,0:1)</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="Application Server"/>
     <param pos="0" name="apache.variant" value="Oracle"/>
-    <param pos="1" name="apache.variant.version"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:oracle:application_server:{service.version}"/>
+    <param pos="2" name="apache.info"/>
   </fingerprint>
 
   <fingerprint pattern="^Oracle9iAS/([\d.]+) Oracle HTTP Server\s*(.*)$">
@@ -702,9 +707,26 @@
     <param pos="0" name="apache.variant" value="Oracle"/>
   </fingerprint>
 
-  <fingerprint pattern="^Oracle-Web-Cache-11g/([\d.]+) \(N;ecid=[^)]+\)$">
+  <fingerprint pattern="^Oracle-HTTP-Server(?:(?:-(?:\d{2}[cg]\/?)?([\d.]+)?(?:\/[\d.]+)?)?(?:.{0,512}\([TF]?[HSUGMN]?(?:;max-age=\d+(?:\+\d+)?)?(?:;age=\d+)?;ecid=[^)]+\))?)?$">
+    <description>Oracle HTTP Server</description>
+    <example>Oracle-HTTP-Server</example>
+    <example>Oracle-HTTP-Server-11g</example>
+    <example>Oracle-HTTP-Server-12c</example>
+    <example service.version="12.1.3.0.0">Oracle-HTTP-Server-12c/12.1.3.0.0</example>
+    <example service.version="12.2.1.4.0">Oracle-HTTP-Server-12.2.1.4.0/2.4.39</example>
+    <example>Oracle-HTTP-Server-11g Oracle-Web-Cache-11g/11.1.1.9.0 (H;max-age=214748356+0;age=61086;ecid=32073608106620,0:1)</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="HTTP Server"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:oracle:http_server:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Oracle-Web-Cache-11g/([\d.]+)(?:\s*\([TF]?[HSUGMN]?(?:;max-age=\d+(?:\+\d+)?)?(?:;age=\d+)?;ecid=[^)]+\))?$">
     <description>Oracle Web Cache</description>
-    <example service.version="11.1.1.9.0">Oracle-Web-Cache-11g/11.1.1.9.0 (N;ecid=93620137613024,0:1)</example>
+    <example service.version="11.1.1.6.0">Oracle-Web-Cache-11g/11.1.1.6.0</example>
+    <example service.version="11.1.1.6.0">Oracle-Web-Cache-11g/11.1.1.6.0 (N;ecid=8590109479546459,0:1)</example>
+    <example service.version="11.1.1.6.0">Oracle-Web-Cache-11g/11.1.1.6.0 (G;max-age=0+0;age=0;ecid=86359748033185402,0:1:1)</example>
+    <example service.version="11.1.1.9.0">Oracle-Web-Cache-11g/11.1.1.9.0 (TH;max-age=60+30;age=55;ecid=23248098121,0)</example>
     <param pos="0" name="service.vendor" value="Oracle"/>
     <param pos="0" name="service.product" value="Web Cache"/>
     <param pos="1" name="service.version"/>
@@ -718,6 +740,32 @@
     <param pos="0" name="service.product" value="Application Server Web Cache"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:oracle:application_server_web_cache:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Oracle-iPlanet-Web-Server/([\d.]+)$">
+    <description>Oracle iPlanet Web Server (formerly known as Sun Java System Web Server, Sun ONE Web Server)</description>
+    <example service.version="7.0">Oracle-iPlanet-Web-Server/7.0</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="iPlanet Web Server"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:oracle:iplanet_web_server:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Oracle-ILOM-Web-Server/([\d.]+)$">
+    <description>Oracle(R) Integrated Lights Out Manager Web Server</description>
+    <example service.version="1.0">Oracle-ILOM-Web-Server/1.0</example>
+    <param pos="0" name="service.vendor" value="Oracle"/>
+    <param pos="0" name="service.product" value="ILOM"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="os.vendor" value="Oracle"/>
+    <param pos="0" name="os.family" value="ILOM"/>
+    <param pos="0" name="os.product" value="ILOM"/>
+    <param pos="0" name="os.device" value="Lights Out Management"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:oracle:integrated_lights_out_manager_firmware:-"/>
+    <param pos="0" name="hw.vendor" value="Oracle"/>
+    <param pos="0" name="hw.family" value="ILOM"/>
+    <param pos="0" name="hw.product" value="ILOM"/>
+    <param pos="0" name="hw.device" value="Lights Out Management"/>
   </fingerprint>
 
   <fingerprint pattern="^HP Apache-based Web Server/([012][\d.]*)\s*\(Unix\)\s*(.*)$">
