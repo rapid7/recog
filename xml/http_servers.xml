@@ -3399,6 +3399,27 @@
     <param pos="0" name="service.product" value="MiniUPnPd"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnpd:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Tomato"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Tomato"/>
+    <param pos="0" name="os.device" value="Router"/>
+  </fingerprint>
+
+  <fingerprint pattern="^UPnP/Tomato ([\d\.]+)?[\w\s\.-]{1,30} UPnP/[\d\.]+ MiniUPnPd/([\d\.]+)$">
+    <description>TomatoUSB UPnP Server</description>
+    <example os.version="1.28.9014" service.version="1.8">UPnP/Tomato 1.28.9014 MIPSR2-RAF-v1.3g K26 UPnP/1.1 MiniUPnPd/1.8</example>
+    <example os.version="1.28.0000" service.version="1.9">UPnP/Tomato 1.28.0000 MIPSR2-132 K26 USB VPN UPnP/1.1 MiniUPnPd/1.9</example>
+    <example service.version="2.0">UPnP/Tomato MIPSR2-140 K26 UPnP/1.1 MiniUPnPd/2.0</example>
+    <example service.version="2.0">UPnP/Tomato MIPSR2Toastman-RT K26 UPnP/1.1 MiniUPnPd/2.0</example>
+    <param pos="0" name="service.vendor" value="MiniUPnP Project"/>
+    <param pos="0" name="service.product" value="MiniUPnPd"/>
+    <param pos="2" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:miniupnp_project:miniupnpd:{service.version}"/>
+    <param pos="0" name="os.vendor" value="TomatoUSB"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="TomatoUSB"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="1" name="os.version"/>
   </fingerprint>
 
   <fingerprint pattern="(?i)^(RT-\w+) UPnP/\S+ MiniUPnPd/([\d.]+)$">
