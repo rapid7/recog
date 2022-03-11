@@ -2238,6 +2238,31 @@
     <param pos="3" name="hw.version"/>
   </fingerprint>
 
+  <fingerprint pattern="^(TAU-[\w.]{1,6}) login:$$">
+    <description>Eltex TAU model VoIP gateway</description>
+    <example hw.product="TAU-8">TAU-8 login:</example>
+    <example hw.product="TAU-2M.IP">TAU-2M.IP login:</example>
+    <param pos="0" name="os.vendor" value="Eltex"/>
+    <param pos="0" name="os.product" value="{hw.product} Firmware"/>
+    <param pos="0" name="os.device" value="VoIP Gateway"/>
+    <param pos="0" name="hw.vendor" value="Eltex"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="VoIP Gateway"/>
+  </fingerprint>
+
+  <fingerprint pattern="^eltex-nv(\d+) login:$">
+    <description>Eltex - NV model IPTV set top box</description>
+    <example hw.model="101">eltex-nv101 login:</example>
+    <example hw.product="NV102">eltex-nv102 login:</example>
+    <param pos="0" name="os.vendor" value="Eltex"/>
+    <param pos="0" name="os.product" value="{hw.product} Firmware"/>
+    <param pos="0" name="os.device" value="IPTV"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="0" name="hw.vendor" value="Eltex"/>
+    <param pos="0" name="hw.product" value="NV{hw.model}"/>
+    <param pos="0" name="hw.device" value="IPTV"/>
+  </fingerprint>
+
   <fingerprint pattern="&quot;BeerTemp&quot;:.*&quot;FridgeTemp&quot;:">
     <description>Fermentrack Beer Brewing Monitor</description>
     <example>T:{"BeerTemp":null,"BeerSet":null,"BeerAnn":null,"FridgeTemp":null,"FridgeSet":null,"FridgeAnn":null,"State":0}</example>

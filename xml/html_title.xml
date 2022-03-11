@@ -3838,4 +3838,59 @@
     <param pos="0" name="hw.family" value="Vigor"/>
   </fingerprint>
 
+  <!-- Specific Eltex fingerprints to enable CPE generation -->
+
+  <fingerprint pattern="^Eltex - NTP-RG-1402G$">
+    <description>Eltex - NTP-RG-1402G broadband router</description>
+    <example>Eltex - NTP-RG-1402G</example>
+    <param pos="0" name="os.vendor" value="Eltex"/>
+    <param pos="0" name="os.product" value="NTP-RG-1402G Firmware"/>
+    <param pos="0" name="os.device" value="Broadband Router"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:eltex-co:ntp-rg-1402g_firmware:-"/>
+    <param pos="0" name="hw.vendor" value="Eltex"/>
+    <param pos="0" name="hw.product" value="NTP-RG-1402G"/>
+    <param pos="0" name="hw.device" value="Broadband Router"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:eltex-co:ntp-rg-1402g:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Eltex - NTP-2$">
+    <description>Eltex - NTP-2 broadband router</description>
+    <example>Eltex - NTP-2</example>
+    <param pos="0" name="os.vendor" value="Eltex"/>
+    <param pos="0" name="os.product" value="NTP-2 Firmware"/>
+    <param pos="0" name="os.device" value="Broadband Router"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:eltex-co:ntp-2_firmware:-"/>
+    <param pos="0" name="hw.vendor" value="Eltex"/>
+    <param pos="0" name="hw.product" value="NTP-2"/>
+    <param pos="0" name="hw.device" value="Broadband Router"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:eltex-co:ntp-2:-"/>
+  </fingerprint>
+
+  <!-- General Eltex fingerprints -->
+
+  <fingerprint pattern="^Eltex - (NT[PU]-RG-\d[\w-]+):?(:?rev\.\w\w?)?$">
+    <description>Eltex RG model ONT class broadband router</description>
+    <example hw.product="NTU-RG-1402G-W">Eltex - NTU-RG-1402G-W</example>
+    <example hw.product="NTU-RG-1421G-Wac" hw.version="rev.A1">Eltex - NTU-RG-1421G-Wac:rev.A1</example>
+    <example hw.product="NTP-RG-1402G-W" hw.version="rev.C">Eltex - NTP-RG-1402G-W:rev.C</example>
+    <param pos="0" name="os.vendor" value="Eltex"/>
+    <param pos="0" name="os.device" value="Broadband Router"/>
+    <param pos="0" name="hw.vendor" value="Eltex"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="hw.version"/>
+    <param pos="0" name="hw.device" value="Broadband Router"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Eltex - (NT[PU]-2\w\w?)$">
+    <description>Eltex - NTP / NTU model broadband router</description>
+    <example hw.product="NTU-2V">Eltex - NTU-2V</example>
+    <example hw.product="NTU-2VC">Eltex - NTU-2VC</example>
+    <example hw.product="NTP-2C">Eltex - NTP-2C</example>
+    <param pos="0" name="os.vendor" value="Eltex"/>
+    <param pos="0" name="os.device" value="Broadband Router"/>
+    <param pos="0" name="hw.vendor" value="Eltex"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Broadband Router"/>
+  </fingerprint>
+
 </fingerprints>
