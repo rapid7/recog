@@ -618,10 +618,12 @@
     <param pos="1" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^(TAU-\d[\w.IP]+)/([\d.]+) SN/(VI\d+)$">
+  <fingerprint pattern="^(TAU-\d+[A-Z]*(?:\.IP)?)/([\d.]+) SN/(VI[0-9A-Z]+)$">
     <description>Eltex TAU model VoIP gateway - with serial number</description>
     <example hw.product="TAU-8.IP" os.version="2.6.3">TAU-8.IP/2.6.3 SN/VI12345678</example>
-    <example os.version="2.0.0.229" hw.serial_number="VI12345678">TAU-4M.IP/2.0.0.229 SN/VI12345678</example>
+    <example os.version="2.0.0.229" hw.serial_number="VI4D012345">TAU-4M.IP/2.0.0.229 SN/VI4D012345</example>
+    <example hw.product="TAU-2M.IP" os.version="2.3.1.11" hw.serial_number="VI12345678">TAU-2M.IP/2.3.1.11 SN/VI12345678</example>
+    <example hw.product="TAU-1M.IP" os.version="2.0.0.229" hw.serial_number="VI3A012345">TAU-1M.IP/2.0.0.229 SN/VI3A012345</example>
     <param pos="0" name="os.vendor" value="Eltex"/>
     <param pos="0" name="os.product" value="{hw.product} Firmware"/>
     <param pos="2" name="os.version"/>
@@ -632,10 +634,12 @@
     <param pos="0" name="hw.device" value="VoIP Gateway"/>
   </fingerprint>
 
-  <fingerprint pattern="^(TAU-\d[\d.IP]+)/([\d.]+) SN/(VI\w+) (?:SHA/[0-9a-f]+ )?sofia-sip/([\d.]+)$">
+  <fingerprint pattern="^(TAU-\d+[A-Z]*(?:\.IP)?)/([\d.]+) SN/(VI[0-9A-Z]+) (?:SHA/[0-9a-f]+ )?sofia-sip/([\d.]+)$">
     <description>Eltex TAU model VoIP gateway - with serial number and sofia version</description>
     <example hw.product="TAU-8.IP" hw.serial_number="VI12345678">TAU-8.IP/2.3.0 SN/VI12345678 sofia-sip/1.12.10</example>
     <example os.version="1.9.1" service.component.version="1.12.10">TAU-8.IP/1.9.1 SN/VI12345678 SHA/7404bd4 sofia-sip/1.12.10</example>
+    <example hw.product="TAU-2M.IP" os.version="1.13.3.5" hw.serial_number="VI12345678" service.component.version="1.12.10">TAU-2M.IP/1.13.3.5 SN/VI12345678 sofia-sip/1.12.10</example>
+    <example hw.product="TAU-1M.IP" os.version="1.9.3" hw.serial_number="VI3A012345" service.component.version="1.12.10">TAU-1M.IP/1.9.3 SN/VI3A012345 sofia-sip/1.12.10</example>
     <param pos="0" name="service.vendor" value="FreeSWITCH"/>
     <param pos="0" name="service.product" value="FreeSWITCH"/>
     <param pos="0" name="service.device" value="SIP Gateway"/>
@@ -653,7 +657,7 @@
     <param pos="0" name="hw.device" value="VoIP Gateway"/>
   </fingerprint>
 
-  <fingerprint pattern="^(TAU-\d{1,2}) (?:build |v)(\d[\d.]+) (?:with )?sofia-sip/([\d.]+)$">
+  <fingerprint pattern="^(TAU-\d{1,2}) (?:build |v)([\d.]+) (?:with )?sofia-sip/([\d.]+)$">
     <description>Eltex TAU model VoIP gateway - build variant with sofia version</description>
     <example hw.product="TAU-72" os.version="2.18.0.35">TAU-72 build 2.18.0.35 sofia-sip/1.12.10</example>
     <example service.component.version="1.12.10">TAU-1 v1.2 with sofia-sip/1.12.10</example>
