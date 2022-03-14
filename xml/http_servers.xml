@@ -4739,4 +4739,19 @@
     <param pos="0" name="hw.device" value="VoIP Gateway"/>
   </fingerprint>
 
+  <fingerprint pattern="^(SMG-?\d+[A-Z]?)$">
+    <description>Eltex SMG model VoIP gateway</description>
+    <example hw.product="SMG2">SMG2</example>
+    <example hw.product="SMG1016M">SMG1016M</example>
+    <example hw.product="SMG-1016M">SMG-1016M</example>
+    <example hw.product="SMG3016">SMG3016</example>
+    <param pos="0" name="os.vendor" value="Eltex"/>
+    <param pos="0" name="os.product" value="{hw.product} Firmware"/>
+    <param pos="0" name="os.device" value="VoIP Gateway"/>
+    <param pos="0" name="hw.vendor" value="Eltex"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="VoIP Gateway"/>
+  </fingerprint>
+
+
 </fingerprints>

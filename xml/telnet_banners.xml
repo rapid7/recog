@@ -2250,6 +2250,30 @@
     <param pos="0" name="hw.device" value="VoIP Gateway"/>
   </fingerprint>
 
+  <fingerprint pattern="(?m)^\**(?:\r|\n)*\**\s*Welcome to (SMG-?\d+[A-Z]?)\s*\**(?:\r|\n)*\**(?:\r|\n)+(\S+) login:\s*$">
+    <description>Eltex SMG model VoIP gateway - banner with model number</description>
+    <!--
+      ********************************************
+      *            Welcome to SMG1016M           *
+      ********************************************
+
+      foo.bar.baz login:
+    -->
+    <example hw.product="SMG1016M" host.name="foo.bar.baz" _encoding="base64">
+      DQ0KDQoNKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioNCg0qI
+      CAgICAgICAgICAgV2VsY29tZSB0byBTTUcxMDE2TSAgICAgICAgICAgKg0KDSoqKioqKioqKi
+      oqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqDQoNDQoNZm9vLmJhci5iYXogbG9
+      naW46IA==
+    </example>
+    <param pos="0" name="os.vendor" value="Eltex"/>
+    <param pos="0" name="os.product" value="{hw.product} Firmware"/>
+    <param pos="0" name="os.device" value="VoIP Gateway"/>
+    <param pos="0" name="hw.vendor" value="Eltex"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="VoIP Gateway"/>
+    <param pos="2" name="host.name"/>
+  </fingerprint>
+
   <fingerprint pattern="^eltex-nv(\d+) login:$">
     <description>Eltex - NV model IPTV set top box</description>
     <example hw.model="101">eltex-nv101 login:</example>
