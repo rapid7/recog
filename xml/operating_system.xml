@@ -35,7 +35,7 @@
     <param pos="0" name="os.product" value="Windows 10 Mobile"/>
     <param pos="1" name="os.edition"/>
     <param pos="0" name="os.device" value="Mobile"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_10_mobile:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_10_mobile:-:*:{os.edition}"/>
   </fingerprint>
 
   <fingerprint pattern="(?i)^(?:Microsoft )?(Windows (?:XP|Vista|7|8|8.1|10))(?:\s)?((?:[a-z]+|[a-z]+, )?(?:[a-z]+|[a-z]+\s[a-z]+)?)?(?: Edition)?(?:\s)?(SP\d|SP \d|Service Pack \d)?$">
@@ -66,7 +66,6 @@
     <param pos="0" name="os.product" value="Windows 2000"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_2000:{os.version}"/>
   </fingerprint>
 
   <fingerprint pattern="(?i)^(?:Microsoft )?Windows NT (\d.\d{1,2})?(?:\s)?([a-z]+|[a-z]+\s[a-z]+)?$">
@@ -80,7 +79,6 @@
     <param pos="0" name="os.product" value="NT"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.edition"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_nt:{os.version}"/>
   </fingerprint>
 
   <fingerprint pattern="(?i)^(?:Microsoft )?Windows Phone (\d|\d\.\d)?$">
@@ -369,7 +367,6 @@
     <param pos="0" name="os.product" value="Linux"/>
     <param pos="1" name="os.version"/>
     <param pos="2" name="os.edition"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
   </fingerprint>
 
   <!-- Ubuntu derivative -->

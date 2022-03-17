@@ -58,7 +58,7 @@
     <param pos="0" name="os.product" value="Windows XP"/>
     <param pos="1" name="os.build"/>
     <param pos="2" name="os.update"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_xp:"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_xp:-:{os.update}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows XP (\d+)$">
@@ -79,7 +79,7 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows XP"/>
     <param pos="1" name="os.edition"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_xp:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_xp:-:*:{os.edition}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows \.NET">
@@ -88,7 +88,6 @@
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.product" value="Windows Server 2003"/>
     <param pos="0" name="os.update" value="Beta"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:-:beta"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Server 2003 R2 (\d+)$">
@@ -111,7 +110,7 @@
     <param pos="0" name="os.version" value="R2"/>
     <param pos="1" name="os.build"/>
     <param pos="2" name="os.update"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:r2:${os.update}"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:r2:{os.update}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Server 2003 (\d+)$">
@@ -166,7 +165,6 @@
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
     <param pos="3" name="os.update"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-:{os.update}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows \(R\) Web Server 2008 (\d+) (Service Pack \d+)$">
@@ -189,7 +187,7 @@
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="0" name="os.edition" value="Web"/>
     <param pos="1" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-:-:web"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-:*:web"/>
   </fingerprint>
 
   <!-- TODO: Need an example string -->
@@ -214,7 +212,7 @@
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="0" name="os.edition" value="Storage"/>
     <param pos="1" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-:-:storage"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-:*:storage"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Server 2008 HPC Edition (\d+) (Service Pack \d+)$">
@@ -237,7 +235,7 @@
     <param pos="0" name="os.product" value="Windows Server 2008"/>
     <param pos="0" name="os.edition" value="HPC"/>
     <param pos="1" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-:-:hpc"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-:*:hpc"/>
   </fingerprint>
 
   <!-- 2008 R2 -->
@@ -253,7 +251,6 @@
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
     <param pos="3" name="os.update"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:r2:{os.update}:{os.edition}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Server 2008 R2 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
@@ -267,7 +264,7 @@
     <param pos="0" name="os.version" value="R2"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:r2"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:r2:*:{os.edition}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Web Server 2008 R2 (\d+) (Service Pack \d+)$">
@@ -280,7 +277,6 @@
     <param pos="0" name="os.edition" value="Web"/>
     <param pos="1" name="os.build"/>
     <param pos="2" name="os.update"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:r2:{os.update}:web"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Web Server 2008 R2 (\d+)$">
@@ -292,7 +288,6 @@
     <param pos="0" name="os.version" value="R2"/>
     <param pos="0" name="os.edition" value="Web"/>
     <param pos="1" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:r2:-:web"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Storage Server 2008 R2 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
@@ -305,7 +300,6 @@
     <param pos="0" name="os.edition" value="Storage"/>
     <param pos="1" name="os.build"/>
     <param pos="2" name="os.update"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:r2:{os.update}:storage"/>
   </fingerprint>
 
   <fingerprint pattern="^Hyper-V Server 7601 Service Pack 1$">
@@ -317,7 +311,6 @@
     <param pos="0" name="os.version" value="R2"/>
     <param pos="0" name="os.edition" value="Hyper-V"/>
     <param pos="0" name="os.build" value="7601"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:r2"/>
   </fingerprint>
 
   <!-- Windows 2019 -->
@@ -333,7 +326,7 @@
     <param pos="0" name="os.product" value="Windows Server 2019"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2019:-:-:{os.edition}"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2019:-:*:{os.edition}"/>
   </fingerprint>
 
   <fingerprint pattern="^Hyper-V Server 2019  (\d+)$">
@@ -344,7 +337,6 @@
     <param pos="0" name="os.product" value="Windows Server 2019"/>
     <param pos="0" name="os.edition" value="Hyper-V"/>
     <param pos="1" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2019:-"/>
   </fingerprint>
 
   <!-- Windows 2016 -->
@@ -359,7 +351,7 @@
     <param pos="0" name="os.product" value="Windows Server 2016"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2016:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2016:-:*:{os.edition}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Storage Server 2016 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
@@ -370,7 +362,6 @@
     <param pos="0" name="os.product" value="Windows Server 2016"/>
     <param pos="0" name="os.edition" value="Storage"/>
     <param pos="1" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2016:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Hyper-V Server 2016 (\d+)$">
@@ -381,7 +372,6 @@
     <param pos="0" name="os.product" value="Windows Server 2016"/>
     <param pos="0" name="os.edition" value="Hyper-V"/>
     <param pos="1" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2016:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Vista \(TM\) (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
@@ -393,7 +383,6 @@
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
     <param pos="3" name="os.update"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_vista:-:{os.update}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Vista \(TM\) (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
@@ -404,7 +393,7 @@
     <param pos="0" name="os.product" value="Windows Vista"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_vista:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_vista:-:*:{os.edition}"/>
   </fingerprint>
 
   <fingerprint pattern="^(Windows (?:7|8|8\.1)(?:| RT)) (\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)(?:, v\.\d+)?$">
@@ -463,7 +452,6 @@
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
     <param pos="3" name="os.update"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:r2:{os.update}:{os.edition}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Server 2012 R2 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
@@ -475,7 +463,7 @@
     <param pos="0" name="os.version" value="R2"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:r2"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:r2:*:{os.edition}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Storage Server 2012 R2 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
@@ -489,7 +477,7 @@
     <param pos="0" name="os.version" value="R2"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:r2"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:r2:*:{os.edition}"/>
   </fingerprint>
 
   <fingerprint pattern="^Hyper-V Server 2012 R2 (\d+)$">
@@ -501,7 +489,6 @@
     <param pos="0" name="os.version" value="R2"/>
     <param pos="0" name="os.edition" value="Hyper-V"/>
     <param pos="1" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:r2"/>
   </fingerprint>
 
   <!-- Windows 2012 -->
@@ -515,7 +502,6 @@
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
     <param pos="3" name="os.update"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-:{os.update}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Server 2012 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
@@ -526,7 +512,7 @@
     <param pos="0" name="os.product" value="Windows Server 2012"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-:*:{os.edition}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows Storage Server 2012 (\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
@@ -538,7 +524,7 @@
     <param pos="0" name="os.product" value="Windows Server 2012"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-:*:{os.edition}"/>
   </fingerprint>
 
   <fingerprint pattern="^Hyper-V Server 2012 (\d+)$">
@@ -549,7 +535,6 @@
     <param pos="0" name="os.product" value="Windows Server 2012"/>
     <param pos="0" name="os.edition" value="Hyper-V"/>
     <param pos="1" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows MultiPoint Server 2012 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+) (Service Pack \d+)$">
@@ -561,7 +546,6 @@
     <param pos="0" name="os.edition" value="MultiPoint"/>
     <param pos="1" name="os.build"/>
     <param pos="2" name="os.update"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-:{os.update}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows MultiPoint Server 2012 (?:\w+|\w+ \w+|\w+ \w+ \w+) (\d+)$">
@@ -572,7 +556,6 @@
     <param pos="0" name="os.product" value="Windows Server 2012"/>
     <param pos="0" name="os.edition" value="MultiPoint"/>
     <param pos="1" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
   </fingerprint>
 
   <!-- Windows 10 Preview -->
@@ -585,7 +568,7 @@
     <param pos="0" name="os.product" value="Windows 10"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_10:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_10:-:*:{os.edition}"/>
   </fingerprint>
 
   <fingerprint pattern="^Windows 10 ((?:\w+|\w+ \w+|\w+ \w+ \w+)(?: LTSB(?: Evaluation)?)?) (\d+)$">
@@ -603,7 +586,7 @@
     <param pos="0" name="os.product" value="Windows 10"/>
     <param pos="1" name="os.edition"/>
     <param pos="2" name="os.build"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_10:-"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_10:-:*:{os.edition}"/>
   </fingerprint>
 
   <fingerprint pattern="^VxWorks$">
