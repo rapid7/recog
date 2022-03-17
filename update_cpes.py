@@ -116,7 +116,6 @@ def parse_cpe_vp_map(file):
 
     return vp_map, deprecated_map
 
-
 def lookup_cpe(vendor, product, cpe_type, cpe_table, remap, deprecated_map):
     """Identify the correct vendor and product values for a CPE
 
@@ -314,26 +313,28 @@ def update_cpes(xml_file, cpe_vp_map, r7_vp_map, deprecated_cves):
     with open(xml_file, 'wb') as xml_out:
         xml_out.write(etree.tostring(root, pretty_print=True, xml_declaration=True, encoding=doc.docinfo.encoding))
 
-
 def main():
-    if len(sys.argv) != 4:
-        logging.critical("Expecting exactly 3 arguments; recog XML file, CPE 2.3 XML dictionary, JSON remapping, got %s", (len(sys.argv) - 1))
+    if len(sys.argv) != 3:
+        logging.critical("Expecting exactly 2 arguments; CPE 2.3 XML dictionary, YAML remapping, got %s", (len(sys.argv) - 1))
         sys.exit(1)
 
-    cpe_vp_map, deprecated_map = parse_cpe_vp_map(sys.argv[2])
+    cpe_vp_map, deprecated_map = parse_cpe_vp_map(sys.argv[1])
     if not cpe_vp_map:
-        logging.critical("No CPE vendor => product mappings read from CPE 2.3 XML dictionary %s", sys.argv[2])
+        logging.critical("No CPE vendor => product mappings read from CPE 2.3 XML dictionary %s", sys.argv[1])
         sys.exit(1)
 
-    r7_vp_map = parse_r7_remapping(sys.argv[3])
+    r7_vp_map = parse_r7_remapping(sys.argv[2])
     if not r7_vp_map:
-        logging.warning("No Rapid7 vendor/product => CPE mapping read from %s", sys.argv[3])
+        logging.warning("No Rapid7 vendor/product => CPE mapping read from %s", sys.argv[2])
 
     # update format string for the logging handler to include the recog XML filename
     logging.basicConfig(force=True, format=f"{sys.argv[1]}: {BASE_LOG_FORMAT}")
 
-    update_cpes(sys.argv[1], cpe_vp_map, r7_vp_map, deprecated_map)
+    files = sys.stdin.readlines()
 
+    for number, file in enumerate(files):
+        file = file.strip()
+        update_cpes(file, cpe_vp_map, r7_vp_map)
 
 if __name__ == '__main__':
     logging.basicConfig(format=BASE_LOG_FORMAT)

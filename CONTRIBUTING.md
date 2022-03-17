@@ -188,16 +188,10 @@ Run the CPE automation against every XML file:
 
 ```bash
 # Update the CPEs (sequentially)
-ls xml/*.xml | xargs -i python update_cpes.py {} official-cpe-dictionary_v2.3.xml cpe-remap.yaml 2>>errors.txt
+find ./xml/*.xml | python update_cpes.py official-cpe-dictionary_v2.3.xml cpe-remap.yaml 2> errors.txt
 ```
 
-You may want to use GNU `parallel` to speed things up:
-```bash
-# Update the CPEs (with GNU Parallel)
-ls xml/*.xml | parallel --gnu "python update_cpes.py {} official-cpe-dictionary_v2.3.xml cpe-remap.yaml"  2>>errors.txt
-```
-
-Clean up the whitespace across all fingerprints:
+Then clean up the whitespace across all fingerprints:
 ```bash
 ruby bin/recog_cleanup
 ```
