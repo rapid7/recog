@@ -26,10 +26,23 @@
     <param pos="3" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^(?:Microsoft )?Windows 10 Mobile(?:\s([a-z]+))??(?: Edition)?$">
+  <fingerprint pattern="(?i)^(?:Microsoft )?Windows 10 Mobile(?: Edition)?$">
     <description>Windows 10 Mobile</description>
+    <example os.product="Windows 10 Mobile">Microsoft Windows 10 Mobile</example>
+    <example os.product="Windows 10 Mobile">Windows 10 Mobile</example>
     <example os.product="Windows 10 Mobile">Windows 10 Mobile Edition</example>
+    <example os.product="Windows 10 Mobile">Microsoft Windows 10 Mobile Edition</example>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows 10 Mobile"/>
+    <param pos="0" name="os.device" value="Mobile"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_10_mobile:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="(?i)^(?:Microsoft )?Windows 10 Mobile(?:\s([a-z]+)) Edition$">
+    <description>Windows 10 Mobile with Edition</description>
     <example os.product="Windows 10 Mobile" os.edition="Enterprise">Windows 10 Mobile Enterprise Edition</example>
+    <example os.product="Windows 10 Mobile" os.edition="Enterprise">Microsoft Windows 10 Mobile Enterprise Edition</example>
     <param pos="0" name="os.vendor" value="Microsoft"/>
     <param pos="0" name="os.family" value="Windows"/>
     <param pos="0" name="os.product" value="Windows 10 Mobile"/>
