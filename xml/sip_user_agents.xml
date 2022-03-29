@@ -677,6 +677,19 @@
     <param pos="0" name="hw.device" value="VoIP Gateway"/>
   </fingerprint>
 
+  <fingerprint pattern="^(?:Eltex )?(?:smg_pa_sip[ -]){1,2}([\d.]+)$">
+    <description>Eltex SMG model VoIP gateway - no model number</description>
+    <example os.version="3.9.1.50">Eltex smg_pa_sip smg_pa_sip-3.9.1.50</example>
+    <example os.version="3.10.1.22">smg_pa_sip smg_pa_sip-3.10.1.22</example>
+    <example os.version="3.18.0.67">smg_pa_sip 3.18.0.67</example>
+    <param pos="0" name="os.vendor" value="Eltex"/>
+    <param pos="0" name="os.product" value="SMG Firmware"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.device" value="VoIP Gateway"/>
+    <param pos="0" name="hw.vendor" value="Eltex"/>
+    <param pos="0" name="hw.device" value="VoIP Gateway"/>
+  </fingerprint>
+
   <fingerprint pattern="^(RG-\d[\w-]+)/([\d.]+) SN/(VI\w+) (?:SHA/[0-9a-f]+ )?sofia-sip/([\d.]+)$">
     <description>Eltex - NTP / NTU model broadband router - with serial number and sofia version</description>
     <example hw.product="RG-5421G-Wac" hw.serial_number="VI12E45678">RG-5421G-Wac/2.4.2.87 SN/VI12E45678 sofia-sip/1.12.10</example>
