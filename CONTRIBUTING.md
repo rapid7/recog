@@ -145,23 +145,23 @@ Additionally, in Visual Studio Code, there is a task (.vscode/tasks.json) which 
 
 [^back to top](#contributing-to-recog)
 
-
 ### Standardizing Vendors, Products, and Services
 
 Given the number of fingerprints in Recog, it can be common for specific products, vendors, or services to be identified with different spellings and casing.
 To limit the creep of slightly-different-names, the `bin/recog_standardize` script can be used to extract all identifiers and merge them into the known lists.
 
 To get started, run the `recog_standardize` tool:
+
 ```shell
-ruby bin/recog_standardize
+ruby bin/recog_standardize -r xml/*.xml
 ```
 
-Review any new additions to the text files under `identifiers/`. If any of these names are close to an existing name, update the offending fingerprint to use
-the existing name instead. Once the fingerprints are fixed, removed the "extra" names from the identifiers files, and run the tool again.
-
+Review any changes to the text files under `identifiers/`. If any additions are
+similar to an existing name, update the offending fingerprint to use the
+existing name instead. Once the fingerprints are fixed run the tool again and
+verify the results.
 
 [^back to top](#contributing-to-recog)
-
 
 ### Updating CPEs
 

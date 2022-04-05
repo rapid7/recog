@@ -5,8 +5,11 @@ require 'optparse'
 require 'ostruct'
 require 'recog'
 
-def load_identifiers(path)
+def load_identifiers(path, reset)
   res = {}
+
+  return res if reset || !File.file?(path)
+
   File.readlines(path).map{|line| line.strip}.each do |ident|
     res[ident] = true
   end
@@ -28,11 +31,18 @@ options = OpenStruct.new(write: false)
 option_parser = OptionParser.new do |opts|
   opts.banner = "Usage: #{$0} [options] XML_FINGERPRINT_FILE1 ..."
   opts.separator "Verifies that each fingerprint asserts known identifiers."
+  opts.separator "Known identifiers are stored in reference files in the path: "
+  opts.separator bdir
   opts.separator ""
   opts.separator "Options"
 
-  opts.on("-w", "--write") do
-      options.write = true
+  opts.on("-w", "--write","Write newly discovered identifiers to the identifiers reference files.") do
+    options.write = true
+  end
+
+  opts.on("-r", "--reset", "Remove the contents of the reference files and write all discovered identifiers to them.") do
+    options.reset = true
+    options.write = true
   end
 
   opts.on("-h", "--help", "Show this message.") do
@@ -49,17 +59,17 @@ if ARGV.empty?
 end
 
 # Load the unique identifiers
-vendors = load_identifiers(File.join(bdir, "vendor.txt"))
-fields = load_identifiers(File.join(bdir, "fields.txt"))
-os_arch = load_identifiers(File.join(bdir, "os_architecture.txt"))
-os_prod = load_identifiers(File.join(bdir, "os_product.txt"))
-os_family = load_identifiers(File.join(bdir, "os_family.txt"))
-os_device = load_identifiers(File.join(bdir, "os_device.txt"))
-hw_prod = load_identifiers(File.join(bdir, "hw_product.txt"))
-hw_family = load_identifiers(File.join(bdir, "hw_family.txt"))
-hw_device = load_identifiers(File.join(bdir, "hw_device.txt"))
-svc_prod = load_identifiers(File.join(bdir, "service_product.txt"))
-svc_family = load_identifiers(File.join(bdir, "service_family.txt"))
+vendors = load_identifiers(File.join(bdir, "vendor.txt"), options.reset)
+fields = load_identifiers(File.join(bdir, "fields.txt"), options.reset)
+os_arch = load_identifiers(File.join(bdir, "os_architecture.txt"), options.reset)
+os_prod = load_identifiers(File.join(bdir, "os_product.txt"), options.reset)
+os_family = load_identifiers(File.join(bdir, "os_family.txt"), options.reset)
+os_device = load_identifiers(File.join(bdir, "os_device.txt"), options.reset)
+hw_prod = load_identifiers(File.join(bdir, "hw_product.txt"), options.reset)
+hw_family = load_identifiers(File.join(bdir, "hw_family.txt"), options.reset)
+hw_device = load_identifiers(File.join(bdir, "hw_device.txt"), options.reset)
+svc_prod = load_identifiers(File.join(bdir, "service_product.txt"), options.reset)
+svc_family = load_identifiers(File.join(bdir, "service_family.txt"), options.reset)
 
 missing_count = 0
 
@@ -89,7 +99,7 @@ ARGV.each do |arg|
             puts "OS ARCH MISSING: #{val}"
             missing_count += 1
             os_arch[val] = true
-          end          
+          end
         when "os.product"
           if ! os_prod[val]
             puts "OS PRODUCT MISSING: #{val}"
@@ -125,7 +135,7 @@ ARGV.each do |arg|
             puts "HW DEVICE MISSING: #{val}"
             missing_count += 1
             hw_device[val] = true
-          end          
+          end
         when "service.product", "service.component.product"
           if ! svc_prod[val]
             puts "SERVICE PRODUCT MISSING: #{val}"
@@ -137,7 +147,7 @@ ARGV.each do |arg|
             puts "SERVICE FAMILY MISSING: #{val}"
             missing_count += 1
             svc_family[val] = true
-          end          
+          end
         end
       end
     end
