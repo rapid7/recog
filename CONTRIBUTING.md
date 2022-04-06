@@ -153,7 +153,7 @@ To limit the creep of slightly-different-names, the `bin/recog_standardize` scri
 To get started, run the `recog_standardize` tool:
 
 ```shell
-ruby bin/recog_standardize -r xml/*.xml
+ruby bin/recog_standardize -w xml/*.xml
 ```
 
 Review any changes to the text files under `identifiers/`. If any additions are
