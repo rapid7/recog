@@ -19,7 +19,6 @@ released.  The process for everything is described below.
     1. [Updating CPEs](#updating-cpes)
 1. [Project Operations](#project-operations)
     1. [Landing PRs](#landing-prs)
-    1. [Releasing New Versions](#releasing-new-versions)
 
 ## Contributing Issues / Bug Reports
 
@@ -53,10 +52,15 @@ Generally, this should only need to be done once, or if you need to start over.
    selecting your github account if prompted
 1. Clone `git@github.com:<your-github-username>/recog.git`, replacing
 `<your-github-username>` with, you guessed it, your Github username.
-1. Add the master Recog repository as your upstream:
 
-     ```bash
-    git remote add upstream git://github.com/rapid7/recog.git
+    ```bash
+    git clone git@github.com:<your-github-username>/recog.git
+    ```
+
+1. Add the Rapid7 recog repository as your upstream:
+
+    ```bash
+    git remote add upstream git@github.com:rapid7/recog.git
     ```
 
 1. Update your `.git/config` to ensure that the `remote ["upstream"]` section is configured to pull both branches and PRs from upstream.  It should look something like the following, in particular the second `fetch` option:
@@ -66,7 +70,7 @@ Generally, this should only need to be done once, or if you need to start over.
       url = git@github.com:rapid7/recog.git
       fetch = +refs/heads/*:refs/remotes/upstream/*
       fetch = +refs/pull/*/head:refs/remotes/upstream/pr/*
-     ```
+    ```
 
 1. Fetch the latest revisions, including PRs:
 
@@ -91,14 +95,12 @@ branch will be FOO, but you should obviously change this:
 
 ```bash
 git fetch --all
-git checkout master
-git rebase upstream/master
+git checkout main
+git rebase upstream/main
 git checkout -b FOO
 ```
 
 Now, make your changes, commit as necessary with useful commit messages.
-
-Please note that changes to [lib/recog/version.rb](https://github.com/rapid7/recog/blob/master/lib/recog/version.rb) in PRs are almost never necessary.
 
 Now push your changes to your fork:
 
@@ -112,7 +114,7 @@ Finally, submit the PR.  Navigate to ```https://github.com/<your-github-username
 
 ### Testing
 
-When your PR is submitted, it will be automatically subjected to the full run of tests in [Travis](https://travis-ci.org/rapid7/recog/), however you are encourage to perform testing _before_ submitting the PR.  To do this, simply run `rake tests`.
+When your PR is submitted, it will be automatically subjected to the full run of tests in the [CI workflow](.github/workflows/ci.yml) and the [Verify workflow](.github/workflows/verify.yml), however you are encourage to perform testing _before_ submitting the PR.  To do this, simply run `rake tests`.
 
 [^back to top](#contributing-to-recog)
 
@@ -228,7 +230,7 @@ In short:
       url = git@github.com:rapid7/recog.git
       fetch = +refs/heads/*:refs/remotes/upstream/*
       fetch = +refs/pull/*/head:refs/remotes/upstream/pr/*
-     ```
+    ```
 
 3. Fetch the latest revisions, including PRs:
 
@@ -243,36 +245,18 @@ In short:
     ```
 
 5. Test the PR (see the Testing section above)
-6. Merge with master, re-test, validate and push:
+6. Merge with main, re-test, validate and push:
 
     ```bash
-    git checkout -b upstream-master --track upstream/master
-    git merge -S --no-ff --edit landing-PR # merge the PR into upstream-master
+    git checkout -b upstream-main --track upstream/main
+    git merge -S --no-ff --edit landing-PR # merge the PR into upstream-main
 
     # re-test if/as necessary
-    git push upstream upstream-master:master --dry-run # confirm you are pushing what you expect
+    git push upstream upstream-main:main --dry-run # confirm you are pushing what you expect
 
-    git push upstream upstream-master:master # push upstream-master to upstream:master
+    git push upstream upstream-main:main # push upstream-main to upstream:main
     ```
 
 7. If applicable, release a new version (see next section)
-
-[^back to top](#contributing-to-recog)
-
-### Releasing New Versions
-
-When Recog's critical parts are modified, for example its fingerprints or underlying supporting code, a new version _must_ eventually be released.  These new releases can then be optionally included in projects such as Metasploit or products such as Rapid7's Nexpose in a controlled manner.  Releases for non-functional updates such as updates to documentation are not necessary.
-
-When a new version of Recog is to be released, you _must_ follow the instructions below.
-
-1. If are not already a Recog project contributor for the Recog gem (you'd be listed [here under OWNERS](https://rubygems.org/gems/recog)), become one:
-   1. Get an account on [Rubygems](https://rubygems.org)
-   1. Contact one of the Recog project contributors (listed [here under OWNERS](https://rubygems.org/gems/recog) and have them add you to the Recog gem.  They'll need to run: `gem owner recog -a EMAIL`
-
-1. Edit [lib/recog/version.rb](https://github.com/rapid7/recog/blob/master/lib/recog/version.rb) and increment `VERSION`.  Commit and push to rapid7/recog master.
-
-1. Run `rake release`.  Among other things, this creates the new gem, uploads it to Rubygems and tags the release with a tag like `v<VERSION>`, where `<VERSION>` is replaced with the version from `version.rb`.  For example, if you release version 1.2.3 of the gem, the tag will be `v1.2.3`.
-
-1. If your default remote repository is not `rapid7/recog`, you must ensure that the tags created in the previous step are also pushed to the right location(s).  For example, if `origin` is your fork of recog and `upstream` is `rapid7/master`, you should run `git push --tags --dry-run upstream` to confirm what tags will be pushed and then `git push --tags upstream` to push the tags.
 
 [^back to top](#contributing-to-recog)
