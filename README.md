@@ -26,13 +26,33 @@ On March 31, 2022, the Recog content - XML fingerprint files and utilities - wer
 
 ### Default branch rename
 
-Along with the repository split the default branch was renamed from `master` to `main`. If you have a clone prior to these changes you will have to manually update your local environment.
+Along with the repository split the default branch was renamed from `master` to `main`. Any clones created prior to these changes will have to be manually updated in your local environment. If you have a fork, navigate to your fork's settings and follow the instructions on [renaming a branch](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch) to change the default branch to `main`.
 
 ```
 git branch -m master main
 git fetch origin
 git branch -u origin/main main
 git remote set-head origin -a
+```
+
+Optionally, run the following command to remove tracking references to the old branch name.
+```
+# dry-run to confirm stale references that will be deleted before proceeding
+git remote prune origin --dry-run
+git remote prune origin
+```
+
+If you previously used the upstream tracking branch `upstream-master` run the following commands to remove the old branch and create a new upstream tracking branch.
+```
+git branch -d upstream-master
+git checkout -b upstream-main --track upstream/main
+```
+
+Optionally, run the following command to remove the tracking references to the old upstream branch name.
+```
+# dry-run to confirm stale references that will be deleted before proceeding
+git remote prune upstream --dry-run
+git remote prune upstream
 ```
 
 [^back to top](#recog-a-recognition-framework)
