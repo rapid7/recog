@@ -4,34 +4,103 @@ require 'optparse'
 require 'ostruct'
 require 'recog'
 
-def load_identifiers(path)
+bdir = File.expand_path(File.join(File.dirname(__FILE__), "..", "identifiers"))
+
+IDENTIFIER_FILES = {
+  "vendor" => File.join(bdir, "vendor.txt"),
+  "device" => File.join(bdir, "device.txt"),
+  "fields" => File.join(bdir, "fields.txt"),
+  "hw_prod" => File.join(bdir, "hw_product.txt"),
+  "hw_family" => File.join(bdir, "hw_family.txt"),
+  "os_arch" => File.join(bdir, "os_architecture.txt"),
+  "os_prod" => File.join(bdir, "os_product.txt"),
+  "os_family" => File.join(bdir, "os_family.txt"),
+  "svc_prod" => File.join(bdir, "service_product.txt"),
+  "svc_family" => File.join(bdir, "service_family.txt")
+}
+
+# @param ident_type [String] Key used to get the identifier file path
+# @return [Hash] Contents of the indicated identifier file or an empty hash
+#                if the file doesn't exist
+def load_identifiers(ident_type)
+
   res = {}
+
+  path = IDENTIFIER_FILES[ident_type]
+  unless path
+    warn "Unknown identifier file type '#{ident_type}' when loading identifiers, exiting.."
+    exit(2)
+  end
+
+  return res unless File.file?(path)
+
   File.readlines(path).map{|line| line.strip}.each do |ident|
     res[ident] = true
   end
-  return res
+
+  res
 end
 
-def write_identifiers(vals, path)
+def write_identifiers(vals, ident_type)
+
+  path = IDENTIFIER_FILES[ident_type]
+  unless path
+    warn "Unknown identifier file type '#{ident_type}' when writing identifiers, exiting.."
+    exit(2)
+  end
+
   res = []
-  vals.each_pair do |k,v|
+  vals.each_pair do |k, _|
     res = res.push(k)
   end
   res = res.map{|x| x.strip}.select{|x| x.length > 0}.sort.uniq
   File.write(path, res.join("\n") + "\n")
 end
 
-bdir = File.expand_path(File.join(File.dirname(__FILE__), "..", "identifiers"))
+# @param current [Hash] Indentifiers extracted from fingerprints
+# @param original [Hash] Indentifiers loaded from the existing identifiers file
+# param msg [String] Context to include in messaging to user
+# @param ident_type [String] Key used to get the identifier file path
+# @param write [Boolean] Indicate if changes should be written to disk
+def handle_changes(current, original, msg, ident_type, write)
+
+  changes_detected = false
+
+  # The hashes below are being sorted so as to make it easier for human
+  # parsing. This is particulary important for the current hash map since
+  # it is built from the fingerprint databases and so will be out of order.
+
+  original.sort.to_h.each_key do |k|
+    next if current[k]
+
+    puts "#{msg} REMOVED VALUE: #{k}"
+    $found_removed = true
+    changes_detected = true
+  end
+
+
+  current.sort.to_h.each_key do |k|
+    next if original[k]
+
+    puts "#{msg} NEW VALUE: #{k}"
+    $found_new = true
+    changes_detected = true
+  end
+
+  write_identifiers(current, ident_type) if write && changes_detected
+end
 
 options = OpenStruct.new(write: false)
 option_parser = OptionParser.new do |opts|
   opts.banner = "Usage: #{$0} [options] XML_FINGERPRINT_FILE1 ..."
   opts.separator "Verifies that each fingerprint asserts known identifiers."
+  opts.separator "Known identifiers are stored in reference files in the path: "
+  opts.separator bdir
   opts.separator ""
   opts.separator "Options"
 
-  opts.on("-w", "--write") do
-      options.write = true
+  opts.on("-w", "--write", "Write newly discovered identifiers to the identifiers reference files.") do
+    options.write = true
   end
 
   opts.on("-h", "--help", "Show this message.") do
@@ -42,121 +111,88 @@ end
 option_parser.parse!(ARGV)
 
 if ARGV.empty?
-  $stderr.puts 'Missing XML fingerprint files'
+  warn 'Missing XML fingerprint files'
   puts option_parser
   exit(1)
 end
 
 # Load the unique identifiers
-vendors = load_identifiers(File.join(bdir, "vendor.txt"))
-fields = load_identifiers(File.join(bdir, "fields.txt"))
-os_arch = load_identifiers(File.join(bdir, "os_architecture.txt"))
-os_prod = load_identifiers(File.join(bdir, "os_product.txt"))
-os_family = load_identifiers(File.join(bdir, "os_family.txt"))
-os_device = load_identifiers(File.join(bdir, "os_device.txt"))
-hw_prod = load_identifiers(File.join(bdir, "hw_product.txt"))
-hw_family = load_identifiers(File.join(bdir, "hw_family.txt"))
-hw_device = load_identifiers(File.join(bdir, "hw_device.txt"))
-svc_prod = load_identifiers(File.join(bdir, "service_product.txt"))
-svc_family = load_identifiers(File.join(bdir, "service_family.txt"))
+vendors = load_identifiers("vendor")
+devices = load_identifiers("device")
+fields = load_identifiers("fields")
+os_arch = load_identifiers("os_arch")
+os_prod = load_identifiers("os_prod")
+os_family = load_identifiers("os_family")
+hw_prod = load_identifiers("hw_prod")
+hw_family = load_identifiers("hw_family")
+svc_prod = load_identifiers("svc_prod")
+svc_family = load_identifiers("svc_family")
 
-missing_count = 0
+$found_removed = false
+$found_new = false
+
+# Initialize the hash maps that will store the data we load from the
+# fingerprint databases.
+curr_fields = {}
+curr_vendors = {}
+curr_devices = {}
+curr_os_arch = {}
+curr_os_prod = {}
+curr_os_family = {}
+curr_hw_prod = {}
+curr_hw_family = {}
+curr_svc_prod = {}
+curr_svc_family = {}
+
 
 ARGV.each do |arg|
   Dir.glob(arg).each do |file|
     ndb = Recog::DB.new(file)
     ndb.fingerprints.each do |f|
-      f.params.each do |k,v|
-        paramIndex, val = v
-        if ! fields[k]
-          puts "FIELD MISSING: #{k}"
-          missing_count += 1
-          fields[k] = true
-        end
-        next if paramIndex != 0
+      f.params.each do |k, v|
+
+        curr_fields[k] = true
+
+        param_index, val = v
+        next if param_index != 0
         next if val.index("{") != nil
         next if val.strip == ""
+
         case k
         when "os.vendor", "service.vendor", "service.component.vendor", "hw.vendor"
-          if ! vendors[val]
-            puts "VENDOR MISSING: #{val}"
-            missing_count += 1
-            vendors[val] = true
-          end
+          curr_vendors[val] = true
+        when "os.device", "service.device", "hw.device"
+          curr_devices[val] = true
         when "os.arch"
-          if ! os_arch[val]
-            puts "OS ARCH MISSING: #{val}"
-            missing_count += 1
-            os_arch[val] = true
-          end          
+          curr_os_arch[val] = true
         when "os.product"
-          if ! os_prod[val]
-            puts "OS PRODUCT MISSING: #{val}"
-            missing_count += 1
-            os_prod[val] = true
-          end
+          curr_os_prod[val] = true
         when "os.family"
-          if ! os_family[val]
-            puts "OS FAMILY MISSING: #{val}"
-            missing_count += 1
-            os_family[val] = true
-          end
-        when "os.device"
-          if ! os_device[val]
-            puts "OS DEVICE MISSING: #{val}"
-            missing_count += 1
-            os_device[val] = true
-          end
+          curr_os_family[val] = true
         when "hw.product"
-          if ! hw_prod[val]
-            puts "HW PRODUCT MISSING: #{val}"
-            missing_count += 1
-            hw_prod[val] = true
-          end
+          curr_hw_prod[val] = true
         when "hw.family"
-          if ! hw_family[val]
-            puts "HW FAMILY MISSING: #{val}"
-            missing_count += 1
-            hw_family[val] = true
-          end
-        when "hw.device"
-          if ! hw_device[val]
-            puts "HW DEVICE MISSING: #{val}"
-            missing_count += 1
-            hw_device[val] = true
-          end          
+          curr_hw_family[val] = true
         when "service.product", "service.component.product"
-          if ! svc_prod[val]
-            puts "SERVICE PRODUCT MISSING: #{val}"
-            missing_count += 1
-            svc_prod[val] = true
-          end            
+          curr_svc_prod[val] = true
         when "service.family"
-          if ! svc_family[val]
-            puts "SERVICE FAMILY MISSING: #{val}"
-            missing_count += 1
-            svc_family[val] = true
-          end          
+          curr_svc_family[val] = true
         end
       end
     end
   end
 end
 
-if options.write
-  # Write back the unique identifiers
-  write_identifiers(vendors, File.join(bdir, "vendor.txt"))
-  write_identifiers(fields, File.join(bdir, "fields.txt"))
-  write_identifiers(os_arch, File.join(bdir, "os_architecture.txt"))
-  write_identifiers(os_prod, File.join(bdir, "os_product.txt"))
-  write_identifiers(os_family, File.join(bdir, "os_family.txt"))
-  write_identifiers(os_device, File.join(bdir, "os_device.txt"))
-  write_identifiers(hw_prod, File.join(bdir, "hw_product.txt"))
-  write_identifiers(hw_family, File.join(bdir, "hw_family.txt"))
-  write_identifiers(hw_device, File.join(bdir, "hw_device.txt"))
-  write_identifiers(svc_prod, File.join(bdir, "service_product.txt"))
-  write_identifiers(svc_family, File.join(bdir, "service_family.txt"))
-end
+handle_changes(curr_vendors, vendors, "VENDORS", "vendor", options.write)
+handle_changes(curr_devices, devices, "DEVICE", "device", options.write)
+handle_changes(curr_fields, fields, "FIELDS", "fields", options.write)
+handle_changes(curr_os_arch, os_arch, "OS ARCH", "os_arch", options.write)
+handle_changes(curr_os_prod, os_prod, "OS PRODUCT", "os_prod", options.write)
+handle_changes(curr_os_family, os_family, "OS FAMILY", "os_family", options.write)
+handle_changes(curr_hw_prod, hw_prod, "HW PRODUCT", "hw_prod", options.write)
+handle_changes(curr_hw_family, hw_family, "HW FAMILY", "hw_family", options.write)
+handle_changes(curr_svc_prod, svc_prod, "SERVICE PRODUCT", "svc_prod", options.write)
+handle_changes(curr_svc_family, svc_family, "SERVICE FAMILY", "svc_family", options.write)
 
-exit_code = (missing_count > 0 ? 1 : 0)
+exit_code = ($found_removed || $found_new ? 1 : 0)
 exit(exit_code)
