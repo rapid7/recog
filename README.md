@@ -1,19 +1,61 @@
 # Recog: A Recognition Framework
 
-[![Gem Version](https://badge.fury.io/rb/recog.svg)](http://badge.fury.io/rb/recog)
-[![Build Status](https://travis-ci.org/rapid7/recog.svg?branch=master)](https://travis-ci.org/rapid7/recog)
-
+[![CI Workflow](https://github.com/rapid7/recog/actions/workflows/ci.yml/badge.svg)](https://github.com/rapid7/recog/actions/workflows/ci.yml)
+[![Verify Workflow](https://github.com/rapid7/recog/actions/workflows/verify.yml/badge.svg)](https://github.com/rapid7/recog/actions/workflows/verify.yml)
 
 Recog is a framework for identifying products, services, operating systems, and hardware by matching fingerprints against data returned from various network probes. Recog makes it simple to extract useful information from web server banners, snmp system description fields, and a whole lot more.
 
-Recog is open source, please see the [LICENSE](https://raw.githubusercontent.com/rapid7/recog/master/LICENSE) file for more information.
+Recog is open source, please see the [LICENSE](LICENSE) file for more information.
 
 ## Table of Contents
 
+1. [Repository split](#repository-split)
+    1. [Default branch rename](#default-branch-rename)
+1. [Recog library language implementations](#recog-library-language-implementations)
+    1. [Feature parity](#feature-parity)
 1. [Installation](#installation)
 1. [Maturity](#maturity)
 1. [Fingerprints](#fingerprints)
 1. [Contributing](#contributing)
+
+## Repository split
+
+On March 31, 2022, the Recog content - XML fingerprint files and utilities - were split from the Recog framework library implementation. The original [Recog](https://github.com/rapid7/recog) repository now contains the Recog content and the [Recog-Ruby](https://github.com/rapid7/recog-ruby) repository contains the Ruby language implementation. The Recog content is included in Recog-Ruby as a git submodule and is nested under the `recog` directory. All post-split Recog gem versions equal or greater than 3.0.0 will: 1. contain the XML fingerprint directory under the `recog` directory, and 2. only include the `recog_match` tool since the other tools are focused on fingerprint management.
+
+[^back to top](#recog-a-recognition-framework)
+
+### Default branch rename
+
+Along with the repository split the default branch was renamed from `master` to `main`. If you have a clone prior to these changes you will have to manually update your local environment.
+
+```
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
+```
+
+[^back to top](#recog-a-recognition-framework)
+
+## Recog library language implementations
+
+* Ruby: [rapid7/recog-ruby](https://github.com/rapid7/recog-ruby)
+* Java: [rapid7/recog-java](https://github.com/rapid7/recog-java)
+* Go: [RumbleDiscovery/recog-go](https://github.com/RumbleDiscovery/recog-go)
+
+[^back to top](#recog-a-recognition-framework)
+
+### Feature parity
+
+| Feature :sparkles:                          | rapid7/recog-ruby  | rapid7/recog-java  | RumbleDiscovery/recog-go |
+|---------------------------------------------|:------------------:|:------------------:|:------------------------:|
+| Fingerprint verification CLI tool           | :white_check_mark: | :white_check_mark: | :white_check_mark:       |
+| Fingerprint match CLI tool                  | :white_check_mark: |                    | :white_check_mark:       |
+| Supports base64 encoded examples            | :white_check_mark: | :white_check_mark: | :white_check_mark:       |
+| Supports filesystem-based external examples | :white_check_mark: | :white_check_mark: | :white_check_mark:       |
+| Fingerprint match CPE param interpolation   | :white_check_mark: | :white_check_mark: | :white_check_mark:       |
+
+[^back to top](#recog-a-recognition-framework)
 
 ## Installation
 
@@ -29,13 +71,13 @@ $ bundle install
 
 ## Maturity
 
-Please note that while the XML fingerprints themselves are quite stable and well-tested, the Ruby codebase in Recog is still fairly new and subject to change quickly. Please contact us (research[at]rapid7.com) before leveraging the Recog code within any production projects.
+Please note that while the XML fingerprints themselves are quite stable and well-tested, the Ruby codebase is still fairly new and subject to change quickly. Please contact us (research[at]rapid7.com) before leveraging the Recog code within any production projects.
 
 [^back to top](#recog-a-recognition-framework)
 
 ## Fingerprints
 
-The fingerprints within Recog are stored in XML files, each of which is designed to match a specific protocol response string or field. For example, the file [ssh_banners.xml](https://github.com/rapid7/recog/blob/master/xml/ssh_banners.xml) can determine the os, vendor, and sometimes hardware product by matching the initial SSH daemon banner string.
+The fingerprints within Recog are stored in XML files, each of which is designed to match a specific protocol response string or field. For example, the file [ssh_banners.xml](xml/ssh_banners.xml) can determine the os, vendor, and sometimes hardware product by matching the initial SSH daemon banner string.
 
 A fingerprint file consists of an XML document like the following:
 
@@ -69,12 +111,12 @@ The `param` elements contain a `pos` attribute, which indicates what capture fie
 
 The `example` string can be base64 encoded to permit the use of unprintable characters.  To signal this to Recog an `_encoding` attribute with the value of `base64` is added to the `example` element.  Based64 encoded text that is longer than 80 characters may be wrapped with newlines as shown below to aid in readability.
 
-````xml
+```xml
 <example _encoding="base64">
   dGllczGEAAAAlQQWMS4yLjg0MC4xMTM1NTYuMS40LjgwMAQuZGF0YS5yZW1vdmVkLjCEAAAAK
   AQdZG9tYWluQ29udHJvbGxlckZ1bmN0aW9uYWxpdHkxhAAAAAMEATc=
 </example>
-````
+```
 
 Additionally, examples can be placed in a directory with the same base name as the XML file, in the same directory as the XML file:
 

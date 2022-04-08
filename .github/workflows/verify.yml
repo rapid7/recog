@@ -31,13 +31,13 @@ jobs:
       fail-fast: false
 
     steps:
-      - name: Checkout Ruby implementation
+      - name: Checkout recog content
         uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: Run recog verify
-        run: bundle exec recog_verify --schema-location xml/fingerprints.xsd --no-warnings xml/*.xml
+        run: bundle exec bin/recog_verify --schema-location xml/fingerprints.xsd --no-warnings xml/*.xml
   java-verify:
     name: 'Java Verify'
     runs-on: ubuntu-latest
