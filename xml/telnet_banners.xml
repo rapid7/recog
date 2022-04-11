@@ -2294,4 +2294,37 @@
     <param pos="0" name="os.product" value="Fermentrack"/>
   </fingerprint>
 
+  <fingerprint pattern="(?m)^Welcome to the SIGMA Spectrum Diagnostic Terminal(?:\r|\n)*Wireless Battery Module \(802\.11[abgn\/]+\)(?:\r|\n)*MAC Address: ((?:[0-9a-f]{2}-?){6}) SW: \d+[\sD]*\d+\s*(?:\r|\n)*Sigma Spectrum SN: (\d+) SW: v([\d.]+)(?:\r|\n)*Radio up since: [\w\s:]+(?:\r|\n)*login:\s*$">
+    <description>Baxter SIGMA Spectrum Infusion System with Wireless Battery Module</description>
+    <!--
+      Welcome to the SIGMA Spectrum Diagnostic Terminal
+
+      Wireless Battery Module (802.11a/b/g/n)
+      MAC Address: 00-40-9d-12-34-56 SW: 20 D29
+      Sigma Spectrum SN: 1234567 SW: v8.00.01
+      Radio up since: Fri Mar  1 03:14:24 2019
+
+      login:
+    -->
+
+    <example host.mac="00-40-9d-12-34-56" hw.serial_number="1234567" os.version="8.00.01" _encoding="base64">
+      V2VsY29tZSB0byB0aGUgU0lHTUEgU3BlY3RydW0gRGlhZ25vc3RpYyBUZXJtaW5hbA0KDQpXa
+      XJlbGVzcyBCYXR0ZXJ5IE1vZHVsZSAoODAyLjExYS9iL2cvbikNCk1BQyBBZGRyZXNzOiAwMC
+      00MC05ZC0xMi0zNC01NiBTVzogMjAgRDI5DQpTaWdtYSBTcGVjdHJ1bSBTTjogMTIzNDU2NyB
+      TVzogdjguMDAuMDENClJhZGlvIHVwIHNpbmNlOiBGcmkgTWFyICAxIDAzOjE0OjI0IDIwMTkN
+      Cg0KbG9naW46IA==
+    </example>
+    <param pos="0" name="os.vendor" value="Baxter"/>
+    <param pos="0" name="os.product" value="SIGMA Spectrum Infusion System Firmware"/>
+    <param pos="0" name="os.device" value="Medical"/>
+    <param pos="3" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:baxter:sigma_spectrum_infusion_system_firmware:{os.version}"/>
+    <param pos="0" name="hw.vendor" value="Baxter"/>
+    <param pos="0" name="hw.product" value="SIGMA Spectrum Infusion System"/>
+    <param pos="0" name="hw.device" value="Medical"/>
+    <param pos="2" name="hw.serial_number"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:baxter:sigma_spectrum_infusion_system:-"/>
+    <param pos="1" name="host.mac"/>
+  </fingerprint>
+
 </fingerprints>
