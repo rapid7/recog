@@ -680,6 +680,19 @@
     <param pos="0" name="os.device" value="Router"/>
   </fingerprint>
 
+  <fingerprint pattern="(?i)^Basic realm=&quot;NetPing \d+/PWR-220\s*v\d+/(?:ETH|SMS|GSM(?:3G)?)&quot;">
+    <description>Alentis Electronics NetPing PDU</description>
+    <example>Basic realm="NetPing 2/PWR-220v2/SMS"</example>
+    <example>Basic realm="NetPing 2/PWR-220 v12/ETH"</example>
+    <example>Basic realm="NetPing 4/PWR-220v3/SMS"</example>
+    <param pos="0" name="os.vendor" value="Alentis Electronics"/>
+    <param pos="0" name="os.product" value="NetPing Firmware"/>
+    <param pos="0" name="os.device" value="Power Device"/>
+    <param pos="0" name="hw.vendor" value="Alentis Electronics"/>
+    <param pos="0" name="hw.product" value="NetPing"/>
+    <param pos="0" name="hw.device" value="Power Device"/>
+  </fingerprint>
+
   <!-- a variety of headers we currently just ignore -->
 
   <fingerprint pattern="(?i)^NTLM$">
