@@ -4774,4 +4774,15 @@
     <param pos="0" name="service.component.cpe23" value="cpe:/a:apache:tomcat:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^ballerina(?:\/([\d.]+(?:-[a-zA-Z0-9.-]+)?))?$">
+    <description>Ballerina - programming language HTTP module</description>
+    <example>ballerina</example>
+    <example service.version="0.991.0">ballerina/0.991.0</example>
+    <example service.version="0.982.1-SNAPSHOT">ballerina/0.982.1-SNAPSHOT</example>
+    <param pos="0" name="service.vendor" value="Ballerina"/>
+    <param pos="0" name="service.product" value="Ballerina"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ballerina:ballerina:{service.version}"/>
+  </fingerprint>
+
 </fingerprints>
