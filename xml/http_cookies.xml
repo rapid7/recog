@@ -705,6 +705,17 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:zohocorp:manageengine_adselfservice_plus:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^(dmid|opvc|sitevisitscookie)=">
+    <description>dotCMS Content Management Platform</description>
+    <example cookie="dmid">dmid=dcd46b93-54ab-4a43-a023-99154f879c3e; Max-Age=153792000; Expires=Thu, 18-Mar-2027 21:28:37 GMT; Path=/; HttpOnly; SameSite=Strict</example>
+    <example cookie="opvc">opvc=9e6302af-896a-40ae-a330-22655ee22c5f; Path=/; HttpOnly; SameSite=Strict</example>
+    <example cookie="sitevisitscookie">sitevisitscookie=1; Max-Age=153792000; Expires=Thu, 18-Mar-2027 21:28:37 GMT; Path=/; HttpOnly; SameSite=Strict</example>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="dotCMS"/>
+    <param pos="0" name="service.product" value="dotCMS"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:dotcms:dotcms:-"/>
+  </fingerprint>
+
   <!--
         Ignore various cookies that are very generic cookies for session IDs
         that are not necessarily indicative of any particular
