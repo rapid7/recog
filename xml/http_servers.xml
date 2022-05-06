@@ -3158,6 +3158,15 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:cloudflare:load_balancing:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^Microsoft-Azure-Application-Gateway\/(v\d+)$">
+    <description>Microsoft Azure Application Gateway</description>
+    <example service.version="v2">Microsoft-Azure-Application-Gateway/v2</example>
+    <param pos="0" name="service.vendor" value="Microsoft"/>
+    <param pos="0" name="service.family" value="Azure"/>
+    <param pos="0" name="service.product" value="Azure Application Gateway"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
   <fingerprint pattern="^gSOAP/([\d\.]+)$">
     <description>gSOAP</description>
     <example service.version="2.7">gSOAP/2.7</example>
