@@ -4802,4 +4802,15 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:ballerina:ballerina:{service.version}"/>
   </fingerprint>
 
+  <fingerprint pattern="^((?:Mini|ZTE) web server) ([\d.]+) ZTE corp \d{4}\.$">
+    <description>Assorted ZTE CPE device web server</description>
+    <example service.product="Mini web server" service.version="1.0">Mini web server 1.0 ZTE corp 2005.</example>
+    <example service.product="ZTE web server" service.version="1.0">ZTE web server 1.0 ZTE corp 2015.</example>
+    <param pos="0" name="service.vendor" value="ZTE"/>
+    <param pos="1" name="service.product"/>
+    <param pos="2" name="service.version"/>
+    <param pos="0" name="service.certainty" value="0.5"/>
+    <param pos="0" name="hw.vendor" value="ZTE"/>
+  </fingerprint>
+
 </fingerprints>
