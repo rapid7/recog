@@ -2991,6 +2991,20 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:boa:boa:{service.version}"/>
   </fingerprint>
 
+  <fingerprint pattern="^Hydra/([\d.]+)(?: GnuTLS/([\d.]+))?$">
+    <description>Hydra - high performance multi threaded HTTP web server</description>
+    <example service.version="0.1.8">Hydra/0.1.8</example>
+    <example service.version="0.1.8" service.component.version="2.12.23">Hydra/0.1.8 GnuTLS/2.12.23</example>
+    <param pos="0" name="service.vendor" value="Hydra Project"/>
+    <param pos="0" name="service.product" value="Hydra"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:hydra_project:hydra:{service.version}"/>
+    <param pos="0" name="service.component.vendor" value="GNU"/>
+    <param pos="0" name="service.component.product" value="GnuTLS"/>
+    <param pos="2" name="service.component.version"/>
+    <param pos="0" name="service.component.cpe23" value="cpe:/a:gnu:gnutls:{service.component.version}"/>
+  </fingerprint>
+
   <!-- HiSilicon is OEMd by a number of DVR manufacturers -->
 
   <fingerprint pattern="^Cross Web Server$">
