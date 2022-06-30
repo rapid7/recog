@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gemspec name: 'recog-content'
 
-gem 'recog', '~>2.3.23'
+gem 'recog', '~>3.0.1'
 
 group :test do
   gem 'rake'
