@@ -5,7 +5,7 @@ require 'ostruct'
 require 'recog'
 require 'recog/matcher_factory'
 
-options = OpenStruct.new(color: false, detail: false, fail_fast: false, multi_match: false)
+options = OpenStruct.new(color: false, detail: false, json_format: false, fail_fast: false, multi_match: false)
 
 option_parser = OptionParser.new do |opts|
   opts.banner = "Usage: #{$0} [options] XML_FINGERPRINT_FILE [BANNERS_FILE]"
@@ -16,9 +16,12 @@ option_parser = OptionParser.new do |opts|
   opts.on("-f", "--format FORMATTER",
           "Choose a formatter.",
           "  [s]ummary (default - failure/match msgs)",
-          "  [d]etail  (msgs with total counts)") do |format|
+          "  [d]etail  (msgs with total counts)",
+          "  [j]son  (JSON failure/match msgs)") do |format|
     if format.start_with? 'd'
       options.detail = true
+    elsif format.start_with? 'j'
+      options.json_format = true
     end
   end
 
