@@ -13,14 +13,17 @@ option_parser = OptionParser.new do |opts|
   opts.separator ""
   opts.separator "Options"
 
-  opts.on("-f", "--format FORMATTER",
+  opts.on("-f", "--format FORMATTER", [:summary, :detail, :json],
           "Choose a formatter.",
           "  [s]ummary (default - failure/match msgs)",
           "  [d]etail  (msgs with total counts)",
-          "  [j]son  (JSON failure/match msgs)") do |format|
-    if format.start_with? 'd'
+          "  [j]son    (JSON failure/match msgs)") do |format|
+    if format == :summary
+      options.detail = false
+      options.json_format = false
+    elsif format == :detail
       options.detail = true
-    elsif format.start_with? 'j'
+    elsif format == :json
       options.json_format = true
     end
   end
@@ -44,9 +47,17 @@ option_parser = OptionParser.new do |opts|
     exit
   end
 end
-option_parser.parse!(ARGV)
 
-if ARGV.count != 1 && ARGV.count != 2
+
+begin
+  option_parser.parse!(ARGV)
+rescue OptionParser::ParseError => e
+  puts e.message
+  puts option_parser
+  exit(1)
+end
+
+if ARGV.count < 1 || ARGV.count > 2
   puts option_parser
   exit(1)
 end
