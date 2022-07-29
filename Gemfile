@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gemspec name: 'recog-content'
 
-gem 'recog-jenkins-test', '~>3.0', :path => '../'
+gem 'recog', '~>3.0'
 
 group :test do
   gem 'rake'
