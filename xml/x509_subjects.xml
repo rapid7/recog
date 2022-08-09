@@ -1755,4 +1755,24 @@
     <param pos="0" name="os.product" value="Proxmox"/>
   </fingerprint>
 
+  <fingerprint pattern="^CN=(\S{1,512}),OU=Endpoint Health,O=Duo Security\\, Inc.,L=Ann Arbor,ST=Michigan,C=US(?:,\S+)?$">
+    <description>Duo Device Health</description>
+    <example host.name="127.0.0.1">CN=127.0.0.1,OU=Endpoint Health,O=Duo Security\, Inc.,L=Ann Arbor,ST=Michigan,C=US,1.2.840.113549.1.9.1=#0c1e656e64706f696e746865616c74684064756f73656375726974792e636f6d</example>
+    <param pos="0" name="service.vendor" value="Duo"/>
+    <param pos="0" name="service.product" value="Duo Device Health"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=(\S{1,512}),OU=Mac Certifier,O=Duo Security\\, Inc.,L=Ann Arbor,ST=Michigan,C=US(?:,\S+)?$">
+    <description>Duo Certifier</description>
+    <example host.name="localhost">CN=localhost,OU=Mac Certifier,O=Duo Security\, Inc.,L=Ann Arbor,ST=Michigan,C=US,1.2.840.113549.1.9.1=#0c18656e64706f696e744064756f73656375726974792e636f6d</example>
+    <param pos="0" name="service.vendor" value="Duo"/>
+    <param pos="0" name="service.product" value="Duo Certifier"/>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS"/>
+    <param pos="0" name="os.product" value="Mac OS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:macos:-"/>
+    <param pos="1" name="host.name"/>
+  </fingerprint>
+
 </fingerprints>
