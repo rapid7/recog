@@ -5,7 +5,7 @@ require 'ostruct'
 require 'recog'
 require 'recog/matcher_factory'
 
-options = OpenStruct.new(color: false, detail: false, fail_fast: false, multi_match: false)
+options = OpenStruct.new(color: false, detail: false, json_format: false, fail_fast: false, multi_match: false)
 
 option_parser = OptionParser.new do |opts|
   opts.banner = "Usage: #{$0} [options] XML_FINGERPRINT_FILE [BANNERS_FILE]"
@@ -13,12 +13,18 @@ option_parser = OptionParser.new do |opts|
   opts.separator ""
   opts.separator "Options"
 
-  opts.on("-f", "--format FORMATTER",
+  opts.on("-f", "--format FORMATTER", [:summary, :detail, :json],
           "Choose a formatter.",
           "  [s]ummary (default - failure/match msgs)",
-          "  [d]etail  (msgs with total counts)") do |format|
-    if format.start_with? 'd'
+          "  [d]etail  (msgs with total counts)",
+          "  [j]son    (JSON failure/match msgs)") do |format|
+    if format == :summary
+      options.detail = false
+      options.json_format = false
+    elsif format == :detail
       options.detail = true
+    elsif format == :json
+      options.json_format = true
     end
   end
 
@@ -41,9 +47,17 @@ option_parser = OptionParser.new do |opts|
     exit
   end
 end
-option_parser.parse!(ARGV)
 
-if ARGV.count != 1 && ARGV.count != 2
+
+begin
+  option_parser.parse!(ARGV)
+rescue OptionParser::ParseError => e
+  puts e.message
+  puts option_parser
+  exit(1)
+end
+
+if ARGV.count < 1 || ARGV.count > 2
   puts option_parser
   exit(1)
 end
