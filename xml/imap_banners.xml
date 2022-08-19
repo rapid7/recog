@@ -178,21 +178,21 @@
   </fingerprint>
 
   <fingerprint pattern="^(\S{1,512}) Zimbra IMAP4rev1 server ready\.?$">
-    <description>VMware Zimbra IMAP</description>
+    <description>Zimbra Collaboration IMAP</description>
     <example host.name="foo.bar">foo.bar Zimbra IMAP4rev1 server ready</example>
-    <param pos="0" name="service.vendor" value="VMware"/>
-    <param pos="0" name="service.product" value="Zimbra"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:vmware:zimbra_desktop:-"/>
+    <param pos="0" name="service.vendor" value="Zimbra"/>
+    <param pos="0" name="service.product" value="Collaboration"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:zimbra:collaboration:-"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
 
   <fingerprint pattern="^(\S{1,512}) Zimbra (\S+) IMAP4rev1 server ready\.?$">
-    <description>VMware Zimbra IMAP with service version</description>
+    <description>Zimbra Collaboration IMAP with service version</description>
     <example host.name="foo.bar" service.version="7.0.0_GA_3079">foo.bar Zimbra 7.0.0_GA_3079 IMAP4rev1 server ready</example>
-    <param pos="0" name="service.vendor" value="VMware"/>
-    <param pos="0" name="service.product" value="Zimbra"/>
+    <param pos="0" name="service.vendor" value="Zimbra"/>
+    <param pos="0" name="service.product" value="Collaboration"/>
     <param pos="2" name="service.version"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:vmware:zimbra_desktop:{service.version}"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:zimbra:collaboration:{service.version}"/>
     <param pos="1" name="host.name"/>
   </fingerprint>
 

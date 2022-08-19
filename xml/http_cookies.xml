@@ -609,14 +609,16 @@
     <param pos="0" name="service.product" value="WebTrends"/>
   </fingerprint>
 
-  <fingerprint pattern="^(ZM_TEST|ZM_LOGIN_CSRF)=">
-    <description>Zimbra</description>
-    <example cookie="ZM_TEST">ZM_TEST=true;Secure</example>
-    <example cookie="ZM_LOGIN_CSRF">ZM_LOGIN_CSRF=38ef0bea-a4c3-4f41-9ac3-73d7622f3131;Secure;HttpOnly</example>
+  <fingerprint pattern="^(ZM_(?:TEST|LOGIN_CSRF)|ZA_(?:SKIN|TEST))=">
+    <description>Zimbra Collaboration</description>
+    <example cookie="ZM_TEST">ZM_TEST=true; Secure</example>
+    <example cookie="ZM_LOGIN_CSRF">ZM_LOGIN_CSRF=38ef0bea-a4c3-4f41-9ac3-73d7622f3131; Secure; HttpOnly</example>
+    <example cookie="ZA_SKIN">ZA_SKIN=serenity</example>
+    <example cookie="ZA_TEST">ZA_TEST=true; Secure</example>
     <param pos="1" name="cookie"/>
-    <param pos="0" name="service.vendor" value="Synacor"/>
-    <param pos="0" name="service.product" value="Zimbra Collaboration Suite"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:synacor:zimbra_collaboration_suite:-"/>
+    <param pos="0" name="service.vendor" value="Zimbra"/>
+    <param pos="0" name="service.product" value="Collaboration"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:zimbra:collaboration:-"/>
   </fingerprint>
 
   <fingerprint pattern="^_ZopeId=">
