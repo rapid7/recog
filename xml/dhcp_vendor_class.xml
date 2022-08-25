@@ -171,6 +171,15 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:google:android:{os.version}"/>
   </fingerprint>
 
+  <fingerprint pattern="HUAWEI:android:" certainty="0.9">
+    <description>Huawei Android Device</description>
+    <example>HUAWEI:android:ABC</example>
+    <param pos="0" name="hw.vendor" value="Huawei"/>
+    <param pos="0" name="os.vendor" value="Google"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Android"/>
+  </fingerprint>
+
   <fingerprint pattern="^dhcpcd-(?:[\d\.]+):Linux-([\d\.]+).*:(\S*):">
     <description>Linux</description>
     <example os.version="4.14.78" os.arch="armv7l">dhcpcd-6.11.5:Linux-4.14.78:armv7l:Freescale</example>
@@ -203,4 +212,70 @@
     <param pos="0" name="os.family" value="Windows"/>
   </fingerprint>
 
+  <fingerprint pattern="^(?i)Cisco Systems Inc. Wireless Phone (.*)" certainty="0.9">
+    <description>Cisco Wireless Phone</description>
+    <example hw.model="7925">Cisco Systems Inc. Wireless Phone 7925</example>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="1" name="hw.model"/>
+  </fingerprint>
+
+  <fingerprint pattern="^(?i)Cisco Systems, Inc. IP Phone (.*)" certainty="0.9">
+    <description>Cisco IP Phone</description>
+    <example hw.model="CP-7911G">Cisco Systems, Inc. IP Phone CP-7911G</example>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="1" name="hw.model"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cisco AP (c(?:1130|1140|1240|1250|1260|1600|2600|3500|3600))$" certainty="0.9">
+    <description>Cisco Aironet Wireless Access Point (obsolete)</description>
+    <example hw.model="c1140">Cisco AP c1140</example>
+    <example hw.model="c1260">Cisco AP c1260</example>
+    <param pos="0" name="hw.device" value="WAP"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="1" name="hw.model"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cisco AP (c(?:1540|1550|1560|1700|1815|1830|1850|2700|2800|3700|3800|701|702))$" certainty="0.9">
+    <description>Cisco Aironet Wireless Access Point</description>
+    <example hw.model="c1830">Cisco AP c1830</example>
+    <param pos="0" name="hw.device" value="WAP"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="1" name="hw.model"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cisco AP (C9115AX|C9120AX)" certainty="0.9">
+    <description>Cisco Catalyst 9100 Series Wireless Access Point</description>
+    <example hw.model="C9115AX">Cisco AP C9115AX</example>
+    <param pos="0" name="hw.device" value="WAP"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="1" name="hw.model"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cisco (AP80[123])$" certainty="0.9">
+    <description>Cisco 800 Series Integrated Access Point</description>
+    <example hw.model="AP801">Cisco AP801</example>
+    <example hw.model="AP802">Cisco AP802</example>
+    <example hw.model="AP803">Cisco AP803</example>
+    <param pos="0" name="hw.device" value="WAP"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="1" name="hw.model"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cisco (AIR-CTVM-K9)$" certainty="0.9">
+    <description>Cisco Virtual Wireless Controller</description>
+    <example hw.model="AIR-CTVM-K9">Cisco AIR-CTVM-K9</example>
+    <param pos="0" name="hw.device" value="Wireless Controller"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="1" name="hw.model"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cisco (AIR-CT55..-K9)$" certainty="0.9">
+    <description>Cisco 5500 Series Wireless Controller</description>
+    <example hw.model="AIR-CT5508-K9">Cisco AIR-CT5508-K9</example>
+    <param pos="0" name="hw.device" value="Wireless Controller"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="1" name="hw.model"/>
+  </fingerprint>
 </fingerprints>
