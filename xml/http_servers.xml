@@ -2593,6 +2593,17 @@
     <param pos="2" name="python.version"/>
   </fingerprint>
 
+  <fingerprint pattern="(?i)^BaseHTTP/((?:\d+\.)*\d+)\s*Python/((?:\d+\.)*\d+)$">
+    <description>BaseHTTPRequestHandler Python class must be subclassed to handle each request method.</description>
+    <example service.version="0.3" python.version="2.7.18">BaseHTTP/0.3 Python/2.7.18</example>
+    <example service.version="0.6" python.version="3.10.6">BaseHTTP/0.6 Python/3.10.6</example>
+    <param pos="0" name="service.vendor" value="Python Software Foundation"/>
+    <param pos="0" name="service.product" value="BaseHTTP"/>
+    <param pos="0" name="service.family" value="Python"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="python.version"/>
+  </fingerprint>
+
   <fingerprint pattern="^Python/(\d\.[\d.]+) aiohttp/(\d[\w.]+)$">
     <description>AIOHTTP Project AIOHTTP</description>
     <example service.version="3.7.4.post0" python.version="3.8">Python/3.8 aiohttp/3.7.4.post0</example>
