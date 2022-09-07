@@ -236,11 +236,12 @@
     <param pos="0" name="os.product" value="Unified SIP Phone {hw.model} Firmware"/>
   </fingerprint>
 
-  <fingerprint pattern="^Cisco Systems, Inc\. IP Phone CP-(\d{4}(?:G|G-GE)?)$" certainty="0.8">
+  <fingerprint pattern="^Cisco Systems, Inc\. IP Phone CP-(\d{4}(?:G|G-GE|NR)?)$" certainty="0.8">
     <description>Cisco IP Phone</description>
     <example hw.model="6921">Cisco Systems, Inc. IP Phone CP-6921</example>
     <example hw.model="7911G">Cisco Systems, Inc. IP Phone CP-7911G</example>
     <example hw.model="7941G-GE">Cisco Systems, Inc. IP Phone CP-7941G-GE</example>
+    <example hw.model="8865NR">Cisco Systems, Inc. IP Phone CP-8865NR</example>
     <param pos="0" name="hw.device" value="VoIP"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="1" name="hw.model"/>
