@@ -2631,6 +2631,17 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:encode:uvicorn:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^WSGIServer/(\d+(?:\.\d+)*)\s*C?Python/(\d+(?:\.\d+)*)$">
+    <description>WSGIServer (wsgiref.simple_server) – a simple WSGI HTTP server for Python</description>
+    <example service.version="0.1" python.version="2.7.18">WSGIServer/0.1 Python/2.7.18</example>
+    <example service.version="0.2" python.version="3.10.5">WSGIServer/0.2 CPython/3.10.5</example>
+    <param pos="0" name="service.vendor" value="Python Software Foundation"/>
+    <param pos="0" name="service.product" value="WSGIServer"/>
+    <param pos="0" name="service.family" value="Python"/>
+    <param pos="1" name="service.version"/>
+    <param pos="2" name="python.version"/>
+  </fingerprint>
+
   <fingerprint pattern="^Grandstream (GXP[^\s]+) ([\d\.]+)$">
     <description>Grandstream IP Phone</description>
     <example hw.product="GXP2020" hw.version="1.2.5.3">Grandstream GXP2020 1.2.5.3</example>
