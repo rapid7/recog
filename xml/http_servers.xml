@@ -956,13 +956,21 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:openresty:openresty:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^gunicorn\/([\d.]+)+$">
-    <description>Gunicorn Gunicorn</description>
+  <fingerprint pattern="^gunicorn\/(\d+(?:\.\d+)*)$">
+    <description>Gunicorn with version</description>
     <example service.version="19.7.1">gunicorn/19.7.1</example>
     <param pos="0" name="service.vendor" value="Gunicorn"/>
     <param pos="0" name="service.product" value="Gunicorn"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:gunicorn:gunicorn:{service.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^gunicorn$">
+    <description>Gunicorn with no version</description>
+    <example>gunicorn</example>
+    <param pos="0" name="service.vendor" value="Gunicorn"/>
+    <param pos="0" name="service.product" value="Gunicorn"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:gunicorn:gunicorn:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Serv-U\/([\d.]+)$">
