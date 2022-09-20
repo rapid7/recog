@@ -277,6 +277,14 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:atlassian:fisheye:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^BITBUCKETSESSIONID=">
+    <description>Atlassian Bitbucket</description>
+    <example>BITBUCKETSESSIONID=49D9B4A9C574CFA312E671F3453CEAC5; Max-Age=1209600; Expires=Tue, 04-Oct-2022 22:16:45 GMT; Path=/; HttpOnly</example>
+    <param pos="0" name="service.vendor" value="Atlassian"/>
+    <param pos="0" name="service.product" value="Bitbucket"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:atlassian:bitbucket:-"/>
+  </fingerprint>
+
   <fingerprint pattern="(?i)^(BIGipServer([^=]+))=">
     <description>F5 BIG-IP LTM - Server variant</description>
     <example loadbalancer.poolname="CustomerRP" cookie="BigIpServerCustomerRP">BigIpServerCustomerRP=5a; path=/; domain=.foo.bar; secure; HttpOnly</example>
