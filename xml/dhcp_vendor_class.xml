@@ -105,6 +105,7 @@
     <param pos="1" name="hw.model"/>
     <param pos="2" name="hw.serial_number"/>
     <param pos="0" name="os.vendor" value="Dell"/>
+    <param pos="0" name="os.device" value="Printer"/>
   </fingerprint>
 
   <fingerprint pattern="^Mfg=Dell;Typ=printer;Mod=Dell Color Printer (S\d{4}cdn);Ser=([0-9]{6})$">
@@ -115,6 +116,7 @@
     <param pos="1" name="hw.model"/>
     <param pos="2" name="hw.serial_number"/>
     <param pos="0" name="os.vendor" value="Dell"/>
+    <param pos="0" name="os.device" value="Printer"/>
   </fingerprint>
 
   <fingerprint pattern="^Dell Color MFP (S\d{4}cdn)$$">
@@ -124,6 +126,7 @@
     <param pos="0" name="hw.vendor" value="Dell"/>
     <param pos="1" name="hw.model"/>
     <param pos="0" name="os.vendor" value="Dell"/>
+    <param pos="0" name="os.device" value="Printer"/>
   </fingerprint>
 
   <fingerprint pattern="^Polycom-(VVX\d{3})$">
@@ -146,6 +149,7 @@
     <param pos="0" name="os.vendor" value="Digium"/>
     <param pos="0" name="os.product" value="Digium Firmware"/>
     <param pos="2" name="os.version"/>
+    <param pos="0" name="os.device" value="VoIP"/>
   </fingerprint>
 
   <fingerprint pattern="^ipphone.mitel.com$">
@@ -153,6 +157,7 @@
     <example>ipphone.mitel.com</example>
     <param pos="0" name="hw.device" value="VoIP"/>
     <param pos="0" name="hw.vendor" value="Mitel"/>
+    <param pos="0" name="os.device" value="VoIP"/>
   </fingerprint>
 
   <fingerprint pattern="^Aruba\s(JL\d+A)\s(\d+[A-Z]?)\S+\sSwitch(?:\sdslforum.org)?$">
@@ -368,6 +373,8 @@
     <param pos="1" name="hw.model"/>
     <param pos="0" name="os.vendor" value="BrightSign"/>
     <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.device" value="Media Server"/>
+    <param pos="0" name="os.product" value="{hw.model} Firmware"/>
   </fingerprint>
 
   <fingerprint pattern="^iDRAC$">
