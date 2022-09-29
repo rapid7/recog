@@ -8,13 +8,17 @@
     and inform (8) messages.
   -->
 
-  <fingerprint pattern="^Mfg=(?:Fuji)?(?i:Xerox);Typ=(?:MFP|printer);Mod=(?:Xerox )?(\S+) ([a-zA-Z0-9]+).*;Ser=([A-Z0-9]{9})(?:;Loc=.*)?$">
+  <fingerprint pattern="^[Mm]fg=(?:Fuji)?(?i:Xerox);[Tt]yp=(?:MFP|AIO|[Pp]rinter);[Mm]od=(?:Xerox )?(\S+) ([a-zA-Z0-9]+).*;[Ss]er=([A-Z0-9]{9,10})(?:;[Ll]oc=.*)?$">
     <description>Xerox Multifunction Printer</description>
     <example hw.family="VersaLink" hw.model="C405" hw.serial_number="ABC123456">Mfg=Xerox;Typ=MFP;Mod=VersaLink C405;Ser=ABC123456;Loc=Print Room</example>
     <example hw.family="AltaLink" hw.model="C8055" hw.serial_number="1AB234567">Mfg=Xerox;Typ=MFP;Mod=Xerox AltaLink C8055 Multifunction Printer;Ser=1AB234567;Loc=Print Room2</example>
     <example hw.family="WorkCentre" hw.model="3345" hw.serial_number="1AB234567">Mfg=XEROX;Typ=MFP;Mod=WorkCentre 3345;Ser=1AB234567;Loc=</example>
     <example hw.family="WorkCentre" hw.model="7845" hw.serial_number="AB1234567">Mfg=Xerox;Typ=MFP;Mod=Xerox WorkCentre 7845 v1 Multifunction System;Ser=AB1234567;Loc=</example>
     <example hw.family="Phaser" hw.model="6500DN" hw.serial_number="ABC123456">Mfg=FujiXerox;Typ=printer;Mod=Phaser 6500DN;Ser=ABC123456</example>
+    <example hw.family="Phaser" hw.model="6600DN" hw.serial_number="ABC123456">Mfg=Xerox;Typ=Printer;Mod=Phaser 6600DN;Ser=ABC123456;Loc=</example>
+    <example hw.family="AltaLink" hw.model="B8045" hw.serial_number="A1B234567">mfg=Xerox;typ=MFP;mod=Xerox AltaLink B8045 MFP;ser=A1B234567;loc=Print Room 3</example>
+    <example hw.family="VersaLink" hw.model="B7035" hw.serial_number="1AB234567C">Mfg=Xerox;Typ=MFP;Mod=VersaLink B7035;Ser=1AB234567C</example>
+    <example hw.family="WorkCentre" hw.model="3615" hw.serial_number="A1B234567">Mfg=Xerox;Typ=AIO;Mod=WorkCentre 3615;Ser=A1B234567</example>
     <param pos="0" name="hw.device" value="Printer"/>
     <param pos="0" name="hw.vendor" value="Xerox"/>
     <param pos="1" name="hw.family"/>
