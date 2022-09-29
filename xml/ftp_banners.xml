@@ -1799,4 +1799,15 @@ more text</example>
     <param pos="0" name="hw.device" value="Printer"/>
   </fingerprint>
 
+  <fingerprint pattern="^(\S{1,512})?\s*FTP server \(Medusa Async V(\d+(?:\.\d+)*) \[experimental\]\) ready\.$">
+    <description>Medusa - extensible Internet server framework for Python</description>
+    <example host.name="foo.bar" service.version="2.43">foo.bar FTP server (Medusa Async V2.43 [experimental]) ready.</example>
+    <example host.name="10.10.10.10" service.version="41297">10.10.10.10 FTP server (Medusa Async V41297 [experimental]) ready.</example>
+    <example service.version="24763"> FTP server (Medusa Async V24763 [experimental]) ready.</example>
+    <param pos="0" name="service.vendor" value="Nightmare Software"/>
+    <param pos="0" name="service.product" value="Medusa"/>
+    <param pos="1" name="host.name"/>
+    <param pos="2" name="service.version"/>
+  </fingerprint>
+
 </fingerprints>
