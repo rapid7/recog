@@ -3983,6 +3983,17 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:supervisord:supervisor:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^qdPM (?:\| Login|(\d+(?:\.\d+)*)(?: BETA)? Installation)$">
+    <description>qdPM - project management tool</description>
+    <example>qdPM | Login</example>
+    <example service.version="9.1">qdPM 9.1 Installation</example>
+    <example service.version="9.0">qdPM 9.0 BETA Installation</example>
+    <param pos="0" name="service.vendor" value="qdPM"/>
+    <param pos="0" name="service.product" value="qdPM"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:qdpm:qdpm:{service.version}"/>
+  </fingerprint>
+
   <!-- Specific Eltex fingerprints to enable CPE generation -->
 
   <fingerprint pattern="^Eltex - NTP-RG-1402G$">
