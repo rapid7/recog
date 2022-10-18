@@ -133,9 +133,10 @@
     <param pos="0" name="os.device" value="Printer"/>
   </fingerprint>
 
-  <fingerprint pattern="^Polycom-(VVX\d{3})$">
+  <fingerprint pattern="^(?:Polycom|Poly)-(VVX(?:-[A-Z])?\d{3})$">
     <description>Polycom IP Phone</description>
     <example hw.product="VVX410" hw.model="VVX410">Polycom-VVX410</example>
+    <example hw.product="VVX-D230" hw.model="VVX-D230">Poly-VVX-D230</example>
     <param pos="0" name="hw.device" value="VoIP"/>
     <param pos="0" name="hw.vendor" value="Polycom"/>
     <param pos="0" name="hw.family" value="VVX"/>
