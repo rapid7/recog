@@ -1,6 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <fingerprints matches="imap4.banner" protocol="imap" database_type="service" preference="0.90">
-  <!-- IMAP banners are matched against these patterns to fingerprint IMAP servers. -->
+  <!--
+  IMAP banners are matched against these patterns to fingerprint IMAP servers.
+  The patterns expect the "* OK " part of the banner was removed.
+  -->
 
   <fingerprint pattern="^Microsoft Exchange IMAP4rev1 server version (5\.5\.\d{4}\.\d+) \((.*)\) ready$">
     <description>Microsoft Exchange Server 5.5</description>
@@ -109,19 +112,21 @@
     <param pos="2" name="host.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^[dD]ovecot (?:DA )?ready\.$">
+  <fingerprint pattern="^(?:\[CAPABILITY [^\]]{1,645}\] )?[dD]ovecot (?:DA )?ready\.$">
     <description>Dovecot Secure IMAP Server</description>
     <example>Dovecot ready.</example>
     <example>Dovecot DA ready.</example>
+    <example>[CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE NAMESPACE LITERAL+ AUTH=PLAIN AUTH=LOGIN] Dovecot ready.</example>
     <param pos="0" name="service.vendor" value="Dovecot"/>
     <param pos="0" name="service.family" value="Dovecot"/>
     <param pos="0" name="service.product" value="Dovecot"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:dovecot:dovecot:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^Dovecot \(Ubuntu\) ready\.$">
+  <fingerprint pattern="^(?:\[CAPABILITY [^\]]{1,645}\] )?Dovecot \(Ubuntu\) ready\.$">
     <description>Dovecot Secure IMAP Server - Ubuntu variant</description>
     <example>Dovecot (Ubuntu) ready.</example>
+    <example>[CAPABILITY IMAP4rev1 LITERAL+ SASL-IR LOGIN-REFERRALS ID ENABLE IDLE AUTH=PLAIN AUTH=LOGIN] Dovecot (Ubuntu) ready.</example>
     <param pos="0" name="service.vendor" value="Dovecot"/>
     <param pos="0" name="service.family" value="Dovecot"/>
     <param pos="0" name="service.product" value="Dovecot"/>
@@ -132,9 +137,11 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^Dovecot \(Debian\) ready\.$">
+  <fingerprint pattern="^(?:\[CAPABILITY [^\]]{1,645}\] )?Dovecot \(Debian\) ready\.$">
     <description>Dovecot Secure IMAP Server - Debian variant</description>
     <example>Dovecot (Debian) ready.</example>
+    <example>[CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] Dovecot (Debian) ready.</example>
+    <param pos="0" name="service.vendor" value="Dovecot"/>
     <param pos="0" name="service.vendor" value="Dovecot"/>
     <param pos="0" name="service.family" value="Dovecot"/>
     <param pos="0" name="service.product" value="Dovecot"/>
@@ -145,9 +152,10 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^Dovecot \(Raspbian\) ready\.$">
+  <fingerprint pattern="^(?:\[CAPABILITY [^\]]{1,645}\] )?Dovecot \(Raspbian\) ready\.$">
     <description>Dovecot Secure IMAP Server - Raspbian variant</description>
     <example>Dovecot (Raspbian) ready.</example>
+    <example>[CAPABILITY IMAP4rev1 SASL-IR LOGIN-REFERRALS ID ENABLE IDLE LITERAL+ AUTH=PLAIN AUTH=LOGIN] Dovecot (Raspbian) ready.</example>
     <param pos="0" name="service.vendor" value="Dovecot"/>
     <param pos="0" name="service.family" value="Dovecot"/>
     <param pos="0" name="service.product" value="Dovecot"/>
@@ -158,9 +166,10 @@
     <param pos="0" name="hw.product" value="Raspberry Pi"/>
   </fingerprint>
 
-  <fingerprint pattern="^Courier-IMAP ready. Copyright \d+-\d+">
+  <fingerprint pattern="^(?:\[CAPABILITY [^\]]{1,645}\] )?Courier-IMAP ready. Copyright \d+-\d+">
     <description>Courier MTA IMAP</description>
     <example>Courier-IMAP ready. Copyright 1998-2002 Double Precision, Inc. See COPYING for distribution information.</example>
+    <example>[CAPABILITY IMAP4rev1 UIDPLUS CHILDREN NAMESPACE THREAD=ORDEREDSUBJECT THREAD=REFERENCES SORT QUOTA IDLE AUTH=PLAIN ACL ACL2=UNION] Courier-IMAP ready. Copyright 1998-2005 Double Precision, Inc.  See COPYING for distribution information.</example>
     <param pos="0" name="service.vendor" value="Double Precision"/>
     <param pos="0" name="service.family" value="Courier MTA"/>
     <param pos="0" name="service.product" value="Courier IMAP"/>
@@ -196,10 +205,11 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S{1,512}) Cyrus IMAP4 v(\d+\.\d+.*)-OS X(?: Server)? ([\d\.]+).* server ready$">
+  <fingerprint pattern="^(?:\[CAPABILITY [^\]]{1,645}\] )?(\S{1,512}) Cyrus IMAP4 v(\d+\.\d+.*)-OS X(?: Server)? ([\d\.]+).* server ready$">
     <description>CMU Cyrus IMAP on Mac OS X</description>
     <example host.name="example.com" service.version="2.2.12" os.version="10.4.0">example.com Cyrus IMAP4 v2.2.12-OS X 10.4.0 server ready</example>
     <example host.name="example.com" service.version="2.3.8" os.version="10.5">example.com Cyrus IMAP4 v2.3.8-OS X Server 10.5: 9A562 server ready</example>
+    <example host.name="foo.bar" service.version="2.3.8" os.version="10.5">[CAPABILITY IMAP4 IMAP4rev1 LITERAL+ ID AUTH=PLAIN AUTH=LOGIN AUTH=CRAM-MD5] foo.bar Cyrus IMAP4 v2.3.8-OS X Server 10.5:&#x9;9G7013y server ready</example>
     <param pos="0" name="service.vendor" value="Carnegie Mellon University"/>
     <param pos="0" name="service.family" value="Cyrus MTA"/>
     <param pos="0" name="service.product" value="Cyrus IMAP"/>
@@ -213,10 +223,12 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^(\S{1,512}) Cyrus IMAP4? (?:\S+ )?v(\d+\.\d+.*) server ready$">
+  <fingerprint pattern="^(?:\[CAPABILITY [^\]]{1,645}\] )?(\S{1,512}) Cyrus IMAP4? (?:\S+ )?v?(\d+\.\d+.*) server ready$">
     <description>CMU Cyrus IMAP</description>
     <example host.name="example.com" service.version="2.3.7">example.com Cyrus IMAP4 v2.3.7 server ready</example>
     <example host.name="example.com" service.version="2.4.8-Invoca-RPM-2.4.8-1">example.com Cyrus IMAP Murder v2.4.8-Invoca-RPM-2.4.8-1 server ready</example>
+    <example host.name="foo.bar" service.version="2.3.11-Fedora-RPM-2.3.11-1.fc9">[CAPABILITY IMAP4 IMAP4rev1 LITERAL+ ID AUTH=PLAIN SASL-IR] foo.bar Cyrus IMAP4 v2.3.11-Fedora-RPM-2.3.11-1.fc9 server ready</example>
+    <example host.name="foo.bar" service.version="3.0.8-Debian-3.0.8-6+deb10u6">[CAPABILITY IMAP4rev1 LITERAL+ ID ENABLE AUTH=PLAIN SASL-IR] foo.bar Cyrus IMAP 3.0.8-Debian-3.0.8-6+deb10u6 server ready</example>
     <param pos="0" name="service.vendor" value="Carnegie Mellon University"/>
     <param pos="0" name="service.family" value="Cyrus MTA"/>
     <param pos="0" name="service.product" value="Cyrus IMAP"/>
