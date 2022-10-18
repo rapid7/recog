@@ -145,6 +145,17 @@
     <param pos="0" name="os.vendor" value="Polycom"/>
   </fingerprint>
 
+  <fingerprint pattern="^Polycom-SSIP([4-7]000)$">
+    <description>Polycom SoundStation IP Phone</description>
+    <example hw.product="SoundStation IP 6000" hw.model="6000">Polycom-SSIP6000</example>
+    <example hw.product="SoundStation IP 7000" hw.model="7000">Polycom-SSIP7000</example>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="0" name="hw.vendor" value="Polycom"/>
+    <param pos="0" name="hw.family" value="SoundStation IP"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="0" name="hw.product" value="{hw.family} {hw.model}"/>
+  </fingerprint>
+
   <fingerprint pattern="^digium_(D\d{2})_(\d_\d{1,2}_\d{1,2})$">
     <description>Digium D Series IP Phone</description>
     <example hw.model="D65" os.version="2_9_10">digium_D65_2_9_10</example>
