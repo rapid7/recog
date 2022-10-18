@@ -223,11 +223,12 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\[CAPABILITY [^\]]{1,645}\] )?(\S{1,512}) Cyrus IMAP4? (?:\S+ )?v(\d+\.\d+.*) server ready$">
+  <fingerprint pattern="^(?:\[CAPABILITY [^\]]{1,645}\] )?(\S{1,512}) Cyrus IMAP4? (?:\S+ )?v?(\d+\.\d+.*) server ready$">
     <description>CMU Cyrus IMAP</description>
     <example host.name="example.com" service.version="2.3.7">example.com Cyrus IMAP4 v2.3.7 server ready</example>
     <example host.name="example.com" service.version="2.4.8-Invoca-RPM-2.4.8-1">example.com Cyrus IMAP Murder v2.4.8-Invoca-RPM-2.4.8-1 server ready</example>
     <example host.name="foo.bar" service.version="2.3.11-Fedora-RPM-2.3.11-1.fc9">[CAPABILITY IMAP4 IMAP4rev1 LITERAL+ ID AUTH=PLAIN SASL-IR] foo.bar Cyrus IMAP4 v2.3.11-Fedora-RPM-2.3.11-1.fc9 server ready</example>
+    <example host.name="foo.bar" service.version="3.0.8-Debian-3.0.8-6+deb10u6">[CAPABILITY IMAP4rev1 LITERAL+ ID ENABLE AUTH=PLAIN SASL-IR] foo.bar Cyrus IMAP 3.0.8-Debian-3.0.8-6+deb10u6 server ready</example>
     <param pos="0" name="service.vendor" value="Carnegie Mellon University"/>
     <param pos="0" name="service.family" value="Cyrus MTA"/>
     <param pos="0" name="service.product" value="Cyrus IMAP"/>
