@@ -190,6 +190,18 @@
     <param pos="0" name="hw.device" value="Switch"/>
   </fingerprint>
 
+  <fingerprint pattern="^Aruba-Sensor(?:-([A-Z0-9]{6}))?$">
+    <description>HP Aruba UXI Sensor</description>
+    <example hw.model="Q9X65A">Aruba-Sensor-Q9X65A</example>
+    <example hw.model="R3R67A">Aruba-Sensor-R3R67A</example>
+    <example hw.model="R7H75A">Aruba-Sensor-R7H75A</example>
+    <example>Aruba-Sensor</example>
+    <param pos="0" name="hw.vendor" value="Aruba Networks"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="0" name="hw.device" value="Network Management Device"/>
+    <param pos="0" name="os.vendor" value="Aruba Networks"/>
+  </fingerprint>
+
   <fingerprint pattern="^AXIS,(?:PTZ Dome )?Network Camera,(.*),([\d\.]+)$">
     <description>Axis Network Camera</description>
     <example hw.model="P3343" os.version="5.20.3">AXIS,Network Camera,P3343,5.20.3</example>
