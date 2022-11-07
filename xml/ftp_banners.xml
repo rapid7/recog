@@ -1277,17 +1277,19 @@ more text</example>
   </fingerprint>
 
   <fingerprint pattern="^(ZBR-\d+) Version (\S+) ready\.?$">
-    <description>ZebraNet Print Server FTP</description>
-    <example os.product="ZBR-46686" os.version="7.02" hw.product="ZBR-46686">ZBR-46686 Version 7.02 ready.</example>
-    <example os.version="V56.17.5Z" os.product="ZBR-79071" hw.product="ZBR-79071">ZBR-79071 Version V56.17.5Z ready.</example>
-    <example os.version="7.02" os.product="ZBR-46687" hw.product="ZBR-46687">ZBR-46687 Version 7.02 ready.</example>
-    <param pos="0" name="os.vendor" value="ZebraNet"/>
-    <param pos="0" name="os.device" value="Print Server"/>
-    <param pos="1" name="os.product"/>
+    <description>Zebra ZebraNet Print Server FTP</description>
+    <example hw.product="ZBR-46686" os.version="7.02">ZBR-46686 Version 7.02 ready.</example>
+    <example hw.product="ZBR-79071" os.version="V56.17.5Z">ZBR-79071 Version V56.17.5Z ready.</example>
+    <example hw.product="ZBR-46687" os.version="7.02">ZBR-46687 Version 7.02 ready.</example>
+    <param pos="0" name="os.vendor" value="Zebra"/>
+    <param pos="0" name="os.family" value="ZebraNet"/>
+    <param pos="0" name="os.product" value="{hw.product} Firmware"/>
     <param pos="2" name="os.version"/>
-    <param pos="0" name="hw.vendor" value="ZebraNet"/>
-    <param pos="0" name="hw.device" value="Print Server"/>
+    <param pos="0" name="os.device" value="Print Server"/>
+    <param pos="0" name="hw.vendor" value="Zebra"/>
+    <param pos="0" name="hw.family" value="ZebraNet"/>
     <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Print Server"/>
   </fingerprint>
 
   <fingerprint pattern="^(ET(\S{1,32})) Dell (\S+ Laser Printer) FTP Server">
