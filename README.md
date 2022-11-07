@@ -61,19 +61,19 @@ git remote prune upstream
 
 * Ruby: [rapid7/recog-ruby](https://github.com/rapid7/recog-ruby)
 * Java: [rapid7/recog-java](https://github.com/rapid7/recog-java)
-* Go: [RumbleDiscovery/recog-go](https://github.com/RumbleDiscovery/recog-go)
+* Go: [runZeroInc/recog-go](https://github.com/runZeroInc/recog-go)
 
 [^back to top](#recog-a-recognition-framework)
 
 ### Feature parity
 
-| Feature :sparkles:                          | rapid7/recog-ruby  | rapid7/recog-java  | RumbleDiscovery/recog-go |
-|---------------------------------------------|:------------------:|:------------------:|:------------------------:|
-| Fingerprint verification CLI tool           | :white_check_mark: | :white_check_mark: | :white_check_mark:       |
-| Fingerprint match CLI tool                  | :white_check_mark: |                    | :white_check_mark:       |
-| Supports base64 encoded examples            | :white_check_mark: | :white_check_mark: | :white_check_mark:       |
-| Supports filesystem-based external examples | :white_check_mark: | :white_check_mark: | :white_check_mark:       |
-| Fingerprint match CPE param interpolation   | :white_check_mark: | :white_check_mark: | :white_check_mark:       |
+| Feature :sparkles:                          | rapid7/recog-ruby  | rapid7/recog-java  | runZeroInc/recog-go |
+|---------------------------------------------|:------------------:|:------------------:|:-------------------:|
+| Fingerprint verification CLI tool           | :white_check_mark: | :white_check_mark: | :white_check_mark:  |
+| Fingerprint match CLI tool                  | :white_check_mark: |                    | :white_check_mark:  |
+| Supports base64 encoded examples            | :white_check_mark: | :white_check_mark: | :white_check_mark:  |
+| Supports filesystem-based external examples | :white_check_mark: | :white_check_mark: | :white_check_mark:  |
+| Fingerprint match CPE param interpolation   | :white_check_mark: | :white_check_mark: | :white_check_mark:  |
 
 [^back to top](#recog-a-recognition-framework)
 
