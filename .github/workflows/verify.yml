@@ -18,7 +18,7 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: Checkout recog content
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
@@ -46,11 +46,11 @@ jobs:
 
     steps:
       - name: Checkout Java implementation
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: rapid7/recog-java
       - name: Checkout recog content
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: recog-content
       - uses: actions/setup-java@v2
@@ -58,7 +58,7 @@ jobs:
           distribution: zulu
           java-version: '17'
       - name: Cache Maven packages
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
@@ -75,14 +75,14 @@ jobs:
 
     steps:
       - name: Checkout Go implementation
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: runZeroInc/recog-go
       - name: Checkout recog content
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: recog-content
-      - uses: actions/setup-go@v2
+      - uses: actions/setup-go@v3
         with:
           go-version: '^1.17.1'
       - name: Run recog verify
