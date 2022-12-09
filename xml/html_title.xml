@@ -3967,6 +3967,17 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:papermerge:papermerge:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^(?:FileRun :: (?:Login|Installation))|(?:(?:\S)* :: Login \(powered by FileRun\))$">
+    <description>FileRun - self-hosted Google Drive alternative</description>
+    <example>FileRun :: Login</example>
+    <example>FileRun :: Installation</example>
+    <example>FileRun :: Login (powered by FileRun)</example>
+    <example>App Title :: Login (powered by FileRun)</example>
+    <param pos="0" name="service.vendor" value="FileRun"/>
+    <param pos="0" name="service.product" value="FileRun"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:filerun:filerun:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^SuiteCRM$">
     <description>SuiteCRM</description>
     <example>SuiteCRM</example>
