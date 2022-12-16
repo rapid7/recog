@@ -4920,4 +4920,227 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:darkhttpd_project:darkhttpd:{service.version}"/>
   </fingerprint>
 
+  <!-- ntopng -->
+
+  <fingerprint pattern="^ntopng (\d+(?:\.\d+)*) \[(?:FreeBSD |[\w-]+-freebsd)(\d+(?:\.\d+)*)(?:[a-z0-9-])* \[(\w+)\]\[[^\]]*\]\]$">
+    <description>ntopng - web-based network traffic monitoring on FreeBSD</description>
+    <example service.version="5.0.220112" os.version="12.3" os.arch="amd64">ntopng 5.0.220112 [FreeBSD 12.3 [amd64][FreeBSD 12.3]]</example>
+    <example service.version="3.8.201001" os.version="11.3" os.arch="amd64">ntopng 3.8.201001 [amd64-unknown-freebsd11.3 [amd64][]]</example>
+    <example service.version="3.4.0" os.version="12.2" os.arch="arm">ntopng 3.4.0 [armv7-unknown-freebsd12.2-gnueabihf [arm][]]</example>
+    <param pos="0" name="service.vendor" value="ntop"/>
+    <param pos="0" name="service.product" value="ntopng"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ntop:ntopng:{service.version}"/>
+    <param pos="0" name="os.vendor" value="FreeBSD"/>
+    <param pos="0" name="os.family" value="FreeBSD"/>
+    <param pos="0" name="os.product" value="FreeBSD"/>
+    <param pos="2" name="os.version"/>
+    <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:{os.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ntopng (\d+(?:\.\d+)*) \[(?:[\w-]+-linux-gnu)? \[(\w+)\]\[CentOS (?:Linux )?release (\d+(?:\.\d+)*)(?: \((?:Core|Final)\)\s*)?\]\]$">
+    <description>ntopng - web-based network traffic monitoring on CentOS</description>
+    <example service.version="3.2.171221" os.version="6.9" os.arch="x86_64">ntopng 3.2.171221 [x86_64-unknown-linux-gnu [x86_64][CentOS release 6.9 (Final)]]</example>
+    <example service.version="3.4.210629" os.version="7.5.1804" os.arch="x86_64">ntopng 3.4.210629 [ [x86_64][CentOS Linux release 7.5.1804 (Core) ]]</example>
+    <example service.version="3.6.181022" os.version="7.5.1804" os.arch="x86_64">ntopng 3.6.181022 [x86_64-unknown-linux-gnu [x86_64][CentOS Linux release 7.5.1804 (Core) ]]</example>
+    <example service.version="4.3.211226" os.version="8.4.2105" os.arch="x86_64">ntopng 4.3.211226 [x86_64-unknown-linux-gnu [x86_64][CentOS Linux release 8.4.2105]]</example>
+    <example service.version="5.4.221110" os.version="7.9.2009" os.arch="x86_64">ntopng 5.4.221110 [x86_64-unknown-linux-gnu [x86_64][CentOS Linux release 7.9.2009 (Core)]]</example>
+    <param pos="0" name="service.vendor" value="ntop"/>
+    <param pos="0" name="service.product" value="ntopng"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ntop:ntopng:{service.version}"/>
+    <param pos="0" name="os.vendor" value="CentOS"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="3" name="os.version"/>
+    <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:centos:centos:{os.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ntopng (\d+(?:\.\d+)*) \[[\w-]+-linux-gnu \[(\w+)\]\[[^\]]*\]\]$">
+    <description>ntopng - web-based network traffic monitoring on Linux</description>
+    <example service.version="4.2.201125" os.arch="x86_64">ntopng 4.2.201125 [x86_64-unknown-linux-gnu [x86_64][]]</example>
+    <example service.version="3.8.220621" os.arch="i686">ntopng 3.8.220621 [i686-pc-linux-gnu [i686][]]</example>
+    <param pos="0" name="service.vendor" value="ntop"/>
+    <param pos="0" name="service.product" value="ntopng"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ntop:ntopng:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Linux"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ntopng (\d+(?:\.\d+)*)\s+\[[\w-]+-linux-gnu \((\w+)\)\]$">
+    <description>ntopng - web-based network traffic monitoring on Linux (older ntopng)</description>
+    <example service.version="2.0.150531" os.arch="x86_64">ntopng 2.0.150531  [x86_64-unknown-linux-gnu (x86_64)]</example>
+    <param pos="0" name="service.vendor" value="ntop"/>
+    <param pos="0" name="service.product" value="ntopng"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ntop:ntopng:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Linux"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:linux:linux_kernel:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ntopng (\d+(?:\.\d+)*) \[Debian [\w/]+ \[(\w+)\]\[Ubuntu (\d+(?:\.\d+)*) LTS\]\]$">
+    <description>ntopng - web-based network traffic monitoring on Ubuntu</description>
+    <example service.version="4.2.210309" os.arch="x86_64" os.version="18.04.5">ntopng 4.2.210309 [Debian buster/sid [x86_64][Ubuntu 18.04.5 LTS]]</example>
+    <example service.version="5.4.220721" os.arch="x86_64" os.version="20.04.4">ntopng 5.4.220721 [Debian bullseye/sid [x86_64][Ubuntu 20.04.4 LTS]]</example>
+    <param pos="0" name="service.vendor" value="ntop"/>
+    <param pos="0" name="service.product" value="ntopng"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ntop:ntopng:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="3" name="os.version"/>
+    <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:canonical:ubuntu_linux:{os.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ntopng (\d+(?:\.\d+)*) \[Debian (\d+(?:\.\d+)*) \[(\w+)\]\[[^\]]*\]\]$">
+    <description>ntopng - web-based network traffic monitoring on Debian</description>
+    <example service.version="5.4.221124" os.version="11.0" os.arch="x86_64">ntopng 5.4.221124 [Debian 11.0 [x86_64][Debian GNU/Linux 11 (bullseye)]]</example>
+    <example service.version="5.5.220724" os.version="11.1" os.arch="armv7l">ntopng 5.5.220724 [Debian 11.1 [armv7l][Raspbian GNU/Linux 11 (bullseye)]]</example>
+    <example service.version="5.5.221127" os.version="11.4" os.arch="aarch64">ntopng 5.5.221127 [Debian 11.4 [aarch64][Debian GNU/Linux 11 (bullseye)]]</example>
+    <example service.version="4.2.201206" os.version="10.6" os.arch="aarch64">ntopng 4.2.201206 [Debian 10.6 [aarch64][]]</example>
+    <example service.version="5.5.221116" os.version="10.8" os.arch="x86_64">ntopng 5.5.221116 [Debian 10.8 [x86_64][Debian GNU/Linux 10 (buster)]]</example>
+    <example service.version="5.5.221211" os.version="10.11" os.arch="armv7l">ntopng 5.5.221211 [Debian 10.11 [armv7l][Raspbian GNU/Linux 10 (buster)]]</example>
+    <example service.version="4.3.210624" os.version="9.12" os.arch="x86_64">ntopng 4.3.210624 [Debian 9.12 [x86_64][Debian GNU/Linux 9.12 (stretch)]]</example>
+    <example service.version="3.7.180907" os.version="9.1" os.arch="x86_64">ntopng 3.7.180907 [Debian 9.1 [x86_64][Debian GNU/Linux 9.1 (stretch)]]</example>
+    <example service.version="3.9.200305" os.version="8.11" os.arch="x86_64">ntopng 3.9.200305 [Debian 8.11 [x86_64][Debian GNU/Linux 8.11 (jessie)]]</example>
+    <example service.version="2.5.161119" os.version="7.11" os.arch="i686">ntopng 2.5.161119 [Debian 7.11 [i686][Debian GNU/Linux 7.11 (wheezy)]]</example>
+    <example service.version="3.3.180306" os.version="7.10" os.arch="x86_64">ntopng 3.3.180306 [Debian 7.10 [x86_64][Debian GNU/Linux 7.10 (wheezy)]]</example>
+    <param pos="0" name="service.vendor" value="ntop"/>
+    <param pos="0" name="service.product" value="ntopng"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ntop:ntopng:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="2" name="os.version"/>
+    <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:{os.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ntopng (\d+(?:\.\d+)*) \[Debian bookworm/sid \[(\w+)\]\[[^\]]*\]\]$">
+    <description>ntopng - web-based network traffic monitoring on Debian 12.0 (bookworm)</description>
+    <example service.version="5.2.220414" os.arch="x86_64">ntopng 5.2.220414 [Debian bookworm/sid [x86_64][]]</example>
+    <param pos="0" name="service.vendor" value="ntop"/>
+    <param pos="0" name="service.product" value="ntopng"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ntop:ntopng:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="12.0"/>
+    <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:12.0"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ntopng (\d+(?:\.\d+)*) \[Debian bullseye/sid \[(\w+)\]\[[^\]]*\]\]$">
+    <description>ntopng - web-based network traffic monitoring on Debian 11.0 (bullseye)</description>
+    <example service.version="3.8.200814" os.arch="x86_64">ntopng 3.8.200814 [Debian bullseye/sid [x86_64][]]</example>
+    <param pos="0" name="service.vendor" value="ntop"/>
+    <param pos="0" name="service.product" value="ntopng"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ntop:ntopng:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="11.0"/>
+    <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:11.0"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ntopng (\d+(?:\.\d+)*) \[Debian buster/sid \[(\w+)\]\[[^\]]*\]\]$">
+    <description>ntopng - web-based network traffic monitoring on Debian 10.0 (buster)</description>
+    <example service.version="3.8.190204" os.arch="x86_64">ntopng 3.8.190204 [Debian buster/sid [x86_64][]]</example>
+    <param pos="0" name="service.vendor" value="ntop"/>
+    <param pos="0" name="service.product" value="ntopng"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ntop:ntopng:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="10.0"/>
+    <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:10.0"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ntopng (\d+(?:\.\d+)*) \[Debian stretch/sid \((\w+)\)\]$">
+    <description>ntopng - web-based network traffic monitoring on Debian 9.0 (stretch)</description>
+    <example service.version="2.3.160415" os.arch="x86_64">ntopng 2.3.160415 [Debian stretch/sid (x86_64)]</example>
+    <example service.version="2.3.160415" os.arch="i686">ntopng 2.3.160415 [Debian stretch/sid (i686)]</example>
+    <param pos="0" name="service.vendor" value="ntop"/>
+    <param pos="0" name="service.product" value="ntopng"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ntop:ntopng:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="9.0"/>
+    <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:9.0"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ntopng (\d+(?:\.\d+)*) \[Debian wheezy/sid \((\w+)\)\]$">
+    <description>ntopng - web-based network traffic monitoring on Debian 7.0 (wheezy)</description>
+    <example service.version="2.2.160403" os.arch="x86_64">ntopng 2.2.160403 [Debian wheezy/sid (x86_64)]</example>
+    <param pos="0" name="service.vendor" value="ntop"/>
+    <param pos="0" name="service.product" value="ntopng"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ntop:ntopng:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Debian"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="os.version" value="7.0"/>
+    <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:7.0"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ntopng (\d+(?:\.\d+)*) \[[\w-]+openbsd(\d+(?:\.\d+)*) \[(\w+)\]\[[^\]]*\]\]$">
+    <description>ntopng - web-based network traffic monitoring on OpenBSD</description>
+    <example service.version="3.8.201001" os.version="6.8" os.arch="amd64">ntopng 3.8.201001 [amd64-unknown-openbsd6.8 [amd64][]]</example>
+    <param pos="0" name="service.vendor" value="ntop"/>
+    <param pos="0" name="service.product" value="ntopng"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ntop:ntopng:{service.version}"/>
+    <param pos="0" name="os.vendor" value="OpenBSD"/>
+    <param pos="0" name="os.family" value="OpenBSD"/>
+    <param pos="0" name="os.product" value="OpenBSD"/>
+    <param pos="2" name="os.version"/>
+    <param pos="3" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:openbsd:openbsd:{os.version}"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ntopng (\d+(?:\.\d+)*) \[[^\]]* \[(\w+)\]\[Windows\]\]$">
+    <description>ntopng - web-based network traffic monitoring on Windows</description>
+    <example service.version="5.5.221014" os.arch="x64">ntopng 5.5.221014 [Win64 [x64][Windows]]</example>
+    <param pos="0" name="service.vendor" value="ntop"/>
+    <param pos="0" name="service.product" value="ntopng"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ntop:ntopng:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Microsoft"/>
+    <param pos="0" name="os.family" value="Windows"/>
+    <param pos="0" name="os.product" value="Windows"/>
+    <param pos="2" name="os.arch"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows:-"/>
+  </fingerprint>
+
+  <fingerprint pattern="^ntopng (\d+(?:\.\d+)*) \((\w+)\)$">
+    <description>ntopng - web-based network traffic monitoring on unknown OS</description>
+    <example service.version="5.4.220905" os.arch="amd64">ntopng 5.4.220905 (amd64)</example>
+    <param pos="0" name="service.vendor" value="ntop"/>
+    <param pos="0" name="service.product" value="ntopng"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:ntop:ntopng:{service.version}"/>
+    <param pos="2" name="os.arch"/>
+  </fingerprint>
+
 </fingerprints>
