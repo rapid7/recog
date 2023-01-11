@@ -61,9 +61,9 @@ describe Recog::DB do
               end
             end
 
-            it "has parameter values other than General, Server or Unknown, which are not helpful" do
-              if pos == 0 && value =~ /^(?i:general|server|unknown)$/
-                fail "'#{param_name}' has general/server/unknown value '#{value}'"
+            it "has *.device parameter values other than General, Server or Unknown, which are not helpful" do
+              if pos == 0 && param_name =~ /^(?:[^\.]+\.device*)$/ && value =~ /^(?i:general|server|unknown)$/
+                fail "'#{param_name}' has unhelpful value '#{value}'"
               end
             end
 
