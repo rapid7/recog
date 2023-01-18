@@ -1794,6 +1794,18 @@ more text</example>
     <param pos="0" name="hw.device" value="Power Device"/>
   </fingerprint>
 
+  <fingerprint pattern="^(Sentry Switched (?:PDU|CDU)) v(\d+(?:\.\d+)*[a-z](?:-[a-z][0-9])*) FTP server ready\.">
+    <description>Server Technology Sentry Switched Device</description>
+    <example hw.product="Sentry Switched PDU" os.product="Sentry Switched PDU Firmware" os.version="8.0w">Sentry Switched PDU v8.0w FTP server ready.</example>
+    <example hw.product="Sentry Switched CDU" os.product="Sentry Switched CDU Firmware" os.version="7.1e-d1">Sentry Switched CDU v7.1e-d1 FTP server ready.</example>
+    <param pos="0" name="os.vendor" value="Server Technology"/>
+    <param pos="0" name="os.product" value="{hw.product} Firmware"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="hw.vendor" value="Server Technology"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="Power Device"/>
+  </fingerprint>
+
   <fingerprint pattern="^Printer's ftp server (?:\d+) Please login with USER and PASS\.$">
     <description>Weidmüller Printer</description>
     <example>Printer's ftp server 530 Please login with USER and PASS.</example>
