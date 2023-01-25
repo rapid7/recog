@@ -707,6 +707,16 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:mongo-express_project:mongo-express:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^(JSESSIONIDADMP|admpcsrf)=">
+    <description>ManageEngine ADManager Plus</description>
+    <example cookie="JSESSIONIDADMP">JSESSIONIDADMP=3A92A25349FECF56B7D7D6FF915545B5; Path=/; HttpOnly</example>
+    <example cookie="admpcsrf">admpcsrf=f5fe4a87-0365-4d04-a8e2-87b3c640092e;path=/;priority=high</example>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="ManageEngine"/>
+    <param pos="0" name="service.product" value="ADManager Plus"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:zohocorp:manageengine_admanager_plus:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^adscsrf=">
     <description>ManageEngine ADSelfService Plus</description>
     <example>adscsrf=cffff6b5-bd68-4c35-92ef-e45127e68289;path=/;priority=high</example>
