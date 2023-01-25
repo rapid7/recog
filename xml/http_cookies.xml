@@ -717,6 +717,16 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:zohocorp:manageengine_admanager_plus:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^(JSESSIONIDADAP|adapcsrf)=">
+    <description>ManageEngine ADAudit Plus</description>
+    <example cookie="JSESSIONIDADAP">JSESSIONIDADAP=BB472B7AD767571D913190056ED594CB; Path=/; HttpOnly</example>
+    <example cookie="adapcsrf">adapcsrf=97fcd4a1-078f-487b-bd73-ca492ef05121;path=/;priority=high</example>
+    <param pos="1" name="cookie"/>
+    <param pos="0" name="service.vendor" value="ManageEngine"/>
+    <param pos="0" name="service.product" value="ADAudit Plus"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:zohocorp:manageengine_adaudit_plus:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^adscsrf=">
     <description>ManageEngine ADSelfService Plus</description>
     <example>adscsrf=cffff6b5-bd68-4c35-92ef-e45127e68289;path=/;priority=high</example>
