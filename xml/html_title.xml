@@ -4104,6 +4104,17 @@
     <param pos="0" name="service.product" value="Vaultwarden"/>
   </fingerprint>
 
+  <fingerprint pattern="^(?:GoAnywhere (\d+(?:\.\d+)*)(?: - \S{1,512})?|GoAnywhere Web Client - Login)$">
+    <description>Fortra GoAnywhere MFT - managed file transfer</description>
+    <example service.version="7.0.3">GoAnywhere 7.0.3</example>
+    <example service.version="6.8.6">GoAnywhere 6.8.6 - Production</example>
+    <example>GoAnywhere Web Client - Login</example>
+    <param pos="0" name="service.vendor" value="Fortra"/>
+    <param pos="0" name="service.product" value="GoAnywhere MFT"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:helpsystems:goanywhere_managed_file_transfer:{service.version}"/>
+  </fingerprint>
+
   <!-- Specific Eltex fingerprints to enable CPE generation -->
 
   <fingerprint pattern="^Eltex - NTP-RG-1402G$">
