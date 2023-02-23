@@ -127,8 +127,6 @@ At least one `example` element should be present, however multiple `example` ele
 
 tests that `RomSShell_4.62` matches the provided regular expression and that the value of `service.version` is 4.62.
 
-The `param` elements contain a `pos` attribute, which indicates what capture field from the `pattern` should be extracted, or `0` for a static string. The `name` attribute is the key that will be reported in the case of a successful match and the `value` will either be a static string for `pos` values of `0` or missing and taken from the captured field.
-
 The `example` string can be base64 encoded to permit the use of unprintable characters.  To signal this to Recog an `_encoding` attribute with the value of `base64` is added to the `example` element.  Based64 encoded text that is longer than 80 characters may be wrapped with newlines as shown below to aid in readability.
 
 ```xml
@@ -154,6 +152,54 @@ They can then be loaded using the `_filename` attribute:
 ```
 
 This is useful for long examples.
+
+The `param` elements contain a `pos` attribute, which indicates what capture field
+from the `pattern` should be extracted, or `0` for a static string. The `name` attribute
+is the key that will be reported in the case of a successful match and the `value`
+will either be a static string for `pos` values of `0` or missing and taken from the
+captured field.
+
+The `value` attribute supports interpolation of data from other fields. This is
+often useful when capturing the value for `hw.product` via regex and re-using this
+value in `os.product`.
+
+Here is an example from`http_servers.xml` where `hw.product` is captured and reused.
+
+```xml
+  <fingerprint pattern="^Eltex (TAU-\d+[A-Z]*(?:\.IP)?)$">
+    <description>Eltex TAU model VoIP gateway</description>
+    <example hw.product="TAU-72">Eltex TAU-72</example>
+    <example hw.product="TAU-1.IP">Eltex TAU-1.IP</example>
+    <param pos="0" name="os.vendor" value="Eltex"/>
+    <param pos="0" name="os.product" value="{hw.product} Firmware"/>
+    <param pos="0" name="os.device" value="VoIP Gateway"/>
+    <param pos="0" name="hw.vendor" value="Eltex"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="hw.device" value="VoIP Gateway"/>
+  </fingerprint>
+```
+
+There is special handling for temporary `name` attributes starting with `_tmp.` such
+that they can be used for interpolation but are not emitted in the output. This is
+useful when a particular product name is inconsistent in various banners, vendor
+marketing, or with NIST values when trying to generated CPEs. In these cases the useful
+parts of the banner can be extracted and a new value crafted without cluttering the
+data emitted by a match.
+
+```xml
+<fingerprint pattern="^foo baz switchThing-(\d{4})$">
+  <description>NetCorp NX series switches</description>
+  <example hw.product="NX8200">foo baz switchThing-8200</example>
+  <param pos="0" name="hw.vendor" value="NetCorp"/>
+  <param pos="0" name="hw.product" value="NX{_tmp.001}"/>
+  <param pos="2" name="_tmp.001"/>
+</fingerprint>
+```
+
+In order to reduce churn in the `identifiers/fields.txt` file any `names` values starting
+with `_tmp.` should be followed by three digits such as `_tmp.001`, `_tmp.002`, etc. These
+only need to be unique within a specific fingerprint and so there shouldn't generally be
+a need for many of them.
 
 [^back to top](#recog-a-recognition-framework)
 
