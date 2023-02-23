@@ -276,6 +276,19 @@
     <param pos="0" name="os.vendor" value="Ewon"/>
   </fingerprint>
 
+  <fingerprint pattern="^Zebra Technologies ZTC (Z[T|D|Q]\d{3})-\d{3}dpi\s(?:ZPL|CPCL)$">
+    <description>Zebra Label Printer</description>
+    <example hw.product="ZD410">Zebra Technologies ZTC ZD410-203dpi ZPL</example>
+    <example hw.product="ZQ620">Zebra Technologies ZTC ZQ620-203dpi ZPL</example>
+    <example hw.product="ZT230">Zebra Technologies ZTC ZT230-203dpi ZPL</example>
+    <example hw.product="ZQ630">Zebra Technologies ZTC ZQ630-203dpi CPCL</example>
+    <param pos="0" name="hw.device" value="Printer"/>
+    <param pos="0" name="hw.vendor" value="Zebra"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="0" name="os.vendor" value="Zebra"/>
+    <param pos="0" name="os.product" value="{hw.product} Firmware"/>
+  </fingerprint>
+
   <fingerprint pattern="^ZEBRA$">
     <description>Zebra device</description>
     <example>ZEBRA</example>
