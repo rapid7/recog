@@ -12,7 +12,7 @@ Feature: Verify
     When I run `recog_verify successful_tests.xml`
     Then it should pass with exactly:
       """
-      successful_tests.xml: SUMMARY: Test completed with 4 successful, 0 warnings, and 0 failures
+      successful_tests.xml: SUMMARY: Test completed with 5 successful, 0 warnings, and 0 failures
       """
 
   @no-clobber
