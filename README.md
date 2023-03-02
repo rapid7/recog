@@ -179,12 +179,12 @@ Here is an example from`http_servers.xml` where `hw.product` is captured and reu
   </fingerprint>
 ```
 
-There is special handling for temporary `name` attributes starting with `_tmp.` such
-that they can be used for interpolation but are not emitted in the output. This is
-useful when a particular product name is inconsistent in various banners, vendor
-marketing, or with NIST values when trying to generated CPEs. In these cases the useful
-parts of the banner can be extracted and a new value crafted without cluttering the
-data emitted by a match.
+There is special handling for temporary attributes that have a name starting with
+`_tmp.`. These attributes can be used for interpolation but are not emitted in the
+output. This is useful when a particular product name is inconsistent in various
+banners, vendor marketing, or with NIST values when trying to generated CPEs. In
+these cases the useful parts of the banner can be extracted and a new value
+crafted without cluttering the data emitted by a match.
 
 ```xml
 <fingerprint pattern="^foo baz switchThing-(\d{4})$">
@@ -196,10 +196,7 @@ data emitted by a match.
 </fingerprint>
 ```
 
-In order to reduce churn in the `identifiers/fields.txt` file any `names` values starting
-with `_tmp.` should be followed by three digits such as `_tmp.001`, `_tmp.002`, etc. These
-only need to be unique within a specific fingerprint and so there shouldn't generally be
-a need for many of them.
+These temporary attributes are not tracked in the `identifiers/fields.txt`.
 
 [^back to top](#recog-a-recognition-framework)
 

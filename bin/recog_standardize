@@ -59,7 +59,7 @@ end
 
 # @param current [Hash] Indentifiers extracted from fingerprints
 # @param original [Hash] Indentifiers loaded from the existing identifiers file
-# param msg [String] Context to include in messaging to user
+# @param msg [String] Context to include in messaging to user
 # @param ident_type [String] Key used to get the identifier file path
 # @param write [Boolean] Indicate if changes should be written to disk
 def handle_changes(current, original, msg, ident_type, write)
@@ -151,6 +151,8 @@ ARGV.each do |arg|
     ndb.fingerprints.each do |f|
       f.params.each do |k, v|
 
+        # Don't track temporary attributes.
+        next if k.start_with?("_tmp.")
         curr_fields[k] = true
 
         param_index, val = v
