@@ -4131,6 +4131,16 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:helpsystems:goanywhere_managed_file_transfer:{service.version}"/>
   </fingerprint>
 
+  <fingerprint pattern="^Server Backup Manager SE\s*(?:- .{1,512})?$">
+    <description>ConnectWise R1Soft Server Backup Manager (SBM)</description>
+    <example>Server Backup Manager SE</example>
+    <example>Server Backup Manager SE </example>
+    <example>Server Backup Manager SE - foo.bar</example>
+    <example>Server Backup Manager SE - [1234] FooBar</example>
+    <param pos="0" name="service.vendor" value="ConnectWise"/>
+    <param pos="0" name="service.product" value="R1Soft Server Backup Manager"/>
+  </fingerprint>
+
   <!-- Specific Eltex fingerprints to enable CPE generation -->
 
   <fingerprint pattern="^Eltex - NTP-RG-1402G$">
