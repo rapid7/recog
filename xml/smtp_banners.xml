@@ -345,7 +345,7 @@
     <param pos="1" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^ ?([^, ]{1,512}),? +ESMTP \(?(?i:Exim) +(\d+\.[\d_.bdRC-]+)\)?(?: +#\d+)? ?.?((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d{3,4})?) *(?:We do not authorize the use of this system to transport unsolicited, and\/or bulk e-mail.)?$">
+  <fingerprint pattern="(?i)^ ?([^, ]{1,512}),? +ESMTP \(?Exim +(\d+\.[\d_.bdRC-]+)\)?(?: +#\d+)? ?.?((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d{3,4})?) *(?:We do not authorize the use of this system to transport unsolicited, and\/or bulk e-mail.)?$">
     <description>Exim - with version string and optional timestamp</description>
     <example service.version="4.91" host.name="foo.bar" system.time="Thu, 29 Apr 2021 05:41:36 +400">foo.bar  ESMTP Exim 4.91 Thu, 29 Apr 2021 05:41:36 +400</example>
     <example service.version="4.89" host.name="foo.bar">foo.bar ESMTP Exim 4.89 "</example>
@@ -368,7 +368,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^, ]{1,512}),? ESMTP (?i:Exim) +(\d+) ((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
+  <fingerprint pattern="(?i)^([^, ]{1,512}),? ESMTP Exim +(\d+) ((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
     <description>Exim - with digit only version string and optional timestamp</description>
     <example service.version="125302" host.name="foo.bar" system.time="Thu, 16 Nov 2017 04:55:11 -0500">foo.bar ESMTP Exim 125302 Thu, 16 Nov 2017 04:55:11 -0500 </example>
     <param pos="0" name="service.vendor" value="exim"/>
@@ -381,7 +381,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^, ]{1,512}),? ESMTP (?i:Exim) +(\d+\.[\d_.]+)(?: +#\d)? Ubuntu ((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
+  <fingerprint pattern="(?i)^([^, ]{1,512}),? ESMTP Exim +(\d+\.[\d_.]+)(?: +#\d)? Ubuntu ((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
     <description>Exim - with version string and optional timestamp (Ubuntu)</description>
     <example service.version="4.82" system.time="Thu, 16 Nov 2017 11:30:44 +0300" host.name="foo.bar">foo.bar ESMTP Exim 4.82 Ubuntu Thu, 16 Nov 2017 11:30:44 +0300 </example>
     <param pos="0" name="os.vendor" value="Ubuntu"/>
@@ -398,7 +398,7 @@
     <param pos="3" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^, ]{1,512}),? ESMTP (?i:Exim)(?: +#\d)? *((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
+  <fingerprint pattern="(?i)^([^, ]{1,512}),? ESMTP Exim(?: +#\d)? *((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
     <description>Exim - without version string and with optional timestamp</description>
     <example host.name="foo.bar">foo.bar ESMTP Exim</example>
     <example host.name="foo.bar" system.time="Thu, 16 Nov 2017 01:11:30 -0800">foo.bar ESMTP Exim Thu, 16 Nov 2017 01:11:30 -0800 </example>
@@ -412,7 +412,7 @@
     <param pos="2" name="system.time"/>
   </fingerprint>
 
-  <fingerprint pattern="^ ?ESMTP (?i:Exim) (\d+\.[\d_.]+)(?: +#\d)? ?.?((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
+  <fingerprint pattern="(?i)^ ?ESMTP Exim (\d+\.[\d_.]+)(?: +#\d)? ?.?((?:\w\w\w, \d+ \w\w\w \d\d\d\d [\d:]+ [-+]\d\d\d\d)?) *$">
     <description>Exim - without hostname</description>
     <example service.version="4.82" system.time="Thu, 16 Nov 2017 12:19:22 +0300">ESMTP Exim 4.82 Thu, 16 Nov 2017 12:19:22 +0300 </example>
     <example service.version="4.82" system.time="Thu, 16 Nov 2017 11:41:41 +0300"> ESMTP Exim 4.82 Thu, 16 Nov 2017 11:41:41 +0300 </example>
@@ -741,7 +741,7 @@
 
   <!-- example: 220 mail.db-list.com ESMTP MERAK 3.00.140; Tue, 24 Jul 2001 21:30:47 -0700 -->
 
-  <fingerprint pattern="^([^ ]{1,512}) +E?SMTP (?i:MERAK) ([^ ]+\.[^ ]+\.[^ ]+); *(.+) *$">
+  <fingerprint pattern="(?i)^([^ ]{1,512}) +E?SMTP MERAK ([^ ]+\.[^ ]+\.[^ ]+); *(.+) *$">
     <description>Merak mail server - http://www.icewarp.com/merakmail/ (runs on 2000/NT/9x)</description>
     <example host.name="foo.bar" service.version="8.0.3" system.time="Thu, 30 Nov 2017 20:01:41 +1000">foo.bar SMTP Merak 8.0.3; Thu, 30 Nov 2017 20:01:41 +1000</example>
     <example host.name="foo.bar" service.version="8.0.3" system.time="Thu, 30 Nov 2017 12:08:09 +0200">foo.bar ESMTP Merak 8.0.3; Thu, 30 Nov 2017 12:08:09 +0200</example>
@@ -1080,7 +1080,7 @@
     <param pos="1" name="host.name"/>
   </fingerprint>
 
-  <fingerprint pattern="^([^ ]{1,512}) ESMTP server \((?i:P)ost\.(?i:O)ffice v([^ ]+\.[^ ]+)(?: release)? (.+) ID# ([^ ]+)\) ready (.+) *$">
+  <fingerprint pattern="^([^ ]{1,512}) ESMTP server \([Pp]ost\.[Oo]ffice v([^ ]+\.[^ ]+)(?: release)? (.+) ID# ([^ ]+)\) ready (.+) *$">
     <description>Post.Office</description>
     <example host.name="foo.bar" service.version="3.8.4" postoffice.build="116" postoffice.id="1001-65749U100L10S0V38" system.time="Thu, 30 Nov 2017 18:46:24 +0900">foo.bar ESMTP server (post.office v3.8.4 release 116 ID# 1001-65749U100L10S0V38) ready Thu, 30 Nov 2017 18:46:24 +0900</example>
     <example host.name="foo.bar" service.version="3.1" postoffice.build="PO205e" postoffice.id="0-42000U100L2S100" system.time="Tue, 6 Feb 2001 19:38:32 +0100">foo.bar ESMTP server (Post.Office v3.1 release PO205e ID# 0-42000U100L2S100) ready Tue, 6 Feb 2001 19:38:32 +0100</example>

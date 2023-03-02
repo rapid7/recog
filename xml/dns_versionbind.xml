@@ -539,7 +539,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:nlnetlabs:unbound:{service.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?i:unbound)$">
+  <fingerprint pattern="(?i)^unbound$">
     <description>NLnet Labs Unbound no version string</description>
     <example>unbound</example>
     <param pos="0" name="service.vendor" value="NLnet Labs"/>
@@ -813,7 +813,7 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?i:djbdns)[\s-](\d.\d+)$">
+  <fingerprint pattern="(?i)^djbdns[\s-](\d.\d+)$">
     <description>djbdns</description>
     <example service.version="1.05">djbdns 1.05</example>
     <example service.version="1.05">djbdns-1.05</example>
@@ -824,7 +824,7 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?i:djbdns)$">
+  <fingerprint pattern="(?i)^djbdns$">
     <description>djbdns: no version</description>
     <example>DJBDNS</example>
     <example>djbdns</example>
