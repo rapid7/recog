@@ -182,7 +182,7 @@ Here is an example from`http_servers.xml` where `hw.product` is captured and reu
 There is special handling for temporary attributes that have a name starting with
 `_tmp.`. These attributes can be used for interpolation but are not emitted in the
 output. This is useful when a particular product name is inconsistent in various
-banners, vendor marketing, or with NIST values when trying to generated CPEs. In
+banners, vendor marketing, or with NIST values when trying to generate CPEs. In
 these cases the useful parts of the banner can be extracted and a new value
 crafted without cluttering the data emitted by a match.
 
