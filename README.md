@@ -157,6 +157,106 @@ This is useful for long examples.
 
 [^back to top](#recog-a-recognition-framework)
 
+### Examples
+
+The following examples make use of `bin/recog_match`, a simple Ruby command line tool that uses Recog's fingerprinting data. Pre-processing is generally required before running Recog, i.e. extracting HTTP header values, etc. All fingerprint data can be found in `xml/*.xml`.
+
+### ftp_banners
+
+Fingerprint FTP servers based on the server's banner response after connecting:
+
+```
+# Example plaintext input
+echo -n '220 Microsoft FTP Service' | bin/recog_match xml/ftp_banners.xml -
+
+# Example command using nmap
+nmap -sV -script=banner -p 21 192.168.123.13 | grep '_banner' | cut -d: -f2- | bin/recog_match xml/ftp_banners.xml -
+
+# Example output
+MATCH: {"matched"=>"Microsoft FTP Server on Windows XP, 2003 or later without version", "service.vendor"=>"Microsoft", "service.product"=>"IIS", "service.family"=>"IIS", "service.cpe23"=>"cpe:/a:microsoft:iis:-", "os.vendor"=>"Microsoft", "os.family"=>"Windows", "os.product"=>"Windows", "os.cpe23"=>"cpe:/o:microsoft:windows:-", "host.name"=>"220", "service.protocol"=>"ftp", "fingerprint_db"=>"ftp.banner", "data"=>"220 Microsoft FTP Service"}
+```
+
+#### http_cookies
+
+Using the HTTP `Set-Cookie` header value to fingerprint an HTTP server:
+
+```
+# Example plaintext input
+echo 'laravel_session=eyJ...etc..etc...%3D; expires=Mon, 13-Mar-2023 16:48:58 GMT; Max-Age=7200; path=/; httponly; samesite=lax' | bin/recog_match xml/http_cookies.xml -
+
+# Example cURL command
+curl --silent -I http://localhost:9001 | grep -i '^Set-Cookie:' | cut -d: -f2- | bin/recog_match xml/http_cookies.xml -
+
+# Example output
+MATCH: {"matched"=>"Laravel PHP web application framework", "service.vendor"=>"Laravel", "service.product"=>"Laravel", "service.cpe23"=>"cpe:/a:laravel:laravel:-", "service.protocol"=>"http", "fingerprint_db"=>"http_header.cookie", "data"=>"laravel_session=eyJ...etc..etc...%3D; expires=Mon, 13-Mar-2023 16:48:58 GMT; Max-Age=7200; path=/; httponly; samesite=lax"}
+```
+
+#### http_servers
+
+Using the HTTP `Server` header value to fingerprint an HTTP server:
+
+```
+# Example cURL command
+curl --silent -I http://localhost:9001 | grep -i '^Server:' | cut -d: -f2- | bin/recog_match xml/http_servers.xml -
+
+# Example plaintext input
+echo -n 'Apache/2.4.38 (Debian)' | bin/recog_match xml/http_servers.xml -
+
+# Example output
+MATCH: {"matched"=>"Apache", "service.vendor"=>"Apache", "service.product"=>"HTTPD", "service.family"=>"Apache", "service.version"=>"2.4.38", "service.cpe23"=>"cpe:/a:apache:http_server:2.4.38", "apache.info"=>"(Debian)", "service.protocol"=>"http", "fingerprint_db"=>"http_header.server", "data"=>"Apache/2.4.38 (Debian)"}
+```
+
+### favicons
+
+Using the md5sum of a favicon to identify a running service:
+
+```
+# Example plaintext input
+echo -n fe22dd2bb09daccf58256611ac491469 | bin/recog_match xml/favicons.xml -
+
+# Example cURL command
+curl --silent http://localhost:8000/favicon.ico | md5sum | awk '{ print $1 }' | bin/recog_match xml/favicons.xml -
+
+# Example output
+MATCH: {"matched"=>"Drupal CMS", "service.vendor"=>"Drupal", "service.product"=>"CMS", "service.certainty"=>"0.5", "service.cpe23"=>"cpe:/a:drupal:drupal:-", "service.protocol"=>"", "fingerprint_db"=>"favicon.md5", "data"=>"fe22dd2bb09daccf58256611ac491469"}
+```
+
+### http_wwwauth
+
+Using the HTTP `WWW-Authenticate` header value to fingerprint an HTTP server:
+
+```
+# Example plaintext input
+echo -n 'Basic realm="monit"' | bin/recog_match xml/http_wwwauth.xml -
+
+# Example cURL command
+curl --silent -I http://localhost:9001 | grep -i '^WWW-Authenticate:' | cut -d: -f2- | bin/recog_match xml/http_wwwauth.xml -
+
+# Example output
+MATCH: {"matched"=>"Minot", "service.vendor"=>"Tildeslash", "service.product"=>"Monit", "service.cpe23"=>"cpe:/a:tildeslash:monit:-", "service.protocol"=>"http", "fingerprint_db"=>"http_header.wwwauth", "data"=>"Basic realm=\"monit\""}
+```
+
+### tls_jarm
+
+Fingerprint TLS servers based on the server's response to 10 TLS Client Hello packets. Fingerprint based on https://github.com/salesforce/jarm
+
+```
+# Example plaintext input
+echo -n 07d14d16d21d21d07c42d43d000000f50d155305214cf247147c43c0f1a823 | bin/recog_match xml/jarm.xml -
+
+# Example command using Salesforce's JARM against a running Metasploit listener
+python3 $code/jarm/jarm.py -p 8443 192.168.123.1 | grep 'JARM: ' | awk -F: '{ print $2 }' | bin/recog_match xml/tls_jarm.xml -
+
+# Example output
+MATCH: {"matched"=>"Metasploit listener", "service.vendor"=>"Rapid7", "service.product"=>"Metasploit", "service.cpe23"=>"cpe:/a:rapid7:metasploit:-", "service.protocol"=>"tls", "fingerprint_db"=>"tls.jarm", "data"=>"07d14d16d21d21d07c42d43d000000f50d155305214cf247147c43c0f1a823"}
+```
+
+### And more
+
+All fingerprint data can be found in `xml/*.xml`.
+
+[^back to top](#recog-a-recognition-framework)
+
 ## Contributing
 
 The users and maintainers of Recog would greatly appreciate any contributions
