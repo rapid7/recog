@@ -1059,10 +1059,10 @@
     <description>Varnish Cache</description>
     <example>Varnish</example>
     <example>Varnish-Cache</example>
-    <param pos="0" name="service.vendor" value="Varnish-cache"/>
+    <param pos="0" name="service.vendor" value="Varnish Cache Project"/>
     <param pos="0" name="service.family" value="Varnish"/>
-    <param pos="0" name="service.product" value="Varnish"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:varnish-cache:varnish:-"/>
+    <param pos="0" name="service.product" value="Varnish Cache"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:varnish_cache_project:varnish_cache:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Tengine\/?([\d.]+)?$">
@@ -1913,10 +1913,10 @@
     <description>SAP NetWeaver Application Server - Advanced Business Application Programming</description>
     <example service.version="731">SAP NetWeaver Application Server / ABAP 731</example>
     <param pos="0" name="service.vendor" value="SAP"/>
-    <param pos="0" name="service.product" value="NetWeaver AS ABAP"/>
+    <param pos="0" name="service.product" value="NetWeaver Application Server ABAP"/>
     <param pos="0" name="service.family" value="NetWeaver"/>
     <param pos="1" name="service.version"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_as_abap:{service.version}"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:sap:netweaver_application_server_abap:{service.version}"/>
     <param pos="0" name="service.component.vendor" value="SAP"/>
     <param pos="0" name="service.component.product" value="NetWeaver Application Server"/>
     <param pos="0" name="service.component.cpe23" value="cpe:/a:sap:netweaver_application_server:-"/>
@@ -2167,7 +2167,6 @@
     <param pos="0" name="service.vendor" value="Cisco"/>
     <param pos="0" name="service.family" value="IOS"/>
     <param pos="0" name="service.product" value="IOS"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:cisco:ios:-"/>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="IOS"/>
     <param pos="0" name="os.product" value="IOS"/>
@@ -2182,7 +2181,6 @@
     <param pos="0" name="service.vendor" value="Cisco"/>
     <param pos="0" name="service.family" value="IOS"/>
     <param pos="0" name="service.product" value="IOS"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:cisco:ios:-"/>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="IOS"/>
     <param pos="0" name="os.product" value="IOS"/>
@@ -2200,7 +2198,6 @@
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="Adaptive Security Appliance"/>
     <param pos="0" name="os.product" value="Adaptive Security Appliance"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:cisco:adaptive_security_appliance_software:-"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.family" value="Adaptive Security Appliance"/>
     <param pos="0" name="hw.product" value="Adaptive Security Appliance"/>
@@ -3004,7 +3001,7 @@
     <param pos="0" name="service.vendor" value="Treck"/>
     <param pos="0" name="service.product" value="TCP/IP"/>
     <param pos="1" name="service.version"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:treck:tcp\/ip:{service.version}"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:treck:tcp%2fip:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^WEBrick/([\d\.]+)">
@@ -3292,12 +3289,16 @@
 
   <fingerprint pattern="^Intel\(R\) Active Management Technology\s(\d+\.\d+\.\d+\.\d+|\d+\.\d+\.\d+|\d+\.\d+)">
     <description>Intel(R) Active Management Technology (AMT) with a version</description>
-    <example service.version="7.1.86">Intel(R) Active Management Technology 7.1.86</example>
+    <example service.version="7.1.86" os.version="7.1.86">Intel(R) Active Management Technology 7.1.86</example>
     <param pos="0" name="service.vendor" value="Intel"/>
-    <param pos="0" name="service.product" value="Intel(R) Active Management Technology"/>
     <param pos="0" name="service.family" value="Intel(R) Active Management Technology"/>
+    <param pos="0" name="service.product" value="Intel(R) Active Management Technology"/>
     <param pos="1" name="service.version"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:intel:active_management_technology:{service.version}"/>
+    <param pos="0" name="os.vendor" value="Intel"/>
+    <param pos="0" name="os.family" value="Intel(R) Active Management Technology"/>
+    <param pos="0" name="os.product" value="Intel(R) Active Management Technology Firmware"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:intel:active_management_technology_firmware:{os.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^(?:AMT|Intel\(R\) Active Management Technology)$">
@@ -3305,9 +3306,12 @@
     <example>AMT</example>
     <example>Intel(R) Active Management Technology</example>
     <param pos="0" name="service.vendor" value="Intel"/>
-    <param pos="0" name="service.product" value="Intel(R) Active Management Technology"/>
     <param pos="0" name="service.family" value="Intel(R) Active Management Technology"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:intel:active_management_technology:-"/>
+    <param pos="0" name="service.product" value="Intel(R) Active Management Technology"/>
+    <param pos="0" name="os.vendor" value="Intel"/>
+    <param pos="0" name="os.family" value="Intel(R) Active Management Technology"/>
+    <param pos="0" name="os.product" value="Intel(R) Active Management Technology Firmware"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:intel:active_management_technology_firmware:-"/>
   </fingerprint>
 
   <fingerprint pattern="^Intel\(R\) Standard Manageability\s(\d+\.\d+\.\d+\.\d+|\d+\.\d+\.\d+|\d+\.\d+)">
@@ -3315,8 +3319,8 @@
     <example service.version="5.0.50">Intel(R) Standard Manageability 5.0.50</example>
     <example service.version="9.0.3">Intel(R) Standard Manageability 9.0.3</example>
     <param pos="0" name="service.vendor" value="Intel"/>
-    <param pos="0" name="service.product" value="Intel(R) Standard Manageability"/>
     <param pos="0" name="service.family" value="Intel(R) Active Management Technology"/>
+    <param pos="0" name="service.product" value="Intel(R) Standard Manageability"/>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:intel:standard_manageability:{service.version}"/>
   </fingerprint>
@@ -3411,6 +3415,7 @@
     <param pos="0" name="service.family" value="Niagara"/>
     <param pos="0" name="service.product" value="Niagara AX"/>
     <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:tridium:niagara_ax:{service.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^Microsoft WinCE Fidelix v([\d.]+)$">
@@ -4721,8 +4726,8 @@
     <param pos="0" name="service.vendor" value="SerenityOS"/>
     <param pos="0" name="service.product" value="WebServer"/>
     <param pos="0" name="os.vendor" value="SerenityOS"/>
-    <param pos="0" name="os.product" value="Serenity"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:serenityos:serenity:-"/>
+    <param pos="0" name="os.product" value="SerenityOS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:serenityos:serenityos:-"/>
   </fingerprint>
 
   <!-- This is a version of ACME mini_httpd where the value 'mini_httpd' has been
