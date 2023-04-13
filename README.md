@@ -157,11 +157,11 @@ This is useful for long examples.
 
 [^back to top](#recog-a-recognition-framework)
 
-### Examples
+### Testing matches
 
-The following examples make use of `bin/recog_match`, a simple Ruby command line tool that uses Recog's fingerprinting data. Pre-processing is generally required before running Recog, i.e. extracting HTTP header values, etc. All fingerprint data can be found in `xml/*.xml`.
+The following examples make use of `bin/recog_match`, a simple Ruby command line tool that uses Recog's fingerprint data. Pre-processing is generally required before running Recog, i.e. extracting HTTP header values, etc. All fingerprint data can be found in `xml/*.xml`.
 
-### ftp_banners
+#### ftp_banners
 
 Fingerprint FTP servers based on the server's banner response after connecting:
 
@@ -196,17 +196,17 @@ MATCH: {"matched"=>"Laravel PHP web application framework", "service.vendor"=>"L
 Using the HTTP `Server` header value to fingerprint an HTTP server:
 
 ```
-# Example cURL command
-curl --silent -I http://localhost:9001 | grep -i '^Server:' | cut -d: -f2- | bin/recog_match xml/http_servers.xml -
-
 # Example plaintext input
 echo -n 'Apache/2.4.38 (Debian)' | bin/recog_match xml/http_servers.xml -
+
+# Example cURL command
+curl --silent -I http://localhost:9001 | grep -i '^Server:' | cut -d: -f2- | bin/recog_match xml/http_servers.xml -
 
 # Example output
 MATCH: {"matched"=>"Apache", "service.vendor"=>"Apache", "service.product"=>"HTTPD", "service.family"=>"Apache", "service.version"=>"2.4.38", "service.cpe23"=>"cpe:/a:apache:http_server:2.4.38", "apache.info"=>"(Debian)", "service.protocol"=>"http", "fingerprint_db"=>"http_header.server", "data"=>"Apache/2.4.38 (Debian)"}
 ```
 
-### favicons
+#### favicons
 
 Using the md5sum of a favicon to identify a running service:
 
@@ -221,7 +221,7 @@ curl --silent http://localhost:8000/favicon.ico | md5sum | awk '{ print $1 }' | 
 MATCH: {"matched"=>"Drupal CMS", "service.vendor"=>"Drupal", "service.product"=>"CMS", "service.certainty"=>"0.5", "service.cpe23"=>"cpe:/a:drupal:drupal:-", "service.protocol"=>"", "fingerprint_db"=>"favicon.md5", "data"=>"fe22dd2bb09daccf58256611ac491469"}
 ```
 
-### http_wwwauth
+#### http_wwwauth
 
 Using the HTTP `WWW-Authenticate` header value to fingerprint an HTTP server:
 
@@ -236,7 +236,7 @@ curl --silent -I http://localhost:9001 | grep -i '^WWW-Authenticate:' | cut -d: 
 MATCH: {"matched"=>"Minot", "service.vendor"=>"Tildeslash", "service.product"=>"Monit", "service.cpe23"=>"cpe:/a:tildeslash:monit:-", "service.protocol"=>"http", "fingerprint_db"=>"http_header.wwwauth", "data"=>"Basic realm=\"monit\""}
 ```
 
-### tls_jarm
+#### tls_jarm
 
 Fingerprint TLS servers based on the server's response to 10 TLS Client Hello packets. Fingerprint based on https://github.com/salesforce/jarm
 
@@ -250,12 +250,6 @@ python3 $code/jarm/jarm.py -p 8443 192.168.123.1 | grep 'JARM: ' | awk -F: '{ pr
 # Example output
 MATCH: {"matched"=>"Metasploit listener", "service.vendor"=>"Rapid7", "service.product"=>"Metasploit", "service.cpe23"=>"cpe:/a:rapid7:metasploit:-", "service.protocol"=>"tls", "fingerprint_db"=>"tls.jarm", "data"=>"07d14d16d21d21d07c42d43d000000f50d155305214cf247147c43c0f1a823"}
 ```
-
-### And more
-
-All fingerprint data can be found in `xml/*.xml`.
-
-[^back to top](#recog-a-recognition-framework)
 
 ## Contributing
 
