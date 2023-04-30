@@ -444,6 +444,13 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:f5:big-ip_local_traffic_manager:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;Prowlarr&quot;$">
+    <description>Prowlarr</description>
+    <example>Basic realm="Prowlarr"</example>
+    <param pos="0" name="service.product" value="Prowlarr"/>
+    <param pos="0" name="service.vendor" value="Prowlarr"/>
+  </fingerprint>
+
   <!-- HP ProCurve -->
 
   <fingerprint pattern="(?i)^(?:Basic|Digest) realm=&quot;(?:HP|ProCurve) (J[3]\d{3}A)&quot;$">
