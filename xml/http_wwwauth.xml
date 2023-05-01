@@ -2,8 +2,16 @@
 <fingerprints matches="http_header.wwwauth" protocol="http" database_type="service" preference="0.85">
   <!-- HTTP WWW-Authenticate headers are matched against these patterns to fingerprint HTTP servers. -->
 
+  <fingerprint pattern="^(?:Basic|Digest) realm=&quot;Transmission&quot;$">
+    <description>Transmission</description>
+    <example>Basic realm="Transmission"</example>
+    <param pos="0" name="service.vendor" value="TransmissionBT"/>
+    <param pos="0" name="service.product" value="Transmission"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:transmissionbt:transmission:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^(?:Basic|Digest) realm=&quot;monit&quot;$">
-    <description>Minot</description>
+    <description>Monit</description>
     <example>Basic realm="monit"</example>
     <param pos="0" name="service.vendor" value="Tildeslash"/>
     <param pos="0" name="service.product" value="Monit"/>

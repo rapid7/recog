@@ -2,6 +2,14 @@
 <fingerprints matches="http_header.server" protocol="http" database_type="service" preference="0.90">
   <!-- HTTP Server headers are matched against these patterns to fingerprint HTTP servers. -->
 
+  <fingerprint pattern="^Transmission$">
+    <description>Transmission</description>
+    <example>Transmission</example>
+    <param pos="0" name="service.product" value="Transmission"/>
+    <param pos="0" name="service.vendor" value="TransmissionBT"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:transmissionbt:transmission:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^Mastodon$">
     <description>Mastodon</description>
     <example>Mastodon</example>
