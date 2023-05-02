@@ -4939,6 +4939,14 @@
     <param pos="0" name="hw.vendor" value="Server Technology"/>
   </fingerprint>
 
+  <fingerprint pattern="^frp/(\d+(?:\.\d+)*)$">
+    <description>frp - fast reverse proxy, not found response</description>
+    <example service.version="0.48.0">frp/0.48.0</example>
+    <param pos="0" name="service.vendor" value="frp"/>
+    <param pos="0" name="service.product" value="frp"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
+
   <!-- ntopng -->
 
   <fingerprint pattern="^ntopng (\d+(?:\.\d+)*) \[(?:FreeBSD |[\w-]+-freebsd)(\d+(?:\.\d+)*)(?:[a-z0-9-])* \[(\w+)\]\[[^\]]*\]\]$">
