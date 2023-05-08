@@ -16,6 +16,64 @@ REGEX_CPE_23 = re.compile('^cpe:2.3:([aho]):([^:]+):([^:]+)')
 
 XML_PATH_DEPRECATED_BY = "./{http://scap.nist.gov/schema/cpe-extension/2.3}cpe23-item/{http://scap.nist.gov/schema/cpe-extension/2.3}deprecation/{http://scap.nist.gov/schema/cpe-extension/2.3}deprecated-by"
 
+# Percent-encoded character decode dict
+PERCENT_DECODE = {
+    '%21': '!',
+    '%22': '\"',
+    '%23': '#',
+    '%24': '$',
+    '%25': '%',
+    '%26': '&',
+    '%27': '\'',
+    '%28': '(',
+    '%29': ')',
+    '%2a': '*',
+    '%2b': '+',
+    '%2c': ',',
+    '%2f': '/',
+    '%3a': ':',
+    '%3b': ';',
+    '%3c': '<',
+    '%3d': '=',
+    '%3e': '>',
+    '%3f': '?',
+    '%40': '@',
+    '%5b': '[',
+    '%5c': '\\',
+    '%5d': ']',
+    '%5e': '^',
+    '%60': '`',
+    '%7b': '{',
+    '%7c': '|',
+    '%7d': '}',
+    '%7e': '~'
+}
+
+# Percent-encode character dict created from the decode dict
+PERCENT_ENCODE = dict([(v, k) for k, v in PERCENT_DECODE.items()])
+
+# Percent decode and encode regex patterns created by joining translation dictionary keys with regex OR
+PERCENT_DECODE_PATTERN = re.compile('|'.join(PERCENT_DECODE))
+PERCENT_ENCODE_PATTERN = re.compile('|'.join(list(map(re.escape, PERCENT_DECODE.values()))))
+
+# Regex pattern used to check for interpolation markers
+INTERPOLATION_PATTERN = re.compile(r'.*\{[^\s]+\}.*')
+
+
+def repl_dict(pattern, d, s):
+    """Performs regex replacement in string s by matching the pattern created from the translation
+    dictionary d
+    Args:
+        pattern (re.Pattern): regex to match the key values in the translation dictionary d
+        d (dict): translation dictionary where the key is the value to match and the value the replacement
+        s (str): input string to process for replacements
+
+    Returns:
+        str, input string processed for replacements
+    """
+    # use lambda as repl function to lookup replacement value based on match
+    return pattern.sub(lambda m: d[m.group()], s)
+
 
 def parse_r7_remapping(file):
     with open(file) as remap_file:
@@ -32,7 +90,6 @@ def update_vp_map(target_map, cpe_type, vendor, product):
     if vendor not in target_map[cpe_type]:
         target_map[cpe_type][vendor] = set()
 
-    product = product.replace('%2f', '/')
     target_map[cpe_type][vendor].add(product)
 
 
@@ -154,6 +211,7 @@ def lookup_cpe(vendor, product, cpe_type, cpe_table, remap, deprecated_map):
         and product in cpe_table[cpe_type][vendor]
     ):
         # Hot path, success with original values
+        logging.debug(f"lookup_cpe: Hot path, success with original values; vendor = {vendor}, product = {product}")
         return True, vendor, product
 
     # Everything else depends on a remap of some sort.
@@ -177,6 +235,7 @@ def lookup_cpe(vendor, product, cpe_type, cpe_table, remap, deprecated_map):
             and possible_product
             and possible_product in cpe_table[cpe_type][vendor]):
             # Found original vendor, remap product
+            logging.debug(f"lookup_cpe: Found original vendor, remap product; vendor = {vendor}, possible_product = {possible_product}")
             return True, vendor, possible_product
 
         # Start working the process to find a match with a remapped vendor name
@@ -187,10 +246,12 @@ def lookup_cpe(vendor, product, cpe_type, cpe_table, remap, deprecated_map):
 
                 if product in cpe_table[cpe_type][new_vendor]:
                     # Found remap vendor, original product
+                    logging.debug(f"lookup_cpe: Found remap vendor, original product; new_vendor = {new_vendor}, product = {product}")
                     return True, new_vendor, product
 
                 if possible_product and possible_product in cpe_table[cpe_type][new_vendor]:
                     # Found remap vendor, remap product
+                    logging.debug(f"lookup_cpe: Found remap vendor, remap product; new_vendor = {new_vendor}, possible_product = {possible_product}")
                     return True, new_vendor, possible_product
 
     deprecated_string = "{}:{}:{}".format(cpe_type, vendor, product)
@@ -271,13 +332,19 @@ def update_cpes(xml_file, cpe_vp_map, r7_vp_map, deprecated_cves):
                     logging.error("Didn't find CPE type '%s' for '%s' '%s'", cpe_type, vendor, product)
                     continue
 
-                vendor = vendor.lower().replace(' ', '_').replace(',', '')
-                product = product.lower().replace(' ', '_').replace(',', '').replace('!', '%21')
                 if 'unknown' in [vendor, product]:
                     continue
 
-                if (vendor.startswith('{') and vendor.endswith('}')) or (product.startswith('{') and product.endswith('}')):
+                if INTERPOLATION_PATTERN.match(vendor) or INTERPOLATION_PATTERN.match(product):
                     continue
+
+                vendor = vendor.lower().replace(' ', '_').replace(',', '')
+                product = product.lower().replace(' ', '_').replace(',', '')
+
+                tmp_product = product
+                product = repl_dict(PERCENT_ENCODE_PATTERN, PERCENT_ENCODE, product)
+                if tmp_product != product:
+                    logging.debug(f"update_cpes: percent-encoded product {tmp_product} => {product}")
 
                 success, vendor, product = lookup_cpe(vendor, product, cpe_type, cpe_vp_map, r7_vp_map, deprecated_cves)
                 if not success:
@@ -290,9 +357,8 @@ def update_cpes(xml_file, cpe_vp_map, r7_vp_map, deprecated_cves):
                     logging.error("Invalid CPE type %s created for vendor %s and product %s. This may be due to an invalid mapping.", cpe_type, vendor, product)
                     continue
 
-                # building the CPE string
-                # Last minute escaping of '/' and `!`
-                product = product.replace('/', '\/').replace('%21', '\!')
+                # Create CPE string in URI Binding format value where variables are percent-encoded.
+                # Note, this is only a partially complete encoding.
                 cpe_value = 'cpe:/{}:{}:{}'.format(cpe_type, vendor, product)
 
                 if version:
