@@ -120,17 +120,30 @@
     <example chromecast.generation="9" chromecast.capabilities="Audio Assist">CN=Chromecast ICA 9 (Audio Assist),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
     <example chromecast.generation="11" chromecast.capabilities="Video Assist">CN=Chromecast ICA 11 (Video Assist),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
     <example chromecast.generation="12">CN=Chromecast ICA 12,OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
+    <example chromecast.generation="21">CN=Chromecast ICA 21 (ATV),OU=Cast,O=Google Inc,L=Mountain View,ST=California,C=US</example>
     <param pos="0" name="os.vendor" value="Google"/>
     <param pos="0" name="os.product" value="Chrome OS"/>
-    <param pos="0" name="os.certainty" value="0.5"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:google:chrome_os:-"/>
     <param pos="0" name="hw.device" value="Media Server"/>
     <param pos="0" name="hw.vendor" value="Google"/>
     <param pos="0" name="hw.product" value="Chromecast"/>
-    <param pos="0" name="hw.certainty" value="0.5"/>
     <param pos="0" name="hw.cpe23" value="cpe:/h:google:chromecast:-"/>
     <param pos="1" name="chromecast.generation"/>
     <param pos="2" name="chromecast.capabilities"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=atvremote/[^/]+/([a-z]+)/Chromecast/([A-F0-9:]+)$">
+    <description>Google Chromecast atv</description>
+    <example chromecast.generation="sabrina" host.mac="1C:53:F9:45:3F:46">CN=atvremote/sabrina_prod_stable/sabrina/Chromecast/1C:53:F9:45:3F:46</example>
+    <param pos="0" name="os.vendor" value="Google"/>
+    <param pos="0" name="os.product" value="Chrome OS"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:google:chrome_os:-"/>
+    <param pos="0" name="hw.device" value="Media Server"/>
+    <param pos="0" name="hw.vendor" value="Google"/>
+    <param pos="0" name="hw.product" value="Chromecast"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:google:chromecast:-"/>
+    <param pos="1" name="chromecast.generation"/>
+    <param pos="2" name="host.mac"/>
   </fingerprint>
 
   <fingerprint pattern="^CN=Asus fugu Cast ICA,OU=Widevine,O=Google Inc,L=Kirkland,ST=Washington,C=US$">
