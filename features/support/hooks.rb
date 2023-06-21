@@ -1,9 +1,11 @@
-require "cucumber/platform"
+# frozen_string_literal: true
 
-Before "@requires-ruby-platform-java" do
- skip_this_scenario unless Cucumber::JRUBY
+require 'cucumber/platform'
+
+Before '@requires-ruby-platform-java' do
+  skip_this_scenario unless Cucumber::JRUBY
 end
-  
-Before "@unsupported-on-platform-java" do
- skip_this_scenario if Cucumber::JRUBY
+
+Before '@unsupported-on-platform-java' do
+  skip_this_scenario if Cucumber::JRUBY
 end

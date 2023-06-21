@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 require 'optparse'
 require 'ostruct'
@@ -8,46 +9,44 @@ def squash_lines(str)
   str.split(/\n/).join(' ').gsub(/\s+/, ' ')
 end
 
-def export_text(options)
-end
+def export_text(options); end
 
 def export_ruby(options)
-  $stdout.puts "# Recog fingerprint database export [ #{File.basename(options.xml_file)} ] on #{Time.now.to_s}"
+  $stdout.puts "# Recog fingerprint database export [ #{File.basename(options.xml_file)} ] on #{Time.now}"
   $stdout.puts "fp_str   = '' # Set this value to the match string"
-  $stdout.puts "fp_match = {} # Match results are stored here"
-  $stdout.puts ""
-  $stdout.puts "case fp_str"
+  $stdout.puts 'fp_match = {} # Match results are stored here'
+  $stdout.puts ''
+  $stdout.puts 'case fp_str'
   options.db.fingerprints.each do |fp|
     puts "  # #{squash_lines fp.name}"
-    puts "  when /#{fp.regex.to_s}/"
+    puts "  when /#{fp.regex}/"
     fp.tests.each do |test|
       puts "    # Example: #{squash_lines test}"
     end
-    fp.params.each_pair do |k,v|
+    fp.params.each_pair do |k, v|
       if v[0] == 0
         puts "    fp_match[#{k.inspect}] = #{v[1].inspect}"
       else
-        puts "    fp_match[#{k.inspect}] = $#{v[0].to_s}"
+        puts "    fp_match[#{k.inspect}] = $#{v[0]}"
       end
     end
-    puts ""
+    puts ''
   end
-  $stdout.puts "end"
+  $stdout.puts 'end'
 end
-
 
 options = OpenStruct.new(etype: :ruby)
 
 option_parser = OptionParser.new do |opts|
-  opts.banner = "Usage: #{$0} [options] XML_FINGERPRINTS_FILE"
-  opts.separator "Exports an XML fingerprint database to another format."
-  opts.separator ""
-  opts.separator "Options"
+  opts.banner = "Usage: #{$PROGRAM_NAME} [options] XML_FINGERPRINTS_FILE"
+  opts.separator 'Exports an XML fingerprint database to another format.'
+  opts.separator ''
+  opts.separator 'Options'
 
-  opts.on("-t", "--type type", 
-          "Choose a type of export.",
-          "  [r]uby (default - export a ruby case statement with regular expressions)",
-          "  [t]ext (export a text description of the fingerprints)") do |etype|
+  opts.on('-t', '--type type',
+          'Choose a type of export.',
+          '  [r]uby (default - export a ruby case statement with regular expressions)',
+          '  [t]ext (export a text description of the fingerprints)') do |etype|
     case etype.downcase
     when /^r/
       options.etype = :ruby
@@ -56,7 +55,7 @@ option_parser = OptionParser.new do |opts|
     end
   end
 
-  opts.on("-h", "--help", "Show this message.") do
+  opts.on('-h', '--help', 'Show this message.') do
     puts opts
     exit
   end
@@ -77,4 +76,3 @@ when :ruby
 when :text
   export_text(options)
 end
-
