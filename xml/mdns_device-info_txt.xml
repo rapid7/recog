@@ -14,6 +14,16 @@
      version of OS X plus 4. E.g. osxvers=13 means OS X 10.9
    -->
 
+  <fingerprint pattern="^osxvers=22">
+    <description>OS X 13.0 (Ventura)</description>
+    <example>osxvers=22</example>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS X"/>
+    <param pos="0" name="os.product" value="Mac OS X"/>
+    <param pos="0" name="os.version" value="13.0"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:13.0"/>
+  </fingerprint> 
+
   <fingerprint pattern="^osxvers=21">
     <description>OS X 12.0 (Monterey)</description>
     <example>osxvers=21</example>
@@ -257,6 +267,20 @@
   </fingerprint>
 
   <!-- MacBookPro - Reference for the following: https://support.apple.com/en-us/HT201300 -->
+
+  <fingerprint pattern="^model=MacBookPro18,3$">
+    <description>Apple MacBook Pro (14-Inch, M1, 2021)</description>
+    <example>model=MacBookPro18,3</example>
+    <param pos="0" name="os.vendor" value="Apple"/>
+    <param pos="0" name="os.family" value="Mac OS X"/>
+    <param pos="0" name="os.product" value="Mac OS X"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:apple:mac_os_x:-"/>
+    <param pos="0" name="hw.vendor" value="Apple"/>
+    <param pos="0" name="hw.family" value="MacBook Pro"/>
+    <param pos="0" name="hw.product" value="Apple MacBook Pro (14-Inch, M1, 2021)"/>
+    <param pos="0" name="hw.device" value="Laptop"/>
+    <param pos="0" name="hw.cpe23" value="cpe:/h:apple:macbook_pro:-"/>
+  </fingerprint>
 
   <fingerprint pattern="^model=MacBookPro17,1$">
     <description>MacBook Pro (13-inch, M1, 2020)</description>
