@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 require 'nokogiri'
 require 'optparse'
@@ -11,37 +12,34 @@ require 'recog/verify_reporter'
 options = OpenStruct.new(color: false, detail: false, quiet: false, warnings: true, schema: nil)
 
 option_parser = OptionParser.new do |opts|
-  opts.banner = "Usage: #{$0} [options] XML_FINGERPRINT_FILE1 ..."
-  opts.separator "Verifies that each fingerprint passes its internal tests."
-  opts.separator ""
-  opts.separator "Options"
+  opts.banner = "Usage: #{$PROGRAM_NAME} [options] XML_FINGERPRINT_FILE1 ..."
+  opts.separator 'Verifies that each fingerprint passes its internal tests.'
+  opts.separator ''
+  opts.separator 'Options'
 
-  opts.on("-f", "--format FORMATTER",
-          "Choose a formatter.",
-          "  [s]ummary (default - failure/warning msgs and summary)",
-          "  [q]uiet (configured failure/warning msgs only)",
-          "  [d]etail  (fingerprint name with tests and expanded summary)") do |format|
-    if format.start_with? 'd'
-      options.detail = true
-    end
-    if format.start_with? 'q'
-      options.quiet = true
-    end
+  opts.on('-f', '--format FORMATTER',
+          'Choose a formatter.',
+          '  [s]ummary (default - failure/warning msgs and summary)',
+          '  [q]uiet (configured failure/warning msgs only)',
+          '  [d]etail  (fingerprint name with tests and expanded summary)') do |format|
+    options.detail = true if format.start_with? 'd'
+    options.quiet = true if format.start_with? 'q'
   end
 
-  opts.on("-c", "--color", "Enable color in the output.") do
+  opts.on('-c', '--color', 'Enable color in the output.') do
     options.color = true
   end
 
-  opts.on("--[no-]warnings", "Track warnings") do |o|
+  opts.on('--[no-]warnings', 'Track warnings') do |o|
     options.warnings = o
   end
 
-  opts.on("--schema-location SCHEMA_FILE", "Location of the Recog XSD file. If not specified, validation will not be run.") do |schema_file|
+  opts.on('--schema-location SCHEMA_FILE',
+          'Location of the Recog XSD file. If not specified, validation will not be run.') do |schema_file|
     options.schema = Nokogiri::XML::Schema(File.read(schema_file))
   end
 
-  opts.on("-h", "--help", "Show this message.") do
+  opts.on('-h', '--help', 'Show this message.') do
     puts opts
     exit
   end
@@ -60,7 +58,7 @@ formatter = Recog::Formatter.new(options, $stdout)
 ARGV.each do |arg|
   Dir.glob(arg).each do |file|
     # Create a new reporter per XML file to hold context on success/warn/fails
-    reporter  = Recog::VerifyReporter.new(options, formatter, file)
+    reporter = Recog::VerifyReporter.new(options, formatter, file)
 
     begin
       # Validate the XML database against the recog schema first, if requested
@@ -85,7 +83,7 @@ ARGV.each do |arg|
       verifier.verify
     rescue Recog::FingerprintParseError => e
       reporter.failure(e.message, e.line_number)
-    rescue => e
+    rescue StandardError => e
       reporter.failure(e.message)
     ensure
       failures += reporter.failure_count

@@ -1,29 +1,29 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 require 'optparse'
 require 'ostruct'
 require 'recog'
 
-bdir = File.expand_path(File.join(File.dirname(__FILE__), "..", "identifiers"))
+bdir = File.expand_path(File.join(File.dirname(__FILE__), '..', 'identifiers'))
 
 IDENTIFIER_FILES = {
-  "vendor" => File.join(bdir, "vendor.txt"),
-  "device" => File.join(bdir, "device.txt"),
-  "fields" => File.join(bdir, "fields.txt"),
-  "hw_prod" => File.join(bdir, "hw_product.txt"),
-  "hw_family" => File.join(bdir, "hw_family.txt"),
-  "os_arch" => File.join(bdir, "os_architecture.txt"),
-  "os_prod" => File.join(bdir, "os_product.txt"),
-  "os_family" => File.join(bdir, "os_family.txt"),
-  "svc_prod" => File.join(bdir, "service_product.txt"),
-  "svc_family" => File.join(bdir, "service_family.txt")
-}
+  'vendor' => File.join(bdir, 'vendor.txt'),
+  'device' => File.join(bdir, 'device.txt'),
+  'fields' => File.join(bdir, 'fields.txt'),
+  'hw_prod' => File.join(bdir, 'hw_product.txt'),
+  'hw_family' => File.join(bdir, 'hw_family.txt'),
+  'os_arch' => File.join(bdir, 'os_architecture.txt'),
+  'os_prod' => File.join(bdir, 'os_product.txt'),
+  'os_family' => File.join(bdir, 'os_family.txt'),
+  'svc_prod' => File.join(bdir, 'service_product.txt'),
+  'svc_family' => File.join(bdir, 'service_family.txt')
+}.freeze
 
 # @param ident_type [String] Key used to get the identifier file path
 # @return [Hash] Contents of the indicated identifier file or an empty hash
 #                if the file doesn't exist
 def load_identifiers(ident_type)
-
   res = {}
 
   path = IDENTIFIER_FILES[ident_type]
@@ -34,7 +34,7 @@ def load_identifiers(ident_type)
 
   return res unless File.file?(path)
 
-  File.readlines(path).map{|line| line.strip}.each do |ident|
+  File.readlines(path).map(&:strip).each do |ident|
     res[ident] = true
   end
 
@@ -42,7 +42,6 @@ def load_identifiers(ident_type)
 end
 
 def write_identifiers(vals, ident_type)
-
   path = IDENTIFIER_FILES[ident_type]
   unless path
     warn "Unknown identifier file type '#{ident_type}' when writing identifiers, exiting.."
@@ -51,10 +50,10 @@ def write_identifiers(vals, ident_type)
 
   res = []
   vals.each_pair do |k, _|
-    res = res.push(k)
+    res.push(k)
   end
-  res = res.map{|x| x.strip}.select{|x| x.length > 0}.sort.uniq
-  File.write(path, res.join("\n") + "\n")
+  res = res.map(&:strip).select { |x| x.length > 0 }.sort.uniq
+  File.write(path, "#{res.join("\n")}\n")
 end
 
 # @param current [Hash] Indentifiers extracted from fingerprints
@@ -63,7 +62,6 @@ end
 # @param ident_type [String] Key used to get the identifier file path
 # @param write [Boolean] Indicate if changes should be written to disk
 def handle_changes(current, original, msg, ident_type, write)
-
   changes_detected = false
 
   # The hashes below are being sorted so as to make it easier for human
@@ -78,7 +76,6 @@ def handle_changes(current, original, msg, ident_type, write)
     changes_detected = true
   end
 
-
   current.sort.to_h.each_key do |k|
     next if original[k]
 
@@ -92,18 +89,18 @@ end
 
 options = OpenStruct.new(write: false)
 option_parser = OptionParser.new do |opts|
-  opts.banner = "Usage: #{$0} [options] XML_FINGERPRINT_FILE1 ..."
-  opts.separator "Verifies that each fingerprint asserts known identifiers."
-  opts.separator "Known identifiers are stored in reference files in the path: "
+  opts.banner = "Usage: #{$PROGRAM_NAME} [options] XML_FINGERPRINT_FILE1 ..."
+  opts.separator 'Verifies that each fingerprint asserts known identifiers.'
+  opts.separator 'Known identifiers are stored in reference files in the path: '
   opts.separator bdir
-  opts.separator ""
-  opts.separator "Options"
+  opts.separator ''
+  opts.separator 'Options'
 
-  opts.on("-w", "--write", "Write newly discovered identifiers to the identifiers reference files.") do
+  opts.on('-w', '--write', 'Write newly discovered identifiers to the identifiers reference files.') do
     options.write = true
   end
 
-  opts.on("-h", "--help", "Show this message.") do
+  opts.on('-h', '--help', 'Show this message.') do
     puts opts
     exit
   end
@@ -117,16 +114,16 @@ if ARGV.empty?
 end
 
 # Load the unique identifiers
-vendors = load_identifiers("vendor")
-devices = load_identifiers("device")
-fields = load_identifiers("fields")
-os_arch = load_identifiers("os_arch")
-os_prod = load_identifiers("os_prod")
-os_family = load_identifiers("os_family")
-hw_prod = load_identifiers("hw_prod")
-hw_family = load_identifiers("hw_family")
-svc_prod = load_identifiers("svc_prod")
-svc_family = load_identifiers("svc_family")
+vendors = load_identifiers('vendor')
+devices = load_identifiers('device')
+fields = load_identifiers('fields')
+os_arch = load_identifiers('os_arch')
+os_prod = load_identifiers('os_prod')
+os_family = load_identifiers('os_family')
+hw_prod = load_identifiers('hw_prod')
+hw_family = load_identifiers('hw_family')
+svc_prod = load_identifiers('svc_prod')
+svc_family = load_identifiers('svc_family')
 
 $found_removed = false
 $found_new = false
@@ -144,40 +141,39 @@ curr_hw_family = {}
 curr_svc_prod = {}
 curr_svc_family = {}
 
-
 ARGV.each do |arg|
   Dir.glob(arg).each do |file|
     ndb = Recog::DB.new(file)
     ndb.fingerprints.each do |f|
       f.params.each do |k, v|
-
         # Don't track temporary attributes.
-        next if k.start_with?("_tmp.")
+        next if k.start_with?('_tmp.')
+
         curr_fields[k] = true
 
         param_index, val = v
         next if param_index != 0
-        next if val.index("{") != nil
-        next if val.strip == ""
+        next unless val.index('{').nil?
+        next if val.strip == ''
 
         case k
-        when "os.vendor", "service.vendor", "service.component.vendor", "hw.vendor"
+        when 'os.vendor', 'service.vendor', 'service.component.vendor', 'hw.vendor'
           curr_vendors[val] = true
-        when "os.device", "service.device", "hw.device"
+        when 'os.device', 'service.device', 'hw.device'
           curr_devices[val] = true
-        when "os.arch"
+        when 'os.arch'
           curr_os_arch[val] = true
-        when "os.product"
+        when 'os.product'
           curr_os_prod[val] = true
-        when "os.family"
+        when 'os.family'
           curr_os_family[val] = true
-        when "hw.product"
+        when 'hw.product'
           curr_hw_prod[val] = true
-        when "hw.family"
+        when 'hw.family'
           curr_hw_family[val] = true
-        when "service.product", "service.component.product"
+        when 'service.product', 'service.component.product'
           curr_svc_prod[val] = true
-        when "service.family"
+        when 'service.family'
           curr_svc_family[val] = true
         end
       end
@@ -185,16 +181,16 @@ ARGV.each do |arg|
   end
 end
 
-handle_changes(curr_vendors, vendors, "VENDORS", "vendor", options.write)
-handle_changes(curr_devices, devices, "DEVICE", "device", options.write)
-handle_changes(curr_fields, fields, "FIELDS", "fields", options.write)
-handle_changes(curr_os_arch, os_arch, "OS ARCH", "os_arch", options.write)
-handle_changes(curr_os_prod, os_prod, "OS PRODUCT", "os_prod", options.write)
-handle_changes(curr_os_family, os_family, "OS FAMILY", "os_family", options.write)
-handle_changes(curr_hw_prod, hw_prod, "HW PRODUCT", "hw_prod", options.write)
-handle_changes(curr_hw_family, hw_family, "HW FAMILY", "hw_family", options.write)
-handle_changes(curr_svc_prod, svc_prod, "SERVICE PRODUCT", "svc_prod", options.write)
-handle_changes(curr_svc_family, svc_family, "SERVICE FAMILY", "svc_family", options.write)
+handle_changes(curr_vendors, vendors, 'VENDORS', 'vendor', options.write)
+handle_changes(curr_devices, devices, 'DEVICE', 'device', options.write)
+handle_changes(curr_fields, fields, 'FIELDS', 'fields', options.write)
+handle_changes(curr_os_arch, os_arch, 'OS ARCH', 'os_arch', options.write)
+handle_changes(curr_os_prod, os_prod, 'OS PRODUCT', 'os_prod', options.write)
+handle_changes(curr_os_family, os_family, 'OS FAMILY', 'os_family', options.write)
+handle_changes(curr_hw_prod, hw_prod, 'HW PRODUCT', 'hw_prod', options.write)
+handle_changes(curr_hw_family, hw_family, 'HW FAMILY', 'hw_family', options.write)
+handle_changes(curr_svc_prod, svc_prod, 'SERVICE PRODUCT', 'svc_prod', options.write)
+handle_changes(curr_svc_family, svc_family, 'SERVICE FAMILY', 'svc_family', options.write)
 
 exit_code = ($found_removed || $found_new ? 1 : 0)
 exit(exit_code)

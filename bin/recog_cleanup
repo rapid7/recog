@@ -1,14 +1,15 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 require 'optparse'
 require 'ostruct'
 
 # Cleanup trailing whitespace around fingerprints
-Dir[ File.expand_path(File.join(File.dirname(__FILE__), "..", "xml")) + "/*.xml" ].each do |f|
-    data = File.read(f).
-        gsub(/\s+$/, '').                           # Trailing whitespace and empty lines
-        gsub("</fingerprint>", "</fingerprint>\n"). # Every fingerprint should have an empty line after it
-        gsub("-->", "-->\n")                        # Every comment should have an empty line after it
+Dir["#{File.expand_path(File.join(File.dirname(__FILE__), '..', 'xml'))}/*.xml"].each do |f|
+  data = File.read(f)
+             .gsub(/\s+$/, '')                           # Trailing whitespace and empty lines
+             .gsub('</fingerprint>', "</fingerprint>\n") # Every fingerprint should have an empty line after it
+             .gsub('-->', "-->\n")                        # Every comment should have an empty line after it
 
-    File.write(f, data)
+  File.write(f, data)
 end

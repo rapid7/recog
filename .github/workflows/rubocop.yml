@@ -1,0 +1,23 @@
+name: Rubocop
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  rubocop:
+    runs-on: ubuntu-latest
+    env:
+      BUNDLE_ONLY: rubocop
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Run Rubocop
+        run: bundle exec rubocop --parallel --format simple
