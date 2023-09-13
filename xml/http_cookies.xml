@@ -415,11 +415,12 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:microsoft:commerce_server:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(nc_sameSiteCookiestrict|nc_sameSiteCookielax|oc_sessionPassphrase)=">
+  <fingerprint pattern="^(:?__Host-)?(nc_sameSiteCookiestrict|nc_sameSiteCookielax|oc_sessionPassphrase)=">
     <description>Nextcloud</description>
     <example cookie="nc_sameSiteCookiestrict">nc_sameSiteCookiestrict=true; path=/nextcloud; httponly;secure; expires=Fri, 31-Dec-2100 23:59:59 GMT; SameSite=strict</example>
     <example cookie="nc_sameSiteCookielax">nc_sameSiteCookielax=true; path=/nextcloud; httponly;secure; expires=Fri, 31-Dec-2100 23:59:59 GMT; SameSite=lax</example>
     <example cookie="oc_sessionPassphrase">oc_sessionPassphrase=Y%2BZjBn8Gn%2B8jIJPVx468Tlt8qDNm%2B5IVXLxgtwlY%2BQU2T7edVmDS4091nQrT; path=/nextcloud; secure; HttpOnly</example>
+    <example cookie="oc_sessionPassphrase">__Host-nc_sameSiteCookielax=true; path=/; httponly;secure; expires=Fri, 31-Dec-2100 23:59:59 GMT; SameSite=lax</example>
     <param pos="1" name="cookie"/>
     <param pos="0" name="service.vendor" value="Nextcloud"/>
     <param pos="0" name="service.product" value="Nextcloud Server"/>
