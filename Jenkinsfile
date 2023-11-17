@@ -2,7 +2,7 @@
 pipeline {
     agent {
         kubernetes(
-            k8sAgent(name: 'ruby', rubyRuntime: '2.7', defaultContainer: 'ruby', idleMinutes: 0)
+            k8sAgent(name: 'ruby', rubyRuntime: '2.7', idleMinutes: 0)
         )
     }
 
@@ -14,15 +14,19 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
-                sh 'bundle install'
-                sh 'gem install rake'
-                sh 'wget -O semver https://raw.githubusercontent.com/fsaintjacques/semver-tool/3.3.0/src/semver && chmod +x semver'
+                container('ruby') {
+                    sh 'bundle install'
+                    sh 'gem install rake'
+                    sh 'wget -O semver https://raw.githubusercontent.com/fsaintjacques/semver-tool/3.3.0/src/semver && chmod +x semver'
+                }
             }
         }
 
         stage('Run tests') {
             steps {
-                sh 'bundle exec rake tests'
+                container('ruby') {
+                    sh 'bundle exec rake tests'
+                }
             }
         }
 
