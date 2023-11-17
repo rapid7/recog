@@ -1,6 +1,7 @@
 @Library('jenkins-octo-shared-libraries@master') _
 s3ReleasePipeline(
-    testCmd = [{ 
+    testCmd = [
+        'Debug: Try checkout semver-tool': { 
         checkout([
             $class: 'GitSCM',
             branches: [[name: 'refs/tags/3.3.0']],
