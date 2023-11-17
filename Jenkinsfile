@@ -20,20 +20,6 @@ pipeline {
             }
         }
 
-        stage('debug: Test github curl') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'github-app-key', usernameVariable: 'GH_APP', passwordVariable: 'GH_TOKEN')]) { 
-                    sh """
-curl --silent --show-error \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/vnd.github.v3+json" \
-    -H "Authorization: token \${GH_TOKEN}" \
-    https://api.github.com/user/emails
-                    """
-                }
-            }
-        }
-
         stage('Run tests') {
             steps {
                 sh 'bundle exec rake tests'
@@ -43,8 +29,10 @@ curl --silent --show-error \
         stage('Bump version') {
             steps {
                 script {
-                    echo 'Current version: \$(git describe --abbrev=0 | cut -c 2-)'
-                    String newVersion = sh(script: "./semver bump ${params.VERSION_BUMP}", returnStdout: true).trim()
+                    String currentVersion = sh(script: 'git describe --abbrev=0 | cut -c 2-', returnStdout: true).trim()
+                    echo "${currentVersion}"
+
+                    String newVersion = sh(script: "./semver bump ${params.VERSION_BUMP} ${currentVersion}", returnStdout: true).trim()
                     echo "${newVersion}"
                 }
             }
