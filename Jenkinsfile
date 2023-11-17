@@ -44,15 +44,34 @@ pipeline {
             }
         }
 
-        stage('Release') {
+        stage('Tag / Release') {
             when { 
                 anyOf {
                     expression { params.RELEASE }
                 }
             }
 
-            steps {
-                echo 'temp'
+            stages {
+                stage('tag') {
+                    steps {
+                        sh """git tag -a "v\${newVersion}" -m "Version \${newVersion}" && git push --tags"""
+                    }
+                }
+
+                stage('Release') {
+                    steps {
+                        withCredentials([usernamePassword(credentialsId: 'github-app-key', usernameVariable: 'GH_APP', passwordVariable: 'GH_TOKEN')]) { 
+                            sh """
+                                curl --silent --show-error \
+     -H "Content-Type: application/json" \
+     -H "Accept: application/vnd.github.v3+json" \
+     -H "Authorization: token \${GH_TOKEN}" \
+     -d '{"tag_name":"'"v${newVersion}"'", "generate_release_notes": true, "name": "'"v${newVersion} - \$(date +"%Y.%m.%d")"'"}' \
+     https://api.github.com/repos/rapid7/recog/releases > recog-content-releases-response.json
+                            """
+                        }
+                    }
+                }
             }
             
             /**
