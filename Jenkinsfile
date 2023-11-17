@@ -14,6 +14,7 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
+                sh 'gh --version'
                 sh 'bundle install'
                 sh 'gem install rake'
                 sh 'wget -O semver https://raw.githubusercontent.com/fsaintjacques/semver-tool/3.3.0/src/semver && chmod +x semver'
@@ -26,6 +27,22 @@ pipeline {
             }
         }
 
+        stage('Bump version') {
+            steps {
+                script {
+                    echo 'Current version: \$(git describe --abbrev=0 | cut -c 2-)'
+                    String newVersion = sh(script: "./semver bump ${params.VERSION_BUMP}", returnStdout: true).trim()
+                    echo "${newVersion}"
+                }
+            }
+        }
+
+        stage('Zip recog-content') {
+            steps {
+                sh "zip -r recog-content-${VERSION}.zip xml"
+            }
+        }
+
         stage('Release') {
             when { 
                 anyOf {
@@ -34,15 +51,11 @@ pipeline {
             }
 
             stages {
-                stage('Bump version') {
-                    steps {
-                        script {
-                            echo 'Current version: \$(git describe --abbrev=0 | cut -c 2-)'
-                            String newVersion = sh(script: "./semver bump ${params.VERSION_BUMP}", returnStdout: true).trim()
-                            echo "${newVersion}"
-                        }
-                    }
-                }
+                stage('')
+
+
+
+
             }
             
             /**
