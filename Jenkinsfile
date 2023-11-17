@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
-                sh 'apt-get install ruby'
+                sh 'sudo apt-get install ruby'
                 sh 'gem install rake'
                 sh 'wget -O semver https://raw.githubusercontent.com/fsaintjacques/semver-tool/3.3.0/src/semver && chmod +x semver'
             }
