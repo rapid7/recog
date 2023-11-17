@@ -32,7 +32,7 @@ pipeline {
                     String currentVersion = sh(script: 'git describe --abbrev=0 | cut -c 2-', returnStdout: true).trim()
                     echo "${currentVersion}"
 
-                    String newVersion = sh(script: "./semver bump ${params.VERSION_BUMP} ${currentVersion}", returnStdout: true).trim()
+                    VERSION = sh(script: "./semver bump ${params.VERSION_BUMP} ${currentVersion}", returnStdout: true).trim()
                     echo "${newVersion}"
                 }
             }
@@ -40,7 +40,7 @@ pipeline {
 
         stage('Zip recog-content') {
             steps {
-                sh "zip -r recog-content-${newVersion}.zip xml"
+                sh "zip -r recog-content-${VERSION}.zip xml"
             }
         }
 
@@ -54,7 +54,7 @@ pipeline {
             stages {
                 stage('tag') {
                     steps {
-                        sh """git tag -a "v\${newVersion}" -m "Version \${newVersion}" && git push --tags"""
+                        sh """git tag -a "v${VERSION}" -m "Version ${VERSION}" && git push --tags"""
                     }
                 }
 
@@ -66,7 +66,7 @@ pipeline {
      -H "Content-Type: application/json" \
      -H "Accept: application/vnd.github.v3+json" \
      -H "Authorization: token \${GH_TOKEN}" \
-     -d '{"tag_name":"'"v${newVersion}"'", "generate_release_notes": true, "name": "'"v${newVersion} - \$(date +"%Y.%m.%d")"'"}' \
+     -d '{"tag_name":"'"v${VERSION}"'", "generate_release_notes": true, "name": "'"v${VERSION} - \$(date +"%Y.%m.%d")"'"}' \
      https://api.github.com/repos/rapid7/recog/releases > recog-content-releases-response.json
                             """
                         }
