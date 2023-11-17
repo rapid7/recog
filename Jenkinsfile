@@ -13,7 +13,6 @@ pipeline {
     
     stages {
         stage('Run tests') {
-            when { expression { testCmd }}
             steps {
                 sh 'rake tests'
             }
