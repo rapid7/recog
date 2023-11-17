@@ -2,7 +2,7 @@
 pipeline {
     agent {
         kubernetes(
-            k8sAgent(name: 'ruby', rubyRuntime: '2.31', defaultContainer: 'ruby', idleMinutes: 0)
+            k8sAgent(name: 'ruby', rubyRuntime: '2.7', defaultContainer: 'ruby', idleMinutes: 0)
         )
     }
 
