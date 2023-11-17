@@ -40,7 +40,7 @@ pipeline {
 
         stage('Zip recog-content') {
             steps {
-                sh "zip -r recog-content-${VERSION}.zip xml"
+                sh "zip -r recog-content-${newVersion}.zip xml"
             }
         }
 
