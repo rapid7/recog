@@ -81,10 +81,9 @@ pipeline {
                         script {
                             // Note: Inspect the response for error message since curl exits with code 0
                             // for the "Validation failed" response with status code 422 Unprocessable Entity
-                            sh 'cat recog-content-releases-response.json'
-                            RELEASE_ERROR_MSG=sh( script:'\$(cat recog-content-releases-response.json | jq -r .message)', returnStdout: true)
+                            RELEASE_ERROR_MSG=sh( script: 'cat recog-content-releases-response.json | jq -r .message', returnStdout: true).trim()
                             echo "[DEBUG] RELEASE_ERROR_MSG = ${RELEASE_ERROR_MSG}"
-                            if (RELEASE_ERROR_MSG) {
+                            if (RELEASE_ERROR_MSG != 'null') {
                                 echo 'Failed to create release.'
                                 sh 'cat recog-content-releases-response.json'
                                 currentBuild.result = 'FAILURE'
@@ -98,13 +97,13 @@ pipeline {
                             echo "[DEBUG] processed upload_url:"
                             sh 'cat recog-content-releases-response.json | jq -r .upload_url | cut -f 1 -d "{"'
 
-                            RELEASE_HTML_URL=sh(script: '\$(cat recog-content-releases-response.json | jq -r .html_url)', returnStdout: true).trim()
+                            RELEASE_HTML_URL=sh(script: 'cat recog-content-releases-response.json | jq -r .html_url', returnStdout: true).trim()
                             echo "[*] Release v${VERSION} available at: ${RELEASE_HTML_URL}"
 
                             // Note: This returns an `upload_url` key corresponding to the endpoint for uploading release assets.
                             // This key is a [hypermedia resource](https://docs.github.com/rest/overview/resources-in-the-rest-api#hypermedia).
                             // All URLs are expected to be proper RFC 6570 URI templates.
-                            UPLOAD_URL=sh(script: '\$(cat recog-content-releases-response.json | jq -r .upload_url | cut -f 1 -d "{")', returnStdout: true).trim()
+                            UPLOAD_URL=sh(script: 'cat recog-content-releases-response.json | jq -r .upload_url | cut -f 1 -d "{"', returnStdout: true).trim()
                         }
                     }
                 }
