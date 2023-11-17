@@ -81,7 +81,8 @@ pipeline {
                         script {
                             // Note: Inspect the response for error message since curl exits with code 0
                             // for the "Validation failed" response with status code 422 Unprocessable Entity
-                            RELEASE_ERROR_MSG=sh( script: '\$(cat recog-content-releases-response.json | jq -r .message)', returnStdout: true).trim()
+                            sh 'cat recog-content-releases-response.json'
+                            RELEASE_ERROR_MSG=sh( script:'\$(cat recog-content-releases-response.json | jq -r .message)', returnStdout: true)
                             echo "[DEBUG] RELEASE_ERROR_MSG = ${RELEASE_ERROR_MSG}"
                             if (RELEASE_ERROR_MSG) {
                                 echo 'Failed to create release.'
