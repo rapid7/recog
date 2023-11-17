@@ -12,6 +12,14 @@ pipeline {
     }
     
     stages {
+        stage('Install dependencies') {
+            steps {
+                sh 'apt-get install ruby'
+                sh 'gem install rake'
+                sh 'wget -O semver https://raw.githubusercontent.com/fsaintjacques/semver-tool/3.3.0/src/semver && chmod +x semver'
+            }
+        }
+
         stage('Run tests') {
             steps {
                 sh 'rake tests'
@@ -26,12 +34,6 @@ pipeline {
             }
 
             stages {
-                stage('Install semver-tool') {
-                    steps {
-                        sh 'wget -O semver https://raw.githubusercontent.com/fsaintjacques/semver-tool/3.3.0/src/semver && chmod +x semver'
-                    }
-                }
-
                 stage('Bump version') {
                     steps {
                         script {
