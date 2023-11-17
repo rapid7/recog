@@ -14,6 +14,7 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
+                sh 'bundle install'
                 sh 'gem install rake'
                 sh 'wget -O semver https://raw.githubusercontent.com/fsaintjacques/semver-tool/3.3.0/src/semver && chmod +x semver'
             }
