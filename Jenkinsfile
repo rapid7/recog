@@ -33,7 +33,7 @@ pipeline {
                     echo "${currentVersion}"
 
                     VERSION = sh(script: "./semver bump ${params.VERSION_BUMP} ${currentVersion}", returnStdout: true).trim()
-                    echo "${newVersion}"
+                    echo "${VERSION}"
                 }
             }
         }
