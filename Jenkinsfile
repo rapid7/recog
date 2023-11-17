@@ -50,12 +50,8 @@ pipeline {
                 }
             }
 
-            stages {
-                stage('')
-
-
-
-
+            steps {
+                echo 'temp'
             }
             
             /**
