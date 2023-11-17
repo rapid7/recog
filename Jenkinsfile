@@ -83,6 +83,7 @@ pipeline {
                             // for the "Validation failed" response with status code 422 Unprocessable Entity
                             RELEASE_ERROR_MSG=sh( script: 'cat recog-content-releases-response.json | jq -r .message', returnStdout: true).trim()
                             echo "[DEBUG] RELEASE_ERROR_MSG = ${RELEASE_ERROR_MSG}"
+                            
                             if (RELEASE_ERROR_MSG != 'null') {
                                 echo 'Failed to create release.'
                                 sh 'cat recog-content-releases-response.json'
@@ -123,21 +124,19 @@ pipeline {
                     }
                 }
             }
-            
-            /**
+
             post {
                 success {
                     script {
-                        pipelineUtils.sendSlackNotification([message: "S3 Release to ${S3_RELEASE_DESTINATION} Successful", color: 'good'])
+                        pipelineUtils.sendSlackNotification([message: "Released Recog successfully", color: 'good'])
                     }
                 }
                 failure {
                     script {
-                        pipelineUtils.sendSlackNotification([message: "S3 Release to ${S3_RELEASE_DESTINATION} failed", color: 'bad'])
+                        pipelineUtils.sendSlackNotification([message: "Failed to release Recog", color: 'bad'])
                     }
                 }
             }
-            **/
         }
     }
 }
