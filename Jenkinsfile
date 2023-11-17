@@ -14,10 +14,23 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
-                sh 'gh --version'
                 sh 'bundle install'
                 sh 'gem install rake'
                 sh 'wget -O semver https://raw.githubusercontent.com/fsaintjacques/semver-tool/3.3.0/src/semver && chmod +x semver'
+            }
+        }
+
+        stage('debug: Test github curl') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'github-app-key', usernameVariable: 'GH_APP', passwordVariable: 'GH_TOKEN')]) { 
+                    sh """
+curl --silent --show-error \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/vnd.github.v3+json" \
+    -H "Authorization: token \${GH_TOKEN}" \
+    https://api.github.com/user/emails
+                    """
+                }
             }
         }
 
