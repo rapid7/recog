@@ -4,7 +4,7 @@ s3ReleasePipeline(
         'Debug: install semver-tool': { 
             sh 'wget -O semver https://raw.githubusercontent.com/fsaintjacques/semver-tool/3.3.0/src/semver'
             sh 'chmod +x semver'
-            sh 'semver --version'
+            sh './semver --version'
         }
     ]
 )
