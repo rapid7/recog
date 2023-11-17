@@ -2,7 +2,7 @@
 pipeline {
     agent {
         kubernetes(
-            k8sAgent(idleMinutes: 0)
+            k8sAgent(name: 'ruby', rubyRuntime: '2.31', defaultContainer: 'ruby', idleMinutes: 0)
         )
     }
 
@@ -14,7 +14,6 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
-                sh 'sudo apt-get install ruby'
                 sh 'gem install rake'
                 sh 'wget -O semver https://raw.githubusercontent.com/fsaintjacques/semver-tool/3.3.0/src/semver && chmod +x semver'
             }
