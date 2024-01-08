@@ -1657,8 +1657,18 @@
   </fingerprint>
 
   <fingerprint pattern="^CN=Freebox Intermediate CA,O=Freebox,ST=France,C=FR$">
-    <description>Freebox Device</description>
+    <description>Freebox Device - Intermediate CA</description>
     <example>CN=Freebox Intermediate CA,O=Freebox,ST=France,C=FR</example>
+    <param pos="0" name="os.vendor" value="Freebox"/>
+    <param pos="0" name="os.product" value="Freebox OS"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="hw.vendor" value="Freebox"/>
+    <param pos="0" name="hw.device" value="Device"/>
+  </fingerprint>
+
+  <fingerprint pattern="^CN=[0-9a-z]+[.]fbxos[.]fr,C=FR$">
+    <description>Freebox Device</description>
+    <example>CN=d36ob5re.fbxos.fr,C=FR</example>
     <param pos="0" name="os.vendor" value="Freebox"/>
     <param pos="0" name="os.product" value="Freebox OS"/>
     <param pos="0" name="os.family" value="Linux"/>
