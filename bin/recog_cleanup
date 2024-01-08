@@ -9,7 +9,7 @@ Dir["#{File.expand_path(File.join(File.dirname(__FILE__), '..', 'xml'))}/*.xml"]
   data = File.read(f)
              .gsub(/\s+$/, '')                           # Trailing whitespace and empty lines
              .gsub('</fingerprint>', "</fingerprint>\n") # Every fingerprint should have an empty line after it
-             .gsub('-->', "-->\n")                        # Every comment should have an empty line after it
+             .gsub('-->', "-->\n")                       # Every comment should have an empty line after it
 
   File.write(f, data)
 end
