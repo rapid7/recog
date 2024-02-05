@@ -100,12 +100,14 @@
     <param pos="0" name="hw.device" value="IP Camera"/>
   </fingerprint>
 
-  <fingerprint pattern="^fbxrtspd/[0-9.]+ Freebox RTSP server$">
+  <fingerprint pattern="^fbxrtspd/([0-9.]+) Freebox RTSP server$">
     <description>Freebox OS on Freebox Set-top Box Devices</description>
+    <example os.version="1.2">fbxrtspd/1.2 Freebox RTSP server</example>
     <param pos="0" name="os.vendor" value="Freebox"/>
     <param pos="0" name="os.product" value="Freebox OS"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="hw.vendor" value="Freebox"/>
+    <param pos="1" name="os.version"/>
   </fingerprint>
 
 </fingerprints>
