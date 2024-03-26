@@ -1820,7 +1820,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.product" value="Wireless Controller"/>
   </fingerprint>
 
-  <fingerprint pattern="^Meraki MX[A-Z0-9]{2,10}"> 
+  <fingerprint pattern="Meraki (MX[A-Z0-9]{2,10})">
     <description>Meraki MX Cloud-Managed Security and SD-WAN</description>
     <example hw.product="MX68">Meraki MX68 Router/Security Appliance</example>
     <example hw.product="MX84">Meraki MX84 Cloud Managed Router</example>
@@ -1830,16 +1830,20 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^Meraki MR[A-Z0-9]{2,10}"> 
+  <fingerprint pattern="Meraki (MR[A-Z0-9]{2,10})">
     <description>Meraki MR Cloud-Managed Wi-Fi Access Points</description>
+    <example hw.product="MR53E">Meraki MR53E Cloud Managed AP</example>
+    <example hw.product="MR90">Meraki MR90 Cloud Managed AP</example>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.family" value="Meraki MR"/>
     <param pos="0" name="hw.device" value="WAP"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^Cisco Meraki MS[A-Z0-9-]{2,15}"> 
+  <fingerprint pattern="Meraki (MS[A-Z0-9-]{2,15})">
     <description>Meraki MS Cloud-Managed Network Switches</description>
+    <example hw.product="MS120-8FP">Cisco Meraki MS120-8FP Cloud Managed Switch</example>
+    <example hw.product="MS250-48">Cisco Meraki MS250-48 Cloud Managed Switch</example>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.family" value="Meraki MS"/>
     <param pos="0" name="hw.device" value="Switch"/>
