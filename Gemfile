@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 gemspec name: 'recog-content'
 
+gem 'ffi', '1.16.3'
 gem 'recog', '~>3.1'
 
 group :test do
