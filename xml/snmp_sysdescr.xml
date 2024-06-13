@@ -3583,6 +3583,22 @@ Copyright (c) 1995-2005 by Cisco Systems
   </fingerprint>
 
   <!--======================================================================
+                            Ivanti (Pulse Secure)
+   =======================================================================-->
+
+  <fingerprint pattern="^(?:Pulse Secure, LLC|Ivanti Connect Secure),.*,(\d+\.\d+R\d+(?:\.\d+)?) \(build \d+\)$">
+    <description>Pulse Secure, LLC, Ivanti Connect Secure</description>
+    <example os.version="22.3R1">Pulse Secure, LLC,Ivanti Connect Secure,ISA-V,22.3R1 (build 1647)</example>
+    <example os.version="22.3R2.1245">Pulse Secure, LLC,Ivanti Connect Secure,ISA-V,22.3R2.1245 (build 1647)</example>
+    <example os.version="22.3R1">Pulse Secure, LLC,ISA-V,22.3R1 (build 1647)</example>
+    <example os.version="22.3R2.1245">Ivanti Connect Secure,ISA-V,22.3R2.1245 (build 1647)</example>
+    <param pos="0" name="os.certainty" value="0.99"/>
+    <param pos="0" name="os.vendor" value="Pulse Secure"/>
+    <param pos="0" name="os.product" value="Pulse Connect Secure"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+
+  <!--======================================================================
                               Juniper
    =======================================================================-->
 
