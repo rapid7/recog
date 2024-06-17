@@ -1861,6 +1861,30 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="1" name="hw.model"/>
   </fingerprint>
 
+  <fingerprint pattern="^Cisco IOS XR Software.*Version ([\w.]*)">
+    <description>Cisco IOS XR Software</description>
+    <example os.version="4.3.2">Cisco IOS XR Software (Cisco IOS XRv Series),  Version 4.3.2[Default]</example>
+    <example os.version="7.4.1">Cisco IOS XR Software (ASR9K), Version 7.4.1  Copyright (c) 2013-2021 by Cisco Systems, Inc.</example>
+    <param pos="0" name="os.certainty" value="0.85"/>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.product" value="IOS-XR"/>
+    <param pos="0" name="os.family" value="IOS"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cisco IOS Software.*(?:Virtual XE|IOS-XE) Software.*Version ([\w.()]*)">
+    <description>Cisco IOS XE Software</description>
+    <example os.version="16.6.8">Cisco IOS Software [Everest], Virtual XE Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 16.6.8, RELEASE SOFTWARE (fc3)</example>
+    <example os.version="15.1(3)S2">Cisco IOS Software, IOS-XE Software (PPC_LINUX_IOSD-ADVENTERPRISEK9-M), Version 15.1(3)S2, RELEASE SOFTWARE (fc1)</example>
+    <param pos="0" name="os.certainty" value="0.85"/>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.product" value="IOS-XE"/>
+    <param pos="0" name="os.family" value="IOS"/>
+    <param pos="0" name="os.device" value="Router"/>
+    <param pos="1" name="os.version"/>
+  </fingerprint>
+
   <!--======================================================================
                              Crestron
    =======================================================================-->
