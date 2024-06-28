@@ -96,37 +96,86 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:librenms:librenms:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^4644f2d45601037b8423d45e13194c93$">
-    <description>Apache Tomcat (5.5.26), Alfresco Community</description>
+  <fingerprint pattern="^(?:4644f2d45601037b8423d45e13194c93|d80e364c0d3138c7ecd75bf9896f2cad)$">
+    <description>Tomcat</description>
+
+    <!-- favicon.ico from Apache Tomcat (5.5.26) -->
     <example>4644f2d45601037b8423d45e13194c93</example>
-    <param pos="0" name="service.vendor" value="Apache" />
-    <param pos="0" name="service.product" value="Apache Tomcat (5.5.26), Alfresco Community" />
+
+    <!-- favicon.ico from Apache Tomcat (6.0.18) -->
+    <example>d80e364c0d3138c7ecd75bf9896f2cad</example>
+
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="Tomcat"/>
     <param pos="0" name="service.certainty" value="0.5" />
     <param pos="0" name="service.family" value="Tomcat"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:apache:tomcat:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:b6341dfc213100c61db4fb8775878cec|cf2445dcb53a031c02f9b57e2199bc03|fe22dd2bb09daccf58256611ac491469)$">
+  <fingerprint pattern="^f0ee98b4394dfdab17c16245dd799204$">
     <description>Drupal CMS</description>
     <!-- Original Drupal favicon https://github.com/drupal/drupal/blob/f0a16bf2a4d1524aa33b656533e37d977cca4802/core/misc/favicon.ico -->
+    <example>f0ee98b4394dfdab17c16245dd799204</example>
+    <param pos="0" name="service.vendor" value="Drupal"/>
+    <param pos="0" name="service.product" value="CMS"/>
+    <param pos="0" name="service.certainty" value="0.5"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:drupal:drupal:-"/>
+  </fingerprint>
 
-    <!-- favicon.ico from Drupal 7.x -->
+  <fingerprint pattern="^b6341dfc213100c61db4fb8775878cec$">
+    <description>Drupal CMS (7.x)</description>
     <example>b6341dfc213100c61db4fb8775878cec</example>
+    <param pos="0" name="service.vendor" value="Drupal"/>
+    <param pos="0" name="service.product" value="CMS"/>
+    <param pos="0" name="service.version" value="7.x"/>
+    <param pos="0" name="service.certainty" value="0.5"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:drupal:drupal:7.x"/>
+  </fingerprint>
 
+  <fingerprint pattern="^cf2445dcb53a031c02f9b57e2199bc03$">
+    <description>Drupal CMS (8.0.0)</description>
     <!--
       High definition Drupal favicon
       Drupal 8.0.0 https://github.com/drupal/drupal/blob/2ace26881d7a67a396caea6a79437c7e4e629f98/core/misc/favicon.ico
       Drupal Bartik 9.2+ https://github.com/drupal/drupal/blob/cfa3a480fca997eaecdca2c81c8035ec61308abe/core/themes/bartik/favicon.ico
     -->
-
     <example>cf2445dcb53a031c02f9b57e2199bc03</example>
-    <!-- Drupal 9.2+ https://github.com/drupal/drupal/blob/cfa3a480fca997eaecdca2c81c8035ec61308abe/core/misc/favicon.ico -->
+    <param pos="0" name="service.vendor" value="Drupal"/>
+    <param pos="0" name="service.product" value="CMS"/>
+    <param pos="0" name="service.version" value="8.0.0"/>
+    <param pos="0" name="service.certainty" value="0.5"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:drupal:drupal:8.0.0"/>
+  </fingerprint>
 
+  <fingerprint pattern="^fe22dd2bb09daccf58256611ac491469$">
+    <description>Drupal CMS (9.2+)</description>
+    <!-- Drupal 9.2+ https://github.com/drupal/drupal/blob/cfa3a480fca997eaecdca2c81c8035ec61308abe/core/misc/favicon.ico -->
     <example>fe22dd2bb09daccf58256611ac491469</example>
     <param pos="0" name="service.vendor" value="Drupal"/>
     <param pos="0" name="service.product" value="CMS"/>
+    <param pos="0" name="service.version" value="9.2+"/>
     <param pos="0" name="service.certainty" value="0.5"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:drupal:drupal:-"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:drupal:drupal:9.2"/>
+  </fingerprint>
+
+  <fingerprint pattern="^e6a9dc66179d8c9f34288b16a02f987e$">
+    <description>Drupal CMS (5.10)</description>
+    <example>e6a9dc66179d8c9f34288b16a02f987e</example>
+    <param pos="0" name="service.vendor" value="Drupal"/>
+    <param pos="0" name="service.product" value="CMS"/>
+    <param pos="0" name="service.version" value="5.10"/>
+    <param pos="0" name="service.certainty" value="0.5"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:drupal:drupal:5.10"/>
+  </fingerprint>
+
+  <fingerprint pattern="^a4819787db1dabe1a6b669d5d6df3bfd$">
+    <description>Drupal CMS (2.x-4.x)</description>
+    <example>a4819787db1dabe1a6b669d5d6df3bfd</example>
+    <param pos="0" name="service.vendor" value="Drupal"/>
+    <param pos="0" name="service.product" value="CMS"/>
+    <param pos="0" name="service.version" value="2.x-4.x"/>
+    <param pos="0" name="service.certainty" value="0.5"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:drupal:drupal:4.x"/>
   </fingerprint>
 
   <fingerprint pattern="^91b72b23e7f499d6c09cb18c7b1278f1$">
@@ -420,10 +469,10 @@
   </fingerprint>
 
   <fingerprint pattern="^1c4201c7da53d6c7e48251d3a9680449$">
-    <description>Nagios (3.0.2)</description>
+    <description>Nagios</description>
     <example>1c4201c7da53d6c7e48251d3a9680449</example>
     <param pos="0" name="service.vendor" value="Nagios"/>
-    <param pos="0" name="service.product" value="Nagios (3.0.2) Network Analyzer"/>
+    <param pos="0" name="service.product" value="Nagios Network Analyzer"/>
     <param pos="0" name="service.certainty" value="0.5"/>
   </fingerprint>
 
@@ -482,10 +531,10 @@
   </fingerprint>
 
   <fingerprint pattern="^3ef81fad2a3deaeb19f02c9cf67ed8eb$">
-    <description>DocuWiki (0.0.20080505)</description>
+    <description>DokuWiki</description>
     <example>3ef81fad2a3deaeb19f02c9cf67ed8eb</example>
-    <param pos="0" name="service.vendor" value="DocuWiki"/>
-    <param pos="0" name="service.product" value="DocuWiki (0.0.20080505)"/>
+    <param pos="0" name="service.vendor" value="DokuWiki"/>
+    <param pos="0" name="service.product" value="DokuWiki"/>
     <param pos="0" name="service.certainty" value="0.5"/>
   </fingerprint>
 
@@ -2156,12 +2205,30 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:mitmproxy:mitmproxy:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^(?:02dd7453848213a7b5277556bcc46307|d037ef2f629a22ddadcf438e6be7a325)$">
+    <description>phpMyAdmin (2.11.8.1)</description>
+
+    <!-- favicon.ico from phpMyAdmin (2.11.8.1) - pmd -->
+    <example>02dd7453848213a7b5277556bcc46307</example>
+
+    <!-- favicon.ico from phpMyAdmin (2.11.8.1) -->
+    <example>d037ef2f629a22ddadcf438e6be7a325</example>
+
+    <param pos="0" name="service.vendor" value="phpMyAdmin"/>
+    <param pos="0" name="service.product" value="phpMyAdmin"/>
+    <param pos="0" name="service.version" value="2.11.8.1" />
+    <param pos="0" name="service.certainty" value="0.5" />
+    <param pos="0" name="service.cpe23" value="cpe:/a:phpmyadmin:phpmyadmin:2.11.8.1"/>
+  </fingerprint>
+
   <fingerprint pattern="^531b63a51234bb06c9d77f219eb25553$">
-    <description>phpmyadmin (4.6.x)</description>
+    <description>phpMyAdmin (4.6.x)</description>
     <example>531b63a51234bb06c9d77f219eb25553</example>
-    <param pos="0" name="service.vendor" value="phpmyadmin"/>
-    <param pos="0" name="service.product" value="phpmyadmin (4.6.x)"/>
-    <param pos="0" name="service.cpe23" value="cpe:/a:phpmyadmin:phpmyadmin:-"/>
+    <param pos="0" name="service.vendor" value="phpMyAdmin" />
+    <param pos="0" name="service.product" value="phpMyAdmin" />
+    <param pos="0" name="service.version" value="4.6.x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+    <param pos="0" name="service.cpe23" value="cpe:/a:phpmyadmin:phpmyadmin:4.6.x" />
   </fingerprint>
 
   <fingerprint pattern="^ded14e8b701325c527da56f86b5d5616$">
@@ -2374,18 +2441,24 @@
     <param pos="0" name="os.product" value="Linux"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:4f12cccd3c42a4a478f067337fe92794|5af2c34a740cf3d0f509d93bcbb41ef6)$">
+  <fingerprint pattern="^5af2c34a740cf3d0f509d93bcbb41ef6$">
     <description>Cacti - network graphing solution</description>
-
-    <!-- favicon.ico from cacti (0.8.7b) -->
-    <example>4f12cccd3c42a4a478f067337fe92794</example>
-
     <example>5af2c34a740cf3d0f509d93bcbb41ef6</example>
     <param pos="0" name="service.vendor" value="Cacti"/>
     <param pos="0" name="service.product" value="Cacti"/>
     <param pos="0" name="service.certainty" value="0.5" />
     <param pos="0" name="service.cpe23" value="cpe:/a:cacti:cacti:-"/>
   </fingerprint>
+
+  <fingerprint pattern="^4f12cccd3c42a4a478f067337fe92794$">
+    <description>Cacti - network graphing solution (0.8.7b)</description>
+    <example>4f12cccd3c42a4a478f067337fe92794</example>
+    <param pos="0" name="service.vendor" value="Cacti"/>
+    <param pos="0" name="service.product" value="Cacti"/>
+    <param pos="0" name="service.version" value="0.8.7b"/>
+    <param pos="0" name="service.certainty" value="0.5" />
+    <param pos="0" name="service.cpe23" value="cpe:/a:cacti:cacti:0.8.7b"/>
+</fingerprint>
 
   <fingerprint pattern="^53cbf6dd6891950b338d4764f38655c5$">
     <description>Castopod - Fediverse-aware podcast server</description>
@@ -2506,19 +2579,33 @@
     <param pos="0" name="service.product" value="frp"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:924a68d347c80d0e502157e83812bb23|f1ac749564d5ba793550ec6bdc472e7c|ef9c0362bf20a086bb7c2e8ea346b9f0)$">
+  <fingerprint pattern="^ef9c0362bf20a086bb7c2e8ea346b9f0$">
     <description>Roundcube Webmail</description>
-    <!-- favicon.ico from Roundcube Webmail version 1.5.0+ -->
-
-    <example>924a68d347c80d0e502157e83812bb23</example>
-    <!-- favicon.ico from Roundcube Webmail up to version 1.4.13 -->
-
-    <example>f1ac749564d5ba793550ec6bdc472e7c</example>
     <example>ef9c0362bf20a086bb7c2e8ea346b9f0</example>
     <param pos="0" name="service.vendor" value="Roundcube"/>
     <param pos="0" name="service.product" value="Webmail"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:roundcube:webmail:-"/>
     <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^924a68d347c80d0e502157e83812bb23$">
+    <description>Roundcube Webmail (Version 1.5.0+)</description>
+    <example>924a68d347c80d0e502157e83812bb23</example>
+    <param pos="0" name="service.vendor" value="Roundcube"/>
+    <param pos="0" name="service.product" value="Webmail"/>
+    <param pos="0" name="service.version" value="1.5.0+"/>
+    <param pos="0" name="service.certainty" value="0.5" />
+    <param pos="0" name="service.cpe23" value="cpe:/a:roundcube:webmail:1.5.0"/>
+  </fingerprint>
+
+  <fingerprint pattern="^f1ac749564d5ba793550ec6bdc472e7c$">
+    <description>Roundcube Webmail (Up to Version 1.4.13)</description>
+    <example>f1ac749564d5ba793550ec6bdc472e7c</example>
+    <param pos="0" name="service.vendor" value="Roundcube"/>
+    <param pos="0" name="service.product" value="Webmail"/>
+    <param pos="0" name="service.version" value="1.4.13"/>
+    <param pos="0" name="service.certainty" value="0.5" />
+    <param pos="0" name="service.cpe23" value="cpe:/a:roundcube:webmail:1.4.13"/>
   </fingerprint>
 
   <fingerprint pattern="^c9ab649457b4e9affe91ff0ce488d15f$">
@@ -2995,14 +3082,6 @@
     <example>abeea75cf3c1bac42bbd0e96803c72b9</example>
     <param pos="0" name="service.vendor" value="doc-iana-20080601" />
     <param pos="0" name="service.product" value="doc-iana-20080601" />
-    <param pos="0" name="service.certainty" value="0.5" />
-  </fingerprint>
-
-  <fingerprint pattern="^e6a9dc66179d8c9f34288b16a02f987e">
-    <description>Drupal CMS (5.10)</description>
-    <example>e6a9dc66179d8c9f34288b16a02f987e</example>
-    <param pos="0" name="service.vendor" value="Drupal" />
-    <param pos="0" name="service.product" value="Drupal CMS (5.10)" />
     <param pos="0" name="service.certainty" value="0.5" />
   </fingerprint>
 
@@ -3494,22 +3573,6 @@
     <param pos="0" name="service.certainty" value="0.5" />
   </fingerprint>
 
-  <fingerprint pattern="^02dd7453848213a7b5277556bcc46307">
-    <description>phpmyadmin (2.11.8.1) - pmd</description>
-    <example>02dd7453848213a7b5277556bcc46307</example>
-    <param pos="0" name="service.vendor" value="phpmyadmin" />
-    <param pos="0" name="service.product" value="phpmyadmin (2.11.8.1) - pmd" />
-    <param pos="0" name="service.certainty" value="0.5" />
-  </fingerprint>
-
-  <fingerprint pattern="^d037ef2f629a22ddadcf438e6be7a325">
-    <description>phpmyadmin (2.11.8.1)</description>
-    <example>d037ef2f629a22ddadcf438e6be7a325</example>
-    <param pos="0" name="service.vendor" value="phpmyadmin" />
-    <param pos="0" name="service.product" value="phpmyadmin (2.11.8.1)" />
-    <param pos="0" name="service.certainty" value="0.5" />
-  </fingerprint>
-
   <fingerprint pattern="^8190ead2eb45952151ab5065d0e56381">
     <description>pootle (1.1.0)</description>
     <example>8190ead2eb45952151ab5065d0e56381</example>
@@ -3946,14 +4009,6 @@
     <param pos="0" name="service.certainty" value="0.5" />
   </fingerprint>
 
-  <fingerprint pattern="^d80e364c0d3138c7ecd75bf9896f2cad">
-    <description>Apache Tomcat (6.0.18), Alfresco Enterprise Content Management System</description>
-    <example>d80e364c0d3138c7ecd75bf9896f2cad</example>
-    <param pos="0" name="service.vendor" value="Apache" />
-    <param pos="0" name="service.product" value="Apache Tomcat (6.0.18), Alfresco Enterprise Content Management System" />
-    <param pos="0" name="service.certainty" value="0.5" />
-  </fingerprint>
-
   <fingerprint pattern="^a6b55b93bc01a6df076483b69039ba9c">
     <description>Fog Creek Fogbugz (6.1.44)</description>
     <example>a6b55b93bc01a6df076483b69039ba9c</example>
@@ -4076,14 +4131,6 @@
     <param pos="0" name="service.certainty" value="0.5" />
   </fingerprint>
 
-  <fingerprint pattern="^f0ee98b4394dfdab17c16245dd799204">
-    <description>Drupal</description>
-    <example>f0ee98b4394dfdab17c16245dd799204</example>
-    <param pos="0" name="service.vendor" value="Drupal" />
-    <param pos="0" name="service.product" value="Drupal" />
-    <param pos="0" name="service.certainty" value="0.5" />
-  </fingerprint>
-
   <fingerprint pattern="^cee40c0b35bded5e11545be22a40e363">
     <description>OSSDL.de Openmailadmin</description>
     <example>cee40c0b35bded5e11545be22a40e363</example>
@@ -4109,19 +4156,19 @@
   </fingerprint>
 
   <fingerprint pattern="^(?:b231ad66a2a9b0eb06f72c4c88973039|e1e8bdc3ce87340ab6ebe467519cf245)$">
-    <description>Wordpress</description>
+    <description>WordPress</description>
     <example>b231ad66a2a9b0eb06f72c4c88973039</example>
     <example>e1e8bdc3ce87340ab6ebe467519cf245</example>
-    <param pos="0" name="service.vendor" value="Wordpress" />
-    <param pos="0" name="service.product" value="Wordpress" />
+    <param pos="0" name="service.vendor" value="WordPress" />
+    <param pos="0" name="service.product" value="WordPress" />
     <param pos="0" name="service.certainty" value="0.5" />
   </fingerprint>
 
   <fingerprint pattern="^95103d0eabcd541527a86f23b636e794">
-    <description>Wordpress Multi-User (MU)</description>
+    <description>WordPress Multi-User (MU)</description>
     <example>95103d0eabcd541527a86f23b636e794</example>
-    <param pos="0" name="service.vendor" value="Wordpress" />
-    <param pos="0" name="service.product" value="Wordpress Multi-User (MU)" />
+    <param pos="0" name="service.vendor" value="WordPress" />
+    <param pos="0" name="service.product" value="WordPress Multi-User (MU)" />
     <param pos="0" name="service.certainty" value="0.5" />
   </fingerprint>
 
@@ -4467,14 +4514,6 @@
     <example>d9aa63661d742d5f7c7300d02ac18d69</example>
     <param pos="0" name="service.vendor" value="Dreambox" />
     <param pos="0" name="service.product" value="Dreambox WebControl x" />
-    <param pos="0" name="service.certainty" value="0.5" />
-  </fingerprint>
-
-  <fingerprint pattern="^a4819787db1dabe1a6b669d5d6df3bfd">
-    <description>Drupal 2.x-4.x</description>
-    <example>a4819787db1dabe1a6b669d5d6df3bfd</example>
-    <param pos="0" name="service.vendor" value="Drupal" />
-    <param pos="0" name="service.product" value="Drupal 2.x-4.x" />
     <param pos="0" name="service.certainty" value="0.5" />
   </fingerprint>
 
