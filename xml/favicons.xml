@@ -33,13 +33,14 @@
   <fingerprint pattern="^(?:1a60f7f928a659f763204d525b3cf90d|6d4c72194ecff7ead96f65db45851be9|55ece828b1329741c1d553a6575d71f1|6e5e9d5cf722ba7dca6ffe417c3bb678)$">
     <description>Radarr</description>
     <!-- favicon-16x16.png -->
-    <example>1a60f7f928a659f763204d525b3cf90d</example>
 
+    <example>1a60f7f928a659f763204d525b3cf90d</example>
     <!-- favicon-32x32.png -->
+
     <example>6d4c72194ecff7ead96f65db45851be9</example>
     <example>6e5e9d5cf722ba7dca6ffe417c3bb678</example>
-
     <!-- favicon.ico -->
+
     <example>55ece828b1329741c1d553a6575d71f1</example>
     <param pos="0" name="service.vendor" value="Radarr"/>
     <param pos="0" name="service.product" value="Radarr"/>
@@ -96,12 +97,12 @@
   </fingerprint>
 
   <fingerprint pattern="^4644f2d45601037b8423d45e13194c93$">
-    <description>Tomcat</description>
+    <description>Apache Tomcat (5.5.26), Alfresco Community</description>
     <example>4644f2d45601037b8423d45e13194c93</example>
-    <param pos="0" name="service.vendor" value="Apache"/>
-    <param pos="0" name="service.product" value="Tomcat"/>
+    <param pos="0" name="service.vendor" value="Apache" />
+    <param pos="0" name="service.product" value="Apache Tomcat (5.5.26), Alfresco Community" />
+    <param pos="0" name="service.certainty" value="0.5" />
     <param pos="0" name="service.family" value="Tomcat"/>
-    <param pos="0" name="service.certainty" value="0.5"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:apache:tomcat:-"/>
   </fingerprint>
 
@@ -109,7 +110,9 @@
     <description>Drupal CMS</description>
     <!-- Original Drupal favicon https://github.com/drupal/drupal/blob/f0a16bf2a4d1524aa33b656533e37d977cca4802/core/misc/favicon.ico -->
 
+    <!-- favicon.ico from Drupal 7.x -->
     <example>b6341dfc213100c61db4fb8775878cec</example>
+
     <!--
       High definition Drupal favicon
       Drupal 8.0.0 https://github.com/drupal/drupal/blob/2ace26881d7a67a396caea6a79437c7e4e629f98/core/misc/favicon.ico
@@ -143,11 +146,12 @@
     <param pos="0" name="service.certainty" value="0.5"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:268ee26a1219a611828d5fd4bc4d69c0|5a84c349c00d95c8ebd174ded3b50a86|2b37c7f35285c341ec1f2cf7e40a3c22)$">
+  <fingerprint pattern="^(?:268ee26a1219a611828d5fd4bc4d69c0|5a84c349c00d95c8ebd174ded3b50a86|2b37c7f35285c341ec1f2cf7e40a3c22|23e8c7bd78e8cd826c5a6073b15068b1)$">
     <description>Jenkins</description>
     <example>268ee26a1219a611828d5fd4bc4d69c0</example>
     <example>5a84c349c00d95c8ebd174ded3b50a86</example>
     <example>2b37c7f35285c341ec1f2cf7e40a3c22</example>
+    <example>23e8c7bd78e8cd826c5a6073b15068b1</example>
     <param pos="0" name="service.vendor" value="Jenkins"/>
     <param pos="0" name="service.product" value="Jenkins"/>
     <param pos="0" name="service.certainty" value="0.5"/>
@@ -163,13 +167,17 @@
     <param pos="0" name="service.certainty" value="0.5"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:1391664373e72311a656c4a5504682af|88717398db158e3330ce94fc1784e4a7|04d89d5b7a290334f5ce37c7e8b6a349|08aa365c2d0863df2735d386f77c22c2|eadf13e6cac2efef4f0565e171f90953)$">
+  <fingerprint pattern="^(?:1391664373e72311a656c4a5504682af|88717398db158e3330ce94fc1784e4a7|04d89d5b7a290334f5ce37c7e8b6a349|08aa365c2d0863df2735d386f77c22c2|eadf13e6cac2efef4f0565e171f90953|6c1452e18a09070c0b3ed85ce7cb3917)$">
     <description>Atlassian Jira</description>
     <example>1391664373e72311a656c4a5504682af</example>
     <example>88717398db158e3330ce94fc1784e4a7</example>
+    
+    <!-- favicon.ico from Atlassian Jira Bug Tracker -->
     <example>04d89d5b7a290334f5ce37c7e8b6a349</example>
+
     <example>08aa365c2d0863df2735d386f77c22c2</example>
     <example>eadf13e6cac2efef4f0565e171f90953</example>
+    <example>6c1452e18a09070c0b3ed85ce7cb3917</example>
     <param pos="0" name="service.vendor" value="Atlassian"/>
     <param pos="0" name="service.product" value="Jira"/>
     <param pos="0" name="service.certainty" value="0.5"/>
@@ -226,10 +234,11 @@
     <param pos="0" name="service.certainty" value="0.5"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:e467554976ad3162eec9dfbf83e2c324|b338542efc5676d771c21fe94faf12b3)$">
+  <fingerprint pattern="^(?:e467554976ad3162eec9dfbf83e2c324|b338542efc5676d771c21fe94faf12b3|a4eb4e0aa80740db8d7d951b6d63b2a2)$">
     <description>ownCloud</description>
     <example>e467554976ad3162eec9dfbf83e2c324</example>
     <example>b338542efc5676d771c21fe94faf12b3</example>
+    <example>a4eb4e0aa80740db8d7d951b6d63b2a2</example>
     <param pos="0" name="service.vendor" value="ownCloud"/>
     <param pos="0" name="service.product" value="ownCloud Server"/>
     <param pos="0" name="service.certainty" value="0.5"/>
@@ -411,10 +420,10 @@
   </fingerprint>
 
   <fingerprint pattern="^1c4201c7da53d6c7e48251d3a9680449$">
-    <description>Nagios</description>
+    <description>Nagios (3.0.2)</description>
     <example>1c4201c7da53d6c7e48251d3a9680449</example>
     <param pos="0" name="service.vendor" value="Nagios"/>
-    <param pos="0" name="service.product" value="Nagios Network Analyzer"/>
+    <param pos="0" name="service.product" value="Nagios (3.0.2) Network Analyzer"/>
     <param pos="0" name="service.certainty" value="0.5"/>
   </fingerprint>
 
@@ -473,10 +482,10 @@
   </fingerprint>
 
   <fingerprint pattern="^3ef81fad2a3deaeb19f02c9cf67ed8eb$">
-    <description>DocuWiki</description>
+    <description>DocuWiki (0.0.20080505)</description>
     <example>3ef81fad2a3deaeb19f02c9cf67ed8eb</example>
     <param pos="0" name="service.vendor" value="DocuWiki"/>
-    <param pos="0" name="service.product" value="DocuWiki"/>
+    <param pos="0" name="service.product" value="DocuWiki (0.0.20080505)"/>
     <param pos="0" name="service.certainty" value="0.5"/>
   </fingerprint>
 
@@ -603,13 +612,16 @@
   </fingerprint>
 
   <fingerprint pattern="^9c003f40e63df95a2b844c6b61448310$">
-    <description>DD-WRT</description>
+    <description>DD-WRT Embedded Web Server</description>
     <example>9c003f40e63df95a2b844c6b61448310</example>
     <param pos="0" name="os.vendor" value="DD-WRT"/>
     <param pos="0" name="os.product" value="DD-WRT"/>
     <param pos="0" name="os.device" value="Router"/>
     <param pos="0" name="os.certainty" value="0.5"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:dd-wrt:dd-wrt:-"/>
+    <param pos="0" name="service.vendor" value="DD-WRT" />
+    <param pos="0" name="service.product" value="DD-WRT Embedded Web Server" />
+    <param pos="0" name="service.certainty" value="0.5" />
   </fingerprint>
 
   <fingerprint pattern="^cff908861188a1246a35c3f8325c7d2c$">
@@ -952,6 +964,7 @@
     <example>78ee71862e89db1b1870197b40d026e5</example>
     <example>799f70b71314a7508326d1d2f68f7519</example>
     <param pos="0" name="service.vendor" value="Red Hat"/>
+    <param pos="0" name="service.product" value="JBoss Server" />
     <param pos="0" name="service.certainty" value="0.5"/>
   </fingerprint>
 
@@ -1073,6 +1086,9 @@
     <param pos="0" name="hw.device" value="NAS"/>
     <param pos="0" name="hw.product" value="NAS4Free"/>
     <param pos="0" name="hw.certainty" value="0.5"/>
+    <param pos="0" name="service.vendor" value="NAS4Free" />
+    <param pos="0" name="service.product" value="NAS4Free 9.0" />
+    <param pos="0" name="service.certainty" value="0.5" />
   </fingerprint>
 
   <fingerprint pattern="^0aee66dce5587fe6fad5ae2826501add$">
@@ -1149,6 +1165,9 @@
     <param pos="0" name="hw.device" value="Wireless Controller"/>
     <param pos="0" name="hw.product" value="Captive Portal"/>
     <param pos="0" name="hw.certainty" value="0.5"/>
+    <param pos="0" name="service.vendor" value="Aruba" />
+    <param pos="0" name="service.product" value="Aruba Network Devices (HTTP(S) login page)" />
+    <param pos="0" name="service.certainty" value="0.5" />
   </fingerprint>
 
   <fingerprint pattern="^842c79ab11f38323fc554afbea5c990a$">
@@ -1285,6 +1304,9 @@
     <param pos="0" name="hw.device" value="WAP"/>
     <param pos="0" name="hw.family" value="FRITZ!Box"/>
     <param pos="0" name="hw.certainty" value="0.5"/>
+    <param pos="0" name="service.vendor" value="Fritz!" />
+    <param pos="0" name="service.product" value="Fritz! x" />
+    <param pos="0" name="service.certainty" value="0.5" />
   </fingerprint>
 
   <fingerprint pattern="^7b0d4bc0ca1659d54469e5013a08d240$">
@@ -1298,6 +1320,9 @@
     <param pos="0" name="hw.family" value="ReadyNAS"/>
     <param pos="0" name="hw.product" value="ReadyNAS"/>
     <param pos="0" name="hw.certainty" value="0.5"/>
+    <param pos="0" name="service.vendor" value="Netgear" />
+    <param pos="0" name="service.product" value="Netgear (Infrant) ReadyNAS NV+" />
+    <param pos="0" name="service.certainty" value="0.5" />
   </fingerprint>
 
   <fingerprint pattern="^302f9ac299f739e219f6eff93b5bdba5$">
@@ -1705,13 +1730,20 @@
     <param pos="0" name="hw.certainty" value="0.5"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:6dcab71e60f0242907940f0fcda69ea5|255b6fcbcb463e11ed763b2b892a2965)$">
+  <fingerprint pattern="^(?:6dcab71e60f0242907940f0fcda69ea5|255b6fcbcb463e11ed763b2b892a2965|09a1e50dc3369e031b97f38abddd10c8)$">
     <description>Ubiquiti WAP (Vague)</description>
+
+    <!-- favicon.ico from Ubiquiti Ubiquiti M Series / AirOS -->
     <example>6dcab71e60f0242907940f0fcda69ea5</example>
+    <example>09a1e50dc3369e031b97f38abddd10c8</example>
+
     <example>255b6fcbcb463e11ed763b2b892a2965</example>
     <param pos="0" name="hw.vendor" value="Ubiquiti"/>
     <param pos="0" name="hw.device" value="WAP"/>
     <param pos="0" name="hw.certainty" value="0.25"/>
+    <param pos="0" name="service.vendor" value="Ubiquiti" />
+    <param pos="0" name="service.product" value="Ubiquiti Ubiquiti M Series / AirOS" />
+    <param pos="0" name="service.certainty" value="0.5" />
   </fingerprint>
 
   <fingerprint pattern="^f98bced327f13a45ad681829905db891$">
@@ -2125,10 +2157,10 @@
   </fingerprint>
 
   <fingerprint pattern="^531b63a51234bb06c9d77f219eb25553$">
-    <description>phpMyAdmin web interface for MySQL and MariaDB</description>
+    <description>phpmyadmin (4.6.x)</description>
     <example>531b63a51234bb06c9d77f219eb25553</example>
-    <param pos="0" name="service.vendor" value="phpMyAdmin"/>
-    <param pos="0" name="service.product" value="phpMyAdmin"/>
+    <param pos="0" name="service.vendor" value="phpmyadmin"/>
+    <param pos="0" name="service.product" value="phpmyadmin (4.6.x)"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:phpmyadmin:phpmyadmin:-"/>
   </fingerprint>
 
@@ -2344,10 +2376,14 @@
 
   <fingerprint pattern="^(?:4f12cccd3c42a4a478f067337fe92794|5af2c34a740cf3d0f509d93bcbb41ef6)$">
     <description>Cacti - network graphing solution</description>
+
+    <!-- favicon.ico from cacti (0.8.7b) -->
     <example>4f12cccd3c42a4a478f067337fe92794</example>
+
     <example>5af2c34a740cf3d0f509d93bcbb41ef6</example>
     <param pos="0" name="service.vendor" value="Cacti"/>
     <param pos="0" name="service.product" value="Cacti"/>
+    <param pos="0" name="service.certainty" value="0.5" />
     <param pos="0" name="service.cpe23" value="cpe:/a:cacti:cacti:-"/>
   </fingerprint>
 
@@ -2482,6 +2518,7 @@
     <param pos="0" name="service.vendor" value="Roundcube"/>
     <param pos="0" name="service.product" value="Webmail"/>
     <param pos="0" name="service.cpe23" value="cpe:/a:roundcube:webmail:-"/>
+    <param pos="0" name="service.certainty" value="0.5" />
   </fingerprint>
 
   <fingerprint pattern="^c9ab649457b4e9affe91ff0ce488d15f$">
@@ -2556,6 +2593,2337 @@
     <param pos="0" name="service.vendor" value="Mantrey"/>
     <param pos="0" name="service.product" value="Mantrey PACS"/>
     <param pos="0" name="service.certainty" value="0.5"/>
+  </fingerprint>
+
+  <fingerprint pattern="^6399cc480d494bf1fcd7d16c42b1c11b">
+    <description>penguin</description>
+    <example>6399cc480d494bf1fcd7d16c42b1c11b</example>
+    <param pos="0" name="service.vendor" value="penguin" />
+    <param pos="0" name="service.product" value="penguin" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^09b565a51e14b721a323f0ba44b2982a">
+    <description>Google web server</description>
+    <example>09b565a51e14b721a323f0ba44b2982a</example>
+    <param pos="0" name="service.vendor" value="Google" />
+    <param pos="0" name="service.product" value="Google web server" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^506190fc55ceaa132f1bc305ed8472ca">
+    <description>SocialText</description>
+    <example>506190fc55ceaa132f1bc305ed8472ca</example>
+    <param pos="0" name="service.vendor" value="SocialText" />
+    <param pos="0" name="service.product" value="SocialText" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^2cc15cfae55e2bb2d85b57e5b5bc3371">
+    <description>PHPwiki (1.3.14) / gforge (4.6.99+svn6496) - wiki</description>
+    <example>2cc15cfae55e2bb2d85b57e5b5bc3371</example>
+    <param pos="0" name="service.vendor" value="PHPwiki" />
+    <param pos="0" name="service.product" value="PHPwiki (1.3.14) / gforge (4.6.99+svn6496) - wiki" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^389a8816c5b87685de7d8d5fec96c85b">
+    <description>XOOPS cms</description>
+    <example>389a8816c5b87685de7d8d5fec96c85b</example>
+    <param pos="0" name="service.vendor" value="XOOPS" />
+    <param pos="0" name="service.product" value="XOOPS cms" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^f1876a80546b3986dbb79bad727b0374">
+    <description>NetScreen WebUI or 3Com Router</description>
+    <example>f1876a80546b3986dbb79bad727b0374</example>
+    <param pos="0" name="service.vendor" value="NetScreen" />
+    <param pos="0" name="service.product" value="NetScreen WebUI or 3Com Router" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^226ffc5e483b85ec261654fe255e60be">
+    <description>Netscape 4.1</description>
+    <example>226ffc5e483b85ec261654fe255e60be</example>
+    <param pos="0" name="service.vendor" value="Netscape" />
+    <param pos="0" name="service.product" value="Netscape 4.1" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^b25dbe60830705d98ba3aaf0568c456a">
+    <description>Netscape iPlanet 6.0</description>
+    <example>b25dbe60830705d98ba3aaf0568c456a</example>
+    <param pos="0" name="service.vendor" value="Netscape" />
+    <param pos="0" name="service.product" value="Netscape iPlanet 6.0" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^41e2c893098b3ed9fc14b821a2e14e73">
+    <description>Netscape 6.0 (AOL)</description>
+    <example>41e2c893098b3ed9fc14b821a2e14e73</example>
+    <param pos="0" name="service.vendor" value="Netscape" />
+    <param pos="0" name="service.product" value="Netscape 6.0 (AOL)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^a28ebcac852795fe30d8e99a23d377c1">
+    <description>SunOne 6.1</description>
+    <example>a28ebcac852795fe30d8e99a23d377c1</example>
+    <param pos="0" name="service.vendor" value="SunOne" />
+    <param pos="0" name="service.product" value="SunOne 6.1" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^71e30c507ca3fa005e2d1322a5aa8fb2">
+    <description>Apache on Redhat</description>
+    <example>71e30c507ca3fa005e2d1322a5aa8fb2</example>
+    <param pos="0" name="service.vendor" value="Apache" />
+    <param pos="0" name="service.product" value="Apache on Redhat" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^d41d8cd98f00b204e9800998ecf8427e">
+    <description>Zero byte favicon</description>
+    <example>d41d8cd98f00b204e9800998ecf8427e</example>
+    <param pos="0" name="service.vendor" value="Zero" />
+    <param pos="0" name="service.product" value="Zero byte favicon" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^dcea02a5797ce9e36f19b7590752563e">
+    <description>Parallels Plesk</description>
+    <example>dcea02a5797ce9e36f19b7590752563e</example>
+    <param pos="0" name="service.vendor" value="Parallels" />
+    <param pos="0" name="service.product" value="Parallels Plesk" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^6f767458b952d4755a795af0e4e0aa17">
+    <description>Yahoo!</description>
+    <example>6f767458b952d4755a795af0e4e0aa17</example>
+    <param pos="0" name="service.vendor" value="Yahoo!" />
+    <param pos="0" name="service.product" value="Yahoo!" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^5b0e3b33aa166c88cee57f83de1d4e55">
+    <description>DotNetNuke (http</description>
+    <example>5b0e3b33aa166c88cee57f83de1d4e55</example>
+    <param pos="0" name="service.vendor" value="DotNetNuke" />
+    <param pos="0" name="service.product" value="DotNetNuke (http" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^7dbe9acc2ab6e64d59fa67637b1239df">
+    <description>Lotus-Domino</description>
+    <example>7dbe9acc2ab6e64d59fa67637b1239df</example>
+    <param pos="0" name="service.vendor" value="Lotus-Domino" />
+    <param pos="0" name="service.product" value="Lotus-Domino" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^81ed5fa6453cf406d1d82233ba355b9a">
+    <description>E-zekiel</description>
+    <example>81ed5fa6453cf406d1d82233ba355b9a</example>
+    <param pos="0" name="service.vendor" value="E-zekiel" />
+    <param pos="0" name="service.product" value="E-zekiel" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^(?:c1201c47c81081c7f0930503cae7f71a|f425342764f8c356479d05daa7013c2f|740af61c776a3cb98da3715bdf9d3fc1|d7ac014e83b5c4a2dea76c50eaeda662)$">
+    <description>vBulletin forum</description>
+    <example>c1201c47c81081c7f0930503cae7f71a</example>
+    <example>f425342764f8c356479d05daa7013c2f</example>
+    <example>740af61c776a3cb98da3715bdf9d3fc1</example>
+    <example>d7ac014e83b5c4a2dea76c50eaeda662</example>
+    <param pos="0" name="service.vendor" value="vBulletin" />
+    <param pos="0" name="service.product" value="vBulletin forum" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^edaaef7bbd3072a3a0c3fb3b29900bcb">
+    <description>Powered by Reynolds Web Solutions (Car sales CMS)</description>
+    <example>edaaef7bbd3072a3a0c3fb3b29900bcb</example>
+    <param pos="0" name="service.vendor" value="Powered" />
+    <param pos="0" name="service.product" value="Powered by Reynolds Web Solutions (Car sales CMS)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^d99217782f41e71bcaa8e663e6302473">
+    <description>Apache on Red Hat/Fedora</description>
+    <example>d99217782f41e71bcaa8e663e6302473</example>
+    <param pos="0" name="service.vendor" value="Apache" />
+    <param pos="0" name="service.product" value="Apache on Red Hat/Fedora" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^a8fe5b8ae2c445a33ac41b33ccc9a120">
+    <description>Arris Touchstone Device</description>
+    <example>a8fe5b8ae2c445a33ac41b33ccc9a120</example>
+    <param pos="0" name="service.vendor" value="Arris" />
+    <param pos="0" name="service.product" value="Arris Touchstone Device" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^d16a0da12074dae41980a6918d33f031">
+    <description>ST 605</description>
+    <example>d16a0da12074dae41980a6918d33f031</example>
+    <param pos="0" name="service.vendor" value="ST" />
+    <param pos="0" name="service.product" value="ST 605" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^befcded36aec1e59ea624582fcb3225c">
+    <description>SpeedTouch</description>
+    <example>befcded36aec1e59ea624582fcb3225c</example>
+    <param pos="0" name="service.vendor" value="SpeedTouch" />
+    <param pos="0" name="service.product" value="SpeedTouch" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^e4a509e78afca846cd0e6c0672797de5">
+    <description>i3micro VRG</description>
+    <example>e4a509e78afca846cd0e6c0672797de5</example>
+    <param pos="0" name="service.vendor" value="i3micro" />
+    <param pos="0" name="service.product" value="i3micro VRG" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^3541a8ed03d7a4911679009961a82675">
+    <description>status.net</description>
+    <example>3541a8ed03d7a4911679009961a82675</example>
+    <param pos="0" name="service.vendor" value="status.net" />
+    <param pos="0" name="service.product" value="status.net" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^fa2b274fab800af436ee688e97da4ac4">
+    <description>Etherpad</description>
+    <example>fa2b274fab800af436ee688e97da4ac4</example>
+    <param pos="0" name="service.vendor" value="Etherpad" />
+    <param pos="0" name="service.product" value="Etherpad" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^83245b21512cc0a0e7a67c72c3a3f501">
+    <description>OpenXPKI</description>
+    <example>83245b21512cc0a0e7a67c72c3a3f501</example>
+    <param pos="0" name="service.vendor" value="OpenXPKI" />
+    <param pos="0" name="service.product" value="OpenXPKI" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^85138f44d577b03dfc738d3f27e04992">
+    <description>Gitweb</description>
+    <example>85138f44d577b03dfc738d3f27e04992</example>
+    <param pos="0" name="service.vendor" value="Gitweb" />
+    <param pos="0" name="service.product" value="Gitweb" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^70625a6e60529a85cc51ad7da2d5580d">
+    <description>SSLstrip</description>
+    <example>70625a6e60529a85cc51ad7da2d5580d</example>
+    <param pos="0" name="service.vendor" value="SSLstrip" />
+    <param pos="0" name="service.product" value="SSLstrip" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^99306a52c76e19e3c298a46616c5899c">
+    <description>aMule (2.2.2)</description>
+    <example>99306a52c76e19e3c298a46616c5899c</example>
+    <param pos="0" name="service.vendor" value="aMule" />
+    <param pos="0" name="service.product" value="aMule (2.2.2)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^31c16dd034e6985b4ba929e251200580">
+    <description>Stephen Turner Analog (6.0)</description>
+    <example>31c16dd034e6985b4ba929e251200580</example>
+    <param pos="0" name="service.vendor" value="Stephen" />
+    <param pos="0" name="service.product" value="Stephen Turner Analog (6.0)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^2d4cca83cf14d1adae178ad013bdf65b">
+    <description>Ant docs manual (1.7.1)</description>
+    <example>2d4cca83cf14d1adae178ad013bdf65b</example>
+    <param pos="0" name="service.vendor" value="Ant" />
+    <param pos="0" name="service.product" value="Ant docs manual (1.7.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^032ecc47c22a91e7f3f1d28a45d7f7bc">
+    <description>Ant docs (1.7.1) / libjakarta-poi-java (3.0.2)</description>
+    <example>032ecc47c22a91e7f3f1d28a45d7f7bc</example>
+    <param pos="0" name="service.vendor" value="Ant" />
+    <param pos="0" name="service.product" value="Ant docs (1.7.1) / libjakarta-poi-java (3.0.2)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^c0c4e7c0ac4da24ab8fc842d7f96723c">
+    <description>xsp (1.9.1)</description>
+    <example>c0c4e7c0ac4da24ab8fc842d7f96723c</example>
+    <param pos="0" name="service.vendor" value="xsp" />
+    <param pos="0" name="service.product" value="xsp (1.9.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^d6923071afcee9cebcebc785da40b226">
+    <description>autopsy (2.08)</description>
+    <example>d6923071afcee9cebcebc785da40b226</example>
+    <param pos="0" name="service.vendor" value="autopsy" />
+    <param pos="0" name="service.product" value="autopsy (2.08)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^7513f4cf4802f546518f26ab5cfa1cad">
+    <description>axyl (2.6.0)</description>
+    <example>7513f4cf4802f546518f26ab5cfa1cad</example>
+    <param pos="0" name="service.vendor" value="axyl" />
+    <param pos="0" name="service.product" value="axyl (2.6.0)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^de68f0ad7b37001b8241bce3887593c7">
+    <description>b2evolution (2.4.2)</description>
+    <example>de68f0ad7b37001b8241bce3887593c7</example>
+    <param pos="0" name="service.vendor" value="b2evolution" />
+    <param pos="0" name="service.product" value="b2evolution (2.4.2)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^140e3eb3e173bfb8d15778a578a213aa">
+    <description>bmpx (0.40.14)</description>
+    <example>140e3eb3e173bfb8d15778a578a213aa</example>
+    <param pos="0" name="service.vendor" value="bmpx" />
+    <param pos="0" name="service.product" value="bmpx (0.40.14)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^c0533ae5d0ed638ba3fb3485d8250a28">
+    <description>CakePHP (1.1.x)</description>
+    <example>c0533ae5d0ed638ba3fb3485d8250a28</example>
+    <param pos="0" name="service.vendor" value="CakePHP" />
+    <param pos="0" name="service.product" value="CakePHP (1.1.x)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^66b3119d379aee26ba668fef49188dd3">
+    <description>cakephp (1.2.x-1.3x)</description>
+    <example>66b3119d379aee26ba668fef49188dd3</example>
+    <param pos="0" name="service.vendor" value="cakephp" />
+    <param pos="0" name="service.product" value="cakephp (1.2.x-1.3x)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^09f5ea65a2d31da8976b9b9fd2bf853c">
+    <description>caudium (1.4.12)</description>
+    <example>09f5ea65a2d31da8976b9b9fd2bf853c</example>
+    <param pos="0" name="service.vendor" value="caudium" />
+    <param pos="0" name="service.product" value="caudium (1.4.12)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^f276b19aabcb4ae8cda4d22625c6735f">
+    <description>cgiirc (0.5.9)</description>
+    <example>f276b19aabcb4ae8cda4d22625c6735f</example>
+    <param pos="0" name="service.vendor" value="cgiirc" />
+    <param pos="0" name="service.product" value="cgiirc (0.5.9)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^a18421fbf34123c03fb8b3082e9d33c8">
+    <description>chora2 (2.0.2)</description>
+    <example>a18421fbf34123c03fb8b3082e9d33c8</example>
+    <param pos="0" name="service.vendor" value="chora2" />
+    <param pos="0" name="service.product" value="chora2 (2.0.2)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^23426658f03969934b758b7eb9e8f602">
+    <description>chronicle (2.9) theme-steve</description>
+    <example>23426658f03969934b758b7eb9e8f602</example>
+    <param pos="0" name="service.vendor" value="chronicle" />
+    <param pos="0" name="service.product" value="chronicle (2.9) theme-steve" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^75069c2c6701b2be250c05ec494b1b31">
+    <description>chronicle (2.9) theme-blog.mail-scanning.com</description>
+    <example>75069c2c6701b2be250c05ec494b1b31</example>
+    <param pos="0" name="service.vendor" value="chronicle" />
+    <param pos="0" name="service.product" value="chronicle (2.9) theme-blog.mail-scanning.com" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^27c3b07523efd6c318a201cac58008ba">
+    <description>cimg (1.2.0.1)</description>
+    <example>27c3b07523efd6c318a201cac58008ba</example>
+    <param pos="0" name="service.vendor" value="cimg" />
+    <param pos="0" name="service.product" value="cimg (1.2.0.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^ae59960e866e2730e99799ac034eacf7">
+    <description>webcit (7.37)</description>
+    <example>ae59960e866e2730e99799ac034eacf7</example>
+    <param pos="0" name="service.vendor" value="webcit" />
+    <param pos="0" name="service.product" value="webcit (7.37)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^2ab2aae806e8393b70970b2eaace82e0">
+    <description>couchdb (0.8.0-0.9.1)</description>
+    <example>2ab2aae806e8393b70970b2eaace82e0</example>
+    <param pos="0" name="service.vendor" value="couchdb" />
+    <param pos="0" name="service.product" value="couchdb (0.8.0-0.9.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^ddd76f1cfe31499ce3db6702991cbc45">
+    <description>cream (0.41)</description>
+    <example>ddd76f1cfe31499ce3db6702991cbc45</example>
+    <param pos="0" name="service.vendor" value="cream" />
+    <param pos="0" name="service.product" value="cream (0.41)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^abeea75cf3c1bac42bbd0e96803c72b9">
+    <description>doc-iana-20080601</description>
+    <example>abeea75cf3c1bac42bbd0e96803c72b9</example>
+    <param pos="0" name="service.vendor" value="doc-iana-20080601" />
+    <param pos="0" name="service.product" value="doc-iana-20080601" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^e6a9dc66179d8c9f34288b16a02f987e">
+    <description>Drupal CMS (5.10)</description>
+    <example>e6a9dc66179d8c9f34288b16a02f987e</example>
+    <param pos="0" name="service.vendor" value="Drupal" />
+    <param pos="0" name="service.product" value="Drupal CMS (5.10)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^bba9f1c29f100d265865626541b20a50">
+    <description>dtc (0.28.10)</description>
+    <example>bba9f1c29f100d265865626541b20a50</example>
+    <param pos="0" name="service.vendor" value="dtc" />
+    <param pos="0" name="service.product" value="dtc (0.28.10)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^171429057ae2d6ad68e2cd6dcfd4adc1">
+    <description>ebug-http (0.31)</description>
+    <example>171429057ae2d6ad68e2cd6dcfd4adc1</example>
+    <param pos="0" name="service.vendor" value="ebug-http" />
+    <param pos="0" name="service.product" value="ebug-http (0.31)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^f6e9339e652b8655d4e26f3e947cf212">
+    <description>eGroupWare (1.0.0.009, 1.4.004-2) (/phpgwapi/templates/idots/images/favicon.ico)</description>
+    <example>f6e9339e652b8655d4e26f3e947cf212</example>
+    <param pos="0" name="service.vendor" value="eGroupWare" />
+    <param pos="0" name="service.product" value="eGroupWare (1.0.0.009, 1.4.004-2) (/phpgwapi/templates/idots/images/favicon.ico)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^093551287f13e0ee3805fee23c6f0e12">
+    <description>freevo (1.8.1)</description>
+    <example>093551287f13e0ee3805fee23c6f0e12</example>
+    <param pos="0" name="service.vendor" value="freevo" />
+    <param pos="0" name="service.product" value="freevo (1.8.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^56753c5386a70edba6190d49252f00bb">
+    <description>gallery (1.5.8)</description>
+    <example>56753c5386a70edba6190d49252f00bb</example>
+    <param pos="0" name="service.vendor" value="gallery" />
+    <param pos="0" name="service.product" value="gallery (1.5.8)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^54b299f2f1c8b56c8c495f2ded6e3e0b">
+    <description>garlic-doc (1.6)</description>
+    <example>54b299f2f1c8b56c8c495f2ded6e3e0b</example>
+    <param pos="0" name="service.vendor" value="garlic-doc" />
+    <param pos="0" name="service.product" value="garlic-doc (1.6)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^857281e82ea34abbb79b9b9c752e33d2">
+    <description>gforge (4.6.99+svn6496) - webcalendar</description>
+    <example>857281e82ea34abbb79b9b9c752e33d2</example>
+    <param pos="0" name="service.vendor" value="gforge" />
+    <param pos="0" name="service.product" value="gforge (4.6.99+svn6496) - webcalendar" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^27a097ec0dbffb7db436384635d50415">
+    <description>gforge (4.6.99+svn6496) - images</description>
+    <example>27a097ec0dbffb7db436384635d50415</example>
+    <param pos="0" name="service.vendor" value="gforge" />
+    <param pos="0" name="service.product" value="gforge (4.6.99+svn6496) - images" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^0e14c2f52b93613b5d1527802523b23f">
+    <description>gforge (4.6.99+svn6496)</description>
+    <example>0e14c2f52b93613b5d1527802523b23f</example>
+    <param pos="0" name="service.vendor" value="gforge" />
+    <param pos="0" name="service.product" value="gforge (4.6.99+svn6496)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^c9339a2ecde0980f40ba22c2d237b94b">
+    <description>glpi (0.70.2)</description>
+    <example>c9339a2ecde0980f40ba22c2d237b94b</example>
+    <param pos="0" name="service.vendor" value="glpi" />
+    <param pos="0" name="service.product" value="glpi (0.70.2)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^db1e3fe4a9ba1be201e913f9a401d794">
+    <description>gollem (1.0.3)</description>
+    <example>db1e3fe4a9ba1be201e913f9a401d794</example>
+    <param pos="0" name="service.vendor" value="gollem" />
+    <param pos="0" name="service.product" value="gollem (1.0.3)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^921042508f011ae477d5d91b2a90d03f">
+    <description>gonzui (1.2+cvs20070129)</description>
+    <example>921042508f011ae477d5d91b2a90d03f</example>
+    <param pos="0" name="service.vendor" value="gonzui" />
+    <param pos="0" name="service.product" value="gonzui (1.2+cvs20070129)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^ecab73f909ddd28e482ababe810447c8">
+    <description>gosa (2.5.16.1)</description>
+    <example>ecab73f909ddd28e482ababe810447c8</example>
+    <param pos="0" name="service.vendor" value="gosa" />
+    <param pos="0" name="service.product" value="gosa (2.5.16.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^c16b0a5c9eb3bfd831349739d89704ec">
+    <description>gramps (3.0.1)</description>
+    <example>c16b0a5c9eb3bfd831349739d89704ec</example>
+    <param pos="0" name="service.vendor" value="gramps" />
+    <param pos="0" name="service.product" value="gramps (3.0.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^63d5627fc659adfdd5b902ecafe9100f">
+    <description>gsoap (2.7.9l)</description>
+    <example>63d5627fc659adfdd5b902ecafe9100f</example>
+    <param pos="0" name="service.vendor" value="gsoap" />
+    <param pos="0" name="service.product" value="gsoap (2.7.9l)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^462794b1165c44409861fcad7e185631">
+    <description>hercules (3.05)</description>
+    <example>462794b1165c44409861fcad7e185631</example>
+    <param pos="0" name="service.vendor" value="hercules" />
+    <param pos="0" name="service.product" value="hercules (3.05)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^3995c585b76bd5aa67cb6385431d378a">
+    <description>horde-sam (0.1+cvs20080316) - silver</description>
+    <example>3995c585b76bd5aa67cb6385431d378a</example>
+    <param pos="0" name="service.vendor" value="horde-sam" />
+    <param pos="0" name="service.product" value="horde-sam (0.1+cvs20080316) - silver" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^ee3d6a9227e27a5bc72db3184dab8303">
+    <description>horde-sam (0.1+cvs20080316) - graphics</description>
+    <example>ee3d6a9227e27a5bc72db3184dab8303</example>
+    <param pos="0" name="service.vendor" value="horde-sam" />
+    <param pos="0" name="service.product" value="horde-sam (0.1+cvs20080316) - graphics" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^7cc1a052c86cc3d487957f7092a6d8c3">
+    <description>horde (3.2.1) - graphics/tango</description>
+    <example>7cc1a052c86cc3d487957f7092a6d8c3</example>
+    <param pos="0" name="service.vendor" value="horde" />
+    <param pos="0" name="service.product" value="horde (3.2.1) - graphics/tango" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^5e99522b02f6ecadbb3665202357d775">
+    <description>hplip (2.8.7) - installer</description>
+    <example>5e99522b02f6ecadbb3665202357d775</example>
+    <param pos="0" name="service.vendor" value="hplip" />
+    <param pos="0" name="service.product" value="hplip (2.8.7) - installer" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^39308a30527336e59d1d166d48c7742c">
+    <description>Hewlett-Packard HPLIP (2.8.7) - doc</description>
+    <example>39308a30527336e59d1d166d48c7742c</example>
+    <param pos="0" name="service.vendor" value="Hewlett-Packard" />
+    <param pos="0" name="service.product" value="Hewlett-Packard HPLIP (2.8.7) - doc" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^43d4aa56dc796067b442c95976a864fd">
+    <description>hunchentoot (0.15.7)</description>
+    <example>43d4aa56dc796067b442c95976a864fd</example>
+    <param pos="0" name="service.vendor" value="hunchentoot" />
+    <param pos="0" name="service.product" value="hunchentoot (0.15.7)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^32bf63ac2d3cfe82425ce8836c9ce87c">
+    <description>ikiwiki (2.56ubuntu1)</description>
+    <example>32bf63ac2d3cfe82425ce8836c9ce87c</example>
+    <param pos="0" name="service.vendor" value="ikiwiki" />
+    <param pos="0" name="service.product" value="ikiwiki (2.56ubuntu1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^f567fd4927f9693a7a2d6cacf21b51b6">
+    <description>Horde IMP (4.1.4 - 4.1.6, also used in Horde Groupware Webmail 1.0.1))</description>
+    <example>f567fd4927f9693a7a2d6cacf21b51b6</example>
+    <param pos="0" name="service.vendor" value="Horde" />
+    <param pos="0" name="service.product" value="Horde IMP (4.1.4 - 4.1.6, also used in Horde Groupware Webmail 1.0.1))" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^919e132a62ea07fce13881470ba70293">
+    <description>Horde Groupware Webmail 1.0.1 (Ingo Theme, 1.1.5)</description>
+    <example>919e132a62ea07fce13881470ba70293</example>
+    <param pos="0" name="service.vendor" value="Horde" />
+    <param pos="0" name="service.product" value="Horde Groupware Webmail 1.0.1 (Ingo Theme, 1.1.5)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^ed7d5c39c69262f4ba95418d4f909b10">
+    <description>jetty (5.1.14)</description>
+    <example>ed7d5c39c69262f4ba95418d4f909b10</example>
+    <param pos="0" name="service.vendor" value="jetty" />
+    <param pos="0" name="service.product" value="jetty (5.1.14)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^6900fab05a50a99d284405f46e5bc7f6">
+    <description>k3d (0.6.7.0)</description>
+    <example>6900fab05a50a99d284405f46e5bc7f6</example>
+    <param pos="0" name="service.vendor" value="k3d" />
+    <param pos="0" name="service.product" value="k3d (0.6.7.0)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^24d1e355c00e79dc13b84d5455534fe7">
+    <description>kdelibs (3.5.10-4.1.4)</description>
+    <example>24d1e355c00e79dc13b84d5455534fe7</example>
+    <param pos="0" name="service.vendor" value="kdelibs" />
+    <param pos="0" name="service.product" value="kdelibs (3.5.10-4.1.4)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^8ab2f1a55bcb0cac227828afd5927d39">
+    <description>kdenetwork (4.1.4)</description>
+    <example>8ab2f1a55bcb0cac227828afd5927d39</example>
+    <param pos="0" name="service.vendor" value="kdenetwork" />
+    <param pos="0" name="service.product" value="kdenetwork (4.1.4)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^54667bea91124121e98da49e55244935">
+    <description>kolab-webadmin (2.1.0-20070510)</description>
+    <example>54667bea91124121e98da49e55244935</example>
+    <param pos="0" name="service.vendor" value="kolab-webadmin" />
+    <param pos="0" name="service.product" value="kolab-webadmin (2.1.0-20070510)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^a5b126cdeaa3081f77a22b3e43730942">
+    <description>Horde Groupware Webmail 1.0.1 (Kronolith Theme, 2.1.8)</description>
+    <example>a5b126cdeaa3081f77a22b3e43730942</example>
+    <param pos="0" name="service.vendor" value="Horde" />
+    <param pos="0" name="service.product" value="Horde Groupware Webmail 1.0.1 (Kronolith Theme, 2.1.8)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^d00d85c8fb3a11170c1280c454398d51">
+    <description>ktorrent (3.1.2)</description>
+    <example>d00d85c8fb3a11170c1280c454398d51</example>
+    <param pos="0" name="service.vendor" value="ktorrent" />
+    <param pos="0" name="service.product" value="ktorrent (3.1.2)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^fa21ab1b1e1b4c9516afbd63e91275a9">
+    <description>lastfmproxy (1.3b)</description>
+    <example>fa21ab1b1e1b4c9516afbd63e91275a9</example>
+    <param pos="0" name="service.vendor" value="lastfmproxy" />
+    <param pos="0" name="service.product" value="lastfmproxy (1.3b)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^663ee93a41000b8959d6145f0603f599">
+    <description>ldap-account-manager (2.3.0)</description>
+    <example>663ee93a41000b8959d6145f0603f599</example>
+    <param pos="0" name="service.vendor" value="ldap-account-manager" />
+    <param pos="0" name="service.product" value="ldap-account-manager (2.3.0)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^ea84a69cb146a947fac2ac7af3946297">
+    <description>boost (1.34.1)</description>
+    <example>ea84a69cb146a947fac2ac7af3946297</example>
+    <param pos="0" name="service.vendor" value="boost" />
+    <param pos="0" name="service.product" value="boost (1.34.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^eb3e307f44581916d9f1197df2fc9de3">
+    <description>flac (1.2.1)</description>
+    <example>eb3e307f44581916d9f1197df2fc9de3</example>
+    <param pos="0" name="service.vendor" value="flac" />
+    <param pos="0" name="service.product" value="flac (1.2.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^669bc10baf11b43391294aac3e1b8c52">
+    <description>libitpp (4.0.4)</description>
+    <example>669bc10baf11b43391294aac3e1b8c52</example>
+    <param pos="0" name="service.vendor" value="libitpp" />
+    <param pos="0" name="service.product" value="libitpp (4.0.4)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^b8fe2ec1fcc0477c0d0f00084d824071">
+    <description>lucene (2.3.2)</description>
+    <example>b8fe2ec1fcc0477c0d0f00084d824071</example>
+    <param pos="0" name="service.vendor" value="lucene" />
+    <param pos="0" name="service.product" value="lucene (2.3.2)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^12225e325909cee70c31f5a7ab2ee194">
+    <description>ramaze-ruby (0.3.9.1)</description>
+    <example>12225e325909cee70c31f5a7ab2ee194</example>
+    <param pos="0" name="service.vendor" value="ramaze-ruby" />
+    <param pos="0" name="service.product" value="ramaze-ruby (0.3.9.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^6be5ebd07e37d0b415ec83396a077312">
+    <description>ramaze-ruby (0.3.9.1) - dispatcher</description>
+    <example>6be5ebd07e37d0b415ec83396a077312</example>
+    <param pos="0" name="service.vendor" value="ramaze-ruby" />
+    <param pos="0" name="service.product" value="ramaze-ruby (0.3.9.1) - dispatcher" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^20e208bb83f3eeed7c1aa8a6d9d3229d">
+    <description>libswarmcache-java (1.0RC2+cvs20071027)</description>
+    <example>20e208bb83f3eeed7c1aa8a6d9d3229d</example>
+    <param pos="0" name="service.vendor" value="libswarmcache-java" />
+    <param pos="0" name="service.product" value="libswarmcache-java (1.0RC2+cvs20071027)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^5f8b52715c08dfc7826dad181c71dec8">
+    <description>mahara (1.0.4)</description>
+    <example>5f8b52715c08dfc7826dad181c71dec8</example>
+    <param pos="0" name="service.vendor" value="mahara" />
+    <param pos="0" name="service.product" value="mahara (1.0.4)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^ebe293e1746858d2548bca99c43e4969">
+    <description>Mantis Bug Tracker (1.1.2, /bugs/images/favicon.ico)</description>
+    <example>ebe293e1746858d2548bca99c43e4969</example>
+    <param pos="0" name="service.vendor" value="Mantis" />
+    <param pos="0" name="service.product" value="Mantis Bug Tracker (1.1.2, /bugs/images/favicon.ico)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^0d42576d625920bcd121261fc5a6230b">
+    <description>mathomatic (14.0.6)</description>
+    <example>0d42576d625920bcd121261fc5a6230b</example>
+    <param pos="0" name="service.vendor" value="mathomatic" />
+    <param pos="0" name="service.product" value="mathomatic (14.0.6)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^f972c37bf444fb1925a2c97812e2c1eb">
+    <description>mediatomb (0.11.0)</description>
+    <example>f972c37bf444fb1925a2c97812e2c1eb</example>
+    <param pos="0" name="service.vendor" value="mediatomb" />
+    <param pos="0" name="service.product" value="mediatomb (0.11.0)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^f5f2df7eec0d1c3c10b58960f3f8fb26">
+    <description>Horde Groupware Webmail 1.0.1 (Mnemo Theme, 2.1.2)</description>
+    <example>f5f2df7eec0d1c3c10b58960f3f8fb26</example>
+    <param pos="0" name="service.vendor" value="Horde" />
+    <param pos="0" name="service.product" value="Horde Groupware Webmail 1.0.1 (Mnemo Theme, 2.1.2)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^933a83c6e9e47bd1e38424f3789d121d">
+    <description>Moodle (1.8.2, 1.9.x, multiple default themes)</description>
+    <example>933a83c6e9e47bd1e38424f3789d121d</example>
+    <param pos="0" name="service.vendor" value="Moodle" />
+    <param pos="0" name="service.product" value="Moodle (1.8.2, 1.9.x, multiple default themes)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^b6652d5d71f6f04a88a8443a8821510f">
+    <description>Moodle (1.8.2, 1.9.x, Cornflower Theme, /theme/cornflower/favicon.ico)</description>
+    <example>b6652d5d71f6f04a88a8443a8821510f</example>
+    <param pos="0" name="service.vendor" value="Moodle" />
+    <param pos="0" name="service.product" value="Moodle (1.8.2, 1.9.x, Cornflower Theme, /theme/cornflower/favicon.ico)" />
+      <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^06b60d90ccfb79c2574c7fdc3ac23f05">
+    <description>movabletype-opensource (4.2~rc4)</description>
+    <example>06b60d90ccfb79c2574c7fdc3ac23f05</example>
+    <param pos="0" name="service.vendor" value="movabletype-opensource" />
+    <param pos="0" name="service.product" value="movabletype-opensource (4.2~rc4)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^21d80d9730a56b26dc9d252ffabb2987">
+    <description>mythplugins (0.21.0+fixes18722)</description>
+    <example>21d80d9730a56b26dc9d252ffabb2987</example>
+    <param pos="0" name="service.vendor" value="mythplugins" />
+    <param pos="0" name="service.product" value="mythplugins (0.21.0+fixes18722)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^81df3601d6dc13cbc6bd8212ef50dd29">
+    <description>Horde Groupware Webmail 1.0.1 (Nag Theme, 2.1.4)</description>
+    <example>81df3601d6dc13cbc6bd8212ef50dd29</example>
+    <param pos="0" name="service.vendor" value="Horde" />
+    <param pos="0" name="service.product" value="Horde Groupware Webmail 1.0.1 (Nag Theme, 2.1.4)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^28015fcdf84ca0d7d382394a82396927">
+    <description>nanoblogger (3.3)</description>
+    <example>28015fcdf84ca0d7d382394a82396927</example>
+    <param pos="0" name="service.vendor" value="nanoblogger" />
+    <param pos="0" name="service.product" value="nanoblogger (3.3)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^868e7b460bba6fe29a37aa0ceff851ba">
+    <description>netmrg (0.20)</description>
+    <example>868e7b460bba6fe29a37aa0ceff851ba</example>
+    <param pos="0" name="service.vendor" value="netmrg" />
+    <param pos="0" name="service.product" value="netmrg (0.20)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^0b2481ebc335a2d70fcf0cba0b3ce0fc">
+    <description>ntop (3.3)</description>
+    <example>0b2481ebc335a2d70fcf0cba0b3ce0fc</example>
+    <param pos="0" name="service.vendor" value="ntop" />
+    <param pos="0" name="service.product" value="ntop (3.3)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^c30bf7e6d4afe1f02969e0f523d7a251">
+    <description>nulog (2.0)</description>
+    <example>c30bf7e6d4afe1f02969e0f523d7a251</example>
+    <param pos="0" name="service.vendor" value="nulog" />
+    <param pos="0" name="service.product" value="nulog (2.0)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^9a8035769d7a129b19feb275a33dc5b4">
+    <description>ocsinventory-server (1.01)</description>
+    <example>9a8035769d7a129b19feb275a33dc5b4</example>
+    <param pos="0" name="service.vendor" value="ocsinventory-server" />
+    <param pos="0" name="service.product" value="ocsinventory-server (1.01)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^75aeda7adbd012fa93c4ae80336b4f45">
+    <description>parrot (0.4.13) - docs</description>
+    <example>75aeda7adbd012fa93c4ae80336b4f45</example>
+    <param pos="0" name="service.vendor" value="parrot" />
+    <param pos="0" name="service.product" value="parrot (0.4.13) - docs" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^70777a39f5d1de6d3873ffb309df35dd">
+    <description>pathological (1.1.3)</description>
+    <example>70777a39f5d1de6d3873ffb309df35dd</example>
+    <param pos="0" name="service.vendor" value="pathological" />
+    <param pos="0" name="service.product" value="pathological (1.1.3)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^82d746eb54b78b5449fbd583fc046ab2">
+    <description>perl-doc-html (5.10.0)</description>
+    <example>82d746eb54b78b5449fbd583fc046ab2</example>
+    <param pos="0" name="service.vendor" value="perl-doc-html" />
+    <param pos="0" name="service.product" value="perl-doc-html (5.10.0)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^90c244c893a963e3bb193d6043a347bd">
+    <description>phpgroupware (0.9.16.012)</description>
+    <example>90c244c893a963e3bb193d6043a347bd</example>
+    <param pos="0" name="service.vendor" value="phpgroupware" />
+    <param pos="0" name="service.product" value="phpgroupware (0.9.16.012)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^4b30eec86e9910e663b5a9209e9593b6">
+    <description>phpldapadmin (1.1.0.5)</description>
+    <example>4b30eec86e9910e663b5a9209e9593b6</example>
+    <param pos="0" name="service.vendor" value="phpldapadmin" />
+    <param pos="0" name="service.product" value="phpldapadmin (1.1.0.5)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^02dd7453848213a7b5277556bcc46307">
+    <description>phpmyadmin (2.11.8.1) - pmd</description>
+    <example>02dd7453848213a7b5277556bcc46307</example>
+    <param pos="0" name="service.vendor" value="phpmyadmin" />
+    <param pos="0" name="service.product" value="phpmyadmin (2.11.8.1) - pmd" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^d037ef2f629a22ddadcf438e6be7a325">
+    <description>phpmyadmin (2.11.8.1)</description>
+    <example>d037ef2f629a22ddadcf438e6be7a325</example>
+    <param pos="0" name="service.vendor" value="phpmyadmin" />
+    <param pos="0" name="service.product" value="phpmyadmin (2.11.8.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^8190ead2eb45952151ab5065d0e56381">
+    <description>pootle (1.1.0)</description>
+    <example>8190ead2eb45952151ab5065d0e56381</example>
+    <param pos="0" name="service.vendor" value="pootle" />
+    <param pos="0" name="service.product" value="pootle (1.1.0)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^ba84999dfc070065f37a082ab0e36017">
+    <description>prewikka (0.9.14)</description>
+    <example>ba84999dfc070065f37a082ab0e36017</example>
+    <param pos="0" name="service.vendor" value="prewikka" />
+    <param pos="0" name="service.product" value="prewikka (0.9.14)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^0f45c2c79ebe90d6491ddb111e810a56">
+    <description>python-cherrypy (2.3.0-3.0.2)</description>
+    <example>0f45c2c79ebe90d6491ddb111e810a56</example>
+    <param pos="0" name="service.vendor" value="python-cherrypy" />
+    <param pos="0" name="service.product" value="python-cherrypy (2.3.0-3.0.2)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^e551b7017a9bd490fc5b76e833d689bf">
+    <description>MoinMoin (1.7.1)</description>
+    <example>e551b7017a9bd490fc5b76e833d689bf</example>
+    <param pos="0" name="service.vendor" value="MoinMoin" />
+    <param pos="0" name="service.product" value="MoinMoin (1.7.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^275e2e37fc7be50c1f03661ef8b6ce4f">
+    <description>myghty (1.1)</description>
+    <example>275e2e37fc7be50c1f03661ef8b6ce4f</example>
+    <param pos="0" name="service.vendor" value="myghty" />
+    <param pos="0" name="service.product" value="myghty (1.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^68b329da9893e34099c7d8ad5cb9c940">
+    <description>myghty (1.1) - zblog</description>
+    <example>68b329da9893e34099c7d8ad5cb9c940</example>
+    <param pos="0" name="service.vendor" value="myghty" />
+    <param pos="0" name="service.product" value="myghty (1.1) - zblog" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^5488c1c8bf5a2264b8d4c8541e2d5ccd">
+    <description>turbogears (1.0.4.4) - genshi/elixir</description>
+    <example>5488c1c8bf5a2264b8d4c8541e2d5ccd</example>
+    <param pos="0" name="service.vendor" value="turbogears" />
+    <param pos="0" name="service.product" value="turbogears (1.0.4.4) - genshi/elixir" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^6927da350550f29bc641138825dff36f">
+    <description>python-werkzeug (0.3.1) - docs</description>
+    <example>6927da350550f29bc641138825dff36f</example>
+    <param pos="0" name="service.vendor" value="python-werkzeug" />
+    <param pos="0" name="service.product" value="python-werkzeug (0.3.1) - docs" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^e3f28aab904e9edfd015f64dc93d487d">
+    <description>python-werkzeug (0.3.1) - cupoftee-examples</description>
+    <example>e3f28aab904e9edfd015f64dc93d487d</example>
+    <param pos="0" name="service.vendor" value="python-werkzeug" />
+    <param pos="0" name="service.product" value="python-werkzeug (0.3.1) - cupoftee-examples" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^69f8a727f01a7e9b90a258bc30aaae6a">
+    <description>quantlib-refman-html (0.9.0)</description>
+    <example>69f8a727f01a7e9b90a258bc30aaae6a</example>
+    <param pos="0" name="service.vendor" value="quantlib-refman-html" />
+    <param pos="0" name="service.product" value="quantlib-refman-html (0.9.0)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^b01625f4aa4cd64a180e46ef78f34877">
+    <description>quickplot (0.8.13)</description>
+    <example>b01625f4aa4cd64a180e46ef78f34877</example>
+    <param pos="0" name="service.vendor" value="quickplot" />
+    <param pos="0" name="service.product" value="quickplot (0.8.13)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^af83bba99d82ea47ca9dafc8341ec110">
+    <description>qwik (0.8.4.4ubuntu2)</description>
+    <example>af83bba99d82ea47ca9dafc8341ec110</example>
+    <param pos="0" name="service.vendor" value="qwik" />
+    <param pos="0" name="service.product" value="qwik (0.8.4.4ubuntu2)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^e9469705a8ac323e403d74c11425a62b">
+    <description>roundcube (0.1.1)</description>
+    <example>e9469705a8ac323e403d74c11425a62b</example>
+    <param pos="0" name="service.vendor" value="roundcube" />
+    <param pos="0" name="service.product" value="roundcube (0.1.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^7f57bbd0956976e797b4e8eebdc6d733">
+    <description>selfhtml (8.1.1)</description>
+    <example>7f57bbd0956976e797b4e8eebdc6d733</example>
+    <param pos="0" name="service.vendor" value="selfhtml" />
+    <param pos="0" name="service.product" value="selfhtml (8.1.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^69acfcb2659952bc37c54108d52fca70">
+    <description>solr (1.2.0) - docs</description>
+    <example>69acfcb2659952bc37c54108d52fca70</example>
+    <param pos="0" name="service.vendor" value="solr" />
+    <param pos="0" name="service.product" value="solr (1.2.0) - docs" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^ffc05799dee87a4f8901c458f7291d73">
+    <description>solr (1.2.0) - admin</description>
+    <example>ffc05799dee87a4f8901c458f7291d73</example>
+    <param pos="0" name="service.vendor" value="solr" />
+    <param pos="0" name="service.product" value="solr (1.2.0) - admin" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^aa2253a32823c8a5cba8d479fecedd3a">
+    <description>sork-forwards-h3 (3.0.1)</description>
+    <example>aa2253a32823c8a5cba8d479fecedd3a</example>
+    <param pos="0" name="service.vendor" value="sork-forwards-h3" />
+    <param pos="0" name="service.product" value="sork-forwards-h3 (3.0.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^a2e38a3b0cdf875cd79017dcaf4f2b55">
+    <description>sork-passwd-h3 (3.0)</description>
+    <example>a2e38a3b0cdf875cd79017dcaf4f2b55</example>
+    <param pos="0" name="service.vendor" value="sork-passwd-h3" />
+    <param pos="0" name="service.product" value="sork-passwd-h3 (3.0)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^cb740847c45ea3fbbd80308b9aa4530a">
+    <description>sork-vacation-h3 (3.0.1)</description>
+    <example>cb740847c45ea3fbbd80308b9aa4530a</example>
+    <param pos="0" name="service.vendor" value="sork-vacation-h3" />
+    <param pos="0" name="service.product" value="sork-vacation-h3 (3.0.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^7c7b66d305e9377fa1fce9f9a74464d9">
+    <description>spe (0.8.4.h)</description>
+    <example>7c7b66d305e9377fa1fce9f9a74464d9</example>
+    <param pos="0" name="service.vendor" value="spe" />
+    <param pos="0" name="service.product" value="spe (0.8.4.h)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^0e2503a23068aac350f16143d30a1273">
+    <description>sql-ledger (2.8.15)</description>
+    <example>0e2503a23068aac350f16143d30a1273</example>
+    <param pos="0" name="service.vendor" value="sql-ledger" />
+    <param pos="0" name="service.product" value="sql-ledger (2.8.15)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^1fd3fafc1d461a3d19e91dbbba03d0aa">
+    <description>tea (17.6.1)</description>
+    <example>1fd3fafc1d461a3d19e91dbbba03d0aa</example>
+    <param pos="0" name="service.vendor" value="tea" />
+    <param pos="0" name="service.product" value="tea (17.6.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^1de863a5023e7e73f050a496e6b104ab">
+    <description>torrentflux (2.4)</description>
+    <example>1de863a5023e7e73f050a496e6b104ab</example>
+    <param pos="0" name="service.vendor" value="torrentflux" />
+    <param pos="0" name="service.product" value="torrentflux (2.4)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^83dea3d5d8c6feddec84884522b61850">
+    <description>torrentflux (2.4) - themes/G4E/</description>
+    <example>83dea3d5d8c6feddec84884522b61850</example>
+    <param pos="0" name="service.vendor" value="torrentflux" />
+    <param pos="0" name="service.product" value="torrentflux (2.4) - themes/G4E/" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^d1bc9681dce4ad805c17bd1f0f5cee97">
+    <description>torrentflux (2.4) - themes/BlueFlux/</description>
+    <example>d1bc9681dce4ad805c17bd1f0f5cee97</example>
+    <param pos="0" name="service.vendor" value="torrentflux" />
+    <param pos="0" name="service.product" value="torrentflux (2.4) - themes/BlueFlux/" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^8d13927efb22bbe7237fa64e858bb523">
+    <description>transmission (1.34)</description>
+    <example>8d13927efb22bbe7237fa64e858bb523</example>
+    <param pos="0" name="service.vendor" value="transmission" />
+    <param pos="0" name="service.product" value="transmission (1.34)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^5b015106854dc7be448c14b64867dfa5">
+    <description>tulip (3.0.0~B6)</description>
+    <example>5b015106854dc7be448c14b64867dfa5</example>
+    <param pos="0" name="service.vendor" value="tulip" />
+    <param pos="0" name="service.product" value="tulip (3.0.0~B6)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^ff260e80f5f9ca4b779fbd34087f13cf">
+    <description>Horde Groupware Webmail 1.0.1 (Turba Theme, 2.1.7)</description>
+    <example>ff260e80f5f9ca4b779fbd34087f13cf</example>
+    <param pos="0" name="service.vendor" value="Horde" />
+    <param pos="0" name="service.product" value="Horde Groupware Webmail 1.0.1 (Turba Theme, 2.1.7)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^e7fc436d0bf31500ced7a7143067c337">
+    <description>twiki (4.1.2) - logos/favicon.ico</description>
+    <example>e7fc436d0bf31500ced7a7143067c337</example>
+    <param pos="0" name="service.vendor" value="twiki" />
+    <param pos="0" name="service.product" value="twiki (4.1.2) - logos/favicon.ico" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^9789c9ab400ea0b9ca8fcbd9952133bd">
+    <description>twiki (4.1.2) - webpreferences</description>
+    <example>9789c9ab400ea0b9ca8fcbd9952133bd</example>
+    <param pos="0" name="service.vendor" value="twiki" />
+    <param pos="0" name="service.product" value="twiki (4.1.2) - webpreferences" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^2b52c1344164d29dd8fb758db16aadb6">
+    <description>vdr-plugin-live (0.2.0)</description>
+    <example>2b52c1344164d29dd8fb758db16aadb6</example>
+    <param pos="0" name="service.vendor" value="vdr-plugin-live" />
+    <param pos="0" name="service.product" value="vdr-plugin-live (0.2.0)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^237f837bbc33cd98a9f47b20b284e2ad">
+    <description>vdradmin-am (3.6.1)</description>
+    <example>237f837bbc33cd98a9f47b20b284e2ad</example>
+    <param pos="0" name="service.vendor" value="vdradmin-am" />
+    <param pos="0" name="service.product" value="vdradmin-am (3.6.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^6f7e92fe7e6a62661ac2b41528a78fc6">
+    <description>vlc (0.9.4)</description>
+    <example>6f7e92fe7e6a62661ac2b41528a78fc6</example>
+    <param pos="0" name="service.vendor" value="vlc" />
+    <param pos="0" name="service.product" value="vlc (0.9.4)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^2507c0b0a60ecdc816ba45482affaedf">
+    <description>webcheck (1.10.2.0)</description>
+    <example>2507c0b0a60ecdc816ba45482affaedf</example>
+    <param pos="0" name="service.vendor" value="webcheck" />
+    <param pos="0" name="service.product" value="webcheck (1.10.2.0)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^ef5169b040925a716359d131afbea033">
+    <description>websvn (2.0)</description>
+    <example>ef5169b040925a716359d131afbea033</example>
+    <param pos="0" name="service.vendor" value="websvn" />
+    <param pos="0" name="service.product" value="websvn (2.0)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^f6d0a100b6dbeb5899f0975a1203fd85">
+    <description>witty (2.1.5)</description>
+    <example>f6d0a100b6dbeb5899f0975a1203fd85</example>
+    <param pos="0" name="service.vendor" value="witty" />
+    <param pos="0" name="service.product" value="witty (2.1.5)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^81feac35654318fb16d1a567b8b941e7">
+    <description>yaws (1.77)</description>
+    <example>81feac35654318fb16d1a567b8b941e7</example>
+    <param pos="0" name="service.vendor" value="yaws" />
+    <param pos="0" name="service.product" value="yaws (1.77)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^33b04fb9f2ec918f5f14b41527e77f6d">
+    <description>znc (0.058)</description>
+    <example>33b04fb9f2ec918f5f14b41527e77f6d</example>
+    <param pos="0" name="service.vendor" value="znc" />
+    <param pos="0" name="service.product" value="znc (0.058)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^6434232d43f27ef5462ba5ba345e03df">
+    <description>znc (0.058, webadmin/skins/default)</description>
+    <example>6434232d43f27ef5462ba5ba345e03df</example>
+    <param pos="0" name="service.vendor" value="znc" />
+    <param pos="0" name="service.product" value="znc (0.058, webadmin/skins/default)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^e07c0775523271d629035dc8921dffc7">
+    <description>zoneminder (1.23.3)</description>
+    <example>e07c0775523271d629035dc8921dffc7</example>
+    <param pos="0" name="service.vendor" value="zoneminder" />
+    <param pos="0" name="service.product" value="zoneminder (1.23.3)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^(?:4eb846f1286ab4e7a399c851d7d84cca|a47951fb41640e7a2f5862c296e6f218|10bd6ad7b318df92d9e9bd03104d9b80)$">
+    <description>Plone CMS (3.1.1)</description>
+    <!-- favicon.ico from Plone CMS (3.1.1) -->
+    <example>4eb846f1286ab4e7a399c851d7d84cca</example>
+
+    <example>a47951fb41640e7a2f5862c296e6f218</example>
+    <example>10bd6ad7b318df92d9e9bd03104d9b80</example>
+    <param pos="0" name="service.vendor" value="Plone" />
+    <param pos="0" name="service.product" value="Plone CMS" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^e298e00b2ff6340343ddf2fc6212010b">
+    <description>Nessus 4.x Scanner Web Client</description>
+    <example>e298e00b2ff6340343ddf2fc6212010b</example>
+    <param pos="0" name="service.vendor" value="Nessus" />
+    <param pos="0" name="service.product" value="Nessus 4.x Scanner Web Client" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^240c36cd118aa1ff59986066f21015d4">
+    <description>LANCOM Systems</description>
+    <example>240c36cd118aa1ff59986066f21015d4</example>
+    <param pos="0" name="service.vendor" value="LANCOM" />
+    <param pos="0" name="service.product" value="LANCOM Systems" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^ceb25c12c147093dc93ac8b2c18bebff">
+    <description>COMpact 5020 VoIP</description>
+    <example>ceb25c12c147093dc93ac8b2c18bebff</example>
+    <param pos="0" name="service.vendor" value="COMpact" />
+    <param pos="0" name="service.product" value="COMpact 5020 VoIP" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^05656826682ab3147092991ef5de9ef3">
+    <description>RapidShare</description>
+    <example>05656826682ab3147092991ef5de9ef3</example>
+    <param pos="0" name="service.vendor" value="RapidShare" />
+    <param pos="0" name="service.product" value="RapidShare" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^e19ffb2bc890f5bdca20f10bfddb288d">
+    <description>Rapid7 (NeXpose)</description>
+    <example>e19ffb2bc890f5bdca20f10bfddb288d</example>
+    <param pos="0" name="service.vendor" value="Rapid7" />
+    <param pos="0" name="service.product" value="Rapid7 (NeXpose)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^1f8c0b08fb6b556a6587517a8d5f290b">
+    <description>owasp.org</description>
+    <example>1f8c0b08fb6b556a6587517a8d5f290b</example>
+    <param pos="0" name="service.vendor" value="owasp.org" />
+    <param pos="0" name="service.product" value="owasp.org" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^73778a17b0d22ffbb7d6c445a7947b92">
+    <description>Apache on Mac OS X</description>
+    <example>73778a17b0d22ffbb7d6c445a7947b92</example>
+    <param pos="0" name="service.vendor" value="Apache" />
+    <param pos="0" name="service.product" value="Apache on Mac OS X" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^bd0f7466d35e8ba6cedd9c27110c5c41">
+    <description>Serena Collage (4.6, servlet/images/collage_app.ico)</description>
+    <example>bd0f7466d35e8ba6cedd9c27110c5c41</example>
+    <param pos="0" name="service.vendor" value="Serena" />
+    <param pos="0" name="service.product" value="Serena Collage (4.6, servlet/images/collage_app.ico)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^f097f0adf2b9e95a972d21e5e5ab746d">
+    <description>Citrix Access Server</description>
+    <example>f097f0adf2b9e95a972d21e5e5ab746d</example>
+    <param pos="0" name="service.vendor" value="Citrix" />
+    <param pos="0" name="service.product" value="Citrix Access Server" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^28893699241094742c3c2d4196cd1acb">
+    <description>Xerox DocuShare</description>
+    <example>28893699241094742c3c2d4196cd1acb</example>
+    <param pos="0" name="service.vendor" value="Xerox" />
+    <param pos="0" name="service.product" value="Xerox DocuShare" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^80656aabfafe0f3559f71bb0524c4bb3">
+    <description>Macromedia Breeze</description>
+    <example>80656aabfafe0f3559f71bb0524c4bb3</example>
+    <param pos="0" name="service.vendor" value="Macromedia" />
+    <param pos="0" name="service.product" value="Macromedia Breeze" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^48c02490ba335a159b99343b00decd87">
+    <description>Octeth Technologies oemPro (3.5.5.1)</description>
+    <example>48c02490ba335a159b99343b00decd87</example>
+    <param pos="0" name="service.vendor" value="Octeth" />
+    <param pos="0" name="service.product" value="Octeth Technologies oemPro (3.5.5.1)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^eb6d4ce00ec36af7d439ebd4e5a395d7">
+    <description>Mailman</description>
+    <example>eb6d4ce00ec36af7d439ebd4e5a395d7</example>
+    <param pos="0" name="service.vendor" value="Mailman" />
+    <param pos="0" name="service.product" value="Mailman" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^d80e364c0d3138c7ecd75bf9896f2cad">
+    <description>Apache Tomcat (6.0.18), Alfresco Enterprise Content Management System</description>
+    <example>d80e364c0d3138c7ecd75bf9896f2cad</example>
+    <param pos="0" name="service.vendor" value="Apache" />
+    <param pos="0" name="service.product" value="Apache Tomcat (6.0.18), Alfresco Enterprise Content Management System" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^a6b55b93bc01a6df076483b69039ba9c">
+    <description>Fog Creek Fogbugz (6.1.44)</description>
+    <example>a6b55b93bc01a6df076483b69039ba9c</example>
+    <param pos="0" name="service.vendor" value="Fog" />
+    <param pos="0" name="service.product" value="Fog Creek Fogbugz (6.1.44)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^ee4a637a1257b2430649d6750cda6eba">
+    <description>Trimble Device Embedded Web Server</description>
+    <example>ee4a637a1257b2430649d6750cda6eba</example>
+    <param pos="0" name="service.vendor" value="Trimble" />
+    <param pos="0" name="service.product" value="Trimble Device Embedded Web Server" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^9ceae7a3c88fc451d59e24d8d5f6f166">
+    <description>Plesk managed system</description>
+    <example>9ceae7a3c88fc451d59e24d8d5f6f166</example>
+    <param pos="0" name="service.vendor" value="Plesk" />
+    <param pos="0" name="service.product" value="Plesk managed system" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^69ae01d0c74570d4d221e6c24a06d73b">
+    <description>Roku Soundbridge</description>
+    <example>69ae01d0c74570d4d221e6c24a06d73b</example>
+    <param pos="0" name="service.vendor" value="Roku" />
+    <param pos="0" name="service.product" value="Roku Soundbridge" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^2e9545474ee33884b5fb8a9a0b8806dd">
+    <description>Ampache</description>
+    <example>2e9545474ee33884b5fb8a9a0b8806dd</example>
+    <param pos="0" name="service.vendor" value="Ampache" />
+    <param pos="0" name="service.product" value="Ampache" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^be6fb62815509bd707e69ee8dad874a1">
+    <description>i.LON server by Echelon</description>
+    <example>be6fb62815509bd707e69ee8dad874a1</example>
+    <param pos="0" name="service.vendor" value="i.LON" />
+    <param pos="0" name="service.product" value="i.LON server by Echelon" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^a46bc7fc42979e9b343335bdd86d1c3e">
+    <description>NetScout NGenius</description>
+    <example>a46bc7fc42979e9b343335bdd86d1c3e</example>
+    <param pos="0" name="service.vendor" value="NetScout" />
+    <param pos="0" name="service.product" value="NetScout NGenius" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^de2b6edbf7930f5dd0ffe0528b2bbcf4">
+    <description>Barracuda Spam/Virus firewall appliance</description>
+    <example>de2b6edbf7930f5dd0ffe0528b2bbcf4</example>
+    <param pos="0" name="service.vendor" value="Barracuda" />
+    <param pos="0" name="service.product" value="Barracuda Spam/Virus firewall appliance" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^386211e5c0b7d92efabd41390e0fc250">
+    <description>SparkWeb web-based collaboration client. http</description>
+    <example>386211e5c0b7d92efabd41390e0fc250</example>
+    <param pos="0" name="service.vendor" value="SparkWeb" />
+    <param pos="0" name="service.product" value="SparkWeb web-based collaboration client. http" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^f89abd3f358cb964d6b753a5a9da49cf">
+    <description>LimeSurvey</description>
+    <example>f89abd3f358cb964d6b753a5a9da49cf</example>
+    <param pos="0" name="service.vendor" value="LimeSurvey" />
+    <param pos="0" name="service.product" value="LimeSurvey" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^a7947b1675701f2247921cf4c2b99a78">
+    <description>Alexander Palmo Simple PHP Blog</description>
+    <example>a7947b1675701f2247921cf4c2b99a78</example>
+    <param pos="0" name="service.vendor" value="Alexander" />
+    <param pos="0" name="service.product" value="Alexander Palmo Simple PHP Blog" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^01febf7c2bd75cd15dae3aa093d80552">
+    <description>Atlassian Crucible or Fisheye</description>
+    <example>01febf7c2bd75cd15dae3aa093d80552</example>
+    <param pos="0" name="service.vendor" value="Atlassian" />
+    <param pos="0" name="service.product" value="Atlassian Crucible or Fisheye" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^1275afc920a53a9679d2d0e8a5c74054">
+    <description>Atlassian Crowd</description>
+    <example>1275afc920a53a9679d2d0e8a5c74054</example>
+    <param pos="0" name="service.vendor" value="Atlassian" />
+    <param pos="0" name="service.product" value="Atlassian Crowd" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^(?:12888a39a499eb041ca42bf456aca285|3341c6d3c67ccdaeb7289180c741a965)$">
+    <description>Atlassian Confluence or Crowd</description>
+    <example>12888a39a499eb041ca42bf456aca285</example>
+    <example>3341c6d3c67ccdaeb7289180c741a965</example>
+    <param pos="0" name="service.vendor" value="Atlassian" />
+    <param pos="0" name="service.product" value="Atlassian Confluence or Crowd" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^(?:43ba066789e749f9ef591dc086f3cd14|a83dfece1c0e9e3469588f418e1e4942)$">
+    <description>Atlassian Bamboo</description>
+    <example>43ba066789e749f9ef591dc086f3cd14</example>
+    <example>a83dfece1c0e9e3469588f418e1e4942</example>
+    <param pos="0" name="service.vendor" value="Atlassian" />
+    <param pos="0" name="service.product" value="Atlassian Bamboo" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^f0ee98b4394dfdab17c16245dd799204">
+    <description>Drupal</description>
+    <example>f0ee98b4394dfdab17c16245dd799204</example>
+    <param pos="0" name="service.vendor" value="Drupal" />
+    <param pos="0" name="service.product" value="Drupal" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^cee40c0b35bded5e11545be22a40e363">
+    <description>OSSDL.de Openmailadmin</description>
+    <example>cee40c0b35bded5e11545be22a40e363</example>
+    <param pos="0" name="service.vendor" value="OSSDL.de" />
+    <param pos="0" name="service.product" value="OSSDL.de Openmailadmin" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^4f88ba9f1298701251180e6b6467d43e">
+    <description>Xinit Systems Ltd. Openfiler</description>
+    <example>4f88ba9f1298701251180e6b6467d43e</example>
+    <param pos="0" name="service.vendor" value="Xinit" />
+    <param pos="0" name="service.product" value="Xinit Systems Ltd. Openfiler" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^4c3373870496151fd02a6f1185b0bb68">
+    <description>rPath Appliance Agent</description>
+    <example>4c3373870496151fd02a6f1185b0bb68</example>
+    <param pos="0" name="service.vendor" value="rPath" />
+    <param pos="0" name="service.product" value="rPath Appliance Agent" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^(?:b231ad66a2a9b0eb06f72c4c88973039|e1e8bdc3ce87340ab6ebe467519cf245)$">
+    <description>Wordpress</description>
+    <example>b231ad66a2a9b0eb06f72c4c88973039</example>
+    <example>e1e8bdc3ce87340ab6ebe467519cf245</example>
+    <param pos="0" name="service.vendor" value="Wordpress" />
+    <param pos="0" name="service.product" value="Wordpress" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^95103d0eabcd541527a86f23b636e794">
+    <description>Wordpress Multi-User (MU)</description>
+    <example>95103d0eabcd541527a86f23b636e794</example>
+    <param pos="0" name="service.vendor" value="Wordpress" />
+    <param pos="0" name="service.product" value="Wordpress Multi-User (MU)" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^64ca706a50715e421b6c2fa0b32ed7ec">
+    <description>Parallels Plesk Control Panel</description>
+    <example>64ca706a50715e421b6c2fa0b32ed7ec</example>
+    <param pos="0" name="service.vendor" value="Parallels" />
+    <param pos="0" name="service.product" value="Parallels Plesk Control Panel" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^e08333841cbe40d15b18f49045f26614">
+    <description>21publish Blog</description>
+    <example>e08333841cbe40d15b18f49045f26614</example>
+    <param pos="0" name="service.vendor" value="21publish" />
+    <param pos="0" name="service.product" value="21publish Blog" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^e2cac3fad9fa3388f639546f3ba09bc0">
+    <description>Invision Power Services IP.Board</description>
+    <example>e2cac3fad9fa3388f639546f3ba09bc0</example>
+    <param pos="0" name="service.vendor" value="Invision" />
+    <param pos="0" name="service.product" value="Invision Power Services IP.Board" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^5ec8d0ecf7b505bb04ab3ac81535e062">
+    <description>Telligent Community Server</description>
+    <example>5ec8d0ecf7b505bb04ab3ac81535e062</example>
+    <param pos="0" name="service.vendor" value="Telligent" />
+    <param pos="0" name="service.product" value="Telligent Community Server" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^83a1fd57a1e1684fafd6d2487290fdf5">
+    <description>Pligg</description>
+    <example>83a1fd57a1e1684fafd6d2487290fdf5</example>
+    <param pos="0" name="service.vendor" value="Pligg" />
+    <param pos="0" name="service.product" value="Pligg" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^b7f98dd27febe36b7275f22ad73c5e84">
+    <description>MoinMoin</description>
+    <example>b7f98dd27febe36b7275f22ad73c5e84</example>
+    <param pos="0" name="service.vendor" value="MoinMoin" />
+    <param pos="0" name="service.product" value="MoinMoin" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^63b982eddd64d44233baa25066db6bc1">
+    <description>Joomla!</description>
+    <example>63b982eddd64d44233baa25066db6bc1</example>
+    <param pos="0" name="service.vendor" value="Joomla!" />
+    <param pos="0" name="service.product" value="Joomla!" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^05bc6d56d8df6d668cf7e9e11319f4e6">
+    <description>Jive Forums</description>
+    <example>05bc6d56d8df6d668cf7e9e11319f4e6</example>
+    <param pos="0" name="service.vendor" value="Jive" />
+    <param pos="0" name="service.product" value="Jive Forums" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^63740175dae089e479a70c5e6591946c">
+    <description>The Lyceum Project</description>
+    <example>63740175dae089e479a70c5e6591946c</example>
+    <param pos="0" name="service.vendor" value="The" />
+    <param pos="0" name="service.product" value="The Lyceum Project" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^4cbb2cfc30a089b29cd06179f9cc82ff">
+    <description>Dragonfly</description>
+    <example>4cbb2cfc30a089b29cd06179f9cc82ff</example>
+    <param pos="0" name="service.vendor" value="Dragonfly" />
+    <param pos="0" name="service.product" value="Dragonfly" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^9187f6607b402df8bbc2aeb69a07bbca">
+    <description>XOOPS</description>
+    <example>9187f6607b402df8bbc2aeb69a07bbca</example>
+    <param pos="0" name="service.vendor" value="XOOPS" />
+    <param pos="0" name="service.product" value="XOOPS" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^a1c686eb6e771878cf6040574a175933">
+    <description>CivicPlus</description>
+    <example>a1c686eb6e771878cf6040574a175933</example>
+    <param pos="0" name="service.vendor" value="CivicPlus" />
+    <param pos="0" name="service.product" value="CivicPlus" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^4d7fe200d85000aea4d193a10e550d04">
+    <description>Intland Software codeBeamer</description>
+    <example>4d7fe200d85000aea4d193a10e550d04</example>
+    <param pos="0" name="service.vendor" value="Intland" />
+    <param pos="0" name="service.product" value="Intland Software codeBeamer" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^1a9a1ec2b8817a2f951c9f1793c9bc54">
+    <description>Bitweaver</description>
+    <example>1a9a1ec2b8817a2f951c9f1793c9bc54</example>
+    <param pos="0" name="service.vendor" value="Bitweaver" />
+    <param pos="0" name="service.product" value="Bitweaver" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^1cc16c64d0e471607677b036b3f06b6e">
+    <description>Roller Weblogger Project</description>
+    <example>1cc16c64d0e471607677b036b3f06b6e</example>
+    <param pos="0" name="service.vendor" value="Roller" />
+    <param pos="0" name="service.product" value="Roller Weblogger Project" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^7563f8c3ebd4fd4925f61df7d5ed8129">
+    <description>Holger Zimmerman Pi3Web HTTP Server</description>
+    <example>7563f8c3ebd4fd4925f61df7d5ed8129</example>
+    <param pos="0" name="service.vendor" value="Holger" />
+    <param pos="0" name="service.product" value="Holger Zimmerman Pi3Web HTTP Server" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^7f0f918a78ca8d4d5ff21ea84f2bac68">
+    <description>SubText</description>
+    <example>7f0f918a78ca8d4d5ff21ea84f2bac68</example>
+    <param pos="0" name="service.vendor" value="SubText" />
+    <param pos="0" name="service.product" value="SubText" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^86e3bf076a018a23c12354e512af3b9c">
+    <description>Spyce</description>
+    <example>86e3bf076a018a23c12354e512af3b9c</example>
+    <param pos="0" name="service.vendor" value="Spyce" />
+    <param pos="0" name="service.product" value="Spyce" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^9a9ee243bc8d08dac4448a5177882ea9">
+    <description>Dvbbs Forum</description>
+    <example>9a9ee243bc8d08dac4448a5177882ea9</example>
+    <param pos="0" name="service.vendor" value="Dvbbs" />
+    <param pos="0" name="service.product" value="Dvbbs Forum" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^ee1169dee71a0a53c91f5065295004b7">
+    <description>ProjectPier</description>
+    <example>ee1169dee71a0a53c91f5065295004b7</example>
+    <param pos="0" name="service.vendor" value="ProjectPier" />
+    <param pos="0" name="service.product" value="ProjectPier" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^7214637a176079a335d7ac529011f4e4">
+    <description>phpress</description>
+    <example>7214637a176079a335d7ac529011f4e4</example>
+    <param pos="0" name="service.vendor" value="phpress" />
+    <param pos="0" name="service.product" value="phpress" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^1bf954ba2d568ec9771d35c94a6eb2dc">
+    <description>WoltLab Burning Board</description>
+    <example>1bf954ba2d568ec9771d35c94a6eb2dc</example>
+    <param pos="0" name="service.vendor" value="WoltLab" />
+    <param pos="0" name="service.product" value="WoltLab Burning Board" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^ff3b533b061cee7cfbca693cc362c34a">
+    <description>Kayako SupportSuite</description>
+    <example>ff3b533b061cee7cfbca693cc362c34a</example>
+    <param pos="0" name="service.vendor" value="Kayako" />
+    <param pos="0" name="service.product" value="Kayako SupportSuite" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^428b23df874b41d904bbae29057bdba5">
+    <description>Comsenz Technology Ltd ECShop</description>
+    <example>428b23df874b41d904bbae29057bdba5</example>
+    <param pos="0" name="service.vendor" value="Comsenz" />
+    <param pos="0" name="service.product" value="Comsenz Technology Ltd ECShop" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^(?:8757fcbdbd83b0808955f6735078a287|9fac8b45400f794e0799d0d5458c092b)$">
+    <description>Comsenz Technology Ltd Discuz!</description>
+    <example>8757fcbdbd83b0808955f6735078a287</example>
+    <example>9fac8b45400f794e0799d0d5458c092b</example>
+    <param pos="0" name="service.vendor" value="Comsenz" />
+    <param pos="0" name="service.product" value="Comsenz Technology Ltd Discuz!" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^4e370f295b96eef85449c357aad90328">
+    <description>Comsenz Technology Ltd SupeSite</description>
+    <example>4e370f295b96eef85449c357aad90328</example>
+    <param pos="0" name="service.vendor" value="Comsenz" />
+    <param pos="0" name="service.product" value="Comsenz Technology Ltd SupeSite" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^4cfbb29d0d83685ba99323bc0d4d3513">
+    <description>PHPWind Forums 7</description>
+    <example>4cfbb29d0d83685ba99323bc0d4d3513</example>
+    <param pos="0" name="service.vendor" value="PHPWind" />
+    <param pos="0" name="service.product" value="PHPWind Forums 7" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^2df6edffca360b7a0fadc3bdf2191857">
+    <description>PIPS Technology ATZ Executive / Automatic Licence Plate Recognition (ALPR) System</description>
+    <example>2df6edffca360b7a0fadc3bdf2191857</example>
+    <param pos="0" name="service.vendor" value="PIPS" />
+    <param pos="0" name="service.product" value="PIPS Technology ATZ Executive / Automatic Licence Plate Recognition (ALPR) System" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^8c291e32e7c7c65124d19eb17bceca87">
+    <description>Schneider Electric Modicon 340 / BMX P34 CPU B</description>
+    <example>8c291e32e7c7c65124d19eb17bceca87</example>
+    <param pos="0" name="service.vendor" value="Schneider" />
+    <param pos="0" name="service.product" value="Schneider Electric Modicon 340 / BMX P34 CPU B" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^28c34462a074c5311492759435549468">
+    <description>AContent x</description>
+    <example>28c34462a074c5311492759435549468</example>
+    <param pos="0" name="service.vendor" value="AContent" />
+    <param pos="0" name="service.product" value="AContent x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^705d63d8f6f485bd40528394722b5c22">
+    <description>Atmail x</description>
+    <example>705d63d8f6f485bd40528394722b5c22</example>
+    <param pos="0" name="service.vendor" value="Atmail" />
+    <param pos="0" name="service.product" value="Atmail x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^9f500a24ccbdda88cf8ae3ec7b61fc40">
+    <description>Atomic CMS x</description>
+    <example>9f500a24ccbdda88cf8ae3ec7b61fc40</example>
+    <param pos="0" name="service.vendor" value="Atomic" />
+    <param pos="0" name="service.product" value="Atomic CMS x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^5b816961f19da96ed5a2bf15e79093cb">
+    <description>ATutor x</description>
+    <example>5b816961f19da96ed5a2bf15e79093cb</example>
+    <param pos="0" name="service.vendor" value="ATutor" />
+    <param pos="0" name="service.product" value="ATutor x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^f51425ace97f807fe5840c4382580fd5">
+    <description>Beehive Forum 1.x</description>
+    <example>f51425ace97f807fe5840c4382580fd5</example>
+    <param pos="0" name="service.vendor" value="Beehive" />
+    <param pos="0" name="service.product" value="Beehive Forum 1.x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^eb05f77bf80d66f0db6b1f682ff08bee">
+    <description>Biscom Delivery Server x</description>
+    <example>eb05f77bf80d66f0db6b1f682ff08bee</example>
+    <param pos="0" name="service.vendor" value="Biscom" />
+    <param pos="0" name="service.product" value="Biscom Delivery Server x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^5d27143fc38439baba39ba5615cbe9ef">
+    <description>Cascade Server x</description>
+    <example>5d27143fc38439baba39ba5615cbe9ef</example>
+    <param pos="0" name="service.vendor" value="Cascade" />
+    <param pos="0" name="service.product" value="Cascade Server x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^0c53ef3d151cbac70a8486dd1ebc8b25">
+    <description>Chamilo e-learning system x</description>
+    <example>0c53ef3d151cbac70a8486dd1ebc8b25</example>
+    <param pos="0" name="service.vendor" value="Chamilo" />
+    <param pos="0" name="service.product" value="Chamilo e-learning system x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^9939a032a9845e4d931d14e08f5a6c7c">
+    <description>Citrix XenApp Logon</description>
+    <example>9939a032a9845e4d931d14e08f5a6c7c</example>
+    <param pos="0" name="service.vendor" value="Citrix" />
+    <param pos="0" name="service.product" value="Citrix XenApp Logon" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^6c633b9b92530843c782664cb3f0542d">
+    <description>ClipBucket x</description>
+    <example>6c633b9b92530843c782664cb3f0542d</example>
+    <param pos="0" name="service.vendor" value="ClipBucket" />
+    <param pos="0" name="service.product" value="ClipBucket x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^a59c6fead5d55050674f327955df3acb">
+    <description>CouchPotato 2.x</description>
+    <example>a59c6fead5d55050674f327955df3acb</example>
+    <param pos="0" name="service.vendor" value="CouchPotato" />
+    <param pos="0" name="service.product" value="CouchPotato 2.x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^107579220745d3b21461c23024d6c4a3">
+    <description>D-Link x</description>
+    <example>107579220745d3b21461c23024d6c4a3</example>
+    <param pos="0" name="service.vendor" value="D-Link" />
+    <param pos="0" name="service.product" value="D-Link x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^c86974467c2ac7b6902189944f812b9a">
+    <description>Domain Technology Control 0.17.x-0.24.x</description>
+    <example>c86974467c2ac7b6902189944f812b9a</example>
+    <param pos="0" name="service.vendor" value="Domain" />
+    <param pos="0" name="service.product" value="Domain Technology Control 0.17.x-0.24.x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^d9aa63661d742d5f7c7300d02ac18d69">
+    <description>Dreambox WebControl x</description>
+    <example>d9aa63661d742d5f7c7300d02ac18d69</example>
+    <param pos="0" name="service.vendor" value="Dreambox" />
+    <param pos="0" name="service.product" value="Dreambox WebControl x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^a4819787db1dabe1a6b669d5d6df3bfd">
+    <description>Drupal 2.x-4.x</description>
+    <example>a4819787db1dabe1a6b669d5d6df3bfd</example>
+    <param pos="0" name="service.vendor" value="Drupal" />
+    <param pos="0" name="service.product" value="Drupal 2.x-4.x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^0a99a23f6b1f1bddb94d2a2212598628">
+    <description>Maraschino x</description>
+    <example>0a99a23f6b1f1bddb94d2a2212598628</example>
+    <param pos="0" name="service.vendor" value="Maraschino" />
+    <param pos="0" name="service.product" value="Maraschino x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^51b916bdaf994ce73d3e5e6dfe2a46ee">
+    <description>Feng Office 2.3</description>
+    <example>51b916bdaf994ce73d3e5e6dfe2a46ee</example>
+    <param pos="0" name="service.vendor" value="Feng" />
+    <param pos="0" name="service.product" value="Feng Office 2.3" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^d134378a39c722e941ac25eed91ca93b">
+    <description>FreePBX x</description>
+    <example>d134378a39c722e941ac25eed91ca93b</example>
+    <param pos="0" name="service.vendor" value="FreePBX" />
+    <param pos="0" name="service.product" value="FreePBX x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^835306119474fefb6b38ae314a37943a">
+    <description>Horde Agora (Forum) x</description>
+    <example>835306119474fefb6b38ae314a37943a</example>
+    <param pos="0" name="service.vendor" value="Horde" />
+    <param pos="0" name="service.product" value="Horde Agora (Forum) x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^b64a1155b80e0b06272f8b842b83fa57">
+    <description>Horde Ansel (Photo Manager) x</description>
+    <example>b64a1155b80e0b06272f8b842b83fa57</example>
+    <param pos="0" name="service.vendor" value="Horde" />
+    <param pos="0" name="service.product" value="Horde Ansel (Photo Manager) x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^0e6a6ed665a9669b368d9a90b87976a9">
+    <description>Horde Gollem (File Manager) x</description>
+    <example>0e6a6ed665a9669b368d9a90b87976a9</example>
+    <param pos="0" name="service.vendor" value="Horde" />
+    <param pos="0" name="service.product" value="Horde Gollem (File Manager) x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^6c18a6e983f64b6a6ed0a32c9e8a19b6">
+    <description>HP ProCurve Webserver x</description>
+    <example>6c18a6e983f64b6a6ed0a32c9e8a19b6</example>
+    <param pos="0" name="service.vendor" value="HP" />
+    <param pos="0" name="service.product" value="HP ProCurve Webserver x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^6acfee4c670580ebf06edae40631b946">
+    <description>Iomega StorCenter x</description>
+    <example>6acfee4c670580ebf06edae40631b946</example>
+    <param pos="0" name="service.vendor" value="Iomega" />
+    <param pos="0" name="service.product" value="Iomega StorCenter x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^1f9c39ef3f740eebb046c900edac4ba5">
+    <description>Iomega StorCenter ix2-200 x</description>
+    <example>1f9c39ef3f740eebb046c900edac4ba5</example>
+    <param pos="0" name="service.vendor" value="Iomega" />
+    <param pos="0" name="service.product" value="Iomega StorCenter ix2-200 x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^37a99d2ddea8b49f701db457b9a8ffed">
+    <description>Iomega StorCenter ix4-200d x</description>
+    <example>37a99d2ddea8b49f701db457b9a8ffed</example>
+    <param pos="0" name="service.vendor" value="Iomega" />
+    <param pos="0" name="service.product" value="Iomega StorCenter ix4-200d x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^e7dce6ac6d8713a0b98407254ca33f80">
+    <description>Iomega StorCenter ix4-300d x</description>
+    <example>e7dce6ac6d8713a0b98407254ca33f80</example>
+    <param pos="0" name="service.vendor" value="Iomega" />
+    <param pos="0" name="service.product" value="Iomega StorCenter ix4-300d x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^f08d232927ab8f2c661616b896928233">
+    <description>Iomega StorCenter px2-300d x</description>
+    <example>f08d232927ab8f2c661616b896928233</example>
+    <param pos="0" name="service.vendor" value="Iomega" />
+    <param pos="0" name="service.product" value="Iomega StorCenter px2-300d x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^9d203fbb74eabf67f48b965ba5acc9a6">
+    <description>Iomega StorCenter px4-300d x</description>
+    <example>9d203fbb74eabf67f48b965ba5acc9a6</example>
+    <param pos="0" name="service.vendor" value="Iomega" />
+    <param pos="0" name="service.product" value="Iomega StorCenter px4-300d x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^fbd140da4eff02b90c9ebcbdb3736322">
+    <description>Iomega StorCenter px4-300r x</description>
+    <example>fbd140da4eff02b90c9ebcbdb3736322</example>
+    <param pos="0" name="service.vendor" value="Iomega" />
+    <param pos="0" name="service.product" value="Iomega StorCenter px4-300r x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^fd3f689b804ddb7bfab53fdf32bf7c04">
+    <description>Iomega StorCenter px6-300d x</description>
+    <example>fd3f689b804ddb7bfab53fdf32bf7c04</example>
+    <param pos="0" name="service.vendor" value="Iomega" />
+    <param pos="0" name="service.product" value="Iomega StorCenter px6-300d x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^8dfab2d881ce47dc41459c6c0c652bcf">
+    <description>Iomega StorCenter px12-350r x</description>
+    <example>8dfab2d881ce47dc41459c6c0c652bcf</example>
+    <param pos="0" name="service.vendor" value="Iomega" />
+    <param pos="0" name="service.product" value="Iomega StorCenter px12-350r x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^66dcdd811a7d8b1c7cd4e15cef9d4406">
+    <description>Iomega StorCenter px12-400r x</description>
+    <example>66dcdd811a7d8b1c7cd4e15cef9d4406</example>
+    <param pos="0" name="service.vendor" value="Iomega" />
+    <param pos="0" name="service.product" value="Iomega StorCenter px12-400r x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^a7fe149a9f2582f38576d14d9b1f0f55">
+    <description>LaCie Dashboard x</description>
+    <example>a7fe149a9f2582f38576d14d9b1f0f55</example>
+    <param pos="0" name="service.vendor" value="LaCie" />
+    <param pos="0" name="service.product" value="LaCie Dashboard x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^2ba9b777483da0a6a8b29c4ab39a10b2">
+    <description>MagicMail x</description>
+    <example>2ba9b777483da0a6a8b29c4ab39a10b2</example>
+    <param pos="0" name="service.vendor" value="MagicMail" />
+    <param pos="0" name="service.product" value="MagicMail x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^701bb703b31f99da18251ca2e557edf0">
+    <description>Mantis Bug Tracker 1.2.9-1.2.15</description>
+    <example>701bb703b31f99da18251ca2e557edf0</example>
+    <param pos="0" name="service.vendor" value="Mantis" />
+    <param pos="0" name="service.product" value="Mantis Bug Tracker 1.2.9-1.2.15" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^d4af3be33d952c1f98684d985019757c">
+    <description>Moodle 2.0 : Magazine</description>
+    <example>d4af3be33d952c1f98684d985019757c</example>
+    <param pos="0" name="service.vendor" value="Moodle" />
+    <param pos="0" name="service.product" value="Moodle 2.0 : Magazine" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^11abb4301d06dccc36d1b5f6dcad093e">
+    <description>ntop 3.3.6-5.0.1</description>
+    <example>11abb4301d06dccc36d1b5f6dcad093e</example>
+    <param pos="0" name="service.vendor" value="ntop" />
+    <param pos="0" name="service.product" value="ntop 3.3.6-5.0.1" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^b9d28bd6822d2e09e01aa0af5d7ccc34">
+    <description>ocPortal 9.0.5</description>
+    <example>b9d28bd6822d2e09e01aa0af5d7ccc34</example>
+    <param pos="0" name="service.vendor" value="ocPortal" />
+    <param pos="0" name="service.product" value="ocPortal 9.0.5" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^eec3051d5c356d1798bea1d8a3617c51">
+    <description>Octopress x</description>
+    <example>eec3051d5c356d1798bea1d8a3617c51</example>
+    <param pos="0" name="service.vendor" value="Octopress" />
+    <param pos="0" name="service.product" value="Octopress x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^9c34a7481ba0c153bb3e2a10e0ea811e">
+    <description>OpenWebif x</description>
+    <example>9c34a7481ba0c153bb3e2a10e0ea811e</example>
+    <param pos="0" name="service.vendor" value="OpenWebif" />
+    <param pos="0" name="service.product" value="OpenWebif x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^49bf194d1eccb1e5110957d14559d33d">
+    <description>OTRS x</description>
+    <example>49bf194d1eccb1e5110957d14559d33d</example>
+    <param pos="0" name="service.vendor" value="OTRS" />
+    <param pos="0" name="service.product" value="OTRS x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^d361075db94bb892ff3fb3717714b2da">
+    <description>phpMyBackupPro x</description>
+    <example>d361075db94bb892ff3fb3717714b2da</example>
+    <param pos="0" name="service.vendor" value="phpMyBackupPro" />
+    <param pos="0" name="service.product" value="phpMyBackupPro x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^a456dd2bae5746beb68814a5ac977048">
+    <description>phpSysInfo 3.0.7</description>
+    <example>a456dd2bae5746beb68814a5ac977048</example>
+    <param pos="0" name="service.vendor" value="phpSysInfo" />
+    <param pos="0" name="service.product" value="phpSysInfo 3.0.7" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^6e0c5b7979e9950125c71341e0960f65">
+    <description>phpSysInfo 3.0.8-3.0.12</description>
+    <example>6e0c5b7979e9950125c71341e0960f65</example>
+    <param pos="0" name="service.vendor" value="phpSysInfo" />
+    <param pos="0" name="service.product" value="phpSysInfo 3.0.8-3.0.12" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^ddcc65196f0bc63a90c885bd88ecbb81">
+    <description>phpSysInfo 3.0.12-3.0.20, 3.1.0-3.1.4</description>
+    <example>ddcc65196f0bc63a90c885bd88ecbb81</example>
+    <param pos="0" name="service.vendor" value="phpSysInfo" />
+    <param pos="0" name="service.product" value="phpSysInfo 3.0.12-3.0.20, 3.1.0-3.1.4" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^ba4bfe5d1deb2b4410e9eb97c5b74c9b">
+    <description>Puppet Node Manager x</description>
+    <example>ba4bfe5d1deb2b4410e9eb97c5b74c9b</example>
+    <param pos="0" name="service.vendor" value="Puppet" />
+    <param pos="0" name="service.product" value="Puppet Node Manager x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^368c15ac73f0096aa3daff8ff6f719f8">
+    <description>Redaxscript 1.0-1.2.1</description>
+    <example>368c15ac73f0096aa3daff8ff6f719f8</example>
+    <param pos="0" name="service.vendor" value="Redaxscript" />
+    <param pos="0" name="service.product" value="Redaxscript 1.0-1.2.1" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^6d85758acb4f4baa4d242ba451c91026">
+    <description>Redmine x, Request Tracker x</description>
+    <example>6d85758acb4f4baa4d242ba451c91026</example>
+    <param pos="0" name="service.vendor" value="Redmine" />
+    <param pos="0" name="service.product" value="Redmine x, Request Tracker x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^228ba3f6d946af4298b080e5c934487c">
+    <description>Roundcube Webmail 0.6-0.7 : Default, 0.8-0.9 : Classic, 0.8-0.9 : Larry</description>
+    <example>228ba3f6d946af4298b080e5c934487c</example>
+    <param pos="0" name="service.vendor" value="Roundcube" />
+    <param pos="0" name="service.product" value="Roundcube Webmail 0.6-0.7 : Default, 0.8-0.9 : Classic, 0.8-0.9 : Larry" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^ed8cf53ef6836184587ee3a987be074a">
+    <description>Ruckus x</description>
+    <example>ed8cf53ef6836184587ee3a987be074a</example>
+    <param pos="0" name="service.vendor" value="Ruckus" />
+    <param pos="0" name="service.product" value="Ruckus x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^f6c5f5e8857ecf561029fc5da005b6e3">
+    <description>Sophos Email Appliance x</description>
+    <example>f6c5f5e8857ecf561029fc5da005b6e3</example>
+    <param pos="0" name="service.vendor" value="Sophos" />
+    <param pos="0" name="service.product" value="Sophos Email Appliance x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^f682dbd4d0a18dd7699339b8adb28c0f">
+    <description>QNAP TurboNAS 3.8.x : Admin</description>
+    <example>f682dbd4d0a18dd7699339b8adb28c0f</example>
+    <param pos="0" name="service.vendor" value="QNAP" />
+    <param pos="0" name="service.product" value="QNAP TurboNAS 3.8.x : Admin" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^7ff45523a7ee9686d3d391a0a27a0b4f">
+    <description>QNAP TurboNAS 4.0.x</description>
+    <example>7ff45523a7ee9686d3d391a0a27a0b4f</example>
+    <param pos="0" name="service.vendor" value="QNAP" />
+    <param pos="0" name="service.product" value="QNAP TurboNAS 4.0.x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^a967c8bfde9ea0869637294b679b7251">
+    <description>Squid Proxy Server x</description>
+    <example>a967c8bfde9ea0869637294b679b7251</example>
+    <param pos="0" name="service.vendor" value="Squid" />
+    <param pos="0" name="service.product" value="Squid Proxy Server x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^bc18566dcc41a0ff503968f461c4995a">
+    <description>Subrion CMS x</description>
+    <example>bc18566dcc41a0ff503968f461c4995a</example>
+    <param pos="0" name="service.vendor" value="Subrion" />
+    <param pos="0" name="service.product" value="Subrion CMS x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^531e652a15bc0ad59b6af05019b1834a">
+    <description>Synology DSM 4.2</description>
+    <example>531e652a15bc0ad59b6af05019b1834a</example>
+    <param pos="0" name="service.vendor" value="Synology" />
+    <param pos="0" name="service.product" value="Synology DSM 4.2" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^0ec12e5820517d3b62e56b9a8f1ee5bc">
+    <description>TradingEye x</description>
+    <example>0ec12e5820517d3b62e56b9a8f1ee5bc</example>
+    <param pos="0" name="service.vendor" value="TradingEye" />
+    <param pos="0" name="service.product" value="TradingEye x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^300b5c3f134d7ec0bca862cf113149d8">
+    <description>TVersity x</description>
+    <example>300b5c3f134d7ec0bca862cf113149d8</example>
+    <param pos="0" name="service.vendor" value="TVersity" />
+    <param pos="0" name="service.product" value="TVersity x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^8718c2998236c796896b725f264092ee">
+    <description>Typo3 6.1</description>
+    <example>8718c2998236c796896b725f264092ee</example>
+    <param pos="0" name="service.vendor" value="Typo3" />
+    <param pos="0" name="service.product" value="Typo3 6.1" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^7350c3f75cb80e857efa88c2fd136da5">
+    <description>Ushahidi x</description>
+    <example>7350c3f75cb80e857efa88c2fd136da5</example>
+    <param pos="0" name="service.vendor" value="Ushahidi" />
+    <param pos="0" name="service.product" value="Ushahidi x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^2e5e985fe125e3f8fca988a86689b127">
+    <description>VISEC x</description>
+    <example>2e5e985fe125e3f8fca988a86689b127</example>
+    <param pos="0" name="service.vendor" value="VISEC" />
+    <param pos="0" name="service.product" value="VISEC x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^d90cc1762bf724db71d6df86effab63c">
+    <description>vtiger CRM x</description>
+    <example>d90cc1762bf724db71d6df86effab63c</example>
+    <param pos="0" name="service.vendor" value="vtiger" />
+    <param pos="0" name="service.product" value="vtiger CRM x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^b14353fafda7c90fb1a2a214c195de50">
+    <description>webERP x</description>
+    <example>b14353fafda7c90fb1a2a214c195de50</example>
+    <param pos="0" name="service.vendor" value="webERP" />
+    <param pos="0" name="service.product" value="webERP x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^18fe76b96d4eae173bf439a9712fa5c1">
+    <description>WikiWebHelp x</description>
+    <example>18fe76b96d4eae173bf439a9712fa5c1</example>
+    <param pos="0" name="service.vendor" value="WikiWebHelp" />
+    <param pos="0" name="service.product" value="WikiWebHelp x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^e44d22b74f7ee4435e22062d5adf4a6a">
+    <description>WordPress 2.x</description>
+    <example>e44d22b74f7ee4435e22062d5adf4a6a</example>
+    <param pos="0" name="service.vendor" value="WordPress" />
+    <param pos="0" name="service.product" value="WordPress 2.x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^3ead5afa19537170bb980924397b70d6">
+    <description>WordPress 3.x : Twenty Ten</description>
+    <example>3ead5afa19537170bb980924397b70d6</example>
+    <param pos="0" name="service.vendor" value="WordPress" />
+    <param pos="0" name="service.product" value="WordPress 3.x : Twenty Ten" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^28a122aa74f6929b0994fc544555c0b1">
+    <description>WordPress 3.2-3.x : Twenty Eleven</description>
+    <example>28a122aa74f6929b0994fc544555c0b1</example>
+    <param pos="0" name="service.vendor" value="WordPress" />
+    <param pos="0" name="service.product" value="WordPress 3.2-3.x : Twenty Eleven" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^e9dd9992d222d67c8f6a4704d2c88bdd">
+    <description>Zarafa WebAccess x</description>
+    <example>e9dd9992d222d67c8f6a4704d2c88bdd</example>
+    <param pos="0" name="service.vendor" value="Zarafa" />
+    <param pos="0" name="service.product" value="Zarafa WebAccess x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^c126f7e761813946fea2e90ff7ddb838">
+    <description>Zenoss Core x</description>
+    <example>c126f7e761813946fea2e90ff7ddb838</example>
+    <param pos="0" name="service.vendor" value="Zenoss" />
+    <param pos="0" name="service.product" value="Zenoss Core x" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^5a77e47fa23554a4166d2303580b0733">
+    <description>Sawmill</description>
+    <example>5a77e47fa23554a4166d2303580b0733</example>
+    <param pos="0" name="service.vendor" value="Sawmill" />
+    <param pos="0" name="service.product" value="Sawmill" />
+    <param pos="0" name="service.certainty" value="0.5" />
+  </fingerprint>
+
+  <fingerprint pattern="^57f501d6fee2fdb024795abbdb750ad5">
+    <description>Hak5 Cloud C2</description>
+    <example>57f501d6fee2fdb024795abbdb750ad5</example>
+    <param pos="0" name="service.vendor" value="Hak5" />
+    <param pos="0" name="service.product" value="Hak5 Cloud C2" />
+    <param pos="0" name="service.certainty" value="0.5" />
   </fingerprint>
 
 </fingerprints>
