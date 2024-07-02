@@ -16,6 +16,13 @@ Recog is open source, please see the [LICENSE](LICENSE) file for more informatio
 1. [Installation](#installation)
 1. [Maturity](#maturity)
 1. [Fingerprints](#fingerprints)
+1. [Testing matches](#testing-matches)
+    1. [ftp_banners](#ftp_banners)
+    1. [http_cookies](#http_cookies)
+    1. [http_servers](#http_servers)
+    1. [favicons](#favicons)
+    1. [http_wwwauth](#http_wwwauth)
+    1. [tls_jarm](#tls_jarm)
 1. [Contributing](#contributing)
 
 ## Repository split
