@@ -750,6 +750,26 @@
   </fingerprint>
 
   <!--======================================================================
+                           Arista Networks
+  =======================================================================-->
+
+  <fingerprint pattern="^Arista Networks EOS version ([\S]+) running on an Arista (?:Networks )?([\S]+)$">
+    <description>Arista Network Switch</description>
+    <example hw.model="DCS-7050QX-32S" os.version="4.28.6.1M">Arista Networks EOS version 4.28.6.1M running on an Arista Networks DCS-7050QX-32S</example>
+    <example hw.model="DCS-7050S-52" os.version="4.18.0F">Arista Networks EOS version 4.18.0F running on an Arista Networks DCS-7050S-52</example>
+    <example hw.model="DCS-7280SR2K-48C6" os.version="4.22.4M">Arista Networks EOS version 4.22.4M running on an Arista Networks DCS-7280SR2K-48C6</example>
+    <example hw.model="DCS-7050QX-32" os.version="4.20.10M">Arista Networks EOS version 4.20.10M running on an Arista Networks DCS-7050QX-32</example>
+    <example hw.model="vEOS-lab" os.version="4.30.6M">Arista Networks EOS version 4.30.6M running on an Arista vEOS-lab</example>
+    <param pos="0" name="os.vendor" value="Arista"/>
+    <param pos="0" name="os.family" value="EOS"/>
+    <param pos="0" name="hw.device" value="Switch"/>
+    <param pos="0" name="os.product" value="EOS"/>
+    <param pos="0" name="os.certainty" value="0.9"/>
+    <param pos="1" name="os.version"/>
+    <param pos="2" name="hw.model"/>
+  </fingerprint>
+
+  <!--======================================================================
                            Aruba Networks
   =======================================================================-->
 
