@@ -163,10 +163,9 @@
     <param pos="2" name="hw.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^TANDBERG/(\d+) \((.*)\) Cisco-(\S+)$">
+  <fingerprint pattern="^TANDBERG\/(\d+) \((X\d+\S*|XC\d+\S*|TC\d+\S*|TCNC\d+\S*).*\) Cisco-(\S+)$">
     <description>Cisco/Tandberg TelePresence w/Cisco Model Name</description>
     <example os.version="TC7.3.7.01c84fd" tandberg.model="528" hw.product="EX60">TANDBERG/528 (TC7.3.7.01c84fd) Cisco-EX60</example>
-    <example os.version="ce9.6.0.76c1685b70e" tandberg.model="529" hw.product="RoomKitMini">TANDBERG/529 (ce9.6.0.76c1685b70e) Cisco-RoomKitMini</example>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="TelePresence"/>
     <param pos="0" name="os.product" value="Expressway"/>
