@@ -1564,6 +1564,20 @@
     <param pos="2" name="hw.product"/>
   </fingerprint>
 
+  <fingerprint pattern="^ce\d+\S*$">
+    <description>Cisco/Tandberg TelePresence</description>
+    <example os.version="ce9.15.0.d97b604b745">ce9.15.0.d97b604b745</example>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.family" value="TelePresence"/>
+    <param pos="0" name="os.product" value="Collaboration Endpoint"/>
+    <param pos="0" name="os.device" value="Video Conferencing"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.family" value="TelePresence"/>
+    <param pos="0" name="hw.device" value="Video Conferencing"/>
+  </fingerprint>
+  <!-- NEC -->
+
   <fingerprint pattern="^Cisco TelePresence ((?:HD )?MCU(?: MSE)? \d+)">
     <description>Cisco TelePresence w/Model</description>
     <example hw.product="MCU 4205">Cisco TelePresence MCU 4205</example>
@@ -1619,6 +1633,8 @@
     <param pos="0" name="hw.device" value="Video Conferencing"/>
     <param pos="1" name="hw.product"/>
   </fingerprint>
+
+
 
   <fingerprint pattern="^Cisco Adaptive Security Appliance Version (\d+\.\d+\(\d+\)\d*)">
     <description>Cisco Adaptive Security Appliance</description>
