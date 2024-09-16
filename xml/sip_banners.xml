@@ -163,9 +163,9 @@
     <param pos="2" name="hw.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^TANDBERG\/(\d+) \((X\d+\S*).*\) (.*)$">
+  <fingerprint pattern="^TANDBERG\/(\d+) \((X\d+\S*).*\) ?(.*)$">
     <description>Cisco TelePresence Expressway</description>
-    <example os.version="TC7.3.7.01c84fd" tandberg.model="528" hw.product="EX60">TANDBERG/528 (X7.3.7.01c84fd) Cisco-EX60</example>
+    <example os.version="X7.3.7.01c84fd" tandberg.model="528" hw.product="EX60">TANDBERG/528 (X7.3.7.01c84fd) Cisco-EX60</example>
     <example os.version="X12.5.2" tandberg.model="4137" hw.product="TANDBERG/4137">TANDBERG/4137 (X12.5.2 (TEST SW))</example>
     <example os.version="X8.2.1" hw.product="TANDBERG/4130" tandberg.model="4130">TANDBERG/4130 (X8.2.1)</example>
     <param pos="0" name="os.vendor" value="Cisco"/>
@@ -176,7 +176,7 @@
     <param pos="3" name="hw.model"/>
   </fingerprint>
 
-  <fingerprint pattern="^TANDBERG\/(\d+) \((XC\d+\S*).*\) (.*)$">
+  <fingerprint pattern="^TANDBERG\/(\d+) \((XC\d+\S*).*\) ?(.*)$">
     <description>Cisco TelePresence Conductor</description>
     <example os.version="XC2.2.1-b2bua-1.0" tandberg.model="4353" hw.model="">TANDBERG/4353 (XC2.2.1-b2bua-1.0)</example>
     <param pos="0" name="os.vendor" value="Cisco"/>
@@ -187,7 +187,7 @@
     <param pos="3" name="hw.model"/>
   </fingerprint>
 
-  <fingerprint pattern="^TANDBERG\/(\d+) \((ce\d+\S*).*\) (.*)$">
+  <fingerprint pattern="^TANDBERG\/(\d+) \((ce\d+\S*).*\) ?(.*)$">
     <description>Cisco TelePresence Collaboration Endpoint (RoomOS)</description>
     <example os.version="ce9.15.0.d97b604b745" tandberg.model="529" hw.model="Cisco-RoomKit">TANDBERG/529 (ce9.15.0.d97b604b745) Cisco-RoomKit</example>
     <example os.version="ce9.15.0.d97b604b745" tandberg.model="529" hw.model="">TANDBERG/529 (ce9.15.0.d97b604b745)</example>
