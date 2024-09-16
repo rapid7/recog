@@ -163,32 +163,50 @@
     <param pos="2" name="hw.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^TANDBERG\/(\d+) \((X\d+\S*|XC\d+\S*|TC\d+\S*|TCNC\d+\S*).*\) Cisco-(\S+)$">
-    <description>Cisco/Tandberg TelePresence w/Cisco Model Name</description>
-    <example os.version="TC7.3.7.01c84fd" tandberg.model="528" hw.product="EX60">TANDBERG/528 (TC7.3.7.01c84fd) Cisco-EX60</example>
+  <fingerprint pattern="^TANDBERG\/(\d+) \((X\d+\S*).*\) ?(.*)$">
+    <description>Cisco TelePresence Expressway</description>
+    <example os.version="X7.3.7.01c84fd" tandberg.model="528" hw.model="Cisco-EX60">TANDBERG/528 (X7.3.7.01c84fd) Cisco-EX60</example>
+    <example os.version="X12.5.2" tandberg.model="4137" hw.model="">TANDBERG/4137 (X12.5.2 (TEST SW))</example>
+    <example os.version="X8.2.1" tandberg.model="4130" hw.model="">TANDBERG/4130 (X8.2.1)</example>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="TelePresence"/>
     <param pos="0" name="os.product" value="Expressway"/>
     <param pos="1" name="tandberg.model"/>
     <param pos="2" name="os.version"/>
-    <param pos="0" name="hw.vendor" value="Cisco"/>
-    <param pos="0" name="hw.family" value="TelePresence"/>
-    <param pos="0" name="hw.device" value="Video Conferencing"/>
-    <param pos="3" name="hw.product"/>
+    <param pos="3" name="hw.model"/>
   </fingerprint>
 
-  <fingerprint pattern="^(TANDBERG\/(\d+)) \((X\d+\S*|XC\d+\S*|TC\d+\S*|TCNC\d+\S*).*\)$">
-    <description>Cisco/Tandberg TelePresence</description>
-    <example os.version="TC7.0.2.aecf2d9" tandberg.model="519" hw.product="TANDBERG/519">TANDBERG/519 (TC7.0.2.aecf2d9)</example>
-    <example os.version="X12.5.2" tandberg.model="4137" hw.product="TANDBERG/4137">TANDBERG/4137 (X12.5.2 (TEST SW))</example>
-    <example os.version="X8.2.1" hw.product="TANDBERG/4130" tandberg.model="4130">TANDBERG/4130 (X8.2.1)</example>
-    <example os.version="XC2.2.1-b2bua-1.0" hw.product="TANDBERG/4353" tandberg.model="4353">TANDBERG/4353 (XC2.2.1-b2bua-1.0)</example>
-    <example os.version="TC5.1.4.295090" hw.product="TANDBERG/516" tandberg.model="516">TANDBERG/516 (TC5.1.4.295090)</example>
-    <example os.version="TCNC5.1.4.295090" hw.product="TANDBERG/517" tandberg.model="517">TANDBERG/517 (TCNC5.1.4.295090)</example>
+  <fingerprint pattern="^TANDBERG\/(\d+) \((XC\d+\S*).*\) ?(.*)$">
+    <description>Cisco TelePresence Conductor</description>
+    <example os.version="XC2.2.1-b2bua-1.0" tandberg.model="4353" hw.model="">TANDBERG/4353 (XC2.2.1-b2bua-1.0)</example>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="TelePresence"/>
-    <param pos="0" name="os.product" value="Expressway"/>
-    <param pos="0" name="os.device" value="Video Conferencing"/>
+    <param pos="0" name="os.product" value="Conductor"/>
+    <param pos="1" name="tandberg.model"/>
+    <param pos="2" name="os.version"/>
+    <param pos="3" name="hw.model"/>
+  </fingerprint>
+
+  <fingerprint pattern="^TANDBERG\/(\d+) \((ce\d+\S*).*\) ?(.*)$">
+    <description>Cisco TelePresence Collaboration Endpoint (RoomOS)</description>
+    <example os.version="ce9.15.0.d97b604b745" tandberg.model="529" hw.model="Cisco-RoomKit">TANDBERG/529 (ce9.15.0.d97b604b745) Cisco-RoomKit</example>
+    <example os.version="ce9.15.0.d97b604b745" tandberg.model="529" hw.model="">TANDBERG/529 (ce9.15.0.d97b604b745)</example>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.family" value="TelePresence"/>
+    <param pos="0" name="os.product" value="Collaboration Endpoint"/>
+    <param pos="1" name="tandberg.model"/>
+    <param pos="2" name="os.version"/>
+    <param pos="3" name="hw.model"/>
+  </fingerprint>
+  
+  <fingerprint pattern="^(TANDBERG/(\d+)) \((TC\d+\S*|TCNC\d+\S*).*\)$">
+    <description>Cisco/Tandberg TelePresence</description>
+    <example os.version="TC7.0.2.aecf2d9" tandberg.model="519" hw.product="TANDBERG/519">TANDBERG/519 (TC7.0.2.aecf2d9)</example>
+    <example os.version="TC5.1.4.295090" hw.product="TANDBERG/516" tandberg.model="516">TANDBERG/516 (TC5.1.4.295090)</example>
+    <example os.version="TCNC5.1.4.295090" hw.product="TANDBERG/517" tandberg.model="517">TANDBERG/517 (TCNC5.1.4.295090)</example>
+    <param pos="0" name="os.vendor" value="Tandberg"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
     <param pos="2" name="tandberg.model"/>
     <param pos="3" name="os.version"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
