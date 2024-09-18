@@ -1564,9 +1564,9 @@
     <param pos="2" name="hw.product"/>
   </fingerprint>
 
-  <fingerprint pattern="SoftW:\s+(ce\d+\S*)">
+  <fingerprint pattern="SoftW:\s+(ce\d+\S*)[\s\S]*?MCU:\s+([^\n]+)">
     <description>Cisco TelePresence Collaboration Endpoint (RoomOS)</description>
-    <example os.version="ce9.15.0.11.aec227943ed">SNMP:
+    <example os.version="ce9.15.0.11.aec227943ed" hw.model="Cisco Webex Room Kit">SNMP:
   Uptime: 840410
   Description: Cisco Codec
 SoftW: ce9.15.0.11.aec227943ed
@@ -1579,6 +1579,7 @@ S/N: FOC2236NA6V</example>
     <param pos="1" name="os.version"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.family" value="TelePresence"/>
+    <param pos="2" name="hw.model"/>
   </fingerprint>
   <!-- NEC -->
 
