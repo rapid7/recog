@@ -1564,17 +1564,21 @@
     <param pos="2" name="hw.product"/>
   </fingerprint>
 
-  <fingerprint pattern="^(ce\d+\S*)$">
-    <description>Cisco/Tandberg TelePresence</description>
-    <example os.version="ce9.15.0.d97b604b745">ce9.15.0.d97b604b745</example>
+  <fingerprint pattern="SoftW:\s+(ce\d+\S*)$$">
+    <description>Cisco TelePresence Collaboration Endpoint (RoomOS)</description>
+    <example os.version="ce9.15.0.d97b604b745">SNMP:
+  Uptime: 840410
+  Description: Cisco Codec
+SoftW: ce9.15.0.11.aec227943ed
+MCU: Cisco Webex Room Kit
+Date: 2021-01-28
+S/N: FOC2236NA6V</example>
     <param pos="0" name="os.vendor" value="Cisco"/>
     <param pos="0" name="os.family" value="TelePresence"/>
     <param pos="0" name="os.product" value="Collaboration Endpoint"/>
-    <param pos="0" name="os.device" value="Video Conferencing"/>
     <param pos="1" name="os.version"/>
     <param pos="0" name="hw.vendor" value="Cisco"/>
     <param pos="0" name="hw.family" value="TelePresence"/>
-    <param pos="0" name="hw.device" value="Video Conferencing"/>
   </fingerprint>
   <!-- NEC -->
 
