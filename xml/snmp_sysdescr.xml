@@ -1672,8 +1672,6 @@ S/N: FOC2236NA6V</example>
     <param pos="1" name="hw.product"/>
   </fingerprint>
 
-
-
   <fingerprint pattern="^Cisco Adaptive Security Appliance Version (\d+\.\d+\(\d+\)\d*)">
     <description>Cisco Adaptive Security Appliance</description>
     <example os.version="8.0(2)">Cisco Adaptive Security Appliance Version 8.0(2)</example>
@@ -1957,6 +1955,18 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Switch"/>
     <param pos="0" name="hw.series" value="Meraki MS"/>
     <param pos="1" name="hw.model"/>
+  </fingerprint>
+
+  <fingerprint pattern="^Cisco Firepower Threat Defense, Version ((?:\d*\.){1,5}\d{1,})">
+    <description>Cisco Firepower Threat Defense</description>
+    <example os.version="10.2.3.1">Cisco Firepower Threat Defense, Version 10.2.3.1 (Build 43), ASA Version 9.9(2)4</example>
+    <example os.version="7.0.0">Cisco Firepower Threat Defense, Version 7.0.0 (Build 3), ASA Version 9.16(0)3</example>
+    <param pos="0" name="os.certainty" value="0.7"/>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.product" value="Firepower Threat Defense"/>
+    <param pos="0" name="os.family" value="Secure Firewall"/>
+    <param pos="0" name="os.device" value="Firewall"/>
+    <param pos="1" name="os.version"/>
   </fingerprint>
 
   <!--======================================================================
