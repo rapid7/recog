@@ -773,15 +773,18 @@
                            Aruba Networks
   =======================================================================-->
 
-  <fingerprint pattern="^Aruba\s(JL\d+A)\s(\d+[A-Z]?)\S+\sSwitch.+ROM\s([A-Z]+(?:\.\d+)+)">
+  <fingerprint pattern="^Aruba.*revision\s+(?:([^\.]+)\.)?([\d\.]+).*ROM.*$">
     <description>HP Aruba Network Switch</description>
-    <example hw.model="JL256A" hw.product="2930F" os.version="WC.16.01.0010">Aruba JL256A 2930F-48G-PoE+-4SFP+ Switch, revision WC.16.11.0004, ROM WC.16.01.0010</example>
-    <param pos="0" name="os.vendor" value="Aruba Networks"/>
-    <param pos="3" name="os.version"/>
-    <param pos="0" name="hw.vendor" value="Aruba Networks"/>
-    <param pos="2" name="hw.product"/>
-    <param pos="1" name="hw.model"/>
+    <example hw.model="WC" os.version="16.11.0004">Aruba JL256A 2930F-48G-PoE+-4SFP+ Switch, revision WC.16.11.0004, ROM WC.16.01.0010</example>
+    <example hw.model="KB" os.version="16.10.0002">Aruba JL074A 3810M-48G-PoE+-1-slot Switch, revision KB.16.10.0002, ROM KB.16.01.0009</example>
+    <example hw.model="WC" os.version="16.02.0014">Aruba JL258A 2930F-8G-PoE+-2SFP+ Switch, revision WC.16.02.0014, ROM WC.16.01.0003</example>
+    <example hw.model="KB" os.version="16.08.0012">Aruba 3810M Switch Stack, revision KB.16.08.0012, ROM KB.16.08.0007</example>
+    <param pos="0" name="os.vendor" value="Aruba"/>
+    <param pos="0" name="os.family" value="Aruba"/>
+    <param pos="0" name="os.product" value="AOS-S"/>
     <param pos="0" name="os.device" value="Switch"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="2" name="os.version"/>
   </fingerprint>
 
   <fingerprint pattern="ArubaOS \(MODEL: ([^\)]+)\), Version (8\.[^\s]+)">
@@ -806,9 +809,10 @@
     <param pos="2" name="os.version"/>
   </fingerprint>
 
-  <fingerprint pattern="Aruba\s+(.+)(?:\s+\D+\.|\s+)(\d[\d\.]+)">
+  <fingerprint pattern="^Aruba\s+([^\s]+\s+[^\s]+)\s+(?:\D+\.)?(\d[\d\.]+)$">
     <description>Aruba OS CX</description>
     <example hw.model="ABC123 ArubaOS-CX_OVA" os.version="10.07.0010">Aruba ABC123 ArubaOS-CX_OVA Virtual.10.07.0010</example>
+    <example hw.model="R8W85A 8100-24XT4XF4C" os.version="10.13.1060">Aruba R8W85A 8100-24XT4XF4C LL.10.13.1060</example>
     <param pos="0" name="os.vendor" value="Aruba"/>
     <param pos="0" name="os.family" value="Aruba"/>
     <param pos="0" name="os.product" value="AOS-CX"/>
