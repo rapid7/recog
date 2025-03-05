@@ -45,11 +45,14 @@
 
   <!-- Windows 2016 -->
 
-  <fingerprint pattern="(?im:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x017)">
+  <fingerprint pattern="(?ims:(?:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x017)|(?:domainControllerFunctionality1.{1,5}\x04\x017.*1.2.840.113556.1.4.800))">
     <description>Active Directory Controller on Windows Server 2016</description>
     <example _encoding="base64">
       dGllczGEAAAAlQQWMS4yLjg0MC4xMTM1NTYuMS40LjgwMAQuZGF0YS5yZW1vdmVkLjCEAAAAK
       AQdZG9tYWluQ29udHJvbGxlckZ1bmN0aW9uYWxpdHkxhAAAAAMEATc=
+    </example>
+    <example _encoding="base64">
+      ZG9tYWluQ29udHJvbGxlckZ1bmN0aW9uYWxpdHkxAwQBNzAYBA5pc3N1cHBvcnRlZENhcGFiaWxpdGllczGBlQQWMS4yLjg0MC4xMTM1NTYuMS40LjgwMAQXMS4=
     </example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.product" value="Active Directory Controller"/>
@@ -60,11 +63,14 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2016:-"/>
   </fingerprint>
 
-  <fingerprint pattern="(?im:1.2.840.113556.1.4.1851.*domainControllerFunctionality1.{1,5}\x04\x017)">
+  <fingerprint pattern="(?ims:(?:1.2.840.113556.1.4.1851.*domainControllerFunctionality1.{1,5}\x04\x017)|(?:domainControllerFunctionality1.{1,5}\x04\x017.*1.2.840.113556.1.4.1851))">
     <description>Microsoft LDS on Windows Server Server 2016</description>
     <example _encoding="base64">
       aWVzMYQAAACvBBcxLjIuODQwLjExMzU1Ni4xLjQuMTg1MQQuZGF0YS5yZW1vdmVkLjCEAAAAK
       AQdZG9tYWluQ29udHJvbGxlckZ1bmN0aW9uYWxpdHkxhAAAAAMEATc=
+    </example>
+    <example _encoding="base64">
+      ZG9tYWluQ29udHJvbGxlckZ1bmN0aW9uYWxpdHkxAwQBNzAYBA5pc3N1cHBvcnRlZENhcGFiaWxpdGllczGBrwQXMS4yLjg0MC4xMTM1NTYuMS40LjE4NTEEFzE=
     </example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.product" value="Lightweight Directory Server"/>
@@ -88,11 +94,14 @@
 
   <!-- Windows 2012 R2 -->
 
-  <fingerprint pattern="(?im:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x016)">
+  <fingerprint pattern="(?ims:(?:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x016)|(?:domainControllerFunctionality1.{1,5}\x04\x016.*1.2.840.113556.1.4.800))">
     <description>Active Directory Controller on Windows Server 2012 R2</description>
     <example _encoding="base64">
       ZXMxhAAAAJUEFjEuMi44NDAuMTEzNTU2LjEuNC44MDAELmRhdGEucmVtb3ZlZC6EAAAAKAQdZ
       G9tYWluQ29udHJvbGxlckZ1bmN0aW9uYWxpdHkxhAAAAAMEATYw
+    </example>
+    <example _encoding="base64">
+      ZG9tYWluQ29udHJvbGxlckZ1bmN0aW9uYWxpdHkxAwQBNjAMAgEDZXN1cHBvcnRlZENhcGFiaWxpdGllczGBlQQWMS4yLjg0MC4xMTM1NTYuMS40LjgwMAQXMS4=
     </example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.product" value="Active Directory Controller"/>
@@ -103,11 +112,14 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
   </fingerprint>
 
-  <fingerprint pattern="(?im:1.2.840.113556.1.4.1851.*domainControllerFunctionality1.{1,5}\x04\x016)">
+  <fingerprint pattern="(?ims:(?:1.2.840.113556.1.4.1851.*domainControllerFunctionality1.{1,5}\x04\x016)|(?:domainControllerFunctionality1.{1,5}\x04\x016.*1.2.840.113556.1.4.1851))">
     <description>Microsoft LDS on Windows Server Server 2012 R2</description>
     <example _encoding="base64">
       aWVzMYQAAACvBBcxLjIuODQwLjExMzU1Ni4xLjQuMTg1MQQuZGF0YS5yZW1vdmVkLoQAAAAoB
       B1kb21haW5Db250cm9sbGVyRnVuY3Rpb25hbGl0eTGEAAAAAwQBNjA=
+    </example>
+    <example _encoding="base64">
+      ZG9tYWluQ29udHJvbGxlckZ1bmN0aW9uYWxpdHkxAwQBNjAMAgEDZXN1cHBvcnRlZENhcGFiaWxpdGllczGBrwQXMS4yLjg0MC4xMTM1NTYuMS40LjE4NTEEFzE=
     </example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.product" value="Lightweight Directory Server"/>
@@ -131,11 +143,14 @@
 
   <!-- Windows 2012 -->
 
-  <fingerprint pattern="(?im:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x015)">
+  <fingerprint pattern="(?ims:(?:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x015)|(?:domainControllerFunctionality1.{1,5}\x04\x015.*1.2.840.113556.1.4.800))">
     <description>Active Directory Controller on Windows Server 2012</description>
     <example _encoding="base64">
       aWVzMYQAAACVBBYxLjIuODQwLjExMzU1Ni4xLjQuODAwBC5kYXRhLnJlbW92ZWQwhAAAACgEH
       WRvbWFpbkNvbnRyb2xsZXJGdW5jdGlvbmFsaXR5MYQAAAADBAE1MA==
+    </example>
+    <example _encoding="base64">
+      ZG9tYWluQ29udHJvbGxlckZ1bmN0aW9uYWxpdHkxAwQBNTAMAgEDZXN1cHBvcnRlZENhcGFiaWxpdGllczGBlQQWMS4yLjg0MC4xMTM1NTYuMS40LjgwMAQXMS4=
     </example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.product" value="Active Directory Controller"/>
@@ -146,11 +161,14 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2012:-"/>
   </fingerprint>
 
-  <fingerprint pattern="(?im:1.2.840.113556.1.4.1851.*domainControllerFunctionality1.{1,5}\x04\x015)">
+  <fingerprint pattern="(?ims:(?:1.2.840.113556.1.4.1851.*domainControllerFunctionality1.{1,5}\x04\x015)|(?:domainControllerFunctionality1.{1,5}\x04\x015.*1.2.840.113556.1.4.1851))">
     <description>Microsoft LDS on Windows Server 2012 R2</description>
     <example _encoding="base64">
       ZXMxhAAAAK8EFzEuMi44NDAuMTEzNTU2LjEuNC4xODUxBC5kYXRhLnJlbW92ZWQuMIQAAAAoB
       B1kb21haW5Db250cm9sbGVyRnVuY3Rpb25hbGl0eTGEAAAAAwQBNTA=
+    </example>
+    <example _encoding="base64">
+      ZG9tYWluQ29udHJvbGxlckZ1bmN0aW9uYWxpdHkxAwQBNTAMAgEDZXN1cHBvcnRlZENhcGFiaWxpdGllczGBrwQXMS4yLjg0MC4xMTM1NTYuMS40LjE4NTEEFzE=
     </example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.product" value="Lightweight Directory Server"/>
@@ -174,11 +192,14 @@
 
   <!-- Windows 2008 R2 -->
 
-  <fingerprint pattern="(?im:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x014)">
+  <fingerprint pattern="(?ims:(?:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x014)|(?:domainControllerFunctionality1.{1,5}\x04\x014.*1.2.840.113556.1.4.800))">
     <description>Active Directory Controller on Windows Server 2008 R2</description>
     <example _encoding="base64">
       aWVzMYQAAACVBBYxLjIuODQwLjExMzU1Ni4xLjQuODAwBC5kYXRhLnJlbW92ZWQuMIQAAAAoB
       B1kb21haW5Db250cm9sbGVyRnVuY3Rpb25hbGl0eTGEAAAAAwQBNDA=
+    </example>
+    <example _encoding="base64">
+      ZG9tYWluQ29udHJvbGxlckZ1bmN0aW9uYWxpdHkxAwQBNDAMAgEDZXN1cHBvcnRlZENhcGFiaWxpdGllczF8BBYxLjIuODQwLjExMzU1Ni4xLjQuODAwBBcxLjI=
     </example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.product" value="Active Directory Controller"/>
@@ -189,11 +210,14 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-"/>
   </fingerprint>
 
-  <fingerprint pattern="(?im:1.2.840.113556.1.4.1851.*domainControllerFunctionality1.{1,5}\x04\x014)">
+  <fingerprint pattern="(?ims:(?:1.2.840.113556.1.4.1851.*domainControllerFunctionality1.{1,5}\x04\x014)|(?:domainControllerFunctionality1.{1,5}\x04\x014.*1.2.840.113556.1.4.1851))">
     <description>Microsoft LDS on Windows Server Server 2008 R2</description>
     <example _encoding="base64">
       aWVzMYQAAACvBBcxLjIuODQwLjExMzU1Ni4xLjQuMTg1MQQuZGF0YS5yZW1vdmVkLoQAAAAoB
       B1kb21haW5Db250cm9sbGVyRnVuY3Rpb25hbGl0eTGEAAAAAwQBNDA=
+    </example>
+    <example _encoding="base64">
+      ZG9tYWluQ29udHJvbGxlckZ1bmN0aW9uYWxpdHkxAwQBNDAMAgEDZXN1cHBvcnRlZENhcGFiaWxpdGllczGBlgQXMS4yLjg0MC4xMTM1NTYuMS40LjE4NTEEFzE=
     </example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.product" value="Lightweight Directory Server"/>
@@ -222,11 +246,14 @@
 
   <!-- Windows 2008 -->
 
-  <fingerprint pattern="(?im:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x013)">
+  <fingerprint pattern="(?ims:(?:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x013)|(?:domainControllerFunctionality1.{1,5}\x04\x013.*1.2.840.113556.1.4.800))">
     <description>Active Directory Controller on Windows Server 2008</description>
     <example _encoding="base64">
       aWVzMYQAAACVBBYxLjIuODQwLjExMzU1Ni4xLjQuODAwBC5kYXRhLnJlbW92ZWQuMIQAAAAoB
       B1kb21haW5Db250cm9sbGVyRnVuY3Rpb25hbGl0eTGEAAAAAwQBMzA=
+    </example>
+    <example _encoding="base64">
+      ZG9tYWluQ29udHJvbGxlckZ1bmN0aW9uYWxpdHkxAwQBMzAMAgEDZXN1cHBvcnRlZENhcGFiaWxpdGllczFjBBYxLjIuODQwLjExMzU1Ni4xLjQuODAwBBcxLjI=
     </example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.product" value="Active Directory Controller"/>
@@ -237,11 +264,14 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2008:-"/>
   </fingerprint>
 
-  <fingerprint pattern="(?im:1.2.840.113556.1.4.1851.*domainControllerFunctionality1.{1,5}\x04\x013)">
+  <fingerprint pattern="(?ims:(?:1.2.840.113556.1.4.1851.*domainControllerFunctionality1.{1,5}\x04\x013)|(?:domainControllerFunctionality1.{1,5}\x04\x013.*1.2.840.113556.1.4.1851))">
     <description>Microsoft LDS on Windows Server 2008</description>
     <example _encoding="base64">
       aWVzMYQAAACvBBcxLjIuODQwLjExMzU1Ni4xLjQuMTg1MQQuZGF0YS5yZW1vdmVkLjCEAAAAK
       AQdZG9tYWluQ29udHJvbGxlckZ1bmN0aW9uYWxpdHkxhAAAAAMEATMw
+    </example>
+    <example _encoding="base64">
+      ZG9tYWluQ29udHJvbGxlckZ1bmN0aW9uYWxpdHkxAwQBMzAMAgEDZXN1cHBvcnRlZENhcGFiaWxpdGllczF9BBcxLjIuODQwLjExMzU1Ni4xLjQuMTg1MQQXMS4=
     </example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.product" value="Lightweight Directory Server"/>
@@ -265,11 +295,14 @@
 
   <!-- Windows 2003 -->
 
-  <fingerprint pattern="(?im:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x012)">
+  <fingerprint pattern="(?ims:(?:1.2.840.113556.1.4.800.*domainControllerFunctionality1.{1,5}\x04\x012)|(?:domainControllerFunctionality1.{1,5}\x04\x012.*1.2.840.113556.1.4.800))">
     <description>Active Directory Controller on Windows Server 2003</description>
     <example _encoding="base64">
       aWVzMYQAAACVBBYxLjIuODQwLjExMzU1Ni4xLjQuODAwBC5kYXRhLnJlbW92ZWQuMIQAAAAoB
       B1kb21haW5Db250cm9sbGVyRnVuY3Rpb25hbGl0eTGEAAAAAwQBMjA=
+    </example>
+    <example _encoding="base64">
+      ZG9tYWluQ29udHJvbGxlckZ1bmN0aW9uYWxpdHkxAwQBMjAMAgEDZXN1cHBvcnRlZENhcGFiaWxpdGllczFKBBYxLjIuODQwLjExMzU1Ni4xLjQuODAwBBcxLjI=
     </example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.product" value="Active Directory Controller"/>
@@ -280,11 +313,14 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:microsoft:windows_server_2003:-"/>
   </fingerprint>
 
-  <fingerprint pattern="(?im:1.2.840.113556.1.4.1851.*domainControllerFunctionality1.{1,5}\x04\x012)">
+  <fingerprint pattern="(?ims:(?:1.2.840.113556.1.4.1851.*domainControllerFunctionality1.{1,5}\x04\x012)|(?:domainControllerFunctionality1.{1,5}\x04\x012.*1.2.840.113556.1.4.1851))">
     <description>Microsoft LDS on Windows Server 2003</description>
     <example _encoding="base64">
       aWVzMYQAAACvBBcxLjIuODQwLjExMzU1Ni4xLjQuMTg1MQQuZGF0YS5yZW1vdmVkLjCEAAAAK
       AQdZG9tYWluQ29udHJvbGxlckZ1bmN0aW9uYWxpdHkxhAAAAAMEATIw
+    </example>
+    <example _encoding="base64">
+      ZG9tYWluQ29udHJvbGxlckZ1bmN0aW9uYWxpdHkxAwQBMjAMAgEDZXN1cHBvcnRlZENhcGFiaWxpdGllczFLBBcxLjIuODQwLjExMzU1Ni4xLjQuMTg1MQQXMS4=
     </example>
     <param pos="0" name="service.vendor" value="Microsoft"/>
     <param pos="0" name="service.product" value="Lightweight Directory Server"/>
