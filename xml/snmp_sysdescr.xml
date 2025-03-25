@@ -1973,6 +1973,20 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="Firewall"/>
     <param pos="1" name="os.version"/>
   </fingerprint>
+  <fingerprint pattern="^Linux, Cisco(?: Small Business)? (RV[0-9]+(?:[A-Z]+)?(?:-[A-Z]+[0-9]+)?).+Version (\d+(?:\.\d+)+)">
+    <description>Cisco Small Business RV Series Routers</description>
+    <example os.version="1.4.2.17" hw.model="RV320">Linux, Cisco RV320, Version 1.4.2.17 Mon Oct 30 15:52:47 CST 2017</example>
+    <example os.version="1.0.03.21" hw.model="RV345-K9">Linux, Cisco Small Business RV345-K9, Version 1.0.03.21 Wed Mar 10 04:42:23 IST 2021</example>
+    <example os.version="1.0.2.7" hw.model="RV130">Linux, Cisco Small Business RV130 (RV130), Version 1.0.2.7</example>
+    <example os.version="1.2.1.14.11" hw.model="RV320W">Linux, Cisco Small Business RV320W, Version 1.2.1.14.11 Thu Aug 13 14:25:16 CST 2015</example>
+    <param pos="0" name="os.vendor" value="Cisco"/>
+    <param pos="0" name="os.family" value="Small Business RV Series Routers"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="hw.vendor" value="Cisco"/>
+    <param pos="0" name="hw.series" value="Small Business RV Series Routers"/>
+    <param pos="0" name="hw.device" value="Router"/>
+    <param pos="1" name="hw.model"/>
+  </fingerprint>
 
   <!--======================================================================
                              Crestron
