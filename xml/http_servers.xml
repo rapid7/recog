@@ -5189,5 +5189,12 @@
     <param pos="0" name="hw.vendor" value="Freebox"/>
     <param pos="0" name="hw.device" value="Device"/>
   </fingerprint>
-
+  
+  <fingerprint pattern="^APISIX\/([\d\.]+)">
+    <description>Apache APISIX</description>
+    <example>APISIX/3.13.0</example>
+    <param pos="0" name="service.vendor" value="Apache"/>
+    <param pos="0" name="service.product" value="APISIX"/>
+    <param pos="1" name="service.version"/>
+  </fingerprint>
 </fingerprints>
