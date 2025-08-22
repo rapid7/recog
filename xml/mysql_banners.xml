@@ -1449,6 +1449,19 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:mariadb:mariadb:{service.version}"/>
   </fingerprint>
 
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB.+.[0-9]{4}$" flags="REG_ICASE">
+    <description>MariaDB alternate version format </description>
+    <example service.version="10.6.12">5.5.5-10.6.12-MariaDB-1:10.6.12+maria~ubu2004</example>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="MariaDB"/>
+    <param pos="0" name="service.family" value="MySQL"/>
+    <param pos="0" name="service.product" value="MariaDB"/>
+    <param pos="0" name="os.vendor" value="Ubuntu"/>
+    <param pos="0" name="os.family" value="Linux"/>
+    <param pos="0" name="os.product" value="Linux"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:mariadb:mariadb:{service.version}"/>
+  </fingerprint>
+
   <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)?(\d{1,2}\.\d{1,3}\.[a-f\d]{1,4})-MariaDB.+~wheezy-wsrep(?:-log)?$" flags="REG_ICASE">
     <description>MariaDB MariaDB with Galera Cluster on Debian 7.0 (wheezy)</description>
     <example service.version="10.1.1">5.5.5-10.1.1-MariaDB-1~wheezy-wsrep-log</example>
