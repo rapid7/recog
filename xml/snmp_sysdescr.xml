@@ -3358,6 +3358,22 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.device" value="WAP"/>
   </fingerprint>
 
+  <fingerprint pattern="(Huawei Versatile Routing Platform Software)\s+.*?Version ([\d.]+)\s+\((.*?)\s+(V[\d.]+R[\d.]+C[\d.]+)\S*\)">
+    <description>HUAWEI Devices that run VRP</description>
+    <example hw.product="CE6870EI" hw.version="V200R001C00" os.version="8.120">Huawei Versatile Routing Platform Software
+      VRP (R) software, Version 8.120 (CE6870EI V200R001C00SPC700) Copyright (C) 2012-2016 Huawei Technologies Co., Ltd.
+    </example>
+    <example hw.product="AR2200" hw.version="V200R003C00" os.version="5.120">Huawei Versatile Routing Platform Software
+      VRP (R) software, Version 5.120 (AR2200 V200R003C00) Copyright (C) 2011-2012 HUAWEI TECH CO., LTD
+    </example>
+    <param pos="0" name="os.vendor" value="Huawei"/>
+    <param pos="1" name="os.product" value="VRP"/>
+    <param pos="2" name="os.version"/>
+    <param pos="3" name="hw.product"/>
+    <param pos="4" name="hw.version"/>
+    <param pos="0" name="hw.vendor" value="Huawei"/>
+  </fingerprint>
+
   <!--======================================================================
                               IBM
    =======================================================================-->
