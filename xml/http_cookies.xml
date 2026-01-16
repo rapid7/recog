@@ -859,5 +859,15 @@
     <param pos="0" name="os.certainty" value="0.0"/>
     <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
+  
+  <fingerprint pattern="(?i)\bWHMCS(?:[a-zA-Z0-9]{8,})?=">
+    <description>WHMCompleteSolution (WHMCS) session cookie</description>
+    <example>WHMCSy551iLvnhYt7=f8d219ec7f0e78521ad21a9571f1caac; path=/; secure; HttpOnly</example>
+    <param pos="0" name="cookie" value="WHMCS"/>
+    <param pos="0" name="service.vendor" value="WHMCS"/>                                                                                                  
+    <param pos="0" name="service.product" value="WHMCompleteSolution"/>                                                                                   
+    <param pos="0" name="service.cpe23" value="cpe:2.3:a:whmcs:whmcompletesolution:*:*:*:*:*:*:*:*"/>
+    <param pos="0" name="tags" value="web,session,hosting-billing"/>
+  </fingerprint>
 
 </fingerprints>
