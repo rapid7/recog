@@ -6504,7 +6504,7 @@ Copyright (c) 1995-2005 by Cisco Systems
                               SonicWall
    =======================================================================-->
 
-  <fingerprint pattern="^SonicWALL (\S+)\s*(\d+).*?\(SonicOS \S+ (\d[^\)]+)\)\s*$">
+  <fingerprint pattern="^SonicWALL (\S+)\s*(\d*).*?\(SonicOS(?:(\s+Enhanced)|X)?\s+(\d+\.\d+\.\d+(?:\.\d+)?(?:-[A-Za-z0-9]+){0,2})\)\s*$">
     <description>SonicWall - SonicOS Enhanced variant</description>
     <example hw.product="NSA" hw.model="220" os.version="5.8.1.2-20o">SonicWALL NSA 220 (SonicOS Enhanced 5.8.1.2-20o)</example>
     <example hw.product="TZ" hw.model="215" os.version="5.8.1.2-6o">SonicWALL TZ 215 wireless-N (SonicOS Enhanced 5.8.1.2-6o)</example>
@@ -6513,10 +6513,11 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="SonicWall"/>
     <param pos="0" name="os.device" value="Firewall"/>
     <param pos="0" name="os.product" value="SonicOS"/>
+    <param pos="0" name="os.certainty" value="1"/>
     <param pos="0" name="hw.vendor" value="SonicWall"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="hw.model"/>
-    <param pos="3" name="os.version"/>
+    <param pos="4" name="os.version"/>
     <param pos="0" name="os.cpe23" value="cpe:/o:sonicwall:sonicos:{os.version}"/>
   </fingerprint>
 
@@ -6527,6 +6528,7 @@ Copyright (c) 1995-2005 by Cisco Systems
     <param pos="0" name="os.vendor" value="SonicWall"/>
     <param pos="0" name="os.device" value="Firewall"/>
     <param pos="0" name="os.product" value="SonicOS"/>
+    <param pos="0" name="os.certainty" value="0.9"/>
     <param pos="0" name="hw.vendor" value="SonicWall"/>
     <param pos="1" name="hw.product"/>
     <param pos="2" name="os.version"/>
