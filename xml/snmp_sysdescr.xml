@@ -6503,6 +6503,19 @@ Copyright (c) 1995-2005 by Cisco Systems
   <!--======================================================================
                               SonicWall
    =======================================================================-->
+  <fingerprint pattern="^SonicWALL (\S+)\s+(\d+)\s*\(SonicOS[X]?\s+(\d[^\)]+)\)\s*$">
+    <description>SonicWall Gen7 - SonicOS without Enhanced keyword</description>
+    <example hw.product="TZ" hw.model="670" os.version="7.1.3-7015-R6965">SonicWALL TZ 670 (SonicOS 7.1.3-7015-R6965)</example>
+    <example hw.product="NSv" hw.model="270" os.version="7.1.3-7015-R6965">SonicWALL NSv 270 (SonicOSX 7.1.3-7015-R6965)</example>
+    <param pos="0" name="os.vendor" value="SonicWall"/>
+    <param pos="0" name="os.device" value="Firewall"/>
+    <param pos="0" name="os.product" value="SonicOS"/>
+    <param pos="0" name="hw.vendor" value="SonicWall"/>
+    <param pos="1" name="hw.product"/>
+    <param pos="2" name="hw.model"/>
+    <param pos="3" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:sonicwall:sonicos:{os.version}"/>
+  </fingerprint>
 
   <fingerprint pattern="^SonicWALL (\S+)\s*(\d+).*?\(SonicOS \S+ (\d[^\)]+)\)\s*$">
     <description>SonicWall - SonicOS Enhanced variant</description>
