@@ -281,6 +281,11 @@
     <param pos="2" name="hw.model"/>
     <param pos="3" name="hw.version"/>
     <param pos="4" name="host.mac"/>
+    <param pos="0" name="os.vendor" value="Polycom"/>
+    <param pos="0" name="os.device" value="VoIP"/>
+    <param pos="0" name="os.product" value="{hw.family} {hw.model}"/>
+    <param pos="3" name="os.version"/>
+
   </fingerprint>
 
   <fingerprint pattern="^(?:Polycom/[\d\.]+ )?Polycom(?:RealPresenceTrio)-Trio_(\S+)-UA/([\d\.]+)(?:_(.{12}))?$">
@@ -296,6 +301,10 @@
     <param pos="1" name="hw.model"/>
     <param pos="2" name="hw.version"/>
     <param pos="3" name="host.mac"/>
+    <param pos="0" name="os.vendor" value="Polycom"/>
+    <param pos="0" name="os.device" value="VoIP"/>
+    <param pos="0" name="os.product" value="RealPresence Trio {hw.model}"/>
+    <param pos="2" name="os.version"/>
   </fingerprint>
 
   <fingerprint pattern="^Polycom ?HDX ?(\d+)(?: ?HD)?(?:/| \(Release - )([^\)]+)\)?">
