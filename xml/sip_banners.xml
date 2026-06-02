@@ -738,4 +738,46 @@
     <param pos="0" name="hw.device" value="Router"/>
   </fingerprint>
 
+  <fingerprint pattern="^(?:Polycom/[\d\.]+ )?Polycom(SoundPoint|VVX|SoundStation)\S+_(\d+)-UA/([\d\.]+)(?:_(.{12}))?$">
+    <description>Polycom SoundPoint, SountdStation, VVX VoIP phones</description>
+    <example hw.version="5.8.0.13337" hw.family="VVX" hw.product="VVX 350" hw.model="350" os.version="5.8.0.13337">PolycomVVX-VVX_350-UA/5.8.0.13337</example>
+    <example hw.version="4.1.4.7430" hw.family="VVX" hw.product="VVX 400" host.mac="010203040506" hw.model="400" os.version="4.1.4.7430">PolycomVVX-VVX_400-UA/4.1.4.7430_010203040506</example>
+    <example hw.version="5.5.0.23866" hw.family="VVX" hw.product="VVX 501" hw.model="501" os.version="5.5.0.23866">Polycom/5.5.0.23866 PolycomVVX-VVX_501-UA/5.5.0.23866</example>
+    <example hw.version="4.0.7.2514" hw.family="SoundPoint" hw.product="SoundPoint 670" hw.model="670" os.version="4.0.7.2514">PolycomSoundPointIP-SPIP_670-UA/4.0.7.2514</example>
+    <example hw.version="4.0.8.1608" hw.model="7000" hw.family="SoundStation" hw.product="SoundStation 7000" os.version="4.0.8.1608">PolycomSoundStationIP-SSIP_7000-UA/4.0.8.1608</example>
+    <param pos="0" name="hw.vendor" value="Polycom"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="1" name="hw.family"/>
+    <param pos="0" name="hw.product" value="{hw.family} {hw.model}"/>
+    <param pos="2" name="hw.model"/>
+    <param pos="3" name="hw.version"/>
+    <param pos="3" name="os.version"/>
+    <param pos="4" name="host.mac"/>
+    <param pos="0" name="os.vendor" value="Polycom"/>
+    <param pos="0" name="os.device" value="VoIP"/>
+    <param pos="0" name="os.product" value="{hw.family} {hw.model}"/>
+    <param pos="3" name="os.version"/>
+
+  </fingerprint>
+
+  <fingerprint pattern="^(?:Polycom/[\d\.]+ )?Polycom(?:RealPresenceTrio)-Trio_(\S+)-UA/([\d\.]+)(?:_(.{12}))?$">
+    <description>Polycom RealPresence Trio Phones</description>
+    <example hw.version="5.4.0.12197" hw.product="RealPresence Trio 8800" hw.model="8800" os.version="5.4.0.12197">PolycomRealPresenceTrio-Trio_8800-UA/5.4.0.12197</example>
+    <example hw.version="5.7.2.3123" hw.product="RealPresence Trio Visual+" hw.model="Visual+" os.version="5.7.2.3123">PolycomRealPresenceTrio-Trio_Visual+-UA/5.7.2.3123</example>
+    <example hw.version="5.4.3.2389" hw.product="RealPresence Trio 8800" hw.model="8800" os.version="5.4.3.2389">Polycom/5.4.3.2389 PolycomRealPresenceTrio-Trio_8800-UA/5.4.3.2389</example>
+    <example hw.version="5.4.3.2389" hw.product="RealPresence Trio 8800" hw.model="8800" host.mac="DEADBEEF0000" os.version="5.4.3.2389">Polycom/5.4.3.2389 PolycomRealPresenceTrio-Trio_8800-UA/5.4.3.2389_DEADBEEF0000</example>
+    <param pos="0" name="hw.vendor" value="Polycom"/>
+    <param pos="0" name="hw.device" value="VoIP"/>
+    <param pos="0" name="hw.family" value="RealPresence"/>
+    <param pos="0" name="hw.product" value="RealPresence Trio {hw.model}"/>
+    <param pos="1" name="hw.model"/>
+    <param pos="2" name="hw.version"/>
+    <param pos="2" name="os.version"/>
+    <param pos="3" name="host.mac"/>
+    <param pos="0" name="os.vendor" value="Polycom"/>
+    <param pos="0" name="os.device" value="VoIP"/>
+    <param pos="0" name="os.product" value="RealPresence Trio {hw.model}"/>
+    <param pos="2" name="os.version"/>
+  </fingerprint>
+
 </fingerprints>
