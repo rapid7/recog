@@ -5198,4 +5198,13 @@
     <param pos="0" name="service.product" value="APISIX"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
+  <fingerprint pattern="(?i)^Linux/([^,]+qnap),\s*UPnP/[\d\.]+,\s*Portable SDK for UPnP devices/([\d\.]+)$">
+    <description>QNAP NAS (QTS) UPnP Server (libupnp)</description>
+    <example service.version="1.6.22" os.version="4.14.24-qnap">Linux/4.14.24-qnap, UPnP/1.0, Portable SDK for UPnP devices/1.6.22</example>
+    <param pos="0" name="os.vendor" value="QNAP"/>
+    <param pos="0" name="os.product" value="QTS"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:qnap:qts:-"/>
+  </fingerprint>
 </fingerprints>
