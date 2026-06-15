@@ -4195,6 +4195,15 @@
     <param pos="2" name="service.version"/>
   </fingerprint>
 
+  <fingerprint pattern="(?i)^Linux/([^,]+qnap),\s*UPnP/[\d\.]+,\s*Portable SDK for UPnP devices/(?:[\d\.]+)$">
+    <description>QNAP NAS (QTS) UPnP Server (libupnp)</description>
+    <example os.version="4.14.24-qnap">Linux/4.14.24-qnap, UPnP/1.0, Portable SDK for UPnP devices/1.6.22</example>
+    <param pos="0" name="os.vendor" value="QNAP"/>
+    <param pos="0" name="os.product" value="QTS"/>
+    <param pos="1" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:qnap:qts:-"/>
+  </fingerprint>
+
   <fingerprint pattern="^Linux/(\S+), UPnP/[\d\.]+, Portable SDK for UPnP devices/(\S+)$">
     <description>Portable SDK for UPnP Server - Linux</description>
     <example service.version="1.6.17" os.version="2.4.20-46.7asp">Linux/2.4.20-46.7asp, UPnP/1.0, Portable SDK for UPnP devices/1.6.17</example>
@@ -5199,12 +5208,4 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="(?i)^Linux/([^,]+qnap),\s*UPnP/[\d\.]+,\s*Portable SDK for UPnP devices/([\d\.]+)$">
-    <description>QNAP NAS (QTS) UPnP Server (libupnp)</description>
-    <example service.version="1.6.22" os.version="4.14.24-qnap">Linux/4.14.24-qnap, UPnP/1.0, Portable SDK for UPnP devices/1.6.22</example>
-    <param pos="0" name="os.vendor" value="QNAP"/>
-    <param pos="0" name="os.product" value="QTS"/>
-    <param pos="1" name="os.version"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:qnap:qts:-"/>
-  </fingerprint>
 </fingerprints>
