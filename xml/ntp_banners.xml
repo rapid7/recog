@@ -365,7 +365,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:citrix:netscaler_firmware:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;FreeBSD/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="version=&quot;ntpd ([^ ]+)[^&quot;]+&quot;,.*processor=&quot;([^ ]+)&quot;,.*system=&quot;FreeBSD/?([\d][^ ]*)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntpd running on FreeBSD</description>
     <example service.version="4.2.6p2@1.2194" os.arch="i386" os.version="7.4-PRERELEASE">
       version="ntpd 4.2.6p2@1.2194 Wed Nov 24 15:54:11 UTC 2010 (1)",
@@ -382,7 +382,7 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:freebsd:freebsd:{os.version}"/>
   </fingerprint>
 
-  <fingerprint pattern="processor=&quot;([^ ]+)&quot;,.*system=&quot;FreeBSD/?([^ ]+)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
+  <fingerprint pattern="processor=&quot;([^ ]+)&quot;,.*system=&quot;FreeBSD/?([\d][^ ]*)&quot;" flags="REG_DOT_NEWLINE,REG_ICASE">
     <description>ntp without a version on FreeBSD</description>
     <example os.arch="i386" os.version="4.1-RELEASE">
       processor="i386", system="FreeBSD4.1-RELEASE"
