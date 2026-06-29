@@ -715,7 +715,7 @@
     <param pos="0" name="apache.variant" value="Oracle"/>
   </fingerprint>
 
-  <fingerprint pattern="^Oracle-HTTP-Server(?:(?:-(?:\d{2}[cg]\/?)?([\d.]+)?(?:\/[\d.]+)?)?(?:.{0,512}\([TF]?[HSUGMN]?(?:;max-age=\d+(?:\+\d+)?)?(?:;age=\d+)?;ecid=[^)]+\))?)?$">
+  <fingerprint pattern="^Oracle-HTTP-Server(?:(?:-(?:\d{2}[cg]\/?)?([\d.]+)?(?:\/[\d.]+)?)?(?:.{0,512}\([TF]?[HSUGMN]?(?:;max-age=\d+(?:\+\d*))?(?:;age=\d+)?;ecid=[^)]+\))?)?$">
     <description>Oracle HTTP Server</description>
     <example>Oracle-HTTP-Server</example>
     <example>Oracle-HTTP-Server-11g</example>
@@ -935,7 +935,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:acme:mini_httpd:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^LiteSpeed\/?([\d.]+)?(?: \S+)?">
+  <fingerprint pattern="^LiteSpeed\/?([\d.]*)(?: \S+)?">
     <description>LiteSpeed</description>
     <example>LiteSpeed</example>
     <example service.version="5.2.8">LiteSpeed/5.2.8 Enterprise</example>
@@ -954,7 +954,7 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^openresty\/?([\d.]+)?$">
+  <fingerprint pattern="^openresty\/?([\d.]*)$">
     <description>OpenResty OpenResty</description>
     <example>openresty</example>
     <example service.version="1.13.6.2">openresty/1.13.6.2</example>
@@ -1065,7 +1065,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:varnish_cache_project:varnish_cache:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^Tengine\/?([\d.]+)?$">
+  <fingerprint pattern="^Tengine\/?([\d.]*)$">
     <description>Tengine</description>
     <example>Tengine</example>
     <example service.version="2.0.0">Tengine/2.0.0</example>
@@ -1558,7 +1558,7 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:f5:nginx:-"/>
   </fingerprint>
 
-  <fingerprint pattern="^nginx\/?([\d.]+)?">
+  <fingerprint pattern="^nginx\/?([\d.]*)">
     <description>nginx with version info and/or mods</description>
     <example service.version="0.8.53">nginx/0.8.53 + Phusion Passenger 3.0.0 (mod_rails/mod_rack)</example>
     <example service.version="0.8.53">nginx/0.8.53</example>
@@ -2769,7 +2769,7 @@
     <param pos="1" name="service.version"/>
   </fingerprint>
 
-  <fingerprint pattern="^Embedthis-(?:Appweb|http)\/?([\d.]+)?$">
+  <fingerprint pattern="^Embedthis-(?:Appweb|http)\/?([\d.]*)$">
     <description>Embedthis AppWeb</description>
     <example service.version="3.2.3">Embedthis-Appweb/3.2.3</example>
     <example>Embedthis-http</example>
@@ -3490,7 +3490,7 @@
     <param pos="0" name="os.device" value="Router"/>
   </fingerprint>
 
-  <fingerprint pattern="^UPnP/Tomato ([\d\.]+)?[\w\s\.-]{1,30} UPnP/[\d\.]+ MiniUPnPd/([\d\.]+)$">
+  <fingerprint pattern="^UPnP/Tomato ([\d\.]*)[\w\s\.-]{1,30} UPnP/[\d\.]+ MiniUPnPd/([\d\.]*)$">
     <description>TomatoUSB UPnP Server</description>
     <example os.version="1.28.9014" service.version="1.8">UPnP/Tomato 1.28.9014 MIPSR2-RAF-v1.3g K26 UPnP/1.1 MiniUPnPd/1.8</example>
     <example os.version="1.28.0000" service.version="1.9">UPnP/Tomato 1.28.0000 MIPSR2-132 K26 USB VPN UPnP/1.1 MiniUPnPd/1.9</example>
