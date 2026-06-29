@@ -5190,7 +5190,7 @@
     <param pos="0" name="hw.vendor" value="Freebox"/>
     <param pos="0" name="hw.device" value="Device"/>
   </fingerprint>
-  
+
   <fingerprint pattern="^APISIX\/([\d\.]+)">
     <description>Apache APISIX</description>
     <example service.version="3.13.0">APISIX/3.13.0</example>
@@ -5198,4 +5198,14 @@
     <param pos="0" name="service.product" value="APISIX"/>
     <param pos="1" name="service.version"/>
   </fingerprint>
+
+  <fingerprint pattern="^Mirasvit-Cache-Warmer/(\d+\.\d+\.\d+)$">
+  <description>Mirasvit Cache Warmer</description>
+  <example service.version="1.11.11">Mirasvit-Cache-Warmer/1.11.11</example>
+  <param pos="0" name="service.vendor" value="Mirasvit"/>
+  <param pos="0" name="service.product" value="Cache Warmer"/>
+  <param pos="1" name="service.version"/>
+  <param pos="0" name="service.cpe23" value="cpe:/a:mirasvit:cache_warmer:{service.version}"/>
+</fingerprint>
+
 </fingerprints>
