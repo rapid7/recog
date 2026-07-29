@@ -514,9 +514,10 @@
     <param pos="0" name="hw.device" value="Firewall"/>
   </fingerprint>
 
-  <fingerprint pattern="^FortiSandbox - Please login$">
+  <fingerprint pattern="^FortiSandbox - (.+)$">
     <description>Fortinet FortiSandbox</description>
     <example>FortiSandbox - Please login</example>
+    <example>FortiSandbox - Not Found</example>
     <param pos="0" name="service.vendor" value="Fortinet"/>
     <param pos="0" name="service.product" value="FortiSandbox"/>
     <param pos="0" name="service.device" value="Sandbox"/>
