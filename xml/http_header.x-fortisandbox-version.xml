@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<fingerprints matches="http_header.x-fortisandbox-version" protocol="http" database_type="service" preference="0.90">
+  <!-- HTTP X-Fortisandbox-Version headers are matched against these patterns to fingerprint Fortinet FortiSandbox appliances. -->
+
+  <fingerprint pattern="^(\d+\.\d+\.\d+)$">
+    <description>Fortinet FortiSandbox</description>
+    <example service.version="5.0.5">5.0.5</example>
+    <param pos="0" name="service.vendor" value="Fortinet"/>
+    <param pos="0" name="service.product" value="FortiSandbox"/>
+    <param pos="0" name="service.device" value="Sandbox"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:fortinet:fortisandbox:{service.version}"/>
+    <param pos="0" name="hw.vendor" value="Fortinet"/>
+    <param pos="0" name="hw.family" value="FortiSandbox"/>
+    <param pos="0" name="hw.device" value="Sandbox"/>
+  </fingerprint>
+
+</fingerprints>
