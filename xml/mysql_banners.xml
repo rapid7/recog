@@ -1706,9 +1706,10 @@
     <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:9.0"/>
   </fingerprint>
 
-  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)(\d*\.\d*\.\d*)-MariaDB\S*deb\S*$" flags="REG_ICASE">
-    <description>MariaDB MariaDB on Debian 9.1 (stretch)</description>
-    <example service.version="10.1.23">5.5.5-10.1.23-MariaDB-9+deb9u1</example>
+  <fingerprint pattern="^(?:\d{1,2}\.\d{1,3}\.[a-f\d]{1,3}-)(\d*\.\d*\.\d*)-MariaDB\S*\+deb(\d{1,2})u\d\S*$" flags="REG_ICASE">
+    <description>MariaDB MariaDB packaged for Debian</description>
+    <example service.version="10.1.23" os.version="9">5.5.5-10.1.23-MariaDB-9+deb9u1</example>
+    <example service.version="10.5.29" os.version="11">5.5.5-10.5.29-MariaDB-0+deb11u1-log</example>
     <param pos="1" name="service.version"/>
     <param pos="0" name="service.vendor" value="MariaDB"/>
     <param pos="0" name="service.family" value="MySQL"/>
@@ -1717,8 +1718,8 @@
     <param pos="0" name="os.vendor" value="Debian"/>
     <param pos="0" name="os.family" value="Linux"/>
     <param pos="0" name="os.product" value="Linux"/>
-    <param pos="0" name="os.version" value="9.1"/>
-    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:9.1"/>
+    <param pos="2" name="os.version"/>
+    <param pos="0" name="os.cpe23" value="cpe:/o:debian:debian_linux:{os.version}"/>
   </fingerprint>
 
   <fingerprint pattern="^^(\d{1,2}\.\d{1,2}\.[a-f\d]{1,3})-Sphinx" flags="REG_ICASE">
