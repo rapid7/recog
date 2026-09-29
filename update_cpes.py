@@ -143,7 +143,7 @@ def parse_cpe_vp_map(file):
     deprecated_map = {}
     vp_map = {} # cpe_type -> vendor -> products
 
-    parser = etree.XMLParser(remove_comments=False)
+    parser = etree.XMLParser(remove_comments=False, resolve_entities=False, no_network=True)
     doc = etree.parse(file, parser)
     namespaces = {
         'ns':     'http://cpe.mitre.org/dictionary/2.0',
@@ -268,7 +268,7 @@ def lookup_cpe(vendor, product, cpe_type, cpe_table, remap, deprecated_map):
 
 
 def update_cpes(xml_file, cpe_vp_map, r7_vp_map, deprecated_cves):
-    parser = etree.XMLParser(remove_comments=False, remove_blank_text=True)
+    parser = etree.XMLParser(remove_comments=False, remove_blank_text=True, resolve_entities=False, no_network=True)
     doc = etree.parse(xml_file, parser)
 
     for fingerprint in doc.xpath('//fingerprint'):
