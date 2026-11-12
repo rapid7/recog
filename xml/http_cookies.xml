@@ -823,6 +823,17 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:roundcube:webmail:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^ncentral_version=(\d+\.\d+\.\d+\.\d+)">
+    <description>N-able N-central</description>
+    <example service.version="2026.3.0.5">ncentral_version=2026.3.0.5; Path=/; SameSite=Lax</example>
+    <param pos="0" name="cookie" value="ncentral_version"/>
+    <param pos="1" name="service.version"/>
+    <param pos="0" name="service.vendor" value="N-able"/>
+    <param pos="0" name="service.product" value="N-central"/>
+    <param pos="0" name="service.family" value="N-central"/>
+    <param pos="0" name="service.cpe23" value="cpe:/a:n-able:n-central:{service.version}"/>
+  </fingerprint>
+
   <!--
         Ignore various cookies that are very generic cookies for session IDs
         that are not necessarily indicative of any particular

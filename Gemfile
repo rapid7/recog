@@ -6,6 +6,7 @@ gemspec name: 'recog-content'
 
 gem 'ffi', '1.16.3'
 gem 'jar-dependencies', '0.4.1', platforms: :jruby
+gem 'prism', '< 2.0'
 gem 'recog', '~>3.1'
 
 group :test do
