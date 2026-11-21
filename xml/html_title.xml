@@ -18,6 +18,14 @@
     <param pos="0" name="service.certainty" value="0.0"/>
   </fingerprint>
 
+  <!-- The registered mark is one UTF-8 character or two bytes in recog_match input. -->
+  <fingerprint pattern="^BIG-IP[^A-Za-z0-9\s]{1,2} - .+$">
+    <description>F5 BIG-IP management login page</description>
+    <example>BIG-IP® - f5-server (192,168.0.2)</example>
+    <param pos="0" name="service.vendor" value="F5"/>
+    <param pos="0" name="service.family" value="BIG-IP"/>
+  </fingerprint>
+
   <fingerprint pattern="^400 Bad Request$">
     <description>400 Bad Request - generic -- assert nothing.</description>
     <example>400 Bad Request</example>
