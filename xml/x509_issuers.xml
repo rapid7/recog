@@ -429,4 +429,14 @@
     <param pos="0" name="service.cpe23" value="cpe:/a:kubernetes:minikube:-"/>
   </fingerprint>
 
+  <fingerprint pattern="^CN=k3s-(?:server|client|request-header)-ca@\d+$">
+    <description>k3s cluster certificate authority</description>
+    <example>CN=k3s-server-ca@1700000000</example>
+    <example>CN=k3s-client-ca@1700000000</example>
+    <example>CN=k3s-request-header-ca@1700000000</example>
+    <param pos="0" name="service.vendor" value="SUSE"/>
+    <param pos="0" name="service.family" value="Kubernetes"/>
+    <param pos="0" name="service.product" value="k3s"/>
+  </fingerprint>
+
 </fingerprints>
